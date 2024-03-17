@@ -27,7 +27,8 @@ Data Flow:
    - For each point, the 'query*' elements are iterated, and each query is inserted into the 'nodes'
      table with a 'query' node_type, referencing the corresponding point as its parent.
    - For each query, a query result is inserted into the 'query_results' table, referencing the query node.
-     The DOI, title, full text, BibTeX, and PDF location entries are also stored in the 'query_results' table.
+     The DOI, title, full text, BibTeX, PDF location, journal, citation count, and relevance score entries
+     are also stored in the 'query_results' table.
    - For each query result, multiple result data entries are inserted into the 'result_data' table,
      referencing the query result. Each result data entry contains a chunk text, explanation, and
      overall explanation.
@@ -54,6 +55,9 @@ The script creates three tables in each SQLite database:
    - full_text (TEXT): Stores the full text of the query result.
    - bibtex (TEXT): Stores the BibTeX entry of the query result.
    - pdf_location (TEXT): Stores the location of the PDF file associated with the query result.
+   - journal (TEXT): Stores the journal information of the query result.
+   - citation_count (INTEGER): Stores the citation count of the query result.
+   - relevance_score (REAL): Stores the relevance score of the query result.
 
 3. 'result_data' table:
    - data_id (INTEGER): Primary key for uniquely identifying each result data.
@@ -105,6 +109,9 @@ def create_tables(cursor):
             full_text TEXT,
             bibtex TEXT,
             pdf_location TEXT,
+            journal TEXT,
+            citation_count INTEGER,
+            relevance_score REAL,
             FOREIGN KEY (query_id) REFERENCES nodes(node_id)
         )
     """
@@ -137,13 +144,34 @@ def insert_node(cursor, parent_id, node_type, title, text, query):
 
 
 # Function to insert a query result into the query_results table
-def insert_query_result(cursor, query_id, doi, title, full_text, bibtex, pdf_location):
+def insert_query_result(
+    cursor,
+    query_id,
+    doi,
+    title,
+    full_text,
+    bibtex,
+    pdf_location,
+    journal,
+    citation_count,
+    relevance_score,
+):
     cursor.execute(
         """
-        INSERT INTO query_results (query_id, doi, title, full_text, bibtex, pdf_location)
-        VALUES (?, ?, ?, ?, ?, ?)
+        INSERT INTO query_results (query_id, doi, title, full_text, bibtex, pdf_location, journal, citation_count, relevance_score)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     """,
-        (query_id, doi, title, full_text, bibtex, pdf_location),
+        (
+            query_id,
+            doi,
+            title,
+            full_text,
+            bibtex,
+            pdf_location,
+            journal,
+            citation_count,
+            relevance_score,
+        ),
     )
     return cursor.lastrowid
 
@@ -257,6 +285,11 @@ else:
                                             pdf_location = (
                                                 ""  # Replace with actual PDF location
                                             )
+                                            journal = ""  # Replace with actual journal
+                                            citation_count = (
+                                                0  # Replace with actual citation count
+                                            )
+                                            relevance_score = 0.0  # Replace with actual relevance score
                                             result_id = insert_query_result(
                                                 cursor,
                                                 query_id,
@@ -265,6 +298,9 @@ else:
                                                 full_text,
                                                 bibtex,
                                                 pdf_location,
+                                                journal,
+                                                citation_count,
+                                                relevance_score,
                                             )
 
                                             # Insert result data (multiple entries per query result)
