@@ -1,0 +1,165 @@
+[
+    {
+        "title": "3. Data Collection to Cloud: Automation and Real-Time Processing",
+        "subsections": [
+            {
+                "title": "3.1 Irrigation management data",
+                "point1": {
+                    "text": "• Types of data most applicable to irrigation management and their typical sources",
+                    "query1": "TITLE-ABS-KEY(({irrigation management} OR {precision irrigation}) AND (data W/5 (type OR source)) AND ({soil moisture} OR {canopy temperature} OR weather OR {crop data}))",
+                    "query2": "TITLE-ABS-KEY((irrigation PRE/3 management) AND (data PRE/3 (type OR source)) AND sensor AND ({machine learning} OR {decision support}))",
+                    "query3": "TITLE-ABS-KEY((irrigation PRE/3 (management OR scheduling)) AND ({data source} OR {data type}) AND ({remote sensing} OR iot OR {internet of things}))",
+                    "query4": "TITLE-ABS(({irrigation management} OR {smart irrigation}) AND (data W/5 (volume OR frequency OR format)) AND ({soil data} OR {plant data} OR {environmental data}))",
+                    "query5": "TITLE-ABS-KEY((irrigation PRE/3 management) AND (data PRE/3 consideration) AND ({big data} OR {data integration} OR {data processing}))",
+                    "query6": "TITLE-ABS-KEY((irrigation AND (data OR information)) AND ({types} OR {sources} OR {examples}))",
+                    "query7": "(irrigation PRE/3 (management OR scheduling)) AND (data PRE/3 (type OR source OR characteristic))"
+                },
+                "point2": {
+                    "text": "• Different data types (e.g., soil moisture, canopy temperature, weather) and their collection and use",
+                    "query1": "TITLE-ABS-KEY((irrigation PRE/3 (management OR scheduling)) AND ({soil moisture} OR {canopy temperature} OR weather) AND (sensor OR monitoring))",
+                    "query2": "TITLE-ABS-KEY((irrigation PRE/3 management) AND ({data collection} OR sensing) AND ({soil data} OR {plant data} OR {climate data}) AND {decision making})",
+                    "query3": "TITLE-ABS-KEY(({precision irrigation} OR {smart irrigation}) AND ({data type} OR {data collection}) AND ({evapotranspiration} OR {crop water stress}))",
+                    "query4": "TITLE-ABS(({irrigation scheduling} OR {irrigation control}) AND ({data acquisition} OR {data use}) AND ({soil water} OR {plant response} OR meteorology))",
+                    "query5": "TITLE-ABS-KEY(({variable rate irrigation} OR {site-specific irrigation}) AND (data PRE/3 (type OR collection OR utilization)) AND ({field variability} OR {water productivity}))",
+                    "query6": "TITLE-ABS-KEY((irrigation AND (data OR information OR input)) AND (collection OR gathering OR acquisition))",
+                    "query7": "(irrigation PRE/3 (management OR scheduling OR control)) AND (data AND (type OR source OR measurement))"
+                },
+                "point3": {
+                    "text": "• Considerations: volume, frequency, format, and source of the data",
+                    "query1": "TITLE-ABS-KEY((irrigation PRE/3 management) AND (data PRE/3 (volume OR size OR amount)) AND ({big data} OR {data storage} OR {data processing}))",
+                    "query2": "TITLE-ABS-KEY(({irrigation scheduling} OR {precision irrigation}) AND (data PRE/3 (frequency OR interval OR resolution)) AND ({temporal resolution} OR {sampling rate}))",
+                    "query3": "TITLE-ABS-KEY((irrigation PRE/3 (management OR control)) AND (data PRE/3 (format OR structure)) AND ({data integration} OR {data compatibility} OR {data standard}))",
+                    "query4": "TITLE-ABS(({smart irrigation} OR {intelligent irrigation}) AND (data PRE/3 source) AND ({data reliability} OR {data quality} OR {data uncertainty}))",
+                    "query5": "TITLE-ABS-KEY(({real-time irrigation} OR {dynamic irrigation}) AND ({data consideration} OR {data challenge}) AND ({scalability} OR {data fusion} OR {data heterogeneity}))",
+                    "query6": "TITLE-ABS-KEY((irrigation AND data) AND (volume OR frequency OR format OR source))",
+                    "query7": "TITLE-ABS-KEY((irrigation PRE/3 (management OR scheduling OR control)) AND (data PRE/3 (quality OR characteristic OR property)))"
+                }
+            },
+            {
+                "title": "3.2 Edge Computing and Fog Computing",
+                "point1": {
+                    "text": "• The potential of edge computing and fog computing in real-time irrigation management",
+                    "query1": "TITLE-ABS-KEY(({edge computing} OR {fog computing}) AND ({real-time irrigation} OR {precision irrigation}) AND ({low latency} OR {data processing}))",
+                    "query2": "TITLE-ABS-KEY((edge PRE/3 computing) AND (irrigation PRE/3 management) AND ({smart agriculture} OR iot OR {internet of things}))",
+                    "query3": "TITLE-ABS-KEY(({edge intelligence} OR {edge analytics}) AND ({irrigation control} OR {irrigation automation}) AND ({decision making} OR optimization))",
+                    "query4": "TITLE-ABS(({fog computing} OR {edge-fog computing}) AND ({real-time irrigation} OR {smart irrigation}) AND ({distributed computing} OR {resource allocation}))",
+                    "query5": "TITLE-ABS-KEY((edge PRE/3 computing) AND (irrigation PRE/3 (scheduling OR management)) AND ({machine learning} OR {deep learning} OR {artificial intelligence}))",
+                    "query6": "TITLE-ABS-KEY(({edge computing} OR {fog computing}) AND ({real-time} OR {precision} OR smart) AND (irrigation))",
+                    "query7": "TITLE-ABS-KEY((edge OR fog OR {distributed computing}) AND (irrigation PRE/3 (management OR control OR automation)))"
+                },
+                "point2": {
+                    "text": "• Benefits of edge computing in reducing latency, enabling real-time decision-making, and reducing reliance on cloud connectivity",
+                    "query1": "TITLE-ABS-KEY(({edge computing} OR {fog computing}) AND ({low latency} OR {real-time decision}) AND ({irrigation management} OR {precision agriculture}))",
+                    "query2": "TITLE-ABS-KEY((edge PRE/3 computing) AND ({reduced latency} OR {faster response}) AND ({irrigation control} OR {irrigation optimization}))",
+                    "query3": "TITLE-ABS-KEY(({edge intelligence} OR {edge processing}) AND ({real-time analytics} OR {in-situ processing}) AND ({irrigation automation} OR {smart irrigation}))",
+                    "query4": "TITLE-ABS((edge PRE/3 computing) AND ({cloud independence} OR {local processing}) AND ({precision irrigation} OR {variable rate irrigation}))",
+                    "query5": "TITLE-ABS-KEY((edge PRE/3 computing) AND ({online decision} OR {real-time action}) AND ({irrigation scheduling} OR {dynamic irrigation management}))",
+                    "query6": "TITLE-ABS-KEY(({edge computing} OR {fog computing}) AND ({low latency} OR {real-time} OR {cloud independence}) AND (irrigation))",
+                    "query7": "TITLE-ABS-KEY((edge OR {distributed computing}) AND ({real-time} OR low-latency OR {local processing}) AND (irrigation PRE/3 (management OR control OR automation)))"
+                },
+                "point3": {
+                    "text": "• The role of fog computing in distributing processing and storage across the network, enhancing scalability and reliability",
+                    "query1": "TITLE-ABS-KEY(({fog computing} OR {edge-fog computing}) AND ({distributed processing} OR {distributed storage}) AND ({irrigation system} OR {precision agriculture}))",
+                    "query2": "TITLE-ABS-KEY((fog PRE/3 computing) AND ({scalable architecture} OR {reliability enhancement}) AND ({smart irrigation} OR {IoT-based irrigation}))",
+                    "query3": "TITLE-ABS-KEY(({fog nodes} OR {fog devices}) AND ({load balancing} OR {fault tolerance}) AND ({irrigation network} OR {sensor network}))",
+                    "query4": "TITLE-ABS((fog PRE/3 computing) AND ({hierarchical architecture} OR {multi-tier computing}) AND ({precision irrigation} OR {site-specific irrigation}))",
+                    "query5": "TITLE-ABS-KEY((fog PRE/3 computing) AND ({resource optimization} OR {performance improvement}) AND ({real-time irrigation} OR {adaptive irrigation control}))",
+                    "query6": "TITLE-ABS-KEY(({fog computing} OR {distributed computing}) AND ({scalability} OR reliability OR {performance optimization}) AND (irrigation))",
+                    "query7": "TITLE-ABS-KEY((fog OR {distributed processing}) AND ({load balancing} OR {fault tolerance} OR {resource optimization}) AND (irrigation PRE/3 (system OR network OR management)))"
+                }
+            },
+            {
+                "title": "3.3 Automation of Data Collection",
+                "point1": {
+                    "text": "Automation of Data Collection",
+                    "query1": "TITLE-ABS-KEY(({data collection} OR sensing OR monitoring) AND (automat* OR {autonomous system}) AND ({precision agriculture} OR {smart farming}))",
+                    "query2": "TITLE-ABS-KEY((irrigation PRE/3 management) AND ({automatic data acquisition} OR {automated data gathering}) AND (sensor OR iot OR {internet of things}))",
+                    "query3": "TITLE-ABS-KEY(({intelligent data collection} OR {adaptive sampling}) AND ({irrigation scheduling} OR {irrigation control}) AND ({machine learning} OR {artificial intelligence}))",
+                    "query4": "TITLE-ABS(({robotic data collection} OR {unmanned data acquisition}) AND ({precision irrigation} OR {variable rate irrigation}) AND ({remote sensing} OR {proximal sensing}))",
+                    "query5": "TITLE-ABS-KEY(({self-configuring sensors} OR {plug-and-play sensors}) AND ({irrigation automation} OR {smart irrigation}) AND ({wireless sensor network} OR wsn))",
+                    "query6": "TITLE-ABS-KEY(((data OR information) AND collection) AND (automat* OR {autonomous system} OR {intelligent system}) AND (irrigation OR {precision agriculture}))",
+                    "query7": "TITLE-ABS-KEY((irrigation AND (data OR sensor)) AND ({automated gathering} OR {autonomous acquisition} OR {robotic sensing}))"
+                }
+            },
+            {
+                "title": "3.4 Real-Time Data Transmission Protocols and Technologies",
+                "point1": {
+                    "text": "• Exploration of MQTT and client-server IoT networks for real-time data transmission",
+                    "query1": "TITLE-ABS-KEY(mqtt AND ({real-time data} OR {instant messaging}) AND ({irrigation system} OR {precision agriculture} OR {smart farming}))",
+                    "query2": "TITLE-ABS-KEY((mqtt OR {message queue telemetry transport}) AND ({client-server model} OR {publish-subscribe}) AND ({IoT network} OR {sensor network}))",
+                    "query3": "TITLE-ABS-KEY((mqtt PRE/3 protocol) AND ({low latency} OR {real-time communication}) AND ({irrigation management} OR {irrigation scheduling}))",
+                    "query4": "TITLE-ABS((mqtt OR {client-server architecture}) AND ({data streaming} OR {data transmission}) AND ({precision irrigation} OR {site-specific irrigation}))",
+                    "query5": "TITLE-ABS-KEY((mqtt PRE/3 implementation) AND ({scalability} OR {reliability} OR {quality of service}) AND ({smart irrigation} OR {automated irrigation}))",
+                    "query6": "TITLE-ABS-KEY(mqtt AND ({real-time} OR {low latency}) AND ({data transmission} OR {data communication}) AND (irrigation OR {smart farming}))",
+                    "query7": "TITLE-ABS-KEY({messaging protocol} AND ({real-time} OR {low latency}) AND ({data transmission} OR {data communication}) AND (irrigation OR {precision agriculture}))"
+                },
+                "point2": {
+                    "text": "• Comparison of application layer protocols (e.g., XMPP, CoAP, SOAP, HTTP) and their suitability for real-time irrigation management",
+                    "query1": "TITLE-ABS-KEY((xmpp OR coap OR soap OR http) AND ({application layer protocol} OR {data transfer protocol}) AND ({irrigation management} OR {precision agriculture}))",
+                    "query2": "TITLE-ABS-KEY(({protocol comparison} OR {protocol evaluation}) AND ({real-time performance} OR {low latency}) AND ({smart irrigation} OR {IoT-based irrigation}))",
+                    "query3": "TITLE-ABS-KEY((xmpp OR {extensible messaging and presence protocol}) AND ({instant messaging} OR {real-time communication}) AND ({irrigation automation} OR {irrigation scheduling}))",
+                    "query4": "TITLE-ABS((coap OR {constrained application protocol}) AND ({lightweight protocol} OR {resource-constrained devices}) AND ({precision irrigation} OR {site-specific irrigation}))",
+                    "query5": "TITLE-ABS-KEY((soap OR {simple object access protocol}) AND (http OR {hypertext transfer protocol}) AND ({interoperability} OR {web services}) AND ({smart irrigation} OR {irrigation control}))",
+                    "query6": "TITLE-ABS-KEY(({application layer protocol} OR {data transfer protocol}) AND ({real-time} OR {low latency}) AND (irrigation OR {precision agriculture}))",
+                    "query7": "TITLE-ABS-KEY(({protocol comparison} OR {protocol evaluation} OR {protocol characteristic}) AND ({real-time} OR {low latency} OR performance) AND (irrigation OR {smart farming}))"
+                }
+            },
+            {
+                "title": "3.5 Challenges and Solutions in Real-Time Data Transmission",
+                "point1": {
+                    "text": "• Obstacles in transmitting data in real-time",
+                    "query1": "TITLE-ABS-KEY(({data transmission} OR {data communication}) AND (challenge OR obstacle OR issue) AND ({real-time} OR {low latency}) AND ({irrigation system} OR {precision agriculture}))",
+                    "query2": "TITLE-ABS-KEY(({transmission delay} OR {communication overhead} OR {bandwidth limitation}) AND ({real-time data} OR {instant data delivery}) AND ({smart irrigation} OR {IoT-based irrigation}))",
+                    "query3": "TITLE-ABS-KEY(({data loss} OR {packet loss} OR {transmission failure}) AND ({real-time monitoring} OR {continuous data streaming}) AND ({irrigation management} OR {irrigation control}))",
+                    "query4": "TITLE-ABS(({network congestion} OR {traffic load} OR {data collision}) AND ({real-time transmission} OR {instant communication}) AND ({precision irrigation} OR {site-specific irrigation}))",
+                    "query5": "TITLE-ABS-KEY(({signal interference} OR {signal attenuation} OR {signal noise}) AND ({wireless data transmission} OR {radio communication}) AND ({irrigation automation} OR {smart irrigation}))",
+                    "query6": "TITLE-ABS-KEY(({data transmission} OR {data communication}) AND (challenge OR obstacle OR limitation) AND ({real-time} OR {low latency}) AND (irrigation OR {precision agriculture}))",
+                    "query7": "TITLE-ABS-KEY((transmission OR communication) AND (issue OR problem OR difficulty) AND ({real-time} OR {instant} OR {low latency}) AND (irrigation AND (data OR information)))"
+                },
+                "point2": {
+                    "text": "• Solutions implemented to address these challenges",
+                    "query1": "TITLE-ABS-KEY((solution OR {coping strategy} OR {overcoming challenge}) AND ({real-time data transmission} OR {instant data communication}) AND ({irrigation system} OR {precision agriculture}))",
+                    "query2": "TITLE-ABS-KEY(({transmission optimization} OR {communication efficiency} OR {protocol enhancement}) AND ({low latency} OR {real-time performance}) AND ({smart irrigation} OR {IoT-based irrigation}))",
+                    "query3": "TITLE-ABS-KEY(({data compression} OR {data reduction} OR {data aggregation}) AND ({bandwidth saving} OR {transmission efficiency}) AND ({irrigation management} OR {irrigation control}))",
+                    "query4": "TITLE-ABS(({adaptive routing} OR {dynamic path selection}) AND ({network reliability} OR {transmission robustness}) AND ({precision irrigation} OR {site-specific irrigation}))",
+                    "query5": "TITLE-ABS-KEY(({cognitive radio} OR {spectrum sensing} OR {dynamic spectrum access}) AND ({interference mitigation} OR {signal quality improvement}) AND ({irrigation automation} OR {smart irrigation}))",
+                    "query6": "TITLE-ABS-KEY((solution OR {overcoming challenge} OR {addressing issue}) AND ({real-time data transmission} OR {instant data communication} OR {low latency}) AND (irrigation OR {precision agriculture}))",
+                    "query7": "TITLE-ABS-KEY(({improving performance} OR {enhancing efficiency} OR {mitigating problem}) AND ({data transmission} OR {data communication}) AND (irrigation AND {real-time}))"
+                }
+            },
+            {
+                "title": "3.6 IoT Network Architectures and Variable Rate Irrigation (VRI) for Real-Time Irrigation",
+                "point1": {
+                    "text": "• Strategies for collecting and managing VRI data at scale",
+                    "query1": "TITLE-ABS-KEY(({precision irrigation} OR {site-specific irrigation} OR {variable rate irrigation}) AND ({data collection} OR {data management}) AND (scale OR scalability OR {large scale}))",
+                    "query2": "TITLE-ABS-KEY((vri OR {variable rate irrigation}) AND ({data acquisition} OR {data handling} OR {data processing}) AND ({big data} OR {data volume} OR {data velocity}))",
+                    "query3": "TITLE-ABS-KEY(({spatial data} OR {temporal data}) AND ({data integration} OR {data fusion}) AND ({irrigation management} OR {irrigation optimization}) AND ({precision agriculture} OR {smart farming}))",
+                    "query4": "TITLE-ABS(({data quality} OR {data cleaning} OR {data filtering}) AND ({variable rate irrigation} OR {precision irrigation}) AND ({data reliability} OR {decision support}))",
+                    "query5": "TITLE-ABS-KEY(({distributed data management} OR {data partitioning}) AND ({high-resolution data} OR {fine-grained data}) AND ({irrigation control} OR {precision application}) AND vri)",
+                    "query6": "TITLE-ABS-KEY(({variable rate irrigation} OR vri) AND ({data handling} OR {data processing} OR {data management}) AND ({large scale} OR {high resolution}))",
+                    "query7": "TITLE-ABS-KEY(({precision irrigation} OR {site-specific irrigation}) AND ({data quality} OR {data integration}) AND ({decision support} OR optimization))"
+                },
+                "point2": {
+                    "text": "• Autonomous planning and scheduling of VRI using machine learning and optimization techniques",
+                    "query1": "TITLE-ABS-KEY(({variable rate irrigation} OR vri OR {precision irrigation}) AND ({autonomous planning} OR {automated scheduling}) AND ({machine learning} OR {artificial intelligence} OR optimization))",
+                    "query2": "TITLE-ABS-KEY(({reinforcement learning} OR {deep learning}) AND ({optimal irrigation} OR {adaptive irrigation}) AND ({site-specific management} OR {precision agriculture}))",
+                    "query3": "TITLE-ABS-KEY(({evolutionary algorithm} OR {swarm intelligence}) AND ({irrigation optimization} OR {water allocation}) AND vri)",
+                    "query4": "TITLE-ABS(({multi-objective optimization} OR {Pareto optimization}) AND ({water productivity} OR {crop yield} OR {environmental impact}) AND ({variable rate irrigation} OR {precision irrigation}))",
+                    "query5": "TITLE-ABS-KEY(({data-driven modeling} OR {predictive modeling}) AND ({irrigation scheduling} OR {irrigation decision}) AND ({machine learning} OR ai) AND ({site-specific irrigation} OR vri))",
+                    "query6": "TITLE-ABS-KEY(({variable rate irrigation} OR vri OR {precision irrigation}) AND ({autonomous} OR {intelligent system} OR optimization) AND ({irrigation scheduling} OR {irrigation planning}))",
+                    "query7": "TITLE-ABS-KEY(({machine learning} OR {artificial intelligence} OR {data-driven modeling}) AND ({water productivity} OR {irrigation optimization}) AND ({variable rate irrigation} OR {site-specific irrigation}))"
+                },
+                "point3": {
+                    "text": "• Challenges and solutions for implementing VRI in real-time, end-to-end automated irrigation systems",
+                    "query1": "TITLE-ABS-KEY(({end-to-end automation} OR {fully automated system}) AND ({variable rate irrigation} OR vri OR {precision irrigation}) AND (challenge OR issue OR {research gap}))",
+                    "query2": "TITLE-ABS-KEY(({system integration} OR {seamless integration}) AND ({real-time control} OR {dynamic control}) AND vri AND ({practical challenge} OR {technical difficulty}))",
+                    "query3": "TITLE-ABS-KEY(({heterogeneous data} OR {multi-source data}) AND ({data interoperability} OR {data standardization}) AND ({variable rate irrigation} OR {site-specific irrigation}) AND ({irrigation automation} OR {precision agriculture}))",
+                    "query4": "TITLE-ABS(({scalability issue} OR {performance bottleneck}) AND ({high-resolution application} OR {fine-grained control}) AND ({end-to-end irrigation system} OR {closed-loop irrigation control}) AND vri)",
+                    "query5": "TITLE-ABS-KEY((solution OR {overcoming challenge} OR {addressing issue}) AND ({real-time implementation} OR {practical deployment}) AND ({variable rate irrigation} OR vri) AND ({IoT-based irrigation} OR {smart irrigation system}))",
+                    "query6": "TITLE-ABS-KEY(({end-to-end system} OR {fully automated system}) AND ({variable rate irrigation} OR vri) AND (challenge OR issue OR solution))",
+                    "query7": "TITLE-ABS-KEY(({system integration} OR {implementation challenge}) AND ({real-time control} OR {high-resolution application}) AND ({variable rate irrigation} OR vri))"
+                }
+            }
+        ]
+    }
+]

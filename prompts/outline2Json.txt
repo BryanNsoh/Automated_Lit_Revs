@@ -1,0 +1,22 @@
+<prompt> Convert the given outline into a valid JSON list of dictionaries, where each dictionary represents a numbered section or a subsection within that section.  All material in the outline should be reproduced verrbatim in the new format without any truncation abbreviation or altering.The structure should follow this valid JSON example:[
+{
+"title": "1. INTRODUCTION",
+"subsections": [
+{
+"title": "1.1 Section Title",
+"point1": "• Point 1",
+"point2": "• Point 2"
+},
+{
+"title": "1.2 Another Section",
+"point1": "• Point 1",
+"point2": "• Point 2",
+"point3": "• Point 3"
+}
+]
+}
+]Instructions:Create a new dictionary for each numbered main section (e.g., "1. INTRODUCTION")Use the numbered section title as the value for the "title" key in the dictionary.Create a "subsections" key with a list value.For each subsection within the numbered section: a. Create a new dictionary with the "title" key set to the subsection title (e.g., "1.1 Section Title") b. Create a separate key for each bullet point (e.g., "point1", "point2", etc.) and set the value to the verbatim text of that point.Maintain the hierarchical structure with numbered sections at the top level, followed by subsections and their bullet points.Repeat steps 4-5 for all subsections within each numbered section.If a numbered section does not have subsections, do not include the "subsections" key.Ensure the final output is valid JSON by following the JSON syntax rules (e.g., using double quotes for keys, separating key-value pairs with colons, separating elements with commas, etc.).
+
+<actual_outline>
+
+</actual_outline></prompt>
