@@ -26,9 +26,11 @@ Data Flow:
      'nodes' table with a 'point' node_type, referencing the corresponding subsection as its parent.
    - For each point, the 'query*' elements are iterated, and each query is inserted into the 'nodes'
      table with a 'query' node_type, referencing the corresponding point as its parent.
-   - For each query, an empty query result is inserted into the 'query_results' table, referencing
-     the query node, and an empty result data is inserted into the 'result_data' table, referencing
-     the query result.
+   - For each query, a query result is inserted into the 'query_results' table, referencing the query node.
+     The DOI, title, full text, BibTeX, and PDF location entries are also stored in the 'query_results' table.
+   - For each query result, multiple result data entries are inserted into the 'result_data' table,
+     referencing the query result. Each result data entry contains a chunk text, explanation, and
+     overall explanation.
 9. After processing each JSON file, the changes are committed to the database, and the database
    connection is closed.
 
@@ -47,15 +49,18 @@ The script creates three tables in each SQLite database:
 2. 'query_results' table:
    - result_id (INTEGER): Primary key for uniquely identifying each query result.
    - query_id (INTEGER): Foreign key referencing the node_id of the corresponding query node.
-   - doi (TEXT): Stores the DOI of the query result (currently empty, to be populated later).
-   - title (TEXT): Stores the title of the query result (currently empty, to be populated later).
+   - doi (TEXT): Stores the DOI of the query result.
+   - title (TEXT): Stores the title of the query result.
+   - full_text (TEXT): Stores the full text of the query result.
+   - bibtex (TEXT): Stores the BibTeX entry of the query result.
+   - pdf_location (TEXT): Stores the location of the PDF file associated with the query result.
 
 3. 'result_data' table:
    - data_id (INTEGER): Primary key for uniquely identifying each result data.
    - result_id (INTEGER): Foreign key referencing the result_id of the corresponding query result.
-   - chunk_text (TEXT): Stores the text chunk of the result data (currently empty, to be populated later).
-   - explanation (TEXT): Stores the explanation of the result data (currently empty, to be populated later).
-   - overall_explanation (TEXT): Stores the overall explanation of the result data (currently empty, to be populated later).
+   - chunk_text (TEXT): Stores the text chunk of the result data.
+   - explanation (TEXT): Stores the explanation of the result data.
+   - overall_explanation (TEXT): Stores the overall explanation of the result data.
 
 The relationships between the tables are as follows:
 - Each 'document' node can have multiple 'section' nodes as children.
@@ -97,6 +102,9 @@ def create_tables(cursor):
             query_id INTEGER,
             doi TEXT,
             title TEXT,
+            full_text TEXT,
+            bibtex TEXT,
+            pdf_location TEXT,
             FOREIGN KEY (query_id) REFERENCES nodes(node_id)
         )
     """
@@ -129,13 +137,13 @@ def insert_node(cursor, parent_id, node_type, title, text, query):
 
 
 # Function to insert a query result into the query_results table
-def insert_query_result(cursor, query_id, doi, title):
+def insert_query_result(cursor, query_id, doi, title, full_text, bibtex, pdf_location):
     cursor.execute(
         """
-        INSERT INTO query_results (query_id, doi, title)
-        VALUES (?, ?, ?)
+        INSERT INTO query_results (query_id, doi, title, full_text, bibtex, pdf_location)
+        VALUES (?, ?, ?, ?, ?, ?)
     """,
-        (query_id, doi, title),
+        (query_id, doi, title, full_text, bibtex, pdf_location),
     )
     return cursor.lastrowid
 
@@ -184,6 +192,12 @@ else:
                         # Create a separate database for each JSON file
                         db_name = f"{os.path.splitext(file)[0]}.db"
                         db_path = os.path.join(section_path, db_name)
+
+                        # Delete the existing database file if it exists
+                        if os.path.exists(db_path):
+                            os.remove(db_path)
+
+                        # Create a new database connection
                         conn = sqlite3.connect(db_path)
                         cursor = conn.cursor()
 
@@ -233,12 +247,40 @@ else:
                                                 query_text,
                                             )
 
-                                            # Insert empty query result and result data
-                                            result_id = insert_query_result(
-                                                cursor, query_id, None, None
+                                            # Insert query result
+                                            doi = ""  # Replace with actual DOI
+                                            title = ""  # Replace with actual title
+                                            full_text = (
+                                                ""  # Replace with actual full text
                                             )
+                                            bibtex = ""  # Replace with actual BibTeX
+                                            pdf_location = (
+                                                ""  # Replace with actual PDF location
+                                            )
+                                            result_id = insert_query_result(
+                                                cursor,
+                                                query_id,
+                                                doi,
+                                                title,
+                                                full_text,
+                                                bibtex,
+                                                pdf_location,
+                                            )
+
+                                            # Insert result data (multiple entries per query result)
+                                            chunk_text = (
+                                                ""  # Replace with actual chunk text
+                                            )
+                                            explanation = (
+                                                ""  # Replace with actual explanation
+                                            )
+                                            overall_explanation = ""  # Replace with actual overall explanation
                                             insert_result_data(
-                                                cursor, result_id, None, None, None
+                                                cursor,
+                                                result_id,
+                                                chunk_text,
+                                                explanation,
+                                                overall_explanation,
                                             )
 
                         # Commit the changes and close the connection for the current JSON file

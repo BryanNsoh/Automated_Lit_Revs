@@ -80,19 +80,20 @@ async def process_query(db_path, session, query_id, query):
                     if author.get("authname") is not None
                 ]
 
-                if doi is None:
+                if title is None:
+                    print(f"Skipping entry with doi: {doi} due to missing title")
                     continue
-
-                filtered_results.append(
-                    {
-                        "title": title,
-                        "doi": doi,
-                        "description": description,
-                        "journal": journal,
-                        "authors": authors,
-                        "citation_count": citation_count,
-                    }
-                )
+                else:
+                    filtered_results.append(
+                        {
+                            "title": title,
+                            "doi": doi,
+                            "description": description,
+                            "journal": journal,
+                            "authors": authors,
+                            "citation_count": citation_count,
+                        }
+                    )
 
         await save_query_result(db_path, query_id, filtered_results)
         print(f"Saved filtered results for query with ID: {query_id}")
