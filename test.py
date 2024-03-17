@@ -1,4 +1,5 @@
-import requests
+import aiohttp
+import asyncio
 import json
 import os
 import sqlite3
@@ -6,28 +7,11 @@ import sqlite3
 api_key = "60261e8755ce5224a6dead5feec2e448"
 
 
-def clean_text(text):
-    """
-    Cleans and prepares text by replacing or removing certain characters.
-    """
-    replacements = {
-        " ": "_",
-        ".": "",
-        "-": "_",
-        ":": "",
-        "/": "",
-        "\\": "",
-    }
-    for old, new in replacements.items():
-        text = text.replace(old, new)
-    return text
-
-
-def fetch_scopus_abstracts(
-    api_key, query, count=25, view="COMPLETE", response_format="json"
+async def fetch_scopus_abstracts(
+    session, api_key, query, count=25, view="COMPLETE", response_format="json"
 ):
     """
-    Fetches research abstracts from the Scopus API.
+    Fetches research abstracts from the Scopus API asynchronously.
     """
     base_url = "http://api.elsevier.com/content/search/scopus"
     headers = {
@@ -38,49 +22,56 @@ def fetch_scopus_abstracts(
     }
 
     params = {"query": query.replace("\\", ""), "count": count, "view": view}
-    response = requests.get(base_url, headers=headers, params=params)
-    return response.json()
+    async with session.get(base_url, headers=headers, params=params) as response:
+        return await response.json()
 
 
-def save_query_result(cursor, query_id, query_result):
+async def save_query_result(db_path, query_id, query_result):
     """
     Saves the query result text in the 'nodes' table.
     """
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
     cursor.execute(
         "UPDATE nodes SET query_result = ? WHERE node_id = ?",
         (json.dumps(query_result), query_id),
     )
-
-
-def process_queries(cursor):
-    """
-    Processes each query in the 'nodes' table.
-    """
-    cursor.execute("SELECT node_id, query FROM nodes WHERE node_type = 'query'")
-    queries = cursor.fetchall()
-
-    for query_id, query in queries:
-        results = fetch_scopus_abstracts(api_key, query)
-        save_query_result(cursor, query_id, results)
-        print(f"Saved results for query with ID: {query_id}")
-
-
-def process_database(db_path):
-    """
-    Processes an SQLite database file.
-    """
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    process_queries(cursor)
-
     conn.commit()
     conn.close()
 
 
-def process_searches_directory():
+async def process_query(db_path, session, query_id, query):
     """
-    Processes the 'searches' directory and its subdirectories.
+    Processes a single query asynchronously.
+    """
+    results = await fetch_scopus_abstracts(session, api_key, query)
+    await save_query_result(db_path, query_id, results)
+    print(f"Saved results for query with ID: {query_id}")
+
+
+async def process_database(db_path):
+    """
+    Processes an SQLite database file asynchronously.
+    """
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT node_id, query FROM nodes WHERE node_type = 'query'")
+    queries = cursor.fetchall()
+    conn.close()
+
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for query_id, query in queries:
+            task = asyncio.ensure_future(
+                process_query(db_path, session, query_id, query)
+            )
+            tasks.append(task)
+        await asyncio.gather(*tasks)
+
+
+async def process_searches_directory():
+    """
+    Processes the 'searches' directory and its subdirectories asynchronously.
     """
     searches_path = os.path.join(os.getcwd(), "searches")
     for folder_name in os.listdir(searches_path):
@@ -89,8 +80,8 @@ def process_searches_directory():
             for file_name in os.listdir(folder_path):
                 if file_name.startswith("outline_") and file_name.endswith(".db"):
                     db_path = os.path.join(folder_path, file_name)
-                    process_database(db_path)
+                    await process_database(db_path)
 
 
-# Start processing
-process_searches_directory()
+# Start processing asynchronously
+asyncio.run(process_searches_directory())
