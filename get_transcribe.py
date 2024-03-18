@@ -43,9 +43,7 @@ def process_paper(directory, doi):
 
 def main():
     directory = "output"  # Specify the output directory path here
-    doi = (
-        "https://doi.org/10.1145/3375633"  # Specify the DOI of the research paper here
-    )
+    doi = "https://doi.org/10.3390/s21123942"  # Specify the DOI of the research paper here
 
     if not os.path.exists(directory):
         os.makedirs(directory)
