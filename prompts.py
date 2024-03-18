@@ -137,64 +137,103 @@ In summary, this systematic review aims to provide a comprehensive and critical 
 
 
 def return_best_results(outline, review_intention, point, research_papers):
+
     response_format = """
+
 [
-{
-"doi": "10.1016/j.agwat.2021.107090",
-"title": "Precision irrigation management in water-scarce regions: A review on available techniques and their applications"
-},
-{
-"doi": "10.3390/w11112289",
-"title": "A Review of Irrigation Management Transfer and Participatory Irrigation Management from a Sustainability Perspective"
-},
-{
-"doi": "10.1016/j.agwat.2020.106563",
-"title": "Irrigation management strategies for improving water use efficiency: A review"
-}
+  {
+    "doi": "", /* Obtain the exact doi from the provided <research_papers> </research_papers>. Leave blank if none. */
+    "title": "", /* Obtain the exact paper title from the provided <research_papers> </research_papers>. */
+    "citation_count": "", /* Obtain the exact citation count from the provided <research_papers> </research_papers>. Leave blank if none. */
+    "relevance_score": 0.0, /* Insert a parsimonious relevance score based on the given point, the paper's abstract and the review intention */
+    "journal": "" /* Obtain the exact journal name from the provided <research_papers> </research_papers>. Leave blank if none. */
+  },
+  {
+    "doi": "",
+    "title": "",
+    "citation_count": "",
+    "relevance_score": 0.0,
+    "journal": ""
+  },
+  {
+    "doi": "",
+    "title": "",
+    "citation_count": "",
+    "relevance_score": 0.0,
+    "journal": ""
+  }
 ]
-"""
+
+   """
 
     prompt = """
-<instructions>
-Based on the provided outline, the intention of the review, and the specific point mentioned, read through the given research papers (including titles, abstracts, DOIs, journal information, and citation counts). The goal is to identify the paper whose abstract most strongly relates to or supports the given point in the context of the review outline.
 
-The selection criteria, in order of importance, are:
+   <instructions>
 
-1. Relatedness of the abstract to the given point and review outline
-2. Reputability or prestige of the journal in which the paper is published
-3. Number of citations the paper has received
+   Based on the provided outline, the intention of the review, and the specific point mentioned, read through the given research papers (including titles, abstracts, DOIs, journal information, and citation counts). The goal is to identify the paper whose abstract most strongly relates to or supports the given point in the context of the review outline.
 
-After considering these criteria, return your response as a valid JSON array, where each element is an object with two key-value pairs: "doi" for the DOI of the related paper, and "title" for the title of the related paper. Do not include any additional text or deviation from the specified JSON format.
-</instructions>
+   The selection criteria, in order of importance, are:
 
-<prompt>
-<context>
-<outline>
-<!-- Outline content provided here -->
-{}
-</outline>
+   1. Relatedness of the abstract to the given point and review outline
 
-<review_intention>
-<!-- Review intention provided here -->
-{}
-</review_intention>
+   2. Reputability or prestige of the journal in which the paper is published
 
-<point>
-<!-- Specific point provided here -->
-{}
-</point>
+   3. Number of citations the paper has received
 
-<research_papers>
-<!-- List of research papers with titles, abstracts, DOIs, journal information, and citation counts provided here -->
-{}
-</research_papers>
-</context>
+   After considering these criteria, return your response as a valid JSON array, where each element is an object with five key-value pairs: "doi" for the DOI of the related paper, "title" for the title of the related paper, "citation_count" for the number of citations the paper has received, "relevance_score" for a score between 0 and 1 representing the overall fit and relevance of the paper to the point in particular and the paper in general, and "journal" for the name of the journal in which the paper is published. Be parsimonious yet fair in assigning the relevance scores. Do not include any additional text or deviation from the specified JSON format.
+   
+   Critical: You much return a maximum of the top three most relevant papers based on the given point and the review intention. If there are fewer than three papers, return the available papers. If there are no papers, return an empty array.
 
-<response_format>
-{}
-</response_format>
-</prompt>
-""".format(
+   </instructions>
+
+   <prompt>
+
+   <context>
+
+   <outline>
+
+   <!-- Outline content provided here -->
+
+   {}
+
+   </outline>
+
+   <review_intention>
+
+   <!-- Review intention provided here -->
+
+   {}
+
+   </review_intention>
+
+   <point>
+
+   <!-- Specific point provided here -->
+
+   {}
+
+   </point>
+
+   <research_papers>
+
+   <!-- List of research papers with titles, abstracts, DOIs, journal information, and citation counts provided here -->
+
+   {}
+
+   </research_papers>
+
+   </context>
+
+   <response_format>
+
+   {}
+
+   </response_format>
+
+   </prompt>
+
+   """.format(
         outline, review_intention, point, research_papers, response_format
     )
+
     return prompt

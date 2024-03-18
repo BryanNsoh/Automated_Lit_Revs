@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO)
 class LLM_APIHandler:
     def __init__(self, key_path):
         self.load_api_keys(key_path)
-        self.semaphore = asyncio.Semaphore(1)  # Limit to 1 request at a time
+        self.semaphore = asyncio.Semaphore(5)  # Limit to 1 request at a time
         self.last_request_time = 0
         genai.configure(api_key=self.gemini_api_key)
 
@@ -47,7 +47,10 @@ class LLM_APIHandler:
             json_start = response.index("[")
             json_end = response.rindex("]") + 1
             json_string = response[json_start:json_end]
-            return json.loads(json_string)
+            json_data = json.loads(json_string)
+            if not json_data:
+                raise ValueError("Empty JSON array returned")
+            return json_data
         except (ValueError, json.JSONDecodeError):
             raise ValueError("Invalid JSON format in the response")
 
@@ -69,16 +72,37 @@ async def process_query_node(node_id, query_result, text, llm_handler, cursor):
         prompt = return_best_results(outline, review_intention, text, query_result)
         try:
             json_response = await llm_handler.generate_gemini_content(prompt)
-            for result in json_response:
-                doi = result["doi"]
-                title = result["title"]
-                cursor.execute(
-                    """
-                    INSERT INTO query_results (query_id, doi, title)
-                    VALUES (?, ?, ?)
-                """,
-                    (node_id, doi, title),
-                )
+            if isinstance(json_response, list) and len(json_response) > 0:
+                for result in json_response:
+                    if all(
+                        key in result
+                        for key in [
+                            "doi",
+                            "title",
+                            "citation_count",
+                            "relevance_score",
+                            "journal",
+                        ]
+                    ):
+                        doi = result["doi"]
+                        title = result["title"]
+                        citation_count = result["citation_count"]
+                        relevance_score = result["relevance_score"]
+                        journal = result["journal"]
+                        cursor.execute(
+                            """
+                            INSERT INTO filtered_query_results (query_id, doi, title, citation_count, relevance_score, journal)
+                            VALUES (?, ?, ?, ?, ?, ?)
+                        """,
+                            (
+                                node_id,
+                                doi,
+                                title,
+                                citation_count,
+                                relevance_score,
+                                journal,
+                            ),
+                        )
         except ValueError as e:
             logging.error(
                 f"Error processing query result for node ID: {node_id}. Error: {str(e)}"

@@ -26,9 +26,9 @@ Data Flow:
      'nodes' table with a 'point' node_type, referencing the corresponding subsection as its parent.
    - For each point, the 'query*' elements are iterated, and each query is inserted into the 'nodes'
      table with a 'query' node_type, referencing the corresponding point as its parent.
-   - For each query, a query result is inserted into the 'query_results' table, referencing the query node.
+   - For each query, a query result is inserted into the 'filtered_query_results' table, referencing the query node.
      The DOI, title, full text, BibTeX, PDF location, journal, citation count, and relevance score entries
-     are also stored in the 'query_results' table.
+     are also stored in the 'filtered_query_results' table.
    - For each query result, multiple result data entries are inserted into the 'result_data' table,
      referencing the query result. Each result data entry contains a chunk text, explanation, and
      overall explanation.
@@ -47,7 +47,7 @@ The script creates three tables in each SQLite database:
    - query (TEXT): Stores the query string (only applicable to 'query' nodes).
    - query_result (TEXT): Stores the query result (currently empty, to be populated later).
 
-2. 'query_results' table:
+2. 'filtered_query_results' table:
    - result_id (INTEGER): Primary key for uniquely identifying each query result.
    - query_id (INTEGER): Foreign key referencing the node_id of the corresponding query node.
    - doi (TEXT): Stores the DOI of the query result.
@@ -101,7 +101,7 @@ def create_tables(cursor):
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS query_results (
+        CREATE TABLE IF NOT EXISTS filtered_query_results (
             result_id INTEGER PRIMARY KEY,
             query_id INTEGER,
             doi TEXT,
@@ -125,7 +125,7 @@ def create_tables(cursor):
             chunk_text TEXT,
             explanation TEXT,
             overall_explanation TEXT,
-            FOREIGN KEY (result_id) REFERENCES query_results(result_id)
+            FOREIGN KEY (result_id) REFERENCES filtered_query_results(result_id)
         )
     """
     )
@@ -143,7 +143,7 @@ def insert_node(cursor, parent_id, node_type, title, text, query):
     return cursor.lastrowid
 
 
-# Function to insert a query result into the query_results table
+# Function to insert a query result into the filtered_query_results table
 def insert_query_result(
     cursor,
     query_id,
@@ -158,7 +158,7 @@ def insert_query_result(
 ):
     cursor.execute(
         """
-        INSERT INTO query_results (query_id, doi, title, full_text, bibtex, pdf_location, journal, citation_count, relevance_score)
+        INSERT INTO filtered_query_results (query_id, doi, title, full_text, bibtex, pdf_location, journal, citation_count, relevance_score)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     """,
         (
