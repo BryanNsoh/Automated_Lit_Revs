@@ -216,7 +216,10 @@ async def process_database_async(db_path, proxies, max_concurrent_requests=10):
             if text:
                 cursor.execute(
                     "UPDATE filtered_query_results SET full_text = ?, pdf_location = ?, bibtex = ? WHERE doi = ?",
-                    (text, pdf_location, bibtex, doi),
+                    text,
+                    pdf_location,
+                    bibtex,
+                    doi,
                 )
                 conn.commit()
 
