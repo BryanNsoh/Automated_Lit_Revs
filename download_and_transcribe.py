@@ -152,6 +152,7 @@ async def process_doi_async(
             try:
                 text = extract_text_from_pdf(pdf_path)
                 pdf_location = pdf_path
+                print(f"Scihub Download Successful {doi}")
             except Exception as e:
                 print(f"Scihub Download Failed {doi}: {str(e)}")
 
@@ -160,6 +161,7 @@ async def process_doi_async(
             try:
                 text = extract_text_from_pdf(pdf_path)
                 pdf_location = pdf_path
+                print(f"Unpaywall download successful {doi}")
             except Exception as e:
                 print(f"Unpaywall download failed {doi}: {str(e)}")
 
@@ -170,6 +172,7 @@ async def process_doi_async(
                 with open(text_path, "w", encoding="utf-8") as file:
                     file.write(text)
                 pdf_location = text_path
+                print(f"Text scraping successful for DOI: {doi}")
             else:
                 print(f"Text scraping failed for DOI: {doi}")
 
@@ -214,13 +217,13 @@ async def process_database_async(db_path, proxies, max_concurrent_requests=10):
         else:
             text, pdf_location, bibtex = result
             if text:
-                cursor.execute(
-                    "UPDATE filtered_query_results SET full_text = ?, pdf_location = ?, bibtex = ? WHERE doi = ?",
-                    text,
-                    pdf_location,
-                    bibtex,
-                    doi,
+                print(
+                    f"Types - text: {type(text)}, pdf_location: {type(pdf_location)}, bibtex: {type(bibtex)}, doi: {type(doi)}"
                 )
+                print("DOI: ", doi)
+
+                sql = "UPDATE filtered_query_results SET full_text = ?, pdf_location = ?, bibtex = ? WHERE doi = ?"
+                cursor.execute(sql, (text, pdf_location, bibtex, doi[0]))
                 conn.commit()
 
     conn.close()
