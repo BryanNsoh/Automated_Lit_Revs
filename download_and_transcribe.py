@@ -1,13 +1,12 @@
 import os
 import re
-import sqlite3
+import aiosqlite
 import fitz  # PyMuPDF
 from scidownl import scihub_download
 import requests
 from bs4 import BeautifulSoup
 from habanero import cn
 import asyncio
-import concurrent.futures
 import random
 import time
 
@@ -133,8 +132,9 @@ async def process_doi_async(
     pdf_directory,
     proxies,
     semaphore,
+    db_pool,
     retry_count=0,
-    max_retries=3,
+    max_retries=1,
     backoff_factor=2,
     jitter_range=(0, 1),
 ):
@@ -148,7 +148,7 @@ async def process_doi_async(
         bibtex = get_bibtex(doi)
 
         # Try downloading PDF using scidownl with multiple mirrors and proxies
-        if scihub_download_pdf(doi, pdf_path, proxies):
+        if await scihub_download_pdf(doi, pdf_path, proxies):
             try:
                 text = extract_text_from_pdf(pdf_path)
                 pdf_location = pdf_path
@@ -176,26 +176,33 @@ async def process_doi_async(
             else:
                 print(f"Text scraping failed for DOI: {doi}")
 
+        if text:
+            async with db_pool.acquire() as db_conn:
+                async with db_conn.cursor() as cursor:
+                    sql = "UPDATE filtered_query_results SET full_text = ?, pdf_location = ?, bibtex = ? WHERE doi = ?"
+                    await cursor.execute(sql, (text, pdf_location, bibtex, doi[0]))
+                    await db_conn.commit()
+
         if not text and retry_count < max_retries:
             # Exponential backoff with jitter
             await asyncio.sleep(
                 backoff_factor**retry_count + random.uniform(*jitter_range)
             )
             return await process_doi_async(
-                doi, pdf_directory, proxies, semaphore, retry_count + 1
+                doi, pdf_directory, proxies, semaphore, db_pool, retry_count + 1
             )
 
         return text, pdf_location, bibtex
 
 
-async def process_database_async(db_path, proxies, max_concurrent_requests=10):
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+async def process_database_async(db_path, proxies, max_concurrent_requests=30):
+    db_pool = await aiosqlite.connect(db_path)
 
-    cursor.execute(
-        "SELECT doi FROM filtered_query_results WHERE doi IS NOT NULL AND doi != ''"
-    )
-    query_results = cursor.fetchall()
+    async with db_pool.cursor() as cursor:
+        await cursor.execute(
+            "SELECT doi FROM filtered_query_results WHERE doi IS NOT NULL AND doi != ''"
+        )
+        query_results = await cursor.fetchall()
 
     db_name = os.path.splitext(os.path.basename(db_path))[0]
     pdf_directory = os.path.join(os.path.dirname(db_path), db_name, "pdfs")
@@ -205,28 +212,12 @@ async def process_database_async(db_path, proxies, max_concurrent_requests=10):
     tasks = []
     for (doi,) in query_results:
         task = asyncio.create_task(
-            process_doi_async(doi, pdf_directory, proxies, semaphore)
+            process_doi_async(doi, pdf_directory, proxies, semaphore, db_pool)
         )
         tasks.append(task)
 
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-
-    for doi, result in zip(query_results, results):
-        if isinstance(result, Exception):
-            print(f"Error processing DOI {doi}: {str(result)}")
-        else:
-            text, pdf_location, bibtex = result
-            if text:
-                print(
-                    f"Types - text: {type(text)}, pdf_location: {type(pdf_location)}, bibtex: {type(bibtex)}, doi: {type(doi)}"
-                )
-                print("DOI: ", doi)
-
-                sql = "UPDATE filtered_query_results SET full_text = ?, pdf_location = ?, bibtex = ? WHERE doi = ?"
-                cursor.execute(sql, (text, pdf_location, bibtex, doi[0]))
-                conn.commit()
-
-    conn.close()
+    await asyncio.gather(*tasks)
+    await db_pool.close()
 
 
 async def process_searches_directory_async(proxies):
@@ -245,39 +236,61 @@ async def process_searches_directory_async(proxies):
 
 # Proxy list
 proxies = [
-    {"http": "http://180.183.157.159:8080"},
-    {"http": "socks5://46.4.96.137:1080"},
-    {"http": "socks5://47.91.88.100:1080"},
-    {"http": "socks5://45.77.56.114:30205"},
-    {"http": "socks5://82.196.11.105:1080"},
-    {"https": "https://51.254.69.243:3128"},
-    {"http": "socks5://178.62.193.19:1080"},
-    {"http": "socks5://188.226.141.127:1080"},
-    {"http": "socks5://217.23.6.40:1080"},
-    {"http": "socks5://185.153.198.226:32498"},
-    {"https": "https://81.171.24.199:3128"},
-    {"http": "socks5://5.189.224.84:10000"},
-    {"http": "socks5://108.61.175.7:31802"},
-    {"https": "https://176.31.200.104:3128"},
-    {"https": "https://83.77.118.53:17171"},
-    {"https": "https://173.192.21.89:80"},
-    {"https": "https://163.172.182.164:3128"},
-    {"https": "https://163.172.168.124:3128"},
-    {"https": "https://164.68.105.235:3128"},
-    {"https": "https://5.199.171.227:3128"},
-    {"https": "https://93.171.164.251:8080"},
-    {"https": "https://212.112.97.27:3128"},
-    {"https": "https://51.68.207.81:80"},
-    {"https": "https://91.211.245.176:8080"},
-    {"https": "https://84.201.254.47:3128"},
-    {"https": "https://95.156.82.35:3128"},
-    {"https": "https://185.118.141.254:808"},
-    {"http": "socks5://164.68.98.169:9300"},
-    {"https": "https://217.113.122.142:3128"},
-    {"https": "https://188.100.212.208:21129"},
-    {"https": "https://83.77.118.53:17171"},
-    {"https": "https://83.79.50.233:64527"},
+    {"http": "http://103.145.150.26:8080"},
+    {"http": "http://95.216.57.120:8292"},
+    {"http": "http://117.102.80.243:8080"},
+    {"http": "http://124.83.74.218:8082"},
+    {"http": "http://177.125.56.181:3128"},
+    {"http": "http://45.70.236.150:999"},
+    {"http": "http://190.94.212.125:999"},
+    {"http": "http://146.190.224.33:3128"},
+    {"http": "http://103.35.108.113:5020"},
+    {"http": "http://103.188.168.66:8080"},
+    {"http": "http://5.252.23.206:3128"},
+    {"http": "http://185.208.102.55:8080"},
+    {"http": "http://189.85.82.38:3128"},
+    {"http": "http://190.94.212.149:999"},
+    {"http": "http://186.156.161.235:3128"},
+    {"http": "http://179.108.153.159:8080"},
+    {"http": "http://190.90.7.195:8080"},
+    {"http": "http://41.111.243.134:80"},
+    {"http": "http://36.64.217.27:1313"},
+    {"http": "http://103.168.129.123:8080"},
+    {"http": "http://95.167.29.50:8080"},
+    {"http": "http://186.115.202.103:8080"},
+    {"http": "http://182.253.140.250:8080"},
+    {"http": "http://114.9.24.46:3127"},
+    {"http": "http://103.180.123.27:8080"},
+    {"http": "http://200.32.64.126:999"},
+    {"http": "http://103.8.164.16:80"},
+    {"http": "http://103.191.115.238:84"},
+    {"http": "http://103.211.107.91:8080"},
+    {"http": "http://103.148.192.82:9012"},
+    {"http": "http://103.179.246.30:8080"},
+    {"http": "http://194.213.208.226:8180"},
+    {"http": "http://102.213.223.46:82"},
+    {"http": "http://111.225.152.95:8089"},
+    {"http": "http://103.48.68.101:83"},
+    {"http": "http://197.232.47.122:8080"},
+    {"http": "http://139.162.224.37:3128"},
+    {"http": "http://45.182.176.38:9947"},
+    {"http": "http://114.8.131.178:8080"},
+    {"http": "http://201.77.108.72:999"},
+    {"http": "http://202.12.80.11:83"},
+    {"http": "http://173.212.213.133:3128"},
+    {"http": "http://95.47.119.122:8080"},
+    {"http": "http://157.100.7.146:999"},
+    {"http": "http://203.112.223.126:8080"},
+    {"http": "http://41.76.111.18:3128"},
+    {"http": "http://202.47.189.106:8080"},
+    {"http": "http://5.187.9.10:8080"},
+    {"http": "http://147.75.92.251:80"},
+    {"http": "http://103.84.177.28:8083"},
+    {"http": "http://45.174.79.232:999"},
+    {"http": "http://103.155.54.26:82"},
 ]
 
 # Start processing
-asyncio.run(process_searches_directory_async(proxies))
+loop = asyncio.get_event_loop()
+loop.run_until_complete(process_searches_directory_async(proxies))
+loop.close()
