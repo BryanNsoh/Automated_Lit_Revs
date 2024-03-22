@@ -154,13 +154,13 @@ Based on the provided outline, the intention of the review, and the specific poi
 
 The analysis should include:
 
-1. An explanation of what you think of the paper and its relevance to the particular point in question. This should be a detailed and well-reasoned analysis.
+1. An explanation of what specifics of the paper's full_text you think can contribute to this specific point of the literature review in the context of the intent of the review and of the particular section and sub-section. This should be a detailed and well-reasoned analysis.
 
 2. The most relevant quotes from the paper that demonstrate the relatedness of the paper to the point and the larger context of the review. The most important quotes should be included in "extract_1", and less important but still relevant quotes should be included in "extract_2" All quotes must be verbatim.
 
 3. A relevance score between 0 and 1, representing the overall fit and relevance of the paper to the point in particular and the paper as a whole in the context of the literature review. Be meticulous, objective and uncompromising in assigning the relevance score. 
 
-4. If the paper has a very high relevance to a section of the review other than the one currently in question, provide that section's heading numbers numerically (e.g., 3.1, 4.2, etc.) under "Alternate_section". Only provide this if there is a high fit, otherwise assign an empty string "".
+4. If the paper has a very high relevance to a section of the review other than the one currently in question, provide that subsection's heading numbers numerically (e.g., 3.1, 4.2, etc.) under "Alternate_section". Only provide this if there is a high fit, otherwise assign an empty string "".
 
 Return your response as a valid JSON object with the following keys: "explanation", "extract_1", "extract_2", "relevance_score", and "Alternate_section". Do not include any additional text or deviation from the specified JSON format. If there is no information available for a particular key, leave it as an empty string "".
 </instructions>
