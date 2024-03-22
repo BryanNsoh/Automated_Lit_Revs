@@ -9,7 +9,7 @@ import google.generativeai as genai
 class LLM_APIHandler:
     def __init__(self, key_path):
         self.load_api_keys(key_path)
-        self.semaphore = asyncio.Semaphore(5)  # Limit to 5 requests at a time
+        self.semaphore = asyncio.Semaphore(10)  # Limit to 5 requests at a time
         self.last_request_time = 0
         genai.configure(api_key=self.gemini_api_key)
 
@@ -22,14 +22,13 @@ class LLM_APIHandler:
         async with self.semaphore:
             current_time = time.time()
             elapsed_time = current_time - self.last_request_time
-            print(f"Elapsed time: {elapsed_time}")
             if elapsed_time < 1:
                 await asyncio.sleep(1 - elapsed_time)
             try:
                 async with aiohttp.ClientSession() as session:
                     model = genai.GenerativeModel("gemini-pro")
                     response = await model.generate_content_async(prompt)
-                    print(response.text)
+                    # print(response.text)
                     self.last_request_time = time.time()
                     return self.extract_json(response.text)
             except Exception as e:

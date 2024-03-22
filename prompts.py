@@ -148,66 +148,63 @@ def remove_illegal_characters(text):
 
 def get_prompt(template_name, **kwargs):
     prompts = {
-        "paper_analysis": """
-<instructions>
-Based on the provided outline, the intention of the review, and the specific point mentioned, read through the given full text of the research paper. The goal is to analyze the paper's relevance to the point in the context of the review outline.
+        "paper_analysis": """<instructions>
+First, carefully read through the full text of the research paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_text> within the context of the overall literature review outline and intention provided.
 
-The analysis should include:
+Your analysis should include:
 
-1. An explanation of what specifics of the paper's full_text you think can contribute to this specific point of the literature review in the context of the intent of the review and of the particular section and sub-section. This should be a detailed and well-reasoned analysis.
+A concise summary (3-5 sentences) of the key points of the paper as they relate to the outline point. Then explain in detail how the specifics of the paper contribute to addressing the point within the larger context and intent of the literature review. Consider the directness, detail, recency and methodological soundness of the paper's findings for the topic.
+The two most relevant verbatim quotes from the paper, each no more than 3 sentences, that demonstrate its pertinence to the outline point and review. Include the most important quote under "extract_1" and the second most important under "extract_2". If no quotes are directly relevant, leave these blank.
+A relevance score between 0 and 1 representing the overall fit of the paper to the outline point and review. Use the following rubric:
+0.9-1.0: Directly addresses point with highly relevant, recent, rigorous findings
+0.7-0.8: Substantially informs point with relevant, sound findings
+0.4-0.6: Somewhat relevant to point but limited in scope, detail or rigor
+0.1-0.3: Minimally relevant with only tangential or methodologically weak findings
+0.0: Not at all relevant to outline point or review Be uncompromising in assigning the most appropriate score.
+If the paper is highly relevant (0.8+) to a different section of the outline than the one specified, indicate the most applicable subsection under "Alternate_section" in the format "1.2". If no other section applies, leave this blank.
+List any important limitations of the paper for fully addressing the point and outline. This could include:
+Narrow scope that misses key issues
+Methodological weaknesses that limit reliability
+Dated findings that may not reflect current understanding
+Insufficient depth or detail on relevant topics
+Tangential focus on less pertinent aspects If there are no major limitations, leave this blank.
+Provide your analysis in the following JSON format:
+<response_format>
+{{
+"explanation": "",
+"extract_1": "",
+"extract_2": "",
+"relevance_score": 0.0,
+"Alternate_section": "",
+"limitations": "",
+"inline_citation": "",
+"apa_citation": ""
+}}
+</response_format>
 
-2. The most relevant quotes from the paper that demonstrate the relatedness of the paper to the point and the larger context of the review. The most important quotes should be included in "extract_1", and less important but still relevant quotes should be included in "extract_2" All quotes must be verbatim.
-
-3. A relevance score between 0 and 1, representing the overall fit and relevance of the paper to the point in particular and the paper as a whole in the context of the literature review. Be meticulous, objective and uncompromising in assigning the relevance score. 
-
-4. If the paper has a very high relevance to a section of the review other than the one currently in question, provide that subsection's heading numbers numerically (e.g., 3.1, 4.2, etc.) under "Alternate_section". Only provide this if there is a high fit, otherwise assign an empty string "".
-
-Return your response as a valid JSON object with the following keys: "explanation", "extract_1", "extract_2", "relevance_score", and "Alternate_section". Do not include any additional text or deviation from the specified JSON format. If there is no information available for a particular key, leave it as an empty string "".
+Also include a suggested in-line citation for the paper under "inline_citation" in the format (Author, Year), and a full APA style reference under "apa_citation".
+Leave any fields blank if not applicable.
 </instructions>
 
-<documents>
-<context>
-<outline>
-<!-- Outline content provided here -->
-{outline}
-</outline>
-
+<documents> <full_text> {full_text} </full_text> <context> <outline> {outline} </outline>
 <review_intention>
-<!-- Review intention provided here -->
 {review_intention}
 </review_intention>
 
 <point_text>
-<!-- Specific point text provided here -->
 {point_text}
 </point_text>
 
 <subsection_title>
-<!-- Section title provided here -->
+
 {section_title}
 </subsection_title>
 
 <section_title>
-<!-- Document title provided here. This is the same as  -->
 {document_title}
+
 </section_title>
-
-<response_format>
-{{
-    "explanation": "",
-    "extract_1": "",
-    "extract_2": "",
-    "relevance_score": 0.0,
-    "Alternate_section": ""
-}}
-</response_format>
-
-<full_text>
-<!-- Full text of the research paper provided here -->
-{full_text}
-</full_text>
 </context>
-
 </documents>
 """,
         # Older version of the prompt
