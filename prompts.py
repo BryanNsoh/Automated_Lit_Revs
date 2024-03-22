@@ -1,3 +1,6 @@
+import re
+
+
 outline = """ 
 A systematic review of automated systems for real-time irrigation management
 
@@ -136,37 +139,79 @@ Guiding future research and innovation: By identifying research gaps and proposi
 In summary, this systematic review aims to provide a comprehensive and critical evaluation of the current state and future potential of real-time, end-to-end automated irrigation management systems. Its intention is to guide future research, innovation, and implementation efforts to achieve fully autonomous, scalable irrigation management that can contribute to addressing the global food challenge."""
 
 
-def return_best_results(outline, review_intention, point, research_papers):
+def remove_illegal_characters(text):
+    if text is None:
+        return ""
+    illegal_chars = re.compile(r"[\000-\010]|[\013-\014]|[\016-\037]")
+    return illegal_chars.sub("", str(text))
 
-    response_format = """
 
-[
-  {
-    "doi": "", /* Obtain the exact doi from the provided <research_papers> </research_papers>. Leave blank if none. */
-    "title": "", /* Obtain the exact paper title from the provided <research_papers> </research_papers>. */
-    "citation_count": "", /* Obtain the exact citation count from the provided <research_papers> </research_papers>. Leave blank if none. */
-    "relevance_score": 0.0, /* Insert a parsimonious relevance score based on the given point, the paper's abstract and the review intention */
-    "journal": "" /* Obtain the exact journal name from the provided <research_papers> </research_papers>. Leave blank if none. */
-  },
-  {
-    "doi": "",
-    "title": "",
-    "citation_count": "",
+def get_prompt(template_name, **kwargs):
+    prompts = {
+        "paper_analysis": """
+<instructions>
+Based on the provided outline, the intention of the review, and the specific point mentioned, read through the given full text of the research paper. The goal is to analyze the paper's relevance to the point in the context of the review outline.
+
+The analysis should include:
+
+1. An explanation of what you think of the paper and its relevance to the particular point in question. This should be a detailed and well-reasoned analysis.
+
+2. The most relevant quotes from the paper that demonstrate the relatedness of the paper to the point and the larger context of the review. The most important quotes should be included in "extract_1", and less important but still relevant quotes should be included in "extract_2" All quotes must be verbatim.
+
+3. A relevance score between 0 and 1, representing the overall fit and relevance of the paper to the point in particular and the paper as a whole in the context of the literature review. Be meticulous, objective and uncompromising in assigning the relevance score. 
+
+4. If the paper has a very high relevance to a section of the review other than the one currently in question, provide that section's heading numbers numerically (e.g., 3.1, 4.2, etc.) under "Alternate_section". Only provide this if there is a high fit, otherwise assign an empty string "".
+
+Return your response as a valid JSON object with the following keys: "explanation", "extract_1", "extract_2", "relevance_score", and "Alternate_section". Do not include any additional text or deviation from the specified JSON format. If there is no information available for a particular key, leave it as an empty string "".
+</instructions>
+
+<documents>
+<context>
+<outline>
+<!-- Outline content provided here -->
+{outline}
+</outline>
+
+<review_intention>
+<!-- Review intention provided here -->
+{review_intention}
+</review_intention>
+
+<point_text>
+<!-- Specific point text provided here -->
+{point_text}
+</point_text>
+
+<subsection_title>
+<!-- Section title provided here -->
+{section_title}
+</subsection_title>
+
+<section_title>
+<!-- Document title provided here. This is the same as  -->
+{document_title}
+</section_title>
+
+<response_format>
+{{
+    "explanation": "",
+    "extract_1": "",
+    "extract_2": "",
     "relevance_score": 0.0,
-    "journal": ""
-  },
-  {
-    "doi": "",
-    "title": "",
-    "citation_count": "",
-    "relevance_score": 0.0,
-    "journal": ""
-  }
-]
+    "Alternate_section": ""
+}}
+</response_format>
 
-   """
+<full_text>
+<!-- Full text of the research paper provided here -->
+{full_text}
+</full_text>
+</context>
 
-    prompt = """
+</documents>
+""",
+        # Older version of the prompt
+        "process_scopus_results": """
 
    <instructions>
 
@@ -194,7 +239,7 @@ def return_best_results(outline, review_intention, point, research_papers):
 
    <!-- Outline content provided here -->
 
-   {}
+   {outline}
 
    </outline>
 
@@ -202,7 +247,7 @@ def return_best_results(outline, review_intention, point, research_papers):
 
    <!-- Review intention provided here -->
 
-   {}
+   {review_intention}
 
    </review_intention>
 
@@ -210,7 +255,7 @@ def return_best_results(outline, review_intention, point, research_papers):
 
    <!-- Specific point provided here -->
 
-   {}
+   {point}
 
    </point>
 
@@ -218,7 +263,7 @@ def return_best_results(outline, review_intention, point, research_papers):
 
    <!-- List of research papers with titles, abstracts, DOIs, journal information, and citation counts provided here -->
 
-   {}
+   {research_papers}
 
    </research_papers>
 
@@ -226,14 +271,34 @@ def return_best_results(outline, review_intention, point, research_papers):
 
    <response_format>
 
-   {}
+    [
+    {
+      "doi": "", /* Obtain the exact doi from the provided <research_papers> </research_papers>. Leave blank if none. */
+      "title": "", /* Obtain the exact paper title from the provided <research_papers> </research_papers>. */
+      "citation_count": "", /* Obtain the exact citation count from the provided <research_papers> </research_papers>. Leave blank if none. */
+      "relevance_score": 0.0, /* Insert a parsimonious relevance score based on the given point, the paper's abstract and the review intention */
+      "journal": "" /* Obtain the exact journal name from the provided <research_papers> </research_papers>. Leave blank if none. */
+    },
+    {
+      "doi": "",
+      "title": "",
+      "citation_count": "",
+      "relevance_score": 0.0,
+      "journal": ""
+    },
+    {
+      "doi": "",
+      "title": "",
+      "citation_count": "",
+      "relevance_score": 0.0,
+      "journal": ""
+    }
+  ]
 
    </response_format>
 
    </prompt>
 
-   """.format(
-        outline, review_intention, point, research_papers, response_format
-    )
-
-    return prompt
+   """,
+    }
+    return prompts[template_name].format(**kwargs)

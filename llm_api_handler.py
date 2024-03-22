@@ -22,6 +22,7 @@ class LLM_APIHandler:
         async with self.semaphore:
             current_time = time.time()
             elapsed_time = current_time - self.last_request_time
+            print(f"Elapsed time: {elapsed_time}")
             if elapsed_time < 1:
                 await asyncio.sleep(1 - elapsed_time)
             try:
@@ -37,12 +38,23 @@ class LLM_APIHandler:
 
     def extract_json(self, response):
         try:
-            json_start = response.index("[")
-            json_end = response.rindex("]") + 1
-            json_string = response[json_start:json_end]
-            json_data = json.loads(json_string)
+            # Try to parse the response as JSON directly
+            json_data = json.loads(response)
             if not json_data:
-                raise ValueError("Empty JSON array returned")
+                raise ValueError("Empty JSON object returned")
             return json_data
-        except (ValueError, json.JSONDecodeError):
-            raise ValueError("Invalid JSON format in the response")
+        except json.JSONDecodeError:
+            # If parsing fails, try to find valid JSON within the response
+            json_start = response.find("{")
+            json_end = response.rfind("}")
+            if json_start != -1 and json_end != -1:
+                json_string = response[json_start : json_end + 1]
+                try:
+                    json_data = json.loads(json_string)
+                    if not json_data:
+                        raise ValueError("Empty JSON object returned")
+                    return json_data
+                except json.JSONDecodeError:
+                    raise ValueError("Invalid JSON format in the response")
+            else:
+                raise ValueError("No valid JSON found in the response")
