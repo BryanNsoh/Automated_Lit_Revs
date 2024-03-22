@@ -1,141 +1,76 @@
-import sqlite3
 import os
 import glob
-from openpyxl import Workbook
-from collections import defaultdict
+import sqlite3
+import pandas as pd
+import re
+
+
+def remove_illegal_characters(text):
+    if text is None:
+        return ""
+    illegal_chars = re.compile(r"[\000-\010]|[\013-\014]|[\016-\037]")
+    return illegal_chars.sub("", str(text))
 
 
 def extract_data_and_write_to_xlsx(db_path, xlsx_path):
-    # Connect to the SQLite database
+    # Connect to the database
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # SQL query to extract all required information
+    # Query to extract the required data
     query = """
-    SELECT n1.title AS section, n2.title AS subsection, n3.text AS point, n4.query AS query,
-       fqr.doi AS doi, fqr.title AS query_title, '' AS full_text, fqr.bibtex, fqr.pdf_location,
-       fqr.journal, fqr.citation_count, fqr.relevance_score, (fqr.citation_count * fqr.relevance_score) AS rank,
-       CASE 
-           WHEN fqr.doi IS NOT NULL AND fqr.doi != '' THEN 'https://doi.org/' || fqr.doi
-           ELSE fqr.doi
-       END AS adoi_url
-    FROM nodes n1
-    LEFT JOIN nodes n2 ON n1.node_id = n2.parent_id AND n2.node_type = 'section'
-    LEFT JOIN nodes n3 ON n2.node_id = n3.parent_id AND n3.node_type = 'point'
-    LEFT JOIN nodes n4 ON n3.node_id = n4.parent_id AND n4.node_type = 'query'
-    LEFT JOIN filtered_query_results fqr ON n4.node_id = fqr.query_id
-    WHERE n1.node_type = 'document' AND fqr.relevance_score <= 0.2;
-
-
+        SELECT 
+            d.title AS document_title,
+            s.title AS section_title,
+            p.text AS point_text,
+            q.query,
+            r.doi, 
+            r.title, 
+            r.full_text, 
+            r.bibtex, 
+            r.pdf_location, 
+            r.journal, 
+            r.citation_count, 
+            r.relevance_score
+        FROM nodes AS d
+        JOIN nodes AS s ON d.node_id = s.parent_id
+        JOIN nodes AS p ON s.node_id = p.parent_id
+        JOIN nodes AS q ON p.node_id = q.parent_id
+        JOIN filtered_query_results AS r ON q.node_id = r.query_id
+        WHERE d.node_type = 'document'
+            AND s.node_type = 'section'
+            AND p.node_type = 'point'
+            AND q.node_type = 'query'
     """
 
-    cursor.execute(query)
-    rows = cursor.fetchall()
+    # Execute the query and fetch the results
+    results = cursor.execute(query).fetchall()
+
+    # Create a DataFrame from the results
+    columns = [
+        "document_title",
+        "section_title",
+        "point_text",
+        "query",
+        "doi",
+        "title",
+        "full_text",
+        "bibtex",
+        "pdf_location",
+        "journal",
+        "citation_count",
+        "relevance_score",
+    ]
+    df = pd.DataFrame(results, columns=columns)
+
+    # Remove illegal characters from the DataFrame
+    df = df.applymap(remove_illegal_characters)
+
+    # Write the DataFrame to an Excel file
+    df.to_excel(xlsx_path, index=False)
 
     # Close the database connection
     conn.close()
-
-    # Process rows to ensure at least 4 entries per point, filling with null values if necessary
-    processed_rows = process_rows_to_ensure_minimum_entries(rows)
-
-    # Write the processed data to an XLSX file
-    write_to_xlsx(xlsx_path, processed_rows)
-
-
-def process_rows_to_ensure_minimum_entries(rows):
-    # Corrected grouping logic
-    grouped = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
-
-    # Populate the grouped structure
-    for row in rows:
-        (
-            section,
-            subsection,
-            point,
-            query,
-            doi,
-            query_title,
-            full_text,
-            bibtex,
-            pdf_location,
-            journal,
-            citation_count,
-            relevance_score,
-            rank,
-            adoi_url,
-        ) = row
-        key = (section, subsection, point)
-        grouped[section][subsection][point].append(row)
-
-    processed_rows = []
-
-    # Process groups to ensure at least 4 entries per point
-    for section, subsections in grouped.items():
-        for subsection, points in subsections.items():
-            for point, entries in points.items():
-                num_entries = len(entries)
-                filled_entries = 0
-                relevant_entries = 0
-
-                for entry in entries:
-                    doi, query_title, relevance_score = entry[4:7]
-
-                    # Convert relevance_score to float, default to 0 if empty or None
-                    relevance_score = (
-                        float(relevance_score)
-                        if relevance_score and relevance_score.strip()
-                        else 0
-                    )
-
-                    if query_title is not None:
-                        # Keep the entry as is
-                        processed_rows.append(entry)
-                        filled_entries += 1
-                        relevant_entries += 1
-                    else:
-                        # Clear specified fields if relevance score < 2 or no DOI/title
-                        new_entry = entry[:4] + (None,) * 10
-                        processed_rows.append(new_entry)
-                        filled_entries += 1
-
-                # If fewer than 4 relevant entries, add filler entries up to 4 total entries
-                while filled_entries < 4 and relevant_entries < 4:
-                    filler_entry = (entry[0], entry[1], entry[2], None) + (None,) * 10
-                    processed_rows.append(filler_entry)
-                    filled_entries += 1
-
-    return processed_rows
-
-
-def write_to_xlsx(xlsx_path, rows):
-    wb = Workbook()
-    ws = wb.active
-
-    # Write headers
-    headers = [
-        "SECTION",
-        "SUBSECTION",
-        "POINT",
-        "QUERY",
-        "DOI",
-        "PAPER_TITLE",
-        "RELEVANCE_SCORE",
-        "FULL_TEXT",
-        "BIBTEX",
-        "PDF_LOCATION",
-        "JOURNAL",
-        "CITATION_COUNT",
-        "RANK",
-        "ADOI_URL",
-    ]
-    ws.append(headers)
-
-    # Write rows
-    for row in rows:
-        ws.append(row)
-
-    # Save the workbook
-    wb.save(xlsx_path)
 
 
 def main():
@@ -145,6 +80,14 @@ def main():
     if not os.path.exists(db_directory):
         print("The 'searches' folder does not exist.")
         return
+
+    # Delete existing outline files
+    outline_files = glob.glob(
+        os.path.join(db_directory, "**", "outline_*.xlsx"), recursive=True
+    )
+    for file in outline_files:
+        os.remove(file)
+        print(f"Deleted existing file: {file}")
 
     # Iterate through each 'sec*_results' subfolder
     for sec_folder in glob.glob(os.path.join(db_directory, "sec*_results")):
