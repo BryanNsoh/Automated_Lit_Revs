@@ -74,6 +74,9 @@ async def process_query(db_path, session, query_id, query):
                 description = entry.get("dc:description")
                 journal = entry.get("prism:publicationName")
                 citation_count = entry.get("citedby-count", "0")
+                publication_year = entry.get("prism:coverDate").split("-")[
+                    0
+                ]  # Extract year from cover date
                 authors = [
                     author.get("authname")
                     for author in entry.get("author", [])
@@ -92,6 +95,7 @@ async def process_query(db_path, session, query_id, query):
                             "journal": journal,
                             "authors": authors,
                             "citation_count": citation_count,
+                            "publication_year": publication_year,
                         }
                     )
 
