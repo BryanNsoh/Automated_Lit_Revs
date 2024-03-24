@@ -3,6 +3,7 @@ import asyncio
 import re
 import os
 from pathlib import Path
+import xmltodict
 from utils.llm_api_handler import LLM_APIHandler
 from utils.prompts import (
     get_prompt,
@@ -34,30 +35,23 @@ class QueryGenerator:
             for point in points:
                 for point_key, point_data in point.items():
                     point_content = point_data["point_content"]
-                    google_queries = await self.get_queries(
-                        section_title,
-                        subsection_title,
-                        point_content,
-                        google_search_guide,
-                        section_number,
-                    )
-                    print("Google queries: ", google_queries)
-                    scopus_queries = await self.get_queries(
-                        section_title,
-                        subsection_title,
-                        point_content,
-                        scopus_search_guide,
-                        section_number,
-                    )
-                    print("Scopus queries: ", scopus_queries)
 
-                    # Store the query results in the point_data
-                    point_data["google_queries"] = google_queries
-                    point_data["scopus_queries"] = scopus_queries
+                    # Generate queries for each query type
+                    query_types = [
+                        key for key in point_data if key.endswith("_queries")
+                    ]
+                    for query_type in query_types:
+                        queries = await self.get_queries(
+                            section_title,
+                            subsection_title,
+                            point_content,
+                            eval(query_type.replace("_queries", "_search_guide")),
+                            section_number,
+                        )
+                        print(f"{query_type}: ", queries)
+                        point_data[query_type] = queries
 
-                    # Create empty responses for each query
-                    for query_type in ["google_queries", "scopus_queries"]:
-                        queries = point_data[query_type]
+                        # Create empty responses for each query
                         for i, query in enumerate(queries):
                             query_id = f"{query_type}_{i}"
                             query_data = {
@@ -76,6 +70,15 @@ class QueryGenerator:
                                         "citation_count": 0,
                                         "pdf_link": "",
                                         "journal": "",
+                                        "analysis": "",
+                                        "verbatim_quote1": "",
+                                        "verbatim_quote2": "",
+                                        "verbatim_quote3": "",
+                                        "relevance_score1": 0,
+                                        "relevance_score2": 0,
+                                        "limitations": "",
+                                        "inline_citation": "",
+                                        "full_citation": "",
                                     }
                                     for j in range(5)
                                 ],
@@ -114,33 +117,23 @@ class QueryGenerator:
 
     def parse_response(self, response):
         try:
-            data = yaml.safe_load(response)
-            if isinstance(data, list):
-                if any("TITLE-ABS-KEY" in query for query in data):
-                    print("Parsed Scopus queries.")
-                    return data
-                else:
-                    print("Parsed Google queries.")
-                    return data
-            elif isinstance(data, dict):
-                if "google_queries" in data:
-                    google_queries = data.get("google_queries", [])
-                    print(f"Parsed {len(google_queries)} Google queries.")
-                    return google_queries
-                elif "scopus_queries" in data:
-                    scopus_queries = data.get("scopus_queries", [])
-                    print(f"Parsed {len(scopus_queries)} Scopus queries.")
-                    return scopus_queries
-                else:
-                    print("Unexpected data format. Returning an empty list.")
-                    return []
+            data = xmltodict.parse(response)
+            queries = None
+
+            # Find the first key ending with "_queries"
+            for key in data:
+                if key.endswith("_queries"):
+                    queries = data[key]
+                    break
+
+            if queries:
+                print(f"Parsed {key}.")
+                return queries["query"]
             else:
-                print("Unexpected data format. Returning an empty list.")
+                print("No queries found in the response.")
                 return []
-        except yaml.YAMLError as exc:
-            print(f"Error parsing YAML response: {exc}")
-            # Optionally, you can print the entire exception object
-            # print(f"Full exception: {exc}")
+        except xmltodict.expat.ExpatError as exc:
+            print(f"Error parsing XML response: {exc}")
             return []
 
 

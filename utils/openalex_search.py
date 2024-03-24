@@ -3,14 +3,12 @@ import asyncio
 import json
 import fitz
 
-from DOIscraper import DOIScraper
-
 
 class OpenAlexPaperSearch:
-    def __init__(self, email):
+    def __init__(self, email, doi_scraper):
         self.base_url = "https://api.openalex.org"
         self.email = email
-        self.doi_scraper = DOIScraper()
+        self.doi_scraper = doi_scraper
 
     async def search_papers(self, query, max_results=30):
         async with aiohttp.ClientSession() as session:
@@ -34,6 +32,13 @@ class OpenAlexPaperSearch:
                         ),
                         "full_citation": "",
                         "full_text": "",
+                        "analysis": "",
+                        "verbatim_quote1": "",
+                        "verbatim_quote2": "",
+                        "verbatim_quote3": "",
+                        "relevance_score1": 0,
+                        "relevance_score2": 0,
+                        "limitations": "",
                         "inline_citation": "",
                         "journal": (
                             work["primary_location"]["source"]["display_name"]
@@ -89,13 +94,18 @@ class OpenAlexPaperSearch:
 
 
 async def main():
-    searcher = OpenAlexPaperSearch(email="your_email@example.com")
-    query = "quantum computing"
+    from doi_scraper import DOIScraper
+
+    doi_scraper = DOIScraper()
+    searcher = OpenAlexPaperSearch(
+        email="your_email@example.com", doi_scraper=doi_scraper
+    )
+    query = '"sensor data fusion" "irrigation optimization" "machine learning"'
     results = await searcher.search_papers(query)
-    # save results to a file
     with open("openalex_results.json", "w") as file:
         file.write(results)
     print(results)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

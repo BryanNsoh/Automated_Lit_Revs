@@ -2,8 +2,8 @@ import aiohttp
 import asyncio
 import json
 import time
+
 from collections import deque
-import DOIscraper
 
 
 class ScopusSearch:
@@ -11,11 +11,11 @@ class ScopusSearch:
     A class for performing asynchronous searches on the Scopus API.
     """
 
-    def __init__(self, key_path):
+    def __init__(self, key_path, doi_scraper):
         self.load_api_keys(key_path)
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
-        self.doi_scraper = DOIscraper()
+        self.scraper = doi_scraper
 
     def load_api_keys(self, key_path):
         """
@@ -104,8 +104,8 @@ class ScopusSearch:
                 full_text = None
                 if doi:
                     print(f"Scraping full text for DOI: {doi}")
-                    full_text = await self.doi_scraper.get_doi_content(doi)
-
+                    full_text = await self.scraper.get_doi_content(doi)
+                print("At least 1 search scraped")
                 if title is not None:
                     parsed_results.append(
                         {
@@ -116,6 +116,15 @@ class ScopusSearch:
                             "authors": authors,
                             "citation_count": citation_count,
                             "full_text": full_text,
+                            "analysis": "",
+                            "verbatim_quote1": "",
+                            "verbatim_quote2": "",
+                            "verbatim_quote3": "",
+                            "relevance_score1": 0,
+                            "relevance_score2": 0,
+                            "limitations": "",
+                            "inline_citation": "",
+                            "full_citation": "",
                         }
                     )
 
@@ -124,11 +133,17 @@ class ScopusSearch:
 
 # Sample function call
 async def main():
+    from doi_scraper import DOIScraper
+
+    scraper = DOIScraper()
     search = ScopusSearch(
-        api_key_path=r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+        key_path=r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json",
+        doi_scraper=scraper,
     )
     query = "artificial intelligence"
+    print("Searching for:", query)
     results = await search.search_and_parse(query)
+    print("Results:", results)
     # save the results to a file
     with open("scopus_results.json", "w") as f:
         f.write(results)

@@ -77,11 +77,11 @@ class DOIScraper:
                 return ""
 
 
-async def main():
-    scraper = DOIScraper(max_drivers=5)
-    doi_link = "10.1016/j.engappai.2024.107881"
-    content = await scraper.get_doi_content(doi_link)
-    print(content)
+# async def main():
+#     scraper = DOIScraper(max_drivers=5)
+#     doi_link = "10.1016/j.engappai.2024.107881"
+#     content = await scraper.get_doi_content(doi_link)
+#     print(content)
 
 
-asyncio.run(main())
+# asyncio.run(main())

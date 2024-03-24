@@ -30,13 +30,13 @@ class ResearchPaperOutlineGenerator:
                         "scopus_queries": self.generate_queries(
                             point["scopus_queries"]
                         ),
-                        "google_queries": self.generate_queries(
-                            point["google_queries"]
-                        ),
+                        "alex_queries": self.generate_queries(point["google_queries"]),
                     }
                 }
                 subsection_data["points"].append(point_data)
-            outline_data.append(subsection_data)
+            outline_data.append(
+                subsection_data
+            )  # Move this line inside the subsection loop
 
         output_file = os.path.join(self.output_directory, "research_paper_outline.yaml")
         with open(output_file, "w") as file:
@@ -82,3 +82,12 @@ class ResearchPaperOutlineGenerator:
                 }
             )
         return query_data
+
+
+# calling the class
+if __name__ == "__main__":
+    json_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\outline.json"
+    output_directory = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3"
+    generator = ResearchPaperOutlineGenerator(json_file, output_directory)
+    generator.generate_outline()
+    print("Research paper outline generated successfully!")

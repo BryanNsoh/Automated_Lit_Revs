@@ -186,26 +186,27 @@ Complex searches should be built up systematically, with parentheses to group re
 
 Example Advanced Searches
 
-scopus_queries:
-  - TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water W/10 management)
-  - TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)
-  - TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network?") AND water conservation)
-  - TITLE-ABS-KEY((crop? PRE/5 monitor?) AND "remote sensing" AND (irrigation OR water?))
-  - AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/10 moist?)
-  - TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")
-  - TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom? W/5 robot?) AND (irrigat? OR water?))
-  - ALL(("internet of things" OR iot) AND (soil W/10 (monitor? OR sens?)) AND ("crop yield" OR productivity))
-  - TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND irrigation W/10 schedul?)
-  - AFFIL("precision agriculture") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND water W/15 (productivity OR efficiency OR sav?))
+<scopus_queries>
+<query>TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water W/10 management)</query>
+<query>TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)</query>
+<query>TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network?") AND water conservation)</query>
+<query>TITLE-ABS-KEY((crop? PRE/5 monitor?) AND "remote sensing" AND (irrigation OR water?))</query>
+<query>AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/10 moist?)</query>
+<query>TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")</query>
+<query>TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom? W/5 robot?) AND (irrigat? OR water?))</query>
+<query>ALL(("internet of things" OR iot) AND (soil W/10 (monitor? OR sens?)) AND ("crop yield" OR productivity))</query>
+<query>TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND irrigation W/10 schedul?)</query>
+<query>AFFIL("precision agriculture") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND water W/15 (productivity OR efficiency OR sav?))</query>
+</scopus_queries>
 
 
 
 These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.
 """
 
-google_search_guide = """
+alex_search_guide = """
           Syntax and Operators
-Valid syntax for advanced Google search queries includes:
+Valid syntax for advanced alex search queries includes:
 
 Using quotation marks " " for exact phrase matches
 Adding a minus sign - before terms to exclude them
@@ -215,11 +216,11 @@ Applying the filetype: operator to find specific file formats like PDF, DOC, etc
 Adding the * wildcard as a placeholder for unknown words
 Invalid syntax includes:
 
-Putting a plus sign + before words (Google stopped supporting this)
+Putting a plus sign + before words (alex stopped supporting this)
 Using other special characters like ?, $, &, #, etc. within search terms
-Explicitly using the AND operator (Google's default behavior makes it redundant)
+Explicitly using the AND operator (alex's default behavior makes it redundant)
 Ideal Search Structure
-An effective Google search query should:
+An effective alex search query should:
 
 Start with the most important search terms
 Use specific, descriptive keywords related to irrigation scheduling, management, and precision irrigation
@@ -232,22 +233,25 @@ Specify desired file types if only certain document formats are wanted
 Searches should be concise yet precise, following the syntax rules carefully. If a topic is complex, consider performing multiple related searches instead of an overly complicated single query.
 
 Example Searches
-google_queries:
-- '"precision irrigation" ("soil moisture sensors" OR "evapotranspiration") "irrigation scheduling"'
-- '"machine learning" "irrigation management" -"deep learning"'
-- '"IoT sensors" "real-time" ("soil moisture monitoring" OR "crop water stress") "precision irrigation"'
-- '"remote sensing" "vegetation indices" "irrigation scheduling" -"satellite imagery"'
-- '"wireless sensor networks" "variable rate irrigation" "precision agriculture"'
-- '"MQTT protocol" "real-time" "smart irrigation system"'
-- '"machine learning" "crop water demand prediction" "precision irrigation"'
-- '"decision support system" ("irrigation scheduling" OR "irrigation management") -"web-based"'
-- '"sensor data fusion" "irrigation optimization" "machine learning"'
-- '"IoT platform" "irrigation automation" "precision agriculture" -"smart home"'
+<alex_queries>
+<query>"precision irrigation" ("soil moisture sensors" OR "evapotranspiration") "irrigation scheduling"</query>
+<query>"machine learning" "irrigation management" -"deep learning"</query>
+<query>"IoT sensors" "real-time" ("soil moisture monitoring" OR "crop water stress") "precision irrigation"</query>
+<query>"remote sensing" "vegetation indices" "irrigation scheduling" -"satellite imagery"</query>
+<query>"wireless sensor networks" "variable rate irrigation" "precision agriculture"</query>
+<query>"MQTT protocol" "real-time" "smart irrigation system"</query>
+<query>"machine learning" "crop water demand prediction" "precision irrigation"</query>
+<query>"decision support system" ("irrigation scheduling" OR "irrigation management") -"web-based"</query>
+<query>"sensor data fusion" "irrigation optimization" "machine learning"</query>
+<query>"IoT platform" "irrigation automation" "precision agriculture" -"smart home"</query>
+</alex_queries>
+
+
 
 ** Note that we need to enclose each search query within single quotes to treat them as single strings in YAML, otherwise the quotes within the queries would cause parsing errors if not properly escaped. **
 
 
-These example searches demonstrate how to create targeted, effective Google searches related to irrigation scheduling, management, and precision irrigation. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed.
+These example searches demonstrate how to create targeted, effective alex searches related to irrigation scheduling, management, and precision irrigation. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed.
 
 The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive. By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
 """
@@ -372,7 +376,7 @@ Leave any fields blank if not applicable.
   <query>query_10</query>
   </(search)_queries>
 
-  The (search) platform will be specified in the search guidance. Replace (search) with the platform name (e.g., scopus_queries, google_queries).
+  The (search) platform will be specified in the search guidance. Replace (search) with the platform name (e.g., scopus_queries, alex_queries).
 
   Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
   </instructions>
