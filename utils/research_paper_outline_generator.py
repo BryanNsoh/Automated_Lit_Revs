@@ -62,6 +62,15 @@ class ResearchPaperOutlineGenerator:
                             "citation_count": 0,
                             "pdf_link": "",
                             "journal": "",
+                            "analysis": "",
+                            "verbatim_quote1": "",
+                            "verbatim_quote2": "",
+                            "verbatim_quote3": "",
+                            "relevance_score1": 0,
+                            "relevance_score2": 0,
+                            "limitations": "",
+                            "inline_citation": "",
+                            "full_citation": "",
                         }
                     }
                 )

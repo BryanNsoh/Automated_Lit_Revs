@@ -117,15 +117,3 @@ class ScopusSearch:
 #     query = "artificial intelligence"
 #     results = await search.search_and_parse(query)
 #     print(results)
-
-
-# import asyncio
-# from doi_scraper import DOIScraper
-
-# async def main():
-#     scraper = DOIScraper()
-#     doi_link = "https://doi.org/example"
-#     content = await scraper.get_doi_content(doi_link)
-#     print(content)
-
-# asyncio.run(main())

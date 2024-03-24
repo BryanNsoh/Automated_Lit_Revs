@@ -358,22 +358,23 @@ Leave any fields blank if not applicable.
 
   - Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
 
-  Provide your response strictly in the following YAML format:
+  Provide your response strictly in the following XML format:
+  <(search)_queries>
+  <query>query_1</query>
+  <query>query_2</query>
+  <query>query_3</query>
+  <query>query_4</query>
+  <query>query_5</query>
+  <query>query_6</query>
+  <query>query_7</query>
+  <query>query_8</query>
+  <query>query_9</query>
+  <query>query_10</query>
+  </(search)_queries>
 
-  (search)_queries:
-    - query_1
-    - query_2
-    - query_3
-    - query_4
-    - query_5 
-    - query_6
-    - query_7
-    - query_8
-    - query_9
-    - query_10
-  The (search) platform will be specified in the search guidance.. replace (search) with the platform name (e.g., scopus_queries, google_queries).
+  The (search) platform will be specified in the search guidance. Replace (search) with the platform name (e.g., scopus_queries, google_queries).
+
   Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
-
   </instructions>
 
   <resources>
