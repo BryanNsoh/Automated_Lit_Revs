@@ -111,6 +111,14 @@ class ScopusSearch:
             return parsed_results
 
 
+# # Sample function call
+# async def main():
+#     search = ScopusSearch(api_key="your_api_key_here")
+#     query = "artificial intelligence"
+#     results = await search.search_and_parse(query)
+#     print(results)
+
+
 # import asyncio
 # from doi_scraper import DOIScraper
 

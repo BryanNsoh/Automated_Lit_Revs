@@ -14,8 +14,9 @@ class LLM_APIHandler:
         Initialize the LLM_APIHandler with the path to the JSON file containing API keys.
         """
         self.load_api_keys(key_path)
-        self.semaphore = asyncio.Semaphore(10)  # Limit to 10 requests at a time
-        self.last_request_time = 0
+        self.semaphore = asyncio.Semaphore(55)  # Limit to 55 requests at a time
+        self.gemini_minute_counter = 0
+        self.gemini_minute_timestamp = time.time()
         self.haiku_rate_limiter = asyncio.Semaphore(
             1
         )  # Limit Haiku to 1 request per second
@@ -47,16 +48,21 @@ class LLM_APIHandler:
         """
         async with self.semaphore:
             current_time = time.time()
-            elapsed_time = current_time - self.last_request_time
-            if elapsed_time < 1:
-                await asyncio.sleep(1 - elapsed_time)
+            if self.gemini_minute_counter >= 55:
+                elapsed_minute = current_time - self.gemini_minute_timestamp
+                if elapsed_minute < 60:
+                    await asyncio.sleep(60 - elapsed_minute)
+                self.gemini_minute_counter = 0
+                self.gemini_minute_timestamp = current_time
+            self.gemini_minute_counter += 1
+
             try:
                 async with aiohttp.ClientSession() as session:
                     model = genai.GenerativeModel("gemini-pro")
                     response = await model.generate_content_async(prompt)
-                    self.last_request_time = time.time()
+                    print(response.text)
                     if response_format == "json":
-                        return self.extract_json(response.text)
+                        return await self.extract_json_async(response.text)
                     else:
                         return response.text
             except Exception as e:
@@ -87,10 +93,10 @@ class LLM_APIHandler:
         """
         async with self.haiku_rate_limiter:
             current_time = time.time()
-            if self.haiku_minute_counter >= 20:
+            if self.haiku_minute_counter >= 1:
                 elapsed_minute = current_time - self.haiku_minute_timestamp
-                if elapsed_minute < 60:
-                    await asyncio.sleep(60 - elapsed_minute)
+                if elapsed_minute < 5:
+                    await asyncio.sleep(5 - elapsed_minute)
                 self.haiku_minute_counter = 0
                 self.haiku_minute_timestamp = current_time
             self.haiku_minute_counter += 1
@@ -100,6 +106,9 @@ class LLM_APIHandler:
 
             messages = [{"role": "user", "content": prompt}]
 
+            if system_prompt is None:
+                system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
+
             response = self.claude_client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -108,13 +117,14 @@ class LLM_APIHandler:
             )
 
             if response_format:
-                return self.extract_json(response.content[0].text)
+                return await self.extract_json_async(response.content[0].text)
             else:
+                print(response.content[0].text)
                 return response.content[0].text
 
-    def extract_json(self, response):
+    async def extract_json_async(self, response):
         """
-        Extract JSON data from the response text.
+        Extract JSON data from the response text asynchronously.
 
         Args:
             response (str): The response text.

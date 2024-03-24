@@ -35,24 +35,21 @@ Complex searches should be built up systematically, with parentheses to group re
 Example Advanced Searches
 -------------------------
 
-1.  TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water PRE/5 management AND NOT livestock)
-   
-2.  TITLE(({internet of things} OR iot) PRE/10 (irrigation OR watering) AND sensor*)
-   
-3.  TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network*") AND (water W/15 conservation))
-   
-4.  TITLE-ABS-KEY((crop* PRE/3 monitor*) AND "remote sensing" AND real-time AND (irrigation OR water*))
-   
-5.  AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/5 moist*) AND PUBYEAR > 2015
-   
-6.  TITLE(({precision irrigation} OR {variable rate irrigation}) AND "machine learning" AND ("decision support system" OR dss))
-   
-7.  TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom* PRE/3 robot*) AND (irrigat* OR water*) AND plant*)
-   
-8.  ALL(("internet of things" OR iot) AND (real-time OR realtime) AND (soil W/5 (monitor* OR sens*)) AND ("crop yield" OR productivity))
-   
-9.  TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND (irrigation PRE/5 schedul*) AND "crop water")
-   
-10.  AFFIL("precision agriculture" OR "agricultural engineering") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND (water PRE/10 (productivity OR efficiency OR sav*)) AND ("sustainable agriculture" OR sustainability))
+TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water W/10 management)
+TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)
+TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network?") AND water conservation)
+TITLE-ABS-KEY((crop? PRE/5 monitor?) AND "remote sensing" AND (irrigation OR water?))
+AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/10 moist?)
+TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")
+TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom? W/5 robot?) AND (irrigat? OR water?))
+ALL(("internet of things" OR iot) AND (soil W/10 (monitor? OR sens?)) AND ("crop yield" OR productivity))
+TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND irrigation W/10 schedul?)
+AFFIL("precision agriculture") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND water W/15 (productivity OR efficiency OR sav?))
+TITLE-ABS-KEY("precision agriculture" AND "decision support system?" AND (water OR irrigation))
+TITLE-ABS(("smart farming" OR "digital agriculture") AND "remote sensing" AND "crop monitoring")
+ALL(("precision agriculture" OR "precision farming") AND "sustainability" AND (water W/10 management))
+TITLE(("machine learning" OR "artificial intelligence") AND "irrigation scheduling")
+AFFIL("agricultural engineering") AND TITLE-ABS-KEY(("internet of things" OR iot) AND "crop yield" AND "water use efficiency")
+
 
 These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.

@@ -18,7 +18,11 @@ class ResearchPaperOutlineGenerator:
     def generate_outline(self):
         outline_data = []
         for i, subsection in enumerate(self.data["subsections"], start=1):
-            subsection_data = {"index": i, "header": subsection["header"], "points": []}
+            subsection_data = {
+                "index": i,
+                "subsection_title": subsection["subsection_title"],
+                "points": [],
+            }
             for j, point in enumerate(subsection["points"], start=1):
                 point_data = {
                     f"Point {j}": {

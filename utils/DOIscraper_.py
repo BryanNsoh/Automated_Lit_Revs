@@ -1,5 +1,5 @@
 import asyncio
-from selenium import webdriver
+import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,9 +11,9 @@ class DOIScraper:
         self.driver = None
 
     async def initialize_webdriver(self):
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        self.driver = webdriver.Chrome(options=options)
+        options = uc.ChromeOptions()
+        options.add_argument("--blink-settings=imagesEnabled=false")
+        self.driver = uc.Chrome(options=options)
 
     async def navigate_to_doi_link(self, doi_link):
         self.driver.get(doi_link)
@@ -54,7 +54,7 @@ class DOIScraper:
 
 async def main():
     scraper = DOIScraper()
-    doi_link = "https://www.gangstalkingmindcontrolcults.com/wp-content/uploads/2018/07/12815.pdf"
+    doi_link = "https://doi.org/10.1016/j.engappai.2024.107881"
     content = await scraper.get_doi_content(doi_link)
     print(content)
 
