@@ -1,13 +1,9 @@
-"""
-scopus_search.py
-
-This module provides a ScopusSearch class for performing asynchronous searches on the Scopus API.
-"""
-
 import aiohttp
 import asyncio
+import json
 import time
 from collections import deque
+import DOIscraper
 
 
 class ScopusSearch:
@@ -15,10 +11,19 @@ class ScopusSearch:
     A class for performing asynchronous searches on the Scopus API.
     """
 
-    def __init__(self, api_key):
-        self.api_key = api_key
+    def __init__(self, key_path):
+        self.load_api_keys(key_path)
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
+        self.doi_scraper = DOIscraper()
+
+    def load_api_keys(self, key_path):
+        """
+        Load the API keys from the specified JSON file.
+        """
+        with open(key_path, "r") as file:
+            api_keys = json.load(file)
+        self.api_key = api_keys["SCOPUS_API_KEY"]
 
     async def search(self, query, count=25, view="COMPLETE", response_format="json"):
         """
@@ -96,6 +101,11 @@ class ScopusSearch:
                     if author.get("authname") is not None
                 ]
 
+                full_text = None
+                if doi:
+                    print(f"Scraping full text for DOI: {doi}")
+                    full_text = await self.doi_scraper.get_doi_content(doi)
+
                 if title is not None:
                     parsed_results.append(
                         {
@@ -105,15 +115,24 @@ class ScopusSearch:
                             "journal": journal,
                             "authors": authors,
                             "citation_count": citation_count,
+                            "full_text": full_text,
                         }
                     )
 
-            return parsed_results
+            return json.dumps(parsed_results, indent=2)
 
 
-# # Sample function call
-# async def main():
-#     search = ScopusSearch(api_key="your_api_key_here")
-#     query = "artificial intelligence"
-#     results = await search.search_and_parse(query)
-#     print(results)
+# Sample function call
+async def main():
+    search = ScopusSearch(
+        api_key_path=r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    )
+    query = "artificial intelligence"
+    results = await search.search_and_parse(query)
+    # save the results to a file
+    with open("scopus_results.json", "w") as f:
+        f.write(results)
+    print(results)
+
+
+asyncio.run(main())

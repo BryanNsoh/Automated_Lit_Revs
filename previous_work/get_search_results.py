@@ -6,7 +6,7 @@ import sqlite3
 import time
 from collections import deque
 
-api_key = "60261e8755ce5224a6dead5feec2e448"
+api_key = ""
 
 # Initialize a deque to track the timestamps of the last N requests, where N is the rate limit
 request_times = deque(maxlen=6)
