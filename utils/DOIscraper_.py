@@ -1,4 +1,6 @@
 import asyncio
+import random
+from fake_useragent import UserAgent
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,6 +15,12 @@ class DOIScraper:
     async def initialize_webdriver(self):
         options = uc.ChromeOptions()
         options.add_argument("--blink-settings=imagesEnabled=false")
+
+        # Generate a random user agent
+        ua = UserAgent()
+        user_agent = ua.random
+        options.add_argument(f"user-agent={user_agent}")
+
         self.driver = uc.Chrome(options=options)
 
     async def navigate_to_doi_link(self, doi_link):
