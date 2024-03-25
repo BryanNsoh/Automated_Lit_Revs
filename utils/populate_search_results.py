@@ -29,7 +29,7 @@ class QueryProcessor:
     async def process_queries(self):
         try:
             await self.irrigation_data.load_data()
-
+            query_tasks = []
             async for (
                 subsection,
                 point_title,
@@ -39,29 +39,30 @@ class QueryProcessor:
                 response,
                 query,
             ) in self.irrigation_data.iterate_data():
-                print(f"Processing query: {query}")
                 if query:
-                    if "scopus_queries" in query_type:
-                        search_results = await self.scopus_search.search_and_parse(
-                            query
-                        )
-                    elif "alex_queries" in query_type:
-                        search_results = await self.openalex_search.search_papers(query)
-                    else:
-                        continue
-
-                    hashed_filename = self.get_hashed_filename(
-                        query, query_id, response_id
-                    )
-                    output_path = await self.save_json(search_results, hashed_filename)
-                    await self.irrigation_data.update_response(
-                        query_id, response_id, "json_path", str(output_path)
+                    query_tasks.append(
+                        self.process_query(query_type, query, query_id, response_id)
                     )
 
+            await asyncio.gather(*query_tasks)
             await self.irrigation_data.save_data()
         except Exception as e:
             logger.exception("An error occurred during query processing.")
             raise
+
+    async def process_query(self, query_type, query, query_id, response_id):
+        if "scopus_queries" in query_type:
+            search_results = await self.scopus_search.search_and_parse(query)
+        elif "alex_queries" in query_type:
+            search_results = await self.openalex_search.search_papers(query)
+        else:
+            return
+
+        hashed_filename = self.get_hashed_filename(query, query_id, response_id)
+        output_path = await self.save_json(search_results, hashed_filename)
+        await self.irrigation_data.update_response(
+            query_id, response_id, "json_path", str(output_path)
+        )
 
     def get_hashed_filename(self, query, query_id, response_id):
         hash_input = f"{query}_{query_id}_{response_id}"
