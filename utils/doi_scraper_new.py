@@ -4,7 +4,7 @@ from fake_useragent import UserAgent
 
 
 class DOIScraper:
-    def __init__(self, max_concurrent_browsers=10, executable_path=None):
+    def __init__(self, max_concurrent_browsers=120, executable_path=None):
         self.semaphore = asyncio.Semaphore(max_concurrent_browsers)
         self.executable_path = executable_path
 

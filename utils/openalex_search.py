@@ -87,17 +87,28 @@ class OpenAlexPaperSearch:
 
     async def extract_fulltext(self, pdf_url):
         async with aiohttp.ClientSession() as session:
-            async with session.get(pdf_url) as resp:
-                pdf_bytes = await resp.read()
-                try:
-                    with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
-                        fulltext = ""
-                        for page in doc:
-                            fulltext += page.get_text()
-                        return fulltext
-                except fitz.FileDataError:
-                    print(f"Error: Cannot open PDF file from {pdf_url}")
-                    return ""
+            try:
+                async with session.get(pdf_url) as resp:
+                    pdf_bytes = await resp.read()
+                    try:
+                        with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
+                            fulltext = ""
+                            for page in doc:
+                                fulltext += page.get_text()
+                            return fulltext
+                    except fitz.FileDataError:
+                        print(f"Error: Cannot open PDF file from {pdf_url}")
+                        return ""
+            except aiohttp.ClientError as e:
+                print(f"Error occurred while retrieving PDF from {pdf_url}")
+                print(f"Error details: {str(e)}")
+                return ""
+            except Exception as e:
+                print(
+                    f"Unexpected error occurred while extracting full text from {pdf_url}"
+                )
+                print(f"Error details: {str(e)}")
+                return ""
 
     async def extract_fulltext_from_url(self, pdf_url):
         try:
