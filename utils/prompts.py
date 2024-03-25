@@ -160,7 +160,7 @@ Valid syntax for advanced search queries includes:
 *   Boolean operators (AND, OR, AND NOT) to combine search terms
 *   Proximity operators (W/n, PRE/n) to find words within a specified distance
 *   Quotation marks for loose/approximate phrase searches
-*   Braces {} for exact phrase searches
+*   Braces \{\} for exact phrase searches
 *   Wildcards (* and ?) for partial word matches
 
 Invalid syntax includes:
@@ -184,76 +184,76 @@ An ideal advanced search query should:
 
 Complex searches should be built up systematically, with parentheses to group related expressions as needed. The information from the provided documents on syntax rules and operators should be applied rigorously.
 
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
+
 Example Advanced Searches
 
-<scopus_queries>
-<query>TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water W/10 management)</query>
-<query>TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)</query>
-<query>TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network?") AND water conservation)</query>
-<query>TITLE-ABS-KEY((crop? PRE/5 monitor?) AND "remote sensing" AND (irrigation OR water?))</query>
-<query>AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/10 moist?)</query>
-<query>TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")</query>
-<query>TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom? W/5 robot?) AND (irrigat? OR water?))</query>
-<query>ALL(("internet of things" OR iot) AND (soil W/10 (monitor? OR sens?)) AND ("crop yield" OR productivity))</query>
-<query>TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND irrigation W/10 schedul?)</query>
-<query>AFFIL("precision agriculture") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND water W/15 (productivity OR efficiency OR sav?))</query>
-</scopus_queries>
+{{
+    "scopus_queries": [
+        "TITLE-ABS-KEY(\"precision agriculture\" AND (\"machine learning\" OR \"artificial intelligence\") AND water W/10 management)",
+        "TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)",
+        "TITLE-ABS((\"precision farming\" OR \"precision agriculture\") AND (\"deep learning\" OR \"neural network?\") AND water conservation)",
+        "TITLE-ABS-KEY((crop? PRE/5 monitor?) AND \"remote sensing\" AND (irrigation OR water?))",
+        "AFFIL(\"agricultural engineering\") AND TITLE-ABS((\"precision agriculture\" OR \"smart farming\") AND soil W/10 moist?)",
+        "TITLE((\"precision irrigation\" OR \"variable rate irrigation\") AND \"machine learning\")",
+        "TITLE-ABS-KEY((\"precision agriculture\" OR \"precision farming\") AND (autonom? W/5 robot?) AND (irrigat? OR water?))",
+        "ALL((\"internet of things\" OR iot) AND (soil W/10 (monitor? OR sens?)) AND (\"crop yield\" OR productivity))",
+        "TITLE-ABS((\"digital agriculture\" OR \"smart agriculture\") AND \"big data\" AND irrigation W/10 schedul?)",
+        "AFFIL(\"precision agriculture\") AND TITLE-ABS-KEY((\"machine learning\" OR \"artificial intelligence\") AND water W/15 (productivity OR efficiency OR sav?))"
+    ]
+}}
 
-
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
 
 These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.
 """
 
 alex_search_guide = """
-          Syntax and Operators
+Syntax and Operators
 Valid syntax for advanced alex search queries includes:
-
-Using quotation marks " " for exact phrase matches
+Using quotation marks %22%22 for exact phrase matches
 Adding a minus sign - before terms to exclude them
 Employing the OR operator in all caps to find pages containing either term
-Using the site: operator to limit results to a specific website
-Applying the filetype: operator to find specific file formats like PDF, DOC, etc.
+Using the site%3A operator to limit results to a specific website
+Applying the filetype%3A operator to find specific file formats like PDF, DOC, etc.
 Adding the * wildcard as a placeholder for unknown words
+`
 Invalid syntax includes:
-
 Putting a plus sign + before words (alex stopped supporting this)
-Using other special characters like ?, $, &, #, etc. within search terms
+Using other special characters like %3F, %24, %26, %23, etc. within search terms
 Explicitly using the AND operator (alex's default behavior makes it redundant)
+
 Ideal Search Structure
 An effective alex search query should:
-
 Start with the most important search terms
 Use specific, descriptive keywords related to irrigation scheduling, management, and precision irrigation
-Utilize exact phrases in quotes for specific word combinations
-Exclude irrelevant terms using the minus sign
+Utilize exact phrases in %22quotes%22 for specific word combinations
+Exclude irrelevant terms using the - minus sign
 Connect related terms or synonyms with OR
 Apply the * wildcard strategically for flexibility
-Limit to particular sites or domains for focused searches, if needed
-Specify desired file types if only certain document formats are wanted
-Searches should be concise yet precise, following the syntax rules carefully. If a topic is complex, consider performing multiple related searches instead of an overly complicated single query.
+Note:
+
+By following these guidelines and using proper URL encoding, you can construct effective and accurate search queries for alex.
+
+Searches should be concise yet precise, following the syntax rules carefully. 
 
 Example Searches
-<alex_queries>
-<query>"precision irrigation" ("soil moisture sensors" OR "evapotranspiration") "irrigation scheduling"</query>
-<query>"machine learning" "irrigation management" -"deep learning"</query>
-<query>"IoT sensors" "real-time" ("soil moisture monitoring" OR "crop water stress") "precision irrigation"</query>
-<query>"remote sensing" "vegetation indices" "irrigation scheduling" -"satellite imagery"</query>
-<query>"wireless sensor networks" "variable rate irrigation" "precision agriculture"</query>
-<query>"MQTT protocol" "real-time" "smart irrigation system"</query>
-<query>"machine learning" "crop water demand prediction" "precision irrigation"</query>
-<query>"decision support system" ("irrigation scheduling" OR "irrigation management") -"web-based"</query>
-<query>"sensor data fusion" "irrigation optimization" "machine learning"</query>
-<query>"IoT platform" "irrigation automation" "precision agriculture" -"smart home"</query>
-</alex_queries>
+{{
+    "alex_queries": [
+    "https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%28%22soil+moisture+sensors%22%7C%22evapotranspiration%22%29+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+-%22deep+learning%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%28%22soil+moisture+monitoring%22%7C%22crop+water+stress%22%29+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22+-%22satellite+imagery%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22variable+rate+irrigation%22+%2B%22precision+agriculture%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22MQTT+protocol%22+%2B%22real-time%22+%2B%22smart+irrigation+system%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22crop+water+demand+prediction%22+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22decision+support+system%22+%2B%28%22irrigation+scheduling%22%7C%22irrigation+management%22%29+-%22web-based%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22sensor+data+fusion%22+%2B%22irrigation+optimization%22+%2B%22machine+learning%22&sort=relevance_score:desc&per_page=50",
+    "https://api.openalex.org/works?search=%22IoT+platform%22+%2B%22irrigation+automation%22+%2B%22precision+agriculture%22+-%22smart+home%22&sort=relevance_score:desc&per_page=50"
+]
+}}
 
-
-
-** Note that we need to enclose each search query within single quotes to treat them as single strings in YAML, otherwise the quotes within the queries would cause parsing errors if not properly escaped. **
-
-
-These example searches demonstrate how to create targeted, effective alex searches related to irrigation scheduling, management, and precision irrigation. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed.
-
-The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive. By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
+These example searches demonstrate how to create targeted, effective alex searches. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed. The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive.  By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
 """
 
 
@@ -334,98 +334,66 @@ Leave any fields blank if not applicable.
 </documents>
 """,
         "generate_queries": """
-      <documents>
+<documents>
+<document index="1">
+<source>search_query_prompt.txt</source>
+<document_content>
+<instructions>
+Carefully review the provided context, including the overall review intention under <review_intention>, the purpose of the current section within that context explained in <section_intention>, and the specific point that needs to be addressed by the literature search, given in <point_content>.
 
-  <document index="1">
+Your task is to generate a set of 10 highly optimized search queries that would surface the most relevant, insightful, and comprehensive set of research articles to shed light on various aspects of the particular point <point_content> which is under subsection <subsection_title>, while keeping the queries tightly focused around the intentions of the <section_title> and <review_intention>.
 
-  <source>search_query_prompt.txt</source>
+The queries should:
+- Be thoughtfully crafted to return results that directly address the key issues and nuances of the <point_content>
+- Demonstrate creativity and variety in their formulation to capture different dimensions of the topic
+- Use precise terminology and logical operators to maintain a high signal-to-noise ratio in the results
+- Cover a broad range of potential subtopics, perspectives, and article types related to the <point_content>
+- Align closely with the stated goals of the <section_title> and <review_intention> to maximize relevance 
+- Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
 
-  <document_content>
+Provide your response strictly in the following JSON format:
+{{
+    "*_queries": [
+        "query_1",
+        "query_2",
+        "query_3",
+        "query_4",
+        "query_5",
+        "query_6",
+        "query_7",
+        "query_8",
+        "query_9",
+        "query_10"
+    ]
+}}
 
-  <instructions>
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
 
-  Carefully review the provided context, including the overall review intention under <review_intention>, the purpose of the current section within that context explained in <section_intention>, and the specific point that needs to be addressed by the literature search, given in <point_content>.
-
-  Your task is to generate a set of 10 highly optimized search queries that would surface the most relevant, insightful, and comprehensive set of research articles to shed light on various aspects of the particular point <point_content> which is under subsection <subsection_title>, while keeping the queries tightly focused around the intentions of the <section_title> and <review_intention>.
-
-  The queries should:
-
-  - Be thoughtfully crafted to return results that directly address the key issues and nuances of the <point_content>
-
-  - Demonstrate creativity and variety in their formulation to capture different dimensions of the topic
-
-  - Use precise terminology and logical operators to maintain a high signal-to-noise ratio in the results
-
-  - Cover a broad range of potential subtopics, perspectives, and article types related to the <point_content>
-
-  - Align closely with the stated goals of the <section_title> and <review_intention> to maximize relevance
-
-  - Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
-
-  Provide your response strictly in the following XML format:
-  <(search)_queries>
-  <query>query_1</query>
-  <query>query_2</query>
-  <query>query_3</query>
-  <query>query_4</query>
-  <query>query_5</query>
-  <query>query_6</query>
-  <query>query_7</query>
-  <query>query_8</query>
-  <query>query_9</query>
-  <query>query_10</query>
-  </(search)_queries>
-
-  The (search) platform will be specified in the search guidance. Replace (search) with the platform name (e.g., scopus_queries, alex_queries).
-
-  Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
-  </instructions>
-
-  <resources>
-
-  <review_intention>
-
-  {review_intention}
-
-  </review_intention>
-
-  <section_intention>
-
-  {section_intention}
-
-  </section_intention>
-
-  <point_content>
-
-  {point_content}
-
-  </point_content>
-
-  <section_title>
-
-  {section_title}
-
-  </section_title>
-
-  <subsection_title>
-
-  {subsection_title}
-
-  </subsection_title>
-
-  <search_guidance>
-
-  {search_guidance}
-
-  </search_guidance>
-
-  </resources>
-
-  </document_content>
-
-  </document>
-
-  </documents>
+The  platform will be specified in the search guidance. Replace * with the platform name (e.g., scopus_queries, alex_queries). Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
+</instructions>
+<resources>
+<review_intention>
+{review_intention}
+</review_intention>
+<section_intention>
+{section_intention}
+</section_intention>
+<point_content>
+{point_content}
+</point_content>
+<section_title>
+{section_title}
+</section_title>
+<subsection_title>
+{subsection_title}
+</subsection_title>
+<search_guidance>
+{search_guidance}
+</search_guidance>
+</resources>
+</document_content>
+</document>
+</documents>
 """,
     }
     return prompts[template_name].format(**kwargs)

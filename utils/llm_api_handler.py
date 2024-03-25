@@ -6,6 +6,8 @@ import logging
 import google.generativeai as genai
 import anthropic
 import backoff
+import json
+import re
 
 
 class LLM_APIHandler:
@@ -123,34 +125,4 @@ class LLM_APIHandler:
                 return response.content[0].text
 
     async def extract_json_async(self, response):
-        """
-        Extract JSON data from the response text asynchronously.
-
-        Args:
-            response (str): The response text.
-
-        Returns:
-            dict: The extracted JSON data.
-
-        Raises:
-            ValueError: If no valid JSON is found in the response.
-        """
-        try:
-            json_data = json.loads(response)
-            if not json_data:
-                raise ValueError("Empty JSON object returned")
-            return json_data
-        except json.JSONDecodeError:
-            json_start = response.find("{")
-            json_end = response.rfind("}")
-            if json_start != -1 and json_end != -1:
-                json_string = response[json_start : json_end + 1]
-                try:
-                    json_data = json.loads(json_string)
-                    if not json_data:
-                        raise ValueError("Empty JSON object returned")
-                    return json_data
-                except json.JSONDecodeError:
-                    raise ValueError("Invalid JSON format in the response")
-            else:
-                raise ValueError("No valid JSON found in the response")
+        pass

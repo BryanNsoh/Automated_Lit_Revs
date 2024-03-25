@@ -3,21 +3,21 @@ import asyncio
 import re
 import os
 from pathlib import Path
-import xmltodict
-from utils.llm_api_handler import LLM_APIHandler
-from utils.prompts import (
+import json
+from llm_api_handler import LLM_APIHandler
+from prompts import (
     get_prompt,
-    outline,
     review_intention,
     scopus_search_guide,
-    google_search_guide,
+    alex_search_guide,
     section_intentions,
 )
 
 
 class QueryGenerator:
-    def __init__(self, api_key_path):
+    def __init__(self, api_key_path, max_retries=10):
         self.llm_api_handler = LLM_APIHandler(api_key_path)
+        self.max_retries = max_retries
 
     async def process_yaml(self, yaml_path, section_title, section_number):
         with open(yaml_path) as file:
@@ -101,26 +101,33 @@ class QueryGenerator:
         search_guidance,
         section_number,
     ):
-        prompt = get_prompt(
-            template_name="generate_queries",
-            review_intention=review_intention,
-            section_intention=section_intentions[str(section_number)],
-            point_content=point_content,
-            section_title=section_title,
-            subsection_title=subsection_title,
-            search_guidance=search_guidance,
-        )
-        response = await self.llm_api_handler.generate_gemini_content(prompt)
-        queries = self.parse_response(response)
-        print(queries)
-        return queries
+        retry_count = 0
+        while retry_count < self.max_retries:
+            prompt = get_prompt(
+                template_name="generate_queries",
+                review_intention=review_intention,
+                section_intention=section_intentions[str(section_number)],
+                point_content=point_content,
+                section_title=section_title,
+                subsection_title=subsection_title,
+                search_guidance=search_guidance,
+            )
+            response = await self.llm_api_handler.generate_gemini_content(prompt)
+            queries = self.parse_response(response)
+            if queries:
+                print(queries)
+                return queries
+            retry_count += 1
+            print(f"Retrying... Attempt {retry_count}")
+        print("Max retries reached. Returning empty queries.")
+        return []
 
     def parse_response(self, response):
         try:
-            data = xmltodict.parse(response)
+            data = json.loads(response)
             queries = None
 
-            # Find the first key ending with "_queries"
+            # Find the key ending with "_queries"
             for key in data:
                 if key.endswith("_queries"):
                     queries = data[key]
@@ -128,19 +135,19 @@ class QueryGenerator:
 
             if queries:
                 print(f"Parsed {key}.")
-                return queries["query"]
+                return queries
             else:
                 print("No queries found in the response.")
                 return []
-        except xmltodict.expat.ExpatError as exc:
-            print(f"Error parsing XML response: {exc}")
-            return []
+        except json.JSONDecodeError as exc:
+            print(f"Error parsing JSON response: {exc}")
+            return None
 
 
 # Example usage
-# yaml_path = "input.yaml"
-# section_title = "Introduction"
-# section_number = 1
-# api_key_path = "path/to/api/key"
-# processor = QueryGenerator(api_key_path)
-# asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))
+yaml_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\research_paper_outline.yaml"
+section_title = "DATA COLLECTION TO CLOUD: AUTOMATION AND REAL-TIME PROCESSING"
+section_number = 3
+api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+processor = QueryGenerator(api_key_path)
+asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))

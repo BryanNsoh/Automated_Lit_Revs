@@ -12,4 +12,4 @@ output_directory = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\D
 api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
 
 
-#
+# test the QueryGenerator

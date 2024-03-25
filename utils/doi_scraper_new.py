@@ -4,27 +4,9 @@ from fake_useragent import UserAgent
 
 
 class DOIScraper:
-    def __init__(self, max_browsers=5):
-        self.max_browsers = max_browsers
-        self.browser_pool = asyncio.Queue(maxsize=max_browsers)
-        self.semaphore = asyncio.Semaphore(max_browsers)
-        self.active_tasks = set()
-
-    async def initialize_browser_pool(self):
-        for _ in range(self.max_browsers):
-            browser = await launch(headless=True, args=["--no-sandbox"])
-            await self.browser_pool.put(browser)
-
-    async def close_browser_pool(self):
-        while not self.browser_pool.empty():
-            browser = await self.browser_pool.get()
-            await browser.close()
-
-    async def get_browser(self):
-        return await self.browser_pool.get()
-
-    async def release_browser(self, browser):
-        await self.browser_pool.put(browser)
+    def __init__(self, max_concurrent_browsers=10, executable_path=None):
+        self.semaphore = asyncio.Semaphore(max_concurrent_browsers)
+        self.executable_path = executable_path
 
     async def update_user_agent(self, page):
         ua = UserAgent()
@@ -47,13 +29,16 @@ class DOIScraper:
     async def get_doi_content(self, doi_link):
         async with self.semaphore:
             try:
-                browser = await self.get_browser()
+                browser = await launch(
+                    headless=True,
+                    args=["--no-sandbox"],
+                    executablePath=self.executable_path,
+                )
                 page = await browser.newPage()
                 await self.navigate_to_doi_link(page, doi_link)
                 content = await self.extract_text_content(page)
                 await page.close()
-                await self.release_browser(browser)
-
+                await browser.close()
                 if any(
                     s in content
                     for s in [
@@ -62,7 +47,6 @@ class DOIScraper:
                     ]
                 ):
                     return ""
-
                 return content
             except Exception as e:
                 print(f"Error occurred while scraping DOI: {doi_link}")
@@ -70,26 +54,18 @@ class DOIScraper:
                 return ""
 
     async def scrape_doi_link(self, doi_link):
-        task = asyncio.create_task(self.get_doi_content(doi_link))
-        self.active_tasks.add(task)
-        result = await task
-        self.active_tasks.remove(task)
-        return result
+        return await self.get_doi_content(doi_link)
 
     async def run(self, doi_link):
-        if not self.browser_pool.full():
-            await self.initialize_browser_pool()
-        result = await self.scrape_doi_link(doi_link)
-        if self.browser_pool.empty() and len(self.active_tasks) == 0:
-            await self.close_browser_pool()
-        return result
+        return await self.scrape_doi_link(doi_link)
 
 
-async def main():
-    scraper = DOIScraper(max_browsers=3)
-    doi_link = "10.1016/j.engappai.2024.107881"
-    result = await scraper.run(doi_link)
-    print(f"Result: {result}")
+# async def main():
+#     executable_path = r"C:\Users\bnsoh2\Downloads\chromedriver_win32\chromedriver.exe"  # Replace with the actual path to your Chromium executable
+#     scraper = DOIScraper(max_concurrent_browsers=10, executable_path=executable_path)
+#     doi_link = "10.1016/j.engappai.2024.107881"
+#     result = await scraper.run(doi_link)
+#     print(f"Result: {result}")
 
 
-asyncio.run(main())
+# asyncio.run(main())

@@ -4,6 +4,7 @@ import json
 import time
 
 from collections import deque
+from misc_utils import prepare_text_for_json
 
 
 class ScopusSearch:
@@ -105,6 +106,7 @@ class ScopusSearch:
                 if doi:
                     print(f"Scraping full text for DOI: {doi}")
                     full_text = await self.scraper.get_doi_content(doi)
+                    full_text = await prepare_text_for_json(full_text)
                 print("At least 1 search scraped")
                 if title is not None:
                     parsed_results.append(
@@ -131,23 +133,23 @@ class ScopusSearch:
             return json.dumps(parsed_results, indent=2)
 
 
-# Sample function call
-async def main():
-    from doi_scraper import DOIScraper
+# # Sample function call
+# async def main():
+#     from utils.web_scraper import WebScraper
 
-    scraper = DOIScraper()
-    search = ScopusSearch(
-        key_path=r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json",
-        doi_scraper=scraper,
-    )
-    query = "artificial intelligence"
-    print("Searching for:", query)
-    results = await search.search_and_parse(query)
-    print("Results:", results)
-    # save the results to a file
-    with open("scopus_results.json", "w") as f:
-        f.write(results)
-    print(results)
+#     scraper = WebScraper()
+#     search = ScopusSearch(
+#         key_path=r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json",
+#         doi_scraper=scraper,
+#     )
+#     query = "artificial intelligence"
+#     print("Searching for:", query)
+#     results = await search.search_and_parse(query)
+#     print("Results:", results)
+#     # save the results to a file
+#     with open("scopus_results.json", "w") as f:
+#         f.write(results)
+#     print(results)
 
 
-asyncio.run(main())
+# asyncio.run(main())

@@ -104,12 +104,15 @@ class IrrigationData:
                     key for key in point_data.keys() if key.endswith("_queries")
                 ]
                 for query_type in query_types:
+                    print(f"Query Type: {query_type}")
                     queries = point_data.get(query_type, [])
-                    for query in queries:
-                        query_id = query["query_id"]
-                        for response in query.get("responses", []):
+                    for query_mother in queries:
+                        query_id = query_mother["query_id"]
+                        query = query_mother["query"]
+                        print(f"Query ID: {query_id}")
+                        for response in query_mother.get("responses", []):
                             response_id = response["response_id"]
-                            yield subsection, point_title, query_type, query_id, response_id, response
+                            yield subsection, point_title, query_type, query_id, response_id, response, query
 
     async def update_response(self, query_id, response_id, field, value):
         for subsection in self.data["subsections"]:
@@ -130,19 +133,33 @@ class IrrigationData:
 
 
 # async def main():
-#     data = IrrigationData("path/to/your/yaml/file.yaml")
+#     data = IrrigationData(
+#         r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\outline_queries.yaml"
+#     )
 #     await data.load_data()
 
-#     async for subsection, point_title, query_type, query_id, response_id, response in data.iterate_data():
+#     async for (
+#         subsection,
+#         point_title,
+#         query_type,
+#         query_id,
+#         response_id,
+#         response,
+#         query,
+#     ) in data.iterate_data():
 #         print(f"Subsection: {subsection['subsection_title']}")
 #         print(f"Point: {point_title}")
 #         print(f"Query Type: {query_type}")
 #         print(f"Query ID: {query_id}")
 #         print(f"Response ID: {response_id}")
 #         print(f"Response: {response}")
+#         print(f"Query: {query}")
 
 #         # Update specific fields of the response
-#         await data.update_response(query_id, response_id, "DOI", "10.1234/example")
-#         await data.update_response(query_id, response_id, "pdf_link", "https://example.com/paper.pdf")
+#         # await data.update_response(query_id, response_id, "DOI", "10.1234/example")
+#         # await data.update_response(
+#         #     query_id, response_id, "pdf_link", "https://example.com/paper.pdf"
+#         # )
+
 
 # asyncio.run(main())
