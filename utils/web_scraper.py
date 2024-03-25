@@ -13,7 +13,7 @@ from selenium.common.exceptions import (
 
 
 class WebScraper:
-    def __init__(self, max_concurrent_tasks=5):
+    def __init__(self, max_concurrent_tasks=15):
         self.semaphore = asyncio.Semaphore(max_concurrent_tasks)
 
     async def scrape_url(self, url):

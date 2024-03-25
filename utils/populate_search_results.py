@@ -69,9 +69,17 @@ class QueryProcessor:
         return f"{hashed_filename}.json"
 
     async def save_json(self, data, filename):
+        # Ensure the output directory exists
+        self.output_folder.mkdir(parents=True, exist_ok=True)
+
+        # Create the full output path
         output_path = self.output_folder / filename
+
+        # Save the data to a JSON file
         async with aiofiles.open(output_path, "w") as file:
-            await file.write(json.dumps(data))
+            await file.write(
+                json.dumps(data, indent=4)
+            )  # Adding indent for pretty printing
         return output_path
 
 
