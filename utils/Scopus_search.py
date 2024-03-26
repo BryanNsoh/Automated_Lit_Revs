@@ -53,7 +53,7 @@ class ScopusSearch:
             logger.error("Invalid JSON format in the API key file.")
 
     async def search(
-        self, query, count=25, view="COMPLETE", response_format="json", max_retries=3
+        self, query, count=25, view="COMPLETE", response_format="json", max_retries=4
     ):
         headers = {
             "X-ELS-APIKey": self.api_key,
@@ -79,7 +79,7 @@ class ScopusSearch:
                         self.request_times.append(current_time)
                         break
                     else:
-                        await asyncio.sleep(0.1)
+                        await asyncio.sleep(0.2)
 
                 async with aiohttp.ClientSession() as session:
                     async with session.get(

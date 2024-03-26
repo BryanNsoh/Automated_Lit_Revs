@@ -51,7 +51,7 @@ class QueryGenerator:
                         print(f"{query_type}: ", queries)
                         point_data[query_type] = queries
 
-                        # Create empty responses for each query
+                        # Create 1 empty responses for each query
                         for i, query in enumerate(queries):
                             query_id = f"{query_type}_{i}"
                             query_data = {
@@ -61,7 +61,7 @@ class QueryGenerator:
                                     {
                                         "response_id": f"{query_id}_response_{j}",
                                     }
-                                    for j in range(5)
+                                    for j in range(1)
                                 ],
                             }
                             point_data[query_type][i] = query_data

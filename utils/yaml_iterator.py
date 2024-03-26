@@ -77,23 +77,68 @@
 
 import asyncio
 import aiofiles
-import yaml
+import shutil
+import tempfile
+import os
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+from ruamel.yaml import YAML
 
 
 class IrrigationData:
     def __init__(self, yaml_file):
         self.yaml_file = yaml_file
+        self.yaml = YAML()
         self.data = None
 
     async def load_data(self):
-        async with aiofiles.open(self.yaml_file, "r") as file:
-            content = await file.read()
-            self.data = yaml.safe_load(content)
+        try:
+            async with aiofiles.open(self.yaml_file, "r") as file:
+                content = await file.read()
+                self.data = self.yaml.load(content)
+        except Exception as e:
+            logger.exception("An error occurred while loading YAML data.")
+            raise
 
     async def save_data(self):
-        async with aiofiles.open(self.yaml_file, "w") as file:
-            content = yaml.dump(self.data)
-            await file.write(content)
+        try:
+            # Create a temporary file to write the updated data
+            with tempfile.NamedTemporaryFile(mode="w", delete=False) as temp_file:
+                self.yaml.dump(self.data, temp_file)
+                temp_file_path = temp_file.name
+
+            # Replace the original file with the temporary file
+            shutil.move(temp_file_path, self.yaml_file)
+            logger.info("Saved updated YAML data.")
+        except Exception as e:
+            logger.exception("An error occurred while saving YAML data.")
+            # Attempt to restore from the backup file
+            await self.restore_from_backup()
+            raise
+
+    async def save_data_with_backup(self):
+        try:
+            # Create a backup of the original YAML file
+            backup_file = f"{self.yaml_file}.bak"
+            shutil.copy2(self.yaml_file, backup_file)
+            logger.info(f"Created backup of YAML file: {backup_file}")
+
+            # Save the updated data
+            await self.save_data()
+        except Exception as e:
+            logger.exception("An error occurred while saving YAML data with backup.")
+            raise
+
+    async def restore_from_backup(self):
+        backup_file = f"{self.yaml_file}.bak"
+        if os.path.exists(backup_file):
+            shutil.move(backup_file, self.yaml_file)
+            logger.info(f"Restored YAML file from backup: {backup_file}")
+        else:
+            logger.warning("No backup file found. Unable to restore.")
 
     async def iterate_data(self):
         for subsection in self.data["subsections"]:
@@ -104,12 +149,10 @@ class IrrigationData:
                     key for key in point_data.keys() if key.endswith("_queries")
                 ]
                 for query_type in query_types:
-                    print(f"Query Type: {query_type}")
                     queries = point_data.get(query_type, [])
                     for query_mother in queries:
                         query_id = query_mother["query_id"]
                         query = query_mother["query"]
-                        print(f"Query ID: {query_id}")
                         for response in query_mother.get("responses", []):
                             response_id = response["response_id"]
                             yield subsection, point_title, query_type, query_id, response_id, response, query

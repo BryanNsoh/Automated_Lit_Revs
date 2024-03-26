@@ -14,7 +14,7 @@ from selenium.common.exceptions import (
 
 
 class WebScraper:
-    def __init__(self, max_concurrent_tasks=100):
+    def __init__(self, max_concurrent_tasks=60):
         self.semaphore = asyncio.Semaphore(max_concurrent_tasks)
 
     async def scrape_url(self, url, max_retries=3):

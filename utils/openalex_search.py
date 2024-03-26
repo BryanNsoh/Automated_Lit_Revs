@@ -3,7 +3,6 @@ import asyncio
 import json
 import fitz
 import urllib.parse
-from misc_utils import prepare_text_for_json
 import yaml
 from hashlib import sha256
 
@@ -40,7 +39,9 @@ class OpenAlexPaperSearch:
         self.semaphore = asyncio.Semaphore(5)  # Limit to 5 concurrent requests
 
     async def search_papers(self, query, query_id, response_id, max_results=30):
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(
+            timeout=aiohttp.ClientTimeout(total=600)
+        ) as session:
             if query.startswith("https://api.openalex.org/works?"):
                 search_url = f"{query}&mailto={self.email}"
             else:
@@ -145,41 +146,48 @@ class OpenAlexPaperSearch:
                                                 ),
                                             }
 
-                                            if paper["pdf_link"]:
-                                                logger.info(
-                                                    f"Extracting full text from PDF URL: {paper['pdf_link']}"
-                                                )
-                                                full_text = await self.extract_fulltext(
-                                                    paper["pdf_link"]
-                                                )
-                                                if not full_text:
-                                                    logger.info(
-                                                        f"Extracting full text from URL: {paper['pdf_link']}"
-                                                    )
-                                                    full_text = await self.extract_fulltext_from_url(
-                                                        paper["pdf_link"]
-                                                    )
-                                            if not full_text and paper["DOI"]:
-                                                logger.info(
-                                                    f"Extracting full text from DOI: {paper['DOI']}"
-                                                )
-                                                full_text = await self.extract_fulltext_from_doi(
-                                                    paper["DOI"]
-                                                )
+                                            full_text = ""  # Initialize full_text with an empty string
 
-                                            if full_text:
-                                                logger.info(
-                                                    "Full text extracted successfully."
-                                                )
-                                                paper["full_text"] = (
-                                                    ">\n"
-                                                    + await prepare_text_for_json(
-                                                        full_text
+                                            try:
+                                                if paper["pdf_link"]:
+                                                    logger.info(
+                                                        f"Extracting full text from PDF URL: {paper['pdf_link']}"
                                                     )
-                                                )
-                                            else:
-                                                logger.warning(
-                                                    "Failed to extract full text."
+                                                    full_text = (
+                                                        await self.extract_fulltext(
+                                                            paper["pdf_link"]
+                                                        )
+                                                    )
+                                                    if not full_text:
+                                                        logger.info(
+                                                            f"Extracting full text from URL: {paper['pdf_link']}"
+                                                        )
+                                                        full_text = await self.extract_fulltext_from_url(
+                                                            paper["pdf_link"]
+                                                        )
+
+                                                if not full_text and paper["DOI"]:
+                                                    logger.info(
+                                                        f"Extracting full text from DOI: {paper['DOI']}"
+                                                    )
+                                                    full_text = await self.extract_fulltext_from_doi(
+                                                        paper["DOI"]
+                                                    )
+
+                                                if full_text:
+                                                    logger.info(
+                                                        "Full text extracted successfully."
+                                                    )
+                                                    paper["full_text"] = (
+                                                        ">\n" + full_text
+                                                    )
+                                                else:
+                                                    logger.warning(
+                                                        "Failed to extract full text."
+                                                    )
+                                            except Exception as e:
+                                                logger.error(
+                                                    f"Error occurred while extracting full text: {str(e)}"
                                                 )
 
                                             paper_data.append(paper)
@@ -213,11 +221,31 @@ class OpenAlexPaperSearch:
                                 logger.error(f"URL: {search_url}")
                                 logger.error(await response.text())
                                 return ""
+                    except asyncio.TimeoutError:
+                        logger.warning(
+                            f"Request timed out. Retrying in {retry_delay} seconds..."
+                        )
+                        retries += 1
+                        if retries < max_retries:
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2  # Exponential backoff
+                        else:
+                            logger.error(f"Max retries exceeded for URL: {search_url}")
+                            return ""
                     except aiohttp.ClientError as error:
                         logger.exception(
                             f"Error occurred while making request to OpenAlex API: {str(error)}"
                         )
-                        return ""
+                        retries += 1
+                        if retries < max_retries:
+                            logger.warning(
+                                f"Retrying request in {retry_delay} seconds..."
+                            )
+                            await asyncio.sleep(retry_delay)
+                            retry_delay *= 2  # Exponential backoff
+                        else:
+                            logger.error(f"Max retries exceeded for URL: {search_url}")
+                            return ""
 
             logger.error(f"Max retries exceeded for URL: {search_url}")
             return ""

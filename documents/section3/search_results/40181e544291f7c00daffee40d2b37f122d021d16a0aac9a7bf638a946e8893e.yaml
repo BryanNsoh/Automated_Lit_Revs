@@ -1,0 +1,547 @@
+- DOI: https://doi.org/10.4314/jae.v27i1.9
+  analysis: '>'
+  authors:
+  - Mahadeo Ambildhuke Geeta
+  - Gupta Banik Barnali
+  citation_count: 0
+  full_citation: '>'
+  full_text: ">\n  \nJournal of Agricultural Extension      \n  Vol. 27 (1) January\
+    \ 2023 \n  ISSN(e): 24086851; ISSN(Print): 1119944X  \n  Website: http://journal.aesonnigeria.org;\
+    \ http://www.ajol.info/index.php/jae \nEmail: editorinchief@aesonnigeria.org;\
+    \  agricultural.extension.nigeria@gmail.com \nCreative Commons User License: CC\
+    \ BY-NC-ND \n This work is licensed under a Creative Commons Attribution-NonCommercial\
+    \ 4.0 International License  \n \n94 \n \nAutomatic Irrigation Model Powered by\
+    \ Smart Rain Prediction Device in India \nhttps://dx.doi.org/10.4314/jae.v27i1.9\
+    \ \n \nGeeta, Mahadeo Ambildhuke \nCorresponding Author \nDepartment of Computer\
+    \ Science & Engineering, Koneru \nLakshmaiah Education Foundation, deemed to be\
+    \ \nUniversity, Hyderabad \nEmail: geetu9181@gmail.com    Phone:9948488044 \n\
+    https://orcid.org/0000-0001-9775-317X \n  \nBarnali, Gupta Banik \nDepartment\
+    \ of Computer Science & \nEngineering, Koneru Lakshmaiah \nEducation Foundation,\
+    \ deemed to be \nUniversity, Hyderabad \nE-mail: barnali.guptabanik@ieee.org \n\
+    https://orcid.org/0000-0002-8107-9501\n \nSubmission: 7th Nov 2022 \nFirst request\
+    \ for Revision: 12th Dec 2022 \nRevisions: 21st December, 2nd January 2023 \n\
+    \ \nPublished: 21st January 2023 \n \nCite as: Geeta, M. A., Barnali, G. B. (2023).\
+    \ Automatic Irrigation Model Powered by Smart Rain Prediction Device in India.\
+    \ \nJournal of Agricultural Extension 27 (1) 94-110 https://dx.doi.org/10.4314/jae.v27i1.9\
+    \ \nKeywords:  Precision agriculture, automatic irrigation, rain prediction, machine\
+    \ learning \n \nConflict of interest: All authors declare no conflicts of interest\
+    \ in this paper.\nAcknowledgements \nThe authors express their gratitude to the\
+    \ Editor-in-Chief and the anonymous reviewers for their comments and constructive\
+    \ \nsuggestions.  \nFunding: No funding was provided for this work. \nAuthor contribution\
+    \ \nG M A. = 70% (Conceptualization, data collection and analysis, writing the\
+    \ original manuscript). \nBGB = 30% (Supervision and editing of the manuscript).\
+    \ \n \nAbstract \nThis paper presents a simple rain prediction device-based automatic\
+    \ irrigation management \nalgorithm using a combination of weather parameters\
+    \ and soil moisture measurements for \nthe water balance required for a crop at\
+    \ each condition during its growing phase that will \nreduce farmer intervention\
+    \ for irrigation and avoid unnecessary irrigation by predicting the \nrainfall\
+    \ before starting the motor for irrigating the field. This device is powered by\
+    \ various \ntechnologies like deep learning to classify clouds responsible for\
+    \ rain, machine learning \nmodels to predict rainfall based on atmospheric parameters\
+    \ and the Internet of Things (IoT) \nusing different sensors to collect data from\
+    \ the field. This algorithm is very appropriate for \nfarmers who are in remote\
+    \ locations and are not able to use the internet and WIFI due to its \nunavailability.\
+    \ The device will be attached to the motor, will take the data from sensors and\
+    \ \nwill do the rain prediction at device level only and will switch ON/OFF the\
+    \ motor based on \nthe soil moisture value and rain prediction without any human\
+    \ intervention.   \n \nIntroduction \n \nWater is the most significant resource\
+    \ for each and every living thing and is used \nlargely for the agriculture sector.\
+    \ Agriculture uses around 70% of the world's surface \nwater in irrigating the\
+    \ land to produce crops. Agriculture, which is the sole source of \nhuman food,\
+    \ is the world's main industry and major land use, accounting for 40% of \nall\
+    \ available land. Agriculture has a crucial role in a country's economic \ndevelopment\
+    \ Sah et al. (2018). Furthermore, crop-based food products provide for \n78 percent\
+    \ of global average per capita energy demands, while other food sources \nsuch\
+    \ as eggs, milk, and meat account for the remaining 20% Brevik, Eric (2013). As\
+    \ \na result, the\n95 \n \nessential necessity is to meet the dietary demands\
+    \ of a growing population, which \ncan only be met by increasing agricultural\
+    \ productivity. Agriculture and its related \nsectors provide 17 percent of India's\
+    \ gross domestic product, according to the \nMinistry of Statistics and Program\
+    \ Implementation (GDP, for the years 2009 and \n2017). Furthermore, it employs\
+    \ almost two-thirds of India's workforce Deshpande \n(2017). In India, agriculture\
+    \ provides the prime source of income for more than 58 \npercent of rural households,\
+    \ Figure 1 depicts these agricultural dimensions. As a \nresult, progress in the\
+    \ agriculture division is directly linked to the creation of jobs and \nthe reduction\
+    \ of poverty in developing nations Srivastava et al. (2016). Monitoring \nagricultural\
+    \ activities is the most required necessity of today for minimizing human \nintervention\
+    \ in the field because of the scarcity of labour and urbanization. Demand \nfor\
+    \ food is rising on daily basis and meeting it with traditional agricultural practices\
+    \ is \nbecoming increasingly difficult. Agriculture monitoring is a top priority\
+    \ because it \nhelps to reduce labour costs while increasing output which requires\
+    \ to adopt new \ntechnologies and modern practices. \n \n \nFigure 1:  Importance\
+    \ of the agricultural sector for India \n \nVarious monitoring activities in the\
+    \ field of agriculture have been carried out using \nArtificial Intelligence,\
+    \ such as soil monitoring based on soil conditions to encourage \nmulti-cropping\
+    \ by forming zones based on similar properties of soil and to help \nfarmers in\
+    \ taking decisions on the usage of various resources like fertilizers, water,\
+    \ \npesticides based on early disease prediction in the correct amount and at\
+    \ right time. \nToday, technology is spreading its wings in every sector, including\
+    \ agriculture so \nour farmers must be educated and should be motivated to integrate\
+    \ and make use \nof technology as much as possible to increase crop yield by reducing\
+    \ the adverse \nimpact of traditional practices on the environment. Deep learning\
+    \ offers a vast range \nof applications, and its use in industry has advanced\
+    \ dramatically. Deep learning \nhas a distinct benefit over machine learning in\
+    \ that it provides depth to the latter. \nMachine learning paradigm developments\
+    \ are breaking down barriers to required \ndata analyses in many IoT-based applications.\
+    \ Deep learning models have \ndemonstrated outstanding results in a variety of\
+    \ fields, including speech recognition, \nnatural language processing, image recognition,\
+    \ information retrieval, indoor \nlocalization, physiological and psychological\
+    \ state detection, and so on, and these \nservices serve as the foundation for\
+    \ IoT applications Mohammadi et al. (2018). \n96 \n \nWireless Sensor Networks\
+    \ (WSN) and Precision Agriculture (PA) applications bring \ntogether an exciting\
+    \ new area of research that will considerably increase agricultural \nproduction\
+    \ quality, precision irrigation, and cost savings. In addition, the ease of \n\
+    deployment, system maintenance, and monitoring paves the path for WSN systems\
+    \ \nto be accepted in PA. Implementation cost can be reduced and so make WSN a\
+    \ \nmore appealing solution for all kinds of fields and cultivations using the\
+    \ optimized \nmethodologies in selecting the appropriate sensor architecture.\
+    \ Internet of Things \n(IoT) has proven to be useful in real-time data monitoring\
+    \ and can benefit farmers \nthrough a variety of important approaches by selecting\
+    \ the crops according to the \nsoil, amount, and time of fertilization at a particular\
+    \ location for a particular crop, \nweed detection etc. that can help them grow\
+    \ better crops and manage their fields \nmore effectively. As food is the most\
+    \ basic need of any human being, this ultimately \naids in the country's general\
+    \ growth.  \n \nNeed for Precision Agriculture in India \n \nAlarming obstacles\
+    \ to the global food system include global warming, resource \ndepletion, surging\
+    \ food demand, and growing labour prices. However, the difficulties \nare greater\
+    \ and more numerous in India, including small and dispersed land \nholdings, declining\
+    \ productivity, depleting natural resources, seasonal production, \nclimatic fluctuations,\
+    \ lack of an eco-regional approach and stagnant farm incomes. \nA time like these\
+    \ calls for the best possible use of scarce resources, which is where \nnewly\
+    \ developed precision farming technologies can help enhance agricultural \noutput\
+    \ and profitability. \nWith the massive challenges of biotic and abiotic pressures\
+    \ experienced by crops \nand the enormous need for food grain of 480 million tons\
+    \ (Mt) by the year 2050, the \nintroduction and acceptance of contemporary technologies\
+    \ in Indian agriculture is \nunavoidable. \n \nDrawbacks of Precision Agriculture\
+    \ \n● High cost: Farmers may be discouraged from using this farming practice by\
+    \ high \ncapital expenditures. \n● Lack of technical expertise knowledge and technology:\
+    \ Before being used, pre-\ncision agriculture techniques still need professional\
+    \ advice as they are in the initial \nstages of development. \n● Not applicable\
+    \ or difficult/costly for small landholdings: Before the system has \ncollected\
+    \ enough data to be completely implemented, it may take several years for \nsmall\
+    \ landholdings. It is a really challenging undertaking, especially the data collect-\n\
+    ing and analysis. \n● Heterogeneity of cropping systems and market imperfections\
+    \ \nBenefits of Precision Farming for Indian Agriculture \n● In India, improving\
+    \ and expanding the use of precision agriculture technologies can \naid in lowering\
+    \ production costs, raising productivity, and more effectively utilizing \nnatural\
+    \ resources.\n97 \n \n● By enhancing productivity, crop quality, sustainability,\
+    \ profitability, environmental \nprotection, on-farm quality of life, food safety,\
+    \ and rural economic development, it \nhas the potential to revolutionize modern\
+    \ farm management in India. \n● Site-specific uses of irrigation, herbicides,\
+    \ and fertilizers in cotton fields, oil palm \nplantations in South India, and\
+    \ coffee and tea gardens in Eastern India can signifi-\ncantly lower production\
+    \ costs and chemical pollution in the environment. \n● When there are not enough\
+    \ water resources, it can improve irrigation efficiency. \n● Farmers can use forecasting\
+    \ to control issues like pests, illnesses, nutritional defi-\nciencies, and plant\
+    \ diseases. \n● Furthermore, it increases the sector's opportunities for skilled\
+    \ employment and intro-\nduces new techniques for assessing multifunctional factors\
+    \ such as non-market \nfunctions. \n● It plays a crucial part in keeping track\
+    \ of greenhouse conditions in farming areas. \n \nPolicy Approach to Promote Precision\
+    \ Farming at Farm Level \n● Determine the markets where crop-specific precision\
+    \ farming can be most effec-\ntively promoted. \n● forming multidisciplinary teams\
+    \ of agricultural scientists from various fields, engi-\nneers, manufacturers,\
+    \ and economics to research the whole use of precision agri-\nculture \n● Give\
+    \ the farmers full technological support so they may create prototypes or models\
+    \ \nthat can be copied on a wide scale. \n● Farmers' fields should be the subject\
+    \ of a pilot study to demonstrate the effective-\nness of precision agriculture.\
+    \ \n● educating farmers on the effects of using unbalanced levels of agricultural\
+    \ inputs \nsuch as irrigation, fertilizer, insecticides, and pesticides \n \n\
+    State of Precision Farming in India Compared to rest of the world \n● Although\
+    \ precision farming is thought to have originated in the US, it has since \nspread\
+    \ throughout the world due to its advantages in terms of lower costs and in-\n\
+    creased productivity.  \n● European countries like the UK, Germany, France, and\
+    \ the Netherlands have \nadopted precision agriculture to maximize the use of\
+    \ fertilizer and pesticides and \nboost output.  \n● This trend has been further\
+    \ fuelled by environmental concerns. Countries like Can-\nada, Australia, Argentina,\
+    \ and Brazil are putting precision farming principles into re-\nality due to the\
+    \ necessity for a sustainable farming system.  \n● Asia, China, and India are\
+    \ among the nations experimenting with precision farming \ndue to their growing\
+    \ populations, limited landholdings, and rising labour expenses\n98 \n \n \n●\
+    \ Even though this technology has the potential to be successful, it is still\
+    \ in its infancy \nin India. To get this idea out to Indian farmers, organizations\
+    \ like Trimble, Tata \nKisan Kendra (TKK), and Fasal, among many others, are working.\
+    \ TKK, a project     \nstarted by Tata Chemicals Limited (TCL), aims to move rural\
+    \ India away from anti-\nquated farming methods and toward the satellite and IT\
+    \ era. The TKKs deliver \nTCL's extension services to farmers, employing remote\
+    \ sensing to evaluate soil \nconditions, look at crop health, look for insect\
+    \ infestations, and predict crop yield. \nThey help farmers quickly adjust to\
+    \ changing conditions, which increases crop yield \nand increases farmers' income.\
+    \ \n \n● Precision farming is being aggressively implemented by the Tamil Nadu\
+    \ Precision \nFarming Project to cover a bigger geographic region.  \n● Despite\
+    \ initial hostility from the farmers, its programs for drip irrigation and crop\
+    \ pro-\nduction have received widespread acceptance (Mandal 2009) \n● The Central\
+    \ Potato Research Station's (CPRS) investigation of the role of remote \nsensing\
+    \ in mapping the variability with regard to place and time (Shanwad 2004) will\
+    \ \naid in the local farming of potatoes. \n● The Dindigul area of Tamil Nadu\
+    \ has been chosen by the M S Swaminathan Re-\nsearch Foundation in cooperation\
+    \ with NABARD for the experimentation of Variable \nRate Input Application (Shanwad\
+    \ 2004). \n● Precision farming methods are being tested at the institution farm\
+    \ of the Indian Agri-\nculture Research Institution. \n● Variable Input Application\
+    \ in Different Cropping Systems has been started by Pro-\nject Directorate for\
+    \ Cropping Systems Research (PDCSR), Modipuram and Meerut \n(UP), in Collaboration\
+    \ with Central Institute of Agriculture Engineering (CIAE), Bho-\npal. \n \nChallenges\
+    \ in Adopting Precision Agriculture in India \n \n●  Due to its distinct pattern\
+    \ of land ownership, \n●  inadequate infrastructure, \n●  lack of farmers' willingness\
+    \ to take on the risk, \n●  social and economic circumstances, and demographic\
+    \ circumstances, the adoption \nof precision farming in India is still in its\
+    \ infancy. \n \nMost of the Indian agriculture is carried out on small parcels\
+    \ of land, which restricts \nthe economic benefits of precision farming equipment\
+    \ that is already in use and \ntherefore, the farmers of developing nations like\
+    \ India, Brazil, and China rely on \ntraditional farming rather than tech-driven\
+    \ farming practices. \nFor the Indian agricultural industry, the successful development\
+    \ and wide-scale \napplication of precision agricultural technologies is still\
+    \ a long way off. Such smart \nfarming concepts would enable the Indian agro-industry\
+    \ to undergo a transformation \nthanks to the nation's expanding IT sector and\
+    \ extensive research in the agriculture \nsector.\n99 \n \nThe need for automation\
+    \ in the agricultural sector is very essential, and there are \nnumerous ways\
+    \ to put it into practice. Irrigation is the first area where automation is \n\
+    required for efficient water use. The soil moisture sensor monitors the moisture\
+    \ level \nof the soil and begins watering the farm when the value falls below\
+    \ the farmer's \nchosen threshold based on the type of crop and its age. The embedded\
+    \  system \nand the Internet of Things have aided in the development of a small\
+    \ system that \nmonitors the farm's water level without the need for human intervention.\
+    \ The \nInternet of Things is mostly used in intelligent watering systems. As\
+    \ efficient use of \nexisting fresh water is critical, and the water problem can\
+    \ be resolved with \nadvancements in technology and the application of automation\
+    \ Ahmed et al. (2021). \n \nNovelty: A rainfall prediction device prototype is\
+    \ introduced which is integrated with \ncommon and affordable sensors to sense\
+    \ atmospheric parameters and with a USB \ncamera to capture sky images on a raspberry\
+    \ Pi where a rain prediction model \nbased on a machine learning model that take\
+    \ input temperature, pressure and \nrelative humidity as input and Deep learning\
+    \ model that works on cloud images to \npredict rainfall. Edge analytics is used\
+    \ to avoid the use of WIFI or the internet so the \nprediction of rainfall based\
+    \ on both models is given at the device level itself where \nthe input parameters\
+    \ are sensed. The novelty of the device is that it can be used in \nmany decision-making\
+    \ activities where rainfall plays a major role. It is used for \nnowcasting without\
+    \ the help of any internet or WiFi. 5V of power is required to \nswitch on the\
+    \ device and is portable.  \n \nPrecision irrigation is a critical step toward\
+    \ achieving food productivity and security \nwhile simultaneously implementing\
+    \ water-preserving techniques to overcome the \nunpredictable nature of rainfall\
+    \ and the impact of a water shortage caused by \nphenomena like drought in various\
+    \ regions of the world. The aim of Precision \nirrigation scheduling is to provide\
+    \ the proper amount of water to each plant at the \nright time to overcome the\
+    \ water loss caused by a process such as soil erosion, \ndeep percolation, or\
+    \ evapotranspiration while avoiding excess- and insufficient \nirrigation, Benyezza\
+    \ et al. (2018), Devanand Kumar et al. (2020), Bigah et al. \n(2019), Gu et al.\
+    \ (2020). Irrigation Management is a key process in saving water \nconsumption\
+    \ and other indirect expenditures occurred from other sources of energy \nlike\
+    \ electricity or fossil fuel for operating pumps with good irrigation management\
+    \ \nthrough proper monitoring for optimal cost-effectiveness Togneri et al. (2019),\
+    \ \nCáceres et al. (2021). The use of artificial neural networks for an estimate\
+    \ and \nmodelling the non-linear characteristics of reference evapotranspiration\
+    \ has been \nproposed and explained by Sharma et al. (2016), Kelley et al. (2019),\
+    \ in addition to \nthe importance of precise evapotranspiration estimation in\
+    \ aiding precision irrigation \nmanagement. This approach uses parameters like\
+    \ temperature, humidity, wind \nspeed, and solar radiation and was able to accurately\
+    \ estimate water requirements \nfor the crop that may be used to take appropriate\
+    \ irrigation decisions. Penchalaiah \net al. (2021) created an IoT-based data-driven\
+    \ irrigation system where soil moisture \nis predicted using this method, and\
+    \ the results are compared to predictions from \nother models. The new method\
+    \ is proven to be more effective, and the soil moisture \ncontent shown is promising.\
+    \ Bhoi et al. (2021) present an irrigation recommendation \nthat incorporates\
+    \ machine learning methods like regression tree and Support Vector \nMachine,\
+    \ as well as agglomerative clustering. The system recommended performed \nadmirably\
+    \ on both its own gathered data set and the accessible crop data collection. \n\
+    Risheh et al. (2020) using artificial neural networks and an IoT architecture,\
+    \ created \na dependable system for greenhouse irrigation and demonstrate the\
+    \ superior \n100 \n \nperformance of neural networks compared to the current alternative\
+    \ method of \nsupport vector regression using a dataset gathered by conducting\
+    \ tests on various \nsoils also used transfer learning technique to reduce the\
+    \ processing power and   \nspeed up the training. Mehra et al. (2020) proposed\
+    \ an intelligent IoT-based \nhydroponic system using Deep Neural Networks. A prototype\
+    \ for  Tomato plant \ngrowth as a case study was developed using Arduino, Raspberry\
+    \ Pi3 and Tensor \nFlow based on the numerous input parameters obtained, the system\
+    \ as created is \nsophisticated enough to provide the proper control action for\
+    \ the hydroponic \nenvironment. In order to achieve irrigation optimization with\
+    \ weather and soil \nconditions as key components, Difallah et al. (2017) created\
+    \ a linear programming \nmodel combined with a knapsack decisional form. The findings\
+    \ showed a reduction \nin water use of 28.5%. Better optimization would emerge\
+    \ from taking into account \nadditional important extrinsic elements such as relative\
+    \ humidity, soil nutrients, wind \nspeed, and sunshine length. In Alibabaei et\
+    \ al. (2021) the ANN controller is used to \ncalculate the error by comparing\
+    \ the target soil moisture content to the actual soil \nmoisture content, and\
+    \ based on that calculation, the valves were opened and \nclosed. An Internet\
+    \ of Things (IoT)-based wireless sensor network (WSN) \narchitecture was created\
+    \ by Kamaruddin et al. (2019) and it monitors and manages \nthe irrigation system\
+    \ either manually or automatically. The communication network \ntransceiver and\
+    \ CPU used in the suggested manner were NRF24L01 and will be \nused to transmit\
+    \ the soil moisture sensor data to the base station. The data from the \nsensor\
+    \ node will then be transmitted via the base station to the cloud server. For\
+    \ the \npurpose of connecting to an Android application and storing all the data\
+    \ in a \ndatabase, this project used Thing speak as a cloud server., Kanmani et\
+    \ al. (2021), \nwhere Deep Learning models are frequently utilised for image and\
+    \ sound \nprocessing, deep learning models have greatly improved the state-of-the-art.\
+    \ \n \nProposed system \nAn automated irrigation system is proposed that works\
+    \ with sensors and sense \natmospheric parameters, soil moisture and capture sky\
+    \ image to know the types of \nclouds present to predict the rainfall whether\
+    \ it will be no rain, low to medium rain or \nmedium to high rain which will help\
+    \ in making decision on the time for which motor \nshould kept on. As shown in\
+    \ Figure 2, the rain prediction model combines machine \nlearning model using\
+    \ parameters from the atmosphere (temperature, relative \nhumidity, atmospheric\
+    \ pressure) and deep learning technique (by giving input as \nsky/cloud image)\
+    \ to predict the intensity of rain.  \n101 \n \n \n \nFigure 2:  Rain prediction\
+    \ device model   \n \nThe working process is presented in the form of an algorithm\
+    \ as shown in Figure 3, \nwhere soil moisture is recorded continuously and once\
+    \ it reaches a nearby \nthreshold it triggers a rain prediction model by sensing\
+    \ atmospheric parameters \nusing sensors that are integrated with Raspberry Pi\
+    \ along with the integrated USB \ncamera which gets activated and captures live\
+    \ images of the sky. \nNext, the atmospheric parameters temperature, relative\
+    \ humidity and atmospheric \npressure are provided to the machine learning model\
+    \ as input, the Random Forest \nalgorithm is trained on the dataset based on Hyderabad\
+    \ city which is collected from \nthe NASA Power Data Viewer for Daily Data, that\
+    \ contains a variety of climate \ncharacteristics. The most important ones, however,\
+    \ are selected, and the data is \ntaken for a 40-year period between May 1981\
+    \ and 2021. Given that there are \ntypically 64–65 rainy days per year, a large\
+    \ period is used to gather enough data \nand is used to predict the rainfall.\
+    \ The dataset is manually downloaded and created \nas per the requirements as\
+    \ well as experimented by Geeta Ambildhuke and Barnali \nGupta Banik (2022). At\
+    \ the same time, the images of the sky/cloud are fetched as \nan input to the\
+    \ deep learning model trained on a ground-based cloud dataset to get \nthe rainfall\
+    \ prediction based on the types of clouds present in the sky at that time is \n\
+    also demonstrated by Ambildhuke, Geeta Mahadeo, and Barnali Gupta (2021). \n \n\
+    \ \n102 \n \n \n \nFigure 3:  Algorithm for automatic water balance irrigation\
+    \ model powered by \nrain prediction   \nOnce the inputs are given to the machine\
+    \ learning model and deep learning model \nthe output is given as the intensity\
+    \ (as probability) of rain, whether it will be No rain \nto Low Rain, Low to Medium\
+    \ Rain or Medium to High rain and then depending on \nthe rainfall prediction\
+    \ the motor will be ON and irrigate the field for particular time as \nshown in\
+    \ Figure 4.  \n \n \n \n \nFigure 4:  Workflow of the automatic Irrigation model\
+    \   \n \n103 \n \nMethodology \n \nThe state of the soil water for an irrigated\
+    \ crop must be monitored on a regular basis \nto assist the irrigation manager\
+    \ in making irrigation decisions. Irrigation scheduling \nis typically accomplished\
+    \ in one of two ways. One method is to use soil moisture \nsensors to monitor\
+    \ soil water directly. On the other hand, the soil-water balance \nstrategy, uses\
+    \ weather data to account for soil-water in the rooting depth. Weather-\nbased\
+    \ or evapotranspiration (ET) based irrigation scheduling or water balancing \n\
+    method are common terms for this method. \n \nEvapotranspiration \nIn a farm environment,\
+    \ ET offers an objective and reliable estimate of the water \nrequirements of\
+    \ actively growing crops. Irrigators can better schedule irrigations \nusing evapotranspiration\
+    \ data resulting in higher yields and higher water \nproductivity. \nET is described\
+    \ as the cumulative process of evaporation from soil and plant \nsurfaces, as\
+    \ well as transpiration from plant canopies to the atmosphere via the \nstomates\
+    \ (tiny holes on the leaf surface). Water is released in the form of water \n\
+    vapor from the plant surfaces and soil into the atmosphere as part of the ET \n\
+    process. Advanced approaches can be used to directly measure crop ET. However,\
+    \ \nthe most typical approach of predicting the ET rate for a specific crop involves\
+    \ first \ncomputing reference ET0 and then using the appropriate crop factors\
+    \ to determine \nreal crop ET explained in Antonopoulos et al. (2017). \nThe formula\
+    \ for determining the water need is discussed in Eq. (1) based on \nagricultural\
+    \ literature.  \nET0 * Kc= Wrequired or (ETc)            \n \n (1),  \nWhere,\
+    \ Wrequired denotes the amount of water required.  \nWhere ET0 is the reference\
+    \ evapotranspiration - which is the evapotranspiration \nfrom a reference crop\
+    \ and is calculated using standardized Penman-Monteith \nequation and Kc is the\
+    \ crop factor. Kc varies by crop development stage as \nelaborated in Djaman et\
+    \ al.(2018). \n \nTechnology Used \n \n Deep Learning Model is implemented to\
+    \ get the prediction from the cloud images \ncaptured that uses a transfer learning\
+    \ approach to train the pretrained model on \nnew dataset of cloud images. Machine\
+    \ learning models are trained on three \natmospheric temperatures, humidity and\
+    \ pressure to get rain prediction and \nRandom Forest Model is selected due to\
+    \ its good accuracy and predictions. The \nmain feature of this device is the\
+    \ use of Edge analytics where the collection of data, \nprocessing of data and\
+    \ predicting output and automation is all done at the device \nlevel that does\
+    \ not require any cloud infrastructure and internet connectivity so can \nbe used\
+    \ at any remote location without internet and requires only a power of 5V to \n\
+    start the device as demonstrated by Geeta Ambildhuke and Barnali Gupta Banik \n\
+    (2022). \n \nSoftware Use \n \nPython code is used to build the DL Model and also\
+    \ to get the sensor data collected \nfrom the sensors connected to the Raspberry\
+    \ Pi device. Because the Deep \nLearning model and machine learning models were\
+    \ trained on Python 3, all  \n \n104 \n \nsupporting libraries with the required\
+    \ versions Keras 2.4.3, Tensor Flow-2.4.0-rc2, \nScikitlearn-0.20.2, and OpenCV\
+    \ -4.5.3 were installed.    \n \nDevice Setup \nThe device consists of Raspberry\
+    \ Pi which is the controller that has a trained \nmachine learning model (pickle\
+    \ file) and deep learning model (.h5 file). To collect \nthe real data, sensors\
+    \ like DHT11, BMP 180, USB Camera, are connected for the \nprediction of rainfall\
+    \ along with motor and soil moisture sensor. This is used to \nautomate the irrigation\
+    \ process without any intervention of the farmer and this \ndevice does not require\
+    \ any cloud platform and WIFI as the input collection, running \nmodels and giving\
+    \ prediction is all done at the device level itself. The specification \nof DHT11\
+    \ and BMP180 sensors are shown in Table 1 and Table 2. \nAs BMP180, OLED Display\
+    \ are I2C devices, they are connected to Raspberry \nthrough I2C interface available\
+    \ on board. I2C devices have their unique address \nand can access the modules\
+    \ through these unique address for sending and \nreceiving the data. \n \nTable\
+    \ 1:  DHT11 sensor specifications                          \n \n \n \n \n  \n\
+    \ \n \n \n \n \nTable 2:  BMP180 sensor specifications \n \n \n \n \n \n \n \n\
+    As Raspberry PI does not have analog data pins, to read the soil moisture data,\
+    \ an \nanalog-to-digital converter module ADS1115 is used for converting the soil\
+    \ moisture \nvalues received from the soil moisture voltage values to analog values.\
+    \ Analog to \nDigital Converter (ADC) used here is an I2C device and the module\
+    \ is connected to \nI2C pins on the Raspberry Pi board. Through I2C communication\
+    \ the data is read \nand processed as per the requirement of the application.\
+    \ Once the soil moisture \nsensor values cross a threshold value, then the prediction\
+    \ is taken and switch the \n5V water pump ON/OFF accordingly which is controlled\
+    \ by a motor driver shield. \n \nThe sensors are chosen based on their simplicity\
+    \ and affordability and are working \nvery well with the device and captures input\
+    \ data from the atmosphere as the \nrequirements. Different temperature sensors\
+    \ are available some of which are \ncompared based on some properties as shown\
+    \ in Table 3. \nDHT11 Sensor \nSpecifications \nTemperature range \n0°C to 50°C\
+    \ \nHumidity range \n20% to 90% \nOperating power \n3.5V to 5.5V \nAccuracy \n\
+    ±1°C and ±1% \nPrice \n$4 to $ 5 \nBMP180 Sensor \nSpecifications \nPressure range\
+    \ \n300 hPa to 1100 hPa \nOperating power \n3.5V to 5.5V \nAccuracy \n± 0.2 hPa\
+    \ \nPrice \n$3 to $ 4 \n \n105 \n \nTable 3: Comparison between similar temperature/humidity\
+    \ sensors \n \nSensor \n \nDHT11 \nDHT22 \nSHT71 \nParameters \nMeasured \nTemperature,\
+    \ \nHumidity \nTemperature, \nHumidity \nTemperature, \nHumidity \nVoltage required\
+    \ \n3.5 to 5.5 V \n3.5 to 6 V \n2.4 to 5.5 V \nTemperature range \n0°C to 50°C\
+    \ \n-40 °C to 80°C \n-40 °C to \n123.8°C \nHumidity range \n20% to 90% \n0% to\
+    \ 100% \n0% to 100% \nAccuracy \n±2°C and ±2% \n±0.5°C and ±1% \n±0.4°C and ±3%\
+    \ \nresponse speed \nSlow \nFast \nFastest \npower \nConsumption \nHigh \nLow\
+    \  \nLowest \nPrice \n$4 to $5 \n$4.99 to $ 9.99 \n$30 to $40 \n \nMany researchers\
+    \ used different controllers and successfully implemented \nautomatic irrigation\
+    \ models with different sensors and weather data from nearby \nweather stations.\
+    \  For the data collected and analysed as shown in Figure 5 the \nArduino UNO\
+    \ is the most popular node for irrigation automation and monitoring, \nVeerachamy\
+    \ et al. (2022).  For the requirement of the proposed device deep \nlearning and\
+    \ machine learning models need to be run on the device level only \nRaspberry\
+    \ Pi is chosen for the experiment.  \n \n \n \nFigure 5:  Controllers used in\
+    \ precision agriculture for automatic irrigation\n \n106 \n \nResults and Discussion\
+    \ \n \nThe device prototype is made with the IoT components to sense atmospheric\
+    \ \nparameters using sensors like DHT11, BMP 180, USB Camera, and Soil Moisture\
+    \ \nSensor. \n \nArduino-based Soil moisture Sensor is used to monitor the amount\
+    \ of moisture in \nthe soil. Soil moisture level can be determined by the output\
+    \ voltage produced \nbased on resistance. If water is more conductivity will be\
+    \ more and resistance will \nbe less and vice versa. For easy understanding, the\
+    \ output voltage is scaled \nbetween 0-100 values. When the value of Soil moisture\
+    \ is 100, it means the soil is \ncompletely dry García, L.et al. (2020). \n \n\
+    1. Based on the soil nature various threshold values are devised to know the wet-\n\
+    ness using a soil moisture sensor and the motor is allowed to work only \non need.\
+    \ \n \n2. Once the soil moisture value goes near the threshold the rain prediction\
+    \ model \ngets started and the USB camera gets activated to capture the current\
+    \ sky im-\nages and are passed as input to the deep learning model to get the\
+    \ prediction of \nrainfall based on types of clouds present in that location at\
+    \ the current time. \n \n3. Equally, the atmospheric parameters sensed are passed\
+    \ as input to the ma-\nchine learning model to predict the rainfall probability\
+    \ based on the sensed pa-\nrameters at the current location at the current time.\
+    \ \n \n4. Based on the prediction the motor will be ON for the time to fulfil\
+    \ the need of \ncrops by keeping track of rain. \n \nThe device is used for rain\
+    \ prediction before taking the decision on irrigating the \ncrop when soil moisture\
+    \ goes below the threshold. The motor pump and controller \nare connected by the\
+    \ relay. The relay performs the function of a digital switch, \nturning the motor\
+    \ pump ON or OFF in response to commands from the controller. A \n5v Dc motor\
+    \ is used to pump water for the demonstration purpose. The deployment \ncost at\
+    \ initial stage, particularly for small-scale farmers, is one of the key hurdles\
+    \ in \nadopting digital technologies, machine learning and software applications\
+    \ in terms \nof enhancing sustainable precision irrigation. \n \n107 \n \n \n\
+    \ \n \n \n \nFigure 6:  Automatic irrigation using real time parameters \n \n\
+    As depicted in Figure 6. The soil moisture shows little change and remains almost\
+    \ \nconstant after evening hours as there is no significant loss in moisture from\
+    \ the \nplant due to reduced evapotranspiration rate. \nThis necessitates the\
+    \ digitization of the farm process, as well as the usage of \nsensors, actuators,\
+    \ and networking of precision agriculture devices. Water use \nefficiency can\
+    \ be enhanced by better predicting irrigation needs, better matching \ntiming\
+    \ and volume to plant water needs, and adaptively compensating for water loss\
+    \ \nowing to evapotranspiration. This automatic irrigation results in a higher\
+    \ yield while \nutilizing less irrigation and wasting less irrigation water. The\
+    \ system becomes smart \nand can have certain autonomous features for irrigation\
+    \ decision-making as a result \nof the model’s training and ultimate implementation.\
+    \ As a result, most of the \nirrigation stress experienced by farmers and users\
+    \ can be reduced.  \n \nConclusion and Recommendations \n \nNational and international\
+    \ institutes have recognized the notion of climate-smart \nagriculture, and various\
+    \ programmes have been launched to create climate-smart \ntechnologies. However,\
+    \ the adoption and distribution of climate-smart technology, \ntools, and behaviours\
+    \ is still primarily a continuous and complicated process. The \nfarming community\
+    \ can only optimise water usage through the use of smart \nirrigation systems.\
+    \ It is a smart system because of the auto mode, and it may be \nfurther adjusted\
+    \ for application-specific conditions. The integration of smart \ntechnology like\
+    \ deep learning, machine learning and IoT is majorly driving \nagriculture to\
+    \ sustainability and productivity by achieving sustainable precision \nirrigation\
+    \ by controlling the usage of water. To fill the technology gap, adopting best\
+    \ \npractices is crucial, and digital communication is required. Technology diffusion\
+    \ \nheavily relies on agricultural extension, an area where the private sector\
+    \ is \nbecoming more involved.  \n \n108 \n \n \nFor the Indian agricultural industry,\
+    \ the successful development and wide-scale \napplication of precision agricultural\
+    \ technologies are still a long way off. Such smart \nfarming concepts would enable\
+    \ the Indian agro-industry to undergo a transformation \nthanks to the nation's\
+    \ expanding IT sector and extensive Agri-IT research. Rapid \nsocioeconomic developments\
+    \ including urbanization, energy consumption, and \neconomic expansion are opening\
+    \ new possibilities for the use of precision farming \nin India. India should\
+    \ employ technology depending on the demands of the nation's \nsocioeconomic situation\
+    \ rather than blindly embracing the sophisticated precision \nagriculture technologies\
+    \ used by Western nations. \n \nReferences \n \nAhmed, A. A., Al Omari, S., Awal,\
+    \ R., Fares, A., & Chouikha, M. (2021). A       \ndistributed system for supporting\
+    \ smart irrigation using Internet of Things \ntechnology. Engineering Reports,\
+    \ 3(7). https://doi.org/10.1002/eng2.12352  \nAlibabaei, K., Gaspar, P. D., &\
+    \ Lima, T. M. (2021). Crop yield estimation using deep learning \nbased on climate\
+    \ big data and irrigation scheduling. Energies, 14(11), 3004. \nhttps://doi.org/10.3390/en14113004\
+    \ \nAmbildhuke, G. M., & Banik, B. G. (2021). Transfer Learning Approach-An Efficient\
+    \ Method \nto Predict Rainfall Based on Ground-Based Cloud Images. Ingénierie\
+    \ des Systèmes \nd'Information, 26(4).https://doi.org/10.18280/isi.260402 \nAmbildhuke,\
+    \ G., & Banik, B. G. (2022). IoT based Portable Weather Station for  \nIrrigation\
+    \ Management using Real-Time Parameters. International Journal of \nAdvanced Computer\
+    \ Science and Applications, 13(5). \nhttps://doi.org/10.14569/ijacsa.2022.0130533\
+    \ \nBenyezza, H., Bouhedda, M., Djellout, K., & Saidi, A. (2018), November). Smart\
+    \  \nirrigation system based ThingSpeak and Arduino. In 2018 International conference\
+    \ \non applied smart systems (ICASS) (pp. 1-4). IEEE. \nhttps://doi.org/10.1109/icass.2018.8651993\
+    \ \nBhoi, A., Nayak, R. P., Bhoi, S. K., & Sethi, S. (2021). Automated Precision\
+    \ Irrigation  \nSystem Using Machine Learning and IoT. In Intelligent Systems\
+    \ (pp. 275-282). \nSpringer, Singapore. https://doi.org/10.1007/978-981-33-6081-5_24\
+    \ \nBigah, Y., Rousseau, A. N., & Gumiere, S. J. (2019). Development of a steady-state\
+    \  \nmodel to predict daily water table depth and root zone soil matric potential\
+    \ of a \ncranberry field with a subirrigation system. Agricultural Water Management,\
+    \ 213, \n1016-1027. https://doi.org/10.1016/j.agwat.2018.12.024 \nBrevik, E. C.\
+    \ (2013, April). Climate change, soils, and human health. In EGU General  \nAssembly\
+    \ Conference Abstracts (pp. EGU2013-7). \nCáceres, G., Millán, P., Pereira, M.,\
+    \ & Lozano, D. (2021). Smart farm irrigation:  \nModel predictive control for\
+    \ economic optimal irrigation in agriculture. \nAgronomy, 11(9), 1810. https://doi.org/10.3390/agronomy11091810\
+    \ \nDeshpande, T. (2017). State of agriculture in India. PRS Legislative Research,\
+    \ 53(8),  \n6-7. \nDevanand Kumar, G., Vidheya Raju, B., & Nandan, D. (2020).\
+    \ A review on the smart  \nirrigation system. Journal of Computational and Theoretical\
+    \ Nanoscience, 17(9-10), \n4239-4243. https://doi.org/10.1166/jctn.2020.9053\n\
+    \ \n109 \n \n \nDifallah, W., Benahmed, K., Draoui, B., & Bounaama, F. (2017).\
+    \ Linear optimization model \nfor efficient use of irrigation water. International\
+    \ Journal of Agronomy, 2017. \nDjaman, K., O’Neill, M., Owen, C. K., Smeal, D.,\
+    \ Koudahe, K., West, M., ... & Irmak, S. \n(2018). Crop evapotranspiration, irrigation\
+    \ water requirement and water productivity \nof maize from meteorological data\
+    \ under semiarid climate. Water, 10(4), \n405. https://doi.org/10.3390/w10040405\
+    \ \nGarcía, L., Parra, L., Jimenez, J. M., Lloret, J., & Lorenz, P. (2020). IoT-based\
+    \ smart \nirrigation systems: An overview on the recent trends on sensors and\
+    \ IoT systems for \nirrigation in precision agriculture. Sensors, 20(4), 1042.\
+    \ \nhttps://doi.org/10.3390/s20041042 \nGu, Z., Qi, Z., Burghate, R., Yuan, S.,\
+    \ Jiao, X., & Xu, J. (2020). Irrigation scheduling  \napproaches and applications:\
+    \ A review. Journal of Irrigation and Drainage \nEngineering, 146(6), 04020007.\
+    \ https://doi.org/10.1061/(asce)ir.1943-4774.0001464 \nKamaruddin, F., Abd Malik,\
+    \ N. N. N., Murad, N. A., Latiff, N. M. A. A., Yusof, S. K. S., & \nHamzah, S.\
+    \ A. (2019). IoT-based intelligent irrigation management and monitoring \nsystem\
+    \ using arduino. TELKOMNIKA (Telecommunication Computing Electronics \nand Control),\
+    \ 17(5), 2378-2388. http://doi.org/10.12928/telkomnika.v17i5.12818 \nKanmani,\
+    \ R., Muthulakshmi, S., Subitcha, K. S., Sriranjani, M., Radhapoorani, R., & \
+    \ \nSuagnya, N. (2021). March). Modern irrigation system using convolutional neural\
+    \ \nnetwork. In 2021 7th International Conference on Advanced Computing and \n\
+    Communication Systems (ICACCS) (Vol. 1, pp. 592-597). IEEE. \nhttps://doi.org/10.1109/icaccs51430.2021.9441917\
+    \ \nKelley, J., & Pardyjak, E. R. (2019). Using neural networks to estimate site-specific\
+    \  \ncrop evapotranspiration with low-cost sensors. Agronomy, 9(2), 108. \nhttps://doi.org/10.3390/agronomy9020108\
+    \ \nMehra, M., Saxena, S., Sankaranarayanan, S., Tom, R. J., & Veeramanikandan,\
+    \ M.  \n(2018). IoT based hydroponics system using Deep Neural Networks. Computers\
+    \ and \nelectronics in agriculture, 155, 473-486. \nhttps://doi.org/10.1016/j.compag.2018.10.015\
+    \ \nMohammadi, M., Al-Fuqaha, A., Sorour, S., & Guizani, M. (2018). Deep learning\
+    \ for  \nIoT big data and streaming analytics: A survey. IEEE Communications Surveys\
+    \ & \nTutorials, 20(4), 2923-2960. https://doi.org/10.1109/comst.2018.2844341\
+    \ \nPenchalaiah, N., Nelson Emmanuel, J., Suraj Kamal, S., & Lakshmi Narayana,\
+    \ C. V.  \n(2021). IoT Based Smart Farming Using Thingspeak and MATLAB. In ICCCE\
+    \ \n2020 (pp. 1273-1295). Springer, Singapore. https://doi.org/10.1007/978-981-15-\n\
+    7961-5_117 \nRisheh, A., Jalili, A., & Nazerfard, E. (2020)). Smart Irrigation\
+    \ IoT solution  \nusing transfer learning for neural networks. In 2020 10th International\
+    \ Conference on \nComputer and Knowledge Engineering (ICCKE) (pp. 342-349). IEEE.\
+    \ \nhttps://doi.org/10.1109/iccke50421.2020.9303612 \nSah, D., & Devakumar, A.\
+    \ S. (2018). The carbon footprint of agricultural crop  \ncultivation in India.\
+    \ Carbon Management, 9(3), 213-225. \nhttps://doi.org/10.1080/17583004.2018.1457908\
+    \ \nShanwad, U. K., Patil, V. C., & Gowda, H. H. (2004). Precision farming: dreams\
+    \ and realities \nfor Indian agriculture. Map India. \nSingh, R., Singh, H., &\
+    \ Raghubanshi, A. S. (2019). Challenges and opportunities for \nagricultural sustainability\
+    \ in changing climate scenarios: a perspective on \n \n110 \n \nIndian agriculture.\
+    \ Tropical Ecology, 60(2), 167-185. https://doi.org/10.1007/s42965-\n019-00029-w\
+    \ \nTogneri, R., Kamienski, C., Dantas, R., Prati, R., Toscano, A., Soininen,\
+    \ J. P., &  \nCinotti, T. S. (2019). Advancing IoT-based smart irrigation. IEEE\
+    \ Internet of  \nThings Magazine, 2(4), 20-25. https://doi.org/10.1109/iotm.0001.1900046\
+    \ \nVeerachamy, R., Ramar, R., Balaji, S., & Sharmila, L. (2022). Autonomous Application\
+    \ \nControls on Smart Irrigation. Computers and Electrical Engineering, 100, 107855.\
+    \ \nhttps://doi.org/10.1016/j.compeleceng.2022.107855 \n \n"
+  inline_citation: '>'
+  journal: Journal of Agricultural Extension
+  limitations: '>'
+  pdf_link: https://www.ajol.info/index.php/jae/article/download/240462/227336
+  publication_year: 2023
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Automatic Irrigation Model Powered by Smart Rain Prediction Device in India
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

@@ -1,0 +1,1701 @@
+- analysis: '>'
+  authors:
+  - G C S.
+  - Zhang Y.
+  - Koparan C.
+  - Ahmed M.R.
+  - Howatt K.
+  - Sun X.
+  citation_count: '32'
+  description: Site-specific weed management in Precision Agriculture is becoming
+    a popular topic among researchers and farmers. The objective of this study was
+    to classify weeds and crop species using RGB image texture features with the comparison
+    of the Support Vector Machine (SVM) classification model and deep learning-based
+    visual group geometry 16 (VGG16) classification models. A total of 3792 RGB images
+    of crop and weed samples were captured from the greenhouse, including 2271 weed
+    images and 1521 crop images. ReliefF feature selection algorithm was applied to
+    select the most important features for prediction models. The SVM and VGG16 deep
+    learning classifiers were used to classify four weeds (horseweed, kochia, ragweed,
+    and waterhemp) and six crop species (black bean, canola, corn, flax, soybean,
+    and sugar beets). Accuracy, f1-score, and kappa score metrics were used to evaluate
+    model performance and data reliability. The VGG16 model classifiers had outperformed
+    all the SVM model classifiers. The results showed that average f1-scores of the
+    VGG16 model classifier were obtained between 93% and 97.5%. The f1-score value
+    of 100% was obtained for the corn class in the VGG16 Weeds-Corn classifier, which
+    seems outstanding for the corn crop production system. This study shows promising
+    results of using a deep learning algorithm (VGG16) for weed identification in
+    site-specific weed management in precision agriculture.
+  doi: 10.1016/j.jafr.2022.100325
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    View Open Manuscript Outline Highlights Abstract Graphical abstract Keywords 1.
+    Introduction 2. Material and methods 3. Results 4. Discussion 5. Conclusion Declaration
+    of competing interest Acknowledgments References Show full outline Figures (18)
+    Show 12 more figures Tables (10) Table 1 Table 2 Table 3 Table 4 Table 5 Table
+    6 Show all tables Journal of Agriculture and Food Research Volume 9, September
+    2022, 100325 Weed and crop species classification using computer vision and deep
+    learning technologies in greenhouse conditions Author links open overlay panel
+    Sunil G C a, Yu Zhang a, Cengiz Koparan a, Mohammed Raju Ahmed a, Kirk Howatt
+    b, Xin Sun a Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.jafr.2022.100325
+    Get rights and content Under a Creative Commons license open access Highlights
+    • Machine learning (ML) and deep learning (DL) based classifiers were built for
+    six types of crop production systems. • Local binary pattern and Gray Level Co-Occurrence
+    Matrix texture features were extracted for ML. • ReliefF feature selection algorithm
+    was used for machine learning feature engineering. • VGG16 classifiers outperformed
+    the SVM classifiers with an f1-score value of over the 93%. • The highest f1-score
+    value of 100% was obtained for the corn class in the Weeds-Corn VGG16 classifier.
+    Abstract Site-specific weed management in Precision Agriculture is becoming a
+    popular topic among researchers and farmers. The objective of this study was to
+    classify weeds and crop species using RGB image texture features with the comparison
+    of the Support Vector Machine (SVM) classification model and deep learning-based
+    visual group geometry 16 (VGG16) classification models. A total of 3792 RGB images
+    of crop and weed samples were captured from the greenhouse, including 2271 weed
+    images and 1521 crop images. ReliefF feature selection algorithm was applied to
+    select the most important features for prediction models. The SVM and VGG16 deep
+    learning classifiers were used to classify four weeds (horseweed, kochia, ragweed,
+    and waterhemp) and six crop species (black bean, canola, corn, flax, soybean,
+    and sugar beets). Accuracy, f1-score, and kappa score metrics were used to evaluate
+    model performance and data reliability. The VGG16 model classifiers had outperformed
+    all the SVM model classifiers. The results showed that average f1-scores of the
+    VGG16 model classifier were obtained between 93% and 97.5%. The f1-score value
+    of 100% was obtained for the corn class in the VGG16 Weeds-Corn classifier, which
+    seems outstanding for the corn crop production system. This study shows promising
+    results of using a deep learning algorithm (VGG16) for weed identification in
+    site-specific weed management in precision agriculture. Graphical abstract Download
+    : Download high-res image (406KB) Download : Download full-size image Previous
+    article in issue Next article in issue Keywords Deep learningFeature selectionMachine
+    learningPrecision agricultureWeed classification 1. Introduction Weeds are native
+    plants that grow naturally in crop fields. Weeds compete with the crops for resources
+    such as moisture, air, light, and space causing potential yield loss. Therefore,
+    weeds are not wanted in crop fields and must be controlled during crop production.
+    While pre-emergence weed management is possible with cultivators and blanket rate
+    herbicides, post-emergence weed control may be difficult with these techniques
+    because of the crop presence in the field. When not effectively controlled, weeds
+    may cause a yield loss of 34% whereas animal pests and pathogens cause 18% and
+    16% yield loss, respectively [1]. The approximate crop loss rates due to weed
+    presence in common crop fields are between 23% and 44% [1,2]. Studies indicate
+    that timely management of weeds is always crucial to increasing the yield and
+    reducing the soil weed seed bank [3,4]. When it comes to post-emergence weed control,
+    killing the weeds that are around the crop plants may require precession removal
+    or spray to eliminate potential damage to the crop while maintaining effective
+    weed management and reducing the environmental effects. Weed management with manual,
+    biological, mechanical, electrical, and chemical techniques have been used to
+    control weeds from agricultural lands. These techniques are proven to be conventional,
+    industrious, and non-targeted [5]. However, site-specific weed management needs
+    more precise and effective weed control techniques to solve the problems in existing
+    weed control techniques, which include being time-consuming, costly, and labor-intensive
+    by improving system efficacy and reducing system energy input. On the other hand,
+    conventional machinery may not precisely remove the weeds that are within rows.
+    Additionally, the herbicide is applied at a fixed rate covering the entire field,
+    including both crops and weeds without discrimination. Blanket herbicide applications
+    could have more adverse effects on environments than site-specific herbicide applications
+    [6]. Therefore, an herbicide sprayed selectively on concerned regions may reduce
+    environmental concerns as well as input costs while improving precision [7]. Weed
+    identification and classification are the primary steps for achieving effective
+    site-specific weed management. Image-based weed classification is made possible
+    by using machine learning and deep learning algorithms [[8], [9], [10]]. Since
+    machine and deep learning algorithms have also been used in different domains
+    such as facial expression recognition [11], speaker recognition [11], tobacco
+    crop identification [12], meat cuts classification [13], crop yield prediction
+    [14], plant classification [15], and plant disease classification [16], it also
+    has great potential for the weeds classification problem [10,[17], [18], [19]].
+    Weeds can be classified using different types of images such as RGB, hyperspectral,
+    and multispectral. RGB images were used in this study because it is easy to set
+    up the RGB image acquisition system. High resolution images can be acquired using
+    these systems and these images can also achieve higher classification accuracy
+    up to 99% [10]. Support Vector Machine (SVM) is a machine learning algorithm that
+    has been used for weed classification problems due to its high performance with
+    an accuracy of over 97% [[20], [21], [22]]. Machine learning algorithms require
+    feature extraction and feature engineering to achieve higher performance [23].
+    There is evidence of using the features such as texture features, shape features,
+    color features, and cell features for the SVM weeds classification problem % [[20],
+    [21], [22]]. Despite high performance, shape features have some limitations, which
+    is extraction requires special conditions. The special condition is that plants
+    should be at an earlier growth stage so overlapping should not affect sampling
+    accuracy. Therefore texture, color, and cell features are preferred over the shape
+    features when one or more weeds germinate together, and their leaves overlap.
+    Texture features were used in this study because it does not require the shape
+    of the leaves to be perfectly preserved, unlike shape features. For example, shape
+    features such as area, perimeter, or major axis change drastically if some of
+    the plant''s leaves are together as single objects. Texture features like local
+    binary pattern (LBP) define the local spatial structure and the local contrast
+    of the image or part of that image and LBP is widely used due to simple implementation
+    and extraction of proper features with high classification accuracy [24]. Therefore,
+    the leaves'' shape is not required to be in perfect shape for single plants. Deep
+    learning algorithms for weed detection computer vision problems due to higher
+    performance and their ability to extract complex features from images automatically
+    [25] Therefore, in this study, deep learning-based Visual Group Geometry 16 (VGG16)
+    convolutional neural network (CNN) architecture was also used to see performance
+    differences from the machine learning SVM model. The researchers used CNN widely
+    for the weeds and crops detection from RGB images [25]. However, weed detection
+    models were crop-specific or weed-specific based on geographical location [12,17,19,25].
+    Limited researchers have classified and compared multiple crop species with weed
+    species. This study has tried to fulfill the existing research gap on how the
+    weed detection model varies based on different crop production systems in the
+    North Dakota states of the United States. On top of that, some of the weed and
+    crop species used in this study were rarely used by previous researchers. The
+    recent comprehensive survey by Ref. [25] on the use of deep learning for weed
+    detection shows the limited research on the use of waterhemp as weed species.
+    Besides this, there were limited weed detection studies for ragweed, kochia, and
+    horseweed weed species and flax crop species. This study shows the performance
+    of weed detection classifiers based on six types of North Dakota crop production
+    systems. This is required because the use of machine learning and deep learning
+    on different crop production systems and weed species may change the performance
+    of the model. There is a theorem called the “No free lunch theorem” by Ref. [26],
+    which justifies the need for this study. According to the theorem, small changes
+    in datasets to the current datasets cause a change in the statistical nature of
+    the data. This requires new approaches and new model configurations to obtain
+    the best performance. Therefore, studies of algorithms on other crop production
+    weed ecosystems may not correlate with the use of the same algorithms on different
+    crop weed ecosystems. Presently there is limited information on how weed classification
+    performance changes with a variety of crop species. This information is needed
+    because machine learning and deep learning models can behave differently while
+    classifying the species of weeds in the presence of different crop species. The
+    objectives of this research are: 1) classify four weed species (horseweed, kochia,
+    waterhemp, and ragweed) within six crops species (black bean, canola, corn, flax,
+    soybean, and sugar beets) individually using computer vision methods under greenhouse
+    condition and 2) compare support vector machine and deep learning classifier models
+    on various crop and weed species. 2. Material and methods 2.1. Weed and crop image
+    acquisition Weed and crop RGB (red, green, and blue) images were collected in
+    the Waldron greenhouse at North Dakota State University (NDSU) during the spring
+    of 2021 using a Google Pixel 5 mobile (Google Inc, Melon Park, CA) 12.2-megapixel
+    main camera (aperture size: F1.7; focal length: 28 mm; sensor size: 1/2.55; pixel
+    size: 1.4 μm) and 16-megapixel ultra-wide camera (aperture size: F2.2; pixel size:
+    1 μm). The RGB images were collected from weed emergence through 12.5 cm height.
+    Lighting conditions and camera height were not fixed to capture the images, and
+    the images were captured manually over the weed and crop growing period before
+    herbicide application. The image acquisition process ensured that there was a
+    variety of images for building the machine learning classifier. Out of a total
+    of 3792 weed and crop images, 2271 were weed species and 1521 were crop species.
+    Representative images of the weed and crop were shown in Fig. 1. Fig. 2 depicts
+    the count for the images of the individual weed and crop species in a pie chart.
+    This shows that the number of weeds and crop species images were not uniformly
+    distributed. Among all weed species, horseweed had 681 images which was the highest
+    number, whereas waterhemp had 446 images which was the lowest number. Similarly,
+    among all crop species, canola had 336 images which was the highest number, whereas
+    sugar beets had 203 images which was the lowest number. This variation is due
+    to the number of weeds and crop plants available in the greenhouse. Download :
+    Download high-res image (901KB) Download : Download full-size image Fig. 1. Species
+    of weeds (horseweed, kochia, ragweed, and waterhemp) and crops (black bean, canola,
+    corn, flax, soybean, and sugar beets) were captured by a Google Pixel 5 camera
+    from the greenhouse. These images were preprocessed to extract the green component
+    of the image. (For interpretation of the references to color in this figure legend,
+    the reader is referred to the Web version of this article.) Download : Download
+    high-res image (300KB) Download : Download full-size image Fig. 2. Pie chart showing
+    the number of weed and crop images that were used for building the SVM model.
+    Horseweed and waterhemp were weed species with the highest and the lowest number
+    of images respectively whereas canola and sugarbeet were the crops with the highest
+    and the lowest number of images respectively. 2.2. Weeds and crops image classification
+    using machine learning 2.2.1. Weed and crop image preprocessing All images had
+    background noise that needed to be removed before the feature extraction process.
+    Therefore, image processing techniques were used to extract the green component
+    of the image. The excess green index (ExG = 2g-r-b) technique was used to extract
+    green vegetative material. This method was developed by Woebbecke et al. [27]
+    to separate plants and soil in a single image [28]. Woebbecke et al. found ExG
+    technique the best among the several vegetation indices examined due to the clear
+    contrast between plants and soil. To implement the excess green algorithm, ImageJ
+    1.53j software (Wayne Rasband, National Institutes of Health, USA) (https://imagej.nih.gov/ij/)
+    application program interface (API) of java (Oracle Corporation, Austin, TX) was
+    used because it is open-source software for scientific image analysis [29,30].
+    ImageJ libraries API were integrated into the java project using Apache maven
+    software [31]. The excess green threshold value was checked for different random
+    values between 0 and 255 (grayscale values) and the best value was found to be
+    35 for the given image datasets. ExG value was calculated on each RGB pixel in
+    an image. All the pixels with the ExG values less than 35 were from the background
+    and have been removed from the image (Fig. 3). After the ExG extraction, the image
+    was resized to 500*500 pixels to make the feature extraction process efficient
+    and less memory intensive. Download : Download high-res image (654KB) Download
+    : Download full-size image Fig. 3. Weed and crop images (each image with 500 ×
+    500 pixels) were obtained after extracting the green component of the input images
+    using the ExG algorithm. (For interpretation of the references to color in this
+    figure legend, the reader is referred to the Web version of this article.) 2.2.2.
+    Weed and crop image feature extraction Feature extraction steps were performed
+    using python 3.8 (Python Software Foundation, Wilmington, DE) OpenCV, and scikit
+    libraries [32,33] python was used because python had an ecosystem for data science,
+    image analysis, and web application with larger community support. The image obtained
+    from preprocessing steps was converted into a grayscale image using python OpenCV
+    API. Two types of texture features extracted from the grayscale image were local
+    binary pattern (LBP) features and gray-level co-occurrence matrix (GLCM) features.
+    The texture feature extraction technique has been used instead of the shape-based
+    technique because texture features could be proven better when more than two weeds
+    or crops germinate together and overlap each other. Finally, a comma-separated
+    value (CSV) file was written with extracted feature values and labels for data.
+    The flowchart of image processing and feature extraction was shown in Fig. 4.
+    Download : Download high-res image (871KB) Download : Download full-size image
+    Fig. 4. Steps of image preprocessing and feature extraction where background noise
+    was removed from RGB input images using the ExG algorithm, which was followed
+    by image resizing, grayscale conversion, feature extraction, feature selection,
+    and classification respectively. 2.2.2.1. Local binary features extraction Local
+    binary pattern (LBP) features have been proven to be powerful and robust feature
+    extraction techniques in computer vision [22]. This technique was introduced by
+    Wang & He 1990 [34]. The RGB image was converted to the grayscale image before
+    extracting LBP features. To extract LBP texture features, a python scikit-image
+    library was used, which takes the number of points (n) and radius (r) as input
+    parameters. The number of points is the number of circularly symmetric set points
+    quantization of the angular space, whereas radius is the radius of a circle (spatial
+    resolution of the operator). And then histogram was obtained as a feature from
+    binary pattern generated. A combination of 3 sets of parameters was used to generate
+    the feature. Parameter values were set to 8 points and 1 radius (LBP8,1), 16 points
+    and 2 radii (LBP16,2), and 24 points and 3 radii (LBP24,3), which generated points
+    plus 2 (n+2) features. Therefore, LBP8,1, LBP16,2, and LBP24,3 have generated
+    10,18, and 26 features respectively making a total of 54 LBP features. The combination
+    has been chosen because Nguyen Thanh Le et al. (2019) [22] achieved higher performance
+    in their machine learning model rather than choosing the single LBP features vector.
+    2.2.2.2. Gray-level co-occurrence matrix features extraction Gray-level co-occurrence
+    matrix (GLCM) features is a classic texture-based feature extraction techniques
+    introduced by Haralick et al., in 1973 [24,35,36]. The feature generated from
+    this technique is the global representation of the texture, unlike LBP. For GLCM
+    feature extraction python scikit-image greycomatrix and greycoprops libraries
+    were used [33]. For greycomatrix, three parameters including distance, angle,
+    and a number of levels (256 for 8 bit) were set to (1,2,3,4) and (0,45,90,180),
+    and 256 respectively, which generates four-dimension (levels × levels × number
+    of distances × number of an angel) gray-level co-occurrence histogram. These four
+    dimensions were levels, levels, number of distances, and number of angles respectively.
+    And then five types of GLCM features extracted from each crop and weed image were
+    contrast, dissimilarity, area second moment (ASM), energy, and correlation. Each
+    category had 16 features for the combination of distance and angle (4 × 4) parameters
+    making a total of 80 GLCM features. 2.2.3. ReliefF feature selection and machine
+    learning classifier Once the feature extraction was completed, the next step is
+    feature selection. Feature selection algorithms helped to estimate the quality
+    of features. A high number of features increases training time exponentially and
+    the risk of overfitting the model also increases. There were 134 total textures
+    extracted from a single image including both LBP and GLCM features. For feature
+    selection, the ReliefF algorithm was used in this paper [37]. ReliefF is the best-known
+    variant of the Relief algorithm, which is widely used for multiclass problems
+    [38]. This algorithm estimates the ability of features to differentiate all pairs
+    of classes regardless of similarity between classes. To implement this algorithm,
+    python ReliefF API was used, which takes the number of neighbors (k) and the number
+    of features to keep (m) as input parameters. The number of neighbors is used to
+    estimate the top features to classify the pair of classes. In the first step,
+    the classifier was trained with four species of weeds with 10 neighbors and 10,25,40,55,
+    and 70 features to check if the model performs better with increasing number of
+    features. The number of neighbors was set to 10 because it was suggested to put
+    10 based on preliminary empirical testing and this value has been widely adopted
+    as a default setting [38]. An optimum number of features was used for training
+    machine learning classifiers with all four weed species and single crop species.
+    After feature selection, a machine learning classifier was built by using a support
+    vector machine (SVM) algorithm (Fig. 5). For building the model, data were split
+    into 80% for training and 20% for testing using scikit-learn API [39,40]. Testing
+    datasets were not used during the training. Both training and testing data were
+    scaled with StandardScaler scikit-learn API [39,40]. Scaling was performed because
+    performance can be improved significantly [41]. Hyperparameter optimization was
+    performed with radial basis and linear kernel with multiple gamma and regularization
+    (C) values to find the best kernel and best parameters (Table 1). This was performed
+    by GridSearchCV scikit-learn API with 5-fold cross-validation. The SVM classifier
+    was trained and tested for the four weed species alone and four weed species together
+    with individual crop species. This helped to identify the classifier performance
+    when classified together with crops because the final goal in the field is to
+    build a system to classify the weeds in presence of crops. Download : Download
+    high-res image (437KB) Download : Download full-size image Fig. 5. Steps of support
+    vector machine (SVM) model training and testing. Input features obtained after
+    the feature selection were fed as input data, which was split into train and test
+    data sets. Train data was used for training, and test data was used for model
+    performance testing. Table 1. Different parameters for GridSearchCV API to get
+    the best kernel with corresponding gamma and regularization (C) value. SVM kernel
+    gamma C linear N/A 1,10,100,1000,1500 radial 10,1,0.1,0.01,0.001,0.0001,0.00001,0.000001,0.0000001
+    1,10,100,1000,10000,20000 2.3. Weeds and crops image classification using deep
+    learning algorithm After the application of a machine learning algorithm for building
+    the machine learning models, the deep learning (DL) algorithm was used to build
+    deep learning models. The deep learning model was used to see the difference in
+    weed and crop model performance for the same input datasets. Unlike machine learning,
+    deep learning doesn''t need handcraft feature engineering. In this study, Convolutional
+    Neural Network (CNN) Visual Graph Geometry 16 (VGG16) architecture developed by
+    Ref. [42] was used. An input image without preprocessing was randomly divided
+    into the training, validation, and testing datasets in the proportion of 60:20:20.
+    Table 2 shows the number of images in each crop and weed species class for training,
+    validation, and testing datasets. Image without segmentation was used for processing
+    the data because [43] found that the model performed well without background removal
+    in their study. Table 2. The total number of training, validation, and testing
+    images of crop and weed species for building the VGG16 deep learning model. Weeds/Crops
+    Training Validation Testing Total Horseweed (HW) 407 137 137 681 Kochia 281 95
+    95 471 Ragweed (RW) 403 135 135 673 Waterhemp (WH) 266 90 90 446 Black Bean (BB)
+    168 57 57 281 Canola 200 68 68 336 Corn 132 45 45 222 Flax 123 41 41 205 Soybean
+    (SOB) 164 55 55 274 Sugarbeets (SB) 121 41 41 203 Total 2264 764 764 3792 For
+    the training step for weed and crop image data, the model transfer learning approach
+    was used. A VGG16 model already trained on ImageNet datasets with 1000 classes
+    was used, on which most of the convolution and pooling layers were frozen and
+    the output layer was changed to align with the number of classes in training.
+    For building the weeds model, the number of output classes in the outermost layer
+    was set to four and for building weed and crop models, the output class number
+    in the outermost layer was set to five. Fig. 6 shows the frozen and trainable
+    layer used for building DL weed and crop models. For the weeds model, trainable
+    parameters were 100,356 and non-trainable parameters were 14,714,688 whereas,
+    for the crop-weeds model, trainable parameters were 125,445 and non-trainable
+    parameters were 14,714,688. The VGG16 models were trained up to 80 epochs with
+    16 steps per epoch with a batch size of 32. During the model training, the data
+    augmentation technique was used to increase the number of training images. Data
+    augmentation techniques used were shear, shift, flip, rotation, zoom, and flip.
+    Fig. 7 shows the steps of building deep learning models. The model obtained after
+    training and validation were tested on test data to show how the model generalized
+    in unseen test data. For training, validation, and testing of deep learning models,
+    Tensorflow (tensorflow.org) and Keras (keras.io) python API were used. Download
+    : Download high-res image (536KB) Download : Download full-size image Fig. 6.
+    VGG16 architecture with convolutional and pooling layers. Frozen layers were frozen
+    with ImageNet data weights and biases, whereas trainable layers were trained with
+    weed and crop images. Download : Download high-res image (321KB) Download : Download
+    full-size image Fig. 7. The steps of building deep learning models, where input
+    images without background removal were used. Data augmentation was performed for
+    training datasets only to increase the variation in images. 2.4. Weeds and crops
+    image classification performance metrics The performance of the algorithm was
+    evaluated using the accuracy, precision, recall, f1-score, and kappa score. Accuracy
+    is the ratio of correctly predicted observations to the total observations (Equation
+    (1)). Correctly predicted observation is the sum of true positive (TP) and true
+    negative (TN). Total observation is the sum of true positive (TP), true negative
+    (TN), false positive (FP), and false negative (FN). Precision is the ratio of
+    correctly predicted positive observations to the total predicted observations
+    (Equation (2)). A recall is the ratio of correctly predicted positive observations
+    to all observations in the actual class (Equation (3)). F1-Score is the harmonic
+    means of precision and recall (Equation (4)). The highest possible value of the
+    f1-score is 1 indicating high precision and recall value, and the lowest value
+    is 0 representing poor precision or recall value. Kappa score is commonly used
+    in statistics to test interrater reliability, whose values range from −1 to +1
+    [44]. A confusion matrix was used to visualize each crop and weed class prediction.
+    Python scikit-learn libraries were used to evaluate the aforementioned metrics
+    and confusion matrix [39,40]. (1) (2) (3) (4) 3. Results 3.1. Weed and crop image
+    feature selection results using ReliefF For feature selection, multiple values
+    of features were checked with a number of neighbor values of 10. The top 10 most
+    significant features estimated by the ReliefF algorithm were found to be LBP features
+    containing one of LBP8,1, five LBP16.,2, and four LBP16.,3 features respectively.
+    As the number of the most significant features increased by 15 up to 70, the GLCM
+    feature was selected as the top feature when the value of the most significant
+    features number was 40. GLCM features that were inside the top 70 features were
+    contrast dissimilarity, energy, and correlation. Testing accuracy value was increased
+    from 77% to 90% when the number of selected features was increased to 70. When
+    the number of features was 10, the testing score was low, which was increased
+    to 87%, 88%, and 90% for 25, 40, and 55 numbers of features selected, respectively.
+    When the number of features selected was increased from 55 to 70, the testing
+    accuracy value was decreased to 89%. This was due to data overfitting which can
+    be seen clearly while observing the training accuracy which was increased to 95.65%
+    (Table 3). During the overfitting, training accuracy is higher but unseen sets
+    of data presented to the test data of the trained model performed weaker. Table
+    3. Type and number of features selected using ReleifF algorithm and corresponding
+    training accuracy, testing accuracy, and kappa score for four species of weeds.
+    Number of features selected Name and number of each feature Training accuracy
+    (%) Testing accuracy (%) Kappa score Feature name Feature number 10 aLBP8,1 1
+    84.25 77.14 0.69 bLBP16,2 5 cLBP24,3 4 25 LBP8,1 5 93.67 87.25 0.83 LBP16,2 10
+    LBP24,3 10 40 LBP8,1 5 98.9 88.13 0.84 LBP16,2 10 LBP24,3 10 Contrast 11 Dissimilarity
+    3 Correlation 1 55 LBP8,1 5 94.88 90.11 0.87 LBP16,2 14 LBP24,3 15 Contrast 15
+    Dissimilarity 4 Correlation 2 70 LBP8,1 7 95.65 89.23 0.85 LBP16,2 14 LBP24,3
+    15 Contrast 16 Dissimilarity 7 Correlation 2 Energy 9 a LBP8,1 is local binary
+    pattern features with 8 points and radius value equal to 1. b LBP16,2 is local
+    binary pattern features with 16 points and radius value equal to 2. c LBP24,3
+    is local binary pattern features with 24 point and radius value equal to 3. Similarly,
+    the kappa score was changed from 0.69 to 0.87 when the number of features selected
+    was increased from 10 up to 70. Moreover, the kappa score was increased to 0.83,
+    0.84, and 0.87 for 25, 40, and 55 features selected, respectively. The number
+    of features selected was also increased to 70, but the kappa score (0.85) was
+    also decreased. A kappa score between 0.6 and 0.79 is considered a moderate level
+    of agreement with 35–63% of reliable data whereas a kappa score between 0.8 and
+    0.9 is considered a strong level of agreement with 64–81% of reliable data [44].
+    Therefore, when the number of features was 10, results show a moderate level of
+    agreement, which increased to a strong level of agreement after 25 features. This
+    might be due to not being able to capture the required feature attributes for
+    classification when the selected features were 10. However, the kappa score value
+    decreased when it was 70 due to data overfitting. Therefore, 55 features were
+    used for building the SVM classifiers to classify the crop in presence of four
+    species of weeds. 3.2. Classification of four weeds using machine learning and
+    deep learning algorithms For the SVM classifier, out of two kernels (linear and
+    radial basis) used for hyperparameter optimization, the radial kernel was obtained
+    as the best performing kernel by GridSearchCV scikit-learn API. Corresponding
+    values of regularization (C) and gamma were obtained as 1000 and 0.001, respectively.
+    Table 4 shows the precision, recall, f1-score, and accuracy of the SVM and VGG16
+    classification model for test data sets. For SVM model performance, ragweed has
+    a precision of 95% whereas, horseweed has a precision of 93%. However, the recall
+    value for ragweed is 90% which is lower than the horseweed recall value of 96%.
+    When precision metrics are considered, ragweed performed better than horseweed
+    but, when recall metrics were considered, horseweed performed better than ragweed.
+    In such cases, f1-score is suitable, which is the harmonic means of precision
+    and recall. When the performance was compared in terms of the f1-score between
+    horseweed and ragweed, horseweed performed better with 94% than ragweed with 92%.
+    The VGG16 model performed better with the weighted average f1-score value of 97%
+    than the SVM model with a weighted average f1-score of 90%. For imbalanced sets
+    of classes, the weighted average is appropriate. For the SVM model, f1-score value
+    ranges from 85% (kochia) to 94% (horseweed), whereas for VGG16 f1-score ranges
+    from 94% (kochia) to 99% (horseweed). Table 4. Precision, recall, and f1-score
+    values SVM and VGG16 weeds model. Empty Cell Precision Recall F1-score Total images
+    SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Horseweed 0.93 0.99 0.96 1.00 0.94 0.99
+    137 137 Kochia 0.87 0.92 0.84 0.96 0.85 0.94 94 95 Ragweed 0.95 0.99 0.90 0.96
+    0.92 0.97 135 135 Waterhemp 0.83 0.97 0.89 0.96 0.86 0.96 89 90 Macro avg 0.89
+    0.97 0.90 0.97 0.89 0.97 455 457 Weighted avg 0.90 0.97 0.90 0.97 0.90 0.97 455
+    457 The confusion matrix gives a summary of the classification model performance.
+    Fig. 8 shows the confusion matrix of the weed species classification model for
+    both SVM and VGG16 models. The confusion matrix table underpinned the f1-score
+    results for both models. In SVM model confusion matrix, prediction accuracy was
+    below 90% for three weed classes except for horseweed (95.6%). However, in the
+    VGG16 model, the prediction accuracy for the four weeds class was above 95% with
+    100% prediction accuracy in horseweed. Horseweed performed better than the remaining
+    three weed species in both SVM and VGG16 models. However, in deep learning VGG16
+    backbone learned complex features using convolution and pooling layers increasing
+    the performance for all the classes. Download : Download high-res image (285KB)
+    Download : Download full-size image Fig. 8. SVM and VGG16 model confusion matrix
+    for weeds species (HW: Horseweed, RW: Ragweed, WH: waterhemp). (a) SVM model confusion
+    matrix (b) VGG16 model confusion matrix. Furthermore, confusion metrics give clear
+    pictures of prediction errors on unseen test datasets. For the SVM model, kochia
+    had the lowest prediction accuracy because 9.6% of the kochia images were misclassified
+    as waterhemp, 5.32% of kochia images were misclassified as ragweed, and 1.06%
+    of kochia images were misclassified as horseweed. However, in VGG16, waterhemp,
+    and ragweed had the lowest prediction accuracy out of four classes, where greater
+    than 3% of ragweed and waterhemp images were misclassified as kochia. Low prediction
+    accuracy for kochia in the SVM model might be due to the higher misclassification
+    of kochia as waterhemp. Prediction accuracy for all weed species and misclassification
+    can be observed in Fig. 8. 3.3. Classification results of weeds in presence of
+    crops using machine learning and deep learning models 3.3.1. Classification of
+    weeds in presence of black bean Black bean images were trained together with the
+    four species of weeds. During the hyperparameter optimization steps of the model,
+    regularization values C and gamma were obtained as 10000 and 0.001 respectively
+    for radial basis SVM kernels. Testing was performed on test images for both SVM
+    and VGG16 models. Table 5 shows the precision, recall, and f1-score value for
+    both SVM and VGG16 weeds-black bean models. Table 5. Precision, recall, and f1-score
+    values SVM and VGG16 weeds-black bean model. Empty Cell Precision Recall F1-score
+    Total images SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Black bean 0.91 0.90 0.93
+    1.00 0.92 0.95 56 56 Horseweed 0.93 0.99 0.94 0.99 0.94 0.99 137 137 Kochia 0.79
+    0.97 0.84 0.89 0.81 0.93 94 95 Ragweed 0.92 0.96 0.89 0.99 0.90 0.97 135 135 Waterhemp
+    0.85 0.94 0.81 0.90 0.83 0.92 89 90 Macro avg 0.88 0.95 0.88 0.96 0.88 0.95 511
+    513 Weighted avg 0.89 0.96 0.88 0.96 0.88 0.96 511 513 For the weeds-black bean
+    model, the VGG16 deep learning model outperformed the SVM model (88%) with an
+    overall weighted average f1-score of 96%. When comparing each class''s f1-score,
+    all classes had a higher f1-score for the VGG16 model than for the SVM model.
+    For the SVM model, f1-score value ranges from 81% (kochia) to 94% (horseweed),
+    whereas for VGG16 model f1-score value ranges from 92% (waterhemp) to 99% (horseweed).
+    F1-score for black bean was above 90% for both models, where the black bean f1-score
+    was the second highest for the SVM model after the horseweed and the third highest
+    for the VGG16 after the horseweed and ragweed. The ragweed performed better in
+    the VGG16 model than the SVM model because VGG16 features extraction considered
+    the complex features in distinguishing the weeds and crops. Furthermore, results
+    from Table 5 were underpinned by the confusion matrix in Fig. 9. Fig. 9a shows
+    the confusion matrix for the SVM model, whereas Fig. 9b shows the confusion matrix
+    for VGG16. In terms of the prediction accuracy from the confusion matrix, the
+    VGG16 model surpassed the SVM model performance. In the SVM model confusion matrix,
+    prediction accuracy ranges from 80.9% (Waterhemp) to 94.2% (Horseweed), whereas
+    in the VGG16 model confusion matrix, prediction accuracy value ranges from 89.5%
+    (kochia) to 100% (black bean). In the SVM model confusion matrix, black bean prediction
+    accuracy was 92.9%, which is the second highest after the horseweed, whereas VGG16
+    models had 100% prediction accuracy for the black bean. This is the evidence where;
+    the class has 100% accuracy but a lower f1-score (95%). If someone builds a weed
+    detection system based on accuracy, the model identifies all the black bean images
+    100% correctly and does not spray the chemical, which is good. However, the model
+    will skip 1.05% of kochia and 5.56% of waterhemp due to the misclassification
+    of kochia and waterhemp as black beans leaving the weeds behind unsprayed. Therefore,
+    the f1-score metric is the robust metric over the accuracy metric due to the robust
+    interpretation of the results. Download : Download high-res image (331KB) Download
+    : Download full-size image Fig. 9. SVM and VGG16 model confusion matrix for weeds
+    species and black bean (BB: Blackbean, HW: Horseweed, RW: Ragweed, WH: waterhemp).
+    (a) SVM model confusion matrix (b) VGG16 model confusion matrix. 3.3.2. Classification
+    of weeds in presence of canola When canola was trained with weeds, the radial
+    basis function was obtained as the best kernel with regularization and gamma values
+    of 10000 and 0.001, respectively for the SVM model. Table 6 depicted the precision,
+    recall, and f1-score value of canola and four weed species for both SVM and VGG16
+    models. For the weeds-canola model VGG16 model with a weighted average f1-score
+    value of 95% outperformed the SVM model with a weighted average f1-score value
+    of 88%. The f1-score value ranges between 81% and 93% for the SVM model, whereas
+    the f1-score value ranges between 88% and 99% for the VGG16 model. For both models,
+    kochia had the lowest f1-score value, whereas horseweed had the highest f1-score.
+    In the case of SVM, both precision and recall values of kochia were low causing
+    the lower f1-score. However, in the case of the VGG16 model, the recall value
+    was lower than the precision value, making a low f1-score in kochia. Canola''s
+    f1-score value for the VGG16 model was greater than the SVM model. Table 6. Precision,
+    recall, and f1-score values SVM and VGG16 weeds-canola model. Empty Cell Precision
+    Recall F1-score Total images SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Canola 0.91
+    0.96 0.96 1.00 0.93 0.98 67 68 Horseweed 0.93 0.99 0.93 0.99 0.93 0.99 137 137
+    Kochia 0.82 0.95 0.82 0.82 0.82 0.88 94 95 Ragweed 0.90 0.96 0.87 0.99 0.88 0.97
+    135 135 Waterhemp 0.80 0.87 0.82 0.93 0.81 0.90 89 90 Macro avg 0.87 0.94 0.88
+    0.94 0.88 0.94 522 525 Weighted avg 0.88 0.95 0.88 0.95 0.88 0.95 522 525 Moreover,
+    the models’ performance results in Table 6 are underpinned by the Fig. 10 confusion
+    matrix. The reason behind the lower f1-score in kochia can be depicted in the
+    confusion matrix, which is due to the higher misclassification of kochia as other
+    classes and higher misclassification of other classes as kochia class. When comparing
+    the confusion matrix for the SVM model and the VGG16 model, 95.5% of the canola
+    images were correctly predicted in the SVM model whereas, 100% of the canola images
+    were correctly predicted in the VGG16 model. Canola prediction accuracy was 100%
+    for the VGG16 model but, the canola f1-score was 98% because horseweed and waterhemp
+    images were wrongly predicted as canola, which is depicted in Fig. 10b. Download
+    : Download high-res image (328KB) Download : Download full-size image Fig. 10.
+    SVM and VGG16 model confusion matrix for weeds species and canola (HW: Horseweed,
+    RW: Ragweed, WH: waterhemp). (a) SVM model confusion matrix (b) VGG16 model confusion
+    matrix. 3.3.3. Classification of weeds in presence of corn When corn and weeds
+    images were trained together, radial basis function with C value 10000 and gamma
+    value 0.001 was obtained as the best parameter during the hyperparameter optimization
+    in SVM model training. Table 7 depicted both SVM and VGG16 models'' performance
+    in terms of f1-score value. For the corn model, VGG16 with the weighted average
+    f1-score value of 97% outperformed the SVM model with a weighted average f1-score
+    value of 89%. The SVM model classes'' f1-score value ranged between 83% and 99%,
+    whereas the VGG16 model classes’ f1-score value ranged between 94% and 100% (Table
+    7). Kochia and waterhemp had the lowest f1-score value of 83% for the SVM model,
+    and kochia only had the lowest f1-score value of 94% for the VGG16 model. The
+    lowest f1-score value in kochia for the SVM model was due to the low precision
+    and recall value, which is clearly shown in Table 7. Table 7. Precision, recall,
+    and f1-score values SVM and VGG16 weeds-corn model. Empty Cell Precision Recall
+    F1-score Total images SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Corn 1.00 1.00 0.98
+    1.00 0.99 1.00 45 45 Horseweed 0.91 0.99 0.94 0.99 0.92 0.99 136 137 Kochia 0.83
+    0.92 0.83 0.96 0.83 0.94 94 95 Ragweed 0.92 0.98 0.89 0.96 0.90 0.97 135 135 Waterhemp
+    0.83 0.97 0.83 0.97 0.83 0.97 89 90 Macro avg 0.90 0.97 0.89 0.97 0.90 0.97 499
+    502 Weighted avg 0.89 0.97 0.89 0.97 0.89 0.97 499 502 Furthermore, the lowest
+    f1-score value in kochia for the SVM model was underpinned by the Fig. 11a confusion
+    matrix, where 17% of the kochia images were predicted as other classes and 14.9%
+    of the images from other classes were predicted as the kochia. Corn had the 100%
+    f1-score in the case of the VGG16 model which was supported by the confusion matrix
+    in Fig. 11b, where none of the classes were predicted as corn and none of the
+    corn images were predicted as other classes. This is the perfect situation that
+    makes the model robust and outstanding. The prediction accuracy of the SVM model
+    ranges between 83% and 97.8% for five classes, whereas the prediction accuracy
+    of the VGG16 model ranges between 95.6% and 100%. The wrong prediction of the
+    individual classes for both models is depicted in Fig. 11. Download : Download
+    high-res image (319KB) Download : Download full-size image Fig. 11. SVM and VGG16
+    model confusion matrix for weeds species and corn (HW: Horseweed, RW: Ragweed,
+    WH: waterhemp). (a) SVM model confusion matrix (b) VGG16 model confusion matrix.
+    3.3.4. Classification of weeds in presence of flax For the classification of flax
+    with weed species, the radial basis function kernel was obtained as the best SVM
+    kernel with optimum values of C and gamma as 1000 and 0.001 respectively during
+    the hyperparameter optimization. Precision, recall, and f1-score values were calculated
+    on test datasets for both the SVM and VGG16 model, which is clearly shown in Table
+    8. The VGG16 weighted f1-score average of 94% had surpassed the SVM model weighted
+    average f1-score of 89%. The SVM model individual classes'' f1-score value ranges
+    between 81% and 96%, whereas the VGG16 model individual classes'' f1-score value
+    ranges between 88% and 99%. Kochia had the lowest f1-score value for both models,
+    which was due to the lower recall values than the precision value in both models.
+    When analyzing both models'' classes’ f1-score, the VGG16 f1-score for the individual
+    class was greater than the SVM model individual class f1-score for all the weeds
+    classes. However, f1-score for the flax class is higher in the SVM model than
+    in the VGg16 model. Table 8. Precision, recall, and f1-score values SVM and VGG16
+    weeds-flax model. Empty Cell Precision Recall F1-score Total images SVM VGG16
+    SVM VGG16 SVM VGG16 SVM VGG16 Flax 1.0 0.91 0.93 0.95 0.96 0.93 41 41 Horseweed
+    0.93 0.98 0.95 0.99 0.94 0.99 137 137 Kochia 0.84 0.92 0.78 0.84 0.81 0.88 94
+    95 Ragweed 0.89 0.99 0.93 0.93 0.91 0.96 135 135 Waterhemp 0.83 0.85 0.84 0.97
+    0.84 0.91 89 90 Macro avg 0.90 0.93 0.88 0.94 0.89 0.93 496 498 Weighted avg 0.89
+    0.94 0.89 0.94 0.89 0.94 496 498 Furthermore, the reason behind the lowest f1-score
+    value in kochia in the SVM model than in the VGG16 model is depicted in the Fig.
+    12 confusion matrix. In the SVM model, kochia prediction accuracy was 77.7% whereas,
+    in the VGG16 model prediction accuracy was 84.2% which was also the lowest value
+    in both models'' confusion matrix. In the SVM and VGG16 models, the higher percentage
+    of kochia images were predicted wrongly as the ragweed and waterhemp, respectively,
+    which is clearly visible in Fig. 12. Besides this, waterhemp, ragweed, and flax
+    images were wrongly predicted as kochia in both models, and horseweed images were
+    also wrongly predicted as kochia in the SVM model. Moreover, for the flax, prediction
+    accuracy was higher in the VGG16 model than the SVM model, but f1-score was higher
+    in the SVM model than in the VGG16 model. This has happened because kochia and
+    ragweed images were misclassified as the flax in the VGG16 model. However, none
+    of the weed images were misclassified as the flax in the SVM model, which helped
+    to have a 100% precision value in the SVM model contributing to the f1-score making
+    the f1-score value greater than the VGG16 model. This also gives the real situation
+    when accuracy fails to depict the accurate pictures of the models’ performance.
+    Download : Download high-res image (329KB) Download : Download full-size image
+    Fig. 12. SVM and VGG16 model confusion matrix for weeds species and flax (HW:
+    Horseweed, RW: Ragweed, WH: waterhemp). (a) SVM model confusion matrix (b) VGG16
+    model confusion matrix. 3.3.5. Classification of weeds in presence of soybean
+    The best SVM kernel obtained for soybean and weeds classification was also the
+    radial basis function kernel with optimized values of C and gamma as 10000 and
+    0.001, respectively. The SVM model and the VGG16 model were tested with the test
+    datasets to know the model performance for unseen data. The model performance
+    in terms of precision, recall, and f1-score is depicted in Table 9. The VGG16
+    model with the weighted average f1-score value of 96% had surpassed the SVM model
+    weighted f1-score value of 88% in the weeds-soybean model. The SVM model individual
+    classes had the f1-score value between 80% and the 94%, whereas the VGG16 model
+    individual classes had the f1-score values between 91% and 99%. Waterhemp test
+    images performed poorly with the lowest f1-score value on both models, which was
+    due to the lower precision value than the recall value on both model testing (Table
+    9). The soybean class f1-score was the third highest for both models, which was
+    lower in the SVM model than in the VGG16 model. Table 9. Precision, recall, and
+    f1-score values SVM and VGG16 weeds-soybean model. Empty Cell Precision Recall
+    F1-score Total images SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Horseweed 0.94 0.99
+    0.94 1.00 0.94 0.99 136 137 Kochia 0.8 0.95 0.87 0.92 0.84 0.93 94 95 Ragweed
+    0.95 0.99 0.9 0.97 0.92 0.98 135 135 Soybean 0.87 1.00 0.84 0.91 0.85 0.95 55
+    55 Waterhemp 0.79 0.87 0.81 0.96 0.80 0.91 89 90 Macro avg 0.87 0.96 0.87 0.95
+    0.87 0.95 509 512 Weighted avg 0.88 0.96 0.88 0.96 0.88 0.96 509 512 Furthermore,
+    the reason behind waterehemp poor performance can be clearly visualized in the
+    confusion matrix in Fig. 13. The prediction accuracy of the waterhemp was 80.9%
+    and 95.6% in the SVM and VGG16 models respectively. This caused a decline in recall
+    value for both models. Besides this, more than 9% of the other classes'' images
+    were wrongly predicted as waterhemp causing the decline in precision value. Lower
+    precision and recall values were responsible for making waterhemp the poorest
+    performing class in the weeds-soybean model. Moreover, most of the soybean images
+    were misclassified as the waterhemp in both models causing the lower recall value.
+    However, the VGG16 model had 100% precision value which was not true for the SVM
+    model causing a further decline in the f1-score value. Download : Download high-res
+    image (327KB) Download : Download full-size image Fig. 13. SVM and VGG16 model
+    confusion matrix for weeds species and soybean (HW: Horseweed, RW: Ragweed, SOYB:
+    soybean, WH: waterhemp). (a) SVM model confusion matrix (b) VGG16 model confusion
+    matrix. 3.3.6. Classification of weeds in presence of sugarbeet During the training
+    of the weeds-sugar beet SVM model, the radial basis function kernel was obtained
+    as a high-performing SVM kernel with optimized values of C and gamma as 1000 and
+    0.001, respectively. The SVM and VGG16 trained weeds-sugarbeet model was tested
+    with test images to visualize the model''s overall performance and the model''s
+    individual class performance. Table 10 depicted the precision, recall, and f1-score
+    value for both models'' testing. The VGG16 model with a 96% weighted average f1-score
+    value had surpassed the VGG16 weighted average f1-score value of 88%. The f1-score
+    value for the SVM model individual classes ranged from 81% to 93%, whereas the
+    f1-score value for the VGG16 model individual classes ranged from 91% to 99%,
+    which is clearly shown in Table 10. The waterhemp had the lowest f1-score value
+    of 81% in the SVM model, whereas waterhemp and sugarbeet had the lowest f1-score
+    value of 91% in the VGG16 model. The lowest f1-score value in waterhemp was due
+    to the lower precision value than the recall value in both models. The VGG16 precision
+    value was 100% for sugarbeet, but a low recall value of 83% had caused a decline
+    in the f1-score value of sugarbeet. Table 10. Precision, recall, and f1-score
+    values SVM and VGG16 weeds-sugarbeet model. Empty Cell Precision Recall F1-score
+    Total images SVM VGG16 SVM VGG16 SVM VGG16 SVM VGG16 Horseweed 0.93 0.99 0.93
+    1.00 0.93 0.99 136 137 Kochia 0.86 0.97 0.78 0.91 0.82 0.93 94 95 Ragweed 0.92
+    0.99 0.93 0.99 0.92 0.99 135 135 Sugarbeet 0.88 1.00 0.90 0.83 0.89 0.91 41 41
+    Waterhemp 0.77 0.85 0.84 0.97 0.81 0.91 89 90 Macro avg 0.87 0.96 0.87 0.94 0.87
+    0.95 495 498 Weighted avg 0.88 0.96 0.88 0.96 0.88 0.96 495 498 Furthermore, the
+    lowest f1-score value in waterhemp and 100% of the precision value in sugarbeet
+    for the VGG16 model can be clearly interpreted by the confusion matrix in Fig.
+    14. Both confusion matrices in Figs. 14a and b shows waterhemp misclassification
+    with their respective percentage value, which is the wrong prediction of waterhemp
+    images as another class and the wrong prediction of the other classes as the waterhemp
+    class. This had caused a decline in both precision and recall value making the
+    lower f1-score value. Similarly, for the VGG16 model, the sugarbeet class precision
+    value was 100% because none of the classes were wrongly classified as sugarbeet.
+    However, 17.1% of the sugarbeet images were wrongly predicted as the waterhemp
+    causing a severe decline in a recall, and eventually the f1-score value. The prediction
+    accuracy value ranges between 77.7% and 92.7% for the SVM model and 82.9% and
+    100% for the VGG16 model, which is depicted in Figs. 14a and b respectively. Download
+    : Download high-res image (326KB) Download : Download full-size image Fig. 14.
+    SVM and VGG16 model confusion matrix for weeds species and sugarbeet (HW: Horseweed,
+    RW: Ragweed, SUB: sugarbeet, WH: waterhemp). (a) SVM model confusion matrix (b)
+    VGG16 model confusion matrix. 3.4. Machine learning and deep learning weeds-crop
+    model comparison The overall comparison of the seven types of classifiers for
+    SVM and VGG16 models in terms of accuracy is depicted in Fig. 15. In the average
+    accuracy graph, both the average accuracy and deviation of the accuracy for the
+    classes were given clearly. The average accuracy of the SVM for seven classifiers
+    did not have a large difference, which ranged from 87% to 90%. The average accuracy
+    for the weed classifier had the highest average accuracy of 89.5%. The Weeds-Corn
+    classifier also had an average accuracy of 89.4%, which was almost equal to the
+    Weeds classifier. The Weeds-soybean classifier had the lowest average accuracy
+    of 87.08%. The classes of the Weeds-Flax classifier had the highest standard deviation
+    of 7.24%, whereas classes of the Weeds classifier had the lowest standard deviation
+    of 4.8% which is depicted in Fig. 15. Download : Download high-res image (434KB)
+    Download : Download full-size image Fig. 15. Percentage of SVM and VGG16 model
+    average accuracy for different types of classifiers (BB: Black Bean, SOYB: Soybean,
+    SUB: Sugarbeet). Similarly, the VGG16 model classifiers’ average accuracy values
+    did not have much difference. The average accuracy values range from 93.72% (Weeds-SUB
+    and Weeds-Flax) to 97.32% (Weeds-Corn). These values were higher in the VGG16
+    than in the SVM. This can also be clearly visible in Fig. 15 graph. Moreover,
+    the standard deviation of the accuracy values for classes ranges from 1.9% for
+    Weeds-Corn classifier to 7.4% for the Weeds-Canola classifier, which was also
+    clearly visible in Fig. 15 graph. The kappa score value was also calculated for
+    both SVM and VGG16 model classifiers. The SVM model classifiers had the kappa
+    score value range from 0.846 for the Weeds-SUB model to 0.87 for the Weeds model
+    (Fig. 16). This range of kappa score values is considered a strong level of agreement
+    with 64–81% of reliable data [44]. Moreover, the VGG16 model classifiers had a
+    kappa score value from 0.92 for the Weeds-Flax classifier to 0.96 for the Weeds-Corn
+    classifier (Fig. 16). These values of the kappa score show an almost perfect level
+    of agreement with 82–100% of reliable data [44]The kappa score values were also
+    higher for the VGG16 model than for the SVM model. Download : Download high-res
+    image (410KB) Download : Download full-size image Fig. 16. SVM and VGG16 model
+    kappa score for different types of classifiers (BB: Black Bean, SOYB: Soybean,
+    SUB: Sugarbeet). Finally, the seven types of classifiers were compared in terms
+    of average f1-score and standard deviation of the f1-score for both the SVM and
+    VGG16 model, which is clearly shown in Fig. 17 graph. The average f1-score values
+    of the SVM model classifiers range from 87% for the Weeds-Soybean classifier to
+    89.40% for the Weeds-Corn classifier. The standard deviation of the f1-score values
+    ranges from 4.4% for the Weeds classifier to the 6.7% for Weeds-Corn classifier.
+    This shows that the Weed-Corn classifier had the highest deviation of the f1-score
+    values than the other remaining six classifiers, which can be clearly visualized
+    in Fig. 17. Moreover, the average f1-score values of the VGG16 model classifiers
+    range from 93.4% for the Weeds-Flax classifier to 97.4% for the Weeds-Corn classifier.
+    The standard deviation of the f1-score values for the VGG16 model classifier ranges
+    from 2.3% for the Weeds-Corn classifier to the 5% for Weeds-Canola classifier.
+    The average f1-score values of the VGG16 model are higher than that of the SVM
+    model for all seven types of classifiers, which is clearly shown in Fig. 17. Download
+    : Download high-res image (433KB) Download : Download full-size image Fig. 17.
+    SVM and VGG16 model average percentage of f1-score for different types of classifiers
+    (BB: Black Bean, SOYB: Soybean, SUB: Sugarbeet). When comparing the accuracy,
+    kappa score, and f1-score graphs results in Figs. 15, Fig. 16, and Fig. 17 respectively
+    for seven types of classifiers, results were not the same for accuracy and f1-score.
+    However, the kappa score and f1-score follow a similar results pattern. For instance,
+    the VGG16 classifiers had descending order of accuracy as; 1. Weeds-Corn, 2. Weeds,
+    3. Weeds-BB, 4. Weeds-SOYB, 5. Weeds-Canola, 6. Weeds-SUB, and 7. Weeds-Flax classifier.
+    Whereas descending order based on f1-score and kappa score was 1. Weeds-Corn,
+    2. Weeds, 3. Weeds-BB, 4. Weeds-SOYB, 5. Weeds-SUB, 6. Weeds-Canola, and 7. Weeds-Flax.
+    The position of the Weeds-SUB classifier was different in the f1-score metric
+    performance order in comparison to the accuracy order. This has happened because
+    accuracy measures only the correct classification of sugarbeet images as sugarbeet
+    and does not consider the classification of weeds class as sugarbeet. However,
+    f1-score considers both cases, which is important in weed detection problems.
+    This is because farmers don''t want weeds classified as crops and skipped by the
+    weed control system leaving weeds behind the field untreated. Therefore, f1-score
+    is the robust metric for weed detection in precision weed management systems.
+    4. Discussion In this research, seven types of weed classifiers were built for
+    the supervised machine learning (ML) SVM model and supervised deep learning (DL)
+    VGG16 CNN model. This is important because weed and crop species are different
+    based on geographical region. The crop (black bean, canola, corn, flax, soybean,
+    and sugarbeet) and weed (horseweed, kochia, ragweed, and waterhemp) species used
+    in this study were based in the North Dakota states of the Midwest region of the
+    United States. Besides this, this study has shown how the weeds and crops detection
+    artificial algorithm (AI) performance changes when the species of the crop is
+    changed. The main objective of the study was to find the performance of the weed
+    classification as the crop production system changes in presence of the same species
+    of weeds. For example, in a weed classification study performed by Refs. [18,45,46],
+    weed species were only used as a class to build the classification model. However,
+    the weed classification model performance may change when the weed classification
+    is performed in presence of certain crops. Therefore, a detailed picture of classification
+    is required for the different crop species in presence of weeds to build a precision
+    weed management system. In this study, the performance of the crop production
+    systems in terms of average f1-score was between 87% and 97.4%., which was in
+    accordance with the weed detection research [23,[46], [47], [48], [49]]. The model
+    performance in terms of f1-score changes as the crop production system changes
+    for the same weed species. This was expected due to the change in crops’ phenotypic
+    traits in terms of leaf morphology, textures, and shape. For instance, the corn
+    production system and the VGG16 deep learning model had achieved the best performance
+    among all crop production systems due to their easily differentiable phenotypic
+    traits in corn images. Machine learning requires handcraft feature engineering
+    and feature selection algorithms to achieve the performance that can be taken
+    into the consideration for the weed detection system. Conversely, deep learning
+    avoids manual feature extraction and feature engineering by automatically extracting
+    features through a series of convolution and pooling layers [10]. In this study
+    both ML and DL techniques were studied, where texture features were used for machine
+    learning and CNN was used for deep learning. Texture features were used because
+    the agricultural environment is nondeterministic; two or more weed species can
+    grow intertwined when two or more weed seeds are together in the field. Adel Bakhshipour
+    & Jafari. (2018), Zheng et al. (2017), and Ahmed et al. (2012) [20], [21], [50]
+    used shape features for SVM classification, but they did not show how their SVM
+    model performed if two plant leaves overlapped or if the positioning of the leaves
+    changed which could introduce a different shape when projected to the two-dimensional
+    plane as image. Besides this, segmentation algorithms may not capture shape perfectly
+    due to the different lighting conditions that could reduce the robust nature of
+    algorithm generalization. However, in the case of texture features, this problem
+    could have a lower impact on generalization. For example, if someone used full,
+    perfectly shaped leaves or half of the leaf, they could extract texture features
+    using those half leaves. Similarly, deep learning techniques, which extract complex
+    features from an image work when two or more weed species are overlapped. DL outperformed
+    the ML model in all seven types of classifiers in this study, which correlates
+    to the previous studies [10]. This study differs from previous research on weed
+    classification using machine learning and deep learning because presently there
+    is limited information on how weed classification performance changes with varieties
+    of crop species. Many previous researchers were more focused on weeds, but at
+    the same time crop classification is also needed when building the weed control
+    system. For example, while spraying herbicides it is important not to spray on
+    crops to reduce the herbicide usage amount and at the same time if we need to
+    spray different types of herbicides based on the type of weeds then the class
+    of weed information is also important [50], Adel et al (2018) used only sugar
+    beet with weed species, but it would be nice to know how the classification works
+    if the crop is soybean or corn rather than only sugar beet. Similarly [21], used
+    corn as the crop species, but the research community and agricultural industries
+    ask for application and implications in other crop production systems. This study
+    suggests the introduction of the crop class on weeds classes may increase or decrease
+    the performance of classifiers. In our study, the Weeds-Corn classifier performed
+    higher than the Weeds classifier, whereas the Weeds-Flax classifier performed
+    lower for deep learning. This could depend on the morphological, texture, intensity,
+    and color features of the species introduced in the Weeds model. Moreover, in
+    the recent survey by Hasan et al. [10] on the use of deep learning for weed detection
+    from images, they gave a brief overview of weeds and crops used in research. In
+    their survey, there was one study by Ref. [51], where researchers used waterhemp
+    as one weed species out of the more than 70 deep learning weed classification
+    and detection studies. There was not any model that used kochia, ragweed, and
+    horseweed for weed detection in this survey. Besides this, there were research
+    articles [10] that used soybean, corn, sugarbeet, and canola as crops to build
+    a weed detection model, but the weed species used in those articles were different
+    from the weed species used in our study. On top of that, no literature studied
+    the black bean and flax crop production systems using deep learning. Flax and
+    Black bean are the important crops of North Dakota, which comprise 82% and 17%
+    of total US production according to the Crop Production 2021 Summary published
+    by USDA, National Agricultural Statistics Service. Therefore, this research attempted
+    to give broader relevance to how weed classification behaves when the species
+    of the crop is changed. This information is needed because machine learning and
+    deep learning models can behave differently while classifying the species of weeds
+    in the presence of different crop species. The performance of the weeds detection
+    or classification models can degrade or change even with the change in the data
+    size [52]. Therefore, the study of weed species only or with one crop species
+    may not reveal a clear idea towards the development and application of the weed
+    detection model for the other existing crop production systems. In this study,
+    an ML and DL model was built for four species of weeds and six species of crops,
+    which are the major crops of the Midwestern region of the United States. However,
+    this does not cover all the species of weeds and crops that can be found in the
+    Midwest region of the USA. Therefore, more species of weeds should be included
+    in the future. The addition of more weed species may cause a change in the performance
+    of the model achieved in this study. The model built in this study can be used
+    to build a system capable of classifying the weed and crop images in the field
+    specifically for weed and crop species. In addition, further investigation can
+    be done to enhance the low-performed classifier performance. In the future, deep
+    learning models can also be built for the situation when two crop species are
+    grown together as volunteer crops and main crops. 5. Conclusion In this study,
+    seven different types of SVM and VGG16 classifiers were built to show how the
+    model performance can change for the same weed species under six different crop
+    production systems. The feature selection algorithm was used to avoid model overfitting
+    problems and lower the memory requirements in computation for the SVM model classifier.
+    Transfer learning approach and data augmentation were used to build the VGG16
+    model classifier due to the small data size. Deep learning outperformed the machine
+    learning model in this study for weed and crop species found in the Midwest Region
+    of the United States. Deep learning has great potential for solving weed and crop
+    classification problems when two or three weed seeds germinate, and leaves touch
+    each other due to their self-feature extraction ability. The deep learning-based
+    Weeds-Corn classifier had the highest performance with the average f1-score of
+    97.4%. Deep learning-based classifiers were able to classify weeds and six different
+    species of crops individually with an average f1-score value greater than 93%.
+    Among all the species, the corn class was able to achieve the f1-score of 100%
+    in the deep learning-based Weeds-Corn classifier. This is the ideal condition
+    when the weed control system does not skip any weeds as crops and doesn''t treat
+    crops as weeds. In the future, more complex deep learning algorithms can be applied
+    to increase the performance of classification models with more species of weeds
+    and crops. Declaration of competing interest The authors declare no conflict of
+    interest. Acknowledgments This material is based upon work partially supported
+    by the U.S. Department of Agriculture, agreement number 58-6064-8-023. Any opinions,
+    findings, conclusions, or recommendations expressed in this publication are those
+    of the author(s) and do not necessarily reflect the view of the U.S. Department
+    of Agriculture. This work is/was supported by the USDA National Institute of Food
+    and Agriculture, Hatch project number ND01487. References [1] E. Oerke Crop losses
+    to pests J. Agric. Sci., 144 (2005), pp. 31-43 Google Scholar [2] L.E. Steckel,
+    C.L. Sprague Late-season common waterhemp (Amaranthus rudis) interference in narrow-
+    and wide-row soybean Weed Technol., 18 (4) (Oct. 2004), pp. 947-952 [Online].
+    Available: http://www.jstor.org.ezproxy.lib.ndsu.nodak.edu/stable/3989401 Google
+    Scholar [3] S.Z. Knezevic, A. Datta The critical period for weed control: revisiting
+    data analysis Weed Sci., 63 (2015), pp. 188-202, 10.1614/WS-D-14-00035.1 View
+    in ScopusGoogle Scholar [4] N. Tursun, A. Datta, M.S. Sakinmaz, Z. Kantarci, S.Z.
+    Knezevic, B.S. Chauhan The critical period for weed control in three corn (Zea
+    mays L.) types Crop Protect., 90 (Dec. 2016), pp. 59-65, 10.1016/J.CROPRO.2016.08.019
+    View PDFView articleView in ScopusGoogle Scholar [5] A.A. Bajwa, G. Mahajan, B.S.
+    Chauhan Nonconventional weed management strategies for modern agriculture Weed
+    Sci., 63 (4) (Dec. 2015), pp. 723-747, 10.1614/WS-D-15-00064.1 View in ScopusGoogle
+    Scholar [6] J. Ahmad, et al. Visual features based boosted classification of weeds
+    for real-time selective herbicide sprayer systems Comput. Ind., 98 (2018), pp.
+    23-33, 10.1016/j.compind.2018.02.005 View PDFView articleView in ScopusGoogle
+    Scholar [7] S.L. Young, D.K. Giles Targeted and Microdose Chemical Applications,”
+    Autom Weed Control Crop. Syst., Futur (Jan. 2014), pp. 139-147, 10.1007/978-94-007-7512-1_8
+    View in ScopusGoogle Scholar [8] J. Behmann, A.-K. Mahlein, T. Rumpf, C. Römer,
+    L. Plümer A review of advanced machine learning methods for the detection of biotic
+    stress in precision crop protection Precis. Agric., 16 (3) (2015), pp. 239-260,
+    10.1007/s11119-014-9372-7 View in ScopusGoogle Scholar [9] L.N. Smith, A. Byrne,
+    M.F. Hansen, W. Zhang, M.L. Smith Weed classification in grasslands using convolutional
+    neural networks Proceedings of SPIE - the International Society for Optical Engineering,
+    vol. 11139 (2019), 10.1117/12.2530092 Google Scholar [10] A.S.M.M. Hasan, F. Sohel,
+    D. Diepeveen, H. Laga, M.G.K. Jones A survey of deep learning techniques for weed
+    detection from images Comput. Electron. Agric., 184 (May 2021), Article 106067,
+    10.1016/J.COMPAG.2021.106067 View PDFView articleView in ScopusGoogle Scholar
+    [11] C. Shan, S. Gong, P.W. McOwan Facial expression recognition based on Local
+    Binary Patterns: a comprehensive study Image Vis Comput., 27 (6) (May 2009), pp.
+    803-816, 10.1016/J.IMAVIS.2008.08.005 View PDFView articleView in ScopusGoogle
+    Scholar [12] M. Tufail, J. Iqbal, M.I. Tiwana, M.S. Alam, Z.A. Khan, M.T. Khan
+    Identification of tobacco crop based on machine learning for a precision agricultural
+    sprayer IEEE Access, 9 (2021), pp. 23814-23825, 10.1109/ACCESS.2021.3056577 View
+    in ScopusGoogle Scholar [13] S. Gc, et al. Using deep learning neural network
+    in artificial intelligence technology to classify beef cuts Front. Sensors (Jun.
+    2021), p. 5, 10.3389/FSENS.2021.654357 0 Google Scholar [14] P. Nevavuori, N.
+    Narra, T. Lipping Crop yield prediction with deep convolutional neural networks
+    Comput. Electron. Agric., 163 (2019), 10.1016/j.compag.2019.104859 Google Scholar
+    [15] G. Saini, A. Khamparia, A.K. Luhach Classification of Plants Using Convolutional
+    Neural Network, vol. 1045 (2020) Google Scholar [16] S.P. Mohanty, D.P. Hughes,
+    M. Salathé Using deep learning for image-based plant disease detection Front.
+    Plant Sci., 7 (September) (Sep. 2016), p. 1419, 10.3389/FPLS.2016.01419/BIBTEX
+    View in ScopusGoogle Scholar [17] A. Bakhshipour, A. Jafari Evaluation of support
+    vector machine and artificial neural networks in weed detection using shape features
+    Comput. Electron. Agric., 145 (2018), pp. 153-160, 10.1016/j.compag.2017.12.032
+    View PDFView articleView in ScopusGoogle Scholar [18] K. Hu, G. Coleman, S. Zeng,
+    Z. Wang, M. Walsh Graph weeds net: a graph-based deep learning method for weed
+    recognition Comput. Electron. Agric., 174 (Jul. 2020), Article 105520, 10.1016/J.COMPAG.2020.105520
+    View PDFView articleView in ScopusGoogle Scholar [19] S. Khan, M. Tufail, M.T.
+    Khan, Z.A. Khan, S. Anwar Deep learning-based identification system of weeds and
+    crops in strawberry and pea fields for a precision agriculture sprayer Precis.
+    Agric. (2021), 10.1007/s11119-021-09808-9 Google Scholar [20] F. Ahmed, H.A. Al-Mamun,
+    A.S.M.H. Bari, E. Hossain, P. Kwan Classification of crops and weeds from digital
+    images: a support vector machine approach Crop Protect., 40 (Oct. 2012), pp. 98-104,
+    10.1016/J.CROPRO.2012.04.024 View PDFView articleView in ScopusGoogle Scholar
+    [21] Y. Zheng, Q. Zhu, M. Huang, Y. Guo, J. Qin Maize and weed classification
+    using color indices with support vector data description in outdoor fields Comput.
+    Electron. Agric., 141 (2017), pp. 215-222, 10.1016/j.compag.2017.07.028 View PDFView
+    articleView in ScopusGoogle Scholar [22] V. Nguyen Thanh Le, B. Apopei, K. Alameh
+    Effective plant discrimination based on the combination of local binary pattern
+    operators and multiclass support vector machine methods Inf. Process. Agric.,
+    6 (1) (2019), pp. 116-131, 10.1016/j.inpa.2018.08.002 View PDFView articleView
+    in ScopusGoogle Scholar [23] A. Bakhshipour Cascading feature filtering and boosting
+    algorithm for plant type classification based on image features IEEE Access (2021),
+    10.1109/ACCESS.2021.3086269 Google Scholar [24] L. Armi, S.F. Ershad Texture image
+    analysis and texture classification methods - a review ArXiv (2019) abs/1904.0
+    Google Scholar [25] A.S.M.M. Hasan, F. Sohel, D. Diepeveen, H. Laga, M.G.K. Jones
+    A survey of deep learning techniques for weed detection from images Comput. Electron.
+    Agric., 184 (2021), 10.1016/j.compag.2021.106067 Google Scholar [26] D.H. Wolpert,
+    W.G. Macready No free lunch theorems for optimization IEEE Trans. Evol. Comput.,
+    1 (1) (1997), pp. 67-82, 10.1109/4235.585893 View in ScopusGoogle Scholar [27]
+    D. Woebbecke, G. Meyer, K.V. Bargen, D. Mortensen Color indices for weed identification
+    under various soil, residue, and lighting conditions Trans. ASABE, 38 (1994),
+    pp. 259-269 Google Scholar [28] E. Hamuda, M. Glavin, E. Jones A survey of image
+    processing techniques for plant extraction and segmentation in the field Comput.
+    Electron. Agric., 125 (Jul. 2016), pp. 184-199, 10.1016/J.COMPAG.2016.04.024 View
+    PDFView articleView in ScopusGoogle Scholar [29] C.A. Schneider, W.S. Rasband,
+    K.W. Eliceiri NIH Image to ImageJ: 25 years of image analysis 9 Nat. Methods,
+    97 (7) (2012), pp. 671-675, 10.1038/nmeth.2089 Jun. 2012 View in ScopusGoogle
+    Scholar [30] M.R. Ahmed, J. Yasmin, W. Collins, S. Lohumi, B.-K. Cho Assessment
+    of the morphological structure of watermelon and muskmelon seeds as related to
+    viability J. Biosyst. Eng., 44 (2) (2019), pp. 77-86, 10.1007/s42853-019-00018-w
+    View in ScopusGoogle Scholar [31] F.P. Miller, A.F. Vandome, J. McBrewster Apache
+    Maven (2010) Google Scholar [32] G. Bradski The OpenCV Library Dr. Dobb’s J. Softw.
+    Tools (2000) Google Scholar [33] S. van der Walt, et al. scikit-image: image processing
+    in Python PeerJ, 2 (2014) Google Scholar [34] L. Wang, D.C. He Texture classification
+    using texture spectrum Pattern Recogn., 23 (8) (Jan. 1990), pp. 905-910, 10.1016/0031-3203(90)90135-8
+    View PDFView articleView in ScopusGoogle Scholar [35] R.M. Haralick, I. Dinstein,
+    K. Shanmugam Textural features for image classification IEEE Trans. Syst. Man
+    Cybern, 3 (6) (1973), pp. 610-621, 10.1109/TSMC.1973.4309314 View in ScopusGoogle
+    Scholar [36] M. Raju Ahmed, J. Yasmin, C. Wakholi, P. Mukasa, B.K. Cho Classification
+    of pepper seed quality based on internal structure using X-ray CT imaging Comput.
+    Electron. Agric., 179 (Dec. 2020), Article 105839, 10.1016/J.COMPAG.2020.105839
+    View PDFView articleView in ScopusGoogle Scholar [37] I. Kononenko Estimating
+    attributes: analysis and extensions of RELIEF Machine Learning: ECML, vol. 94
+    (1994), pp. 171-182 CrossRefView in ScopusGoogle Scholar [38] R.J. Urbanowicz,
+    M. Meeker, W. La Cava, R.S. Olson, J.H. Moore Relief-based feature selection:
+    introduction and review J. Biomed. Inf., 85 (Sep. 2018), pp. 189-203, 10.1016/J.JBI.2018.07.014
+    View PDFView articleView in ScopusGoogle Scholar [39] F. Pedregosa, et al. Scikit-learn:
+    machine learning in {P}ython J. Mach. Learn. Res., 12 (2011), pp. 2825-2830 Google
+    Scholar [40] L. Buitinck, et al. {API} design for machine learning software: experiences
+    from the scikit-learn project ECML PKDD Workshop: Languages for Data Mining and
+    Machine Learning (2013), pp. 108-122 Google Scholar [41] D. Tax, R. Duin Feature
+    Scaling in Support Vector Data Descriptions (2000) Google Scholar [42] K. Simonyan,
+    A. Zisserman Very deep convolutional networks for large-scale image recognition
+    3rd Int. Conf. Learn. Represent. ICLR 2015 - Conf. Track Proc. (Sep. 2014) [Online].
+    Available: https://arxiv.org/abs/1409.1556v6, Accessed 7th Feb 2022 Google Scholar
+    [43] B. Espejo-Garcia, N. Mylonas, L. Athanasakos, S. Fountas, I. Vasilakoglou
+    Towards weeds identification assistance through transfer learning Comput. Electron.
+    Agric., 171 (Apr. 2020), Article 105306, 10.1016/J.COMPAG.2020.105306 View PDFView
+    articleView in ScopusGoogle Scholar [44] M.L. McHugh Interrater reliability: the
+    kappa statistic Biochem. medica, 22 (3) (2012), pp. 276-282 [Online]. Available:
+    https://pubmed.ncbi.nlm.nih.gov/23092060 View in ScopusGoogle Scholar [45] W.
+    Zhu, X. Zhu The application of support vector machine in weed classification Proceedings
+    - 2009 IEEE International Conference on Intelligent Computing and Intelligent
+    Systems, ICIS 2009, vol. 4 (2009), pp. 532-536, 10.1109/ICICISYS.2009.5357638
+    View in ScopusGoogle Scholar [46] A. Olsen, et al. DeepWeeds: a multiclass weed
+    species image dataset for deep learning Sci. Reports 2019 91, 9 (1) (Feb. 2019),
+    pp. 1-12, 10.1038/s41598-018-38343-3 View in ScopusGoogle Scholar [47] J. Yu,
+    A.W. Schumann, Z. Cao, S.M. Sharpe, N.S. Boyd Weed detection in perennial ryegrass
+    with deep learning convolutional neural network Front. Plant Sci., 10 (2019),
+    10.3389/fpls.2019.01422 Google Scholar [48] R. Kamath, M. Balachandra, S. Prabhu
+    Paddy crop and weed discrimination: a multiple classifier system Approach Int.
+    J. Agron. (2020), 10.1155/2020/6474536 2020 Google Scholar [49] H. Jiang, Q. Chang,
+    Z.G. Liu Weeds and crops classification using deep convolutional neural network
+    ACM International Conference Proceeding Series (2020), pp. 40-44, 10.1145/3425577.3425585
+    Google Scholar [50] A. Bakhshipour, A. Jafari Evaluation of support vector machine
+    and artificial neural networks in weed detection using shape features Comput.
+    Electron. Agric., 145 (Feb. 2018), pp. 153-160, 10.1016/J.COMPAG.2017.12.032 View
+    PDFView articleView in ScopusGoogle Scholar [51] A.N.V. Sivakumar, et al. Comparison
+    of object detection and patch-based classification deep learning models on mid-
+    to late-season weed detection in UAV imagery vol. 12 Rem. Sens., 12 (13) (2020),
+    p. 2136, 10.3390/RS12132136 , p. 2136, Jul. 2020 View in ScopusGoogle Scholar
+    [52] B. Espejo-Garcia, N. Mylonas, L. Athanasakos, S. Fountas, I. Vasilakoglou
+    Towards weeds identification assistance through transfer learning Comput. Electron.
+    Agric., 171 (2020), 10.1016/j.compag.2020.105306 Google Scholar Cited by (0) ©
+    2022 The Author(s). Published by Elsevier B.V. Recommended articles Vineyard irrigation
+    and assessment of ecosystem service: Experimental trials on “Catarratto” cultivar
+    for the production of “Bianco di Alcamo” DOC wine Journal of Agriculture and Food
+    Research, Volume 9, 2022, Article 100333 Filippo Sgroi View PDF Maize and weed
+    classification using color indices with support vector data description in outdoor
+    fields Computers and Electronics in Agriculture, Volume 141, 2017, pp. 215-222
+    Yang Zheng, …, Jianwei Qin View PDF Weed detection in soybean crops using ConvNets
+    Computers and Electronics in Agriculture, Volume 143, 2017, pp. 314-324 Alessandro
+    dos Santos Ferreira, …, Marcelo Theophilo Folhes View PDF Show 3 more articles
+    Article Metrics Citations Citation Indexes: 30 Captures Readers: 88 Social Media
+    Shares, Likes & Comments: 16 View details About ScienceDirect Remote access Shopping
+    cart Advertise Contact and support Terms and conditions Privacy policy Cookies
+    are used by this site. Cookie settings | Your Privacy Choices All content on this
+    site: Copyright © 2024 Elsevier B.V., its licensors, and contributors. All rights
+    are reserved, including those for text and data mining, AI training, and similar
+    technologies. For all open access content, the Creative Commons licensing terms
+    apply."'
+  inline_citation: '>'
+  journal: Journal of Agriculture and Food Research
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Weed and crop species classification using computer vision and deep learning
+    technologies in greenhouse conditions
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Karamitsou T.
+  - Seventekidis D.
+  - Karapiperis C.
+  - Banti K.
+  - Karampelia I.
+  - Kyriakidis T.
+  - Louta M.
+  citation_count: '3'
+  description: Treated wastewater reuse is increasingly important for efficient and
+    sustainable management of water resources due to increased water demands. Motivated
+    by the above, AUGEIAS proposes an Internet of Things (IoT) approach for clean
+    and treated wastewater usage in precision agriculture. In this context, real-time
+    measurements for wastewater treatment plant and field are correlated with open
+    data to improve crop water needs prediction mechanisms. This paper presents the
+    open weather sources that are used and evaluates their reliability. After the
+    open data is evaluated, it is integrated with the data collected by IoT sensors/devices.
+    By using the mean absolute percentage error metric, we evaluate the forecasting
+    performance of open weather sources. According to our study, OpenWeatherMap's
+    forecast data proved more accurate, with a success rate at 83.3%.
+  doi: 10.1109/SEEDA-CECNSM57760.2022.9932913
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2022 7th South-East Europe De... Open weather
+    data evaluation for crop irrigation prediction mechanisms in the AUGEIAS project
+    Publisher: IEEE Cite This PDF Thomai Karamitsou; Dimitrios Seventekidis; Christos
+    Karapiperis; Konstantina Banti; Ioanna Karampelia; Thomas Kyriakidis; Malamati
+    Louta All Authors 2 Cites in Papers 82 Full Text Views Abstract Document Sections
+    I. Introduction II. Forecasting Models and Errors III. Open Data Sources IV. Open
+    Data Sources Reliability V. Amazon Web Services Show Full Outline Authors Figures
+    References Citations Keywords Metrics Abstract: Treated wastewater reuse is increasingly
+    important for efficient and sustainable management of water resources due to increased
+    water demands. Motivated by the above, AUGEIAS proposes an Internet of Things
+    (IoT) approach for clean and treated wastewater usage in precision agriculture.
+    In this context, real-time measurements for wastewater treatment plant and field
+    are correlated with open data to improve crop water needs prediction mechanisms.
+    This paper presents the open weather sources that are used and evaluates their
+    reliability. After the open data is evaluated, it is integrated with the data
+    collected by IoT sensors/devices. By using the mean absolute percentage error
+    metric, we evaluate the forecasting performance of open weather sources. According
+    to our study, OpenWeatherMap’s forecast data proved more accurate, with a success
+    rate at 83.3%. Published in: 2022 7th South-East Europe Design Automation, Computer
+    Engineering, Computer Networks and Social Media Conference (SEEDA-CECNSM) Date
+    of Conference: 23-25 September 2022 Date Added to IEEE Xplore: 01 November 2022
+    ISBN Information: DOI: 10.1109/SEEDA-CECNSM57760.2022.9932913 Publisher: IEEE
+    Conference Location: Ioannina, Greece Funding Agency: SECTION I. Introduction
+    While water demand is continuously increasing, water availability has been steadily
+    declining, with the agriculture sector being responsible for around 70.7% of freshwater
+    withdrawals [1]. Therefore, an efficient and sustainable management of water resources
+    is urgently necessitated to optimize water usage efficiency as well as secure
+    water availability in terms of quality and quantity. To this end, smart management
+    and re-use of up to now unexploited treated wastewater in agriculture is important
+    both in economic and environmental terms. Motivated by the above, AUGEIAS proposes
+    an integrated intelligent ecosystem consisting of an innovative, easy-to-install
+    and fully parameterized low power wide area network (LPWAN), Internet of Things
+    (IoT) end-devices, that provides real time measurements from the agriculture sites
+    and wastewater treatment infrastructure. AUGEIAS also analyzes and combines collected
+    data with open data, utilizes advanced machine learning techniques and predictive
+    analytics to optimize the use of treated wastewater for irrigation in precision
+    agriculture, in a safe and efficient manner. In particular, two meteorological
+    stations, as well as systems for measuring soil parameters and the normalized
+    difference vegetation index (NDVI) have been installed in the field. Also, a quality
+    characteristics measuring system of the treated wastewater has been installed
+    at the output of the Wastewater Treatment Plant (WWTP). AUGEIAS uses a single
+    data aggregation point, where all the collected data from the field, the WWTP,
+    as well as open meteorological data are stored on the Amazon elastic compute cloud
+    (Amazon EC2) instance of Amazon web services (AWS) cloud for further processing.
+    AUGEIAS exploits open data to improve crop irrigation requirements prediction
+    mechanisms. Agricultural models need meteorological data to determine crop water
+    requirements. Meteorological open data providers grant access to current weather
+    data, hourly and daily forecasts for specific geographical areas including data
+    of temperature, precipitation, relative humidity, cloudiness, pressure, and wind
+    speed/direction. Every weather forecast, however, contains some degree of uncertainty.
+    In [2], the authors analyzed the effect of uncertainty using different weather
+    forecasting models and they conclude that short-term forecasting models are needed
+    to realize almost all the theoretical forecasting possibilities of the best forecasting
+    technique. The authors in [3] suggested that the strategy of a Stochastic Model
+    Predictive Control (SMPC) could directly explain the uncertainty of weather forecasting
+    with decision control, surpassing existing control systems. In [4], the authors
+    proposed a load forecasting method and analyzed the influence of weather forecast
+    accuracy. Through their analysis, the accuracy of the weather forecast had slight
+    effect on the proposed model when the forecast error is low. The common approach
+    of most of these studies is to use forecasting models based on previously recorded
+    weather data that cannot adapt to ever-changing variables. To this end, AUGEIAS
+    exploits open weather forecasts, evaluating their reliability in relation to the
+    actual values recorded by the agrometeorological station installed in the field.
+    SECTION II. Forecasting Models and Errors Numerical weather prediction (NWP) is
+    the most important method for weather forecasting around the world. NWP models
+    describe the essential physical processes in the atmosphere, at the surface and
+    in the soil and take their impact on the temporal evolution of the model variables,
+    like pressure, temperature, wind and precipitation. NWP use complex mathematical
+    models of the atmosphere and oceans to predict the weather based on current weather
+    conditions [5]. The basic global numerical forecasting models are European Centre
+    for Medium-Range Weather Forecasts (ECMWF), Global Forecasting System (GFS), Navy
+    Global Environmental Model (NAVGEM), Global Environmental Multiscale Model (GEM),
+    United Kingdom Met Office (UKMO), Japanese Meteorological Agency (JMA) and National
+    Weather Service (NWS) with the first five considered most reliable. Local models
+    for Greece are based on the ECMWF and GFS. A. Forecast Errors A forecasting model’s
+    performance is determined by the values it predicts. A forecast error is a measure
+    of forecast accuracy, and it can be evaluated using a variety of methods, such
+    as Root Mean Square Error (RMSE), Mean Absolute Percentage Error (MAPE), Mean
+    Absolute Error (MAE) or Mean Absolute Deviation (MAD). In AUGEIAS, MAPE method
+    was selected for error calculation of each Application Programming Interface (API)’
+    used. MAPE is one of the most commonly used method to measure forecast accuracy
+    [6] and it is calculated as the average of the absolute difference between the
+    actual and the predicted values divided by the actual ones as depicted in Eq.
+    1. MAPE provides the forecast error as a percentage. This method is preferred,
+    as it is simple to understand and avoids the problem of positive and negative
+    errors since absolute percentage errors are used. MAPE= 1 n ∑ i=1 n ∣ ∣ ∣ y i
+    − y l ˆ y i ∗100 ∣ ∣ ∣ (1) View Source SECTION III. Open Data Sources AUGEIAS
+    retrieves weather forecasts from three open weather sources, namely OpenWeatherMap,
+    AccuWeather and Weather Underground. Firstly, OpenWeatherMap platform provides
+    meteorological data, such as minutely/hourly/daily forecasts, current weather
+    data, historical data and alerts, for various regions around the world [7]. To
+    provide weather data, it uses NWP model which utilizes several data sources. Also,
+    the One Call API is available from the OpenWeatherMap platform that integrates
+    data from the Dark Sky API platform. The One Call API provides access to many
+    weather data for any geographic location including current weather conditions,
+    1 hour forecast, 48-hour forecast, 7-day forecast, national weather alerts, historical
+    weather data for the previous 5 days, current and forecast weather data [8]. AccuWeather
+    platform [9] provides meteorological data for locations all over the world using
+    176 weather forecast models, including ECMWF and NWS models. Regarding the current
+    conditions, it offers measurements such as temperature, humidity, pressure, wind
+    speed/direction, rain, visibility and cloud cover. Regarding the meteorological
+    forecasts, it provides data about temperature, humidity, pressure as well as their
+    maximum and minimum values. Weather Underground is a global community of people
+    who share data from environmental sensors, such as weather stations and air quality
+    monitoring devices. This information comes from NWS and over 250,000 personal
+    weather stations (PWS) [10]. The API version provides current, historical and
+    weather forecast data. Data on current conditions include measurements of temperature,
+    humidity, pressure, rain, wind speed and direction. In terms of meteorological
+    forecasts, it offers maximum and minimum values for each of the above measurements
+    per day for the next 5 days. SECTION IV. Open Data Sources Reliability AUGEIAS
+    correlates open-source forecasts and current open-source data using MAPE, to calculate
+    the forecast prediction error, assess the reliability and determine the open-source
+    data with the most accurate forecasts. Also, weather forecasting data are correlated
+    to those recorded by the agrometeorological station installed, in order to assess
+    their reliability. Thus, AUGEIAS calculates a MAPE value for each target variable
+    between the open-source forecasts and data collected from the agro-meteorological
+    station. The goal is to estimate the prediction error so that more accurate data
+    to be used. Specifically, the target variables are temperature, humidity and wind
+    speed, and data are retrieved from the following open-data sources OpenWeatherMap
+    (stations: 735562, 735563, 8133764) AccuWeather and Weather Underground. A. Reliability
+    of meteorological forecasts The comparison was made for the 5-day forecast based
+    on the weather forecasts offered by each API in early June for a period of 10
+    days. 1) OpenWeatherMap OpenWeatherMap has a success rate for pressure at 99.78%,
+    humidity at 84.05%, temperature at 80.76% and wind speed at 73.53%, as shown in
+    Fig.1. It displayed lower success rates for the next-day forecast while higher
+    for the fifth day forecast. Fig. 1. OpenWeatherMap forecast success rates/measurement/day.
+    Show All 2) AccuWeather AccuWeather has the highest success rate on temperature
+    prediction, which is 86.87%, followed by wind speed at 78.46% and the gust speed
+    at 78.43%, as shown in Fig.2. Overall, it displayed a lower success rate for the
+    fourth day forecast while higher for the second day forecast. Fig. 2. AccuWeather
+    forecast success rates/measurement/per day. Show All 3) Weather Underground As
+    shown in Fig.3, Weather Underground predicts pressure with success at 99.63%,
+    temperature at 85.55%, humidity at 84.48% and wind speed at 54.01%. Overall, it
+    predicted with more success the weather conditions of the third day and with lower
+    success for the fifth day. Fig. 3. Weather Underground forecast success rates/measurement/day
+    Show All In terms of reliability of the forecast data offered by the APIs, as
+    shown in Fig.4, OpenWeatherMap proved to be the most reliable with a yield of
+    83.3% (average error 16.7%), followed by AccuWeather with 82.7% (average error
+    17.3%) and Weather Underground with 82.5% (average error 17.5%). The prediction
+    of the API with the highest percentage is considered the most accurate and when
+    the user requests to receive the prediction of the day, the prediction of the
+    most accurate API will be returned. Fig. 4. Overall forecast performance of each
+    API. Show All E. Correlation of agro-meteorological station data with open source
+    data Also, the collected open-source data was correlated with those recorded by
+    the agrometeorological station over a 20-day period from mid-May to early June.
+    Data from the agrometeorological station show similarities with those from APIs
+    in terms of temperature and humidity measurements as shown in Fig.5 and Fig.6.
+    Fig. 5. Temperature comparison between agro-meteorological station and open data
+    Show All Fig. 6. Humidity comparison between agro-meteorological station and open
+    data Show All However, large differences are observed in terms of wind speed as
+    shown in Fig.7. As local factors greatly influence measurements of an area, the
+    absolute similarity of the measurements cannot be ensured. Fig. 7. Wind speed
+    comparison between agro-meteorological station and open data Show All Regarding
+    the comparison of the agrometeorological station’s data with those of the open-data
+    sources, there was an increasing trend of the temperature at certain hours, but
+    also large deviations in the data of the wind speed. OpenWeather station 735563
+    is closer to the agrometeorological station, which may explain the slight differences
+    in temperature and humidity observed. In order to calculate reliability, sources
+    are ranked based on the value that is closest to the agrometeorogical station.
+    Fig. 8. Percentage difference of the prices of the agro-meteorological station
+    with those of the API’s Show All SECTION V. Amazon Web Services As aforementioned,
+    collected data from the sensors and open data are forwarded to an Amazon EC2 instance
+    on AWS cloud [11]. Specifically, InfluxDB for storing time-series non-structured
+    data [12], Telegraf [13] and Grafana [14] are installed in Amazon EC2 M5 instance.
+    Telegraf is a data collection agent for collecting data and storing them on InfluxDB.
+    Grafana is an open-source software for data visualization and analysis. In AUGEIAS
+    platform, the stored data from InfluxDB is sent to Grafana which allows query
+    execution, visualization and notifications generation. Finally, the AWS Cognito
+    service, is a secure tool for managing user information and in the AUGEIAS platform
+    it is used to manage user roles (farmers, managers of WWTP) and access control
+    for the AUGEIAS application. SECTION VI. Conclusion AUGEIAS project aims to manage,
+    and reuse treated wastewater from WWTP for irrigation needs, with collection and
+    correlation of IoT sensors and open source’s data. In this paper, we first present
+    several open-source APIs, including OpenWeatherMap, AccuWeather and Weather Underground
+    in order to evaluate their reliability related to the agrometeorological stations
+    that is installed in the field. The technique used to calculate the forecast error
+    was MAPE. According to our findings, OpenWeatherMap’s forecast data proved more
+    accurate, with a success rate at 83.3%. Because local factors greatly affect measurements
+    in an area, the absolute similarity of measurements cannot be ensured. ACKNOWLEDGMENT
+    This research has been co-financed by the European Regional Development Fund of
+    the European Union and Greek national funds through the Operational Program Competitiveness,
+    Entrepreneurship and Innovation, under the call RESEARCH – CREATE – INNOVATE (project
+    code: T2EDK-04211). Authors Figures References Citations Keywords Metrics More
+    Like This Smart Irrigation system using Internet of Things 2020 International
+    Conference on Emerging Trends in Information Technology and Engineering (ic-ETITE)
+    Published: 2020 Smart Irrigation System using Internet of Things (IoT) and Machine
+    Learning 2021 9th International Conference on Reliability, Infocom Technologies
+    and Optimization (Trends and Future Directions) (ICRITO) Published: 2021 Show
+    More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 7th South-East Europe Design Automation, Computer Engineering, Computer
+    Networks and Social Media Conference, SEEDA-CECNSM 2022
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Open weather data evaluation for crop irrigation prediction mechanisms in
+    the AUGEIAS project
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors: []
+  citation_count: '0'
+  description: 'The proceedings contain 29 papers. The topics discussed include: UAV
+    data reliability improvements based on multifunctional GCPs; coordination and
+    control for automatic mobile ground control points in agricultural remote sensing;
+    small plot identification from video streams for high-throughput phenotyping of
+    large breeding populations with unmanned aerial systems; UAV-based multi-sensor
+    multi-platform integration for high throughput phenotyping; drones coordination
+    protocols in the precision agriculture context; an energy aware smart station
+    for an UAV fleet in the smart farming application; drone based technologies for
+    assessing modern farming practices in undergraduate research; and validation of
+    digital surface models (DSMs) retrieved from unmanned aerial vehicle (UAV) point
+    clouds using geometrical information from shadows.'
+  doi: null
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: '>'
+  journal: Proceedings of SPIE - The International Society for Optical Engineering
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Autonomous Air and Ground Sensing Systems for Agricultural Optimization and
+    Phenotyping IV
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Yim D.
+  - Chung J.
+  - Cho Y.
+  - Song H.
+  - Jin D.
+  - Kim S.
+  - Ko S.
+  - Smith A.
+  - Riegsecker A.
+  citation_count: '62'
+  description: Deployment of internet of things (IoT) devices, wireless sensors, and
+    sensor networks, in agriculture can be a great help in monitoring environment
+    and growing crops; and having a network to support those devices is necessary
+    to successfully utilize those resources. Recently, low-power wide area network
+    (LPWAN) have been recognized as an appropriate technology for agriculture use.
+    LoRa is a representative network of low-power wide area network (LPWAN). It can
+    be applied to IoT for agriculture due to its long range and low power capabilities.
+    LoRa network performance is highly affected by physical layer parameters and the
+    environment. While LPWANs have been around for a number of years, they are still
+    considered an emerging technology and have had few scientific studies performed.
+    Currently, most studies have shown LoRa communication capabilities in urban, mountainous,
+    and maritime areas, with little focus on agriculture use cases. Tree farming is
+    a long-term investment, requiring careful monitoring to mitigate loss; therefore,
+    this paper provides an analysis about the impact of variant physical layer parameters
+    on performance of LoRa networks in a tree farm. Overall, the LoRa communication
+    range was smaller than the theoretically expected range. Some PHY factors, spreading
+    factor and coding rate, showed a clear impact on LoRa performance. Actual data
+    reliability was inconsistent at varying distances and PHY configurations, unlike
+    the consistency found in the RSSI reported by the radios. Additional experiments
+    show the Fresnel Zone still affects LoRa networks. All experiments were performed
+    in an Indiana rural tree plantation in the United States. Each node was set differently
+    by modulating spreading factor, bandwidth and coding rate using 915MHz and 13
+    dBm transmit power at variant distance.
+  doi: 10.1109/SAS.2018.8336764
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2018 IEEE Sensors Application... An experimental
+    LoRa performance evaluation in tree farm Publisher: IEEE Cite This PDF Daeun Yim;
+    Jiwon Chung; Yulim Cho; Hyunji Song; Daehan Jin; Sojeong Kim; Sungwook Ko; Anthony
+    Smith; Austin Riegsecker All Authors 47 Cites in Papers 2068 Full Text Views Abstract
+    Document Sections I. Introduction II. Background III. Related Work IV. Experiments
+    Method and Results V. Conclusion Authors Figures References Citations Keywords
+    Metrics Abstract: Deployment of internet of things (IoT) devices, wireless sensors,
+    and sensor networks, in agriculture can be a great help in monitoring environment
+    and growing crops; and having a network to support those devices is necessary
+    to successfully utilize those resources. Recently, low-power wide area network
+    (LPWAN) have been recognized as an appropriate technology for agriculture use.
+    LoRa is a representative network of low-power wide area network (LPWAN). It can
+    be applied to IoT for agriculture due to its long range and low power capabilities.
+    LoRa network performance is highly affected by physical layer parameters and the
+    environment. While LPWANs have been around for a number of years, they are still
+    considered an emerging technology and have had few scientific studies performed.
+    Currently, most studies have shown LoRa communication capabilities in urban, mountainous,
+    and maritime areas, with little focus on agriculture use cases. Tree farming is
+    a long-term investment, requiring careful monitoring to mitigate loss; therefore,
+    this paper provides an analysis about the impact of variant physical layer parameters
+    on performance of LoRa networks in a tree farm. Overall, the LoRa communication
+    range was smaller than the theoretically expected range. Some PHY factors, spreading
+    factor and coding rate, showed a clear impact on LoRa performance. Actual data
+    reliability was inconsistent at varying distances and PHY configurations, unlike
+    the consistency found in the RSSI reported by the radios. Additional experiments
+    show the Fresnel Zone still affects LoRa networks. All experiments were performed
+    in an Indiana rural tree plantation in the United States. Each node was set differently
+    by modulating spreading factor, bandwidth and coding rate using 915MHz and 13
+    dBm transmit power at variant distance. Published in: 2018 IEEE Sensors Applications
+    Symposium (SAS) Date of Conference: 12-14 March 2018 Date Added to IEEE Xplore:
+    12 April 2018 ISBN Information: DOI: 10.1109/SAS.2018.8336764 Publisher: IEEE
+    Conference Location: Seoul, Korea (South) SECTION I. Introduction There is obvious
+    benefit to agricultural IoT. Data collected from wirelessly connected sensors
+    and agricultural equipment can ease the difficulty of monitoring farmland and
+    livestock, and assist farmers'' decision making. To apply IoT technology in an
+    agricultural environment, one must consider how these devices are connected. The
+    network system for agricultural IoT has to cover a wide area of farmland without
+    relying on costly cellular networks. A low-power wide area network (LPWAN) is
+    a well-suited solution for this purpose. LPWAN is a type of wireless network designed
+    to allow long range communications at a low bit-rate. End devices can communicate
+    with base stations from longer distances than other wireless network systems while
+    consuming very less energy. Some LPWANs available include Sigfox, Weightless-N,
+    NB-IoT and LoRa. Each network has its advantages and disadvantages. Though it
+    is a fairly new technology, LoRa has attracted a lot of attention, especially
+    in terms of low costs and excellent battery performance. LoRa''s modulation developed
+    traditional spread-spectrum communications more robust by generating chirp signal
+    that changes frequency continuously [14]. Much of the research on LoRa is relevant
+    to its potential for covering large areas. Unfortunately, most of the studies
+    have been conducted in open or urban environments with only a few were related
+    to agriculture [5], [7]. To provide consistent and efficient management of large
+    farmlands, measurements need to be taken of LoRa network potential for those areas.
+    Especially in a tree farm, it takes at least 6 years and up to several decades
+    to harvest timber. Even minor failures can result in wasting long-term efforts
+    and large investments. Therefore, to verify its potential for agriculture, we
+    focused on experimenting changes in LoRa network performance, range, reliability,
+    and RSSI, according to different physical layer parameters and how each affects
+    it. In addition, by examining traditional Fresnel zone limitations, the LoRa performance
+    affected could be measured. SECTION II. Background LPWANs supplements short range
+    wireless networks such as Wi-Fi and Bluetooth with their large-scale coverage
+    at decent cost. Instead of narrowing bandwidth to increase signal-to-noise ratio
+    (SNR) like other LPWANs, LoRa uses a special chirp spread spectrum modulation
+    to cover large areas. Below are some details of LoRaWAn and physical factors consisting
+    of LoRaWAn physical layer. A. LORAWAN LoRa is a chirp spread spectrum modulation
+    scheme using wideband linear frequency which improves receiver sensitivity and
+    tolerance to miscommunication between receiver and transmitter [9]. LoRaWAn technology
+    mainly uses star network topology. The gateways receive messages from multiple
+    end-devices and end-devices are connected to one or more gateways. End-devices
+    can transmit data to gateways with own time interval and data rate complying rules.
+    These base stations are connected to other network servers via standard IP connections
+    [4]. The base station and end-devices can communicate bidirectionally with good
+    coverage. LoRaWAn networks have three classes based on basic features and additional
+    features. Class A end-devices (basic LoRaWan) provide bi-directional communications.
+    Those communications consume the lowest power. Their downlink communication occurs
+    from the server following uplink transmission. Class B additionally provides a
+    scheduled receive slot trough opening extra receive windows. The servers know
+    if end-devices are listening. Class C provides bi-directional communication with
+    maximal receive slots for minimum latency [9]. LoRa Technology has some key features.
+    LoRa has scalability in bandwidth. Additionally, LoRa can be used with both narrowband
+    and wideband service with a few configuration changes. LoRa has great reliability
+    as it resists the Doppler Effect, multipath, fading mechanisms, and other interference
+    mechanisms [14]. Its protocol is designed specifically for low power consumption
+    extending battery lifetime up to 20 years. A single base station can penetrate
+    into dense urban/indoor regions, and can connect rural areas up to 30 miles away.
+    The last feature is low cost. LoRa reduces costs in three ways: infrastructure
+    investment, operating expenses and end-node sensors. LoRa uses license-free sub
+    Gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915
+    MHz (North America). Since LoRa uses license-free frequency bands, network costs
+    can be minimized [11]. B. PHY Factors PHY factors underlie all of three classes
+    of LoRaWan. The configuration of LoRa can be tuned by controlling physical layer
+    (PHY) settings, which results in performance changes. In this research, physical
+    settings include spreading factor(SF), bandwidth(BW), and error correction rate(CR).
+    1) Spreading factor (SF) The basic premise of spread spectrum is that each bit
+    of information is encoded as multiple chips. Spreading factor(SF) is the relationship
+    between the bit and chip [9]. A higher SF increases the Signal to Noise Ratio(SNR),
+    and thus sensitivity and range, but also increases the air time of the packet
+    [4]. Available SF''s are from 6 to 12 which change LoRaWAn data rates from 0.3
+    kbps to 27 kbps. 2) Bandwidth (BW) Bandwidth (BW) is the range of frequencies
+    in the transmission band. LoRa can have 125 to 500 KHz of bandwidth, typically
+    set to 125, 250, or 500KHz. Changing BW can influence message time on air which
+    results in inverse influence on radio sensitivity. Larger BW gives a higher data
+    rate (thus shorter time on air), but a lower sensitivity (due to integration of
+    additional noise). A smaller BW gives a higher sensitivity, but a lower data rate.
+    3) Coding Rate (CR) Coding Rate(CR) is a form of Forward Error Correction (FEC)
+    that permits the recovery of bits of information due to corruption by interference.
+    This requires a small overhead of additional encoding of the data in the transmitted
+    packet [9]. CR can range from 4/5 to 4/8. A larger CR offers more reliability
+    by improving resilience to corrupted bits, but increases time on air and energy
+    consumption [4]. 4) Transmission Power LoRa transmission power ranges from −4
+    to 20 dBm. Higher transmission power causes an increase in energy consumption
+    and signal-to-noise ratio. C. Fresnel Zone The concept of Fresnel zone clearance
+    is used to account for interference by obstacles within the beam width of a radio
+    signal. The first zone must be kept largely free from obstructions to avoid interfering
+    with the radio reception. However, some obstruction of the Fresnel zones can often
+    be tolerated. As a rule of thumb the maximum obstruction allowable is 40%, but
+    the recommended obstruction is 20% or less [8]. SECTION III. Related Work Before
+    LPWAN became a popular network infrastructure for agricultural IoT, mesh topology
+    networks using smaller range network devices such as Zigbee dominated wireless
+    sensor networks (WSN). However, this kind of implementation had a serious problem
+    with limited link budget due to high data rates and a low link budget [15]. In
+    contrast, LPWAN, using a star network topology, has a distinct advantage with
+    longer range and battery life. There has been a significant amount of research
+    on outdoor LoRa coverage and performance. Most were performed in urban and maritime
+    environments. Urban experiments showed more than half of packets were successfully
+    delivered from 5-10km range [1], and a maximum 80% of packet delivery at a distance
+    of 2800 meters [11]. In maritime applications, performance of 15-30km distance
+    was observed. However, unlike the prior mentioned research other research showed
+    only a few hundred meter LoRa network coverage [5], [7]. Also, from these experiments
+    LoRa showed distinct performance differences within various environments such
+    as indoor, outdoor, underground or with large amounts of vegetation. Even meteorological
+    conditions such as temperature and humidity affect network performance [11], and
+    their impact on LoRa performance was observed in [5]. Research also showed variant
+    hardware physical settings can have a great influence on LoRa network performance.
+    With increasing spreading factor LoRa had longer range with higher reliability
+    [11]. According to [7], BW was the largest factor in communication success. However,
+    research by Cattani et al. [5] showed that spreading factor, coding rate and then
+    bandwidth was the order that had the most effect on network reliability. It is
+    important the transmitter and receiver use the same spreading factor and bandwidth
+    combination for successful packet delivery [13], which means that to experiment
+    on various PHY settings, each device has to have the same settings. LoRa radios
+    with different coding rates can still communicate [5]. Although prior research
+    showed expected performance of LoRa network in many areas, little work has been
+    done on agricultural environments to evaluate LoRa performance. Since LoRa is
+    an appropriate technology to apply in this environment, this paper focused on
+    how PHY settings affect reliability and coverage on an actual tree farm. Vegetation
+    can also be an obstacle to network performance, so it is expected that LoRa will
+    have lower performance than in other previously researched environments. SECTION
+    IV. Experiments Method and Results A. Hardware Setup We used the LoRa IoT Development
+    Kit from ‘Dragino’ which is a company in China offering LoRa shield based on Semtech
+    SX1276 chip as can be seen in Figure 1. It also offers the ‘LG01-P’ LoRa Gateway
+    which is an open source single channel LoRa Gateway. The kit offers two portable
+    devices equipped with an SX1276 radio module that works in the 915 MHz band, and
+    a 1/2 wave omni-directional antenna. To find temperature and humidity data, a
+    DHT11 sensor package was used; this is a composite sensor that contains a calibrated
+    digital signal output to measure temperature and humidity. Fig. 1. Dragino IoT
+    kit [6] Show All B. Experimental Setup 1) Sites Our experiments were performed
+    three times at the same tree farm. The farm is located at 13455 S 525 W, Romney,
+    IN 47981, USA. It is primarily a flat meadow, with small hills in the middle of
+    the property. Mid-life maple, oak, and pine trees are planted in 8-foot separate
+    rows on the property. 2) PHY Settings and Data Packet Table I Arduino node ID
+    according to PHY settings The experiment was carried out by assigning an Arduino
+    ID according to each PHY Setting. Table 1 shows these variant settings. Each three
+    components of Arduino ID is spreading factor, bandwidth and coding rate. SF can
+    be set from 6 to 12. The SF is set to 7 (default), 9, and 11. The CR is set to
+    a minimum value of 5 and a maximum value of 8. BW is set to 125kHz, aside from
+    7-250-5 and 7-250-8. Only SF7 can be set to the maximum setting of 250kHz, so
+    SF7 was set in two cases of 125kHz and 250kHz. The value of TX power was fixed
+    at 13(default). To account for the 60% clear 1st Fresnel Zone at 200m, the devices
+    and antennas were fixed 2.5m above the ground. In accordance with necessary settings,
+    4 gateways were used to match both the LoRaWAn spreading factor and bandwidth.
+    However, prior research showed LoRa shields with different coding rates can communicate
+    with the same gateway. Therefore, both settings using same spreading factor and
+    bandwidth but a different coding rate, sent data packets to one gateway. Table
+    2 Data packet composition The data structures of the payload used in transmitted
+    data packets is character type and were 9 bytes in size. The first three bytes
+    make it possible to distinguish which device is sending data. We sent data at
+    3 second intervals with a 0.5 second of delay between sensing. Each time, a gateway
+    collected 150 data packets at once. The transceivers were set to not to retransmit
+    lost data and thus accurately checked packet delivery rate. If the data packet
+    wasn''t correct, this was considered a data loss and skipped. The next data packet
+    was then examined. Every end-device was tested at 100m, 150m, and 200m. The first
+    experiment was conducted on a day with a temperature of 25°C, and humidity of
+    80%. The second day had a temperature 24°C, humidity of 62%. The third experiment
+    was done with a temperature of 27°C, and humidity of 70%. Shields were put in
+    a box to minimize meteorological factors affecting experiment results. Every experiment
+    was carried out for about three hours. Additionally, all the experiments were
+    performed at a height of 2.5m, considering Fresnel zone of LoRa network frequency
+    and overall tree farm area. The result data was found through the average of the
+    experiment results. Fig. 2. Experiment site (tree farm land). Star shows the position
+    of AP and each flag shows the position of lora shields. Show All In addition,
+    Fresnel zone tests were not done with different settings. LoRa Shield''s PHY setting
+    conditions are set to default values. SF was set to 7, BW was set to 125, and
+    CR was set to 5. The experiment was conducted under the same conditions with the
+    change of height only at Om, 1m, 2m, and 3m at 200m. One hundred packets were
+    used to determine tendency of performance improvement accordance with height.
+    C. Metrics Upon this experiment''s completion, researchers calculated reliability
+    and received signal strength indication (RSSI). The RSSI was used to analyze data
+    of different settings at different distances. Reliability was calculated as the
+    ratio of valid received packets to the number of packets transmitted to the Packet
+    Delivery Ratio (PDR). The PDR provided information about the communication reliability
+    [7]. RSSI is a measurement of the power present in a received radio signal [10].
+    PDR= D T (1) View Source D: Packets delivered successfully T: Total packets transmitted
+    D. Experiment Results 1) Experiments with Different Phy Settings Table 3 Results
+    of each setting at different distance Through Table 3 one can see that all settings
+    but 7-125-5 and 7-250-5 showed more than 90% reliability at 150m. Only 9-125-8
+    and 11-125-8 showed good reliability at 200m. Compared to related research, distances
+    measured were much smaller than expected, and at least setting spreading factor
+    to 9 and coding rate to 8 ensures 200m communication range with good reliability.
+    As expected, PHY settings followed predictions. In most cases, settings with increased
+    spreading factor and coding rate showed higher reliability at larger distances.
+    Spreading factor clearly affected the readings. With higher spreading factor,
+    LoRa communicated with higher reliability at larger distance. However, by combining
+    spreading factor, PDR didn''t appear to linearly increase. Coding rate was impacted
+    when the distance grew further away. With a smaller distance and reliable PDR
+    (higher than 90%), changing coding rate increased PDR. Bandwidth had lowest impact
+    on LoRa performance. As shown from bandwidth 125 KHz (7-125-5 and 7-125-8) and
+    250 KHz (7-250-5 and 7-250-8) it was impossible to discover relation from configuring
+    bandwidth. However, as seen in Figure 3, higher bandwidth impacted on RSSI as
+    augmenting bandwidth has a negative connection between data rates and receiver
+    sensitivity. Fig. 3. Average RSSI(dbm) according to distance(m). RSSI values are
+    averaged by three experiments. Show All As Figure 4 shows, RSSI consistently decreased
+    in every setting as distance grew further, unlike PDR. Even when PDR had erratic
+    increase from 100m to 150m at spreading factor 7, RSSI showed a decrease. However,
+    an obvious relation was not determined between RSSI and spreading factor. This
+    correlates with other research [12]. Unlike Semtech''s claims, RSSI seems to be
+    affected by distance, not spreading factor. 2) Fresnel Zone Experiment Fig. 5.
+    PDR according to antenna height Show All Table 4 Results of fresnel zone experiment
+    Using Figure 5 as reference, height impacted LoRa network. Performance in reliability
+    surges along with antenna height from 0m to 2m. Considering that the Fresnel zone
+    experiment only received 100 packets, the PDR data is different from the PHY setting
+    experiment results. This shows the tendency of LoRa performance improvement with
+    higher antenna placement. However, this experiment alone does not reveal the difference
+    between 2m and 3m. Thus, it cannot be verified if the height increase beyond the
+    Fresnel Zone ensures better communication. Further study needs to be done for
+    clear explanation. SECTION V. Conclusion This paper provides a basis on deploying
+    LoRa within a tree farm. To complement research on applying LoRa to agricultural
+    IoT, this research has shown how PHY factors configurations and different distances
+    impact reliability of LoRa on tree farm. Overall, LoRa communication range in
+    tree farm is below expected values as specified commercially and in research.
+    However, to secure high reliability in large distances, maintaining high spreading
+    factor and coding rate is important. Spreading factor and coding rate affected
+    LoRa performance in an expected way, but bandwidth did not conspicuously changed
+    performance. RSSI showed a consistent pattern from different PHY factors configurations.
+    Unlike inconsistent PDR changes in different PHY configurations and distances,
+    RSSI decreased along with distances in every configuration. However, we cannot
+    determine what effect, if any, the tree plantation had on LoRa network communication.
+    In addition, this experiment not determine what effect complying with the calculated
+    Fresnel Zone had on LoRa communication in regards to antenna height and distance
+    between nodes. In the next paper, we plan to compare LoRa performance in open
+    area and tree farm with the same PHY configurations to measure how the tree plantation
+    affect the network performance. In future work, we will study other factors influencing
+    LoRa performance such as antenna height and environmental factors. ACKNOWLEDGEMENT
+    This research was supported by the MIST(Ministry of Science, ICT & Future Planning),
+    Korea, under the National Program for Excellence in SW)(20 15-0-00910) supervised
+    by the IITP(Institute for Information & communications Technology Promotion) Authors
+    Figures References Citations Keywords Metrics More Like This Optimal Network Size
+    and Encoding Rate for Wireless Sensor Network-Based Decentralized Estimation under
+    Power and Bandwidth Constraints IEEE Transactions on Wireless Communications Published:
+    2011 Consensus-Based Distributed State Estimation Over Sensor Networks With Encoding-Decoding
+    Scheme: Accommodating Bandwidth Constraints IEEE Transactions on Network Science
+    and Engineering Published: 2022 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 2018 IEEE Sensors Applications Symposium, SAS 2018 - Proceedings
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: An experimental LoRa performance evaluation in tree farm
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Petersen H.
+  - Wunderlich T.
+  - Attia Al Hagrey S.
+  - Rabbel W.
+  citation_count: '16'
+  description: Information about the variability of different soil attributes within
+    a field is essential for sustainable land management and precision agriculture.
+    Mobile proximal gamma-ray spectrometry can map soil characteristics of vast areas
+    at different scales rapidly and cost-effectively. This study aims at investigating
+    reliability and capability of mobile-gamma-spectrometry (radiometrics) data to
+    map typical soils of Middle Europe. In this paper, we investigate relationships
+    between the radioelement concentrations (K, U, Th, and dose rate) and soil parameters
+    (texture, CEC, pH, and organic-C content) at four different field sites and soil
+    textures. The data reliability is confirmed at the survey start. Mobile data have
+    an excellent linear correlation (nearly 1:1) with the stationary readings (of
+    identical devices, acquisition setups, and soil conditions) but moderate correlation
+    with laboratory data (of different devices, setups, and sample conditions). Dried
+    lab samples have systematically higher radioelement concentrations than the field
+    soils (normally wet). Consequently, the mobile-gamma-spectrometric data is sufficiently
+    accurate for soil mapping, and its calibration by laboratory data is less useful
+    due to the varying environmental conditions. Single absolute radioelement concentrations
+    show only moderate correlations with the different soil parameters, particularly
+    clay content and CEC. This may be related to varying environmental conditions
+    (soil moisture, soil structure, vegetation, land use, etc.) between the study
+    sites. Investigations of the ratios of radioelement concentrations yield a clear
+    improvement of their correlations to soil parameters, especially for sand and
+    clay contents, CEC, and organic C. Additionally, multiple-linear-regression models
+    were established using the element concentrations of potassium and thorium to
+    predict silt content and pH. The results of the highly correlated models were
+    confirmed by comparing with clay and silt content and pH value, respectively,
+    to six additional independent field samples. Briefly, applications of gamma-ray
+    data for soil mapping offers the possibility of the development of quantitative
+    relationships regarding soil parameters like sand and clay contents, CEC, and
+    organic C. Classification of soil textures by gamma-ray data seems to be promising,
+    though a broader database of soils is needed for further research. We recommend
+    gamma-ray mapping as a complementary or even an alternative to common mapping
+    techniques. © 2012 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim.
+  doi: 10.1002/jpln.201100408
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy UNCL: University Of Nebraska
+    - Linc Acquisitions Accounting Search within Login / Register Journal of Plant
+    Nutrition and Soil Science Regular Article Full Access Characterization of some
+    Middle European soil textures by gamma-spectrometry Hauke Petersen,  Tina Wunderlich,  Said
+    Attia al Hagrey,  Wolfgang Rabbel First published: 28 June 2012 https://doi.org/10.1002/jpln.201100408Citations:
+    14 PDF TOOLS SHARE Abstract Information about the variability of different soil
+    attributes within a field is essential for sustainable land management and precision
+    agriculture. Mobile proximal gamma-ray spectrometry can map soil characteristics
+    of vast areas at different scales rapidly and cost-effectively. This study aims
+    at investigating reliability and capability of mobile-gamma-spectrometry (radiometrics)
+    data to map typical soils of Middle Europe. In this paper, we investigate relationships
+    between the radioelement concentrations (K, U, Th, and dose rate) and soil parameters
+    (texture, CEC, pH, and organic-C content) at four different field sites and soil
+    textures. The data reliability is confirmed at the survey start. Mobile data have
+    an excellent linear correlation (nearly 1:1) with the stationary readings (of
+    identical devices, acquisition setups, and soil conditions) but moderate correlation
+    with laboratory data (of different devices, setups, and sample conditions). Dried
+    lab samples have systematically higher radioelement concentrations than the field
+    soils (normally wet). Consequently, the mobile-gamma-spectrometric data is sufficiently
+    accurate for soil mapping, and its calibration by laboratory data is less useful
+    due to the varying environmental conditions. Single absolute radioelement concentrations
+    show only moderate correlations with the different soil parameters, particularly
+    clay content and CEC. This may be related to varying environmental conditions
+    (soil moisture, soil structure, vegetation, land use, etc.) between the study
+    sites. Investigations of the ratios of radioelement concentrations yield a clear
+    improvement of their correlations to soil parameters, especially for sand and
+    clay contents, CEC, and organic C. Additionally, multiple-linear-regression models
+    were established using the element concentrations of potassium and thorium to
+    predict silt content and pH. The results of the highly correlated models were
+    confirmed by comparing with clay and silt content and pH value, respectively,
+    to six additional independent field samples. Briefly, applications of gamma-ray
+    data for soil mapping offers the possibility of the development of quantitative
+    relationships regarding soil parameters like sand and clay contents, CEC, and
+    organic C. Classification of soil textures by gamma-ray data seems to be promising,
+    though a broader database of soils is needed for further research. We recommend
+    gamma-ray mapping as a complementary or even an alternative to common mapping
+    techniques. References Citing Literature Volume175, Issue5 October, 2012 Pages
+    651-660 References Related Information Recommended Estimation of soil texture
+    from permanent wilting point measured with a chilled‐mirror dewpoint technique
+    Kegan K. Farrick,  Mark N. Wuddivira,  Osei Martin Journal of Plant Nutrition
+    and Soil Science Tropical Soil Toposequence Characterization via pXRF Spectrometry
+    Fernanda Magno Silva,  David C. Weindorf,  Sérgio Henrique Godinho Silva,  Elen
+    Alvarenga Silva,  Bruno Teixeira Ribeiro,  Luiz Roberto Guimarães Guilherme,  Nilton
+    Curi Soil Science Society of America Journal Contrasting ecosystem recovery on
+    two soil textures: implications for carbon mitigation and grassland conservation
+    S. G. BAER,  C. K. MEYER,  E. M. BACH,  R. P. KLOPF,  J. SIX Ecosphere Gamma‐ray
+    spectrometry as versatile tool in soil science: A critical review Nadja Reinhardt,  Ludger
+    Herrmann Journal of Plant Nutrition and Soil Science A gamma‐ray spectrometry
+    approach to field separation of illuviation‐type WRB reference soil groups in
+    northern Thailand Ulrich Schuler,  Petra Erbe,  Mehdi Zarei,  Wanida Rangubpit,  Adichat
+    Surinkum,  Karl Stahr,  Ludger Herrmann Journal of Plant Nutrition and Soil Science
+    Download PDF Additional links ABOUT WILEY ONLINE LIBRARY Privacy Policy Terms
+    of Use About Cookies Manage Cookies Accessibility Wiley Research DE&I Statement
+    and Publishing Policies Developing World Access HELP & SUPPORT Contact Us Training
+    and Support DMCA & Reporting Piracy OPPORTUNITIES Subscription Agents Advertisers
+    & Corporate Partners CONNECT WITH WILEY The Wiley Network Wiley Press Room Copyright
+    © 1999-2024 John Wiley & Sons, Inc or related companies. All rights reserved,
+    including rights for text and data mining and training of artificial technologies
+    or similar technologies."'
+  inline_citation: '>'
+  journal: Journal of Plant Nutrition and Soil Science
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Characterization of some Middle European soil textures by gamma-spectrometry
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
