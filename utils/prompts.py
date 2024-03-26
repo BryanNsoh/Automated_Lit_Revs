@@ -159,9 +159,13 @@ Valid syntax for advanced search queries includes:
 *   Field codes (e.g. TITLE, ABS, KEY, AUTH, AFFIL) to restrict searches to specific parts of documents
 *   Boolean operators (AND, OR, AND NOT) to combine search terms
 *   Proximity operators (W/n, PRE/n) to find words within a specified distance
+        - W/n: Finds terms within "n" words of each other, regardless of order. Example: journal W/15 publishing finds articles where "journal" and "publishing" are within two words of each other.
+        - PRE/n: Finds terms in the specified order and within "n" words of each other. Example: data PRE/50 analysis finds articles where "data" appears before "analysis" within three words.
+        - To find terms in the same sentence, use 15. To find terms in the same paragraph, use 50
+        - 
 *   Quotation marks for loose/approximate phrase searches
 *   Braces \{\} for exact phrase searches
-*   Wildcards (* and ?) for partial word matches
+*   Wildcards (*) to capture variations of search terms
 
 Invalid syntax includes:
 
@@ -177,7 +181,6 @@ An ideal advanced search query should:
 *   Use field codes to focus the search on the most relevant parts of documents
 *   Combine related concepts using AND and OR
 *   Exclude irrelevant terms with AND NOT at the end
-*   Use proximity operators to find phrases and related words near each other
 *   Employ quotation marks and braces appropriately for phrase searching
 *   Include wildcards to capture variations of key terms
 *   Follow the proper order of precedence for operators
@@ -188,20 +191,20 @@ Complex searches should be built up systematically, with parentheses to group re
 
 Example Advanced Searches
 
-{{
-    "scopus_queries": [
-        "TITLE-ABS-KEY(\"precision agriculture\" AND (\"machine learning\" OR \"artificial intelligence\") AND water W/10 management)",
-        "TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)",
-        "TITLE-ABS((\"precision farming\" OR \"precision agriculture\") AND (\"deep learning\" OR \"neural network?\") AND water conservation)",
-        "TITLE-ABS-KEY((crop? PRE/5 monitor?) AND \"remote sensing\" AND (irrigation OR water?))",
-        "AFFIL(\"agricultural engineering\") AND TITLE-ABS((\"precision agriculture\" OR \"smart farming\") AND soil W/10 moist?)",
-        "TITLE((\"precision irrigation\" OR \"variable rate irrigation\") AND \"machine learning\")",
-        "TITLE-ABS-KEY((\"precision agriculture\" OR \"precision farming\") AND (autonom? W/5 robot?) AND (irrigat? OR water?))",
-        "ALL((\"internet of things\" OR iot) AND (soil W/10 (monitor? OR sens?)) AND (\"crop yield\" OR productivity))",
-        "TITLE-ABS((\"digital agriculture\" OR \"smart agriculture\") AND \"big data\" AND irrigation W/10 schedul?)",
-        "AFFIL(\"precision agriculture\") AND TITLE-ABS-KEY((\"machine learning\" OR \"artificial intelligence\") AND water W/15 (productivity OR efficiency OR sav?))"
-    ]
-}}
+{
+  "scopus_queries": [
+    "TITLE-ABS-KEY(\"precision agriculture\" AND (\"machine learning\" OR \"artificial intelligence\") AND \"water management\")",
+    "TITLE-ABS-KEY((\"internet of things\" OR iot) AND (\"irrigation\" OR \"watering\") AND sensor*)",
+    "TITLE-ABS((\"precision farming\" OR \"precision agriculture\") AND (\"deep learning\" OR \"neural networks\") AND \"water conservation\")",
+    "TITLE-ABS-KEY((crop* PRE/5 monitor*) AND \"remote sensing\" AND (irrigation OR water*))",
+    "AFFIL(\"agricultural engineering\") AND TITLE-ABS((\"precision agriculture\" OR \"smart farming\") AND \"soil moisture\")",
+    "TITLE((\"precision irrigation\" OR \"variable rate irrigation\") AND \"machine learning\")",
+    "TITLE-ABS-KEY((\"precision agriculture\" OR \"precision farming\") AND (autonom* W/5 robot*) AND (irrigat* OR water*))",
+    "ALL((\"internet of things\" OR iot) AND (\"soil monitoring\" OR \"soil sensors\") AND (\"crop yield\" OR productivity))",
+    "TITLE-ABS((\"digital agriculture\" OR \"smart agriculture\") AND \"big data\" AND \"irrigation scheduling\")",
+    "AFFIL(\"precision agriculture\") AND TITLE-ABS-KEY((\"machine learning\" OR \"artificial intelligence\") AND \"water\" AND (productivity OR efficiency OR sav*))"
+  ]
+}
 
 ** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
 
@@ -240,16 +243,16 @@ Searches should be concise yet precise, following the syntax rules carefully.
 Example Searches
 {{
     "alex_queries": [
-    "https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%28%22soil+moisture+sensors%22%7C%22evapotranspiration%22%29+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+-%22deep+learning%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%28%22soil+moisture+monitoring%22%7C%22crop+water+stress%22%29+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22+-%22satellite+imagery%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22variable+rate+irrigation%22+%2B%22precision+agriculture%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22MQTT+protocol%22+%2B%22real-time%22+%2B%22smart+irrigation+system%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22crop+water+demand+prediction%22+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22decision+support+system%22+%2B%28%22irrigation+scheduling%22%7C%22irrigation+management%22%29+-%22web-based%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22sensor+data+fusion%22+%2B%22irrigation+optimization%22+%2B%22machine+learning%22&sort=relevance_score:desc&per_page=50",
-    "https://api.openalex.org/works?search=%22IoT+platform%22+%2B%22irrigation+automation%22+%2B%22precision+agriculture%22+-%22smart+home%22&sort=relevance_score:desc&per_page=50"
+    "https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%28%22soil+moisture+sensors%22%7C%22evapotranspiration%22%29+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+-%22deep+learning%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%28%22soil+moisture+monitoring%22%7C%22crop+water+stress%22%29+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22+-%22satellite+imagery%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22variable+rate+irrigation%22+%2B%22precision+agriculture%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22MQTT+protocol%22+%2B%22real-time%22+%2B%22smart+irrigation+system%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22crop+water+demand+prediction%22+%2B%22precision+irrigation%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22decision+support+system%22+%2B%28%22irrigation+scheduling%22%7C%22irrigation+management%22%29+-%22web-based%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22sensor+data+fusion%22+%2B%22irrigation+optimization%22+%2B%22machine+learning%22&sort=relevance_score:desc&per_page=30",
+    "https://api.openalex.org/works?search=%22IoT+platform%22+%2B%22irrigation+automation%22+%2B%22precision+agriculture%22+-%22smart+home%22&sort=relevance_score:desc&per_page=30"
 ]
 }}
 

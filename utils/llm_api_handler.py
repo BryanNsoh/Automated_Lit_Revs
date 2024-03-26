@@ -50,7 +50,7 @@ class LLM_APIHandler:
         """
         async with self.semaphore:
             current_time = time.time()
-            if self.gemini_minute_counter >= 55:
+            if self.gemini_minute_counter >= 59:
                 elapsed_minute = current_time - self.gemini_minute_timestamp
                 if elapsed_minute < 60:
                     await asyncio.sleep(60 - elapsed_minute)

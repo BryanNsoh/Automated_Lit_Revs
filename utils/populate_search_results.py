@@ -1,10 +1,6 @@
 import asyncio
-import json
 import logging
-from hashlib import sha256
 from pathlib import Path
-
-import aiofiles
 
 from openalex_search import OpenAlexPaperSearch
 from scopus_search import ScopusSearch
@@ -22,13 +18,17 @@ class QueryProcessor:
         self.api_key_path = api_key_path
         self.email = email
         self.web_scraper = WebScraper()
-        self.openalex_search = OpenAlexPaperSearch(email, self.web_scraper)
-        self.scopus_search = ScopusSearch(api_key_path, self.web_scraper)
+        self.openalex_search = OpenAlexPaperSearch(
+            email, self.web_scraper, self.output_folder
+        )
+        self.scopus_search = ScopusSearch(
+            api_key_path, self.web_scraper, self.output_folder
+        )
         self.irrigation_data = IrrigationData(yaml_file)
 
     async def process_queries(self):
         try:
-            await self.irrigation_data.load_data()
+            await self.irrigation_data.load_data()  # Load the YAML data before iteration
             query_tasks = []
             async for (
                 subsection,
@@ -52,36 +52,18 @@ class QueryProcessor:
 
     async def process_query(self, query_type, query, query_id, response_id):
         if "scopus_queries" in query_type:
-            search_results = await self.scopus_search.search_and_parse(query)
+            output_path = await self.scopus_search.search_and_parse(
+                query, query_id, response_id
+            )
         elif "alex_queries" in query_type:
-            search_results = await self.openalex_search.search_papers(query)
+            output_path = await self.openalex_search.search_papers(
+                query, query_id, response_id
+            )
         else:
             return
-
-        hashed_filename = self.get_hashed_filename(query, query_id, response_id)
-        output_path = await self.save_json(search_results, hashed_filename)
         await self.irrigation_data.update_response(
-            query_id, response_id, "json_path", str(output_path)
+            query_id, response_id, "yaml_path", str(output_path)
         )
-
-    def get_hashed_filename(self, query, query_id, response_id):
-        hash_input = f"{query}_{query_id}_{response_id}"
-        hashed_filename = sha256(hash_input.encode()).hexdigest()
-        return f"{hashed_filename}.json"
-
-    async def save_json(self, data, filename):
-        # Ensure the output directory exists
-        self.output_folder.mkdir(parents=True, exist_ok=True)
-
-        # Create the full output path
-        output_path = self.output_folder / filename
-
-        # Save the data to a JSON file
-        async with aiofiles.open(output_path, "w") as file:
-            await file.write(
-                json.dumps(data, indent=4)
-            )  # Adding indent for pretty printing
-        return output_path
 
 
 async def main():
