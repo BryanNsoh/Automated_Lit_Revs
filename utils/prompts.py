@@ -268,8 +268,8 @@ def remove_illegal_characters(text):
 
 
 def get_prompt(template_name, **kwargs):
-    prompts = {
-        "paper_analysis": """<instructions>
+    prompts = {  # Soom to be deprecated
+        "paper_analysis": """<instructions>  
 First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_content> within the context of the overall literature review outline and intention provided.
 
 Your analysis should include:
@@ -396,6 +396,77 @@ The  platform will be specified in the search guidance. Replace * with the platf
 </resources>
 </document_content>
 </document>
+</documents>
+""",
+        "rank_papers": """
+        <instructions>  
+First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_content> within the context of the overall literature review intention provided and the specific section and subsection of the review.
+
+Your analysis should include:
+
+A concise analysis of how the specifics of the paper contribute to addressing the point within the larger context and intent of the literature review. Consider the following factors based on the paper type:
+Relevance: How directly does the paper address the key issues pertaining to the outline point?
+Insight: To what extent does the paper provide novel, meaningful, or valuable information for the point?
+Credibility: How reliable, valid, and trustworthy are the paper's findings, methods, or arguments?
+Scope: How comprehensive is the paper's coverage of topics relevant to the outline point?
+Recency: How up-to-date is the information in the context of the current state of knowledge on the topic?
+The three most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. Include the most important quote under "verbatim_quote1", the second most important under "verbatim_quote2", and the third under "verbatim_quote3". If no quotes are directly relevant, leave these blank.
+A relevance score between 0 and 1 representing the overall fit of the paper to the outline point and review. Use the following rubric:
+0.9-1.0: Exceptionally relevant - Comprehensively addresses all key aspects of the point with highly insightful, reliable, and up-to-date information. A must-include for the review.
+0.8-0.89: Highly relevant - Addresses key issues of the point with, credible, and meaningful information. Adds substantial value to the review.
+0.7-0.79: Very relevant - Directly informs the point with reliable and valuable information, but may have minor limitations in scope, depth, or recency.
+0.6-0.69: Moderately relevant - Provides useful information for the point, but has some notable gaps in addressing key issues or limitations in insight, credibility, or timeliness.
+0.5-0.59: Somewhat relevant - Addresses aspects of the point, but has significant limitations in scope, depth, reliability, or value of information. May still be worth including.
+0.4-0.49: Marginally relevant - Mostly tangential to the main issues of the point, with information of limited insight, credibility, or meaningfulness. Likely not essential.
+0.2-0.39: Minimally relevant - Only briefly touches on the point with information that is of questionable value, reliability, or timeliness. Not recommended for inclusion.
+0.0-0.19: Not relevant - Fails to address the point or provide any useful information. Should be excluded from the review.
+
+Be uncompromising in assigning the most appropriate score based on a holistic assessment of the paper's merits and limitations.
+
+List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank.
+Provide your analysis and other responses in the following JSON format:
+
+
+{{
+"analysis": "",
+"verbatim_quote1": "",
+"verbatim_quote2": "",
+"verbatim_quote3": "",
+"relevance_score1": 0.0,
+"limitations": ""
+}}
+
+
+Leave any fields blank if not applicable. It is critical to ensure that your response adheres striclty to the provided JSON format to be processed correctly. Any deviation from the format may result in an unusable output. Strict adherence to the json format will be rewarded with a generous 50$ bonus.
+</instructions>
+
+<documents>
+<context>
+<review_intention>
+{review_intention}
+</review_intention>
+
+<point_content>
+{point_content}
+</point_content>
+
+<subsection_title>
+{subsection_title}  
+</subsection_title>
+
+<section_intention>
+{section_intention}
+</section_intention>
+</context>
+<title>
+{document_title}
+</title>
+<full_text>
+{full_text}
+</full_text>
+<abstract>
+{abstract}
+</abstract>
 </documents>
 """,
     }

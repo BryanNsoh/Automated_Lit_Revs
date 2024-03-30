@@ -9,6 +9,22 @@ import backoff
 import json
 import re
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+
+logger.addHandler(console_handler)
+
+file_handler = logging.FileHandler("llm_handler.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
 
 class LLM_APIHandler:
     def __init__(self, key_path):
@@ -16,7 +32,7 @@ class LLM_APIHandler:
         Initialize the LLM_APIHandler with the path to the JSON file containing API keys.
         """
         self.load_api_keys(key_path)
-        self.semaphore = asyncio.Semaphore(55)  # Limit to 55 requests at a time
+        self.semaphore = asyncio.Semaphore(30)  # Limit to 55 requests at a time
         self.gemini_minute_counter = 0
         self.gemini_minute_timestamp = time.time()
         self.haiku_rate_limiter = asyncio.Semaphore(
@@ -50,7 +66,7 @@ class LLM_APIHandler:
         """
         async with self.semaphore:
             current_time = time.time()
-            if self.gemini_minute_counter >= 59:
+            if self.gemini_minute_counter >= 30:
                 elapsed_minute = current_time - self.gemini_minute_timestamp
                 if elapsed_minute < 60:
                     await asyncio.sleep(60 - elapsed_minute)
@@ -58,18 +74,37 @@ class LLM_APIHandler:
                 self.gemini_minute_timestamp = current_time
             self.gemini_minute_counter += 1
 
-            try:
-                async with aiohttp.ClientSession() as session:
-                    model = genai.GenerativeModel("gemini-pro")
-                    response = await model.generate_content_async(prompt)
-                    print(response.text)
-                    if response_format == "json":
-                        return await self.extract_json_async(response.text)
-                    else:
-                        return response.text
-            except Exception as e:
-                logging.error(f"Error in Gemini API call: {e}")
-                raise
+            retry_count = 0
+            while retry_count < 5:
+                try:
+                    async with aiohttp.ClientSession() as session:
+                        model = genai.GenerativeModel("gemini-pro")
+                        logging.info(
+                            f"Generating content with Gemini API. Prompt: {prompt}"
+                        )
+                        response = await model.generate_content_async(prompt)
+                        # logger.info(f"Gemini API response: {response.text}")
+                        if response_format == "json":
+                            return await self.extract_json_async(response.text)
+                        else:
+                            return response.text
+                # catch any errors from the API
+                except Exception as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"Error from Gemini API. Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(2**retry_count)  # Exponential backoff
+                except Exception as e:
+                    logger.error(f"Error in Gemini API call: {e}")
+                    raise
+
+            logger.error(
+                "Max retries reached. Unable to generate content with Gemini API."
+            )
+            raise Exception(
+                "Max retries reached. Unable to generate content with Gemini API."
+            )
 
     @backoff.on_exception(backoff.expo, (anthropic.APIError, ValueError), max_tries=5)
     async def generate_claude_content(
@@ -111,6 +146,7 @@ class LLM_APIHandler:
             if system_prompt is None:
                 system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
 
+            logger.info(f"Generating content with Claude API. Prompt: {prompt}")
             response = self.claude_client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -118,6 +154,7 @@ class LLM_APIHandler:
                 messages=messages,
             )
 
+            logger.info(f"Claude API response: {response.content[0].text}")
             if response_format:
                 return await self.extract_json_async(response.content[0].text)
             else:
