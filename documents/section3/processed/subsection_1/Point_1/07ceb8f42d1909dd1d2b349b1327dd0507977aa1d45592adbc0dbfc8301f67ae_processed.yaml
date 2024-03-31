@@ -1,0 +1,1559 @@
+- DOI: https://doi.org/10.3390/drones5020026
+  analysis: 'This systematic review on automated systems for real-time irrigation
+    management can be interpreted as follows:
+
+    **Relevance**: The paper addresses the specific point outlined in the literature
+    review intention and scope in a comprehensive and detailed manner. The authors
+    provide an accurate analysis of the current state of end-to-end automated irrigation
+    management systems that integrate IoT and machine learning technologies. They
+    effectively evaluate the strengths and weaknesses of different approaches and
+    highlight gaps and potential solutions for fully autonomous, scalable irrigation
+    management. The work shows a solid understanding of the challenges and opportunities
+    in this domain.
+
+    **Insight**: To provide a concise analysis of how the specifics of the paper contribute
+    to addressing the point within the larger context and intent of the literature
+    review, consider the following points:
+
+    * **Contribution to Irrigation Management**: The paper presents a thorough examination
+    of the use of IoT and machine learning in automated irrigation systems, offering
+    valuable insights into their potential for optimizing water usage and enhancing
+    agricultural productivity. It aligns well with the literature review''s goal of
+    exploring current and future prospects in this area.
+
+    * **Technical Depth**: The authors delve into the technical details of various
+    irrigation management approaches, including data collection, transmission, processing,
+    and decision-making algorithms. This in-depth analysis provides a comprehensive
+    understanding of the underlying technologies and their applicability to real-world
+    irrigation scenarios.
+
+    * **Gaps and Future Directions**: The paper effectively identifies research gaps
+    and proposes potential solutions for enhancing the autonomy and scalability of
+    irrigation management systems. It suggests directions for future research and
+    development, contributing to the ongoing advancement of this field.
+
+    **Credibility**: The paper is well-written and supported by credible references.
+    The authors demonstrate a strong grasp of the subject matter and provide a balanced
+    and objective evaluation of the existing literature. The work adheres to the principles
+    of academic rigor and provides a reliable source of information for researchers
+    and practitioners in the field of automated irrigation management.
+
+    **Significance**: The paper''s findings have practical implications for the development
+    and implementation of automated irrigation systems. It provides valuable guidance
+    for researchers, engineers, and policymakers working towards sustainable and efficient
+    water management practices in agriculture. The work contributes to the growing
+    body of knowledge in this emerging and important area of research.
+
+    **Overall**: The paper offers a comprehensive analysis of the current state and
+    future potential of automated irrigation management systems, effectively addressing
+    the point identified in the literature review intention and scope. Its technical
+    depth, insights, and contributions to the field make it a valuable resource for
+    researchers and practitioners alike.'
+  authors:
+  - Luca Davoli
+  - Emanuele Pagliari
+  - Gianluigi Ferrari
+  citation_count: 19
+  full_citation: '>'
+  full_text: ">\ndrones\nArticle\nHybrid LoRa-IEEE 802.11s Opportunistic Mesh Networking\
+    \ for\nFlexible UAV Swarming\nLuca Davoli *\n, Emanuele Pagliari\nand Gianluigi\
+    \ Ferrari\n\x01\x02\x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\x06\a\n\
+    Citation: Davoli, L.; Pagliari, E.;\nFerrari, G. Hybrid LoRa-IEEE 802.11s\nOpportunistic\
+    \ Mesh Networking for\nFlexible UAV Swarming. Drones 2021,\n5, 26. https://doi.org/10.3390/\n\
+    drones5020026\nAcademic Editors:\nDiego González-Aguilera and\nAngelo Trotta\n\
+    Received: 11 March 2021\nAccepted: 12 April 2021\nPublished: 15 April 2021\nPublisher’s\
+    \ Note: MDPI stays neutral\nwith regard to jurisdictional claims in\npublished\
+    \ maps and institutional afﬁl-\niations.\nCopyright: © 2021 by the authors.\n\
+    Licensee MDPI, Basel, Switzerland.\nThis article is an open access article\ndistributed\n\
+    under\nthe\nterms\nand\nconditions of the Creative Commons\nAttribution (CC BY)\
+    \ license (https://\ncreativecommons.org/licenses/by/\n4.0/).\nInternet of Things\
+    \ (IoT) Laboratory, Department of Engineering and Architecture, University of\
+    \ Parma,\n43124 Parma, Italy; emanuele.pagliari@unipr.it (E.P.); gianluigi.ferrari@unipr.it\
+    \ (G.F.)\n* Correspondence: luca.davoli@unipr.it; Tel.: +39-0521-905741\nAbstract:\
+    \ Unmanned Aerial Vehicles (UAVs) and small drones are nowadays being widely used\n\
+    in heterogeneous use cases: aerial photography, precise agriculture, inspections,\
+    \ environmental data\ncollection, search-and-rescue operations, surveillance applications,\
+    \ and more. When designing UAV\nswarm-based applications, a key “ingredient” to\
+    \ make them effective is the communication system\n(possible involving multiple\
+    \ protocols) shared by ﬂying drones and terrestrial base stations. When\ncompared\
+    \ to ground communication systems for swarms of terrestrial vehicles, one of the\
+    \ main\nadvantages of UAV-based communications is the presence of direct Line-of-Sight\
+    \ (LOS) links be-\ntween ﬂying UAVs operating at an altitude of tens of meters,\
+    \ often ensuring direct visibility among\nthemselves and even with some ground\
+    \ Base Transceiver Stations (BTSs). Therefore, the adoption\nof proper networking\
+    \ strategies for UAV swarms allows users to exchange data at distances (sig-\n\
+    niﬁcantly) longer than in ground applications. In this paper, we propose a hybrid\
+    \ communication\narchitecture for UAV swarms, leveraging heterogeneous radio mesh\
+    \ networking based on long-range\ncommunication protocols—such as LoRa and LoRaWAN—and\
+    \ IEEE 802.11s protocols. We then\ndiscuss its strengths, constraints, viable\
+    \ implementation, and relevant reference use cases.\nKeywords: UAV swarm; mesh\
+    \ networks; LoRa; LoRaWAN; IEEE 802.11s; integration\n1. Introduction\nThe diffusion\
+    \ and wide adoption of Unmanned Aerial Vehicles (UAVs) has grown\nin a signiﬁcant\
+    \ way in the last years due to the availability of inexpensive and “smarter”\n\
+    Commercial-Off-The-Shelf (COTS) products by both world-leading UAV manufacturers\n\
+    (e.g., DJI [1]) and other small companies, which develop ad hoc solutions for\
+    \ speciﬁc\nscenarios. In the last ﬁve years, the price of a Ready-to-Fly (RTF)\
+    \ solution equipped\nwith (i) a Global Navigation Satellite System (GNSS), (ii)\
+    \ a 4K resolution camera ﬁxed on\na gimbal (namely, a device for keeping an instrument\
+    \ stable and aligned with horizon, typi-\ncally consisting of rings pivoted at\
+    \ right angles), (iii) on-board advanced sensing elements\n(e.g., obstacle detection\
+    \ and anti-collision systems), and (iv) a reliable communication\nsystem between\
+    \ the UAV and the terrestrial pilot (able to provide a real-time high-quality\n\
+    video stream) reduced from more than 1000 USD (e.g., in 2015, the DJI Phantom\
+    \ 3 Pro\nUAV [2] had an initial price of 1259 USD) to 400–500 USD (e.g., the new\
+    \ DJI Mini 2 [3]\nreleased in 2020 had a price of 449 USD). Moreover, this cost\
+    \ reduction boosted an im-\npressive market growth of the commercial drones sector,\
+    \ further enhanced by the current\nCOVID-19 pandemic situation, in which the adoption\
+    \ of UAVs for remote monitoring and\nenhanced services provisioning exponentially\
+    \ increased [4]. While the commercial use of\nUAVs for aerial photography and\
+    \ remote monitoring can rely on consolidated and reliable\nsolutions (e.g., wireless\
+    \ communication systems among the drone and the pilot for Visual\nLine-of-Sight\
+    \ (VLOS) operations), there are still several technical difﬁculties to overcome\n\
+    when dealing with long-range UAV swarm applications, namely Beyond VLOS (BVLOS)\n\
+    operations, where a multitude of UAVs may simultaneously be ﬂying over a wide\
+    \ area and\nmust be connected to each other in order to coordinate and perform\
+    \ complex operations.\nDrones 2021, 5, 26. https://doi.org/10.3390/drones5020026\n\
+    https://www.mdpi.com/journal/drones\nDrones 2021, 5, 26\n2 of 32\nFocusing on\
+    \ these heterogeneous scenarios, in this paper, we propose a hybrid oppor-\ntunistic\
+    \ mesh networking approach based on Long Range (LoRa) [5] and IEEE 802.11s [6]\n\
+    protocols for ﬂying UAV swarms, involving both UAV-to-UAV and UAV-to-ground com-\n\
+    munications. This architecture allows multiple ﬂying drones to exchange essential\
+    \ data—\ne.g., telemetry information—with each other or toward one or more ground\
+    \ control centers,\nthus opening new possibilities for UAV-based applications\
+    \ over wide operational areas.\nLong Range Wide Area Network (LoRaWAN [7] at a\
+    \ Medium Access Control (MAC)\nlayer) as well as LoRa (at the physical (PHY) layer)\
+    \ are attractive as they allow users to\nreach long distances (on the order of\
+    \ several kilometers) in Line-of-Sight (LOS) applica-\ntions [8,9], e.g., inside\
+    \ the swarm. On the other end, IEEE 802.11 (Wi-Fi) [10] is widely\nadopted in\
+    \ a multitude of applications and is often used for UAV-to-pilot real-time video\n\
+    broadcasting, given its direct visibility-operating distance ranging from a few\
+    \ hundreds\nof meters up to one or more kilometers. Nevertheless, in a complete\
+    \ LOS environment\n(such as that between ﬂying UAVs), the selection of an appropriate\
+    \ Wi-Fi implementation\ncan allow for high bandwidth data stream between multiple\
+    \ nearby UAVs, thus opening\nadditional possibilities given its proper features.\
+    \ Therefore, the use of IEEE 802.11s, which\nbuilds upon IEEE 802.11, is very\
+    \ attractive.\nIn order to exploit the strengths of two communication protocols\
+    \ of interest and to\nlimit the impact of their constraints in the adoption of\
+    \ UAV swarms, a “meshiﬁcation” of\nLoRa- and IEEE 802.11s-based communication\
+    \ patterns (through opportunistic switching,\nhandling, and management mechanisms)\
+    \ may allow us to cover several use cases based\non the use of UAV swarms as well\
+    \ as to provide a good tradeoff between operational\nrange and available bandwidth.\
+    \ Then, combining different heterogeneous wireless com-\nmunication networks—namely,\
+    \ a LoRa-based communication layer for long distances and\nconstrained payload\
+    \ communications, and an IEEE 802.11s-based communication layer for\nmid-range\
+    \ and unconstrained payload applications—will allow them to coexist. Hence,\n\
+    being on two separate layers, a smart switching mechanism must be deﬁned to choose\n\
+    the most suitable network to be used in a certain time instant, also based on\
+    \ the task’s re-\nquirements and network quality conditions (e.g., based on Received\
+    \ Signal Strength Index\n(RSSI) and localization of ﬂying neighbor UAVs or ground\
+    \ control stations). Therefore,\nthe proposed switching mechanism takes into account\
+    \ the capabilities and constraints of\neach available communication protocol in\
+    \ terms of both operational range and admitted\npayload, optimizing the performances\
+    \ in the considered application scenarios.\nIn order to avoid confusion, we preliminarily\
+    \ comment on how the term UAV will be\nused in the remainder of this paper. In\
+    \ general terms, UAV is used to indicate various types\nof remotely or autonomously\
+    \ piloted aerial vehicles, ranging from small quad-copters—also\ndenoted as drones\
+    \ and with a weight from hundreds of grams up to tens of kilograms—to\nlarge-size\
+    \ aerial vehicles involved in military operations—with a weight up to thousands\n\
+    of kilograms. In the following, the term UAV will refer to commonly and widely\
+    \ adopted\ncommercial drones having a Maximum TakeOff Weight (MTOW) of 25 kg and\
+    \ ﬂying at\na maximum Above Ground Level (AGL) of 120 m, given the aerospace regulation\
+    \ rules\napplied in both Europe (by the European Union Aviation Safety Agency\
+    \ (EASA) [11]) and\nthe US (by the Federal Aviation Administration (FAA) [12]).\n\
+    The remainder of this paper is organized as follows. In Section 2, a literature\
+    \ overview\non UAV-oriented communication solutions and relevant research projects\
+    \ is presented,\nanalyzing their advantages and disadvantages. In Section 3, the\
+    \ communication protocols\nadopted in the proposed hybrid architecture are detailed\
+    \ and analyzed, discussing their\nstrengths and limitations. Section 4 presents\
+    \ the proposed hybrid LoRa-IEEE 802.11s\nopportunistic mesh networking approach,\
+    \ while in Section 5, the opportunistic network\ninterfaces switching mechanism\
+    \ is discussed. In Section 6, the theoretical and experimental\nperformance results\
+    \ are shown, while Section 7 discusses a few relevant use cases and\nscenarios.\
+    \ Finally, in Section 8, we draw our conclusions and possible improvements for\n\
+    the proposed system architecture.\nDrones 2021, 5, 26\n3 of 32\n2. State-of-the-Art\n\
+    Commercial UAVs actually use different wireless communication protocols to transmit\n\
+    or receive essential data—e.g., a real-time First Point of View (FPV) video stream\
+    \ from\nthe drone—in order to provide an advanced ﬂying experience to the pilot.\
+    \ Other data\ntransmitted wirelessly include drone’s telemetry data and video\
+    \ streams (downlink) and,\nof course, the drone’s input commands sent from the\
+    \ Radio Controller (RC) handled by\nthe pilot (uplink).\nNowadays, modern commercial\
+    \ solutions often adopt the Wi-Fi protocol (in the 2.4 GHz\nand 5.8 GHz frequency\
+    \ bands) as the communication protocol between the UAV and the RC,\nthus providing\
+    \ a bidirectional communication channel sufﬁciently reliable to allow the pilot\n\
+    to ﬂy in an obstacle-free environment for hundreds of meters. To this end, it\
+    \ is possible\nthat advanced UAVs use proprietary communication protocols or Wi-Fi\
+    \ broadcast-based\nenhanced protocols, such as OcuSync [13] and LightBridge [14]\
+    \ transmission protocols\n(both deﬁned by DJI), able to guarantee a LOS operational\
+    \ range of several kilometers.\nInstead, some high-end products are already working\
+    \ on Long-Term Evolution (LTE)\ncellular networks for high-deﬁnition real-time\
+    \ FPV video feeds, while telemetry and RC\ndata are exchanged using different\
+    \ protocols (depending on the transmitter and receiver\nmanufacturer [15]) based\
+    \ on different signal modulations (e.g., Spektrum [16], FrSky\nACCST [17], and\
+    \ Futaba [18]) but typically working on well-known carrier frequencies—\ni.e.,\
+    \ 2.4 GHz or other free Industrial, Scientiﬁc and Medical (ISM) bands (e.g., 868\
+    \ MHz\nin Europe). Unfortunately, most of these solutions are suitable only for\
+    \ UAV-to-pilot mono-\ndirectional communications (with bidirectionality applying\
+    \ only to a limited number of\nprotocols), with different data sent depending\
+    \ the type of communication protocol and\nconsidered applications.\nConsidering\
+    \ ﬂying communications between UAVs, nowadays, they could rely on\n(i) Wi-Fi-oriented\
+    \ protocols (at different carrier frequencies) for LOS short/mid-range\ncommunication\
+    \ links; (ii) long-range protocols (e.g., LoRa) for communications over a large\n\
+    area, still with LOS communication links; and (iii) cellular networks for Non-LOS\
+    \ (NLOS)\nlink-based applications, where a third-party cellular network is needed\
+    \ to establish a com-\nmunication between multiple ﬂying UAVs.\nSeveral studies\
+    \ have shown the possible adoption of LoRa-based protocols (e.g., Lo-\nRaWAN)\
+    \ for UAV communications, with different long-range applications, implementa-\n\
+    tions, and use cases. A preliminary use of LoRaWAN is discussed in [19], where\
+    \ multiple\nUAVs are used as ﬂying LoRaWAN gateways (GWs) to provide a network\
+    \ coverage to\nground LoRaWAN-based end nodes and to exploit LoRaWAN only for\
+    \ ground-to-UAV\napplications in emergency-like situations while the backbone\
+    \ network relies on Wi-Fi\n(assuming LOS links). A similar approach is presented\
+    \ in [20], where multiple ﬂying\nUAVs, each one equipped with a LoRaWAN GW, cooperate\
+    \ to form a complex LoRaWAN-\noriented urban surveillance system to provide efﬁcient\
+    \ and selective network coverage.\nHowever, in all the cited works, LoRa-based\
+    \ communications are almost always used\nfor ground-to-UAV interactions among\
+    \ on-ﬁeld end nodes and the LoRaWAN network\n(composed of both ﬂying UAVs, acting\
+    \ as GWs, and ground GWs) in order to efﬁciently\nextend the coverage of the whole\
+    \ network for speciﬁc use cases in some operational re-\ngions. Another UAV-enabled\
+    \ ﬂying LoRaWAN networking approach was discussed in [21],\nwith a focus on disaster\
+    \ management applications, combining ﬂying LoRaWAN GWs\nwith Wi-Fi communications\
+    \ from a UAV-to-ground Access Point (AP) and LoRaWAN end\nnodes, with the goal\
+    \ to follow the emergency operators to collect data and positions. Even\nin this\
+    \ scenario, LoRa-based communications are used for data collection from ground\
+    \ end\nnodes, aiming at following the moving ground devices to guarantee a reliable\
+    \ network for\nemergency applications.\nA different scenario with UAV-to-ground\
+    \ LoRaWAN communications, in particular\nas a secondary telemetry system, given\
+    \ the strength of LoRa modulation and LoRaWAN\nprotocol implementation, is presented\
+    \ in [22]. In detail, the authors showed that LoRaWAN\ncould be employed for communications\
+    \ among ﬂying UAVs and the existing LoRaWAN\nDrones 2021, 5, 26\n4 of 32\nground\
+    \ network, in particular to transmit essential telemetry data (such as GNSS lati-\n\
+    tude/longitude/altitude, drone speed, and heading direction) needed to safely\
+    \ handle\na UAV in the presence of a RC–UAV link failure. Moreover, the possible\
+    \ operational ranges\nof this implementation are shown, investigating and simulating\
+    \ the behavior of LoRa RF\nsignals at different UAV speeds and distances among\
+    \ the UAV and the GW in an urban en-\nvironment. Unfortunately, the authors of\
+    \ [22] do not consider the use of LoRa for multiple\nﬂying UAVs communications—to\
+    \ let the farthest drones using nearby ﬂying UAVs as relays\nbroadcast their telemetry\
+    \ data to the LoRaWAN ground network—thus limiting the pos-\nsible use cases and\
+    \ effective operational ranges of the system. Another UAV-to-ground\nLoRaWAN-based\
+    \ communication application has been proposed in [23], in which the use\nof multiple\
+    \ UAVs with on-board sensors for air quality monitoring applications is discussed,\n\
+    further providing additional system operational results. Even in this case, LoRa-based\n\
+    communications are still used for UAV-to-ground communications without exploiting\n\
+    the potential use of ﬂying long-range communications for some speciﬁc scenarios.\n\
+    Considering the adoption of Wi-Fi in UAV swarms, in [24], an integrated solution\n\
+    for an autonomous ﬂying Wireless Mesh Network (WMN), involving swarms of small\n\
+    UAVs, was presented. In detail, UAVs build an IEEE 802.11s-based network to let\
+    \ two end\nsystems interact through intermediate airborne relays. These relays\
+    \ correspond to UAVs of\nthe swarm, and all UAVs act as APs. However, this solution\
+    \ is not applicable to scenarios\nwhere the distance among the nodes will become\
+    \ larger than the maximum allowed to\nkeep an IEEE 802.11s connection active.\n\
+    The concept of Flying Ad hoc NETworks (FANETs) was discussed in [25], where\n\
+    additional link quality routing metrics were introduced and a network simulator-based\n\
+    performance analysis was discussed. Algorithmic and theoretical aspects for autonomous\n\
+    placement of relay nodes in a mesh network were investigated in [26]. In detail,\
+    \ the authors\naimed to maximize the network throughput, but mainly using ﬂying\
+    \ UAVs as coverage\nextenders for ground nodes and requiring knowledge of the\
+    \ three-dimensional morpholog-\nical conditions of the environment. Because of\
+    \ this, UAVs only act as relays for data to be\nshared among ground stations instead\
+    \ of building a ﬂying network for ﬂying data routing.\nA similar approach was\
+    \ presented in [27], where a WMN-based mobile Cloud system for\nrelay of intelligent\
+    \ information, based on Delay Tolerant Networking (DTN) and caching\ncapabilities,\
+    \ was presented. However, even in this case, the mesh network was composed\nby\
+    \ ground nodes instead of ﬂying drones.\nA UAV-based emergency communication network\
+    \ for post-disaster management\nwas discussed in [28], where smartphones on the\
+    \ ground were used as relays through\nan Android mobile App in turn handling UDP\
+    \ packets. Moreover, the authors equipped\ntheir UAVs with a Raspberry Pi (RPi)\
+    \ as an on-board Wi-Fi-enabled device, thus organizing\nthe ﬂying network not\
+    \ as a mesh one but as a chain of Wi-Fi nodes. In [29], the challenges\nof a decentralized\
+    \ UAV swarm deployment in resource-constrained farming environments\nwere discussed.\
+    \ For similar works, the presented network does not cope with a real mesh\none\
+    \ but requires the election of a “central” drone, in charge of performing some\
+    \ additional\n(and more complex) tasks with respect to the other UAVs composing\
+    \ the swarm.\nIn [30], a dynamic mesh network needed for data transfer among high\
+    \ mobility nodes\n(i.e., RP runs a Better Approach To Mobile Ad Hoc Network advanced,\
+    \ B.A.T.M.A.N.\nadv [31]) is presented. In detail, the authors discussed their\
+    \ experimental results in a range\nbetween 0 m and 60 m, with a maximum effective\
+    \ 1-hop range of approximately 130 m.\nNevertheless, their architecture requires\
+    \ multiple GWs connected with a ground control\ncenter, thus remaining a ground\
+    \ mesh network with no aerial part. A simulated double-\nlayer mesh network, designed\
+    \ and evaluated for disaster recovery scenarios, was proposed\nin [19], where\
+    \ UAVs act as GWs in a Wi-Fi ad hoc network for the trafﬁc generated between\n\
+    mobile LoRaWAN nodes and a remote ground station. Similar to other works, even\n\
+    in this case, the only available network among the ﬂying drones is based on the\
+    \ Wi-Fi\nprotocol, thus limiting the maximum distance between ﬂying drones. In\
+    \ [32], a solution for\norchestrating and synchronizing a swarm of drones is proposed.\
+    \ In detail, their network\nDrones 2021, 5, 26\n5 of 32\nfocuses on a leader node\
+    \ (piloted by a human) that is followed by the remaining drones\ncomposing the\
+    \ swarm, on the basis of the leader’s Wi-Fi signal strength. The authors\nproposed\
+    \ operating a swarm of UAVs without relying on any existing infrastructure but\n\
+    only on ad hoc communications. This approach is attractive if the drones need\
+    \ to strictly\nfollow their leader; at the opposite, it needs to be improved in\
+    \ the case when UAVs need\nto ﬂy independently from each other. Moreover, in order\
+    \ to relay data from the point of\ninterest to the ground control center, a certain\
+    \ number of intermediate UAVs (depending\non the distance) will be required rather\
+    \ than adopting long-range communication protocols.\nFinally, the application\
+    \ of TempoSpatial-Software Deﬁned Networking (TS-SDN) to\nUAV networks, in order\
+    \ to extend their network coverage, was described in [33]. In order\nto reach\
+    \ this goal, a network of stratospheric balloons can be used to extend network\n\
+    access as well as involving ground stations and UAVs equipped with mechanically\
+    \ or\nelectronically steered beams to establish highly directional links, even\
+    \ to nearby peers.\nMoreover, the authors simulate a scenario composed of more\
+    \ than 500 nodes to verify\nthe behavior of different routing protocols.\n3. Disjoint\
+    \ IEEE 802.11s and LoRa-Based Wireless Mesh Networking\nAs introduced in Section\
+    \ 1, our goal is to combine LoRa and IEEE 802.11s protocols to\ndevelop an innovative\
+    \ hybrid mesh architecture. For the sake of completeness, we provide\nan overview\
+    \ of IEEE 802.11s and LoRa/LoRaWAN in Sections 3.1 and 3.2, respectively.\n3.1.\
+    \ IEEE 802.11s Mesh Protocol\nThe growing interest in mesh networking in the last\
+    \ decade from both industrial and\nacademic entities has led to the definition\
+    \ of the IEEE 802.11s protocol [6,34], an IEEE 802.11\nstandard amendment [10]\
+    \ specifically addressed to mesh networks. In particular: (i) the PHY\nlayers\
+    \ of both IEEE 802.11 and IEEE 802.11s are the same; (ii) new routing procedures\
+    \ are\nintroduced at the MAC layer rather than at the network layer; and (iii)\
+    \ in order to make\nrouting efﬁcient, wireless nodes must have accurate knowledge\
+    \ of the links connecting them\nto their 1-hop neighbors. In detail, an IEEE 802.11s\
+    \ mesh network, also denoted as Mesh\nBasic Service Set (MBSS), is composed of\
+    \ different logical components [35], as highlighted\nin Figure 1: (i) mesh stations\
+    \ (mesh STAs), participating in the creation of the MBSS (with\nno hierarchical\
+    \ structure), having the same computational capabilities, and being involved\n\
+    into path selection and packet forwarding (thus leading to a very simple self-organizing\n\
+    network); (ii) Mesh Access Points (MAPs), required to integrate a MBSS with other\
+    \ types of\nnetworks and to provide access to external networks; and (iii) mesh\
+    \ gates, corresponding\nto logical components enabling the integration between\
+    \ MBSS and infrastructure BSS (thus\nenabling the communication between mesh STAs\
+    \ and non-mesh STAs). Finally, in order\nto enable the communication with non-IEEE\
+    \ 802.11 Local Area Networks (LANs), other\nlogical components, denoted as Mesh\
+    \ Portal Points (MPPs), should be used to enable\ninteractions with external entities.\n\
+    Comparing a traditional IEEE 802.11 network with an IEEE 802.11s-based mesh\n\
+    network, the latter has some advantages: (i) it enables low-cost and rapid deployment,\n\
+    providing coverage in scenarios where wired networking is difﬁcult; (ii) it is\
+    \ scalable and\nself-organizing, since, thanks to the routing algorithm adopted\
+    \ inside the mesh, the network\ncan quickly adapt to the presence of a new joining\
+    \ node; and (iii) it can provide greater\ncoverage, exploiting multi-hop forwarding.\
+    \ However, there are also some drawbacks:\n(i) the wireless medium is, in general,\
+    \ less reliable than the wired medium, and (ii) the data\nrate is a decreasing\
+    \ function of the number of hops.\nIn an IEEE 802.11s-based network, the topology\
+    \ formation phase is based on the trans-\nmission of messages, denoted as beacons,\
+    \ carrying information about the network itself.\nThen, the ﬁrst phase of the\
+    \ mesh network’s creation is the discovery phase, which could\nfollow either a\
+    \ passive approach (scanning to receive on-the-air beacon frames) or an active\n\
+    approach (transmitting probe frames). In this phase, each mesh STA transmits beacon\n\
+    frames (used also for topology maintenance and synchronization) and responds with\
+    \ probe\nDrones 2021, 5, 26\n6 of 32\nresponse frames when a probe request frame\
+    \ is received, thus advertising its presence to its\nneighbors. As a side note,\
+    \ we highlight how one of the most important values exchanged\nwithin beacons\
+    \ and probe response frames is the Mesh ID, used to identify a speciﬁc MBSS.\n\
+    Then, once a mesh STA identiﬁes the correct wireless node, the link is established\
+    \ and\nmaintained through the Mesh Peer (Link) Management (MPM) protocol [10],\
+    \ until mesh\nSTAs share a common proﬁle.\nNon-IEEE 802 LAN\nMPP\nMesh Gate\n\
+    Mesh Gate\nMesh Basic Service Set\nMesh STA\nMesh STA\nMesh STA\nMesh STA\nMesh\
+    \ Basic Service Set\nMesh STA\nMesh STA\nMesh STA\nInfrastructure Basic Service\
+    \ Set\nIEEE 802.11 STA\nIEEE 802.11 STA\nIEEE 802.11 STA\nMAP\nIEEE 802.11 / IEEE\
+    \ 802.3\nFigure 1. Architecture of MBSS containing mesh STAs, IEEE 802.11 STAs,\
+    \ mesh gates, and MPPs,\nas designed in the IEEE 802.11s standard [10].\nFinally,\
+    \ IEEE 802.11s-based mesh networks can cope with different routing algorithms.\n\
+    The default routing protocol for this kind of networks is the Hybrid Wireless\
+    \ Mesh Proto-\ncol (HWMP) [36], providing both proactive and reactive path selection\
+    \ and being based\non the Ad hoc On-Demand Distance Vector (AODV) [37] routing\
+    \ protocol. To be precise,\nthe AODV protocol is properly adapted to supporting\
+    \ MAC layer routing and giving\na tree-oriented mechanism, where a mesh STA (generally\
+    \ working as an MPP) forwards\ncontrol messages to other mesh STAs. Nevertheless,\
+    \ other solutions, based on AODV and\nthe Optimized Link State Routing (OLSR)\
+    \ protocol [38], can be adopted. Among them,\nthe most relevant are B.A.T.M.A.N.\
+    \ [31] and Babel [39,40].\nOne of the motivations for the use of IEEE 802.11s-based\
+    \ mesh networking inside UAV\nswarms is direct visibility among ﬂying UAVs, especially\
+    \ if ﬂying at high altitude (namely,\nat an altitude over 50 m). This allows Wi-Fi\
+    \ radio signals to propagate without any physical\nobstacle (e.g., trees, buildings,\
+    \ walls, etc.) and almost abiding by the Free Space Path Loss\n(FSPL) law (i.e.,\
+    \ Friis formula) for radio signal propagation in LOS environments [41,42].\nNote\
+    \ also that, when ﬂying over urban areas, residential Wi-Fi APs may interfere.\
+    \ Hence,\nincreasing the UAV’s ﬂight altitude could further limit the detrimental\
+    \ effect of urban\n(terrestrial) Wi-Fi networks on the IEEE 802.11s mesh-based\
+    \ networking in the UAV swarm\nand could increase the operational range, given\
+    \ a limited noise ﬂoor on the Wi-Fi car-\nrier frequency spectrum. In any case,\
+    \ the adoption of mesh networking in UAV-centric\nscenarios should either consider\
+    \ the inner features of these mobile environments—e.g.,\ntheir volatility because\
+    \ of limited battery energy, frequent topological changes, etc.—and\nthus consider\
+    \ how mesh-oriented protocols perform in situations where, for limited time\n\
+    intervals, loops and non-optimal paths among the drones may appear. Even if this\
+    \ may\nbe seen as a limitation, it still represents an interesting research ﬁeld\
+    \ due to the current\nadoption of UAVs in heterogeneous scenarios and their increasing\
+    \ involvement in various\nproduction sectors.\nAdditionally, as UAV environments\
+    \ are volatile because of several issues such as\nbattery limitations, topological\
+    \ changes are frequent. When using the protocols mentioned\nDrones 2021, 5, 26\n\
+    7 of 32\nabove (AODV or OLSR, for instance), loops and nonoptimal paths between\
+    \ UAVs may\noccur for a given time. I think this potential limitation (or others\
+    \ thought by the authors)\ncan be included in the description.\nIn such an IEEE\
+    \ 802.11s mesh network, ﬂying drones close to each other (within a cer-\ntain\
+    \ distance, ranging from a few hundreds of meters up to one or more kilometers)\
+    \ can\ndirectly communicate with each other using the IEEE 802.11s protocol. With\
+    \ reference\nto Figure 2, an IEEE 802.11s-based mesh network may involve different\
+    \ types of communi-\ncation nodes and may be structured by the following logical\
+    \ layers Lx (note that nodes at\nL0 may be either terrestrial or aerial but higher\
+    \ layers, such as L1, L2, etc., are associated\nwith aerial nodes, i.e., UAVs):\n\
+    •\none (or more) root nodes at L0 and connected to the Internet (e.g., through\
+    \ a terrestrial\nWi-Fi AP, a LoRaWAN network interface, or a UAV with an on-board\
+    \ LTE cellular\nnetwork connection);\n•\none (or more) intermediate nodes connected\
+    \ to an upper-layer node (e.g., at L1,\nan upper layer is one of the available\
+    \ root nodes located at L0) and, in turn, providing\nconnectivity to lower-layer\
+    \ intermediate nodes, also denoted as “leaf” nodes;\n•\none (or more) leaf nodes,\
+    \ exploiting the network connectivity offered by upper-layer\nintermediate nodes\
+    \ and not acting as relays for any other UAV.\nFigure 2. IEEE 802.11s mesh network-enabled\
+    \ UAV swarm with a single “root node” connected to\nthe Internet, involving nodes\
+    \ located at different layers and with different roles.\nWith reference to the\
+    \ layered mesh network shown in Figure 2, a structured mesh\nnetwork could be\
+    \ considered to have at least one root node that, in the case of a UAV\nswarm,\
+    \ resides at L0 and may be connected to a ground IEEE 802.11s AP, thus providing\n\
+    an Internet connectivity to the other swarm ﬂying UAVs. Hence, given the operational\n\
+    range of the IEEE 802.11s protocol, which can be increased and extended toward\
+    \ a certain\narea through the adoption of directional antennas, it is possible\
+    \ to use the IEEE 802.11s\nprotocol also to connect ﬂying UAVs with the ground\
+    \ station, thus establishing a high-\nspeed bidirectional connection among these\
+    \ entities and providing an Internet connectivity\nto the whole UAV swarm.\n3.2.\
+    \ LoRa and LoRaWAN Protocols\nLoRaWAN is a long-range communication protocol [43]\
+    \ often used to create Low\nPower Wide Area Networks (LPWANs) with a transmission\
+    \ range from about 300 m up to\nDrones 2021, 5, 26\n8 of 32\nabout 15 km. In Figure\
+    \ 3, we map LoRa and LoRaWAN on the ISO/OSI layered model:\nLoRa is a proprietary\
+    \ modulation (patented by Semtech Corporation [5], the only LoRa\ntransceiver\
+    \ chip manufacturer) based on Chirp Spread Spectrum (CSS) and associated\nwith\
+    \ the PHY layer, while LoRaWAN is a MAC layer protocol, which relies on LoRa\n\
+    at the PHY layer and implements an open network architecture regulated by the\
+    \ LoRa\nAlliance. Moreover, LoRaWAN deﬁnes the network media access layer rules,\
+    \ authentication\nmethod, device proﬁle, and data encryption.\nFigure 3. LoRaWAN\
+    \ and LoRa ISO/OSI model layers.\n3.2.1. LoRa Protocol\nLoRa modems modulate symbols\
+    \ into increasing and decreasing frequency chirps, de-\nnoted as up-chirps and\
+    \ down-chirps, respectively. Then, each LoRa transmission has a Pream-\nble and\
+    \ a Start-of-Frame-Delimiter (SFD), which precede the payload data in order to\
+    \ allow\nthe LoRa receiver to correctly decode the incoming transmission. In turn,\
+    \ Preamble and\nSFD have different polarities [44,45], so they use up-chirps and\
+    \ down-chirps, respectively,\ndepending on these polarity settings (further details\
+    \ are provided in Section 4.2).\nDepending on the geographical region of the system\
+    \ [46] and the PHY protocol deﬁni-\ntion, it is possible to partially manually\
+    \ tune the following LoRa modulation parameters:\n•\nCarrier Frequency (CF), used\
+    \ for both transmission and listening operations and de-\npending on the operational\
+    \ region: in Europe, the LoRa operational CF is the EU\n863–870 MHz ISM band,\
+    \ while in US, the 902–928 MHz ISM band is used.\n•\nBandwidth (BW), representing\
+    \ the width of the power spectrum density of LoRa RF\nsignal. It is typically\
+    \ set to 125 kHz, but can be increased up to 250 kHz or even\n500 kHz in some\
+    \ regions by setting speciﬁc modulations parameters.\n•\nCoding Rate (CR), deﬁning\
+    \ the Forward Error Correction (FEC) rate of the channel\ncode used at the PHY\
+    \ layer in order to limit the detrimental impact of RF interference.\nIn particular,\
+    \ it affects the symbol airtime: decreasing the CR increases the symbol\noverhead\
+    \ (the control redundancy increases) and extends the transmission airtime.\nThe\
+    \ default value of the CR is equal to 4/5.\n•\nSpreading Factor (SF), representing\
+    \ the chirp spreading parameter and defining how many\nchirps are sent per second.\
+    \ It ranges from SF7 and SF12. In detail, a large SF increases\nthe symbol airtime\
+    \ and the energy consumption, thus improving the communication\nrange but reducing\
+    \ the available data rate and the messages’ payload size [47].\n•\nTransmission\
+    \ Power (TP), identifying the energy irradiated by the LoRa node’s antenna.\n\
+    It can range from −4 dBm to +20 dBm, but different regions could have different\
+    \ power\nlimits (for example, in Europe, the upper bound is +14 dBm).\n•\nChirp\
+    \ Polarity (IQ), deﬁning the polarity of the transmitted chirps. In detail, the\
+    \ polarity\nis often deﬁned by the speciﬁc protocol implementation (e.g., LoRaWAN\
+    \ GWs transmit\npackets to end nodes using an inverted polarity modulation, so\
+    \ that these messages are\ndiscarded by neighbor GWs, while end devices transmit\
+    \ packets using non-inverted\npolarity in order to be received by multiple GWs).\n\
+    •\nSync Word, a 1-byte value parameter deﬁned by the last two up-chirps of the\
+    \ LoRa’s\nPreamble and used to differentiate LoRa networks using the same frequency\
+    \ bands [48].\nDrones 2021, 5, 26\n9 of 32\nTherefore, any device conﬁgured with\
+    \ a given Sync Word will discard any incoming\ntransmission if the Sync Word does\
+    \ not match its own. More precisely, default values\nassumed by the Sync Word\
+    \ byte value for private LoRa networks are 0x12 for Semtech\nSX127x devices and\
+    \ 0x1424 for SX126x devices; instead, public LoRa networks (such\nas LoRaWAN or\
+    \ The Things Network, TTN [7]) will be represented by values equal to\n0x34 for\
+    \ Semtech SX127x devices and to 0x3444 for SX126x devices [49].\nTherefore, the\
+    \ choice of LoRa modulation parameters heavily affects its operational\nranges,\
+    \ power consumption, message payload sizes, and medium utilization, thus limiting\n\
+    the number of active devices in the operational area. Proper selection of the\
+    \ values of\nthe LoRa modulation parameters is crucial.\n3.2.2. LoRaWAN Protocol\n\
+    In addition to the concepts discussed in Section 3.2, LoRaWAN deﬁnes different\
+    \ rules\nneeded to create a multi-star network topology composed by several LoRaWAN\
+    \ end nodes\nand GWs, while its MAC layer is based on the ALOHA protocol [50].\
+    \ The GWs, in turn,\nact as bridges between on-ﬁeld LoRaWAN devices and upper-layer\
+    \ components, such as\nLoRaWAN Network Servers (NSs) and Application Servers (ASs),\
+    \ thus being connected\nwith IP-based networks and delivering data from end nodes\
+    \ to high layer systems and\nvice-versa.\nLoRaWAN end devices can be separated\
+    \ in three different classes—namely Classes A,\nB, and C—according to the behavior\
+    \ of the end node in terms of downlink/uplink trans-\nmission schedule from a\
+    \ GW to the end node itself. All LoRaWAN end nodes must possess\nClass A features,\
+    \ whereas Class B and Class C devices extend these features. We now\nprovide a\
+    \ few details about each class.\n•\nClass A devices should support bidirectional\
+    \ communication but with a speciﬁc\nlimitation: uplink (transmit) messages can\
+    \ be sent at any time by the end device,\nwhile downlink (receive) messages can\
+    \ be received only during two speciﬁc reception\nwindows at speciﬁc time instants\
+    \ (just after an uplink transmission) before going\nback to sleep, as shown at\
+    \ the top of Figure 4. More in detail, after a ﬁrst time\ninterval RXdelay−1 after\
+    \ the end of the uplink transmission interval TX, a Class A\ndevice will open\
+    \ a short receive window RX1 listening to the same frequency band\nused to transmit\
+    \ (uplink) the previous message. Then, if no downlink message is\nreceived during\
+    \ this interval, the end device opens a second receive window (RX2)\nafter a second\
+    \ ﬁxed time interval RXdelay−2 (calculated from the end of TX) on\na speciﬁc frequency\
+    \ band known by the end devices and gateways [51]. However,\nit is noteworthy\
+    \ to highlight that, despite RXdelay−1 and RXdelay−2 being generally\nset to 1\
+    \ s and 2 s, respectively, they may assume region-speciﬁc values and can be\n\
+    conﬁgured by the LoRaWAN network operator [52]. Class A end devices guarantee\n\
+    the lowest energy consumption.\n•\nClass B devices are suitable for more downlink-demanding\
+    \ activities, since addi-\ntional regularly scheduled, ﬁxed-time receive windows\
+    \ are deﬁned in the LoRaWAN\nnetwork in addition to those of Class A, as shown\
+    \ in the middle of Figure 4. More\nin detail, a time-synchronized beacon BCN is\
+    \ broadcast periodically by the network\nvia the LoRaWAN GWs, and Class B end\
+    \ devices must periodically receive one of\nthese BCNs in order to align their\
+    \ internal clock with the LoRaWAN NS—beacons\nare transmitted by LoRaWAN GWs every\
+    \ Tbeacon = 128 s, with this beaconing period\nrepresenting a tradeoff between\
+    \ GW transmit duty cycle’s minimization and end de-\nvice’s power consumption\
+    \ [53]. Therefore, on the basis of the beacon timing reference,\nClass B devices\
+    \ can periodically open additional receive windows deﬁned as ping\nslots (PNGs),\
+    \ any of which may be used by the LoRaWAN NS to initiate a downlink\ncommunication\
+    \ and with a ping slot periodicity Tping ∈ [1, 128] s.\n•\nClass C devices are\
+    \ appropriate for downlink-intensive scenarios, keeping their recep-\ntion windows\
+    \ open unless they are transmitting—this strongly increases their power\nconsumption\
+    \ but offers the lowest latency for communication between LoRaWAN NS\nDrones 2021,\
+    \ 5, 26\n10 of 32\nand end devices. As a side effect, the use of portable batteries\
+    \ for Class C devices is\ntypically unfeasible. We remark that a LoRaWAN end device\
+    \ cannot simultaneously\nbelong to Class B and Class C [54]. More in detail, Class\
+    \ C end devices perform as\nClass A ones—implementing the same receive windows\
+    \ RX1 and RX2—keeping,\nhowever, their RX2 window open until their next TX uplink\
+    \ window: this allows\nClass C devices to receive downlink messages during their\
+    \ RX2 window at almost\nany time. Finally, between the end of TX and the beginning\
+    \ of RX1, an additional\nshort receive window RXadd (at the RX2 frequency and\
+    \ data rate) is also opened.\nFigure 4. LoRaWAN class behaviors.\nIn order to\
+    \ transmit and receive data over LoRAWAN networks, LoRaWAN end\nnodes must be\
+    \ registered and enabled on the AS of the LoRaWAN network provider,\nwhich manages\
+    \ the LoRaWAN GWs. A LoRaWAN-enabled device can join the network\nin two ways:\
+    \ with the Over-The-Air-Activation (OTAA) method or with the Activation-\nBy-Personalization\
+    \ (ABP) method. While both approaches are effective, OTAA is more\nsecure, since\
+    \ each time the end node sends a join-request packet; it receives a join-accept\n\
+    with (i) the network identiﬁer (NetID), (ii) a 32-bit identiﬁer of the end device\
+    \ within the net-\nwork (DevAddr), and (ii) a security nonce value (AppNonce),\
+    \ which will be used by the device\nto generate a network’s session key (NwkSKey)\
+    \ and an application session key (AppSKey)\nin a secure way. Oppositely, an ABP-activated\
+    \ device is internally equipped with DevAddr,\nAppSkey, and NwkSkey, which will\
+    \ be sent over the LoRaWAN network at each transmission,\nin order to identify\
+    \ the transmitting node itself.\nAs discussed in Section 3.2.1, each LoRa transmission\
+    \ is associated with a speciﬁc\nSF deﬁning the airtime duration of the symbols\
+    \ and other signal features. Focusing\non the LoRa EU 868 MHz band, SF7 allows\
+    \ for higher data rates and the shortest symbol\nairtime while SF12 guarantees\
+    \ the highest sensitivity (the weakest signal that a receiver\nis able to identify\
+    \ and process) and longest transmission range at the cost of lowest data\nrate\
+    \ and highest energy consumption. One of the main aspects to be taken into account\
+    \ is\nthe maximum packet payload allowed for each SF. The LoRaWAN Network layer\
+    \ (NET)\ntypically uses a 13-byte packet header for the protocol operation: this\
+    \ is a nonnegligible\nvalue that, at high SFs, signiﬁcantly affects the maximum\
+    \ available payload. More precisely,\nthe maximum payload size is reached with\
+    \ SF7, which allows for a maximum of 222 bytes\nof data inside a single LoRa packet.\
+    \ The minimum, instead, is reached with SF12, with\na maximum of 51 bytes for\
+    \ user data. In Table 1, we summarized the values of payload\nlimit, data rate,\
+    \ bitrate, receiver sensitivity, and typical operational range associated with\n\
+    each SF. In all cases, a bandwidth of 125 kHz at a CF equal to 868 MHz is considered.\n\
+    Drones 2021, 5, 26\n11 of 32\nTable 1. LoRaWAN transmission parameters on the\
+    \ basis of the adopted SF. In all cases, the band-\nwidth is 125 kHz and the CF\
+    \ is set to 868 MHz.\nSpreading\nFactor [SF]\nData Rate\n[DR] [55]\nBitrate\n\
+    [Bit/Sec]\nRange\n[km]\nRX Sensitivity\n[dBm]\nMax Payload\n[Bytes]\n12\n0\n290\n\
+    12+\n−136\n51\n11\n1\n440\n10\n−133\n51\n10\n2\n980\n8\n−132\n51\n9\n3\n1760\n\
+    6\n−129\n115\n8\n4\n3125\n4\n−126\n222\n7\n5\n5470\n2\n−123\n222\nThe LoRaWAN\
+    \ protocol in Europe uses 8 uplink channels (from end nodes to GWs)\ndeﬁned inside\
+    \ the EU 863–870 MHz free ISM band. These uplink channels can also\nbe used as\
+    \ downlink channels on the ﬁrst receiving window. There exists also a ninth\n\
+    uplink channel, deﬁned at 868.8 MHz frequency and using a Frequency-Shift Keying\
+    \ (FSK)\nmodulation, and a ninth downlink channel, deﬁned at 869.525 MHz frequency\
+    \ and used\nonly for the second receiving window. In order to better highlight\
+    \ the frequency availability\nin Europe, in Figure 5, we show a graphical representation\
+    \ of uplink and downlink channels\ndeﬁned in the EU 863–870 MHz free ISM band.\n\
+    Figure 5. Available LoRaWAN uplink and downlink channels deﬁned in the EU 863-870\
+    \ MHz frequency spectrum.\nIn terms of network utilization, LoRaWAN abides by\
+    \ the following policy rules to be\nstrictly followed to guarantee fair utilization:\n\
+    •\nany LoRaWAN-enabled device has a daily maximum cumulative airtime of 30 s for\n\
+    uplink messages;\n•\nany LoRaWAN-enabled device has a maximum of 10 daily downlink\
+    \ messages (in-\ncluding also acknowledgment (ACK) messages).\nMoreover, the transmission\
+    \ airtime strictly depends on both SF and messages pay-\nload [56]: as an example,\
+    \ a ﬁxed 10-byte payload translates to up to 20 daily uplink\nmessages with SF12\
+    \ or around 500 daily uplink messages with SF7. Additionally, Lo-\nRaWAN devices\
+    \ must abide by the band duty cycle [57], which depends on the regional\narea\
+    \ of use and is deﬁned as the maximum time percentage usage of a channel [58].\
+    \ For the\nEU 868 MHz free band, the duty cycle goes from 0.1% to 10%, depending\
+    \ on the used\nchannel. This means that, every time a device transmits over a\
+    \ LoRaWAN channel, it cannot\ntransmit on the channel for a certain amount of\
+    \ time, which depends on the performed\ntransmission airtime. Finally, another\
+    \ constraint that LoRaWAN devices must satisfy is\nrelated to the maximum transmit\
+    \ power, which, for the EU868 band, is set to +14 dBm,\nas deﬁned by the European\
+    \ Telecommunications Standards Institute (ETSI).\nDrones 2021, 5, 26\n12 of 32\n\
+    Given the discussed features of LoRa and LoRaWAN protocols (especially the long\n\
+    -ange transmissions in direct LOS conditions), these protocols become attractive\
+    \ in scenar-\nios involving UAV-to-UAV and UAV-to-ground communications, especially\
+    \ in all those\nscenarios where a Wi-Fi AP is not available or the operational\
+    \ area is too large (and cannot\nbe covered) for a mesh network among ﬂying UAVs\
+    \ based on IEEE 802.11s.\n4. Proposed Hybrid Mesh Network\nThe hybrid network\
+    \ architecture proposed in this work is based on two overlaid mesh\nlayers based\
+    \ on different communication protocols, namely IEEE 802.11s and a novel LoRa-\n\
+    based mesh protocol. The switching mechanism between the two layers and their\
+    \ hybrid\nuse are detailed in Section 5, with a description of the various network\
+    \ conﬁgurations that\ncan be implemented. In the current section, the proposed\
+    \ architectures of IEEE 802.11s and\nLoRa-based layers are discussed, highlighting\
+    \ suitable implementations.\n4.1. IEEE 802.11s Mesh Network Layer Implementation\n\
+    The deployment of an IEEE 802.11s mesh network based on the concepts discussed\n\
+    in Section 3.1 could be based on the adoption of the IEEE 802.11s protocol, where\
+    \ multi-\nple network entities are combined together in order to create a structured\
+    \ IEEE 802.11s\nmesh network.\nIn order to associate IEEE 802.11s entities with\
+    \ ﬂying UAVs, one can map the root node\nwith the IEEE 802.11s MPP, in turn connected\
+    \ to the ground through an IEEE 802.11s GW\nAP. Then, intermediate and leaf nodes\
+    \ can be seen as MPs, able to connect and reconﬁgure\ntheir links towards close\
+    \ MPs in order to keep the mesh network active. Alternatively,\nin order to include\
+    \ in the IEEE 802.11s mesh network other inexpensive IEEE 802.11-enabled\nUAV\
+    \ nodes (as STAs), some MPs could act as MAPs, thus providing network connectivity\n\
+    to particular types, of leaf nodes. In order to better clarify this association,\
+    \ in Figure 6\na reference scenario is shown.\nFigure 6. UAV IEEE 802.11s-enabled\
+    \ mesh nodes roles.\nTherefore, adopting this approach, it is possible to let\
+    \ the swarm dynamically adapt to\nmoving nodes (i.e., UAVs) joining the mesh network\
+    \ and looking for the “best” neighbor\nnode with which to connect, in turn evaluated\
+    \ and elected through an opportunistic\nselection mechanism based on heterogeneous\
+    \ parameters and indicators and described\nin Section 5.1.\n4.2. Proposed LoRa-Based\
+    \ Access and Mesh Networking\nWe assume that data exchange exploits: (i) LoRa\
+    \ communications, operating at SF7,\n125 kHz bandwidth, and inverted polarity,\
+    \ in order to mitigate the interference between\nraw LoRa messages among UAVs\
+    \ and terrestrial LoRaWAN networks and (ii) LoRaWAN\nmessages between end nodes\
+    \ and GWs. Based on the discussion for signal polarity\nin Section 3.2.1 and owing\
+    \ to the fact that most of the trafﬁc in LoRaWAN networks is given\nDrones 2021,\
+    \ 5, 26\n13 of 32\nby uplink packets, in the proposed raw LoRa implementation,\
+    \ polarity inversion is adopted\nin order to minimize packet collisions between\
+    \ raw LoRa packets and LoRaWAN messages.\nAs an additional discussion point, the\
+    \ decision to adopt SF7 may be motivated by\nthe following several reasons.\n\
+    •\nSF7 allows us to maximize the payload size: 222 bytes for LoRaWAN and 240 bytes\n\
+    for LoRa communications.\n•\nSF7 guarantees the highest bitrate and the shortest\
+    \ symbol airtime, thus minimizing\neffective channel utilization rate and packet\
+    \ collisions and maximizing the number of\noperating devices and, therefore, exchanged\
+    \ messages.\n•\nSF7 is particularly suited for mobile devices equipped with LoRa-enabled\
+    \ radio\ntransceivers, such as ﬂying UAVs (typically ﬂying in a speed range between\
+    \ 20 km/h\nand 70 km/h, and is less affected by the Doppler shift effect [59]).\
+    \ Oppositely,\nhigher SFs (e.g., SF12) are more affected by the Doppler shift\
+    \ effect, in particular\nat speeds higher than 40 km/h, where the higher packet\
+    \ loss makes the communica-\ntion unreliable.\n•\nSF7 represents the best choice\
+    \ even considering that the duty cycle policy deﬁned\nfor the EU 863–870 MHz band\
+    \ [57] requires that each transmission act is followed\nby an off-period without\
+    \ any new transmission. Given that this off-period heavily\ndepends on the transmission\
+    \ airtime, then the chosen SF has an important role: SF7\nhas the lowest off-period\
+    \ between consecutive messages, given the lower symbol time.\nAnother key characteristic\
+    \ of LoRa—and, thus, of LoRaWAN—that could be exploited\nis related to the fact\
+    \ that no speciﬁc association is needed between an end node and a GW,\nor among\
+    \ two end nodes, since each LoRa-enabled device listens for incoming messages\n\
+    sent by neighbor devices (forwarding LoRa-modulated packets) using the same frequency\n\
+    and modulation parameters. This highlights how LoRa could be useful for and is\
+    \ applicable\nto long-range broadcasting applications, in which one or more nodes\
+    \ send their messages\nin-air and nearby devices can hear them. In other words,\
+    \ this corresponds to a point-to-\nmultipoint communication. Moreover, if compared\
+    \ with typical cellular networks, it is\nclear how LoRa uplink and downlink operations\
+    \ have almost the same link budget. Hence,\nif a device can receive a LoRa message\
+    \ from a nearby device, it can also send a LoRa\nmessage that can be heard by\
+    \ the originator node. In the end, this feature paves the way\nfor the use of\
+    \ LoRa for the deﬁnition of enhanced broadcasting mechanisms between ﬂying\nUAVs\
+    \ over a very wide area.\nFocusing on the broadcasting mechanism, we propose a\
+    \ Time Division Multiple Access\n(TDMA) scheduling of the LoRa PHY Access layer\
+    \ through consecutive “slots”. In turn,\neach slot is characterized by a transmission\
+    \ window structured as follows: (i) a Listen-\nBefore-Talk (LBT) mechanism, associated\
+    \ with a random delay interval Tdelay (if needed),\nand (ii) the LoRa message’s\
+    \ transmission time TXLoRa, depending on the adopted SF\n(e.g., SF7) and on the\
+    \ amount of symbols (thus, the amount of bytes) to be transmitted.\nThen, the\
+    \ transmission window is followed by a listening window RXLoRa, during which\n\
+    the node listens to the LoRa channel for incoming messages broadcast by other\
+    \ UAVs\nwithinthe transmission range. For the sake of clarity, in Figure 7, a\
+    \ graphical representation\nof the proposed TMDA-oriented LoRa-based broadcasting\
+    \ mechanism is shown.\nActually, the time duration has been deﬁned neither for\
+    \ the receiver window RXLoRa\nnor for the initial random delay TXdelay. However,\
+    \ RXLoRa should be at least longer than\nthe duty cycle transmission off-period,\
+    \ which depends on the transmitted message’s length,\nairtime, and ETSI band duty\
+    \ cycle policy [60]. Moreover, the receiver window duration\nshould also depend\
+    \ on the amount of active UAVs in the swarm and on the number of\nmessages: it\
+    \ should be optimized in order to minimize the possible packets collisions of\n\
+    the LoRa PHY layer. Again, these parameters have an impact on the system payload’s\n\
+    capabilities, since the interval between messages deﬁnes the available output\
+    \ messages\nand, therefore, the aggregated payload capacity of the system.\nDrones\
+    \ 2021, 5, 26\n14 of 32\nFigure 7. Proposed TDMA-scheduled LoRa-based broadcasting\
+    \ mechanism to be applied in UAV-to-\nUAV communications. In detail, Tdelay is\
+    \ the initial random delay introduced in order to minimize\nthe possible packet\
+    \ collision on the LoRa PHY layer, TXLoRa is the packet’s transmission time,\n\
+    and RXLoRa is the listening window on the medium.\nIn general, the SF could be\
+    \ properly tuned in order to improve the overall performance.\nOn the basis of\
+    \ a preliminary experimental performance evaluation on the LoRa communi-\ncation\
+    \ range for UAV application, discussed in Section 6, it is possible to anticipate\
+    \ that SF7\nrepresents a viable choice for many application scenarios—this is\
+    \ also why SF7 has been\nselected at the beginning of this subsection.\n4.2.1.\
+    \ LoRa-Based UAV-to-UAV Mesh Communication\nAs highlighted before, while LoRa\
+    \ can be used for point-to-point communication\nand LoRaWAN for star topology\
+    \ networks with many end nodes and at least one central\nGW, there is not a well-deﬁned\
+    \ LoRa-based mesh network standard. This is likely due to\nthe constraints of\
+    \ LoRa, making it unsuitable for mesh networking with multi-hop com-\nmunications.\
+    \ This has been conﬁrmed both theoretically and experimentally. An example\nis\
+    \ given in [61], where a hybrid LoRaWAN-LoRa mesh network with LoRa relay nodes\
+    \ is\nproposed, aiming to extend the operating range of the LoRaWAN star topology.\
+    \ However,\nthis study does not consider mobile nodes and interfering signals,\
+    \ such as in the UAV-\nto-UAV application scenario of interest to us, in which\
+    \ a large amount of LoRa nodes is\ninvolved. Another research activity is deﬁned\
+    \ in [62], where a network testbed composed\nof a larger (with respect to the\
+    \ study shown in [61]) amount of nodes is considered and\nthe current limitations\
+    \ of a possible LoRa-based mesh network are investigated. Moreover,\nin [62],\
+    \ the authors observed a strong performance degradation—in terms of latency with\n\
+    respect to a traditional LoRaWAN star topology network. A last reference work\
+    \ is [63],\nwhere a LoRaWAN alternative implementation supporting mesh networking\
+    \ was pro-\nposed, suggesting an alternative GW implementation, in order to support\
+    \ multi-channels\nLoRa RF signal communications, to limit packets collisions,\
+    \ and to increase the number\nof supported nodes. Despite this high-level description,\
+    \ no theoretical or experimental\nresults of the proposed modiﬁed LoRaWAN-mesh\
+    \ protocol were discussed, thus limiting\nits applicability for a LoRa-based UAV\
+    \ mesh network.\nIn order to overcome some of the limitations highlighted in the\
+    \ above cited works\nand to provide additional functionalities to let LoRa and\
+    \ IEEE 802.11s protocols coex-\nist on mobile nodes (i.e., UAVs), our proposed\
+    \ hybrid approach tries also to cope with\nthe high latency and low data rate\
+    \ of LoRa (playing a critical role in the whole system\ndeﬁnition), adopting a\
+    \ SF equal to SF7. Moreover, in order to minimize the air time of\nthe transmitted\
+    \ messages through the LoRa network interface and to maximize the pay-\nload capacity\
+    \ of the network, our solution adopts the TDMA-oriented access mechanism\npresented\
+    \ in Figure 7, with alternating transmitting and listening windows with different\n\
+    lengths, taking also into account the number of active UAVs in the swarm. As discussed\n\
+    in Section 4.2, each node implements a LBT mechanism in which, ﬁrst, if an activity\
+    \ is\nDrones 2021, 5, 26\n15 of 32\ndetected on the channel, a node randomly delays\
+    \ its transmission; then, at the end of\nthe random delay, it transmits; and,\
+    \ ﬁnally, it establishes a receiving window, which has to\nbe set on the basis\
+    \ of the number of ﬂying UAVs.\nMore in detail, each packet transmitted on the\
+    \ LoRa-based broadcast mesh network\nhas a two-fold goal.\n1.\nBroadcast the UAV’s\
+    \ position data (GNSS) and ground connection status (if any): these\ndata are\
+    \ needed to create a robust mesh network (both with IEEE 802.11s and LoRa)\nand\
+    \ to evaluate the position of nearby moving UAVs and their ground connections\n\
+    (if available) in order to establish which will be the next node in the case of\
+    \ link failure\nor out-of-range position.\n2.\nTransmit content data and LoRa\
+    \ mesh conﬁguration data: the ﬁrst are data sent from\na UAV toward another UAV\
+    \ in the swarm—thus an addressing mechanism is needed\ninside the swarm—or to\
+    \ the ground control center, while the second are essential data\nfor mesh conﬁguration\
+    \ (e.g., nearby nodes for each UAV, paths, etc.) that should be\nupdated upon\
+    \ a change in the surrounding environment (given the mobile nature of\nthe system).\n\
+    Given LoRa constraints, in order to avoid packet collisions, the above data must\n\
+    be aggregated in the same packet, thus requiring the deﬁnition of a proper encoding\n\
+    mechanism to easily allow UAVs in the swarm to evaluate the data and to minimize\n\
+    channel use. As can be easily understood, this may require us to use the maximum\
+    \ payload\ninside each packet in order to avoid using the channel for multiple\
+    \ messages, thus reducing\npacket collisions and resource utilization.\nA graphical\
+    \ representation of the proposed packet structure is shown in Figure 8,\nwhile\
+    \ the single ﬁelds composing the packet are detailed in the following:\n•\nIDtxnode:\
+    \ a 1-byte unique identiﬁer of the UAV, able to identify up to 256 entities.\n\
+    In our proposed solution, only 254 identiﬁers can be used, since values 0 and\
+    \ 255 are\nreserved for speciﬁc uses.\n•\nCONtype: a 1-byte identiﬁer indicating\
+    \ the ground connection of the node, if available.\nIn detail, it can assume the\
+    \ following values:\n–\n0 (default value), if the node is not connected to the\
+    \ ground;\n–\n1, if the node is connected to the ground through an IEEE 802.11s\
+    \ AP;\n–\n2, if the node is connected to the ground through a LoRaWAN link; and\n\
+    –\n3, if the node is connected to the ground through an intermediate IEEE 802.11s\n\
+    AP on-board a nearby UAV.\n•\nGNSSdata: a 10-byte ﬁeld, in detail containing the\
+    \ latitude (GNSSlat, 4 bytes), the lon-\ngitude (GNSSlng, 4 bytes), and the auxiliary\
+    \ altitude (GNSSalt, 2 bytes), encoded as\nfloat and short int.\n•\nIDrxnode:\
+    \ similarly to the IDtxnode ﬁeld, it is a 1-byte unique identiﬁer representing\n\
+    a preliminary ﬁeld needed for data transmissions between ﬂying UAVs (both unicast\n\
+    and broadcast) and to the ground center and able to assume only 254 values (0\
+    \ refers\nto the ground control center, while 255 refers to a broadcast communication\
+    \ between\nall ﬂying UAVs).\n•\nMESHconﬁgdata: a variable-size ﬁeld (2 ÷ 6 bytes)\
+    \ containing different information,\nsuch as (i) the number of hops crossed by\
+    \ the messages, (ii) the last hop identiﬁer,\nand (iii) other parameters needed\
+    \ to update the created LoRa mesh network.\n•\nPAYLOAD: a variable-size ﬁeld (0\
+    \ ÷ 200 bytes, given the LoRaWAN constraints at\nSF7) representing the actual\
+    \ data payload that a UAV needs to transmit to other UAVs.\nFigure 8. LoRa mesh\
+    \ packet structure, data, and ﬁeld sizes.\nDrones 2021, 5, 26\n16 of 32\nThe packet\
+    \ structure shown in Figure 8 is used both (i) for the mesh initial setup,\nwhere\
+    \ the PAYLOAD ﬁeld can be used to broadcast the initial conﬁguration data together\n\
+    with CONtype and MESHconﬁgdata ﬁelds, and (ii) for the LoRa mesh network’s update\
+    \ and\ndata communication between UAVs.\n4.2.2. UAV-to-Ground Communications through\
+    \ LoRaWAN\nWhile raw LoRa protocol can be used for UAV-to-UAV communications,\
+    \ as discussed\nin Section 4.2.1, LoRaWAN could instead be used for UAV-to-ground\
+    \ communications\nin order to exploit already existing LoRaWAN networks, such\
+    \ as The Things Network\n(TTN) [7]. The wide coverage of such networks, together\
+    \ with the achievable operational\nrange, guarantees a UAV-to-ground communication\
+    \ alternative to an IEEE 802.11s link for\nessential data exchange, useful in\
+    \ all those cases where IEEE 802.11s is not effective or out\nof range. However,\
+    \ this LoRaWAN-oriented solution has drawbacks, especially because its\nconstraints\
+    \ discussed in Section 3.2.2, namely (i) the strict downlink policy, (ii) the\
+    \ limited\ndata rate, and (iii) the duty cycle, almost neglect any real-time communication\
+    \ among\nLoRaWAN devices, thus limiting this use case only to essential data transmission.\n\
+    4.2.3. LoRa and LoRaWAN Communications Deployment\nIn order to support the data\
+    \ transmission patterns detailed in Sections 4.2.1 and 4.2.2,\ntwo approaches\
+    \ can be followed:\n•\n(i) use of a single COTS board, equipped with two distinct\
+    \ LoRa modems, or (ii) the adop-\ntion of two distinct boards, each one equipped\
+    \ with a single LoRa modem, in order\nto reserve one modem for UAV-to-UAV raw\
+    \ LoRa-based broadcasting and the other\nmodem for UAV-to-ground communications\
+    \ via LoRaWAN;\n•\nuse of a single COTS board with a single LoRa modem, used,\
+    \ according to a time\ndivision strategy, by switching between LoRa-based broadcasting\
+    \ (UAV-to-UAV) and\nLoRaWAN (UAV-to-Ground).\nMore in detail, the ﬁrst approach\
+    \ is more expensive, in terms of price, since a complex\nboard with two LoRa modems\
+    \ or two single modem boards are needed, and in terms of\nhardware’s weight and\
+    \ physical space, which are limited on a typical-sized UAV. However,\nthis approach\
+    \ can guarantee the best performance, since there is no off-period due to\nthe\
+    \ network switch (as with a single modem) and thus any software re-initialization\
+    \ phases\namong the interfaces. Additionally, since each modem is dedicated to\
+    \ one network, they\ncan be used in parallel at the same time. Oppositely, in\
+    \ the second approach, only one\nof the two networks is active at a time and switching\
+    \ time must be taken into account,\nthus reducing the effective operational time\
+    \ and the total system capacity. A graphical\ncomparison between these approaches\
+    \ is shown in Figure 9.\nFigure 9. Single modem-based (top) and dual modem-based\
+    \ (bottom) approaches for joint LoRa (UAV-to-UAV) and\nLoRaWAN (UAV-to-ground)\
+    \ connections.\nDrones 2021, 5, 26\n17 of 32\nWe remark that root nodes—acting\
+    \ as coordinators in the LoRa mesh network and being\nthe only UAVs connected\
+    \ to the ground control center though LoRaWAN—are the only\nones that need to\
+    \ switch between LoRa and LoRaWAN connectivity. Therefore, only\nthese root nodes\
+    \ would face the performance limits with a single-modem implementation.\nTo this\
+    \ end, a possible solution to reduce performance degradation can be the predeﬁnition\n\
+    of the LoRa mesh network’s root nodes, thus deploying a dual modem-based solution\n\
+    on them to both communicate to the ground (through LoRaWAN) and between UAVs\n\
+    (through the LoRa mesh network layer), as shown in Figure 10.\nFigure 10. Dual\
+    \ LoRa modem-based implementation for root nodes.\n5. Combined Opportunistic Mesh\
+    \ Networking\nAs highlighted in Section 4, the use of two different network layers\
+    \ allows for the cre-\nation of a hybrid network involving multiple possible conﬁgurations,\
+    \ with heterogeneous\nuse of IEEE 802.11s links and LoRa-based communications.\
+    \ To this end, the key element\nenabling the deﬁnition of such a hybrid multi-protocol\
+    \ mesh network is the selection mech-\nanism between them, which should properly\
+    \ select the appropriate network by evaluating\nseveral parameters representative\
+    \ of the requirements of a UAV swarm. In the following,\nthe proposed selection\
+    \ mechanism is described in Section 5.1, while Sections 5.2 and 5.3\nfocus on\
+    \ possible UAV-to-UAV and UAV-to-ground network conﬁgurations, respectively.\n\
+    5.1. Network Selection Mechanism\nOne of the main advantages of ﬂying communications,\
+    \ as discussed in Section 1, is\nthe almost direct LOS between UAVs, which allows\
+    \ for a wide operating range even with\nprotocols typically used for short-range\
+    \ communications. Behind the IEEE 802.11s mesh\nbuilt-in link creation mechanism\
+    \ [64], often based on link quality and path-based cost\nfunctions, when dealing\
+    \ with a mobile mesh network (as a UAV swarm), there are several\nparameters to\
+    \ take care of in order to establish reliable communications and ensure seamless\n\
+    connectivity. In the following, the parameters considered in our proposed opportunistic\n\
+    hybrid architecture are detailed.\n5.1.1. Network Communication Interface Type\n\
+    As detailed in Section 4, each ﬂying UAV broadcasts the data packets described\n\
+    in Section 4.2.1 through the LoRa network interface, advertising its established\
+    \ connection\ntype (if any). On the basis of the best performance, in terms of\
+    \ data rate and reliability, each\nUAV always puts a ﬁrst priority to the IEEE\
+    \ 802.11s connectivity for both UAV-to-UAV and\nUAV-to-ground communications.\
+    \ Then, if the current node cannot join the IEEE 802.11s\nmesh network (e.g.,\
+    \ it is too far from either ground or UAV-transported APs), it considers\nthe\
+    \ use of its LoRaWAN interface to communicate with the ground. If even LoRaWAN\n\
+    communications are not possible, then a raw LoRa communication with other close\
+    \ UAVs\nDrones 2021, 5, 26\n18 of 32\nis considered, using the mesh networking\
+    \ approach presented in Section 4.2 for both UAV-\nto-UAV and UAV-to-ground communications.\n\
+    5.1.2. GNSS Position of the APs\nSince a UAV can freely move inside the swarm\
+    \ (if not otherwise for some reason)\nand one of the parameters broadcast in the\
+    \ packet shown in Figure 8 is its GNSS position,\na useful selection parameter\
+    \ to be considered in evaluating which node to connect to\nis the GNSS position\
+    \ of nearby mesh points, either being ground or UAV-based MPPs.\nTherefore, a\
+    \ ﬂying UAV can choose which ground AP to connect to on the basis of (i) its\n\
+    knowledge of AP positions and (ii) its ﬂight direction in order to preliminarily\
+    \ prepare to\nswitch to a different AP, thus limiting the network off-period due\
+    \ to AP outage. Moreover,\nGNSS positions are also useful for ﬂying communication,\
+    \ since a UAV always chooses as\nﬁrst priority its nearest AP-equipped UAV, thus\
+    \ prioritizing an IEEE 802.11s connection\nwith respect to a LoRa one. Again,\
+    \ given the continuous broadcasting of UAV positions,\nin an advanced implementation\
+    \ of the proposed opportunistic mechanism, the ﬂying\ndirections of nearby UAVs\
+    \ could also be evaluated in order to optimize and prepare\nthe handover. Finally,\
+    \ in the GNSS information, even nearby UAV altitudes could be used\nas a decision\
+    \ parameter, since UAVs ﬂying higher have a higher probability to have direct\n\
+    LOS with both ground APs and nearby UAV-transported APs, thus minimizing the number\n\
+    of hops to reach an AP.\n5.1.3. RSSI of Nearby Nodes\nAn alternative to GNSS data\
+    \ for all those scenarios where GNSS is unreliable or\nnot available—e.g., in\
+    \ indoor environments as well as with UAVs ﬂying between high\nbuildings—could\
+    \ be the RSSI retrieved by each network interface actively listening for\ntransmissions\
+    \ from nearby nodes. Therefore, the RSSI might be expected to choose the best\n\
+    node among the neighbors, thus representing a good link quality’s selection mechanism.\n\
+    5.1.4. Network’s Hierarchical Value of Nearby Nodes\nAnother parameter that is\
+    \ broadcasted together with the other mesh parameters is\nthe network layer of\
+    \ the UAV. More precisely, it represents the depth of the UAV inside\nthe mesh\
+    \ network, as shown in Figure 2, and it may thus be considered a “must” indicator.\n\
+    As an example, among different IEEE 802.11s mesh point UAVs with almost the same\n\
+    RSSI and located at almost the same distance, the current UAV, looking for nearby\
+    \ nodes,\nchooses the one with the best hierarchical indicator (i.e., smallest\
+    \ depth) inside the hybrid\nmesh network, thus minimizing the overall path cost\
+    \ depending on the number of hops\nthat the data transmission will traverse.\n\
+    5.1.5. Amount and Type of Data to Be Transmitted\nThe last parameter that can\
+    \ be considered is related to the type and amount of data to\nbe forwarded from\
+    \ the source UAV to the destination node (UAV or terrestrial). Since LoRa\nand\
+    \ LoRaWAN can be used only for low data rates and very high latency communications,\n\
+    it is natural to assume that particular applications not complying with these\
+    \ constraints\n(e.g., real-time video transmission) cannot rely on these long-range\
+    \ protocols. In these cases,\nthe creation of mesh networks with nearby nodes\
+    \ can be made only via the IEEE 802.11s\nnetwork layer.\n5.1.6. Summary\nAs a\
+    \ general summary on the selection parameters outlined above, a reference sce-\n\
+    nario involving the best neighboring AP selection mechanism is shown in Figure\
+    \ 11, where\na ﬂying drone is “sensing” multiple possible mesh points and is estimating\
+    \ which is\nthe best one to establish a connection with. Besides link quality/availability,\
+    \ the deci-\nsion needs to take into account the ﬂight plan of the UAV and the\
+    \ parameters described\nin Sections 5.1.1–5.1.5.\nDrones 2021, 5, 26\n19 of 32\n\
+    Figure 11. Dynamic best AP selection operated by a ﬂying UAV, aiming at establishing\
+    \ connection.\n5.2. UAV-to-UAV Communications\nIn the proposed hybrid mesh architecture,\
+    \ UAV-to-UAV communications occur through\ntwo layers: (i) an IEEE 802.11s mesh\
+    \ network layer and (ii) a LoRa-based mesh layer.\nHowever, multi-hop communications\
+    \ between UAVs can occur in a third way, based on\nboth IEEE 802.11s and LoRa\
+    \ links between UAVs. In the following, IEEE 802.11s- and LoRa-\nbased UAV-to-UAV\
+    \ communications are discussed in Sections 5.2.1 and 5.2.2, respectively,\nwhile\
+    \ a hybrid approach is detailed in Section 5.2.3.\n5.2.1. IEEE 802.11s-Enabled\
+    \ UAV-to-UAV Communications\nCommunications between multiple ﬂying UAVs achieve\
+    \ the highest performance\nthrough the use of the IEEE 802.11s mesh networking\
+    \ that, depending on the adopted\nequipment, can support data rates on the order\
+    \ of several Megabit per second (Mbps).\nIn detail, the IEEE 802.11s mesh network’s\
+    \ setup and conﬁguration are carried out fol-\nlowing the protocol deﬁnition;\
+    \ then activating the path selection mechanism described\nin Section 5.1; and\
+    \ ﬁnally considering routing between multiples UAVs acting as MPs or,\nin case\
+    \ of the root node, as a MPP, as discussed in Section 4.1. Therefore, routing\
+    \ is based\non the network interface’s MAC address of each device—as deﬁned in\
+    \ the IEEE 802.11s\nspeciﬁcation—jointly used together with the assigned drone\
+    \ ID, which can be used as inter-\nnal parameter for routing data between both\
+    \ LoRa and IEEE 802.11s layers. An example\nof a ﬂying IEEE 802.11s mesh network\
+    \ among UAVs is shown in Figure 12. In this ﬁgure,\nthe IDs of the UAVs are explicitly\
+    \ indicated, together with the cost of each link, deﬁned\non the basis of (i)\
+    \ the number of hops needed to reach the root node, (ii) the link’s data rate,\n\
+    and (iii) the link’s signal RSSI.\nFigure 12. IEEE 802.11s-enabled communications\
+    \ between UAVs.\nDrones 2021, 5, 26\n20 of 32\n5.2.2. LoRa-Enabled UAV-to-UAV\
+    \ Communications\nIn order to complement the IEEE 802.11s mesh network, proposed\
+    \ in Section 5.2.1,\nused for UAV-to-UAV short-range high data rate communications,\
+    \ our proposed LoRa-\nbased broadcast mesh network can be used for long-range\
+    \ communications (up to several\ntens of kilometers in direct LOS) as well as\
+    \ for essential data communications (e.g., UAVs\ntelemetry) in urban environments,\
+    \ where IEEE 802.11s signals, despite LOS visibility\nbetween UAVs, could be affected\
+    \ by interference and signal shadowing, thus limiting their\noperational ranges.\
+    \ Therefore, essential data could still be retrieved using the LoRa-based\nmeshed\
+    \ network, where nearby UAVs act as LoRa relays inside the network, allowing long-\n\
+    range communications between swarm nodes, as deﬁned in Section 4.2. An illustrative\n\
+    representation of such a LoRa-based mesh network conﬁguration is shown in Figure\
+    \ 13.\nFigure 13. LoRa-enabled communications between UAVs.\n5.2.3. Hybrid Conﬁguration-enabled\
+    \ UAV-to-UAV Communications\nWith reference to Sections 5.2.1 and 5.2.2, it is\
+    \ clear how IEEE 802.11s and LoRa have\ntheir own advantages and disadvantages:\
+    \ IEEE 802.11s suits low latency, high data rate,\nand short-to-mid range communications,\
+    \ while LoRa supports very long transmission\nranges but with a very limited data\
+    \ rate and high latency. Therefore, an effective combi-\nnation of these technologies\
+    \ should guarantee an optimized tradeoff between operational\nranges and data\
+    \ rates.\nGiven the two layers discussed and detailed in Section 4, a hybrid adoption\
+    \ of these\nnetwork layers by the UAVs in a swarm could involve multiple IEEE\
+    \ 802.11s “local” mesh\nnetworks between close UAVs, in turn connecting together\
+    \ with disjoint (far) IEEE 802.11s\nmeshed networks through the LoRa layer. This\
+    \ leads to the implementation of a wide area\nhybrid mesh network where all the\
+    \ UAVs can forward at least a minimum amount of data\nto each other without the\
+    \ need for a ground infrastructure. An illustrative representation\nof the overall\
+    \ architecture is shown in Figure 14.\nFigure 14. Hybrid-meshed network for communications\
+    \ between UAVs.\nDrones 2021, 5, 26\n21 of 32\n5.3. UAV-to-Ground Communications\n\
+    Considering UAV-to-ground communications, in our proposed infrastructure two\n\
+    different solutions can be identiﬁed: (i) an IEEE 802.11s-based UAV-to-ground\
+    \ connection,\ndiscussed in Section 5.3.1, and (ii) a LoRaWAN-based one, detailed\
+    \ in Section 5.3.2. Both\nof these solutions involve ﬂying UAV mesh root nodes,\
+    \ in charge of collecting data from\nthe remaining ﬂying UAVs of the swarm and\
+    \ transmitting it to the ground control center.\n5.3.1. IEEE 802.11s-Enabled Ground-Connected\
+    \ UAV Swarms\nGiven a reference scenario in which at least one UAV ﬂies within\
+    \ the communication\nrange of a ground control station’s Wi-Fi AP, such an UAV\
+    \ could establish a bidirectional\nconnection with the AP itself using (i) a traditional\
+    \ STA-AP IEEE 802.11 Wi-Fi connection\nor (ii) an advanced IEEE 802.11s connection\
+    \ (in case multiple APs are available). Therefore,\nthe UAV connected to the ground\
+    \ via Wi-Fi ﬁrst broadcasts to all nearby swarm nodes its\nconnection status and\
+    \ then assumes the root node role inside the ﬂying mesh conﬁguration,\nthus providing\
+    \ a bidirectional connectivity among the ground center and the other UAVs.\nTo\
+    \ this end, such a network conﬁguration could be represented as in Figure 15,\
+    \ where two\nroot nodes act as ﬂying GWs for the intermediate UAVs (with reference\
+    \ to Figure 2).\nFigure 15. Wi-Fi-enabled ground connected UAV swarm.\n5.3.2.\
+    \ LoRaWAN-Enabled Ground-Connected UAV Swarm\nA second approach to provide ground\
+    \ connectivity to the swarm’s UAVs is through\nthe LoRaWAN protocol. If compared\
+    \ with the IEEE 802.11s-based approach described\nin Section 5.3.1, a LoRaWAN-based\
+    \ approach will be characterized by an increased com-\nmunication range of at\
+    \ least one order of magnitude, thus supporting new operational\nscenarios, which\
+    \ will be discussed in more detail in Section 7. On a practical side, a UAV\n\
+    swarm could use LoRaWAN both to interact with the ground control center and to\
+    \ simply\nsend essential data (e.g., UAVs telemetry) to a LoRaWAN AS, joining\
+    \ an existing open\nLoRaWAN network (e.g., TTN). This is possible even in the\
+    \ presence of more than one UAV\nacting as a root node inside the swarm, thus\
+    \ providing a bidirectional connectivity between\nthe ground center and the ﬂying\
+    \ UAVs composing the hybrid mesh network. To better\nclarify this long-range approach,\
+    \ in Figure 16, an illustrative scenario is shown, with two\nroot nodes acting\
+    \ as ﬂying GWs for all the other UAVs that cannot directly communicate\nwith the\
+    \ ground.\nDrones 2021, 5, 26\n22 of 32\nFigure 16. LoRaWAN-enabled ground connected\
+    \ UAV swarm.\n6. Theoretical and Experimental Performance Evaluation\nIn order\
+    \ to further motivate our proposed hybrid approach, in Section 6.1, we evalu-\n\
+    ate the theoretical performance (in terms of operational range) of the network\
+    \ protocols\ndiscussed in Section 3 in a comparative way with respect to literature\
+    \ works: more pre-\ncisely, in Sections 6.1.1 and 6.1.2, we focus on LoRa and\
+    \ IEEE 802.11s, respectively. Then,\nin Section 6.2, we detailed our experimental\
+    \ campaign on LoRa-based communications,\nusing a commercial UAV and an on-board\
+    \ LoRaWAN transceiver to identify the UAV-to-\nground communication range—we do\
+    \ not report any experimental result on IEEE 802.11-\nbased communications as\
+    \ these have been extensively investigated in the literature; for this\nreason,\
+    \ we focused on LoRa-based communications.\n6.1. Theoretical Performance Analysis\n\
+    6.1.1. LoRa Communication Operating Range Estimation\nGiven the mobile nature\
+    \ of the proposed hybrid architecture and the interest in the use\nof the LoRa\
+    \ protocol for inter-UAV communications in a networking range between 5 km\nand\
+    \ 15 km, a preliminary performance estimation initially focused on the reliability\
+    \ and\nthe communication range of LoRa-based communications with at least one\
+    \ node moving\nin the considered environment. In detail, in [59], various scenarios\
+    \ (i.e., urban, suburban,\nand an almost obstacle-free environment) were considered,\
+    \ highlighting how SF12 allows\na user to achieve a packet delivery ratio equal\
+    \ to 85% in both urban and suburban scenarios\n(within a range of 5 km) and then\
+    \ decreasing to about 70% when increasing the range from\n5 km up to 15 km (and\
+    \ depending on the environment). In [65], the authors focused on\nLOS LoRa communication\
+    \ range evaluation, achieving a point-to-point (between a hill\nand a nearby ﬂat-land)\
+    \ range of more than 12 km with a small packet loss ratio. Moreover,\nanother\
+    \ range estimation was given by TTN Mapper [66], that allows users to monitor,\n\
+    evaluate, and analyze all the data provided by the community, thus highlighting\
+    \ which\nare the real capabilities of a LoRa-based communication in various real-world\
+    \ scenarios.\nTo this end, among the plethora of data, the most interesting ones\
+    \ are those related to\nextreme LOS conditions, with the transmitting node mounted\
+    \ over a helium-ﬁlled balloon\nand reaching a propagation range up to hundreds\
+    \ of kilometers, achieving an astonishing\nLoRa communication range of about 832\
+    \ km [67].\n6.1.2. IEEE 802.11s-Based Communication Operating Range\nWith regard\
+    \ to in-air data transmission among drones through the IEEE 802.11s proto-\ncol,\
+    \ in the literature, some investigations were conducted in order to estimate how\
+    \ it could\nﬁt different coverage needs. The adoption of IEEE 802.11s networking\
+    \ in a UAV swarm is\ninvestigated in [68], where an open area with no obstacle\
+    \ and no interference is assumed.\nIn this context, the use of 2.4 GHz and 5.8\
+    \ GHz Wi-Fi was able to provide a high data rate\nlink between the AP and the\
+    \ UAV within a radius of several hundreds of meters (up to\nDrones 2021, 5, 26\n\
+    23 of 32\n200 m at 300 Mbps PHY data rate on a 2.4 GHz Wi-Fi link), also depending\
+    \ on the adopted\nradio equipment and link direction (uplink or downlink). Additionally,\
+    \ in [68], the authors\nshow that, using a lower PHY data rate, a longer communication\
+    \ distance could be reached\n(up to 500 m at 54 Mbps PHY data rate), further expanding\
+    \ the IEEE 802.11s operational\nranges of both UAV-to-UAV and UAV-to-ground communications\
+    \ proposed in our hybrid\nmesh network model. Another IEEE 802.11s-based UAV network,\
+    \ where a UAV acts as AP\nfor ground STA nodes, is presented in [28], showing\
+    \ a throughput of about 40 Mbps over\na 200 m2 area and considering multiple hops\
+    \ inside the network.\nTaking into account the results in [68] and [28] and the\
+    \ a typical home Wi-Fi network\noperational range, the application of this technology\
+    \ for both UAV-to-UAV and UAV-to-\nground communications should be possible for\
+    \ short-to-mid range LOS communications.\n6.2. Experimental Performance Analysis:\
+    \ LoRaWAN UAV-to-Ground Operating Range Evaluation\nWe ﬁrst investigated a LoRaWAN\
+    \ communication link between a ﬂying UAV and\nthe ground control center, as discussed\
+    \ in Section 4.2.2. To this end, a processing board\nwith a LoRaWAN interface\
+    \ was placed over a drone, with the main task of collecting GNSS\nlatitude, longitude,\
+    \ and altitude. Then, these messages were periodically sent through\nthe LoRaWAN\
+    \ interface in order to observe and estimate which terrestrial LoRaWAN GWs\ncould\
+    \ successfully receive these messages. Hence, these data transfers allow us to\
+    \ further\ndetermine the in-air distance between each terrestrial GW and the originator\
+    \ UAV. In detail,\na DJI Phantom 4 Professional [69] was adopted as a UAV platform,\
+    \ as shown in Figure 17a,\nwhile a TTGO T-Beam [70], shown in Figure 17b, was\
+    \ used as a LoRa-compliant commu-\nnication board. This board was chosen thanks\
+    \ to the presence of a Semtech SX1276 LoRa\nmodem (suitable for EU 868 MHz LoRa\
+    \ channels frequency) [71], a u-blox NEO-6M GNSS\nmodule [72], an ESP32 Wi-Fi\
+    \ and Bluetooth Low Energy (BLE) System-on-Chip (SoC) [73],\nand the full support\
+    \ to TTN [7]. Finally, the communication board was attached under\nthe drone’s\
+    \ frame and powered using a standard 3.7 V 3500 mAh MR18650 Li-Ion battery.\n\
+    (a)\n(b)\n(c)\nFigure 17. Chosen UAV and LoRa board adopted for the experimental\
+    \ performance evaluation campaigns. (a) DJI Phantom\n4 Professional. (b) TTGO\
+    \ T-Beam LoRa board. (c) TTGO T-Beam LoRa development platform attached to the\
+    \ DJI drone as\nits custom payload.\nThe experimental tests were performed in\
+    \ a semi-urban environment in Sabbioneta,\nItaly, with multiple low buildings,\
+    \ in the absence of mountains or hills. Then, the ﬂight was\ncarried out on 4\
+    \ December 2020, during a cloudy day with almost no wind, an air humidity\nof\
+    \ about 80%, and a temperature around 3 ◦C. More in detail, the UAV’s GNSS position\
+    \ was\nﬁxed during the ascending, hovering, and descending phases; during the\
+    \ ﬂight, the drone\nwas maintained in a hovering status at a ﬁxed altitude of\
+    \ 100 m for 12 min, slowly rotating\nitself on the yaw axis. On the communication\
+    \ side, the LoRa-enabled board was set to\nautomatically send a LoRaWAN message\
+    \ with SF7 and message interval equal to 10 s,\ncontaining the current GNSS data\
+    \ (longitude, latitude, altitude, and Horizontal Dilution\nOf Precision (HDOP)).\
+    \ Finally, the endpoint applications attached to the TTN’s AS were\nintegrated\
+    \ with the TTN Mapper component in order to decode the receive message\npayloads\
+    \ and to plot the data over a map showing the LoRaWAN GWs that correctly\nDrones\
+    \ 2021, 5, 26\n24 of 32\nreceived at least one message—allowing us to easily estimate\
+    \ the distances among the UAV\nand the different GWs.\nThe used testbed allows\
+    \ us to achieve interesting results, since the exchanged packets\nare received\
+    \ from GWs far away from the ﬂying UAV. In total, 72 messages were sent from\n\
+    the UAV-mounted LoRa-enabled board during the ascending, ﬂight, and descending\
+    \ phases.\nThe messages were received by 14 LoRaWAN GWs registered (with known\
+    \ positions) on\nTTN, consequently allowing us to estimate the distances between\
+    \ these GWs and the UAV,\ntogether with the number of packets successfully received\
+    \ by each GWs and the percentage\nof correctly received packets. The results of\
+    \ this range evaluation are shown in Figure 18,\nwhere the messages received by\
+    \ the TTN GWs are shown on top of a TTN Mapper’s map.\nMoreover, the messages\
+    \ are listed in Table 2, where the GWs are classiﬁed by the number\nof packets\
+    \ successfully received.\nFigure 18. TTN Mapper output.\nAnalyzing the experimental\
+    \ results, the majority of the GWs that received messages\nsent from the originator\
+    \ UAV are located, on the average, within a circular range with\nradius between\
+    \ 30 km and 60 km, with a few GWs placed even more than 75 km away\nfrom the transmitter.\
+    \ Unfortunately, the only known nearby GW (identiﬁed as 6), located\nat about\
+    \ 4 km from the UAV, is an indoor GW located at the ﬁfth ﬂoor of a building:\n\
+    this could explain the relatively low packet reception rate of the GW 6 achieved\
+    \ during\nthe performance evaluation. Despite the absence of statistical meaning\
+    \ of the obtained\nresults—due to the very small number of messages sent from\
+    \ the UAV—this preliminary\nevaluation highlights the applicability of LoRaWAN\
+    \ to UAV swarms, since the resulting\ncommunication range turned out to be much\
+    \ longer than the expected 10–15 km range.\nMoreover, given that LoRaWAN-based\
+    \ communications do not entail a speciﬁc association\nbetween the end node (the\
+    \ UAV) and a GW, the transmitted messages can be received by\nany nearby GWs and,\
+    \ thus, can be successfully processed, making the ﬁnal correct packet\ndelivery\
+    \ ratio in our experimental evaluation equal to 95.83%, which is an acceptable\
+    \ value.\nHence, with respect to the UAV-to-ground LoRaWAN-based communication\
+    \ discussed\nin Section 4.2.2, the combined use of a LoRa-IEEE 802.11s-based mesh\
+    \ network for multiple\nﬂying UAV communications, together with multiple root\
+    \ nodes communicating though\nLoRaWAN to the ground, is feasible. This allows\
+    \ us to limit multi-hop communications\nbetween ﬂying UAVs, which is a very limiting\
+    \ factor for LoRa-based mesh networking.\nDrones 2021, 5, 26\n25 of 32\nTable\
+    \ 2. LoRaWAN UAV-to-ground range test results.\nGW Number (#)\nGW Distance (km)\n\
+    Average RSSI (dBm)\nReceived Packets (with\nRespect to Sent Packets)\nReceived\
+    \ Packets (%)\n1\n68.199\n−113.72\n69 of 72\n95.83\n2\n75.040\n−110.16\n69 of\
+    \ 72\n95.83\n3\n49.936\n−110.05\n61 of 72\n84.72\n4\n31.505\n−113.13\n60 of 72\n\
+    83.33\n5\n67.339\n−107.98\n57 of 72\n79.17\n6\n3.933\n−107.09\n56 of 72\n77.78\n\
+    7\n61.193\n−113.73\n49 of 72\n68.06\n8\n44.330\n−116.53\n40 of 72\n55.56\n9\n\
+    51.385\n−118.86\n35 of 72\n48.61\n10\n48.904\n−117.10\n30 of 72\n41.67\n11\n50.691\n\
+    −118.25\n12 of 72\n16.67\n12\n68.206\n−116.20\n5 of 72\n6.94\n13\n59.384\n−114.75\n\
+    4 of 72\n5.56\n14\n58.800\n−118.67\n3 of 72\n4.17\nWe remark that our experimental\
+    \ evaluation was performed with the UAV placed\nat a quite high altitude but still\
+    \ inside the legal height allowed by the EASA, which is\nlimited to a maximum\
+    \ value equal to 120 m. Moreover, looking at the packets transmitted\nduring the\
+    \ ascending and descending phases, all the packets transmitted at an altitude\n\
+    higher than 35 m were received by at least one nearby GW, suggesting that the\
+    \ same\npacket reception rate should be easily achieved for almost any ﬂying altitude\
+    \ above 35 m,\nwith a more realistic ﬂying elevation set between 50 m and 60 m,\
+    \ in order to obtain LOS\ncommunications in almost all directions.\nDuring the\
+    \ experimental evaluation, two aspects were not analyzed: (i) the impact\nof the\
+    \ mobility, in particular with a UAV linear speed between 20 km/h and 50 km/h,\n\
+    and (ii) the impact of messages with maximum size payload. The mobility of the\
+    \ UAV\nshould partially limit the reception rate given the studies discussed in\
+    \ [59]. However, given\nthe typical speeds of a UAV, their effects on LoRa communications\
+    \ should be negligible for\npayload sizes smaller than the maximum value (which\
+    \ corresponds to the longest message\nairtime). Moreover, taking into account\
+    \ other researches in [59], given that SF is set to SF7,\nthe possible effects\
+    \ on communication should be negligible.\nAs a ﬁnal note, only UAV-to-ground evaluations\
+    \ have been performed, integrating\na public LoRaWAN network (i.e., TTN) to investigate\
+    \ LoRa RF signal transmission and\nthe corresponding reception distance. However,\
+    \ the proposed hybrid mesh network\ninfrastructure should achieve a similar performance\
+    \ for UAV-to-UAV communications, with\nthe only limitation due to the small LoRa\
+    \ antennas mounted on top of UAVs. Nevertheless,\nthe considered setting should\
+    \ allow us to cover an operational region with a radius between\n5 km and 15 km,\
+    \ thus enabling a long-range communication useful for several scenarios\nand use\
+    \ cases.\n7. Use Cases\nIn order to motivate the design and implementation of\
+    \ the opportunistic mesh net-\nworking approach discussed in Section 5, the following\
+    \ relevant use cases for the proposed\nhybrid mesh architecture are discussed.\n\
+    7.1. Border Surveillance\nConsider a border surveillance scenario with an extensive\
+    \ perimeter (e.g., tens of\nkilometers) to be monitored. Multiple drones would\
+    \ then be required, each one assigned\nto a speciﬁc zone to be monitored and in\
+    \ charge of executing different tasks [74]. Among\nthese tasks, recording (as\
+    \ a video stream) inside the drone’s on-board memory is a relevant\none. When\
+    \ a critical situation appears (e.g., in a smart city context or for citizens\
+    \ safety [75])\nand cannot be managed by a single drone, then a subset of the\
+    \ swarm needs to reach\nDrones 2021, 5, 26\n26 of 32\nthe critical situation area\
+    \ [76]. This “rescue operation” can be performed thanks to the fact\nthat the\
+    \ localization of each UAV is precisely identiﬁed through GNSS information, which\n\
+    is in turn broadcast by each drone through the LoRa-based mesh network at certain\
+    \ time\ninstants (given the duty cycle of the LoRa protocol) [77]. On the basis\
+    \ of this knowledge,\nthe swarm’s subset can reach the on-site drone while recording\
+    \ the ﬂight operations. Once\non the critical area, the UAVs can coordinate with\
+    \ each other by relying on the high-\nspeed IEEE 802.11s mesh network. For example,\
+    \ they could transfer all their (recorded)\nvideo streams to a “sherpa” UAV—elected\
+    \ statically or dynamically—which, in turn,\nwill be in charge of reaching a terrestrial\
+    \ Wi-Fi AP to download all the video streams\nto the ground control center [78,79].\
+    \ Hence, in scenarios such as this one, long-range\nlow-data-rate protocols can\
+    \ be suitable only for position information broadcasting while\nresource-demanding\
+    \ services (e.g., video streams) should be left to faster communication\ninterfaces\
+    \ possibly equipping the swarm’s UAVs—e.g., IEEE 802.11s, as well as 4G/5G\ncellular\
+    \ networks.\n7.2. Smart Agriculture\nAn alternative use case corresponds to a\
+    \ smart agricultural scenario, with spread lots\n(far from each other) to be periodically\
+    \ monitored in an unobtrusive way [80,81]. This can\noccur through ﬂying drones\
+    \ that collect data from on-ﬁeld sensors (through wireless data\ntransmission\
+    \ from sensors to UAVs) and through on-board sensors (e.g., hyper-spectral\ncameras).\
+    \ Then, in order to avoid drones ﬂying for long distances (between their assigned\n\
+    agricultural lot and the the farmer’s house), the swarm can self-organize (in\
+    \ an oppor-\ntunistic way and based on the data format to be collected and reported\
+    \ to the farmer’s\nhouse) intermediate mesh networks [82,83]. Therefore, small\
+    \ data can be transmitted\nthrough a LoRa-based mesh network while large data\
+    \ to be transferred in a short time\ncan rely on the IEEE 802.11s-based network.\
+    \ This opens to innovative trajectory and task\nplanning, aiming at maximizing\
+    \ the data collection rate and at minimizing the “redundant”\ntime wasted while\
+    \ in static ﬂight waiting for information transfer. For example, this can\nrely\
+    \ on the adoption of Mission Management Tools (MMTs) [84] and Decision Support\n\
+    Systems (DSSs) [85], thus opening up to the possibility of processing data both\
+    \ locally or\nin the cloud [86].\n7.3. BVLOS Instrumental Flight Backup Telemetry\n\
+    Nowadays, BVLOS ﬂights often rely on direct communication between the UAV\nand\
+    \ the pilot (on the ground), using the protocol described in Section 2. However,\
+    \ this\ncommunication scheme is often disturbed when ﬂying in the presence of\
+    \ obstacles (e.g.,\nbuildings, trees, hills, etc.) [87]. To overcome these limitations,\
+    \ manufacturers equip their\nUAVs with LTE modems to enable cellular connectivity\
+    \ and to provide FPV real-time\nvideo feeds and telemetry data to the pilots [88,89].\
+    \ Nevertheless, some BVLOS ﬂights\ndo not require a real-time video stream but\
+    \ simply the UAV’s telemetry data (e.g., GNSS\ncoordinates, altitude, speed, orientation,\
+    \ batteries status, etc.) in order to (i) monitor\nthe UAV on different map layers\
+    \ (e.g., satellite or topographic maps, to know where\nbuildings or structures\
+    \ are located) and (ii) to perform complex operations without a UAV’s\nLOS visibility.\
+    \ Therefore, the use of M (M ≥ 1) intermediate UAVs connecting indirectly\n(through\
+    \ IEEE 802.11s or LoRa intermediate links) the BVLOS UAV and its pilot can\nrepresent\
+    \ a valid alternative in those cases in which, for example, cellular connectivity\
+    \ is\nnot fully available or reliable, thus providing a robust backup tool to\
+    \ keep track of ﬂying\nUAVs performing partially automated BVLOS operations in\
+    \ difﬁcult environments [90].\nTherefore, despite LTE-based downlink (between\
+    \ the pilot and the UAV) and uplink\n(from the UAV to the pilot) communications\
+    \ should abide by certain requirements on\ndata rate, reliability, and latency\
+    \ [91,92] for different types of data (i.e., command and\ncontrol data, and application\
+    \ data), in a use case such as the current one, the constraints\naffecting the\
+    \ uplink telemetry data transmission would be more “relaxed.” In particular,\n\
+    this information forwarding can be performed occasionally or if the default communication\n\
+    Drones 2021, 5, 26\n27 of 32\nmechanism fails, thus acting as a backup solution\
+    \ for the adopted low rate and long-range\ncommunication protocols.\n7.4. Long-Range\
+    \ UAV Swarms Coordination and Communications\nThe proposed hybrid mesh network\
+    \ opens new possibilities for long-range UAV\nswarm coordination and communications,\
+    \ letting many UAVs communicate together\nand with one or more ground control\
+    \ centers placed over a wide operating region [93].\nGround-connected UAVs could\
+    \ act as swarm coordinators, communicating with the other\nswarm UAV new-mission\
+    \ instructions (e.g., new positions to reach or be maintained).\nMoreover, the\
+    \ proposed mesh networking scheme could simply be used to keep track of\nthe UAV’s\
+    \ positions in order to provide the control center with an updated overview of\n\
+    the swarm topology [94]. The control center, in turn, could send to the coordinators—and,\n\
+    then, to speciﬁc UAVs—the information needed to restore the desired swarm formation.\n\
+    However, given the constraint of LoRa-based communications, the amount of data\
+    \ that\ncan be transmitted between in-ﬂight UAVs located over a large area is\
+    \ limited to essential\ninformation, such as positions to be reached, mission\
+    \ tasks, and other limited swarm-related\ninformation.\n8. Conclusions\nIn this\
+    \ paper, we proposed a hybrid LoRa/IEEE 802.11s-based mesh networking\narchitecture\
+    \ to be adopted in UAV swarms to enable data transmission among the drones\nand\
+    \ ground control centers. The proposed architecture aims to exploit the strengths\n\
+    of the component protocols, namely IEEE 802.11s, LoRa, and LoRaWAN. An effective\n\
+    network protocol selection mechanism is then needed to select the right interface.\
+    \ In detail,\nprotocol selection is based on multiple parameters, both available\
+    \ internally in the ﬂying\nnode as well as periodically exchanged by the swarm\
+    \ nodes, including signal indicators\nand the nature of the type to be transferred.\
+    \ Our considerations indicate a combined\noperational range between 5 km and 15\
+    \ km, using LoRa (for long-range communications)\nand IEEE 802.11s (for short-range\
+    \ LOS communications). As a consequence, the proposed\nhybrid architecture allows\
+    \ us to reach different data rates based on the environmental\nconditions and\
+    \ the scenario to be targeted. Among the system constraints, the effective\ntransmission\
+    \ capabilities of the architecture are limited by the adopted protocols constraints,\n\
+    which, in the case of LoRa/LoRaWAN communications, signiﬁcantly limit the possible\n\
+    use cases to low-data-rate applications. Moreover, given the mobile nature of\
+    \ UAVs,\nwhich also have a limited battery energy, such a hybrid network could\
+    \ often incur topology\nchanges and, thus, network reconﬁgurations, which could\
+    \ cause temporary network outage.\nFinally, we considered performance evaluation\
+    \ and we discussed a few representative\nuse cases, highlighting how the combined\
+    \ use of heterogeneous communication protocols\nis effective in various scenarios.\
+    \ The proposed architecture can be further enhanced,\nespecially in the context\
+    \ of the interface selection mechanism, which could be improved\nwith an Artiﬁcial\
+    \ Intelligence (AI)-based approach. This is the subject of current ongoing\nresearch\
+    \ activities.\nAuthor Contributions: Conceptualization, L.D., E.P., and G.F.;\
+    \ methodology, L.D., E.P., and G.F.;\nsoftware, L.D., E.P., and G.F.; validation,\
+    \ L.D., E.P., and G.F.; formal analysis, L.D., E.P., and G.F.;\ninvestigation,\
+    \ L.D., E.P., and G.F.; resources, L.D., E.P., and G.F.; data curation, L.D.,\
+    \ E.P., and G.F.;\nwriting—original draft preparation, L.D., E.P., and G.F.; writing—review\
+    \ and editing, L.D., E.P.,\nand G.F.; visualization, L.D., E.P., and G.F.; supervision,\
+    \ L.D., E.P., and G.F.; project administration,\nL.D., E.P., and G.F.; funding\
+    \ acquisition, G.F. All authors have read and agreed to the published\nversion\
+    \ of the manuscript.\nFunding: This work received funding from the European Union’s\
+    \ Horizon 2020 research and innovation\nprogram ECSEL Joint Undertaking (JU) under\
+    \ grant agreement No. 876019, ADACORSA project—\n“Airborne Data Collection on\
+    \ Resilient System Architectures.” The work of L.D. was partially funded\nby the\
+    \ University of Parma under the “Iniziative di Sostegno alla Ricerca di Ateneo”\
+    \ program, “Multi-\ninterface IoT sYstems for Multi-layer Information Processing”\
+    \ (MIoTYMIP) project. The JU received\nDrones 2021, 5, 26\n28 of 32\nsupport from\
+    \ the European Union’s Horizon 2020 research and innovation programme and the\
+    \ nations\ninvolved in the mentioned projects. The work reflects only the authors’\
+    \ views; the European Commission\nis not responsible for any use that may be made\
+    \ of the information it contains.\nInstitutional Review Board Statement: Not applicable.\n\
+    Informed Consent Statement: Not applicable.\nData Availability Statement: Not\
+    \ applicable.\nConﬂicts of Interest: The authors declare no conﬂict of interest.\
+    \ The funders had no role in the design\nof the study; in the collection, analyses,\
+    \ or interpretation of data; in the writing of the manuscript; or\nin the decision\
+    \ to publish the results.\nAbbreviations\nThe following abbreviations are used\
+    \ in this manuscript:\nABP\nActivation-By-Personalization\nAGL\nAbove Ground Level\n\
+    AODV\nAd hoc On-Demand Distance Vector Routing Protocol\nAI\nArtiﬁcial Intelligence\n\
+    AP\nAccess Point\nAS\nApplication Server\nBLE\nBluetooth Low Energy\nBTS\nBase\
+    \ Transceiver Station\nBVLOS\nBeyond Visual Line-of-Sight\nBW\nBandwidth\nB.A.T.M.A.N.\n\
+    Better Approach To Mobile Ad Hoc Network\nCF\nCarrier Frequency\nCOTS\nCommercial-Off-The-Shelf\n\
+    CR\nCoding Rate\nCSS\nChirp Spread Spectrum\nDSS\nDecision Support System\nDTN\n\
+    Delay Tolerant Networking\nEASA\nEuropean Union Aviation Safety Agency\nETSI\n\
+    European Telecommunications Standards Institute\nFAA\nFederal Aviation Administration\n\
+    FANET\nFlying Ad Hoc Network\nFEC\nForward Error Correction\nFPV\nFirst Point\
+    \ of View\nFSK\nFrequency-Shift Keying\nFSPL\nFree-Space Path Loss\nGNSS\nGlobal\
+    \ Navigation Satellite System\nGPS\nGlobal Position System\nGW\nGateway\nHDOP\n\
+    Horizontal Dilution Of Precision\nHQ\nHigh Quality\nHWMP\nHybrid Wireless Mesh\
+    \ Protocol\nIQ\nChirp Polarity\nISM\nIndustrial, Scientiﬁc, and Medical\nLAN\n\
+    Local Area Network\nLBT\nListen-Before-Talk\nLoRa\nLong Range\nLoRaWAN\nLong-Range\
+    \ Wide Area Network\nLOS\nLine-of-Sight\nLPWAN\nLow Power Wide Area Network\n\
+    LTE\nLong-Term Evolution\nMAC\nMedium Access Control\nMAP\nMesh Access Point\n\
+    MBSS\nMesh Basic Service Set\nDrones 2021, 5, 26\n29 of 32\nMMT\nMission Management\
+    \ Tool\nMPM\nMesh Peer (Link) Management\nMPP\nMesh Portal Point\nMTOW\nMaximum\
+    \ TakeOff Weight\nNLOS\nNon-LOS\nNS\nNetwork Server\nOLSR\nOptimized Link State\
+    \ Routing Protocol\nOTAA\nOver-The-Air-Activation\nPHY\nPhysical layer\nRC\nRadio\
+    \ Controller\nRF\nRadio Frequency\nRPi\nRaspberry Pi\nRSSI\nReceived Signal Strength\
+    \ Index\nRTF\nReady-to-Fly\nRX\nReception\nSF\nSpreading Factor\nSFD\nStart-Frame-Delimiter\n\
+    SoC\nSystem-on-Chip\nSTA\nStation\nTDMA\nTime Division Multiple Access\nTP\nTransmission\
+    \ Power\nTS-SDN\nTempoSpatial-Software Deﬁned Networking\nTTN\nThe Things Network\n\
+    TX\nTransmission\nUAV\nUnmanned Aerial Vehicle\nVLOS\nVisual Line of Sight\nWMN\n\
+    Wireless Mesh Network\nReferences\n1.\nDJI Ofﬁcial Website. 2020. Available online:\
+    \ https://www.dji.com/ (accessed on 15 December 2020).\n2.\nDJI Phantom 3 Professional.\
+    \ 2015. Available online: https://www.dji.com/phantom-3-pro (accessed on 29 December\
+    \ 2020).\n3.\nDJI Mini 2. 2020. Available online: https://www.dji.com/mini-2 (accessed\
+    \ on 29 December 2020).\n4.\nPressman, A. Drone Industry Flies Higher as COVID-19\
+    \ Fuels Demand for Remote Services. 2020. Available online: https:\n//fortune.com/2020/07/13/coronavirus-drones-dji-wing-ﬂytrex-covid-19-pandemic/\
+    \ (accessed on 29 December 2020).\n5.\nSeller, O.B.A.; Sornin, N. Low Power Long\
+    \ Range Transmitter. European Patent EP2763321A1, 5 February 2013.\n6.\nInstitute\
+    \ of Electrical and Electronics Engineers (IEEE). IEEE Standard for Information\
+    \ Technology–Telecommunications and\ninformation exchange between systems—Local\
+    \ and metropolitan area networks–Speciﬁc requirements Part 11: Wireless LAN\n\
+    Medium Access Control (MAC) and Physical Layer (PHY) speciﬁcations Amendment 10:\
+    \ Mesh Networking. In IEEE Standard\n802.11s-2011; IEEE: Piscataway, NJ, USA,\
+    \ 2011; pp. 1–372. [CrossRef]\n7.\nThe Things Network (TTN). 2020. Available online:\
+    \ https://www.thethingsnetwork.org/ (accessed on 29 December 2020).\n8.\nCallebaut,\
+    \ G.; Leenders, G.; Buyle, C.; Crul, S.; Van der Perre, L. LoRa Physical Layer\
+    \ Evaluation for Point-to-Point Links\nand Coverage Measurements in Diverse Environments.\
+    \ In Proceedings of the IEEE European Conference on Networks and\nCommunications\
+    \ (EuCNC), Valencia, Spain, 18–21 June 2019.\n9.\nPetäjäjärvi, J.; Mikhaylov,\
+    \ K.; Roivainen, A.; Hänninen, T.; Pettissalo, M. On the Coverage of LPWANs: Range\
+    \ Evaluation and\nChannel Attenuation Model for LoRa Technology. In Proceedings\
+    \ of the 14th International Conference on ITS Telecommunications\n(ITST), Copenhagen,\
+    \ Denmark, 2–4 December 2015; [CrossRef]\n10.\nInstitute of Electrical and Electronics\
+    \ Engineers (IEEE). IEEE Standard for Information technology–Telecommunications\
+    \ and\ninformation exchange between systems Local and metropolitan area networks–Speciﬁc\
+    \ requirements—Part 11: Wireless LAN\nMedium Access Control (MAC) and Physical\
+    \ Layer (PHY) Speciﬁcations. In IEEE Standard 802.11-2016 (Revision of IEEE Std\n\
+    802.11-2012); IEEE: Piscataway, NJ, USA, 2016; pp. 1–3534. [CrossRef]\n11.\nEuropean\
+    \ Union Aviation Safety Agency (EASA). Available online: https://www.easa.europa.eu/\
+    \ (accessed on 1 April 2021).\n12.\nFederal Aviation Administration (FAA). Available\
+    \ online: https://www.faa.gov/ (accessed on 1 April 2021).\n13.\nWhat Is DJI OcuSync\
+    \ and How Does It Work? 2019. Available online: https://store.dji.bg/en/blog/what-is-dji-ocusync-and-\n\
+    how-does-it-work (accessed on 29 December 2020).\n14.\nDJI LightBridge 2. 2018.\
+    \ Available online: https://www.dji.com/it/lightbridge-2/info (accessed on 29\
+    \ December 2020).\n15.\nThe Beginners Guide to RC Protocols. 2014. Available online:\
+    \ https://www.rcgroups.com/forums/showthread.php?2301242-\nThe-Beginners-Guide-to-RC-Protocols\
+    \ (accessed on 29 December 2020).\n16.\nSpeciﬁcation for Spektrum Remote Receiver\
+    \ Interfacing. 2020. Available online: https://www.spektrumrc.com/ProdInfo/Files/\n\
+    Remote%20Receiver%20Interfacing%20Rev%20A.pdf (accessed on 28 December 2020).\n\
+    Drones 2021, 5, 26\n30 of 32\n17.\nFRSky Advanced Communication Control Elevated\
+    \ Spread Spectrum (ACCSS). 2020. Available online: https://www.frsky-rc.com/\n\
+    frsky-advanced-communication-control-elevated-spread-spectrum-access-protocol-release/\
+    \ (accessed on 28 December 2020).\n18.\nFutaba FASSTest. 2020. Available online:\
+    \ https://futabausa.com/protocols/ (accessed on 28 December 2020).\n19.\nStellin,\
+    \ M.; Sabino, S.; Grilo, A. LoRaWAN Networking in Mobile Scenarios Using a WiFi\
+    \ Mesh of UAV Gateways. Electronics\n2020, 9, 573. [CrossRef]\n20.\nSharma, V.;\
+    \ You, I.; Pau, G.; Colotta, M.; Lim, J.D.; Kim, J.N. LoRaWAN-Based Energy-Efﬁcient\
+    \ Surveillance by Drones for\nIntelligent Transportation Systems. Energies 2018,\
+    \ 11, 630. [CrossRef]\n21.\nSaraereh, O.A.; Alsaraira, A.; Khan, I.; Uthansakul,\
+    \ P. Performance Evaluation of UAV-Enabled LoRa Networks for Disaster\nManagement\
+    \ Applications. Sensors 2020, 20, 2396. [CrossRef] [PubMed]\n22.\nRadhmadhani,\
+    \ A.; Richard, I.R.; Giovani, A.; Syah, R.A. LoRaWAN as Secondary Telemetry Communication\
+    \ System for Drone\nDelivery. In Proceedings of the 2018 IEEE International Conference\
+    \ on Internet of Things and Intelligence System (IOTAIS), Bali,\nIndonesia, 1–3\
+    \ November 2018. [CrossRef]\n23.\nMartinez-Caro, J.-M.; Cano, M.-D. IoT System\
+    \ Integrating Unmanned Aerial Vehicles and LoRa Technology: A Performance\nEvaluation\
+    \ Study. Wirel. Commun. Mob. Comput. 2019, 2019. [CrossRef]\n24.\nMorgenthaler,\
+    \ S.; Braun, T.; Zhao, Z.; Staub, T.; Anwander, M. UAVNet: A Mobile Wireless Mesh\
+    \ Network Using Unmanned\nAerial Vehicles. In Proceedings of the 2012 IEEE Globecom\
+    \ Workshops, Anaheim, CA, USA, 3–7 December 2012; pp. 1603–1608.\n[CrossRef]\n\
+    25.\nBautista, O.; Akkaya, K.; Selcuk Uluagac, A. Customized Novel Routing Metrics\
+    \ for Wireless Mesh-based Swarm-of-Drones\nApplications. Internet Things 2020,\
+    \ 11, 100265. [CrossRef]\n26.\nEsraﬁlian, O.; Gangula, R.; Gesbert, D. Autonomous\
+    \ UAV-aided Mesh Wireless Networks. In Proceedings of the IEEE INFOCOM\n2020—IEEE\
+    \ Conference on Computer Communications Workshops (INFOCOM WKSHPS), Toronto, ON,\
+    \ Canada, 6–9 July 2020;\npp. 634—640. [CrossRef]\n27.\ndela Cruz, J.A.; Libatique,\
+    \ N.J.; Tangonan, G. Design of a Disaster Information System using Mobile Cloud\
+    \ Wireless Mesh with\nDelay Tolerant Network. In Proceedings of the 2019 IEEE\
+    \ Global Humanitarian Technology Conference (GHTC), Seattle, WA,\nUSA, 17–20 October\
+    \ 2019; pp. 1–8. [CrossRef]\n28.\nPanda, K.G.; Das, S.; Sen, D.; Arif, W. Design\
+    \ and Deployment of UAV-Aided Post-Disaster Emergency Network. IEEE Access\n2019,\
+    \ 7, 102985–102999. [CrossRef]\n29.\nMukherjee, A.; Misra, S.; Sukrutha, A.; Raghuwanshi,\
+    \ N.S. Distributed Aerial Processing for IoT-based Edge UAV Swarms\nin Smart Farming.\
+    \ Comput. Netw. 2020, 167, 107038. [CrossRef]\n30.\nCai, E.A.; Furukawa, D.K.;\
+    \ Leighton, D.C.; Velazquez, G.A.; Zhang, H.; Callegaro, D.; Levorato, M. Dynamic\
+    \ Mesh Network for\nTelemetry Propagation and Communications in Coordinated Drone\
+    \ Swarms. 2019. Available online: http://projects.eng.uci.\nedu/projects/2019-2020/dynamic-mesh-network-telemetry-propagation-and-communications-coordinated-drone\
+    \ (accessed on\n18 December 2020).\n31.\nNeumann, A.; Aichele, C.; Lindner, M.;\
+    \ Wunderlich, S. Better Approach To Mobile Ad-hoc Networking (B.A.T.M.A.N.).\n\
+    Internet-Draft Draft-Wunderlich-Openmesh-Manet-Routing, Internet Engineering Task\
+    \ Force (IETF). 2008. Available online:\nhttps://tools.ietf.org/html/draft-wunderlich-openmesh-manet-routing\
+    \ (accessed on 16 January 2021).\n32.\nShrit, O.; Martin, S.; Alagha, K.; Pujolle,\
+    \ G. A New Approach to Realize Drone Swarm Using Ad-Hoc Network. In Proceedings\n\
+    of the 2017 16th Annual Mediterranean Ad Hoc Networking Workshop (Med-Hoc-Net),\
+    \ Budva, Montenegro, 28–30 June 2017;\npp. 1–5. [CrossRef]\n33.\nBarritt, B.;\
+    \ Kichkaylo, T.; Mandke, K.; Zalcman, A.; Lin, V. Operating a UAV Mesh & Internet\
+    \ Backhaul Network using\nTemporospatial SDN. In Proceedings of the 2017 IEEE\
+    \ Aerospace Conference, Big Sky, MT, USA, 4–11 March 2017; pp. 1–7.\n[CrossRef]\n\
+    34.\nHiertz, G.R.; Denteneer, D.; Max, S.; Taori, R.; Cardona, J.; Berlemann,\
+    \ L.; Walke, B. IEEE 802.11s: The WLAN Mesh Standard.\nIEEE Wirel. Commun. 2010,\
+    \ 17, 104–111. [CrossRef]\n35.\nCilfone, A.; Davoli, L.; Belli, L.; Ferrari, G.\
+    \ Wireless Mesh Networking: An IoT-Oriented Perspective Survey on Relevant\nTechnologies.\
+    \ Future Internet 2019, 11, 99. [CrossRef]\n36.\nBari, S.M.S.; Anwar, F.; Masud,\
+    \ M.H. Performance study of hybrid Wireless Mesh Protocol (HWMP) for IEEE 802.11s\
+    \ WLAN\nmesh networks. In Proceedings of the 2012 International Conference on\
+    \ Computer and Communication Engineering (ICCCE),\n2012; pp. 712–716. [CrossRef]\n\
+    37.\nPerkins, C.; Belding-Royer, E.; Das, S. Ad hoc On-Demand Distance Vector\
+    \ (AODV) Routing. RFC 3561, Internet Engineering\nTask Force (IETF). 2003. Available\
+    \ online: https://tools.ietf.org/html/rfc3561 (accessed on 19 January 2021).\n\
+    38.\nClausen, T.; Jacquet, P. Optimized Link State Routing Protocol (OLSR). RFC\
+    \ 3626, Internet Engineering Task Force (IETF). 2003.\nAvailable online: https://tools.ietf.org/html/rfc3626\
+    \ (accessed on 19 January 2021).\n39.\nChroboczek, J. The Babel Routing Protocol.\n\
+    RFC 6126, Internet Engineering Task Force (IETF). 2011. Available online:\nhttps://tools.ietf.org/html/rfc6126\
+    \ (accessed on 19 January 2021).\n40.\nChroboczek, J. Extension Mechanism for\
+    \ the Babel Routing Protocol. RFC 7557, Internet Engineering Task Force (IETF).\
+    \ 2015.\nAvailable online: https://tools.ietf.org/html/rfc7557 (accessed on 19\
+    \ January 2021).\n41.\nFriis, H.T. A Note on a Simple Transmission Formula. Proc.\
+    \ IRE 1946, 34, 254–256. [CrossRef]\n42.\nIslam, S.K.; Haider, M.R. Sensors and\
+    \ Low Power Signal Processing; Springer: New York, NY, USA, 2010. [CrossRef]\n\
+    Drones 2021, 5, 26\n31 of 32\n43.\nA Technical Overview of LoRa and LoRaWAN. Available\
+    \ online: https://www.loraalliance.org/sites/default/ﬁles/2018-04/\nwhat-is-lorawan.pdf\
+    \ (accessed on 29 December 2020).\n44.\nDecoding Lora. 2020. Available online:\
+    \ https://revspace.nl/DecodingLora (accessed on 19 December 2020).\n45.\nUnderstanding\
+    \ I/Q Signals and Quadrature Modulation. 2020. Available online: https://www.allaboutcircuits.com/textbook/\n\
+    radio-frequency-analysis-design/radio-frequency-demodulation/understanding-i-q-signals-and-quadrature-modulation/\
+    \ (ac-\ncessed on 19 December 2020).\n46.\nLoRa Alliance. RP002-1.0.0 LoRaWAN\
+    \ Regional Parameters. Available online: https://lora-alliance.org/sites/default/ﬁles/20\n\
+    19-11/rp_2-1.0.0_ﬁnal_release.pdf (accessed on 28 December 2020).\n47.\nThe Things\
+    \ Conference. How Spreading Factor Affects LoRaWAN Device Battery Life. 2019.\
+    \ Available online: https://www.\nthethingsnetwork.org/article/how-spreading-factor-affects-lorawan-device-battery-life\
+    \ (accessed on 27 December 2020).\n48.\nAloys, A.; Yi, J.; Clausen, T.; Townsley,\
+    \ W.M. A Study of LoRa: Long Range & Low Power Networks for the Internet of Things.\n\
+    Sensors 2016, 16, 1466. [CrossRef]\n49.\nLoRaWAN 1.0.2 Regional Parameters. 2017.\
+    \ Available online: https://lora-alliance.org/wp-content/uploads/2020/11/lorawan_\n\
+    regional_parameters_v1.0.2_ﬁnal_1944_1.pdf (accessed on 30 December 2020).\n50.\n\
+    Polonelli, T.; Brunelli, D.; Marzocchi, A.; Benini, L. Slotted ALOHA on LoRaWAN-Design,\
+    \ Analysis, and Deployment. Sensors\n2019, 19, 838. [CrossRef]\n51.\nAn In-Depth\
+    \ Look at LoRaWAN Class A Devices. Available online: https://lora-developers.semtech.com/library/tech-papers-\n\
+    and-guides/lorawan-class-a-devices (accessed on 14 December 2020).\n52.\nLoRaWAN\
+    \ 1.1 Regional Parameters. 2017. Available online: https://lora-alliance.org/wp-content/uploads/2020/11/lorawan-\n\
+    regional-parameters-v1.1ra.pdf (accessed on 9 January 2021).\n53.\nAn In-depth\
+    \ Look at LoRaWAN Class B Devices. Available online: https://lora-developers.semtech.com/library/tech-papers-\n\
+    and-guides/lorawan-class-b-devices (accessed on 14 December 2020).\n54.\nAn In-Depth\
+    \ Look at LoRaWAN Class C Devices. Available online: https://lora-developers.semtech.com/library/tech-papers-\n\
+    and-guides/lorawan-class-c-devices (Accessed on 14 December 2020).\n55.\nLoRaWAN\
+    \ Speciﬁcation. 2015. Available online: https://lora-alliance.org/wp-content/uploads/2020/11/2015_-_lorawan_\n\
+    speciﬁcation_1r0_611_1.pdf (accessed on 29 December 2020).\n56.\nSemtech. LoRaWAN\
+    \ Airtime Calculator. Available online: https://tinyurl.com/loracalc (accessed\
+    \ on 29 December 2020).\n57.\nNetwork, T.T. Limitations: Data Rate, Packet Size,\
+    \ 30 s Uplink and 10 Messages Downlink Per Day Fair Access Policy. 2016.\nAvailable\
+    \ online: https://bit.ly/36AVwbd (accessed on 29 December 2020).\n58.\nAdelantado,\
+    \ F.; Vilajosana, X.; Tuset-Peiro, P.; Martinez, B.; Melia-Segui, J.; Watteyne,\
+    \ T. Understanding the Limits of LoRaWAN.\nIEEE Commun. Mag. 2017, 55, 34–40.\
+    \ [CrossRef]\n59.\nPetajajarvi, J.; Mikhaylov Konstantin, J.J.; Iinatti, J.; Pettissalo,\
+    \ M. Performance of a low-power wide-area network based on lora\ntechnology: Doppler\
+    \ robustness, scalability, and coverage. Int. J. Distrib. Sens. Netw. 2017. [CrossRef]\n\
+    60.\nEuropean Telecommunications Standards Institute (ETSI). Short Range Devices\
+    \ (SRD) Operating in the Frequency Range 25 MHz to\n1000 MHz; Part 2: Harmonised\
+    \ Standard for Access to Radio Spectrum for Non Specific Radio Equipment. 2018.\
+    \ Available online:\nhttps://www.etsi.org/deliver/etsi_en/300200_300299/30022002/03.02.01_60/en_30022002v030201p.pdf\
+    \ (accessed on 11 January 2021).\n61.\nAlmeida, N.C.; Rolle, R.P.; Godoy, E.P.;\
+    \ Ferrari, P.; Sisinni, E. Proposal of a Hybrid LoRa Mesh / LoRaWAN Network. In\n\
+    Proceedings of the IEEE International Workshop on Metrology for Industry 4.0 &\
+    \ IoT, Roma, Italy, 3–5 June 2020. [CrossRef]\n62.\nLee, H.C.; Ke, K.H. Monitoring\
+    \ of Large-Area IoT Sensors Using a LoRa Wireless Mesh Network System: Design\
+    \ and Evaluation.\nIEEE Trans. Instrum. Meas. 2018, 67, 2177–2187. [CrossRef]\n\
+    63.\nHuh, H.; Kim, J.Y. LoRa-based Mesh Network for IoT Applications. In Proceedings\
+    \ of the IEEE 5th World Forum on Internet of\nThings (WF-IoT), Limerick, Ireland,\
+    \ 15–18 April 2019. [CrossRef]\n64.\nConner, W.S.; Kruys, J.; Kim, K.J.; Zuniga,\
+    \ J.C. IEEE 802.11s Tutorial Overview of the Amendment for Wireless Local Area\
+    \ Mesh\nNetworking. 2006. Available online: https://www.ieee802.org/802_tutorials/06-November/802.11s_Tutorial_r5.pdf\
+    \ (accessed\non 27 December 2020).\n65.\nLoRa Line Of Sight Range Test. 2018.\
+    \ Available online: https://www.mesh-net.co.uk/lora-line-sight-range-test/. (accessed\
+    \ on\n5 January 2021).\n66.\nTTN Mapper: A LoRaWAN Coverage Mapping Tool. 2020.\
+    \ Available online: https://ttnmapper.org/ (accessed on 5 January 2021).\n67.\n\
+    LoRa World Record Broken: 832 km/517 mi Using 25 mW. 2018. Available online: https://www.thethingsnetwork.org/article/\n\
+    lorawan-world-record-broken-twice-in-single-experiment-1 (accessed on 28 December\
+    \ 2020).\n68.\nGuillen-Perez, A.; Sanchez-Iborra, R.; Cano, M.; Sanchez-Aarnoutse,\
+    \ J.C.; Garcia-Haro, J. WiFi Networks on Drones. In Proceed-\nings of the 2016\
+    \ ITU Kaleidoscope: ICTs for a Sustainable World (ITU WT), Bangkok, Thailand,\
+    \ 14–16 November 2016; pp. 1–8.\n[CrossRef]\n69.\nDJI Phantom 4 Professional.\
+    \ 2017. Available online: https://www.dji.com/phantom-4-pro/info (accessed on\
+    \ 7 January 2021).\n70.\nTTGO T-Beam Speciﬁcations. 2018. Available online: http://www.lilygo.cn/prod_view.aspx?TypeId=50033&Id=1163\
+    \ (accessed\non 8 January 2021).\n71.\nSemtech SX1276 LoRa Modem Speciﬁcations.\
+    \ 2016. Available online: https://www.semtech.com/products/wireless-rf/lora-\n\
+    transceivers/sx1276. (accessed on 5 January 2021).\nDrones 2021, 5, 26\n32 of\
+    \ 32\n72.\nU-blox.\nNEO-6 u-blox 6 GPS Modules. 2017. Available online:\nhttps://www.u-blox.com/sites/default/ﬁles/products/\n\
+    documents/NEO-6_DataSheet_(GPS.G6-HW-09005).pdf (accessed on 8 January 2021).\n\
+    73.\nEspressif. ESP32: A Feature-Rich MCU with Integrated Wi-Fi and Bluetooth\
+    \ Connectivity for a Wide-Range of Applications. 2017.\nAvailable online: https://www.espressif.com/en/products/socs/esp32/resources\
+    \ (accessed on 7 January 2021).\n74.\nStolﬁ, D.H.; Brust, M.R.; Danoy, G.; Bouvry,\
+    \ P. UAV-UGV-UMV Multi-Swarms for Cooperative Surveillance. Front. Robot. AI\n\
+    2021, 8, 5. [CrossRef]\n75.\nBelli, L.; Cilfone, A.; Davoli, L.; Ferrari, G.;\
+    \ Adorni, P.; Di Nocera, F.; Dall’Olio, A.; Pellegrini, C.; Mordacci, M.; Bertolotti,\
+    \ E.\nIoT-Enabled Smart Sustainable Cities: Challenges and Approaches. Smart Cities\
+    \ 2020, 3, 52. [CrossRef]\n76.\nGranelli, F.; Sacchi, C.; Bassoli, R.; Cohen,\
+    \ R.; Ashkenazi, I. A Dynamic and Flexible Architecture Based on UAVS for Border\n\
+    Security and Safety. In Advanced Technologies for Security Applications; Palestini,\
+    \ C., Ed.; Springer: Dordrecht, The Netherlands,\n2020; pp. 295–306. [CrossRef]\n\
+    77.\nHong, L.; Guo, H.; Liu, J.; Zhang, Y. Toward Swarm Coordination: Topology-Aware\
+    \ Inter-UAV Routing Optimization. IEEE Trans.\nVeh. Technol. 2020, 69, 10177–10187.\
+    \ [CrossRef]\n78.\nLaouira, M.L.; Abdelli, A.; Othman, J.B.; Kim, H. An Efﬁcient\
+    \ WSN Based Solution for Border Surveillance.\nIEEE Trans.\nSustain. Comput. 2021,\
+    \ 6, 54–65. [CrossRef]\n79.\nMotlagh, N.H.; Bagaa, M.; Taleb, T. UAV-Based IoT\
+    \ Platform: A Crowd Surveillance Use Case. IEEE Commun. Mag. 2017,\n55, 128–134.\
+    \ [CrossRef]\n80.\nCodeluppi, G.; Cilfone, A.; Davoli, L.; Ferrari, G. LoRaFarM:\
+    \ A LoRaWAN-Based Smart Farming Modular IoT Architecture.\nSensors 2020, 20, 2028.\
+    \ [CrossRef]\n81.\nMaddikunta, P.K.R.; Hakak, S.; Alazab, M.; Bhattacharya, S.;\
+    \ Gadekallu, T.R.; Khan, W.Z.; Pham, Q.V. Unmanned Aerial Vehicles\nin Smart Agriculture:\
+    \ Applications, Requirements, and Challenges. IEEE Sens. J. 2021. [CrossRef]\n\
+    82.\nManickam, S. A Drone-based IoT Approach to Agriculture Automation and Increase\
+    \ Farm Yield.\nSSRN Electron. J. 2020.\n[CrossRef]\n83.\nCodeluppi, G.; Cilfone,\
+    \ A.; Davoli, L.; Ferrari, G. VegIoT Garden: A modular IoT Management Platform\
+    \ for Urban Vegetable\nGardens. In Proceedings of the 2019 IEEE International\
+    \ Workshop on Metrology for Agriculture and Forestry (MetroAgriFor),\nPortici,\
+    \ Italy, 24–26 October 2019; pp. 121–126. [CrossRef]\n84.\nAmeri E., A.; Cürüklü,\
+    \ B.; Miloradovi´c, B.; Ektröm, M. Planning and Supervising Autonomous Underwater\
+    \ Vehicles through the\nMission Management Tool. In Proceedings of the 2020 Global\
+    \ OCEANS: Singapore–U.S. Gulf Coast, Online, 5–30 October 2020;\nIEEE: Piscataway,\
+    \ NJ, USA, 2020; p. 1.\n85.\nZhai, Z.; Martínez, J.F.; Beltran, V.; Martínez,\
+    \ N.L. Decision Support Systems for Agriculture 4.0: Survey and Challenges.\n\
+    Comput. Electron. Agric. 2020, 170, 105256. [CrossRef]\n86.\nBelli, L.; Cirani,\
+    \ S.; Davoli, L.; Melegari, L.; Mónton, M.; Picone, M. An Open-Source Cloud Architecture\
+    \ for Big Stream IoT\nApplications. In Interoperability and Open-Source Solutions\
+    \ for the Internet of Things: International Workshop, FP7 OpenIoT Project, Held\n\
+    in Conjunction with SoftCOM 2014, Split, Croatia, September 18, 2014, Invited\
+    \ Papers; Podnar Žarko, I.; Pripuži´c, K.; Serrano, M., Eds.;\nSpringer International\
+    \ Publishing: Berlin/Heidelberg, Germany, 2015; pp. 73–88. [CrossRef]\n87.\nFang,\
+    \ S.X.; O’Young, S.; Rolland, L. Development of Small UAS Beyond-Visual-Line-of-Sight\
+    \ (BVLOS) Flight Operations: System\nRequirements and Procedures. Drones 2018,\
+    \ 2, 13. [CrossRef]\n88.\nIvancic, W.D.; Kerczewski, R.J.; Murawski, R.W.; Matheou,\
+    \ K.; Downey, A.N. Flying Drones Beyond Visual Line of Sight Using\n4G LTE: Issues\
+    \ and Concerns. In Proceedings of the 2019 Integrated Communications, Navigation\
+    \ and Surveillance Conference\n(ICNS), Herndon, VA, USA, 9–11 April 2019. [CrossRef]\n\
+    89.\nNguyen, H.C.; Amorim, R.; Wigard, J.; Kovacs, I.Z.; Mogensen, P. Using LTE\
+    \ Networks for UAV Command and Control Link:\nA Rural-Area Coverage Analysis.\
+    \ In Proceedings of the 2017 IEEE 86th Vehicular Technology Conference (VTC-Fall),\
+    \ Toronto,\nON, Canada, 24–27 September 2017; [CrossRef]\n90.\nZhong, C.; Zhao,\
+    \ Z.; Luo, C.; Cenk Gursoy, M.; Qiu, Q.; Caicedo, C.; Basti, F.; Solomon, A. A\
+    \ Cost-Beneﬁt Analysis to Achieve\nCommand and Control (C2) Link Connectivity\
+    \ for Beyond Visual Line of Sight (BVLOS) Operations.\nIn Proceedings of\nthe\
+    \ 2020 Integrated Communications Navigation and Surveillance Conference (ICNS),\
+    \ Herndon, VA, USA, 8–10 September 2020.\n[CrossRef]\n91.\nIEEE Communications\
+    \ Society—Aerial Communications Emerging Technology Initiative.\n3GPP UAV Communication\
+    \ Re-\nquirement. 2020. Available online: https://aceti.committees.comsoc.org/2020/05/20/3gpp-uav-communication-requirement/\n\
+    (accessed on 1 April 2021).\n92.\nThird Generation Partnership Project (3GPP).\
+    \ Enhanced LTE Support for Aerial Vehicles. TR 36.777, Third Generation Partnership\n\
+    Project (3GPP). 2018. Available online: https://www.3gpp.org/ftp//Specs/archive/36_series/36.777/\
+    \ (accessed on 1 April 2021).\n93.\nTortonesi, M.; Stefanelli, C.; Benvegnu, E.;\
+    \ Ford, K.; Suri, N.; Linderman, M. Multiple-UAV coordination and communications\n\
+    in tactical edge networks. IEEE Commun. Mag. 2012, 50, 48–55. [CrossRef]\n94.\n\
+    Olivieri de Souza, B.J.; Endler, M. Evaluating Flight Coordination Approaches\
+    \ of UAV Squads for WSN Data Collection Enhancing\nthe Internet Range on WSN Data\
+    \ Collection. J. Internet Serv. Appl. 2020, 11. [CrossRef]\n"
+  inline_citation: '>'
+  journal: Drones
+  limitations: The paper primarily focuses on the initial stages of the automated
+    irrigation management pipeline, covering data collection, edge and fog computing,
+    real-time data transmission protocols, and technologies. While the authors mention
+    the importance of automation across the entire pipeline, they do not provide a
+    detailed analysis of the optimization and decision-making aspects involved in
+    automated action. Additionally, the paper does not delve into the specific challenges
+    and solutions related to data quality, reliability, and security, which are critical
+    considerations in real-world irrigation management systems.
+  pdf_link: https://www.mdpi.com/2504-446X/5/2/26/pdf?version=1618806252
+  publication_year: 2021
+  relevance_score: 0.9
+  relevance_score1: 0.9
+  relevance_score2: 0
+  title: Hybrid LoRa-IEEE 802.11s Opportunistic Mesh Networking for Flexible UAV Swarming
+  verbatim_quote1: '"Unmanned Aerial Vehicles (UAVs) and small drones are nowadays
+    being widely used in heterogeneous use cases: aerial photography, precise agriculture,
+    inspections, environmental data
+
+    collection, search-and-rescue operations, surveillance applications, and more.
+    When designing UAV
+
+    swarm-based applications, a key “ingredient” to make them effective is the communication
+    system
+
+    (possible involving multiple protocols) shared by ﬂying drones and terrestrial
+    base stations." [1]'
+  verbatim_quote2: '"Focusing on these heterogeneous scenarios, in this paper, we
+    propose a hybrid communication
+
+    architecture for UAV swarms, leveraging heterogeneous radio mesh networking based
+    on long-range
+
+    communication protocols—such as LoRa and LoRaWAN—and IEEE 802.11s protocols."
+    [1]'
+  verbatim_quote3: '"In order to exploit the strengths of two communication protocols
+    of interest and to
+
+    limit the impact of their constraints in the adoption of UAV swarms, a “meshiﬁcation”
+    of
+
+    LoRa- and IEEE 802.11s-based communication patterns (through opportunistic switching,
+
+    handling, and management mechanisms) may allow us to cover several use cases based
+
+    on the use of UAV swarms as well as to provide a good tradeoff between operational
+
+    range and available bandwidth." [1]'

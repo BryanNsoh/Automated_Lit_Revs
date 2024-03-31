@@ -4,6 +4,7 @@ import aiofiles
 import yaml
 import logging
 import json
+import re
 from llm_api_handler import LLM_APIHandler
 from prompts import (
     get_prompt,
@@ -28,14 +29,10 @@ logger.addHandler(file_handler)
 class MetricsTracker:
     def __init__(self):
         self.total_entries_processed = 0
-        self.duplicate_entries = 0
         self.relevant_entries = 0
 
     def increment_total_entries_processed(self):
         self.total_entries_processed += 1
-
-    def increment_duplicate_entries(self):
-        self.duplicate_entries += 1
 
     def increment_relevant_entries(self):
         self.relevant_entries += 1
@@ -43,7 +40,6 @@ class MetricsTracker:
     def log_metrics(self):
         logger.info(f"Metrics Summary:")
         logger.info(f"- Total entries processed: {self.total_entries_processed}")
-        logger.info(f"- Duplicate entries skipped: {self.duplicate_entries}")
         logger.info(f"- Relevant entries found: {self.relevant_entries}")
 
 
@@ -52,32 +48,11 @@ class PaperRanker:
         self.llm_api_handler = LLM_APIHandler(api_key_path)
         self.max_retries = max_retries
         self.metrics_tracker = MetricsTracker()
-        self.processed_dois = set()
-        self.processed_titles = set()
 
     async def process_yaml_entry(
         self, entry, subsection_title, point_content, section_intention
     ):
         self.metrics_tracker.increment_total_entries_processed()
-
-        # Check for duplicate entry
-        doi = entry.get("doi", "")
-        title = entry.get("title", "")
-        if doi:
-            if doi in self.processed_dois:
-                self.metrics_tracker.increment_duplicate_entries()
-                logger.debug(f"Skipping duplicate entry with DOI: {doi}")
-                return None
-            self.processed_dois.add(doi)
-        elif title:
-            if title in self.processed_titles:
-                self.metrics_tracker.increment_duplicate_entries()
-                logger.debug(f"Skipping duplicate entry with title: {title}")
-                return None
-            self.processed_titles.add(title)
-        else:
-            logger.warning(f"Entry has neither DOI nor title. Skipping.")
-            return None
 
         retry_count = 0
         while retry_count < self.max_retries:
@@ -93,10 +68,18 @@ class PaperRanker:
             )
             # Report if the prompt is empty string
             if not prompt:
-                logger.warning(f"Empty prompt generated for entry: {doi or title}")
+                logger.warning(f"Empty prompt generated for entry: {entry}")
                 print(prompt)
 
             response = await self.llm_api_handler.generate_gemini_content(prompt)
+            # remove anything not between { and } in the response
+            response = re.search(r"\{.*\}", response, re.DOTALL)
+            if response:
+                response = response.group()
+            else:
+                response = ""
+
+            print(response)
 
             try:
                 json_data = json.loads(response)
@@ -114,17 +97,23 @@ class PaperRanker:
                         k for k in json_data.keys() if k.startswith("relevance_score")
                     ]
                     if relevance_score_keys:
-                        json_data["relevance_score1"] = json_data[
-                            relevance_score_keys[0]
-                        ]
+                        relevance_score = json_data[relevance_score_keys[0]]
+                        try:
+                            relevance_score = float(relevance_score)
+                            if relevance_score < 0 or relevance_score > 1:
+                                raise ValueError(
+                                    "Relevance score must be between 0 and 1"
+                                )
+                            json_data["relevance_score1"] = relevance_score
+                            break
+                        except (ValueError, TypeError):
+                            logger.warning(
+                                f"Invalid relevance score for current entry. Retrying..."
+                            )
+                            retry_count += 1
                     else:
-                        logger.warning(
-                            f"No relevance score found for entry: {doi or title}"
-                        )
-
-                    entry.update(json_data)
-                    logger.debug(f"Successfully processed entry: {doi or title}")
-                    break
+                        logger.warning(f"No relevance score found for current entry")
+                        retry_count += 1
                 else:
                     logger.warning(
                         f"The following keys are missing in the response: {missing_keys}"
@@ -133,18 +122,25 @@ class PaperRanker:
                     retry_count += 1
             except json.JSONDecodeError:
                 logger.warning(
-                    f"Invalid JSON response for entry: {doi or title}. Retrying..."
+                    f"Invalid JSON response for entry current entry. Retrying..."
                 )
-                print("Invalid JSON response:")
-                print(response)
                 retry_count += 1
 
             if retry_count == self.max_retries:
-                logger.error(
-                    f"Max retries reached for entry: {doi or title}. Skipping entry."
-                )
+                logger.error(f"Max retries reached for current entry. Skipping entry.")
+                return None
 
+        entry.update(json_data)
+        logger.debug(f"Successfully processed entry for current entry")
         return entry
+
+    async def save_relevant_entries(self, input_file_path, relevant_entries):
+        input_file_name = os.path.splitext(os.path.basename(input_file_path))[0]
+        output_file_name = f"{input_file_name}_processed.yaml"
+        output_file_path = os.path.join(self.output_folder_path, output_file_name)
+        async with aiofiles.open(output_file_path, "w", encoding="utf-8") as file:
+            await file.write(yaml.safe_dump(relevant_entries, allow_unicode=True))
+        logger.info(f"Successfully processed and saved file: {output_file_path}")
 
     async def process_yaml_files(
         self,
@@ -153,7 +149,9 @@ class PaperRanker:
         subsection_title,
         point_content,
         section_intention,
+        batch_size=None,
     ):
+        self.output_folder_path = output_folder_path
         processed_files = 0
         async for file_path in self.get_yaml_files(input_folder_path):
             logger.info(f"Processing file: {file_path}")
@@ -164,18 +162,20 @@ class PaperRanker:
                 processed_entry = await self.process_yaml_entry(
                     entry, subsection_title, point_content, section_intention
                 )
-                if processed_entry and processed_entry.get("relevance_score1", 0) > 5:
-                    relevant_entries.append(processed_entry)
-                    self.metrics_tracker.increment_relevant_entries()
+                try:
+                    if (
+                        processed_entry
+                        and float(processed_entry.get("relevance_score1", 0)) > 0.5
+                    ):
+                        relevant_entries.append(processed_entry)
+                        self.metrics_tracker.increment_relevant_entries()
+                except ValueError:
+                    logger.warning(
+                        f"Invalid relevance score for entry: {processed_entry}"
+                    )
             if relevant_entries:
-                output_file_path = os.path.join(
-                    output_folder_path, os.path.basename(file_path)
-                )
-                async with aiofiles.open(output_file_path, "w") as file:
-                    await file.write(yaml.dump(relevant_entries))
-                logger.info(
-                    f"Saved {len(relevant_entries)} relevant entries to: {output_file_path}"
-                )
+                await self.save_relevant_entries(file_path, relevant_entries)
+                logger.info(f"Successfully processed file: {file_path}")
             else:
                 logger.info(f"No relevant entries found in file: {file_path}")
             processed_files += 1
@@ -189,6 +189,9 @@ class PaperRanker:
 
 
 class FileSystemHandler:
+    def __init__(self):
+        self.progress_file = "progress.yaml"
+
     async def process_outline(
         self,
         input_folder_path,
@@ -200,7 +203,10 @@ class FileSystemHandler:
         await self.delete_empty_yaml_files(input_folder_path)
         async with aiofiles.open(outline_file_path, "r", encoding="utf-8") as file:
             outline_data = yaml.safe_load(await file.read())
-        tasks = []
+        section_intention = section_intentions.get(section_number, "")
+
+        progress_data = await self.load_progress()
+
         for subsection in outline_data["subsections"]:
             subsection_index = subsection["index"]
             subsection_title = subsection["subsection_title"]
@@ -214,19 +220,49 @@ class FileSystemHandler:
                     point_folder_name = point_key.replace(" ", "_")
                     point_folder = os.path.join(subsection_folder, point_folder_name)
                     os.makedirs(point_folder, exist_ok=True)
-                    if str(subsection_index) == section_number:
-                        section_intention = section_intentions.get(section_number, "")
-                        task = asyncio.create_task(
-                            ranker.process_yaml_files(
-                                input_folder_path,
-                                point_folder,
-                                subsection_title,
-                                point_content,
-                                section_intention,
-                            )
-                        )
-                        tasks.append(task)
-        await asyncio.gather(*tasks)
+
+                    if self.is_point_processed(
+                        progress_data, subsection_index, point_key
+                    ):
+                        logger.info(f"Skipping already processed point: {point_key}")
+                        continue
+
+                    await ranker.process_yaml_files(
+                        input_folder_path,
+                        point_folder,
+                        subsection_title,
+                        point_content,
+                        section_intention,
+                    )
+
+                    progress_data = self.mark_point_processed(
+                        progress_data, subsection_index, point_key
+                    )
+                    await self.save_progress(progress_data)
+
+    def is_point_processed(self, progress_data, subsection_index, point_key):
+        subsection_key = f"subsection_{subsection_index}"
+        if subsection_key in progress_data:
+            return point_key in progress_data[subsection_key]
+        return False
+
+    def mark_point_processed(self, progress_data, subsection_index, point_key):
+        subsection_key = f"subsection_{subsection_index}"
+        if subsection_key not in progress_data:
+            progress_data[subsection_key] = []
+        progress_data[subsection_key].append(point_key)
+        return progress_data
+
+    async def load_progress(self):
+        if os.path.exists(self.progress_file):
+            async with aiofiles.open(self.progress_file, "r", encoding="utf-8") as file:
+                progress_data = yaml.safe_load(await file.read())
+                return progress_data or {}
+        return {}
+
+    async def save_progress(self, progress_data):
+        async with aiofiles.open(self.progress_file, "w", encoding="utf-8") as file:
+            await file.write(yaml.safe_dump(progress_data, allow_unicode=True))
 
     async def delete_empty_yaml_files(self, folder_path):
         deleted_files = 0

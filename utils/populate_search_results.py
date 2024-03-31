@@ -1,7 +1,7 @@
 import asyncio
 import logging
 from pathlib import Path
-from openalex_search import OpenAlexPaperSearch
+from previous_work.openalex_search import OpenAlexPaperSearch
 from scopus_search import ScopusSearch
 from yaml_iterator import IrrigationData
 from web_scraper import WebScraper

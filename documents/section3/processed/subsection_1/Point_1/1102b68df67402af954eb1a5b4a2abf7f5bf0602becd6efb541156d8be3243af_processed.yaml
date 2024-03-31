@@ -1,0 +1,953 @@
+- DOI: https://doi.org/10.1109/giots.2018.8534541
+  analysis: 'The paper "SWAMP: an IoT-based Smart Water Management Platform for Precision
+    Irrigation in Agriculture" introduces the SWAMP project, which develops IoT-based
+    methods for smart water management in precision irrigation. The paper provides
+    a comprehensive overview of the SWAMP project and its aims to improve precision
+    irrigation by increasing awareness of the crop''s condition, monitoring the field
+    based on crop status and environment, and adjusting the irrigation prescription
+    map accordingly. The paper highlights the challenges associated with IoT-based
+    smart water management applications, such as software development, integration
+    of heterogeneous and advanced sensors, and the need for flexible and adaptable
+    components. The paper also presents the SWAMP architecture, which considers three
+    types of services to ensure its replication and adaptability to different crops
+    and locations. The paper emphasizes the importance of a scenario-based development
+    process that considers both the crop needs and technological solutions. Overall,
+    the paper provides a valuable contribution to the literature on smart water management
+    in precision irrigation and its potential to enhance agricultural productivity
+    and address global water challenges.'
+  authors:
+  - Carlos Kamienski
+  - Juha-Pekka Soininen
+  - Markus Taumberger
+  - Stênio Fernandes
+  - Attilio Toscano
+  - Tullio Salmon Cinotti
+  - Rodrigo Filev Maia
+  - André Torre Neto
+  citation_count: 46
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2018 Global Internet of Thing... SWAMP:
+    an IoT-based Smart Water Management Platform for Precision Irrigation in Agriculture
+    Publisher: IEEE Cite This PDF Carlos Kamienski; Juha-Pekka Soininen; Markus Taumberger;
+    Stenio Fernandes; Attilio Toscano; Tullio Salmon Cinotti; Rodrigo Filev Maia;
+    Andre Torre Neto All Authors 44 Cites in Papers 1223 Full Text Views Abstract
+    Document Sections I. Introduction II. Iot In Precision Irrigation For Agriculture
+    III. Concept and Methodology IV. Swamp Pilots V. Swamp Scenarios Show Full Outline
+    Authors Figures References Citations Keywords Metrics Footnotes Abstract: Irrigation
+    for agriculture is the biggest consumer of freshwater in the world, which makes
+    a case for the intensive use of technology to optimize the use of water, reduce
+    the consumption of energy and improve the quality of crops. While the Internet
+    of Things (IoT) and other associated technologies are the natural choice for smart
+    water management applications, their appropriateness is still to be proven in
+    real settings with the deployment of on-site pilots. Also, IoT-based application
+    development platforms should be generic enough to be adapted to different crops,
+    climates, and countries. The SWAMP project develops IoT based methods and approaches
+    for smart water management in precision irrigation domain and pilots them in Italy,
+    Spain, and Brazil. In this paper, we present the SWAMP view, architecture, pilots
+    and the scenario-based development process adopted in the project. Published in:
+    2018 Global Internet of Things Summit (GIoTS) Date of Conference: 04-07 June 2018
+    Date Added to IEEE Xplore: 15 November 2018 ISBN Information: DOI: 10.1109/GIOTS.2018.8534541
+    Publisher: IEEE Conference Location: Bilbao, Spain SECTION I. Introduction Water
+    is vital for ensuring food security to the world’s population, and agriculture
+    is by far the biggest consumer amounting to 70% of freshwater [7]. The leading
+    causes of water wastage are leakages in distribution and irrigation systems, as
+    well as, the field application methods, which result in wastage and the cultivation
+    of crops. The most common irrigation technique, surface irrigation, is also the
+    least precise one, which wastes a high percentage of the water by wetting areas
+    where no plants can benefit from it. On the other hand, localized irrigation can
+    use water more efficiently and effectively, avoiding both under-irrigation and
+    over-irrigation. However, in an attempt to avoid loss of productivity by underirrigation,
+    farmers feed more water than is needed and as a result not only productivity is
+    challenged but also water is wasted. Therefore, technology should be developed
+    and deployed for sensing the level of water needed by the plantation and for flowing
+    the water in the proper amount to places where and when it is needed. The Internet
+    of Things (IoT) [1] and other related technologies can be used for that purpose,
+    but it faces several challenges. Firstly, Software Development for IoT-based smart
+    applications is today not automatized and demands much effort. Secondly, advanced
+    platforms are needed, that can automate part of the process and integrate different
+    technologies and components for dealing with a multitude of requirements. Thirdly,
+    the integration of heterogeneous and advanced sensors, particularly flying sensors
+    (i.e., drones), may provide precision in the water supply for irrigation in agriculture.
+    Fourthly, the use of a Software Platform together with different technologies
+    such as IoT, big data analytics, cloud computing, fog computing [3] and drones,
+    for the deployment of pilot applications for smart water management. Fifthly,
+    new business models for using IoT in smart water management settings are necessary.
+    Moreover, finally, components must be interoperable, flexible and adaptable to
+    be replicable to different locations, crops, and contexts. The primary objective
+    of the SWAMP1 project is to develop IoT based methods and approaches for smart
+    water management in precision irrigation domain and to pilot the approaches in
+    four places, two pilots in Europe (Italy and Spain) and two pilots in Brazil.
+    Also, we aim at improving precision irrigation by increasing the awareness of
+    the condition of the crop, by monitoring the field based on crop status (size,
+    growing phase) and environment (e.g., weather forecast) and to adjust the irrigation
+    prescription map accordingly. The smart water management pilots aim at guaranteeing
+    that technological components are flexible enough to adapt to different contexts
+    and to be replicable in different locations and settings. The same underlying
+    SWAMP platform can be customized to different pilots considering different countries,
+    climate, soil, and crops. The SWAMP layered architecture considers three types
+    of services to ensure its replication and adaptability to different crops and
+    locations. Entirely replicable services deal with IoT services, virtual entities
+    and storage services, and data analytics and machine learning, respectively. Fully
+    customizable services deal with water data management issues that specialize generic
+    analytic services into particular techniques for different types of irrigation
+    and water distribution. Those services may require being customized whenever a
+    new pilot is designed, developed and deployed. Finally, application specific services
+    require higher development effort since they serve particular farms. The architecture
+    may be implemented in a range of deployment configurations involving the use of
+    smart algorithms and analytics in the cloud, fog-based smart decisions located
+    on the farm premises and possibly mobile fog nodes acting in the field (e.g.,
+    drones or in the central pivot irrigation mechanisms). In this paper, we present
+    the SWAMP view of water management, the SWAMP architecture, the four SWAMP pilots
+    and a scenario-oriented development process that consider both the crop needs
+    and technological solutions. In the remainder of this paper, section II introduces
+    concepts and related work. Section III introduces SWAMP concepts and methodology,
+    while section IV presents the four pilots. Section V presents scenarios for deploying
+    the pilots, and finally, section VI draws conclusions and future work. SECTION
+    II. Iot In Precision Irrigation For Agriculture The Internet of Things is expected
+    to have a decisive influence in the automation of smart water management applications.
+    However, the development of IoT-enabled applications still takes tremendous efforts
+    due to the lack of proper tools [8]. This scenario opens new opportunities and
+    challenges in the specification, implementation, deployment, and evaluation of
+    software development platforms for smart water management. The SWAMP project is
+    being built upon existing efforts, generic platforms, architectures and research
+    results [13]. The IoT-A project developed the IoT Reference Architecture for the
+    generation of compliant IoT concrete architectures, focusing on using the current
+    state of the art, rather than applying a clean slate approach [2]. FIWARE evolved
+    from an EU-funded initiative for cloud services and now includes a platform with
+    a set of Generic Enablers for developing smart applications [12], such as in the
+    precision irrigation domain for agriculture [10]. When it comes to providing advanced
+    features to the management of natural resources, such as water, there are some
+    isolated initiatives not necessarily connected to the existing platforms and architectures.
+    For example, the FIGARO project aims at increasing water productivity and improving
+    irrigation practices through the development of a precision irrigation management
+    platform, but not directly involving IoT [6]. Also, Popović et al. [11] present
+    a case study of the specially designed and currently limited IoTenabled platform
+    for collecting data in precision agriculture and ecological monitoring domains.
+    Agri-IoT [9] is a theoretical IoT-based framework for data analytics and realtime
+    processing for smart farming that shares some similarities with SWAMP. However,
+    so far no real deployments have been reported, making it difficult to compare
+    with SWAMP. In the last years, much has been said about the prospective uses for
+    IoT combined with cloud-based services and big data analytics. Now, the time has
+    come to conduct experiments in real settings. In Europe, there is a current concern
+    to understand the challenges and compelling impacts of IoT in large-scale pilots
+    for smart agriculture. Brewster et al. discuss the deployment of those large-scale
+    pilots for IoT in agriculture and describe technologies and solutions that might
+    be present in some agrifood domains, such as dairy, fruit, arable crops and meat
+    & vegetable supply chain [5]. Also, the European project IoF2020 aims at fostering
+    the adoption of IoT in large-scale pilots in the farming and food domain2. Current
+    existing solutions are mostly theoretical with limited proof of concept experiences.
+    They are either too generic or too specific and do not explicitly address easy
+    system development and deployment for facilitating replicability of scenarios
+    and streamlining the deployment of new pilots. This is where SWAMP comes to play.
+    SECTION III. Concept and Methodology The SWAMP project is developing a high-precision
+    smart irrigation system concept for agriculture depicted in Fig. 1. The fundamental
+    idea is to enable optimizations of irrigation, water distribution, and consumption
+    based on a holistic analysis that collects information from all aspects of the
+    system including even the natural water cycle and the cumulated knowledge related
+    to growing particular plants. It results in savings to all parties as it guarantees
+    the availability of water in situations where water supply is limited and also
+    prevents over-and under-irrigation. Fig. 1. Precision irrigation based on smart
+    water management Show All As depicted in Fig. 1 we identify three broad phases
+    in a water management system for agriculture: W1: Water reserve: water reserves
+    coming from different sources such as rivers, lakes, dams, and aquifers, which
+    follow the natural water cycle. W2: Water distribution: water is transported from
+    W1 to the final usage place (W3) through a network of canals, pipes, pumps, valves,
+    and gates. Water distribution may assume different configurations depending on
+    the region or country. In some places, water resources are carefully used and
+    controlled by a central authority. W3: Water consumption: in agriculture, one
+    of the critical uses of water is irrigation, which can be performed by different
+    techniques. Irrigation (W3) is the principal objective of the SWAMP project. The
+    SWAMP platform provides mechanisms for data acquisition from sensors, making decisions
+    using a variety of different techniques and changing system behavior by sending
+    commands to both automatic and human actuators. For Water Consumption (W3) SWAMP
+    will provide real-time responses for adapting irrigation as crop conditions change.
+    On the other hand, as changes in water distribution are performed in a different
+    timescale, the management loop for W2 will be longer. W2 and W3 management systems
+    are integrated, as water usage triggers water distribution. The SWAMP Architecture
+    is divided into five layers, as depicted in Fig. 2. Fig. 2. SWAMP Architecture
+    Show All Layer 1: IoT Services: A variety of sensor and actuator technologies
+    to acquire soil (e.g., moisture and temperature), plant (e.g., vegetation index,
+    canopy temperature) and weather (e.g., air temperature and relative humidity,
+    precipitation, solar radiation, wind speed, and direction) will be tested during
+    the project. Layer 2: Virtual Entity and Data Storage: IoT Service descriptions
+    are annotated with contextual metadata about the physical environment to create
+    Virtual Entity (VE) representations of physical entities. Distributed databases
+    composed of cloud and fog nodes work together for dealing with a massive amount
+    of data coming from sensors and make them available to the upper layers. Layer
+    3: Data Analytics: provides different components for context-aware management
+    supported by cloud-based big data analytics techniques. SWAMP will utilize existing
+    models and algorithms to realize the Layer 3, which may vary for different crops
+    and pilots. Layer 4: Water Data Management: builds application related middleware
+    management services on top of the generic data processing services provided by
+    Layer 3. This layer decouples the irrigation-related business rules from applications
+    providing an API for Layer 5 with a variety of algorithms, models, and mechanisms
+    for facilitating and streamlining the development and deployment of new pilots.
+    Layer 5: Water Application Services: A multitude of data that is sensed, acquired,
+    stored, and processed is transformed into services that make sense to farmers.
+    SWAMP initially will consider two types of water application services, water distribution
+    services, and water usage services (i.e., irrigation). A fundamental idea in SWAMP
+    is to facilitate the replication of water management systems built on top of its
+    platform with minimum redesign and redevelopment. Different layers of the architecture
+    have components that are more generic and thus less difficult to be ported to
+    other pilots, whereas others are more application-specific and thus require new
+    development efforts whenever a new pilot is conceived. When it comes to the generality/specificity
+    scale, the SWAMP architecture provides three categories of components: a) Fully
+    Replicable Services: Layers 1, 2 and 3 of the architecture are generic enough
+    to allow them to be replicable in different settings. Sensors, actuators and associated
+    IoT Services vary according to the specific application domain; b) Fully Customizable
+    Services: Layer 4 provides services that are closer to the final application and
+    therefore must be aware of a level of detail that may vary for different techniques
+    and models of water distribution and irrigation. Those services may require being
+    customized for every new pilot; c) Application Specific Services: Services in
+    Layer 5 address particularities of pilots. Given that parameters vary considerably
+    for different countries, regulations, climate conditions, crops and soils, those
+    services usually require more effort to be customized. SECTION IV. Swamp Pilots
+    A. Pilot: Smart Water Distribution (Italy - CBEC) The Consorzio di Bonifica Emilia
+    Centrale (CBEC) is a reclamation consortium of the Emilia-Romagna Region in Northern
+    Italy, responsible for the irrigation and water drainage of an area of nearly
+    3,130 km2 where most water required for irrigation is withdrawn from the Po river
+    (Fig. 3). The water is distributed to the farms by an intricate irrigation infrastructure
+    composed of more than 3580 km of canals, more than 200 small streams, six draining
+    plants, and 72 pump stations with the capacity of 416 cubic meters per second.
+    Fig. 3. Water distribution management pilot: open earth canal (left), manual operation
+    (center) and water intake (right) Show All The supply and irrigation network consists
+    of open channels on earth. Relevant widths characterize the main canals and their
+    filling for the irrigation season involves the use of substantial water volumes
+    that are not always recoverable for irrigation purposes. Water losses are due
+    to evaporation and infiltration through canal banks and bottom, as well as to
+    the management of the irrigation network that requires the filing of long canals
+    stretches and several minor streams to accommodate farmer needs. The irrigation
+    network also acts as drainage network for the cultivated areas. The SWAMP project
+    aims at enhancing the overall system efficiency by acting at farmers and irrigation
+    consortium levels. At the farmer level, SWAMP provides a better estimation of
+    water needs regarding both amounts of water and time of delivery. This precise
+    estimation can be achieved by the implementation of the IoT infrastructure that
+    enables the integration of groundbased information with the weather forecast.
+    At the consortium level, the management of the irrigation network can benefit
+    from the optimization of multiple water requests ensured by the technological
+    platform. The platform collects water needs adjusting the operational management
+    of canals by merging detailed information of water needs, weather forecasts, and
+    multiple requirements from farmers served by the same irrigation infrastructure.
+    In particular, the SWAMP project enables the monitoring, automation, and remote
+    control of the major hydraulic infrastructures, through which CBEC manages the
+    water distribution within the irrigation district. The renovation of the hydraulic
+    infrastructures together with the implementation of the IoT platform and data
+    analytics scheme is expected to enable a consistent enhancement of the water distribution
+    management that will persist after the project life. B. Pilot: Smart precision
+    irrigation (Spain - Intercrop) This pilot is located in Cartagena, Spain, in the
+    premises of Intercrop Iberica and addresses several challenges of smart irrigation
+    and water management of geographically distributed fields, aiming at demonstrating
+    the use of IoT sensor platforms and drones to achieve increased crop yield with
+    optimal water usage with minimum labor effort. Even though Cartagena is located
+    on the coast, that is a dry area with a short rain season with intense rains in
+    just a few days. A considerable amount of water comes from a desalination plant,
+    what contributes to make it a scarce and expensive good. Farms are distributed
+    over areas of roughly 30 km radius in intensive cropping area. Pilot site is shown
+    in Fig. 4. The immediate closeness of the control fields gives ideal circumstances
+    to verify the effectiveness of the deployed methods. There are three growth periods
+    during the project giving an opportunity to do iterative piloting and compare
+    the results of different iterations. Fig. 4. Intercrop irrigation pilot site.
+    In the right, the arrow shows the precise location of the pilot site Show All
+    Growing period starts in early September and finishes by late April. Crops are
+    from different ranges such as lettuce, endive, spinach, herbs, and bay leaf. These
+    farms are irrigated separately through their proper reservoirs and irrigation
+    systems. To demonstrate the effectiveness of the methods, we selected the pilot
+    site from the same area with control field that is using traditional irrigation
+    and monitoring methods. Irrigation system on the pilot field is managed using
+    solenoid valves, and total water consumption can be monitored via water meters.
+    Facilities used in piloting are a local weather station, online weather services,
+    long life smart soil sensors, drone gateway, and real-time cloud data analysis.
+    C. Pilot: Variable Rate Irrigation (Brazil) The MATOPIBA region encompasses the
+    Brazilian states of Maranhão (MA), Tocantins (TO), Piauí (PI) and Bahia (BA),
+    and is one of the most critical irrigated agricultural frontier in the country,
+    located in the cerrado, a savannah climate subtype. Irrigation is mostly performed
+    by thousands of center pivots, each one with an average size of 100 ha. The municipality
+    of Luís Eduardo Magalhães (Fig. 5), the location for the center pivot pilot, is
+    considered the capital of Brazilian agribusiness. Fig. 5. Center-pivot irrigation
+    pilot: location of the pilot site (left) and center pivot irrigation for soybean
+    crop (right) Show All The soybean production reached about 5.5 million tons in
+    2016. Despite such production, the farmers estimated 40% crop losses due to the
+    2015/16 season drought. The production from many properties was only 30 sacks
+    per hectare, while an average of 58 sacks was expected. With irrigation and investments
+    in soil fertility, some producers expect that this number can reach 80 sacks.
+    Although irrigation is an alternative, its expansion depends on technologies that
+    improve operating costs. For example, in 2015/16 the government imposed double
+    charges to the energy used in irrigation, which costs seven sacks per hectare
+    against three and a half sacks with a typical energy charging. The main MATOPIBA
+    pilot goal is to implement and evaluate a smart irrigation system based on Variable
+    Rate Irrigation (VRI) for center pivots in soybean production. However, alternate
+    crops like corn and cotton are also usual, including during the same season. Conventional
+    center pivot irrigation systems help to provide a reliable supply of water, increase
+    yields, and provide double cropping potential. The proposed smart irrigation will
+    help the crop in the same way while making rational use of water and energy. D.
+    Pilot: Precision Drop Irrigation (Brazil - Guaspari) One of the significant innovations
+    of winemaking in State of São Paulo, Brazil, is occurring in the municipality
+    of Espírito Santo do Pinhal in the Guaspari Winery. It is the transfer of wine
+    grape harvesting to the winter season (June-August), when the thermal amplitude,
+    insolation, and absence of rainfall are better for harvesting, similar to the
+    great wine regions of the world. The different terroirs that compose the vineyard
+    are divided into plots, which are harvested separately. In that growing area,
+    altitude ranges between 1,000 m and 1,300 m; nights are cold and optimal sunshine
+    during the day provides an air temperature range between 10°C and 12°C at harvesting
+    time, similar to that of large European regions. The soil is developed from granite
+    rock, with good drainage, which is suitable for grapes destined to produce high-quality
+    wines. The application of water by an irrigation system depends on the crop, weather,
+    and soil conditions. Even with the availability of several criteria and procedures
+    for the performance of irrigation management, the technique has a low adoption
+    rate by the farmers. Occasionally irrigation is based on only the experience of
+    the grower, on the visualization of the wet soil surface or even on the perception
+    of visual symptoms of plant water deficit, which, when identified late, can affect
+    yield and product quality. The lack of knowledge about irrigation management procedures
+    can lead to the failure of this water application practice, even if there is a
+    system designed for a specific cropping area. Guaspari Winery uses drip irrigation
+    in its vineyards, with a single hose and emitters spaced at 0.5 m, and measured
+    the flow of 1.9 L h-1. The experimental area has 1.1 ha and is shown in Fig. 6.
+    The objectives of the Guaspari Winery Pilot are: a) to perform automatic measuring
+    of soil water content at different soil depths and in several vineyards inside
+    the winery s growing area; b) to store data in the cloud about soil water content
+    be jointly processed with weather and crop information; c) To provide quick and
+    accurate irrigation management information. Fig. 6. Guaspari Winery: Vineyard
+    and pilot location (right) Show All SECTION V. Swamp Scenarios The SWAMP Platform
+    is being built on existing and new concepts and technologies, implementing the
+    SWAMP vision (Fig. 1) through the SWAMP Architecture (Fig. 2), which may be flexible
+    enough to deal with the needs of four different IoT pilots for smart water management
+    in precision irrigation located in three countries. For making this vision to
+    come true, a scenario-based architecture design and requirement gathering are
+    being conducted to match the needs of crops and farmers’ expertise with existing
+    technological solutions. Fig. 7 depicts the scenario representing the center-pivot
+    with variable-rate irrigation pilot to be deployed in the MATOPIBA region in Brazil.
+    The scenario captures both the farm and SWAMP Platform viewpoints and represents
+    a future vision and not the current situation. A center pivot irrigates a circular
+    agricultural plot of 100 hectares that alternates soybeans and cotton. The plot
+    is further divided into different management zones, identified before the crop
+    season and based on differences in the soil properties. Even though the crop is
+    the same throughout the plot, each management zone receives a different irrigation
+    prescription, to make available the same amount of water for plants regardless
+    the way water is percolated and infiltrated in different soil types. Two general
+    types of sensors collect data for the SWAMP system: a) stationary sensors within
+    the soil at the root system depth that continually measure metrics such as temperature
+    and moisture, and; b) drones acting as flying sensors equipped with thermal/multispectral
+    cameras or working as data mules by collecting sensor data and transmitting to
+    the farm’s office. The center pivot is electrified to make it able to control
+    the variable rate irrigation sprinklers (actuators) and thus it can also be equipped
+    with processing and communication capabilities. No special energy harvesting is
+    predicted for the sensing devices. We will develop multiparametric probes for
+    soil sensing, which include moisture, temperature and electrical conductivity
+    sensors at three depths from the soil surface. In intensive agriculture areas
+    the plan is also to experiment ultra low power wireless sensor solutions based
+    on wake up radios combined with LoRaWAN [3]. Sensors will stay on standby and
+    wake up for a few milliseconds. Sampling and transmission rates will be adjusted
+    from a few minutes up to hours, according to the time of the day and the application
+    requirements. This way, the probe sensing electronics combined with ZigBee or
+    low power LoRaWAN will be powered by extended lifespan batteries. We consider
+    using both ZigBee and LoRaWAN, for short and long distances, respectively. Other
+    sensing devices deployed in low quantity or devices requiring heavier duty cycles,
+    like a water source level sensor and weather station, will be solar powered. Both
+    the center pivot and drones are considered Field Fog Nodes (FFN) in the SWAMP
+    Architecture. Notably, the FFN at the center pivot acts as a sensor aggregation
+    point and as a distributor of actuator commands received from the SWAMP system.
+    FFNs communicate with the nearest fixed attachment point of the SWAMP Platform,
+    which usually is an onpremises Fog Hub Node (or just fog hub) located in the farm’s
+    office. Please notice that this choice aims at providing autonomous processing
+    capacity to the farm at our pilot since it is in a region where Internet connections
+    may suffer periods of instability. SWAMP allows FFNs to communicate directly with
+    the Platform running in the cloud, whenever this is the preferred deployment choice.
+    The FFNs send data directly to the SWAMP Platform located in the CFN at the farm’s
+    offices via different wireless technologies. In Fig. 7 it is represented by a
+    Base Station, such as a WiFi access point, a LoRaWAN gateway, a ZigBee router
+    or a Cell Base Station. For this scenario, the functions performed by the SWAMP
+    Architecture are divided up into local Fog and remote Cloud components. Heavy
+    processing, such as irrigation models and analytics using smart algorithms (i.e.,
+    machine learning), is performed in the cloud. In our pilot, we will first experiment
+    with existing irrigation models for precision agriculture where analytics plays
+    the role of automatic parameter tuning. After enough data is obtained, analytical
+    models will be tested for generating the irrigation prescription maps. External
+    information is fed to the platform, such as crop yield models, meteorological
+    data and historical data. Fig. 7. Scenario representing the center-pivot irrigation
+    pilot Show All Fig. 8 depicts the CBEC SWAMP pilot, focused on water distribution
+    management. Water is conveyed from the Po River in Italy through a network of
+    open canals automated by a set of pumps, valves, gauges and gates operated by
+    CBEC. The SWAMP platform estimates the water needs of individual farms by analyzing
+    sensor data and other relevant information, generates the irrigation prescription
+    maps and sends them to the farmers, who perform the irrigation using the method
+    they see fit. The water need estimate for each farm is in turn fed into a component
+    devoted to optimizing the management of water distribution, by sending commands
+    to actuators installed in devices that control the water flow through the canals,
+    up to the point farmers can use them. The purpose is to make more efficient use
+    of the water deviated from the river. Fig. 8 does not explicitly show how the
+    data is sent from sensors to the SWAMP platform because different technologies
+    are used by farmers to transmit the data through the Internet. The SWAMP Platform
+    is represented as a single component, whereas in practice a distributed cloud/fog
+    architecture can be used, such as the one shown in Fig. 7. SECTION VI. Conclusion
+    IoT is the natural choice for smart water management applications, but its appropriateness
+    is still to be proven in real settings with the deployment of on-site pilots.
+    In this paper, we presented the SWAMP project, which develops IoT based methods
+    for smart water management in precision irrigation, and pilots them in Italy,
+    Spain, and Brazil. We introduced the SWAMP view, architecture, pilots and the
+    scenario-based development process adopted in the project. SWAMP is still in its
+    beginning but has already attracted the attention of farmers, agribusiness companies,
+    and government agencies around the world. In its current stage, we visited and
+    surveyed the pilots and explored the implications on the platform of different
+    pilot sites, crops and requirements. The key insights so far refer to the commonalities
+    and variability of features of pilots that can positively contribute to the design
+    of a genuinely replicable SWAMP platform. Fig. 8. Scenario representing the water
+    distribution pilot Show All Authors Figures References Citations Keywords Metrics
+    Footnotes More Like This Smart Irrigation Control System Using Wireless Sensor
+    Network Via Internet-of-Things 2020 IEEE 12th International Conference on Humanoid,
+    Nanotechnology, Information Technology, Communication and Control, Environment,
+    and Management (HNICEM) Published: 2020 Internet of Things based Innovative Irrigation
+    System for the evaluation of Sand Quality with Security measures for Agriculture
+    Land using Wireless Sensor Network 2023 Second International Conference on Electrical,
+    Electronics, Information and Communication Technologies (ICEEICT) Published: 2023
+    Show More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT
+    OPTIONS VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES
+    PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678
+    4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact
+    Us | Help | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics
+    Reporting | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE
+    is the world''s largest technical professional organization dedicated to advancing
+    technology for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: ''
+  limitations: The paper does not provide specific details on the data types that
+    are most applicable to irrigation management. It primarily focuses on the development
+    of the SWAMP platform and its architecture for smart water management in precision
+    irrigation but does not delve into the specific types of data that are used in
+    irrigation management. While the paper mentions the use of sensors for data collection,
+    it does not elaborate on the specific parameters or types of data that are measured
+    or how they are used in irrigation management.
+  pdf_link: null
+  publication_year: 2018
+  relevance_score: 0.9
+  relevance_score1: 0.9
+  relevance_score2: 0
+  title: 'SWAMP: an IoT-based Smart Water Management Platform for Precision Irrigation
+    in Agriculture'
+  verbatim_quote1: Water is vital for ensuring food security to the world’s population,
+    and agriculture is by far the biggest consumer amounting to 70% of freshwater
+    [7].
+  verbatim_quote2: Also, IoT-based application development platforms should be generic
+    enough to be adapted to different crops, climates, and countries.
+  verbatim_quote3: The primary objective of the SWAMP1 project is to develop IoT based
+    methods and approaches for smart water management in precision irrigation domain
+    and to pilot the approaches in four places, two pilots in Europe (Italy and Spain)
+    and two pilots in Brazil.
+- DOI: https://doi.org/10.23919/fruct.2018.8588086
+  analysis: 'The paper titled "Scalability of an Internet of Things Platform for Smart
+    Water Management for Agriculture" analyzes the performance of the FIWARE platform,
+    an open-source middleware platform for IoT applications, in different deployment
+    configurations, including fog/cloud and cloud-only scenarios. The authors use
+    one of the SWAMP project pilots, which focuses on precision irrigation using IoT-based
+    systems, as the evaluation scenario. The analysis involves experiments with varying
+    workloads to assess the scalability and performance of the platform in different
+    configurations. The authors find that while adding a fog node for processing data
+    in the fog/cloud configuration does not always improve the overall system performance,
+    it has other benefits, such as storing sensor data and keeping a subset of services
+    online during internet disconnections.
+
+
+    The paper provides insights into the scalability tradeoffs of the FIWARE IoT platform,
+    particularly regarding the use of MongoDB as the default database for Orion and
+    the IoT Agent. The authors highlight that MongoDB was a major bottleneck in their
+    experiments and suggest that using a more efficient database or placing MongoDB
+    in a dedicated machine could improve the scalability of FIWARE. They also emphasize
+    the advantages of FIWARE, such as providing a standard communication format through
+    the NGSI information model and enabling transparent data consumption by applications,
+    making it a reliable tool for managing context information in IoT scenarios.'
+  authors:
+  - Ivan Zyrianoff
+  - Alexandre Heideker
+  - Dener Silva
+  - Carlos Kamienski
+  citation_count: 15
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2018 23rd Conference of Open ... Scalability
+    of an Internet of Things Platform for Smart Water Management for Agriculture Publisher:
+    IEEE Cite This PDF Ivan Zyrianoff; Alexandre Heideker; Dener Silva; Carlos Kamienski
+    All Authors 15 Cites in Papers 402 Full Text Views Abstract Document Sections
+    I. Introduction II. Background and Related Work III. Smart Water Management Platform
+    IV. Research Design and Methods V. Results Show Full Outline Authors Figures References
+    Citations Keywords Metrics Abstract: The emergence of a new breed of smart applications
+    requires middleware platforms that enable the rapid development of IoT-based solutions,
+    which can be hosted partially in fog nodes, as well as in a traditional cloud
+    datacenter. Currently, there is no scalable de facto open IoT platform but the
+    European Commission is pushing FIWARE to fill this gap. We analyzed the performance
+    of FIWARE under different platform configurations comparing fog/cloud and cloud-only
+    scenarios for precision irrigation in smart farming. Our results reveal interesting
+    and non-intuitive findings, such as that fog computing does not always improve
+    the overall system performance and in some cases it even makes it worse. Also,
+    the network between the farm and the cloud datacenter causes some unexpected differences
+    between different scenarios. Published in: 2018 23rd Conference of Open Innovations
+    Association (FRUCT) Date of Conference: 13-16 November 2018 Date Added to IEEE
+    Xplore: 27 December 2018 ISBN Information: Print on Demand(PoD) ISSN: 2305-7254
+    DOI: 10.23919/FRUCT.2018.8588086 Publisher: IEEE Conference Location: Bologna,
+    Italy SECTION I. Introduction The Internet of Things (IoT) [15] and the billions
+    of sensors that will be deployed in the next decade [5], as well as novel associated
+    technological breakthroughs, have been enabling the emergence of a new breed of
+    smart applications and services for the benefic or our society in different domains
+    or verticals, such as smart farming, smart cities, smart healthcare and smart
+    industries. Building interoperable IoT services and applications requires a set
+    of middleware components and system development, deployment and operation tools
+    and platforms, In order to avoid developing extremely focused and vertical IoT
+    applications not able to interact with other applications, common and generic
+    middleware services used by different application domains become necessary. The
+    widespread availability of IoT-based applications requires adequate platforms
+    for both development and operation phases. The former for releasing developers
+    from the need of mastering different technologies outside their core business
+    and that do not add value to the process [7]. The latter for freeing organizations
+    from the need of deploying and testing customized platforms for supporting the
+    operation of IoT-based applications. There are some IoT platforms available today,
+    both open source and proprietary [4]. There is a tradeoff in the deployment of
+    such platforms, which traditionally are hosted in cloud datacenters, but are slowly
+    considered to be partially moved to edge infrastructure closer to the users, which
+    is known as fog computing [2]. Although many IoT platforms exist today, the arena
+    is not clear regarding the suitability of them for the different deployment scenarios
+    for different smart applications. IoT tools and platforms must provide an end-to-end
+    treatment for the data path, since data is generated by sensors, transmitted to
+    the storage place, processed by smart algorithms, decisions are made, which fire
+    actions that are finally forwarded to actuators as commands aimed at changing
+    some configuration. Also, scalability is a major concern for IoT platforms. It
+    has been shown that different architectural choices of IoT platforms affect system
+    scalability and that automatic real time decision-making is feasible in an environment
+    composed of dozens of thousands of sensors continuously transmitting data [16].
+    Currently, there is no scalable de facto open IoT platform but the European Commission
+    is pushing FIWARE to fill this gap. The SWAMP project develops and assesses an
+    IoT-based smart water management platform for precision irrigation in agriculture
+    with a hands-on approach that focuses on pilots in Italy, Spain and Brazil [9].
+    The same underlying platform can be customized to different pilots considering
+    different countries, climate, soil, and crops. The SWAMP platform may be implemented
+    in a range of deployment configurations involving both cloud and fog environments.
+    In this paper, we analyze the performance of FIWARE under different platform configurations
+    comparing fog/cloud and cloud-only scenarios for precision irrigation using one
+    of the SWAMP pilots as the evaluation scenario. Experiments consisted simulated
+    sensors sending messages to FIWARE, deployed both in a fog/cloud and a cloud-only
+    configuration mode. We performed experiments with a large number of probes simultaneously
+    sending messages to the platform, in order to verify and understand it scalability.
+    Security and privacy aspects are key components for making it possible to emergence
+    of a true market for such IoT platforms for precision irrigation, such as SWAMP
+    [8]. However, these aspects have not been evaluated here since they are outside
+    the scope of this paper that focuses on performance and scalability of the FIWARE
+    Platform when configured for the needs of SWAMP. Our results reveal interesting
+    and non-intuitive outcomes, such as, that fog computing does not always improve
+    the overall system performance. In some cases, the addition of a fog processing
+    nodes even proved to worsen the performance. An important and unexpected factor
+    in the experiments was the impact of the network. Initially, we believed that
+    the network would equally impact both configurations (fog/cloud and cloud-only).
+    However, the impact was much higher in the fog/cloud configuration. In the remainder
+    of the paper, section II presents background and related work. Section III introduces
+    SWAMP and the two scenarios for the MATOPIBA pilot. Section IV provides a detailed
+    view of research design and methods. The key results are presented in section
+    V, followed by discussion of lessons learned in section VI. Finally, section VII
+    draws some conclusions and propose relevant future work. SECTION II. Background
+    and Related Work This section introduces related background and related work.
+    A. IoT and Fog Computing Fog computing is a fairly new paradigm aimed at dealing
+    with challenges related to the huge amount of data that inevitably will be generated
+    with the increasing utilization of IoT-based systems [2]. It solves serious problems
+    such as decreasing latency from real time applications, decreasing data traffic
+    between the network edge and core, and softening the processing burden of the
+    cloud by performing load balancing. The metaphor comes from the fact that fog
+    is a cloud but closer to the ground and to the people [13]. The fog is based on
+    a highly virtualized platform that provides computing, storage and communication
+    services between users and the datacenter where the cloud is hosted [1], by bringing
+    services from the cloud closer to the users. Since its inception the fog has been
+    envisioned for operating together with the cloud for making it possible to implement
+    IoT-based smart applications. In other words, fog and IoT are related yet independent
+    concepts, as the fog can deal with a broader variety of applications and IoT does
+    need the fog to come true. A new technological trend that has been used for implementing
+    the fog is container-based virtualization that provides a lightweight alternative
+    to the traditional hypervisors [12]. Containers do not emulate the underlying
+    hardware. Rather, the virtualized OS communicates directly with the host OS, which
+    makes the appropriate calls to the real hardware. Lightweight virtualization minimizes
+    the use of computational resources of the host machine, since there is no need
+    to duplicate the operating system. B. The FIWARE Platform The FIWARE platform
+    (fiware.org) has been attraction general attention for being a worldwide open
+    source solution fostered and funded by the European Commission under Horizon 2020
+    program. It is comprised of a series of software components called Generic Enablers
+    (GE) that perform functions needed in a different variety of IoT-based applications
+    for smart societies, focusing in cities, farming, industry, healthcare and sustainability.
+    GEs can be used to build different applications that exchange information through
+    a REST API following the OMA NGSI standard (openmobilealliance.org/release/NGSI),
+    based on JSON. The central aspect of the FIWARE NGSI Context Management information
+    model is the concept of entities and their attributes. Among the many GEs available
+    by the FIWARE, some are considered the key enablers for smart applications. Here
+    we only introduce the ones cited and used in our paper. Orion Context Broker:
+    Orion is a publish/subscribe context broker, which makes it the main FIWARE GE
+    and the heart of the platform. Orion provides an interface where clients can register
+    entities and their attributes as well as producers/consumers of those entities.
+    Orion only stores the latest version of entity attributes and it needs to work
+    together with other GEs or applications in order to maintain historical data.
+    Orion is available in fiware-orion.readthedocs.io. IDAS and IoT Agents: IDAS is
+    an implementation of the Device Backend Management GE that comprises many IoT
+    Agents that map data coming from sensors and going to actuators to the FIWARE
+    NGSI information model to be stored in Orion and further processed by other GEs
+    or external applications. Since low power sensors do not possess computing, storage
+    and transmission capabilities for speaking NGSI, they use different IoT protocols
+    such as MQTT, CoAP, Ultralight or LoRaWAN transport, which are converted into/from
+    NGSI by IoT Agents. IDAS is available in catalogueserver.fiware.org/enablers/backend-device-managementidas.
+    STH Comet: Short Time Historic, also known as Comet, works with Orion storing
+    entity data as a time series that can be further used by applications or other
+    GEs. STH Comet is available in fiware-sth-comet.readthedocs.io. The use of FIWARE
+    by any organization or developer involves the installation of its GEs in an appropriate
+    infrastructure where it can run, which might be standalone machines, public clouds
+    or preferentially a private cloud using the OpenStack cloud manager. FIWARE has
+    been used as a computing platform for many IoT-based applications, such as farming
+    and environment [14]. Also, many large scale projects use FIWARE for IoT in agriculture,
+    such as IoF2020 (iof2020.eu), as well as startups such as Breeze (breeze-technologies.de),
+    Hop Ubiquitous (hopu.eu) and Agricolus (agricolus.com). C. Related Work Scalability
+    is a major concern for IoT platforms. Numbers vary but in general it is forecasted
+    that in the beginning of the 2020’s there will be about 30 billion connected devices
+    [5]. It has been shown that different architectural choices of IoT platforms affect
+    system scalability and that automatic real time decision-making is feasible in
+    an environment composed of dozens of thousands of sensors continuously transmitting
+    data [16]. The performance of FIWARE has been calling the attention its user community.
+    A comprehensive study that proposes qualitative and quantitative metrics and evaluates
+    the performance of various IoT platforms is presented by da Cruz et al. (2018)
+    [4]. From 11 platforms analyzed by the qualitative approach, 5 were selected for
+    the quantitative performance analysis, including FIWARE. However, since they adopted
+    a generic approach, they did not go into the specifics of FIWARE-only a single
+    Orion + STH platform configuration was considered – and they did not evaluate
+    different infrastructures (as fog computing). Martínez et al. (2016) [11] gives
+    a detailed description of the architecture of a testbed of the FIWARE platform
+    configured for the precision agriculture domain, which differs from our approach,
+    because their test application connects directly to FIWARE using NGSI JSON interface,
+    while we included an IoT Agent for MQTT using a scalable IoT sensor simulator
+    for generating synthetic data. Lastly, Cardoso et al. (2017) [3] compared the
+    performance of FIWARE and their own implementation of ETSI M2M, under different
+    running conditions, which makes it difficult to understand the tradeoffs of each
+    platform. In this paper, we differ from previous work by evaluating five configurations
+    of FIWARE and focusing on the scenarios of smart irrigation in agriculture from
+    the SWAMP project [9]. SECTION III. Smart Water Management Platform The primary
+    objective of the SWAMP project is to develop IoT based methods and approaches
+    for smart water management in precision irrigation domain and to pilot them in
+    four places, two pilots in Europe (Italy and Spain) and two pilots in Brazil [9],
+    more information can be found in swampproject.org. Also, it is aimed at improving
+    precision irrigation by increasing the awareness of the condition of the crop,
+    by monitoring the field based on crop status and environment, and to adjust the
+    irrigation prescription map accordingly. A. SWAMP Pilots The four SWAMP pilots
+    are based on the similar technical solutions and deal with different crops and
+    have different primary goals. CBEC Pilot (Bologna/Italy): the main objective of
+    the Consorzio di Bonifica Emilia Centrale (CBEC) pilot is optimizing water distribution
+    to the farms. Intercrop Pilot (Cartagena/Spain): Intercrop Iberica addresses several
+    challenges since production is in a dry area and its primary goal is making a
+    rational use of water. Guaspari Pilot (Espírito Santo do Pinhal / Brazil): The
+    Guaspari Winery transfers the wine grape harvesting to the winter season (June-August)
+    using irrigation techniques. The main goal for Guaspari is improving wine quality.
+    MATOPIBA Pilot (Barreiras/Brazil): The Rio das Pedras Farm is located in the MATOPIBA
+    region, and irrigation is mostly performed by center pivots. The main pilot goal
+    is to implement and evaluate a smart irrigation system based on Variable Rate
+    Irrigation (VRI) for center pivots in soybean production and save energy used
+    in irrigation. The SWAMP project is developing a high-precision smart irrigation
+    system concept for agriculture. The fundamental idea is to enable optimizations
+    of irrigation, water distribution, and consumption based on a holistic analysis
+    that collects information from all aspects of the system including even the natural
+    water cycle and the cumulated knowledge related to growing particular plants.
+    It results in savings to all parties as it guarantees the availability of water
+    in situations where water supply is limited and also prevents over- and under-irrigation.
+    A fundamental idea in SWAMP is to facilitate the replication of water management
+    systems built on top of its platform with minimum redesign and redevelopment.
+    Different layers of the architecture have components that are more generic and
+    thus less difficult to be ported to other pilots, whereas others are more application-specific
+    and thus require new development efforts whenever a new pilot is conceived. B.
+    SWAMP MATOPIBA Scenario In this paper we will evaluate the performance of FIWARE
+    when configured for the SWAMP MATOPIBA scenario depicted in Fig. 1 , which represents
+    the center-pivot with variable-rate irrigation pilot. The scenario captures both
+    the farm and SWAMP Platform viewpoints and represents a future vision and not
+    the current situation. A center pivot irrigates a circular agricultural plot of
+    100 hectares that alternates soybeans and cotton. The plot is further divided
+    into different management zones, identified before the crop season and based on
+    differences in the soil properties. Two general types of sensors collect data
+    for the SWAMP system: a) stationary sensors within the soil at the root system
+    depth that continuously measure metrics such as temperature and moisture, and;
+    b) drones acting as flying sensors equipped with thermal/multispectral cameras
+    or working as data mules by collecting sensor data and transmitting to the farm’s
+    office. The center pivot is electrified to make it able to control the variable
+    rate irrigation sprinklers (actuators) and thus it can also be equipped with processing
+    and communication capabilities. No special energy harvesting is predicted for
+    the sensing devices. We developed multiparametric probes for soil sensing, which
+    include moisture, temperature and electrical conductivity sensors at three depths
+    from the soil surface. Sampling and transmission rates will be adjusted from a
+    few minutes up to hours, according to the time of the day and the application
+    requirements. This way, the probe sensing electronics combined with ZigBee or
+    LoRaWAN will be powered by extended lifespan batteries. The key difference between
+    Fig. 1(a) and Fig. 1(b) is that the former includes a distributed fog/cloud configuration
+    of the platform whereas the latter is solely based on the cloud for hosting all
+    software components. Depending on different variables - such as farmers interest,
+    availability of infrastructure, intended responsiveness to delay, robustness to
+    disconnections, and cost/effectiveness – one or the other scenario may be more
+    or less appropriate. For the MATOPIBA pilot, the preferred solution is the fog-based
+    one, for providing autonomous processing capacity to the farm as it is located
+    in a region where Internet connections may suffer periods of instability. Anyway,
+    we evaluate both approaches because the cloud-based one might be used as well.
+    In Fig. 1(a) both the center pivot and drones are deemed Field Fog Nodes (FFN)
+    for the SWAMP architecture. Notably, the FFN at the center pivot acts as a sensor
+    aggregation point and as a distributor of actuator commands received from the
+    SWAMP system. FFNs communicate with the nearest fixed attachment point of the
+    SWAMP platform, which usually is an on-premises Typically, when sensors are powered
+    with LoRaWAN, the FFN will host the LoRaWAN Gateway and possibly the LoRaWAN Server
+    and other supplementary features. The Fog Hub is located in the farm’s office.
+    SWAMP allows FFNs to communicate directly with the platform running in the cloud,
+    whenever this is the preferred deployment choice. The FFNs send data directly
+    to the SWAMP platform located in the Fog Hub at the farm’s offices via different
+    wireless technologies, which in Fig. 1(a) is WiFi. For this scenario, the functions
+    performed by the SWAMP architecture are divided up into local fog and remote cloud
+    components. Heavy processing, such as irrigation models and analytics using smart
+    algorithms (i.e., machine learning), is performed in the cloud. External information
+    is fed to the platform, such as crop yield models, meteorological data and historical
+    data. On the other hand, Fig. 1(b) depicts a scenario where no fog is available
+    and data generated by sensors are sent directly to the cloud via a typical cellular
+    technology that might be 3G/4G or even NB-IoT. Fig. 1. SWAMP MATOPIBA scenario;
+    a) Fog-cloud; b) Cloud-only Show All SECTION IV. Research Design and Methods A.
+    Evaluation Scenario and Environment One of the main goals of this paper is to
+    compare fog/cloud and cloud-only based approaches for smart water management.
+    Therefore, based on the SWAMP MATOPIBA pilot specification ( Section 3), we designed
+    a FIWARE-based IoT platform that involves obtaining sensor data values up to the
+    point of they are transparently consumed by an application that can be deployed
+    in the cloud and/or in the fog. The software modules depicted in Fig.3 and Fig.4
+    are implemented by lightweight virtualization of Docker containers, including
+    the FIWARE modules, whose container images can easily be obtained in that format.
+    The other modules of this scenario are: SenSE: the Sensor Simulating Environment
+    (SenSE, is an open-source large-scale IoT sensor data generator able to abstract
+    real devices and to model different complex scenarios, such as smart farms [16].
+    The tool is a traffic workload generator that emulates a huge number of heterogeneous
+    sensors representing tens of thousands of IoT sensors sending data simultaneously
+    via a typical IoT protocol (e.g., MQTT). Although the sensors are synthetic, the
+    traffic is real. In our scenarios, SenSE generates probe data and represents the
+    fog field node that forward sensor data to the platform. The source code can be
+    download from github.com/ivanzy/SenSE-Sensor-Simulation-Environment. Mosquitto:
+    Eclipse Mosquitto is an open source MQTT message broker. Available in mosquitto.org.
+    MongoDB: a document-oriented NoSQL database. Available in mongodb.com. Consumer:
+    Consumer is a special purpose Express.js web application that subscribes in Orion
+    and receives sensor data from the probes. When Orion sends a message to the consumer’s
+    API, a timestamp is recorded and is subtracted from the timestamp of the message,
+    in such a way we obtain the elapsed time between the generation of the message
+    until it reaches the Consumer. The sequence of processing steps and data flow
+    starting from the sensor data generation and ending at the consumer is shown in
+    Fig. 2. This data flow is deployed in both fog and cloud-only scenarios, depicted
+    in Fig. 1. SenSE generates sensor (probe) data and sends it to Mosquitto MQTT
+    broker; IoT Agent receives the probe messages from the MQTT broker, stores it
+    in MongoDB, translates them to the NGSI format, and finally sends it to Orion
+    through HTTP protocol; Orion Context Broker receives NGSI data from the IoT Agent,
+    updates entity values, stores them in MongoDB, and sends them to the subscribed
+    applications through HTTP protocol and structured as NGSI; Data is delivered to
+    the consumer, which stores it and calculates the elapsed since the message was
+    generated in the probe (by SenSE), the consumer is subscribed to be notified from
+    all probe sensors updates. Fig. 2. Processing steps and data flow Show All In
+    the cloud-only experiments ( Fig.3) the sensor data is directed sent to the cloud,
+    where all modules are in the same physical machine. Since both Orion and IoT Agent
+    are in the same VM, both use the same MongoDB instance. In the fog experiments,
+    the first two steps of processing occur in the fog node, which means that the
+    MQTT broker and the IoT Agent run in the edge device, and the Orion and Consumer
+    are executed in a VM in the cloud. This configuration needs a MongoDB instance
+    in each machine, where the fog hosts the IoT Agent and cloud hosts Orion and the
+    Consumer. In order to fully understand the evaluation scenario, one needs to comprehend
+    the data model of the probe messages. We adopted the Ultralight 2.0 (UL) protocol
+    – a lightweight text based protocol aimed to constrained devices and communications
+    where the bandwidth and device memory may be limited resources [6]. Each probe
+    consists of a set of seven sensors of three different types: Three soil temperature
+    sensors in different depths; Three soil moisture sensors in different depths;
+    One soil electrical conductivity sensor. Each probe sends a message every 10 minutes
+    using the UL protocol over MQTT. The structure of each message is: t1|v|t2|v|t3|v|m1|v|m2|v|m3|v|c|v|ts|v
+    View Source where: t1, t2, t3: temperature sensors in different depths; m1, m2,
+    m3: moisture sensors in different depths; c: electrical conductivity of the soil;
+    ts: timestamp of message generation; v: value of the metric. Fig.3 and Fig.4 show
+    the two evaluation scenarios, cloud-only and fog/cloud, respectively. We performed
+    the experiments in a lab testbed – all the VMs in the same LAN - and using a network
+    emulator (WANem – available to download at wanem.sourceforge.net) to consider
+    the impact of network parameters between the place where the data is generated
+    (in the farm, where the sensors and fog nodes are located) and the place it is
+    processed (the cloud, usually located in some datacenters placed in big cities).
+    Although the case where the machines representing the fog and the cloud are in
+    the same LAN does not adequately portray the reality, it is important to further
+    understand the behavior of the IoT platform and what are the impacts of a constrained
+    network. Fig. 3. Cloud/Only FIWARE-SWAMP Evaluation Scenarios – with and without
+    WAN Show All Fig. 4. Fog/Cloud FIWARE-SWAMP Evaluation Scenarios – with and without
+    WAN Show All The experiments were performed in a private cloud environment implemented
+    with OpenStack in a lab testbed. As the experiments were in our own private cloud,
+    we could assure that they did not suffer from outside interference from other
+    virtual machines running in the same physical servers. Both fog and cloud were
+    implemented using virtual machines (VM) in OpenStack, though with very different
+    configurations. We used the standard Amazon AWS VM configurations: cloud VM equivalent
+    to a t2.medium instance (2vCPU - 4GB of RAM) and the fog VMs (both fog field node
+    and fog hub) equivalent to a t2.small instance (1vCPU – 2 GB RAM). Our cloud was
+    composed by 6 machines with the following configuration: Intel(R) Xeon(R) CPU
+    E3-1240 V2 @ 3.40GHz - 8 cores and GB of RAM. Two different physical machines
+    were used. B. Metrics There are two different metric used in our experiments:
+    Average elapsed time: the average time elapsed since a sensor data point is generated
+    in the probe until it reaches the consumer application. Basically, we are interested
+    in the time elapsed since the data is collected until it is ready to be used by
+    another application – such as a dashboard or an analytics module; System metrics:
+    CPU and memory usage per Docker container, which allows us to observed each application,
+    obtained by docker stats command every 5 seconds. C. Experiments Experiments consisted
+    of SenSE simulating probes and sending messages to the IoT platform, running in
+    the cloud-only configuration or in the fog/cloud configuration. We performed experiments
+    with a large number of probes simultaneously sending messages to the platform,
+    in order to verify and understand it scalability. Table I shows the factors and
+    levels used in the performance analysis. Our experiments varied all factors with
+    all levels, consisting of 16 different possibilities. Each experiment took 2 minutes
+    and was replicated 30 times, totalizing 16 hours of running experiments. The asymptotic
+    confidence intervals were calculated with a confidence level of 99%. Table I Factors
+    and Levels To configure the emulated WAN, we tried to replicate a connection from
+    a farm to a cloud. Therefore, we made a simple experiment in order to obtain the
+    parameters used in the network emulator by pinging a public cloud using a 4G connection,
+    and next we estimated the parameters as a 10 Mbps connection with 45ms of delay
+    time and 5ms of jitter. SECTION V. Results The results for the elapsed time in
+    all configurations are depicted in Fig.5, wherein one can observe the effect of
+    increasing the workload in the fog/cloud and cloud-only scenarios. The platform
+    remained stable during almost all experiments, except for the ones performed with
+    a workload of 15,000 probes - that we consider being a very high workload. The
+    high confidence interval in those experiments reveals this instability. Regarding
+    the comparison between the experiments with the presence of the fog and the ones
+    with only the cloud, it is essential to analyze networking issues. First we analyze
+    those configurations without the network effects (no WANEm emulator), and next
+    the impact of the WAN in the experiments. It is important to reinforce that experiments
+    without considering the impact of the network are only for a baseline comparison
+    and do not reflect real scenarios. In the experiments using a local network, the
+    two approaches had equivalent results, since neither the fog nor the cloud were
+    overloaded. The difference between the two approaches –fog and cloud - is that
+    in the fog case some software modules (Docker containers) were moved to another
+    machine (representing the fog), there was no improvement in the overall performance
+    of the system when the cloud was not overloaded. Therefore, our experiments revealed
+    that performing load balancing between two different machines does not improve
+    the performance of the system. In the case where the cloud is overloaded (15,000
+    probes), distributing the processing to another machine (the fog) should have
+    improved the overall performance of the system. However, the results show that
+    there is an overlap between the confidence interval of the experiments with fog
+    and cloud with 15000 probes, with the fog experiments having a slightly better
+    performance. This occurs due to the limited computational resources of the machine
+    that represents the edge device, so that when the workload increases the fog node
+    becomes the bottleneck. Experiments with the network emulator (WANem) had results
+    that did not confirm our intuition. In the scenarios with a low workload (1,000
+    and 5,000 probes), the cloud approach has a significant better performance than
+    the fog. This occurs because in the cloud experiments the network traffic was
+    composed of small MQTT packets, which did not impose a major constrain to the
+    network. However, in the fog experiments the MQTT traffic is only send to the
+    fog, which sends a very verbose NGSI/HTTP traffic via the network to the cloud.
+    This traffic suffers much more with the network constrains (latency and limited
+    bandwidth). Anyway, there is a clear trade-off between the cloud and fog approaches
+    when processing becomes the bottleneck, instead of the network. The almost perfect
+    balance occurs with experiments with 10,000 probes, in which both approaches achieved
+    the same performance. For higher workloads, the fog has a slightly better performance
+    than the cloud. The system metrics – RAM and CPU usage - for the cloud-only experiments
+    are depicted in Fig. 6 and Fig. 7, for the fog/cloud experiments are showed in
+    Fig. 8 and Fig. 9. Since the workload in the system is very similar with and without
+    the network, we opted to portrait only the results performed considering the network,
+    since they illustrate the whole set of experiments. The experiments using the
+    fog approach, there were two MongoDB instances - in the fog to help the IoT Agent
+    and in the cloud connected to Orion - are identified as Mongo-fog and Mongo-cloud
+    respectively. Analyzing Fig. 6 and Fig. 8, it becomes clear that the container
+    that demands more processing and it is the potential bottleneck of the system
+    is MongoDB. Also, when comparing the cloud-only and fog/cloud results for the
+    CPU usage, it is possible to infer that Orion imposes a higher workload in, since
+    when the IoT Agent is on the fog node, MongoDB in the cloud has only an approximately
+    20% decrease of CPU usage. Unlike the CPU usage, the memory usage has a stable
+    behavior, even with the increase of the workload, as shown by Fig.7 for the cloud
+    experiments, and in Fig. 9 for the fog experiments. However, there is also a decrease
+    of approximately 20% of memory usage when the IoT-Agent is moved to the fog, with
+    its own instance of MongoDB. Fig. 5. Response time for the cloud and fog configurations
+    Show All Fig. 6. CPU usage in the cloud-only experiments Show All Fig. 7. Memory
+    usage in the cloud-only experiments Show All Fig. 8. CPU usage in the fog/cloud
+    experiments Show All Fig. 9. Memory usage in the fog/cloud experiments Show All
+    SECTION VI. Discussion The experiments were successful in replicating a large-scale
+    smart farm environment considering the number of sensors. Also, they showed that
+    fog computing does not always improve the overall system performance. However,
+    there are complex issues to evaluated in opting for a cloud or a fog approach
+    beyond simply adding a machine in the edge of the network. There is a non-trivial
+    trade-off between the given application, the available infrastructure and the
+    system workload. In the SWAMP scenarios, we expect a smaller number of sensors,
+    due to costs and farm sizes, and therefore the experiments that better represent
+    real case scenarios are the ones with 1,000 and 5,000 probes. In those cases,
+    the addition of a fog processing node proved to be a downgrade regarding performance.
+    Nevertheless, the fog has others benefits that compensate the lack of performance.
+    In farms in the inward countryside of Brazil, when there is Internet connectivity,
+    it is frequently unstable and limited, suffering from frequent disconnections.
+    In this case, the fog node is responsible to store sensor data and keep a subset
+    of services online when there is no connection to the Internet. An important and
+    unexpected factor in the experiments was the impact of the network. Initially,
+    we believed that the network would equally impact both configurations fog and
+    cloud). However, the impact was much higher in the fog configuration. This happens
+    because the traffic of JSON/HTTP packets suffer more from network constrains than
+    the lightweight UL 2.0 MQTT traffic. Therefore, when deploying a solution in a
+    real environment, there is the need to analyze if the gain in processing part
+    of the data in another device (the fog) will overcome the limitations imposed
+    by the network. Another solution is to use a lightweight protocol when sending
+    the data to the cloud form the fog. This set of experiments created higher awareness
+    about the scalability tradeoffs of the FIWARE IoT platform. A major concern is
+    regarding the default database used by Orion and the IoT Agent (i.e. MongoDB)
+    that was the major bottleneck of the experiments. It is a known fact that MongoDB
+    does scale as well as other NoSQL databases, such as Cassandra [10]. In the FIWARE
+    documentation, there is no guide or configuration regarding using a different
+    database for both software and it seems that they were hardcoded for working with
+    MongoDB. FIWARE could potentially increase its scalability if it allows the of
+    more efficient databases other than MongoDB. Another solution is to place MongoDB
+    in a dedicated machine. Although FIWARE has a scalability ceiling due to MongoDB,
+    it is suitable for most of the IoT scenarios in smart farms, being capable to
+    handle 10,000 probes without major performance issues. It is proven to be a reliable
+    tool with several advantages. It provides a standard communication format between
+    all services in a given system through the NGSI information model. FIWARE also
+    provides a transparent way to applications – such as dashboards and analytics
+    – to consume sensor data. The IoT Agent can handle data from different sensors
+    and translate them to a standard NGSI and automatically send this data to Orion,
+    whose API is very flexible and able to add new sensors on-the-fly. Orion also
+    proved to be a reliable and useful tool to manage context information, as it stores
+    the last data point of each attribute and provides a simple API to consult it.
+    Also, by using the subscribe operation in Orion, applications do not need to perform
+    polling in the interesting devices. Rather, when data is changed, Orion notifies
+    the subscribed application. SECTION VII. Conclusion We analyzed the performance
+    of FIWARE under different platform configurations comparing fog/cloud and cloud-only
+    scenarios for precision irrigation using one of the SWAMP pilots as the evaluation
+    scenario. Our results reveal non-intuitive outcomes, such as, that fog computing
+    does not always improve the overall system performance. In some cases, the addition
+    of a fog processing nodes even proved to worsen the performance. Also, the network
+    between the farm and the cloud datacenter causes some unexpected differences between
+    different scenarios. The results presented in this paper reveal the tip of the
+    iceberg. In order to fully understand the tradeoffs involved in using IoT platforms
+    and particularly FIWARE, we need to broaden our scope and perform experiments
+    in different configurations, pilots and in scenarios beyond smart farming. Authors
+    Figures References Citations Keywords Metrics More Like This IoT based Irrigation
+    and Water Logging monitoring system using Arduino and Cloud Computing 2019 International
+    Conference on Vision Towards Emerging Trends in Communication and Networking (ViTECoN)
+    Published: 2019 A Smart Manufacturing Service System Based on Edge Computing,
+    Fog Computing, and Cloud Computing IEEE Access Published: 2019 Show More IEEE
+    Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW
+    PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: ''
+  limitations: null
+  pdf_link: null
+  publication_year: 2018
+  relevance_score: 0.9
+  relevance_score1: 0.9
+  relevance_score2: 0
+  title: Scalability of an Internet of Things Platform for Smart Water Management
+    for Agriculture
+  verbatim_quote1: Our results reveal interesting and non-intuitive outcomes, such
+    as that fog computing does not always improve the overall system performance.
+    In some cases, the addition of a fog processing node even proved to worsen the
+    performance.
+  verbatim_quote2: Also, the network between the farm and the cloud datacenter causes
+    some unexpected differences between different scenarios.
+  verbatim_quote3: FIWARE could potentially increase its scalability if it allows
+    the of more efficient databases other than MongoDB. Another solution is to place
+    MongoDB in a dedicated machine.

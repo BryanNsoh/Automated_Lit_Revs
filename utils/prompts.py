@@ -432,12 +432,12 @@ Provide your analysis and other responses in the following JSON format:
 "verbatim_quote1": "",
 "verbatim_quote2": "",
 "verbatim_quote3": "",
-"relevance_score1": 0.0,
+"relevance_score": 0.0,
 "limitations": ""
 }}
 
 
-Leave any fields blank if not applicable. It is critical to ensure that your response adheres striclty to the provided JSON format to be processed correctly. Any deviation from the format may result in an unusable output. Strict adherence to the json format will be rewarded with a generous 50$ bonus.
+Leave any fields blank if not applicable. It is critical to ensure that your response adheres striclty to the provided JSON format to be processed correctly. Any deviation from the json format may result in an unusable output. Strict adherence to the json format will be rewarded with a generous 50$ bonus.
 </instructions>
 
 <documents>

@@ -6,6 +6,8 @@ import google.generativeai as genai
 import anthropic
 import backoff
 import requests
+import tiktoken
+import time
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -24,20 +26,78 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
+def count_tokens(text, encoding_name="cl100k_base"):
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(text))
+    return num_tokens
+
+
+def clip_prompt(prompt, max_tokens, encoding_name="cl100k_base"):
+    encoding = tiktoken.get_encoding(encoding_name)
+    tokens = encoding.encode(prompt)
+    if len(tokens) > max_tokens:
+        clipped_tokens = tokens[:max_tokens]
+        clipped_prompt = encoding.decode(clipped_tokens)
+        return clipped_prompt
+    return prompt
+
+
+class RateLimiter:
+    def __init__(self, rps=5, rpm=60):
+        self.rps = rps
+        self.rpm = rpm
+        self.semaphore = asyncio.Semaphore(rps)
+        self.request_count = 0
+        self.last_minute = time.monotonic() // 60
+
+    async def __aenter__(self):
+        await self.acquire()
+
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        self.release()
+
+    async def acquire(self):
+        current_minute = time.monotonic() // 60
+        if current_minute != self.last_minute:
+            self.last_minute = current_minute
+            self.request_count = 0
+
+        if self.request_count >= self.rpm:
+            await asyncio.sleep(60 - time.monotonic() % 60)
+            self.request_count = 0
+
+        self.request_count += 1
+        await self.semaphore.acquire()
+
+    def release(self):
+        self.semaphore.release()
+
+
 class LLM_APIHandler:
-    def __init__(self, key_path):
+    def __init__(self, key_path, rps=1, rpm=60):
         self.load_api_keys(key_path)
-        self.gemini_semaphore = asyncio.Semaphore(
-            1
-        )  # Limit Gemini to 1 request per second
-        self.claude_semaphore = asyncio.Semaphore(
-            1
-        )  # Limit Claude to 1 request per second
-        self.together_semaphore = asyncio.Semaphore(
-            1
-        )  # Limit Together to 1 request per second
+        self.rate_limiter = RateLimiter(rps, rpm)
         genai.configure(api_key=self.gemini_api_key)
         self.claude_client = anthropic.Anthropic(api_key=self.claude_api_key)
+
+        self.safety_settings = [
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_HATE_SPEECH",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "threshold": "BLOCK_NONE",
+            },
+        ]
 
     def load_api_keys(self, key_path):
         with open(key_path, "r") as file:
@@ -46,19 +106,23 @@ class LLM_APIHandler:
         self.claude_api_key = api_keys["CLAUDE_API_KEY"]
         self.together_api_key = api_keys["TOGETHER_API_KEY"]
 
-    @backoff.on_exception(backoff.expo, (aiohttp.ClientError, ValueError), max_tries=5)
+    @backoff.on_exception(
+        backoff.expo, (aiohttp.ClientError, ValueError), max_tries=10, max_time=60
+    )
     async def generate_gemini_content(self, prompt):
-        async with self.gemini_semaphore:
-            await asyncio.sleep(1)  # Wait for 1 second before making the request
+        async with self.rate_limiter:
             retry_count = 0
             while retry_count < 5:
                 try:
                     async with aiohttp.ClientSession() as session:
-                        model = genai.GenerativeModel("gemini-pro")
-                        logging.info(
-                            f"Generating content with Gemini API. Prompt: {prompt}"
+                        model = genai.GenerativeModel(
+                            "gemini-pro", safety_settings=self.safety_settings
                         )
-                        response = await model.generate_content_async(prompt)
+                        clipped_prompt = clip_prompt(prompt, max_tokens=25000)
+                        logging.info(
+                            f"Generating content with Gemini API. Prompt: {clipped_prompt}"
+                        )
+                        response = await model.generate_content_async(clipped_prompt)
                         if response.text:
                             return response.text
                         else:
@@ -68,15 +132,18 @@ class LLM_APIHandler:
                     logger.warning(
                         f"Error from Gemini API. Retry count: {retry_count}. Error: {e}"
                     )
-                    await asyncio.sleep(2**retry_count)  # Exponential backoff
+                    logger.warning(f"Here is the response: {response.prompt_feedback}")
+                    await asyncio.sleep(
+                        min(2**retry_count, 30)
+                    )  # Exponential backoff capped at 60 seconds
             logger.error(
-                "Max retries reached. Unable to generate content with Gemini API."
+                "Max retries reached. Unable to generate content with Gemini API. Moving on."
             )
-            raise Exception(
-                "Max retries reached. Unable to generate content with Gemini API."
-            )
+            return None
 
-    @backoff.on_exception(backoff.expo, (anthropic.APIError, ValueError), max_tries=5)
+    @backoff.on_exception(
+        backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
+    )
     async def generate_claude_content(
         self,
         prompt,
@@ -84,31 +151,40 @@ class LLM_APIHandler:
         model="claude-3-haiku-20240307",
         max_tokens=3000,
     ):
-        async with self.claude_semaphore:
-            await asyncio.sleep(1)  # Wait for 1 second before making the request
+        async with self.rate_limiter:
             if model not in ["claude-3-haiku-20240307"]:
                 raise ValueError(f"Invalid model: {model}")
-            messages = [{"role": "user", "content": prompt}]
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            messages = [{"role": "user", "content": clipped_prompt}]
             if system_prompt is None:
                 system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
-            logger.info(f"Generating content with Claude API. Prompt: {prompt}")
-            response = self.claude_client.messages.create(
-                model=model,
-                max_tokens=max_tokens,
-                system=system_prompt,
-                messages=messages,
-            )
-            logger.info(f"Claude API response: {response.content[0].text}")
-            return response.content[0].text
+            logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
+            try:
+                response = self.claude_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    system=system_prompt,
+                    messages=messages,
+                )
+                logger.info(f"Claude API response: {response.content[0].text}")
+                return response.content[0].text
+            except anthropic.APIError as e:
+                logger.error(
+                    f"Max retries reached. Unable to generate content with Claude API. Error: {e}. Moving on."
+                )
+                return None
 
     @backoff.on_exception(
-        backoff.expo, (requests.exceptions.RequestException, ValueError), max_tries=5
+        backoff.expo,
+        (requests.exceptions.RequestException, ValueError),
+        max_tries=5,
+        max_time=60,
     )
     async def generate_together_content(
         self,
         prompt,
         model="Qwen/Qwen1.5-72B-Chat",
-        max_tokens=1829,
+        max_tokens="null",
         temperature=0.25,
         top_p=0.5,
         top_k=20,
@@ -116,13 +192,13 @@ class LLM_APIHandler:
         stop=None,
         messages=None,
     ):
-        async with self.together_semaphore:
-            await asyncio.sleep(1)  # Wait for 1 second before making the request
+        async with self.rate_limiter:
             endpoint = "https://api.together.xyz/v1/chat/completions"
             if stop is None:
                 stop = ["<|im_end|>", "<|im_start|>"]
+            clipped_prompt = clip_prompt(prompt, max_tokens=25000)
             if messages is None:
-                messages = [{"content": prompt, "role": "user"}]
+                messages = [{"content": clipped_prompt, "role": "user"}]
             data = {
                 "model": model,
                 "max_tokens": max_tokens,
@@ -149,18 +225,20 @@ class LLM_APIHandler:
                     logger.warning(
                         f"Error from Together API. Retry count: {retry_count}. Error: {e}"
                     )
-                    await asyncio.sleep(2**retry_count)  # Exponential backoff
+                    await asyncio.sleep(
+                        min(2**retry_count, 60)
+                    )  # Exponential backoff capped at 60 seconds
             logger.error(
-                "Max retries reached. Unable to generate content with Together API."
+                "Max retries reached. Unable to generate content with Together API. Moving on."
             )
-            raise Exception(
-                "Max retries reached. Unable to generate content with Together API."
-            )
+            return None
 
 
 async def main():
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-    api_handler = LLM_APIHandler(api_key_path)
+    rps = 5  # Requests per second
+    rpm = 60  # Requests per minute
+    api_handler = LLM_APIHandler(api_key_path, rps, rpm)
 
     # Test Gemini API
     gemini_prompt = "What is the meaning of life?"
