@@ -1,0 +1,1096 @@
+- DOI: https://doi.org/10.3390/rs15071873
+  analysis: 'The paper presented a cloud-based computation offloading and edge computing
+    hybrid system architecture for real-time image and object detection on aerial
+    drones. The system was assessed with object detection utilizing YOLOv4 and YOLOv7,
+    and object tracking using DeepSort. TensorRT was used to accelerate the models
+    for quicker inference. The paper''s core contribution lies in developing a multi-stage
+    deep learning architecture that fuses object detection and tracking for better
+    accuracy via multiple consecutive frame processing. To improve system validity,
+    they tested their methodology on videos with diverse resolutions, acquiring detection
+    rates of 99.3%, 92.1%, and 99.3% for FP, FN, and precision, respectively.
+
+
+    The proposed technique outperforms comparable approaches in terms of accuracy,
+    inference speed, and cloud-edge hybrid architecture. The authors also highlighted
+    necessary future research directions, emphasizing security enhancements to safeguard
+    data transmission and system integrity.
+
+
+    Here are the three most significant verbatim quotes from the paper, along with
+    their corresponding importance scores:
+
+
+    **Verbatim_quote1**
+
+    "The proposed system architecture involves a cloud-edge hybrid approach where
+    the edge is responsible for processing AI tasks and the cloud is responsible for
+    data storage, manipulation, and visualization." (Importance: 0.9)
+
+    **Verbatim_quote2**
+
+    "The proposed cloud–edge hybrid system architecture, coined AERO, was implemented
+    using a UAV brain system with onboard AI capabilities that utilizes GPU-enabled
+    edge devices." (Importance: 0.8)
+
+    **Verbatim_quote3**
+
+    "AERO processes the detected objects over multiple consecutive frames to maximize
+    detection accuracy. The experiments show that the proposed approach is effective
+    for utilizing UAVs equipped with onboard AI capabilities for remote sensing applications."
+    (Importance: 0.7)
+
+
+    In conclusion, the proposed system enhanced the efficiency of object detection
+    and tracking for various remote sensing applications. By leveraging a cloud-edge
+    hybrid architecture and customizing the object detection and tracking pipeline,
+    the system achieved high accuracy, real-time inference, and efficient data management.'
+  authors:
+  - Anis Koubâa
+  - Adel Ammar
+  - Mohamed Abdelkader
+  - Yasser Alhabashi
+  - Lahouari Ghouti
+  citation_count: 14
+  full_citation: '>'
+  full_text: ">\nCitation: Koubaa, A.; Ammar, A.;\nAbdelkader, M.; Alhabashi, Y.;\n\
+    Ghouti, L. AERO: AI-Enabled\nRemote Sensing Observation with\nOnboard Edge Computing\
+    \ in UAVs.\nRemote Sens. 2023, 15, 1873. https://\ndoi.org/10.3390/rs15071873\n\
+    Academic Editors: Wenjiang Huang,\nGiovanni Laneve, Yingying Dong\nand Chenghai\
+    \ Yang\nReceived: 3 March 2023\nRevised: 27 March 2023\nAccepted: 29 March 2023\n\
+    Published: 31 March 2023\nCopyright:\n© 2023 by the authors.\nLicensee MDPI, Basel,\
+    \ Switzerland.\nThis article is an open access article\ndistributed\nunder\nthe\n\
+    terms\nand\nconditions of the Creative Commons\nAttribution (CC BY) license (https://\n\
+    creativecommons.org/licenses/by/\n4.0/).\nremote sensing  \nArticle\nAERO: AI-Enabled\
+    \ Remote Sensing Observation with Onboard\nEdge Computing in UAVs\nAnis Koubaa\
+    \ *,†\n, Adel Ammar †\n, Mohamed Abdelkader\n, Yasser Alhabashi and Lahouari Ghouti\n\
+    College of Computer & Information Sciences, Prince Sultan University, Riyadh 11586,\
+    \ Saudi Arabia;\naammar@psu.edu.sa (A.A.)\n* Correspondence: akoubaa@psu.edu.sa\n\
+    † These authors contributed equally to this work.\nAbstract: Unmanned aerial vehicles\
+    \ (UAVs) equipped with computer vision capabilities have been\nwidely utilized\
+    \ in several remote sensing applications, such as precision agriculture, environmental\n\
+    monitoring, and surveillance. However, the commercial usage of these UAVs in such\
+    \ applications is\nmostly performed manually, with humans being responsible for\
+    \ data observation or ofﬂine processing\nafter data collection due to the lack\
+    \ of on board AI on edge. Other technical methods rely on the\ncloud computation\
+    \ ofﬂoading of AI applications, where inference is conducted on video streams,\n\
+    which can be unscalable and infeasible due to remote cloud servers’ limited connectivity\
+    \ and high\nlatency. To overcome these issues, this paper presents a new approach\
+    \ to using edge computing\nin drones to enable the processing of extensive AI\
+    \ tasks onboard UAVs for remote sensing. We\npropose a cloud–edge hybrid system\
+    \ architecture where the edge is responsible for processing AI\ntasks and the\
+    \ cloud is responsible for data storage, manipulation, and visualization. We designed\n\
+    AERO, a UAV brain system with onboard AI capability using GPU-enabled edge devices.\
+    \ AERO is a\nnovel multi-stage deep learning module that combines object detection\
+    \ (YOLOv4 and YOLOv7) and\ntracking (DeepSort) with TensorRT accelerators to capture\
+    \ objects of interest with high accuracy and\ntransmit data to the cloud in real\
+    \ time without redundancy. AERO processes the detected objects over\nmultiple\
+    \ consecutive frames to maximize detection accuracy. The experiments show a reduced\
+    \ false\npositive rate (0.7%), a low percentage of tracking identity switches\
+    \ (1.6%), and an average inference\nspeed of 15.5 FPS on a Jetson Xavier AGX edge\
+    \ device.\nKeywords: unmanned aerial vehicles; object detection; object tracking;\
+    \ remote sensing; object\nlocalization; edge computing; inspection; YOLOv4; YOLOv7;\
+    \ DeepSORT\n1. Introduction\nThe use of unmanned aerial vehicles (UAVs), also\
+    \ known as drones, in remote sensing\nhas been increasingly beneﬁcial as they\
+    \ help to speed up the data collection of assets of\ninterest using aerial images.\
+    \ Drones make the data collection process cost-effective and\nﬂexible as drones\
+    \ can ﬂy at low or high altitudes. It also helps missions to be more efﬁcient\n\
+    as large regions can be precisely covered in short times thanks to the use of\
+    \ high-resolution\ncameras. Data collection also becomes safe as drones replace\
+    \ humans entering dangerous\nor difﬁcult-to-access environments. These beneﬁts\
+    \ are driving the remote sensing business\nto increasingly rely on drones. As\
+    \ a matter of fact, the market of commercial use of UAVs,\nincluding remote sensing\
+    \ applications, was valued at USD 5.85 billion in 2020 and is\nexpected to have\
+    \ a compound annual growth rate of 14.2% [1].\n1.1. Motivating Scenarios\nAI-powered\
+    \ drones with onboard intelligence are becoming a game changer for many\napplications,\
+    \ including search and rescue, rapid infrastructure inspection, and remote\nsensing,\
+    \ to name a few. Integrating AI solutions directly on the drone’s edge (compute)\n\
+    Remote Sens. 2023, 15, 1873. https://doi.org/10.3390/rs15071873\nhttps://www.mdpi.com/journal/remotesensing\n\
+    Remote Sens. 2023, 15, 1873\n2 of 26\ndevices can dramatically reduce the decision-making\
+    \ time and operational costs. In this\npaper, we will discuss several scenarios\
+    \ in different use cases’ contexts, showing the\nlimitation of existing solutions\
+    \ of UAVs for vision-based applications and discussing the\nadvantages of real-time\
+    \ onboard AI.\n1.1.1. Remote Sensing\nTree counting is one of the applications\
+    \ in remote sensing, where a drone surveys\nfarm regions to count the number of\
+    \ trees. In [2], the authors proposed an ofﬂine counting\nand geo-localization\
+    \ of palm trees based on aerial images using deep learning. However,\nthe processing\
+    \ was performed ofﬂine after collecting palm tree images from a UAV. The\nprocess\
+    \ of data collection and its ofﬂine processing takes a long time and needs to\
+    \ be\nperformed in real time. Leveraging GPU-based edge devices on board the UAV\
+    \ enables\nthe full automation of palm tree counting in real time. Furthermore,\
+    \ it helps to send each\npalm tree information (e.g., image and coordinates) to\
+    \ the cloud and store it in databases in\nreal time. Naturally, the same concept\
+    \ can be applied to other remote sensing applications,\nsuch as gas leakage localization\
+    \ and mapping [3], ﬂash ﬂood real-time monitoring [4,5],\nand urban environment\
+    \ segmentation [6,7].\n1.1.2. Search and Rescue\nConsider a search-and-rescue\
+    \ mission where a drone is required to explore an extended\nregion to search for\
+    \ a missing person in the desert or a forest, for example. It has been\nreported\
+    \ that more than 100 people get lost and die in the desert annually in Saudi Arabia\n\
+    alone [8]. The current practice for search-and-rescue using UAVs is to manually\
+    \ explore\na region with human observers to ﬁnd the target missing people. Using\
+    \ AI on board will\nhelp to automate the process as the UAV can execute specialized\
+    \ person detection models\non board and automatically report their location in\
+    \ real time. It is also possible to use a\nswarm of drones to perform search-and-rescue\
+    \ missions in parallel, speeding up the search\nprocess and increasing the probability\
+    \ of ﬁnding and saving people [9].\n1.1.3. Inspection and Surveillance\nSurveillance\
+    \ and inspection using UAVs is one of the fastest businesses in the drone\nindustry\
+    \ [10]. Drones are typically used to detect objects of interest in surveillance\
+    \ missions,\nsuch as vehicles [11], pedestrians [12], and buildings [13]. Traditional\
+    \ approaches either\ninspect real-time video streams by human observers or record\
+    \ scenes’ videos and process\nthem ofﬂine either manually or using AI techniques\
+    \ to extract target objects. The use\nof onboard AI processing in the UAVs will\
+    \ help to automate the inspection process and\nidentify target objects in real\
+    \ time with a high accuracy, as will be demonstrated in this\npaper.\nThe automation\
+    \ of these applications on board UAVs is possible thanks to the evolution\nof\
+    \ edge devices and their support of advanced graphics processing units (GPUs),\
+    \ making it\npossible to process complex deep learning models in real time.\n\
+    Before the evolution of edge computing, computation ofﬂoading has evolved as the\n\
+    prominent approach to processing heavy computation in the cloud instead of processing\n\
+    them on robots or drones. This concept has been known as cloud robotics. While\
+    \ com-\nputation ofﬂoading offers several advantages by leveraging the capabilities\
+    \ of the cloud\nresources to speed up the processing of deep learning models and\
+    \ computation-intensive\napplications, it suffers from high communication overhead.\
+    \ It also needs a large bandwidth\nand high-quality communication, which cannot\
+    \ always be afforded. In [14], the authors\nproposed a system architecture for\
+    \ computation ofﬂoading in Internet-connected drones\nand compared the performance\
+    \ of cloud computation ofﬂoading versus edge computing\nfor deep learning applications.\
+    \ The study investigated the tradeoff between the commu-\nnication cost and computation\
+    \ and found that computation ofﬂoading provides higher\nthroughput despite larger\
+    \ communication delays.\nRemote Sens. 2023, 15, 1873\n3 of 26\n1.2. Main Contributions\n\
+    In this paper, we aimed to tackle the persisting challenge of deploying onboard\n\
+    artiﬁcial intelligence on the edge in commercial unmanned aerial vehicles (UAVs)\
+    \ that are\nprimarily utilized for remote sensing applications. This predicament\
+    \ often necessitates\nlaborious manual data observation or time-consuming ofﬂine\
+    \ processing, as cloud-based\napproaches are often impractical. There are a few\
+    \ recent works that tested onboard AI\non edge in UAVs for detection and tracking,\
+    \ such as [15–17]. Nevertheless, they did not\ninvestigate the hybrid system architecture\
+    \ that we implemented in this work, and did not\ndiscuss the role of the cloud\
+    \ in their solution. To bridge this gap, we propose using edge\ncomputation on\
+    \ board drones to enable advanced observation and surveillance applications,\n\
+    involving object detection, multi-object-tracking, and real-time reporting of\
+    \ detected target\nobjects to the cloud. In brief, the contributions of the paper\
+    \ can be summarized as follows:\n•\nWe propose a new approach to using edge computing\
+    \ in drones to enable the process-\ning of extensive AI tasks on board UAVs for\
+    \ remote sensing. To overcome the limited\nconnectivity and high latency of remote\
+    \ cloud servers, we propose a cloud–edge\nhybrid system architecture. In this\
+    \ architecture, the edge is responsible for processing\nAI tasks, and the cloud\
+    \ is responsible for data storage, manipulation, and visualiza-\ntion. Our proposed\
+    \ architecture can provide a more scalable and efﬁcient solution for\nremote sensing\
+    \ applications.\n•\nTo implement our proposed architecture, we designed and developed\
+    \ AERO, a UAV\nbrain system with onboard AI capability using GPU-enabled edge\
+    \ devices. AERO\nallows us to capture objects of interest with high accuracy and\
+    \ transmit data to the\ncloud in real time without redundancy. AERO processes\
+    \ the detected objects over\nmultiple consecutive frames to maximize detection\
+    \ accuracy. AERO can be a signiﬁcant\nadvancement in the ﬁeld of remote sensing\
+    \ as it enables UAVs to perform onboard AI\ntasks with high accuracy and real-time\
+    \ data transmission, providing a more efﬁcient\nand cost-effective solution for\
+    \ remote sensing applications.\nThe remaining sections of the paper are organized\
+    \ as follows. Section 1.3 provides\na review of the relevant literature and situates\
+    \ the contribution of the paper in compar-\nison to previous work. Section 2 presents\
+    \ the architecture of the AERO system and de-\nscribes the AERO AI Module. In\
+    \ Section 3, we detail the experimental study conducted\nto evaluate the AERO\
+    \ system’s performance, and we discuss their results in Section 4.\nFinally, Section\
+    \ 5 concludes the paper and suggests potential future research directions for\n\
+    further improvements.\n1.3. Related Works\nThe introduction of UAVs in remote\
+    \ sensing has paved the way for several promising\napplications that span a wide\
+    \ range of domains [18]. Impressive progress has been achieved\nin academic and\
+    \ industrial arenas. Diversity in available solutions is mainly attributed to\
+    \ the\nunderlying technologies and modalities used in the data sense/acquisition\
+    \ processes [19].\nThe latter processes are domain-speciﬁc in nature [20,21].\
+    \ Other techniques, including\ndata preprocessing, feature extraction, and classiﬁcation,\
+    \ are speciﬁcally designed for the\napplication, whether civilian or military.\
+    \ UAV applications in remote sensing have been\nreviewed in [21,22].\n1.3.1. Edge\
+    \ Computing and UAVs\nSeveral recent works addressed the edge computing paradigm,\
+    \ which involves moving\ncomputational processing and storage closer to the end-users,\
+    \ devices, or sensors rather\nthan relying solely on cloud-based solutions. Speciﬁcally,\
+    \ these works focused on leveraging\nUAVs to ofﬂoad computation tasks to edge\
+    \ computing servers, which enables low-latency\ncomputations of speciﬁc tasks\
+    \ without noticeable delay.\nIn [23], Messous et al. proposed an evaluation mechanism\
+    \ of the integration of the\ncomputation ofﬂoading to edge computing servers for\
+    \ the efﬁcient deployment of UAVs.\nRemote Sens. 2023, 15, 1873\n4 of 26\nBased\
+    \ on the proposed evaluation, UAV-based models are able to decide whether to\n\
+    perform local processing, ofﬂoad to an edge server, or delegate the computational\
+    \ tasks to\nthe ground station. Informed decisions are based on low-latency computations\
+    \ of speciﬁc\ntasks without noticeable delay. Qian et al. [24] investigated the\
+    \ performance of a UAV-\nmounted mobile edge computing network where the UAV unit\
+    \ ofﬂoads and executes\nspeciﬁc tasks that originate from some mobile terminal\
+    \ users. The trajectory planning\nproblem was formulated as a Markov decision\
+    \ process (MDP) where optimal trajectories\nwere obtained using a policy based\
+    \ on the double deep Q-network (DDQN) algorithm [25].\nThanks to the DDQN efﬁciency,\
+    \ higher throughput scores were attained.\nA machine-learning-based solution for\
+    \ the planning of UAV trajectories is attributed\nto Aﬁﬁ, and Gadallah [26]. Unlike\
+    \ many existing solutions, Aﬁﬁ and Gadallah targeted\nmissions with real-time\
+    \ navigation requirements in dense urban environments, where\nexisting 5G infrastructures\
+    \ are astutely employed to ensure UAV navigation in complex\nenvironments through\
+    \ continuous interactions between the UAV units and the selected 5G\nnetwork.\
+    \ Like [24], the proposed trajectory planning solution relies on deep reinforcement\n\
+    learning strategies, where the planning accuracy attains 99%.\nIn [27], Xia et\
+    \ al. proposed a ﬂexible design of a wireless edge network using two UAV\nunits.\
+    \ In this design, both units are restricted to operate at ﬁxed altitudes with\
+    \ accelerated\nmotions. Over a deﬁned area, while the ﬁrst UAV unit is in charge\
+    \ of forwarding downlink\nsignals to the user terminals (UTs), the second unit\
+    \ is assigned to the collection of the uplink\ndata. Using statistical information\
+    \ collected from the UT elements and UAVs, lower bounds\non conditional average\
+    \ achievable rates are derived. The proposed scheme is demonstrated\nto attain\
+    \ an energy efﬁciency higher than existing ones.\nBin et al. [28] tackled the\
+    \ problem of the variability of user mobility and MEC environ-\nments, where they\
+    \ suggested a novel scheme for intelligent task ofﬂoading in UAV-enabled\nMEC\
+    \ systems using a digital twin (DT). At the core of the proposed scheme lies the\
+    \ DDQN\nmodel, which is speciﬁcally designed to effectively constrain multi-objective\
+    \ problems. The\nmodel was jointly optimized using closed-form and iterative procedures.\
+    \ The simulation\nresults clearly indicate the convergence of the DDQN-based model\
+    \ while drastically mini-\nmizing the total energy consumption of the MEC system\
+    \ compared to existing optimization\ntechniques.\nA new aerial edge Internet of\
+    \ Things (EdgeIoT) system was contributed by Li et\nal. [29]. In this new EdgeIoT\
+    \ system, a UAV unit is operated as a mobile edge server\nfor processing computational\
+    \ processes related to mission-critical tasks emanating from\nground IoT devices.\
+    \ To capture the underlying feature correlations, a graph-based neural\nnetwork\
+    \ architecture (GNN) was used for the supervised training of the A2C structure.\n\
+    The reported performance analysis highlights the superiority of the mixed GNN-A2C\n\
+    framework in terms of the convergence speed and missing task rates.\nIn [30],\
+    \ Qian et al. proposed a Monte Carlo tree search (MCTS)-based path planning\n\
+    technique assuming that a single UAV is deployed as a mobile service to provide\
+    \ computa-\ntion tasks ofﬂoading services for a set of mobile users on the ground.\
+    \ The reported results\nshow that the MCTS-based scheme outperforms state-of-the-art\
+    \ DQN-based planning\nalgorithms in terms of the average throughput and convergence\
+    \ speed. In some instances,\nUAVs assist edge clouds (ECs) for the large-scale\
+    \ sparely distributed user equipment,\nwhich allows for wide coverage and reliable\
+    \ wireless communication. However, UAVs\nhave limited computation and energy resources,\
+    \ which opens the ﬂoor for potential optimal\nresource allocation.\nIn [31], Wang\
+    \ et al. introduced a vehicular fog computing (VFC) system where\nunmanned ground\
+    \ vehicles (UGVs) perform the computation tasks ofﬂoaded from UAVs\nthat are deployed\
+    \ in natural disaster areas. In these areas, UAVs are effectively used to\nsurvey\
+    \ disaster areas and even perform emergency missions, given their swift deployment\n\
+    and ﬂexibility. However, this efﬁciency is hindered by the limited energy and\
+    \ computational\ncapabilities of UAVs. These limitations are properly addressed\
+    \ by the VFC-based UAV\nsystem proposed by Wang et al., where UGVs may be assigned\
+    \ to perform the computation\nRemote Sens. 2023, 15, 1873\n5 of 26\ntasks ofﬂoaded\
+    \ from UAVs to save energy and computational power. To ensure a smooth\nand steady\
+    \ UAV–UGV collaboration and interaction, the computation task ofﬂoading\nproblem\
+    \ was cast into a two-sided matching problem, where an iterative stable matching\n\
+    algorithm was used. This matching algorithm aims at assigning to each UAV the\
+    \ most\nsuitable UGV among the available ones for ofﬂoading while maximizing the\
+    \ usage of both\nUAVs and UGVs and reducing the average delay.\nYang et al. [32]\
+    \ considered a UAV-enabled MEC platform where multiple mobile\nground users move\
+    \ randomly and tasks arrive in a random fashion. To minimize the\naverage weighted\
+    \ energy consumption of all users under constraints expressed in terms\nof data\
+    \ queue stability and average UAV energy consumption, Yang et al. suggested a\n\
+    multi-stage stochastic optimization scheme where Lyapunov optimization is converted\
+    \ into\nsimpler per-slot deterministic problems vis-a-vis the number of optimizing\
+    \ variables. Based\non their formulation, Yang et al. solved the resource allocation\
+    \ and the UAV movement\nproblems using two reduced-complexity methods, either\
+    \ jointly or separately. The two\nmethods not only satisfy the average UAV energy\
+    \ and queue stability constraints, but they\nalso reconcile the length of the\
+    \ queue backlog and the user energy consumption bounds.\nThe reported results\
+    \ show that the proposed joint and two-stage stochastic optimization\nschemes\
+    \ outperform existing learning-based solutions. Finally, it should be noted that\
+    \ the\njoint optimization scheme attains a better performance than its two-stage\
+    \ counterpart at the\nexpense of an increased computational complexity. Most of\
+    \ the solutions discussed so far\nattempt to optimize the UAVs’ total (or average)\
+    \ energy consumption and computational\npower allocation among mobile users using\
+    \ some type of learning-based strategy.\nIn their proposal, Lyi et al. [33] adopted\
+    \ a different approach to maximize the com-\nputation bits of the whole MEC system:\
+    \ the joint optimization of task ofﬂoading time\nallocation, bandwidth allocation,\
+    \ and the UAV trajectory under speciﬁc energy constraints\nof ground devices and\
+    \ maximal UAV battery energy. The proposed solution splits the\noverall optimization\
+    \ procedure into three stages, where successive convex optimization\nschemes are\
+    \ used. Once individual solutions are identiﬁed, a block coordinate descent\n\
+    (BCD) algorithm integrates the solution of the initial optimization problem. Such\
+    \ a for-\nmulation aims at obtaining alternating optimal solutions for the optimization\
+    \ variables\nconsidered (bandwidth allocation of ground devices, task ofﬂoading\
+    \ time, local computing\ntime allocation, and UAV trajectory) at each time slot.\
+    \ Extensive simulation experiments\nwere conducted to demonstrate the performance\
+    \ improvement attained by the proposed\nBCD-based solution.\nOverall, the proposed\
+    \ solutions discussed in this section suggest that UAV-based\nedge computing systems\
+    \ have certain advantages over cloud-based techniques in terms\nof optimization,\
+    \ convergence speed, throughput, and energy efﬁciency. These advantages\nmake\
+    \ UAV-based edge computing systems a promising solution for various applications,\n\
+    including precision agriculture, smart cities, and disaster management, where\
+    \ real-time\ndata processing and optimization are critical.\n1.3.2. Summary of\
+    \ Related Works\nA summary of the current literature is provided in Table 1. Onboard\
+    \ AI edge com-\nputing is becoming increasingly important for UAV systems, especially\
+    \ those utilizing\nEMC-based solutions. While EMC-based UAV systems offer beneﬁts\
+    \ such as ﬂexibility, re-\nsilience, and swift deployment, they also present new\
+    \ challenges that can only be addressed\nby advanced AI-based solutions, such\
+    \ as reinforcement and deep learning frameworks.\nOne reason for why onboard AI\
+    \ edge computing is necessary for EMC-based UAV sys-\ntems is the need for real-time\
+    \ decision making. In certain applications, such as emergency\nresponse, decisions\
+    \ need to be made quickly and accurately. Onboard AI edge computing\ncan process\
+    \ data in real time, allowing the UAV to make decisions based on the information\n\
+    that it collects, without the need for remote servers. This reduces latency and\
+    \ ensures that\ndecisions are made in a timely manner.\nRemote Sens. 2023, 15,\
+    \ 1873\n6 of 26\nAnother reason is the need for autonomy. UAVs equipped with onboard\
+    \ AI edge com-\nputing can perform tasks autonomously, without human intervention.\
+    \ This is important\nin applications where it may be dangerous or impractical\
+    \ for humans to be present, such\nas in disaster response or surveillance missions.\
+    \ The AI algorithms on board the UAV can\nanalyze the data collected and make\
+    \ decisions based on pre-deﬁned rules, allowing the\nUAV to carry out its tasks\
+    \ independently.\nTable 1. Comparative analysis of related work.\nReference\n\
+    Scope\nAdvantages\nLimitations\n[18]\nOverview of current applications of\nUAVs\
+    \ in remote sensing (up to 2015)\nComprehensive review\nLimited to remote sensing\
+    \ domain\n[19]\nDiscussion of UAV usage in 3D\nmapping (up to 2014)\nIn-depth\
+    \ coverage of\nUAV applications\nLimited to 3D mapping applications\n[20]\nCovers\
+    \ UAV-based platforms for\nglaciology investigations (up to 2016)\nDetailed discussion\
+    \ of UAV systems\nin glaciology\nCovers only one domain\napplication (glaciology)\n\
+    [21]\nReview of UAV deployments in\nforestry (up to 2017)\nIn-depth analysis of\
+    \ UAV systems\nin forestry\nRestricted to European systems\n[22]\nReview of UAV\
+    \ applications in\nremote sensing (up to 2019)\nDiscusses multi-sensor fusion\n\
+    Imbalanced coverage of UAV\nsub-systems\n[23]\nEdge computing usage in UAV\nvisual\
+    \ communication\nExtensive simulation of\nproposed framework\nLack of detailed\
+    \ comparison with\nexisting frameworks\n[24]\nPath planning algorithm using\n\
+    RL paradigms\nOptimal planning and\nrouting decisions\nDoes not analyze the stability\
+    \ of the\nRL-based policies\n[26]\nAutonomous trajectory planning for\nUAV missions\n\
+    Use of 5G wireless infrastructure\nLack of comparison with existing\nSOTA solutions\n\
+    [27]\nMulti-agent Q-learning algorithm for\nenergy optimization\nHigher energy\
+    \ consumption\nefﬁciency in UAV systems\nDoes not discuss the tradeoffs\nrequired\
+    \ to achieve energy efﬁciency\n[28]\nA new solution for MTU association\nand UAV\
+    \ trajectory.\nEfﬁcient RL-based solution using\nDDQN algorithm\nMissing analysis\
+    \ of the\nDDQN limitations\n[29]\nJoint optimization of UAV cruise\ncontrol and\
+    \ task ofﬂoading allocation\nEfﬁcient advantage actor–critic\n(A2C) solution\n\
+    No comparison with SOTA policy\ngradient algorithms\n[30]\nPath planning using\
+    \ Monte Carlo\ntree search (MCTS) algorithm\nConstraint-based maximization of\n\
+    average throughput\nBenchmarking with relatively basic\nRL-based solutions\n[31]\n\
+    Battery and computation resource\noptimization using fog\ncomputing solutions\n\
+    Improved UAV usage and reduced\naverage delay\nMissing comparison with\nSOTA solutions\n\
+    [32]\nUAV energy efﬁciency using\nmulti-stage stochastic optimization\nOptimal\
+    \ resource allocation during\nUAV movement\nHigher computational complexity\n\
+    [33]\nConstraint-based joint optimization\nof bandwidth allocation, task\nofﬂoading\
+    \ time allocation, and\nUAV trajectory\nJoint optimization using block\ncoordinate\
+    \ descent (BCD) algorithm\nLack of in-depth comparison with\nSOTA solutions\n\
+    Furthermore, onboard AI edge computing allows for a more efﬁcient use of resources.\n\
+    With the computing power on board, data can be processed locally without the need\
+    \ for\nconstant data transmission to remote servers. This saves time and energy,\
+    \ and allows for a\nmore efﬁcient use of the UAV’s limited resources, such as\
+    \ its battery life.\nBased on the previous review of the existing literature,\
+    \ there is a growing trend in\nadopting EMC-based UAV systems, given their ﬂexibility,\
+    \ resilience, and swift deploy-\nment. However, new challenges emerge with the\
+    \ deployment of such systems that can be\nhandled only by advanced AI-based solutions,\
+    \ including reinforcement and deep learn-\nRemote Sens. 2023, 15, 1873\n7 of 26\n\
+    ing frameworks. In fact, the solutions reviewed in the previous section are founded\
+    \ on\nwell-established algorithms that have shown promising results in other engineering\
+    \ and\nscience ﬁelds, including the optimal policy for emergency situations, data\
+    \ fusion, and\ninformation retrieval [34–36].\nUAVs are becoming increasingly\
+    \ prevalent across multiple industries due to their\nﬂexibility and resilience.\
+    \ MEC-enabled UAVs are capable of providing computing and\ncommunication services\
+    \ at the network edges, even for ground-based units in areas with\nlimited network\
+    \ coverage. This is particularly important in the ﬁeld of remote sensing,\nwhere\
+    \ data collected from sensors on board the UAV need to be processed and analyzed\n\
+    in real time to support timely decision making. The ability of MEC-equipped UAVs\
+    \ to\nhandle computing tasks and communication services at the network edges can\
+    \ signiﬁcantly\nimprove the speed and accuracy of remote sensing data collection\
+    \ processes.\nAdopting edge computing for the onboard processing on UAVs is a\
+    \ challenging\nproblem, yet beneﬁcial from several perspectives. Embedding computation-intensive\n\
+    applications on the UAV edge device requires sufﬁcient energy, storage, and computation\n\
+    resources to manage the demanding requirements of AI tasks. However, with the\
+    \ evolution\nof edge devices’ capabilities, most of these challenges are overcome\
+    \ to a large extent, which\nmakes edge computing in UAVs possible.\n2. Materials\
+    \ and Methods\n2.1. The AERO System\n2.1.1. Why AI-Enabled Edge Computing for\
+    \ UAVs?\nAI-enabled edge computing for UAVs can provide several beneﬁts, including\
+    \ a low\nlatency, increased efﬁciency, improved reliability, and enhanced privacy,\
+    \ as described below.\n1.\nLow Latency: with advances in graphics processing units\
+    \ (GPUs) for edge devices\n(e.g., NVIDIA’s Jetson boards), edge computing enabled\
+    \ the real-time processing of\nAI tasks, such as object detection, recognition,\
+    \ and tracking. This was not possible a\ncouple of years ago. Consequently, edge\
+    \ computing promotes the real-time processing\nof data on board by allowing the\
+    \ drone to make quick local decisions about detected\nobjects (e.g., the detection\
+    \ of a person to rescue) before sending the information to the\ncloud, thus saving\
+    \ useless communication with the server.\n2.\nIncreased efﬁciency: this approach\
+    \ also improves efﬁciency by decreasing commu-\nnication overhead, saving bandwidth\
+    \ usage, and reducing the latency and load of\nthe cloud servers. In fact, in\
+    \ the case of the cloud computing approach, the drone\nhas to stream images at\
+    \ a high frequency and ofﬂoad AI computation to the cloud.\nThis is greedy in\
+    \ terms of the bandwidth and communication overhead, induces more\ncommunication\
+    \ latencies, and lacks scalability and computation cost, as the cloud\ncannot\
+    \ tolerate massive video trafﬁc with real-time data processing. Edge computing\n\
+    helps to reduce the amount of data to be transmitted over a network and sent to\n\
+    the server.\n3.\nImproved Reliability: computation on edge also improves the reliability\
+    \ of AI-based\nUAV applications. First, the drone data collection process will\
+    \ be less affected by the\npossible loss of communication due to the increased\
+    \ autonomy of the drone by locally\nprocessing collected data. In case of total\
+    \ communication loss, the data of detected\nobjects are still saved locally and\
+    \ transferred to the cloud when the communication\nis back or ofﬂine in the worst\
+    \ scenario. In addition, edge computing makes the\nprocessing of AI tasks distributed\
+    \ among the UAVs and not centralized in the cloud,\nwhich can be vulnerable to\
+    \ outages or other disruptions. There are two resulting\nbeneﬁts: (1) it avoids\
+    \ the single point of failure, and (2) it increases the system’s\nscalability\
+    \ as computing is fully distributed.\n4.\nBetter privacy: the local processing\
+    \ of collected images and detected objects helps\nto enhance privacy preserving\
+    \ by reducing the amount of data that are transmitted\nand stored in centralized\
+    \ remote servers. Adopting strong encryption on individual\ndetected object frames\
+    \ is more efﬁcient than encrypting the whole video stream. In\nRemote Sens. 2023,\
+    \ 15, 1873\n8 of 26\naddition, collected object images transmitted to the cloud\
+    \ will remain private and\nsecure against unauthorized access, as they no longer\
+    \ require being processed as plain\ndata.\n2.1.2. AERO System Architecture\nIn\
+    \ this section, we present the system architecture of AERO, shown in Figure 1.\n\
+    The objective of the AERO system is to provide an ecosystem for using an edge-device\n\
+    on UAVs to execute complex deep learning algorithms to help automate computer\
+    \ vision\napplications, including object detection and tracking, on board the\
+    \ UAVs.\nUSER LAYER\nCLOUD LAYER\nDRONE LAYER\nREQUESTED OBJECT\L\nDETECTED\n\
+    2: {REQUEST: FIND CARS}\n4:{RESPONSE:{ \n           Latitude: 25.4214 \nLongitude:\
+    \ 38.1424 \nImage:          \n}\n1: {REQUEST: FIND CARS}\n5:{RESPONSE:{ \n   \
+    \    Latitude: 25.42 \n       Longitude: 38.1424  \n       Image:          \n\
+    }\n3: {CAPTURE + PROCESSING}\nIMAGE CAPTURE\nOBJECT \nDETECTION+ \nTRACKING\n\
+    {OBJECT: CAR, LOCATION: }\nDATA STORAGE, MANIPULATION\nVISUALIZATION  \n+ \nMONITORING\n\
+    {OBJECT: CAR, LOCATION: }\nCamera\nEdge Device\nNetwork\nCloud\nNetwork\nUser\n\
+    UAV SWARM LAYER\nFigure 1. AERO system architecture.\nThe AERO system is composed\
+    \ of four layers:\n•\nThe Drone Layer: this represents the one UAV subsystem that\
+    \ is equipped with\nonboard processing and storage capabilities to perform AI\
+    \ tasks such as image and\nvideo analysis in real time. Edge computing is used\
+    \ to locally process collected raw\ndata rather than sending them to a remote\
+    \ server as a video stream. In the UAV AERO,\nthe edge device is a GPU-based embedded\
+    \ system (e.g., NVIDIA Jetson Xavier board)\ndirectly attached to the drone’s\
+    \ camera through a proper channel (USB port, Ethernet\n(RTSP), or serial). The\
+    \ drone uses its network interfaces (e.g., 4G/5G cellular networks\nor WiFi) to\
+    \ communicate with and transmit detected objects’ images to the cloud.\n•\nThe\
+    \ Swarm Layer: this layer consists of a cluster of UAVs equipped with camera\n\
+    sensors and AI-edge devices that coordinate together to perform a cooperative\
+    \ mission;\nfor instance, distribute a search for lost people in a large area.\
+    \ In Figure 1, the UAVs\nswarm communicates with the cloud, which orchestrates\
+    \ their mission, rather than\nadopting ad hoc communication among the drones.\
+    \ The reasons are as follows:\n–\nIncreased Reliability: the communication of\
+    \ UAVs with the cloud through cellular\nnetworks provides a more robust and stable\
+    \ connectivity compared to ad hoc\nswarms, which may be subject to interference\
+    \ and non-guaranteed message\nexchange, particularly in large-scale deployment.\
+    \ In critical applications such as\nsearch and rescue, it is essential to maintain\
+    \ reliable communication to ensure\nbetter coordination between drones through\
+    \ the cloud server.\nRemote Sens. 2023, 15, 1873\n9 of 26\n–\nInterference: in\
+    \ ad hoc swarm communication, the drones have to contend for\nchannel access (e.g.,\
+    \ CSMA/CA). This will lead to interference and collision,\nwhich requires message\
+    \ retransmissions. This results in poor communication\nefﬁciency and increased\
+    \ delays. Other approaches involve the use of time syn-\nchronization (e.g., time\
+    \ division multiple access (TDMA))), but these techniques\nare challenging as\
+    \ they need to maintain synchronization among the UAVs. Clock\ndrift, latency,\
+    \ interference, and the dynamic nature of the UAVs can all impact\nthe accuracy\
+    \ of the transmissions, leading to disruptions in the synchrony of the\nTDMA system.\n\
+    –\nGlobal Knowledge: with all swarm UAVs communicating with the cloud, the\nlatter\
+    \ maintains up-to-date information about all UAVs, including their positions,\n\
+    their states, and the list of detected objects. The cloud can make informed deci-\n\
+    sions in real time and an adjustment of the mission plan or resource allocations.\n\
+    For example, if a UAV experiences low battery levels, the cloud will be better\n\
+    positioned to reassign its tasks to other drones based on optimized criteria.\
+    \ The\ncloud can also optimize the task allocation among all drones and give its\
+    \ global\nknowledge to ensure that mission execution is completed effectively.\n\
+    Overall, these planes work together to support the operation and management of\
+    \ a\nﬂeet of drones. The data plane handles the collection and processing of data,\
+    \ the user\nplane enables human users to interact with the system, and the drone\
+    \ plane manages\nthe operation of the drones themselves.\n•\nThe Cloud Layer:\
+    \ as the UAV edge device performs AI computation-intensive tasks,\nthe cloud system\
+    \ does not require having sextensive/advanced computing resources\n(GPU-based\
+    \ cloud systems are not required), which reduces the deployment cost\nconsiderably,\
+    \ as GPU-based cloud systems tend to be more expensive than CPU-\nbased cloud\
+    \ systems. The cloud is responsible for data storage, manipulation, and\nvisualization.\
+    \ The cloud is organized into three planes.\n–\nUAV Plane: the UAV plane is primarily\
+    \ responsible for managing the operation\nof a ﬂeet of drones, including overseeing\
+    \ and coordinating the drones’ activities,\nmanaging the data collected by the\
+    \ drones, and performing mission planning to\nensure compliance and safety. The\
+    \ ﬂeet management system (FMS) plays a critical\nrole in controlling and monitoring\
+    \ drones, scheduling their tasks and missions,\nand ensuring their compliance\
+    \ with airspace regulations. These beneﬁts include\nimproved efﬁciency, data management,\
+    \ and safety.\n–\nData Plane: the data plane is responsible for handling the large\
+    \ amounts of data\ngenerated by the drones’ sensors and onboard equipment. During\
+    \ operation, the\ndrones collect a large amount of data and send them to the cloud\
+    \ for storage and\nprocessing using advanced data analytics frameworks, and visualize\
+    \ dashboards\nto end-users for quick analysis and decision making based on the\
+    \ data collected by\nthe drones. The data plane also ensures the persistence and\
+    \ availability of the data\nwhen needed by the end users through replication,\
+    \ caching, and load balancing.\n–\nUser Plane: the user plane in the AERO system\
+    \ is responsible for interacting with\nusers, including mission planning, monitoring,\
+    \ and control. It allows users to ac-\ncess the system through various interfaces\
+    \ and applications, such as a web-based\ndashboard, mobile app, or API. Through\
+    \ the user plane, users can create and\nmanage drone missions, view real-time\
+    \ drone data, and receive alerts and notiﬁ-\ncations. Users can monitor the status\
+    \ and performance of the operating drones in\nreal time, providing important information\
+    \ such as ﬂight paths, battery levels,\nand sensor data. This feature is essential\
+    \ in situations such as emergency response\nscenarios and surveillance operations.\
+    \ The user plane is a critical component of\nthe AERO system, enabling efﬁcient\
+    \ and effective drone operations by providing\na user-friendly interface for mission\
+    \ management and real-time monitoring.\n•\nThe End-User Layer: the end-user layer\
+    \ in the AERO system enables end-users to\naccess the system through the Internet\
+    \ using web service APIs. The end-users use\nRemote Sens. 2023, 15, 1873\n10 of\
+    \ 26\ninteractive dashboards to monitor the status of their drones in real time,\
+    \ send com-\nmands, and receive real-time video streams that have been processed\
+    \ by deep learning\napplications located either at the edge or on the cloud. The\
+    \ end-user layer interacts\nwith the cloud layer through its user plane, which\
+    \ provides access to authorized cloud\nresources and allows them to interact,\
+    \ monitor, and control drones for operation. The\nend-users can be of different\
+    \ types depending on their role.\n–\nAuthority: responsible for authorizing drone\
+    \ operations, managing the drone\nﬂeet, and ensuring compliance with regulations.\n\
+    –\nOperator: responsible for managing and operating drone ﬂeets, executing drone\n\
+    missions, and ensuring safety.\n–\nUser: requests drone operations for various\
+    \ purposes, such as aerial photography,\nsurveying, or inspection.\n2.1.3. AI-Enabled\
+    \ UAV\nThis section describes the UAV platform that we used to test the AERO system\
+    \ in\npractice. Figure 2 depicts our custom-built battery-powered hexacopter platform\
+    \ and\nhighlights its main components. The hexacopter speciﬁcations are detailed\
+    \ in Table 2.\nFigure 2. Top view of the custom hexacopter.\nTable 2. Hexacopter\
+    \ speciﬁcations.\nNumber of motors\n6\nMotor type\nT-Motor MN3508 KV380\nPropeller\
+    \ size\n15′′\nWheelbase\n850 mm\nBattery\n6200 mAh\nMaximum takeoff weight\n7\
+    \ kg\nMaximum ﬂight time\n15 min\nCamera\nZR10 (30× zoom, 2K resolution)\nEdge\
+    \ device\nNVIDIA Xavier NX\nLimited communication range\n15 Km (2.4 Ghz)\nExtended\
+    \ communication range\nusing 4/5G networks\nThe selected hexacopter platform was\
+    \ equipped with custom onboard electronics to\nenable edge computing as well as\
+    \ continuous cloud connectivity. The hardware architecture\nof the custom onboard\
+    \ electronics and communication systems are shown in Figure 3, and\nare described\
+    \ as follows.\n•\nGimbal–camera System: this is a camera–gimbal system which consists\
+    \ of the main\nvision sensor that is stabilized by a 3-axis gimbal. This system\
+    \ is called a SIYI ZR10\nRemote Sens. 2023, 15, 1873\n11 of 26\ngimbal–camera\
+    \ system and has a 30× hybrid zoom (10× optical and 3× digital) and\na 2K camera.\
+    \ The gimbal–camera system has its own microprocessor, which has\nan RTSP (real\
+    \ time streaming protocol) server that sends real-time image streams to\nclients\
+    \ (edge and communication devices) using Ethernet connections. In addition,\n\
+    the camera orientation is stabilized and controlled by a 3-axis gimbal to control\
+    \ the\nvisual region of interest during ﬂight.\n•\nNVIDIA Jetson Xavier NX: this\
+    \ is the main computation board (edge device) and has\nadequate GPU power to perform\
+    \ real-time object detection and advanced autonomous\nsurveillance mission planning.\
+    \ It is connected to the camera–gimbal system, via\nan Ethernet switch, to receive\
+    \ the real-time image stream and send camera–gimbal\ncommands to control the camera\
+    \ orientation and zoom level. The Xavier NX runs our\ncustom software, which performs\
+    \ real-time object detection and localization, which\nis described in Section\
+    \ 2.2. It also has a connected 4G module to enable extended\ncommunication with\
+    \ the cloud server to send information about the detected objects\nand receive\
+    \ surveillance mission requests.\n•\n4/5G communication: a 4/5G communication\
+    \ module is connected to the Xavier NX\nmodule to enable communication with the\
+    \ cloud server for an extended range. The\ncommunicated information includes the\
+    \ image frames with metadata (e.g., detected\nobjects and their coordinates) sent\
+    \ from the edge device to the cloud server, and\nmission requests from the cloud\
+    \ server to the edge device.\n•\nEthernet switch: this hardware module is used\
+    \ to allowfor transmitting the camera\nimage stream to the onboard computer (Jetson\
+    \ Xavier NX) for image processing, as\nwell as the air unit transceiver, which\
+    \ communicates with a ground remote controller\nfor visualization.\n•\nPixhawk\
+    \ Orange Cube ﬂight controller: this is the autopilot hardware, which runs\nthe\
+    \ well-known open-source PX4 autopilot ﬁrmware [37]. The autopilot stabilizes\
+    \ the\ndrone’s position and executes planned missions that are sent by the onboard\
+    \ computer.\n•\nAir unit transceiver: this module exchanges image streams and\
+    \ UAV telemetry with a\nground remote controller using a 2.4 GHz link.\n•\nRemote\
+    \ controller: the ground remote controller is used by the UAV backup pilot to\n\
+    control the drone maneuvers, if needed, and have real-time visual feedback of\
+    \ the\nonboard camera stream.\nFigure 3. UAV onboard electronics.\nRemote Sens.\
+    \ 2023, 15, 1873\n12 of 26\n2.2. The AERO AI Module\nIn this section, we present\
+    \ the AERO brain system that leverages YOLOv7 [38] for\nobject detection, DeepSort\
+    \ [39] for object tracking, and TensorRT (TRT) [40] acceleration to\nensure the\
+    \ real-time execution of the model on edge devices. The novelty of our approach\n\
+    is the design of a multi-stage deep learning model that allows for making object\
+    \ inferences\nover several consecutive frames to optimize the detection performance\
+    \ in two main aspects:\n•\nAccuracy: typical object detection and tracking models\
+    \ perform inference on one static\nimage from the video frame, which usually leads\
+    \ to high misclassiﬁcation ratios. We\ndramatically improved the accuracy by considering\
+    \ several consecutive frames and\nusing a voting approach to maximize the object\
+    \ recognition accuracy.\n•\nReal Time: a multi-stage model uses several deep learning\
+    \ models in sequence. The\ndeployment of a multi-stage model makes real-time inference\
+    \ more challenging, partic-\nularly on embedded edge devices, considering their\
+    \ lower capabilities. We overcame\nthis issue by using TensorRT acceleration on\
+    \ NVIDIA’s Jetson AXG to maintain a high\nframe rate for the AERO multi-stage\
+    \ inference model.\n2.2.1. AERO Model Architecture\nFigure 4 shows the main steps\
+    \ of the processing performed by the AERO AI module\non edge. The AERO model is\
+    \ composed of three modules, namely the Detection Module,\nthe Model Acceleration\
+    \ Module, and the Tracking Module, described as follows.\nDetection Module\nThe\
+    \ detection module is based on YOLOv7, which is the latest version of the widely\n\
+    used YOLO family of single-stage object detectors. It established the state of\
+    \ the art both\nin terms of accuracy and speed, outperforming competitor models\
+    \ by a large margin. For\ncomparison, we also tested YOLOv4 [41], which is still\
+    \ one of the most popular object\ndetection models.\nThe DeepSORT tracker is an\
+    \ extension of the simple online and real-time tracking\n(SORT) algorithm [42],\
+    \ which is an efﬁcient algorithm used for real-time object tracking.\nThe key\
+    \ innovation of DeepSORT is the incorporation of a pre-trained deep association\n\
+    metric that utilizes object appearance information to improve the tracking performance.\n\
+    The deep association metric in DeepSORT uses a pre-trained deep neural network\
+    \ to\nencode the appearance information of objects. By comparing the features\
+    \ extracted from\nthe neural network, DeepSORT is able to estimate the likelihood\
+    \ of two objects being the\nsame. This allows DeepSORT to handle challenging scenarios\
+    \ such as occlusion, appearance\nchanges, and the temporary disappearance of objects.\
+    \ Overall, DeepSORT provides a robust\nand accurate solution for tracking multiple\
+    \ objects in real time. Its ability to incorporate\nappearance information allows\
+    \ it to handle various challenging scenarios, making it an\nideal solution for\
+    \ applications such as surveillance, robotics, and autonomous vehicles.\nFor these\
+    \ reasons, and for its popularity in the literature, we opted for this particular\n\
+    tracker, although any other multi-object tracker could be used in our system.\
+    \ To integrate\nDeepSORT with the YOLO object detector and the other components\
+    \ of our system, we\nmodiﬁed the implementation of the track class in a similar\
+    \ way to the one described in [43].\nThe object detection and tracking system\
+    \ processes each new frame by ﬁrst applying\nYOLOv7 on the entire frame to obtain\
+    \ bounding boxes and conﬁdence scores for all detected\nobjects. These bounding\
+    \ boxes are then input to DeepSort, the multi-object tracker, which\nproduces\
+    \ pairs of matched tracks and detections as well as lists of unmatched tracks\
+    \ and\ndetections. For each track, the system checks whether it should be discarded,\
+    \ further\nprocessed, or sent to the server.\nRemote Sens. 2023, 15, 1873\n13\
+    \ of 26\nYOLOv7\nObject\nDeepSORT\nTime since\n update\nTrack age\nTrack\nconfirmed?\n\
+    Already\nsent to\nserver?\nSend data to\nserver\nTime since\n update\nTrack age\n\
+    Already\nsent to\nserver?\nSend data to\nserver\nVisualization\nNew Frame\nNext\
+    \ \ntrack\nstep 0\nstep 1\nstep 6.1\n- Boxes\n- Confidence scores\nstep 2\nstep\
+    \ 3\nstep 4\nstep 5\nstep 6\nstep 6.2\nstep 7.1\nstep 7.2\nstep 8.2\nstep 9.2\n\
+    step 10.2\nstep 11.2\nFigure 4. The AERO model architecture of the AI module.\n\
+    First, the system checks if the track has not been matched with a detected bounding\n\
+    box for more than a predeﬁned number of consecutive frames (default value of 10).\
+    \ If\nso, the system assumes that the object is no longer in the camera’s ﬁeld\
+    \ of view. Next,\nthe system checks if the track’s age (number of frames in which\
+    \ the same object has been\ndetected) is within a predeﬁned interval (default\
+    \ value of [2, 40]). A low value indicates\nthat the track is unreliable, whereas\
+    \ a high value means that the object information has\nalready been sent to the\
+    \ server. The default values of the minimum number of consecutive\nframes and\
+    \ the track’s age interval were ﬁxed empirically after a series of preliminary\
+    \ tests.\nIn all cases, the system checks if the current track has been conﬁrmed\
+    \ by being observed\nin the required minimum number of consecutive frames (default\
+    \ value of 3) and has not\nbeen deleted due to missed detections. If the track\
+    \ is conﬁrmed or has been matched with\ndetected bounding boxes in the current\
+    \ or previous frames, the system checks its tracking\nage. If the age is equal\
+    \ to or greater than the maximum allowed age, the system sends\nits information\
+    \ to the server if it has not yet been sent. Finally, the system can optionally\n\
+    visualize the object’s bounding box and information using the current attributes\
+    \ of the\ntrack instance.\nRemote Sens. 2023, 15, 1873\n14 of 26\nIf the track\
+    \ is not conﬁrmed or has not been matched with bounding boxes for at least\ntwo\
+    \ consecutive frames, the system skips it and moves on to the next track. By following\n\
+    this process, the object detection and tracking system can accurately detect and\
+    \ track objects\nin real time while minimizing false detections and conserving\
+    \ computational resources.\nModel Acceleration Module\nWhile deep learning models\
+    \ can provide highly accurate results, they require signiﬁ-\ncant computational\
+    \ and storage resources to train and run, even for YOLOv7, which is the\nfastest\
+    \ object detector to date. This makes deploying deep learning models on edge devices\n\
+    such as Jetson boards a challenging task as these devices often have limited resources\
+    \ in\nterms of memory and processing power.\nTo address this challenge, we leveraged\
+    \ the use of the TensorRT acceleration frame-\nwork. TensorRT is a high-performance\
+    \ inference engine developed by NVIDIA that allows\ndevelopers to optimize deep\
+    \ learning models for deployment on a range of NVIDIA plat-\nforms, including\
+    \ Jetson edge devices. It can optimize models by reducing the precision of\nmodel\
+    \ parameters and minimizing the memory required to store them, allowing the model\n\
+    to run more efﬁciently on edge devices with limited resources. TensorRT can also\
+    \ optimize\nmodels by using dynamic tensor memory allocation, which allocates\
+    \ memory dynamically\nduring inference, reducing the overall memory usage.\nThe\
+    \ TensorRT optimization framework also optimizes models by fusing layers, which\n\
+    combines multiple layers in a neural network into a single layer to speed up model\
+    \ inference.\nThis is particularly important for applications that require real-time\
+    \ processing on edge\ndevices, where latency is critical, such as real-time surveillance\
+    \ applications. In a previous\nstudy [44], we have shown that TensorRT optimization\
+    \ provides the fastest execution on a\nwide variety of cloud and edge devices.\
+    \ This demonstrates the effectiveness of TensorRT in\noptimizing deep learning\
+    \ models for edge devices, achieving faster inference times and a\nlower latency.\n\
+    Target Localization Module\nIn [2], we proposed a methodology for object detection\
+    \ and location estimation based\non established photogrammetry concepts and metadata\
+    \ extracted from drone images,\nincluding EXIF and XMP data. This approach allows\
+    \ for accurately estimating the GPS\nlocation of detected objects within each\
+    \ frame. The use of metadata, such as the drone’s\naltitude and GPS location,\
+    \ image size, and calibrated focal length, provides a demonstrably\nsound basis\
+    \ for determining the location of objects in the images.\nTo account for potential\
+    \ errors or uncertainty in the distance estimation, the algorithm\nalso incorporates\
+    \ a correction factor based on the ratio between the drone’s altitude and\nthe\
+    \ estimated average height of the objects using the formula:\n\n\n\nDc\nx =\n\
+    \x10\n1 − h\nH\n\x11\nDx\nDc\ny =\n\x10\n1 − h\nH\n\x11\nDy\n(1)\nwhere:\n•\n\
+    Dx and Dy are the coordinates of the object’s bounding box center before correction.\n\
+    •\nDc\nx and Dc\ny are the object’s coordinates after correction.\n•\nh is the\
+    \ estimated average object height.\n•\nH is the drone altitude.\nAdditionally,\
+    \ the algorithm considers the yaw degree of the image to reﬁne the location\n\
+    estimation of each object further. This approach allows for an accurate counting\
+    \ of objects\neven when there are overlaps between images, further demonstrating\
+    \ the scientiﬁc rigor\nof the methodology. This same methodology can be applied\
+    \ to the detected objects in\nthe AERO system, although we did not include this\
+    \ target localization module in the\nexperimental part of the current study.\n\
+    Remote Sens. 2023, 15, 1873\n15 of 26\n3. Results\n3.1. Experimental Setup\nFor\
+    \ the experimental evaluation, we tested two different object detection models\n\
+    (YOLOv4 and YOLOv7), two different implementations (PyTorch and TensorRT), three\n\
+    different video resolutions (1920 × 1080 for 2 videos, 2688 × 1512, and 3840 ×\
+    \ 2160, see\nFigures 5 and 6), and three different devices (RTX8000, Jetson Xavier\
+    \ AGX, and Jetson\nXavier NX). The videos’ length ranges from 0.5 mn to 5.9 mn.\
+    \ Videos 1 and 3 were used\nfor the detection of six classes of objects (car,\
+    \ person, bicycle, bus, monocycle, and truck),\nwhereas videos 2 and 4 were used\
+    \ for the detection of a single class (car). On top of each\nbounding box, information\
+    \ is displayed about the detection class, the tracking ID, the\nnumber of frames\
+    \ in which the same object has been observed, and the object color. For\nvideos\
+    \ 1 and 3, the number of objects of each class is also displayed on the top left\
+    \ corner.\nThe outputs of videos 2 and 4 are available on this link: shorturl.at/nrzOY\
+    \ (accessed on 30\nMarch 2023). As for videos 1 and 3, the original footage was\
+    \ provided by a third party that\ndid not agree to disclose them.\nTable 3 presents\
+    \ the conducted experiments that are analyzed below. Due to software\nenvironment\
+    \ limitations and compatibility issues, some frameworks did not work on\nsome\
+    \ devices. We were able to run all conﬁgurations on Jetson Xavier NX (Jetson pack\n\
+    5, TensortRT 8), whereas YOLOv7 did not work on Jetson Xavier AGX (Jetson pack\
+    \ 4.5,\nTensorRT 7) and the TRT versions of YOLOv4 and YOLOv7 did not work on\
+    \ the RTX8000\nGPU (CUDA version 10.0).\nFigure 5. Sample frames from the output\
+    \ of the four videos used for the evaluation of the AI-enabled\nsystem, with different\
+    \ resolutions.\nWe chose the YOLOv7 object detector because it was the state-of-the-art\
+    \ object detector\nin terms of accuracy and speed at the time of this study. As\
+    \ for YOLOv4, we tested it\nfor comparison, seeing that it is still one of the\
+    \ most popular object detectors (YOLOv5\nand YOLOv6 are not as popular in the\
+    \ literature). For our case study, we could not use\nRemote Sens. 2023, 15, 1873\n\
+    16 of 26\nthe pre-trained models of YOLOv4 and YOLOv7 because they were mainly\
+    \ trained on\nground-level images (COCO dataset or OpenImages dataset), and we\
+    \ are dealing with\naerial images. Consequently, for training YOLOv7, we used\
+    \ the VisDrone dataset [45],\nwhich we ﬁltered to keep only one class of vehicles\
+    \ (cars), and, for YOLOv4, we trained a\nmodel on a private dataset containing\
+    \ 940 UAV images showing six classes (car, person,\nbicycle, bus, monocycle, and\
+    \ truck) with a total of 33,088 instances. These images were\ncaptured in the\
+    \ Jeddah region in Saudi Arabia, in daylight and sunny conditions, and\nwere manually\
+    \ labeled. Table 4 summarizes the main hyperparameters and results of the\ntraining\
+    \ of the YOLOv4 and YOLOv7 object detectors. Since we built our custom dataset\n\
+    gradually, we show the results of the training for several sizes of the dataset.\
+    \ We observe\nthat there is a stagnation in terms of the mAP (mean average precision)\
+    \ when moving from\n545 to 821 training images. YOLOv7 shows notably better results\
+    \ in terms of mAP but they\nare not directly comparable to YOLOv4’s results since\
+    \ the number of classes is different.\nFigure 6. Close view of a sample of the\
+    \ output videos showing various classes, and some false\nnegative and false positive\
+    \ detections.\nRemote Sens. 2023, 15, 1873\n17 of 26\nTable 3. Conducted experiments\
+    \ on different devices, object detection models, frameworks, and\ninput video\
+    \ resolutions.\nDevice\nModel\nImplementation\nResolution\nRTX8000\nJetson\nXavier\
+    \ AGX\nJetson\nXavier NX\nYOLOv4\nTRT\n2688 × 1512\n!\n!\n3840 × 2160\n!\n!\n\
+    YOLOv7\nTRT\n1920 × 1080\n!\nPyTorch\n1920 × 1080\n!\n!\nTable 4.\nHyperparameters\
+    \ and results of the training of the YOLOv4 object detector for\nseveral conﬁgurations.\n\
+    YOLO\nVersion\nDataset\nNb Classes\nTraining Images\nValidation Images\nInput\
+    \ Size\nBest mAP\nv4\nCustom\n6\n311\n35\n608 × 608\n41.9%\nv4\nCustom\n6\n545\n\
+    60\n768 × 768\n57.0%\nv4\nCustom\n6\n821\n91\n768 × 768\n57.0%\nv7\nVisDrone\n\
+    1\n4935\n617\n640 × 640\n91.3%\n3.2. Performance Evaluation\nWe ﬁrst analyzed\
+    \ the inference speed for each device and detection model using a\nseries of box\
+    \ plots (Figures 7–9). Box plots are a useful way to visualize the distribution\
+    \ of\ndata and compare data across multiple variables, and can provide insights\
+    \ into the central\ntendency, variability, and skewness of the data. The grey\
+    \ line inside each box represents\nthe median value of the data. Half of the data\
+    \ points fall above this line and half fall below.\nThe box itself represents\
+    \ the interquartile range (IQR), which contains the middle 50% of\nthe data. The\
+    \ bottom of the box represents the ﬁrst quartile (Q1), or the value at which 25%\n\
+    of the data fall below. The top of the box represents the third quartile (Q3),\
+    \ or the value at\nwhich 75% of the data fall below. The whiskers extend from\
+    \ the box to show the range of\nthe data, excluding any outliers, while the individual\
+    \ blue points represent a 1D scatter\nplot of the data.\nFigure 7 depicts the\
+    \ box plot of the inference speed in frames per second (FPS) for\neach device,\
+    \ detection model, and input video resolution. We observe that the TensorRT\n\
+    optimization of the YOLOv4 model provides the fastest inference speed, even on\
+    \ higher-\nresolution input videos, whereas, for YOLOv7, the TRT optimization\
+    \ provides no gain in\nspeed. In contrast, the average inference speed deteriorates\
+    \ from 7.2 FPS (for the PyTorch\nimplementation) to 2.8 FPS (for TRT). This is\
+    \ likely due to the fact that the new features\nintroduced in YOLOv7 are not yet\
+    \ adequately optimized in the latest versions of TensorRT.\nFigure 8 shows the\
+    \ box plot of the inference speed for each device and detection model\nin the\
+    \ case where the detected objects are sent to the cloud and in the case where\
+    \ the\nconnection to the cloud is disabled. In all cases, the connection to the\
+    \ cloud signiﬁcantly\nslows down the inference speed of the whole system. The\
+    \ average speeds drops from\n12.3 FPS when no data are sent to the cloud to 5.0\
+    \ FPS when sending data to the cloud.\nThis highlights the importance of choosing\
+    \ a high-quality network and optimizing the\nedge–cloud communication.\nRemote\
+    \ Sens. 2023, 15, 1873\n18 of 26\nFigure 7. Inference speed per device, detection\
+    \ model, and video resolution.\nFigure 8. Inference speed per device, detection\
+    \ model, and connection to the cloud.\nFigure 9 shows the box plot of the inference\
+    \ speed for each device and detection model\nin the case where the DeepSORT tracker\
+    \ is included or excluded. On all devices, and for\nall object detection models,\
+    \ the use of the tracker markedly decelerates the system. The\naverage inference\
+    \ speed declines from 19.6 FPS (without tracker) to 5.0 FPS (with tracker).\n\
+    Nevertheless, the use of the tracker is necessary to correctly count the number\
+    \ of objects\nand send each object’s information to the server only once. We should,\
+    \ however, investigate\nfaster multi-object trackers to enhance the overall system\
+    \ speed.\nRemote Sens. 2023, 15, 1873\n19 of 26\nFigure 9. Inference speed per\
+    \ device, detection model, and use of tracker.\nTo analyze the inﬂuence of each\
+    \ component of the AI system and control for variability\ndue to different devices\
+    \ and video resolutions, we generated a set of scatter plots to\nmeasure the inference\
+    \ speed on the Jetson Xavier NX device with an input video resolution\nof 1920\
+    \ × 1080. Figure 10 illustrates the scatter plot of the inference speed per number\n\
+    of detected objects in each frame using both PyTorch and TRT versions of the YOLOv7\n\
+    object detection model. As previously noted (about Figure 7), the PyTorch implementation\n\
+    achieved higher inference speeds compared to the TRT implementation. Figure 10\
+    \ appears\nas a superimposition of three plots, which we will distinguish in subsequent\
+    \ ﬁgures.\nFigure 10. Inference speed (in FPS) per number of detected objects,\
+    \ on Jetson Xavier NX, with an\ninput video resolution of 1920 × 1080, using the\
+    \ PyTorch and TRT version of the YOLOv7 object\ndetection model.\nRemote Sens.\
+    \ 2023, 15, 1873\n20 of 26\nFigure 11 presents the scatter plot of the inference\
+    \ speed per number of detected\nobjects, on Jetson Xavier NX, with an input video\
+    \ resolution of 1920 × 1080, using the TRT\nversion of the YOLOv7 object detection\
+    \ model, when including or excluding the tracker.\nAs already noted in Figure\
+    \ 9, the use of the tracker signiﬁcantly slows down the system\nperformance. The\
+    \ blue dots in Figure 11 represent the measures that included the tracker,\nand\
+    \ correspond to the lower part of the plot in Figure 10. The magenta dots, corresponding\n\
+    to the inclusion of the tracker in the AI system, still appear as the superimposition\
+    \ of two\nplots. They will be distinguished in the next ﬁgure.\nFigure 12 shows\
+    \ a similar scatter plot but with no tracker when including or excluding\nthe\
+    \ local saving of the output video. It demonstrates that storing the resulting\
+    \ output video\non the edge’s disk consumes a signiﬁcant amount of time and markedly\
+    \ slows down the\noverall inference speed. The system speed decreases from 12.9\
+    \ FPS to 6.8 FPS on average\nover all devices and conﬁgurations. For the conﬁguration\
+    \ shown in Figure 12 (Jetson Xavier\nNX, YOLOv7 TRT, no tracker, 1920 × 1080 video\
+    \ resolution), the average inference speed\ndrops from 5.8 FPS to 2.7 FPS when\
+    \ saving the output video. Consequently, this local\nstorage should not be used\
+    \ unless it is absolutely required for the application.\nFigure 11. Inference\
+    \ speed (in FPS) per number of detected objects, on Jetson Xavier NX, with an\n\
+    input video resolution of 1920 × 1080, using the TRT version of the YOLOv7 object\
+    \ detection model,\nwhen including or excluding the tracker.\nRemote Sens. 2023,\
+    \ 15, 1873\n21 of 26\nFigure 12. Inference speed (in FPS) per number of detected\
+    \ objects, on Jetson Xavier NX, with an\ninput video resolution of 1920 × 1080,\
+    \ using the TRT version of the YOLOv7 object detection model,\nwith no tracker,\
+    \ when including or excluding the saving of the video output.\n4. Discussion\n\
+    From Figures 7–12, we conclude that the inference speed of an AI system for object\n\
+    detection can be affected by various factors, including the device used, the detection\
+    \ model,\nthe input video resolution, the use of cloud connectivity, and the inclusion\
+    \ of a tracker or\nlocal saving of output videos. The TensorRT optimization of\
+    \ the YOLOv4 model provides\nthe fastest inference speed even on higher-resolution\
+    \ input videos. However, for YOLOv7,\nthe TRT optimization did not provide any\
+    \ gain in speed due to an inadequate optimization\nof new features in the TensorRT\
+    \ version used. Sending data to the cloud signiﬁcantly slows\ndown the inference\
+    \ speed, highlighting the importance of choosing a high-quality network\nand optimizing\
+    \ edge–cloud communication. The use of a multi-object tracker is necessary\nto\
+    \ correctly count the number of objects and send each object’s information to\
+    \ the server\nonly once, but it markedly decelerates the system. Finally, avoiding\
+    \ the local saving of\nthe output video can also help to improve the system’s\
+    \ inference speed. Therefore, the\nbest conﬁguration for an AI system for object\
+    \ detection depends on the speciﬁc application\nrequirements and hardware constraints.\n\
+    To assess the accuracy of the object detector, the inﬂuence of the TRT optimization,\n\
+    and the multi-object tracker, we selected two test videos (see Figure 5):\n•\n\
+    video 1: showing six classes (car, person, bicycle, bus, monocycle, and truck),\
+    \ with an\naverage of six objects per frame, an input resolution of 3840 × 2160,\
+    \ a length of 50 s,\nand an FPS of 30.\n•\nvideo 4: showing a single class of\
+    \ cars (with an average of six cars per frame), with an\ninput resolution of 1920\
+    \ × 1080, a length of 4 mn and 25 s, and an FPS of 24.\nWe manually counted the\
+    \ following metrics on still images extracted from the video\nevery 20 frames\
+    \ (75 frames for video 1 and 319 frames for video 4):\n•\nFP: number of false\
+    \ positives (objects incorrectly detected) generated by the object\ndetection\
+    \ model.\n•\nFN: number of false negatives (non-detected objects) generated by\
+    \ the object detection\nmodel.\nRemote Sens. 2023, 15, 1873\n22 of 26\n•\nPrecision:\
+    \ Precision =\nTP\nTP+FP, where TP is the number of true positives (correctly\n\
+    detected objects).\n•\nRecall: Recall =\nTP\nTP+FN\n•\nF1 score: F1score = 2×Precision×Recall\n\
+    Precision+Recall\n•\nIdentity switches: number of switches between the IDs assigned\
+    \ by the tracker. This\nhappens when the tracker conﬂates two objects that are\
+    \ too close.\n•\nIdentity changes: number of changes in the IDs assigned by the\
+    \ tracker to the same\nobject. This happens when the tracker misinterprets a single\
+    \ moving object for\ntwo objects.\nTable 5 summarizes the obtained results for\
+    \ these metrics when using the TRT imple-\nmentations of the YOLOv4 object detector\
+    \ on video 1. The number of FNs is relatively\nlow compared to the number of FPs\
+    \ due to the fact that most vehicles have a relatively\nlarge size (compared to\
+    \ video 4). The number of identity switches and changes is also\nreduced compared\
+    \ to video 4 because the distance between objects is markedly larger,\nwhich makes\
+    \ the tracker’s task easier. Figure 13 shows two close frames from the output\
+    \ of\nvideo 1 where several detection and tracking errors appear. We notice one\
+    \ false positive\nin frame 240 (‘person’), and two other false positives in frame\
+    \ 260 (‘person’ and ‘truck’),\nas well as a misclassiﬁcation (truck classiﬁed\
+    \ as ‘person’). Between the two frames, there\nare three identity changes (4→34,\
+    \ 5→4, and 30→19). Identity switches often happen when\ntwo objects move close\
+    \ to each other, while identity changes may happen when the object’s\nspeed is\
+    \ relatively high.\nFigure 13. Sample frames from the output of video 1, showing\
+    \ frames number 240 and 260.\nRemote Sens. 2023, 15, 1873\n23 of 26\nOn the other\
+    \ hand, Table 6 summarizes the obtained results when using the PyTorch or\nthe\
+    \ TRT implementations of the YOLOv7 object detector on video 4. The difference\
+    \ between\nthe two implementations is relatively minor, except for identity switches,\
+    \ which double\nfrom 5 to 10 when converting the PyTorch model to TRT. This indicates\
+    \ a loss in precision in\nthe converted detection model that impacts the tracker\
+    \ accuracy. Nevertheless, this ﬁgure\nremains relatively low (1.6% to 3.1% relative\
+    \ to the number of frames) considering the\nnumber of cars and the duration of\
+    \ the video. By contrast, the number of identity changes is\nmuch higher, both\
+    \ for the PyTorch and the TRT implementations. The tradeoff between the\nnumber\
+    \ of identity switches and identity changes can be modiﬁed by changing the tracker\n\
+    hyperparameters, but we consider the identity switches to be more critical because\
+    \ they\nentail the conﬂation of the information of different objects, whereas\
+    \ the identity changes\nonly result in duplicate information sent to the server.\
+    \ On the other hand, we observe that\nthe number of false negatives is much higher\
+    \ than the number of false positives. In fact,\nsmall or occluded objects are\
+    \ often missed by the object detector, as can be seen in Figure 5.\nConsequently,\
+    \ the precision is high (99.3% for both PyTorch and TRT implementations),\nwhereas\
+    \ the recall is much lower (72.5% and 73.1% for PyTorch and TRT, respectively).\
+    \ This\ntradeoff can also be modiﬁed by changing the score threshold for the object\
+    \ detector.\nTable 5. Number of false positive detections (FPs), false negative\
+    \ detections (FNs), precision, recall,\nF1 score, identity switches, and identity\
+    \ changes for the TRT implementation of the YOLOv4 object\ndetection model on\
+    \ test video 1 (resolution of 3840 × 2160, length of 50 s, FPS of 30) captured\
+    \ by a\ndrone, showing 6 classes (car, person, bicycle, bus, monocycle, and truck).\n\
+    FP\nFN\nPrecision\nRecall\nF1 Score\nIdentity\nSwitches\nIdentity\nChanges\nYOLOv4\
+    \ TRT\n80\n33\n82.7%\n92.1%\n87.1%\n16\n26\nTable 6. Number of false positive\
+    \ detections (FPs), false negative detections (FNs), precision, recall,\nF1 score,\
+    \ identity switches, and identity changes for the PyTorch and TRT implementation\
+    \ of the\nYOLOv7 object detection model on test video 4 (resolution of 1920 ×\
+    \ 1080, length of 4 mn and 25 s,\nFPS of 24) captured by a drone, showing a single\
+    \ class of ’cars’.\nFP\nFN\nPrecision\nRecall\nF1 Score\nIdentity\nSwitches\n\
+    Identity\nChanges\nYOLOv7 PyTorch\n20\n1136\n99.3%\n72.5%\n83.8%\n5\n184\nYOLOv7\
+    \ TRT\n22\n1099\n99.3%\n73.1%\n84.2%\n10\n176\n5. Conclusions\nThe commercial\
+    \ usage of UAVs is still largely limited by the lack of onboard AI on\nthe edge,\
+    \ leading to manual data observation and ofﬂine processing after data collection.\n\
+    Alternatively, some approaches rely on the cloud computation ofﬂoading of AI applications,\n\
+    which can be unscalable and infeasible due to a limited connectivity and high\
+    \ latency of\nremote cloud servers. To address these issues, in this paper, we\
+    \ proposed a new approach\nthat uses edge computing in drones to enable extensive\
+    \ AI task processing on board UAVs\nfor remote sensing applications. The proposed\
+    \ system architecture involves a cloud–edge\nhybrid approach where the edge is\
+    \ responsible for processing AI tasks and the cloud is\nresponsible for data storage,\
+    \ manipulation, and visualization.\nTo implement this architecture, coined AERO,\
+    \ we designed a UAV brain system with\nonboard AI capabilities that uses GPU-enabled\
+    \ edge devices. AERO is a novel multi-stage\ndeep learning module that combines\
+    \ object detection (YOLOv4 and YOLOv7) and tracking\n(DeepSort) with TensorRT\
+    \ accelerators to capture objects of interest with a high accuracy\nand transmit\
+    \ data to the cloud in real time without redundancy. AERO processes the\ndetected\
+    \ objects over multiple consecutive frames to maximize detection accuracy. The\n\
+    Remote Sens. 2023, 15, 1873\n24 of 26\nexperiments show that the proposed approach\
+    \ is effective for utilizing UAVs equipped\nwith onboard AI capabilities for remote\
+    \ sensing applications.\nWhile the proposed system architecture and AERO module\
+    \ were designed to process\nvisual data from UAVs, future work could explore the\
+    \ integration of other sensors, such\nas LiDAR or thermal cameras, to enhance\
+    \ the accuracy and efﬁciency of remote sensing\napplications. In addition, we\
+    \ plan to explore the integration of autonomous navigation\ncapabilities to enable\
+    \ UAVs to navigate and collect data independently, without the need\nfor manual\
+    \ control or intervention.\nAnother crucial aspect that needs to be considered\
+    \ in future works when designing\ndrone systems with onboard AI capabilities is\
+    \ security, as highlighted in [46–48] . Drone\ncommunications are susceptible\
+    \ to cyber-attacks, making it crucial to protect the data being\ntransmitted between\
+    \ the UAV and the cloud. Implementing security measures such as\nencryption and\
+    \ authentication protocols can protect the system from unauthorized access\nand\
+    \ data breaches. Additionally, implementing physical security measures such as\
+    \ tamper-\nprooﬁng the onboard AI hardware can prevent malicious actors from tampering\
+    \ with\nthe system. These security measures must be implemented at every stage\
+    \ of the system\ndevelopment and deployment to ensure the safety and privacy of\
+    \ data collected by UAVs.\nNevertheless, these measures can affect the system’s\
+    \ inference speed in a way that still has\nto be investigated.\nAuthor Contributions:\
+    \ Conceptualization, A.K. and A.A.; methodology, A.K., A.A. and M.A.; soft-\n\
+    ware, Y.A. and A.A.; validation, A.K., A.A. and M.A.; formal analysis, A.K., A.A.\
+    \ and M.A.; investi-\ngation, A.K., A.A. and M.A.; resources, A.K.; data curation,\
+    \ A.A. and Y.A.; writing—original draft\npreparation, A.K., A.A., M.A. and L.G.;\
+    \ writing—review and editing, A.K., A.A., M.A. and L.G.;\nvisualization, A.A.\
+    \ and M.A.; supervision, A.K., A.A. and M.A.; project administration, A.K.; funding\n\
+    acquisition, A.K. All authors have read and agreed to the published version of\
+    \ the manuscript.\nFunding: The APC for this article was funded by Prince Sultan\
+    \ University.\nAcknowledgments: We thank Prince Sultan University for facilitating\
+    \ the experiments on the univer-\nsity campus and ﬁnancially supporting publication\
+    \ expenses.\nConﬂicts of Interest: The authors declare no conﬂict of interest.\
+    \ The funders had no role in the design\nof the study; in the collection, analyses,\
+    \ or interpretation of data; in the writing of the manuscript, or\nin the decision\
+    \ to publish the results\nReferences\n1.\nZanelli, E.; Bödecke, H.\nGlobal Drone\
+    \ Market Report 2022–2030;\nTechnical report; Drone Industry Insights: Hamburg,\n\
+    Germany, 2022.\n2.\nAmmar, A.; Koubaa, A.; Benjdira, B. Deep-Learning-Based Automated\
+    \ Palm Tree Counting and Geolocation in Large Farms from\nAerial Geotagged Images.\
+    \ Agronomy 2021, 11, 1458. [CrossRef]\n3.\nGallego, V.; Rossi, M.; Brunelli, D.\
+    \ Unmanned aerial gas leakage localization and mapping using microdrones. In Proceedings\
+    \ of\nthe 2015 IEEE Sensors Applications Symposium (SAS), Zadar, Croatia, 13–15\
+    \ April 2015 ; pp. 1–6. [CrossRef]\n4.\nAbdelkader, M.; Shaqura, M.; Claudel,\
+    \ C.G.; Gueaieb, W. A UAV based system for real time ﬂash ﬂood monitoring in desert\n\
+    environments using Lagrangian microsensors. In Proceedings of the 2013 International\
+    \ Conference on Unmanned Aircraft\nSystems (ICUAS), Atlanta, GA, USA, 28–31 May\
+    \ 2013; pp. 25–34. [CrossRef]\n5.\nAbdelkader, M.; Shaqura, M.; Ghommem, M.; Collier,\
+    \ N.; Calo, V.; Claudel, C. Optimal multi-agent path planning for fast inverse\n\
+    modeling in UAV-based ﬂood sensing applications. In Proceedings of the 2014 International\
+    \ Conference on Unmanned Aircraft\nSystems (ICUAS), Orlando, FL, USA, 27–30 May\
+    \ 2014; pp. 64–71. [CrossRef]\n6.\nBenjdira, B.; Bazi, Y.; Koubaa, A.; Ouni, K.\
+    \ Unsupervised Domain Adaptation Using Generative Adversarial Networks for\nSemantic\
+    \ Segmentation of Aerial Images. Remote Sens. 2019, 11, 1369. [CrossRef]\n7.\n\
+    Benjdira, B.; Ammar, A.; Koubaa, A.; Ouni, K. Data-Efﬁcient Domain Adaptation\
+    \ for Semantic Segmentation of Aerial Imagery\nUsing Generative Adversarial Networks.\
+    \ Appl. Sci. 2020, 10, 1092. [CrossRef]\n8.\nGulf News, Saudi Arabia: 131 People\
+    \ Went Missing in Desert Last Year. 2021. Available online: https://gulfnews.com/world/\n\
+    gulf/saudi/saudi-arabia-131-people-went-missing-in-desert-last-year-1.78403752\
+    \ (accessed on 1 March 2023).\n9.\nKobaa, A. System and Method for Service Oriented\
+    \ Cloud Based Management of Internet-of-Drones. U.S. Patent US11473913B2,\n15\
+    \ October 2022.\n10.\nFortune Buisness Insights, Drone Surveillance Market. 2022.\
+    \ Available online: https://www.fortunebusinessinsights.com/\nindustry-reports/drone-surveillance-market-100511\
+    \ (accessed on 1 March 2023).\nRemote Sens. 2023, 15, 1873\n25 of 26\n11.\nAmmar,\
+    \ A.; Koubaa, A.; Ahmed, M.; Saad, A.; Benjdira, B. Vehicle detection from aerial\
+    \ images using deep learning: A\ncomparative study. Electronics 2021, 10, 820.\
+    \ [CrossRef]\n12.\nYeom, S.; Cho, I.J. Detection and tracking of moving pedestrians\
+    \ with a small unmanned aerial vehicle. Appl. Sci. 2019, 9, 3359.\n[CrossRef]\n\
+    13.\nDing, J.; Zhang, J.; Zhan, Z.; Tang, X.; Wang, X. A Precision Efﬁcient Method\
+    \ for Collapsed Building Detection in Post-Earthquake\nUAV Images Based on the\
+    \ Improved NMS Algorithm and Faster R-CNN. Remote Sens. 2022, 14, 663. [CrossRef]\n\
+    14.\nKoubaa, A.; Ammar, A.; Alahdab, M.; Kanhouch, A.; Azar, A.T. DeepBrain: Experimental\
+    \ Evaluation of Cloud-Based Computation\nOfﬂoading and Edge Computing in the Internet-of-Drones\
+    \ for Deep Learning Applications. Sensors 2020, 20, 5240. [CrossRef]\n[PubMed]\n\
+    15.\nHossain, S.; Lee, D.j. Deep learning-based real-time multiple-object detection\
+    \ and tracking from aerial imagery via a ﬂying robot\nwith GPU-based embedded\
+    \ devices. Sensors 2019, 19, 3371. [CrossRef]\n16.\nQueralta, J.P.; Raitoharju,\
+    \ J.; Gia, T.N.; Passalis, N.; Westerlund, T. Autosos: Towards multi-uav systems\
+    \ supporting maritime\nsearch and rescue with lightweight ai and edge computing.\
+    \ arXiv 2020, arXiv:2005.03409.\n17.\nVasilopoulos, E.; Vosinakis, G.; Krommyda,\
+    \ M.; Karagiannidis, L.; Ouzounoglou, E.; Amditis, A. A Comparative Study of\n\
+    Autonomous Object Detection Algorithms in the Maritime Environment Using a UAV\
+    \ Platform.\nComputation 2022, 10, 42.\n[CrossRef]\n18.\nPajares, G. Overview\
+    \ and Current Status of Remote Sensing Applications Based on Unmanned Aerial Vehicles\
+    \ (UAVs). Pho-\ntogramm. Eng. Remote Sens. 2015, 81, 281–330. [CrossRef]\n19.\n\
+    Nex, F.; Remondino, F. UAV for 3D mapping applications: A review. Appl. Geomat.\
+    \ 2014, 6, 1–15. [CrossRef]\n20.\nBhardwaj, A.; Sam, L.; Martín-Torres, F.J.;\
+    \ Kumar, R. UAVs as remote sensing platform in glaciology: Present applications\
+    \ and\nfuture prospects. Remote Sens. Environ. 2016, 175, 196–204. [CrossRef]\n\
+    21.\nTorresan, C.; Berton, A.; Carotenuto, F.; Di Gennaro, S.F.; Gioli, B.; Matese,\
+    \ A.; Miglietta, F.; Vagnoli, C.; Zaldei, A.; Wallace, L.\nForestry applications\
+    \ of UAVs in Europe: A review. Int. J. Remote Sens. 2017, 38, 2427–2447. [CrossRef]\n\
+    22.\nYao, H.; Qin, R.; Chen, X. Unmanned Aerial Vehicle for Remote Sensing Applications—A\
+    \ Review. Remote Sens. 2019, 11, 1443–1464.\n[CrossRef]\n23.\nMessous, M.A.; Hellwagner,\
+    \ H.; Senouci, S.M.; Emini, D.; Schnieders, D. Edge computing for visual navigation\
+    \ and mapping in a\nUAV network. In Proceedings of the ICC 2020–2020 IEEE International\
+    \ Conference on Communications (ICC), Dublin, Ireland,\n7–11 June 2020; pp. 1–6.\n\
+    24.\nLiu, Q.; Shi, L.; Sun, L.; Li, J.; Ding, M.; Shu, F. Path Planning for UAV-Mounted\
+    \ Mobile Edge Computing with Deep Reinforcement\nLearning. IEEE Trans. Veh. Technol.\
+    \ 2020, 69, 5723–5728. [CrossRef]\n25.\nMnih, V.; Kavukcuoglu, K.; Silver, D.;\
+    \ Graves, A.; Antonoglou, I.; Wierstra, D.; Riedmiller, M. Playing Atari with\
+    \ Deep\nReinforcement Learning. arXiv 2013, arXiv:1312.5602.\n26.\nAﬁﬁ, G.; Gadallah,\
+    \ Y. Cellular Network-Supported Machine Learning Techniques for Autonomous UAV\
+    \ Trajectory Planning.\nIEEE Access 2022, 10, 131996–132011. [CrossRef]\n27.\n\
+    Xia, W.; Zhu, Y.; De Simone, L.; Dagiuklas, T.; Wong, K.K.; Zheng, G. Multiagent\
+    \ Collaborative Learning for UAV Enabled\nWireless Networks. IEEE J. Sel. Areas\
+    \ Commun. 2022, 40, 2630–2642. [CrossRef]\n28.\nLi, B.; Liu, Y.; Tan, L.; Pan,\
+    \ H.; Zhang, Y. Digital twin assisted task ofﬂoading for aerial edge computing\
+    \ and networks. IEEE\nTrans. Veh. Technol. 2022, 71, 10863–10877. [CrossRef]\n\
+    29.\nLi, K.; Ni, W.; Yuan, X.; Noor, A.; Jamalipour, A. Deep Graph-based Reinforcement\
+    \ Learning for Joint Cruise Control and Task\nOfﬂoading for Aerial Edge Internet-of-Things\
+    \ (EdgeIoT). IEEE Internet Things J. 2022, 9, 21676–21686. [CrossRef]\n30.\nQian,\
+    \ Y.; Sheng, K.; Ma, C.; Li, J.; Ding, M.; Hassan, M. Path Planning for the Dynamic\
+    \ UAV-Aided Wireless Systems Using Monte\nCarlo Tree Search. IEEE Trans. Veh.\
+    \ Technol. 2022, 71, 6716–6721. [CrossRef]\n31.\nWang, Y.; Chen, W.; Luan, T.H.;\
+    \ Su, Z.; Xu, Q.; Li, R.; Chen, N. Task Ofﬂoading for Post-Disaster Rescue in\
+    \ Unmanned Aerial\nVehicles Networks. IEEE/ACM Trans. Netw. 2022, 30, 1525–1539.\
+    \ [CrossRef]\n32.\nYang, Z.; Bi, S.; Zhang, Y.J.A. Online Trajectory and Resource\
+    \ Optimization for Stochastic UAV-Enabled MEC Systems. IEEE\nTrans. Wirel. Commun.\
+    \ 2022, 21, 5629–5643. [CrossRef]\n33.\nLyu, L.; Zeng, F.; Xiao, Z.; Zhang, C.;\
+    \ Jiang, H.; Havyarimana, V. Computation Bits Maximization in UAV-Enabled Mobile-Edge\n\
+    Computing System. IEEE Internet Things J. 2022, 9, 10640–10651. [CrossRef]\n34.\n\
+    Hamasha, M.; Rumbe, G. Determining optimal policy for emergency department using\
+    \ Markov decision process. World J. Eng.\n2017, 14, 467–472. [CrossRef]\n35.\n\
+    El-Shafai, W.; El-Hag, N.A.; Sedik, A.; Elbanby, G.; Abd El-Samie, F.E.; Soliman,\
+    \ N.F.; AlEisa, H.N.; Abdel Samea, M.E. An Efﬁcient\nMedical Image Deep Fusion\
+    \ Model Based on Convolutional Neural Networks. Comput. Mater. Contin. 2023, 74,\
+    \ 2905–2925.\n[CrossRef]\n36.\nSabry, E.S.; Elagooz, S.; El-Samie, F.E.A.; El-Shafai,\
+    \ W.; El-Bahnasawy, N.A.; El-Banby, G.; Soliman, N.F.; Sengan, S.; Ramadan,\n\
+    R.A. Sketch-Based Retrieval Approach Using Artiﬁcial Intelligence Algorithms for\
+    \ Deep Vision Feature Extraction. Axioms 2022,\n11, 663–698. [CrossRef]\n37.\n\
+    Meier, L.; Honegger, D.; Pollefeys, M. PX4: A node-based multithreaded open source\
+    \ robotics framework for deeply embedded\nplatforms. In Proceedings of the 2015\
+    \ IEEE International Conference on Robotics and Automation (ICRA), Seattle, WA,\
+    \ USA,\n26–30 May 2015; pp. 6235–6240. [CrossRef]\nRemote Sens. 2023, 15, 1873\n\
+    26 of 26\n38.\nWang, C.Y.; Bochkovskiy, A.; Liao, H.Y.M. YOLOv7: Trainable bag-of-freebies\
+    \ sets new state-of-the-art for real-time object\ndetectors. arXiv 2022, arXiv:2207.02696.\
+    \ https://doi.org/10.48550/ARXIV.2207.02696.\n39.\nWojke, N.; Bewley, A.; Paulus,\
+    \ D. Simple online and realtime tracking with a deep association metric. In Proceedings\
+    \ of the 2017\nIEEE International Conference on Image Processing (ICIP), Beijing,\
+    \ China, 17–20 September 2017; pp. 3645–3649.\n40.\nShaﬁ, O.; Rai, C.; Sen, R.;\
+    \ Ananthanarayanan, G. Demystifying TensorRT: Characterizing Neural Network Inference\
+    \ Engine on\nNvidia Edge Devices. In Proceedings of the 2021 IEEE International\
+    \ Symposium on Workload Characterization (IISWC), Storrs,\nCT, USA, 7–9 November\
+    \ 2021; pp. 226–237. [CrossRef]\n41.\nBochkovskiy, A.; Wang, C.Y.; Liao, H.Y.M.\
+    \ Yolov4: Optimal speed and accuracy of object detection. arXiv 2020, arXiv:2004.10934.\n\
+    42.\nBewley, A.; Ge, Z.; Ott, L.; Ramos, F.; Upcroft, B. Simple online and realtime\
+    \ tracking.\nIn Proceedings of the 2016 IEEE\nInternational Conference on Image\
+    \ Processing (ICIP), Phoenix, AN, USA, 25–28 September 2016; pp. 3464–3468.\n\
+    43.\nAmmar, A.; Koubaa, A.; Boulila, W.; Benjdira, B.; Alhabashi, Y. A Multi-Stage\
+    \ Deep-Learning-Based Vehicle and License Plate\nRecognition System with Real-Time\
+    \ Edge Inference. Sensors 2023, 23, 2120. [CrossRef]\n44.\nKoubaa, A.; Ammar,\
+    \ A.; Kanhouch, A.; AlHabashi, Y. Cloud Versus Edge Deployment Strategies of Real-Time\
+    \ Face Recognition\nInference. IEEE Trans. Netw. Sci. Eng. 2022, 9, 143–160. [CrossRef]\n\
+    45.\nZhu, P.; Wen, L.; Du, D.; Bian, X.; Fan, H.; Hu, Q.; Ling, H. Detection and\
+    \ Tracking Meet Drones Challenge. IEEE Trans. Pattern\nAnal. Mach. Intell. 2021,\
+    \ 44, 7380–7399. [CrossRef]\n46.\nKrichen, M.; Adoni, W.Y.H.; Mihoub, A.; Alzahrani,\
+    \ M.Y.; Nahhal, T. Security Challenges for Drone Communications: Possible\nThreats,\
+    \ Attacks and Countermeasures. In Proceedings of the 2022 2nd International Conference\
+    \ of Smart Systems and Emerging\nTechnologies (SMARTTECH), Riyadh, Saudi Arabia,\
+    \ 22–24 May 2022; pp. 184–189.\n47.\nKo, Y.; Kim, J.; Duguma, D.G.; Astillo, P.V.;\
+    \ You, I.; Pau, G. Drone secure communication protocol for future sensitive applications\n\
+    in military zone. Sensors 2021, 21, 2057. [CrossRef]\n48.\nKhan, N.A.; Jhanjhi,\
+    \ N.Z.; Brohi, S.N.; Nayyar, A. Emerging use of UAV’s: Secure communication protocol\
+    \ issues and challenges.\nIn Drones in Smart-Cities; Elsevier: Amsterdam, The\
+    \ Netherlands, 2020; pp. 37–55.\nDisclaimer/Publisher’s Note: The statements,\
+    \ opinions and data contained in all publications are solely those of the individual\n\
+    author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or\
+    \ the editor(s) disclaim responsibility for any injury to\npeople or property\
+    \ resulting from any ideas, methods, instructions or products referred to in the\
+    \ content.\n"
+  inline_citation: '>'
+  journal: Remote Sensing
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/2072-4292/15/7/1873/pdf?version=1680363388
+  publication_year: 2023
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'AERO: AI-Enabled Remote Sensing Observation with Onboard Edge Computing
+    in UAVs'
+  verbatim_quote1: '"The proposed system architecture involves a cloud-edge hybrid
+    approach where the edge is responsible for processing AI tasks and the cloud is
+    responsible for data storage, manipulation, and visualization."'
+  verbatim_quote2: '"The proposed cloud–edge hybrid system architecture, coined AERO,
+    was implemented using a UAV brain system with onboard AI capabilities that utilizes
+    GPU-enabled edge devices."'
+  verbatim_quote3: '"AERO processes the detected objects over multiple consecutive
+    frames to maximize detection accuracy. The experiments show that the proposed
+    approach is effective for utilizing UAVs equipped with onboard AI capabilities
+    for remote sensing applications."'

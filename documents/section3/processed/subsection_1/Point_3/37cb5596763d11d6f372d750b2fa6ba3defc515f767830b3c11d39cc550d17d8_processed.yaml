@@ -1,0 +1,1338 @@
+- DOI: https://doi.org/10.1109/ipsn.2018.00008
+  analysis: 'This paper presents PICS (Plug-and-Play Irrigation Control at Scale),
+    a data-driven irrigation control strategy that automatically adapts to local conditions
+    and weather patterns, requiring virtually no human input in both setup and maintenance,
+    and evaluates the strategy''s efficacy in terms of efficiency, quality of service,
+    and energy consumption.
+
+
+    The paper presents an overview of current irrigation management practices, discusses
+    the need for automated, real-time irrigation management systems, and highlights
+    the importance of interoperability and standardization in this domain.
+
+
+    The authors propose a two-model approach to irrigation control:
+
+
+    * A long-term model (LTM) that characterizes the amount of water that is lost
+    between irrigation cycles for each individual sensing node, and
+
+    * A short-term model (STM) that describes the direct in-flow of moisture as sprinkler
+    moisture lands above the sensor, and takes into account sprinkler overlap and
+    water runoff effects.
+
+
+    The LTM is used to compute an initial Goal State for each node in the space, which
+    is the minimum moisture level that must be reached at each location in the field
+    so that moisture levels will not be depleted below the minimum moisture threshold
+    before the next irrigation period.
+
+
+    The STM is used by the Schedule Optimization Module to determine the best schedules
+    that will take advantage of runoff, overlapping sprinkler coverage, and other
+    short-term effects to compute schedules that bring moisture to the Goal State
+    while consuming minimal water.
+
+
+    The system was evaluated in a 4-week deployment, and was found to reduce water
+    consumption against all baselines, while simultaneously improving quality of service.
+    Despite using less water, PICS also was found to improve quality of service by
+    a factor of 4.0x compared to industry best and 2.5x compared to academic state
+    of the art.
+
+
+    The paper is relevant to the review''s aim to examine automation across the entire
+    pipeline of irrigation management from data collection to decision-making and
+    automated action. It is also relevant to the point of review that focuses on considering
+    volume, frequency, format, and source of the data. The authors discuss how they
+    use sensed data from the irrigated space to build long-and short-term models for
+    use in loss prediction and irrigation schedule optimization, and the specific
+    details of how data from irrigation sensors is used to compute the Goal State
+    and optimize irrigation schedules is highly pertinent to this review point.
+
+
+    The analysis provided is derived from the following verbatim quotes from the paper:
+
+
+    * "The model system is tailored to the space in a data-driven way that requires
+    no human intervention. This allows us not only to deploy the system with ease
+    and minimal configuration, but perhaps more importantly, it allows us to learn
+    and adapt to the local conditions experienced in the field."
+
+    * "PICS does not require cumbersome measurements of soil type, topography, direct
+    solar irradiance, but rather adapts to the conditions measured from the moisture
+    data, even if the conditions are heterogeneous accross the field."
+
+    * "In 4 weeks of deployment, we demonstrate that in addition to improved ease-of-use
+    and scalability, PICS reduces water consumption against all baselines, while simultaneously
+    improving quality of irrigation."'
+  authors:
+  - Daniel A. Winkler
+  - Miguel Á. Carreira-Perpiñán
+  - Alberto E. Cerpa
+  citation_count: 8
+  full_citation: Daniel A. Winkler; Miguel A. Carreira-Perpinan; Alberto E. Cerpa.
+    Plug-and-Play Irrigation Control at Scale. 2018 17th ACM/IEEE International Conference
+    on Information Processing in Sensor Networks (IPSN). 2018.
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2018 17th ACM/IEEE Internatio... Plug-and-Play
+    Irrigation Control at Scale Publisher: IEEE Cite This PDF Daniel A. Winkler; Miguel
+    A. Carreira-Perpinan; Alberto E. Cerpa All Authors 7 Cites in Papers 220 Full
+    Text Views Abstract Document Sections 1 Introduction 2 Related Work 3 System Overview
+    4 System Modeling 5 Optimization Over the Schedule Show Full Outline Authors Figures
+    References Citations Keywords Metrics Abstract: Lawns, also known as turf, cover
+    an estimated 128,000km 2 [9] in North America alone, with landscape requirements
+    representing 30% of freshwater consumed in the residential domain [27]. With this
+    consumption comes a large amount of environmental, economic, and social incentive
+    to make turf irrigation systems as efficient as possible. Recent work introduced
+    the concept of distributed control in irrigation systems, but existing control
+    strategies either do not take advantage of the distributed control, or don''t
+    revise the strategy over time in response to collected data. In this work, we
+    introduce PICS, a data-driven control strategy that self-improves over time, adapts
+    to the local specific conditions and weather changes, and requires virtually no
+    human input in both setup and maintenance providing a plug-and-play system that
+    requires minimal pre-deployment efforts. In addition to substantial improvements
+    in ease-of-use, we find across 4 weeks of large-scale irrigation system deployment
+    that PICS improves system efficiency by 12.0% in comparison to industry best and
+    3.3% in comparison to academic state-of-the-art. Despite using less water, PICS
+    also was found to improve quality of service by a factor of 4.0x compared to industry
+    best and 2.5x compared to academic state of the art. Published in: 2018 17th ACM/IEEE
+    International Conference on Information Processing in Sensor Networks (IPSN) Date
+    of Conference: 11-13 April 2018 Date Added to IEEE Xplore: 04 October 2018 ISBN
+    Information: DOI: 10.1109/IPSN.2018.00008 Publisher: IEEE Conference Location:
+    Porto, Portugal SECTION 1 Introduction Turf is the largest irrigated crop by surface
+    area, covering an estimated 128, 000 km2 in North America alone. Accessible fresh
+    water is estimated to make up just 1% of all water on Earth''s surface [4], and
+    lawn irrigation is estimated to consume roughly 7 billion gallons per day [27].
+    Due to the scale of this usage, there is much economic, environmental, and social
+    pressure to improve the efficiency of these systems as much as possible. Although
+    system efficiency (minimizing costs) is a key selling point, the primary goal
+    of these systems is to maintain healthy turf, and this must be done carefully.
+    An under-watered plant will eventually wilt and die, making them aesthetically
+    unpleasant, but over-watering can cause many issues as well. Consistently over-saturated
+    soil can cause turf roots to rot and soil to erode, and in extreme cases excessive
+    irrigation can carry fertilizer chemicals deep beyond the root zone into drinking
+    water sources, as has occurred in California''s Salinas Valley [23]. However,
+    as aesthetic symptoms of under-watering are more pronounced, many irrigation systems
+    over-water by design to ensure that wilting does not occur. These issues can all
+    be avoided if each location in the irrigated space receives just the water it
+    requires. Complex models exist that predict the movement of moisture across and
+    through the soil of an irrigated space, but each of these models must make assumptions.
+    Most commonly, due to the difficulty of sampling soil type, soil depth, direct
+    solar irradiance, and other key factors across an irrigated space, all controllers
+    are forced to assume that water must move in a uniform way until it settles. Coupled
+    with the centrally-located water valve that is industry standard, it is impossible
+    to control in such a way that all locations in the space are adequately irrigated,
+    while also minimizing water consumption. Some of these limitations are addressed
+    by the distributed sensing/actuation node developed in [32], which allows each
+    sprinkler in the irrigation system to independently actuate based on a wirelessly-transmitted
+    schedule and monitor local soil moisture conditions in real time, allowing more
+    efficient control routines to be developed. However, the proposed control framework
+    requires manual model generation and offers no model correction, limiting its
+    scalability. In this work, the control system is tailored to the space in a data-driven
+    way that requires no human intervention. This allows us to not only deploy the
+    system with ease and minimal configuration, but perhaps more importantly, it allows
+    us to learn and adapt to the local conditions experienced in the field. PICS does
+    not require cumbersome measurements of soil type, topography, direct solar irradiance,
+    but rather adapts to the conditions measured from the moisture data, even if the
+    conditions are heterogeneous accross the field. In this work, PICS uses this alternate
+    approach to solve this very complex problem. We argue that a model adaptively
+    trained from data will react to unforeseen conditions better than a system using
+    a mechanistic model using approximated parameters and fixed assumptions. The contributions
+    of this work are as follows: (1) As no manual input is required of the installer,
+    PICS is a truly plug-and-play system, avoiding costly expertise to determine environmental
+    characteristics (e.g. soil characteristics, topography, solar exposure) which
+    can be difficult or infeasible to measure accurately at scale; (2) Constant model
+    re-training with fresh data allows PICS to automatically adapt to unforeseen/changing
+    environmental conditions and seasonal variations, and weather forecasting allows
+    PICS control to react to future weather conditions; (3) To improve system scalability,
+    PICS decouples short-and long-term models, allowing the latter to become spatially
+    independent; (4) As PICS closes the loop, the lightweight learning model reduces
+    the computational complexity, allowing us to compute optimal schedules in a timely
+    manner without significant computational resources while maintaining overall accuracy.
+    In 4 weeks of deployment, we demonstrate that in addition to improved ease-of-use
+    and scalability, PICS reduces water consumption against all baselines, while simultaneously
+    improving quality of irrigation. SECTION 2 Related Work In [32], the distributed
+    irrigation sensor/actuator was introduced, allowing a greenskeeper to wirelessly
+    send irrigation schedules to each individual sprinkler head, breaking the traditional
+    limitation of a single valve per irrigation system and allowing more customized
+    irrigation schedules to be computed and run. In conjunction, a control strategy
+    was proposed which builds a mechanistic PDE model of moisture movement within
+    irrigated space. Using this model, optimal schedules with respect to water consumption
+    were computed, which would maintain proper moisture levels until the end of irrigation.
+    Although this was found to reduce water consumption and improve irrigation quality,
+    the system had practical limitations. No process was proposed to correct the model
+    over time, and future weather prediction was not taken into account, which can
+    result in increased water consumption. Furthermore, the size and complexity of
+    the model and optimization problem resulted in it requiring simplification via
+    linearization and spatiotemporal discretization to make it tractable. Even with
+    these simplifications that sacrifice model accuracy, significant processing was
+    still required and could only guarantee satisfactory moisture levels for the immediate
+    hours after irrigation, not the full 24-hour cycle. The models used in [32] were
+    configured manually and statically using approximated parameters at installation-time
+    under the assumption that these model parameters were either spatially-homogeneous
+    or that they would not change over time. However, many of these parameters such
+    as soil depth can significantly vary spatially and others such as solar irradiance
+    certainly change over time (seasonally). These assumptions were made in [32] due
+    to the difficulty or infeasibility of accurately measuring these parameters at
+    scale. As an example, to measure unsaturated soil conductivity, there are several
+    techniques as listed by the USDA [10]; The least accurate technique, relying on
+    core samples, is low-cost but each measurement requires a few hours to several
+    days depending on the soil type. The most accurate technique, instantaneous profile,
+    requires equipment costing around $3000 USD and each measurement can take up to
+    a week to complete. To make tens or hundreds of such measurements across a large
+    irrigated space to generate accurate models for a static framework simply does
+    not scale, especially when some parameters change seasonally. In contrast, as
+    water retention and movement through the soil is influenced by all of these parameters,
+    the learning model used by PICS can learn and adapt to these environmental characteristics
+    with data-driven model generation using direct soil moisture measurements without
+    having to make crude assumptions to fit a mechanistic model. With the introduction
+    of more accurate and efficient soil moisture sensors, work has been done to create
+    irrigation controllers that react directly to moisture levels in the soil [16],
+    [25]. However, without a model of the way water is lost, these systems must either
+    over-irrigate to artificially create a buffer, or reactively trigger irrigation
+    during the day, which can lead to plant sunburn and an increase of wasted water
+    to evaporation. In our work, we use sensor feedback and predictive modeling together
+    to control in a way that is more water efficient and improves quality of control
+    without having to make assumptions about water needs. As weather is a primary
+    water source or sink in an irrigated space, systems have been developed to use
+    weather as input for control. The simplest of these systems use standard fixed-schedule
+    irrigation, but allow a precipitation sensor to override control to save water
+    during rain [8]. The more complicated systems, now industry standard, use evapotranspiration,
+    an estimate of the amount of water lost to evaporation and plant transpiration
+    to do efficient water-loss replacement [17], [24]. Some providers boast an average
+    30% reduction in water consumption, but as with all industry irrigation systems,
+    ET-based systems are limited by centralized control, and can not provide site-specific
+    irrigation, reducing potential system efficiency and quality of control. In order
+    to control intelligently, we must take into account future temperature shifts,
+    precipitation, and other effects that affect irrigation requirements as discussed
+    in Section 4.1. The standard weather metric for irrigation control has become
+    evapotranspiration (ET), a measure of how much water is lost from the soil due
+    to solar radiation, temperature, humidity, and wind. In [29], a patent describes
+    an irrigation controller that predicts future ET losses, but the main contribution
+    is the combination of a reference ET estimate offset by predicted precipitation,
+    to produce a system that will not over-irrigate with rain in the near future.
+    Although the author recognizes the potential to use other forecasted weather metrics
+    to predict future ET, they offer no implementation of this feature. An extensive
+    study in [20] finds that exceptional prediction of ET is possible when predictions
+    for all four ET variables (solar radiation, temperature, humidity, and wind) are
+    available in local data sources. The authors recognize that this is often not
+    the case, and this holds true in our work, as wind speed and solar irradiance
+    predictions are unavailable for our locale. As no suitable ET prediction could
+    be found, we design our own. SECTION 3 System Overview Our system takes advantage
+    of a distributed irrigation control system, with sensing/actuation nodes installed
+    beneath each sprinkler. Each node is equipped with a wireless sensing mote [15]
+    providing minor computational capability and wireless communications, a volumetric
+    water content (VWC) sensor to sense local conditions, and a solenoid, allowing
+    the opening and closing of water to the sprinkler on command. These devices form
+    a mesh network, and are accessible through a border router, a special node physically
+    connected to a nearby internet-accessible computer. Sprinkler schedules are sent
+    outbound along this link, and real-time data from the sensing nodes are sent inbound
+    along this link, allowing us to automate the system with any strategy we like.
+    The goal of our irrigation system is to keep the turf healthy and in order to
+    do so, a number of requirements must be satisfied. Adequate solar exposure must
+    be provided, the soil must contain the correct types of nutrients in appropriate
+    amounts, and an adequate amount of moisture must be provided to the soil to be
+    absorbed by the plant roots. Although our irrigation system has no control over
+    solar exposure and soil nutrient composition, it has direct control on the application
+    of water onto the surface of the soil. In plant physiology, the volumetric water
+    content (VWC) at which plants Figure 1: PICS system architecture Show All Figure
+    2: Sample fluid curve across the 24-hour cycle Show All can no longer extract
+    water from the soil is known as the Permanent Wilting Point, or θ pwp [14], [26],
+    [28]; if a plant spends an extended period of time in soil beneath this threshold,
+    it will begin to wilt and die. To provide ample moisture to the plant at all times,
+    we aim to minimize the amount of time the soil VWC remains below this threshold,
+    as verified in our system with the installation of VWC sensors to constantly monitor
+    soil moisture levels. By achieving this goal, the plant will have the water it
+    needs to thrive. Figure 2 shows an example 24-hour irrigation cycle. Between day
+    L’ s start of irrigation t s,1 and finish of irrigation t f,1 , the water applied
+    to the space gradually increases VWC within the soil. t f,1 ‘the time that irrigation
+    ends is not known beforehand, but occurs when VWC has reached a pre-computed Goal
+    State for this sensor node. During this irrigation time, we utilize a short-term
+    model (STM) describing how the actuation of one or more sprinklers affects the
+    moisture in the soil at all sensor locations, and solve an optimization problem
+    to find the most efficient irrigation schedule to reach the Goal State at each
+    sensor location, allowing us to save water by utilizing sprinkler overlap, soil
+    runoff, and schedule intermittency to our advantage. After day 1’ s irrigation
+    ends at t f , 1 as shown in Figure 2, the water begins discharging from the soil
+    subject to the effects of diffusion, leaching, and weather effects, which occur
+    very slowly relative to effects during irrigation. After hours of these losses,
+    the soil VWC will reach its minimum value just before the start of irrigation
+    at day 2, t s,2 . The effects of diffusion, leaching, and weather are not homogeneous;
+    differences in environmental factors such as soil type, soil depth, and solar
+    irradiance change the rate at which moisture is lost across the space. Over time,
+    we use the historical loss trends to build a Long-term model (LTM) that characterizes
+    the amount of water that is lost between irrigation cycles for each individual
+    sensing node, which can then be used to set future Goal States in a way that will
+    ensure we stay above minimum VWC θ pwp at all times without wasting water. The
+    de-coupling of these two models allows this technique to scale to control very
+    large irrigation systems. The two are intertwined, as one produces the Goal State
+    used by the other. In the short-term, the model and optimization takes into account
+    the effects of all nodes'' sprinkler coverage jointed spatially and temporally,
+    but once irrigation ends, the models describing losses across the field become
+    spatially independent. Figure 1 shows the data processing required to achieve
+    these goals at irrigation-time (daily irrigation at dusk, by request of campus
+    groundskeepers). First occurs model generation. The freshest data from the irrigated
+    space is used to build the long-and short-term models for use in loss prediction
+    and irrigation schedule optimization. The short-term model describes the direct
+    in-flow of moisture as sprinkler moisture lands above the sensor, and takes into
+    account sprinkler overlap and water runoff effects. The longterm model shows how
+    the moisture tends to move across the full 24-hour cycle due to soil transport
+    effects such as diffusion and leaching [22], and a separate weather prediction
+    module predicts future weather trends in the form of evapotranspiration [24].
+    Next, using the long-term model, the Expected Losses module computes a Goal State
+    for each node in the space. This state is computed by taking the minimum acceptable
+    VWC, and added the node''s expected moisture losses between irrigation cycles.
+    As later explained in Section 4.3, future weather predictions are decoupled from
+    the long-term model, so forecasted evapotranspiration losses are also added at
+    this stage, computed as described in Section 4.1. In this way, the minimum moisture,
+    experienced right before the next irrigation will begin, should be at or above
+    the minimum VWC threshold. This Goal State is later used by the optimization module.
+    Goal State= θ pwp +Expected Losses+E T forecasted (1) View Source Once these initial
+    conditions are defined for irrigation, the control loop is entered, which will
+    fetch the freshest data snapshot from all nodes across the space. This data is
+    used as the initial moisture conditions for an optimization problem that computes
+    the optimal actuation sequence for each individual node in the space, such that
+    the Goal State VWC will be reached by the end of the irrigation period. If our
+    short-term model used in optimization is accurate, we can perform this control
+    loop only once. However, for safety and for accuracy, it is advantageous to occasionally
+    rerun this control loop during the irrigation period. This prevents schedules
+    from over-or under-watering due to stale starting conditions, and will allow the
+    optimizer to re-search for more efficient schedules from the freshest starting
+    point. Figure 3: Evapotranspiration prediction Show All In our deployment, the
+    model generation and optimization takes place on a computationally-weak Raspberry
+    Pi [13] that is collocated with our irrigation system. Attached to the Raspberry
+    Pi via USB is a TMote Sky [15], through which schedules can be sent and data can
+    be received. Once optimization is complete, the schedules produced by the optimizer
+    are sent over USB and through the wireless sensor network to their respective
+    sensing/actuation node. The schedule is run, and if desired, a fresher data snapshot
+    will be obtained and optimization will occur again. SECTION 4 System Modeling
+    The purpose of the control system is to decide how much moisture must be applied
+    to the surface by the sprinklers. Whereas standard irrigation controllers use
+    weather-only or rule-of-thumb techniques to make this decision, we hope to leverage
+    the rich, spatially-distributed data collected by our sensing/actuation nodes
+    to make this process more efficient. Towards this goal, we generate data-driven
+    models that help us understand how moisture tends to move in the short-and long-term.
+    The water used for irrigation moves through the space subject to many factors,
+    which all tend to occur within two different time horizons. In the short term,
+    during irrigation, factors such as sprinkler distribution and water runoff on
+    the surface of the soil allow movement that will occur for seconds or minutes,
+    movement that tends to comes to an end when irrigation is completed or soon thereafter.
+    Once this moisture infiltrates fully into the soil, much slower effects begin
+    to take place. For instance, depending on the type of soil, leaching of water
+    beyond the root zone and diffusion can occur on the order of 10 −2 − 10 −3 cm/s
+    [18], and will continue to move for hours or days. Previous work [32] combines
+    all of these factors together in one large mathematical model based on first principles.
+    However, the size of the resulting models have performance repercussions, and
+    the lack of model correction could potentially cause it to deviate from reality.
+    In this work, we solve these problems by modeling water movement using a lighter
+    data-driven approach based on machine learning techniques. The implicit advantage
+    of this approach is that it is based on moisture data measured locally, being
+    able to cope with heterogeneous conditions like soil type, topography, and solar
+    exposures that vary across the field. To reduce the computational complexity of
+    the model-based optimization problem to minimize water consumption subject to
+    quality constraints, we chose to use a two-model approach, each of which represent
+    one of the distinct time horizons. The long-term model, which learns how water
+    tends to be lost between irrigation cycles, is used to compute an Goal State,
+    the required moisture level that must be reached at each location in the field
+    so that moisture levels will not be depleted below our minimum moisture threshold
+    before the next irrigation period. The short-term model is used by the Schedule
+    Optimization Module to determine the best schedules that will take advantage of
+    runoff, overlapping sprinkler coverage, and other short-term effects to compute
+    schedules that bring moisture to the Goal State while consuming minimal water.
+    With a cleverly-chosen Goal State, we will maintain adequate moisture levels across
+    the full 24-hour cycle, while only requiring optimization during the few hours
+    of irrigation time, allowing optimization to be run on very computationally-weak
+    machines. 4.1 Weather Forecasting A large portion of losses on the 24-hour cycle
+    is expected to be caused from the effects of evapotranspiration [24], which combines
+    losses caused by solar irradiance, wind, plant transpiration, and other effects
+    due to weather conditions. However, as future weather conditions aren''t necessarily
+    similar to past weather trends, we decouple weather effects from the rest of the
+    long-term model by performing separate evapotranspiration prediction. In our research,
+    we found forecasts readily available for standard weather metrics such as temperature,
+    humidity, and rainfall, but were unable to find data sources providing future
+    ET estimates. To enable this feature, we implement our own weather forecasting
+    module. The four weather variables required to perfectly compute evapotranspiration
+    [17] are solar radiation, temperature, humidity, and wind. In our locale, solar
+    radiation and wind prediction were not available, but temperature and humidity
+    forecasting were available at hourly measurement intervals from a local weather
+    station in our city. With 15 years of historical weather data at hourly intervals[1],
+    we set up a k-nearest-neighbors regression based on similarities of the hourly
+    temperature and humidity vectors. Choosing a k-value of 5, this method will find
+    the 5 days with the most similar hourly weather trend, and find an evapotranspiration
+    value based on the weighted distance from the current day''s weather trend. Note
+    that in this work, for simplification, we combine forecasted precipitation and
+    evapotranspiration. In the case of precipitation, the evapotranspiration, rather
+    than being a net loss, would be a net gain, and units remain unchanged. Figure
+    3 shows the ground-truth evapotranspiration values as measured by our local weather
+    station, alongside the predicted value from the day before using just forecasted
+    temperature and humidity. Also depicted is a moving average for each, which shows
+    how the two trends vary across the 4 months of weather collection. In all, our
+    prediction is found to have a normalized root mean squared error (NRMSE) value
+    of. 164, with 90% of predictions having less than 20% relative error. Outlier
+    values occur when cloud cover or extreme wind affect the solar radiation or wind
+    terms, neither of which we have available for prediction. Figure 4: Sources of
+    water movement during irrigation (short-term) Show All 4.2 Short-Term Model For
+    later use in optimization in Section 5, we must understand how the actuation of
+    the sprinklers in the system will influence the moisture in the soil as shown
+    in Figure 2. For this task, we employ a Short-Term Model which captures the moisture
+    movement effects during irrigation. An example irrigated space is shown in Figure
+    4; differences in sprinkler overlap affect the amount of water that lands on the
+    surface of the soil, surface topography affects how quickly runoff will occur,
+    and heterogeneous soil composition and depth will affect the rate of infiltration.
+    As it is difficult and error-prone to manually measure these effects, we wish
+    to learn them in an automated, data-driven way. These short-term factors are influenced
+    by sprinkler positions, slope of the land, and other characteristics that do not
+    change over time, so this model is trained once automatically when the system
+    is set up. It may be desirable to trigger for the model to be re-trained if the
+    root mean square error of the model against ground truth is seen to exceed a selected
+    threshold, but we leave this to future work. We choose to use a linear regressor
+    to model these effects using values shown in Table 1. As input, we provide the
+    current VWC at each of the K sensor locations as vector s t , and the current
+    binary actuation of each of the K sprinklers as vector f t . The output of the
+    linear model is the predicted VWC for each of the K sensor locations at some time
+    Δt in the future, as vector s t+Δt . In practice, as this model will be later
+    used to compute optimal irrigation schedules, the length of Δt is chosen to be
+    the same as the control actuation period, 1 minute in our experiments. The linear
+    function g defines the following relationship: g( s t , f t )= s t+Δt (2) View
+    Source To train the short-term model, we run a training cycle of irrigation after
+    installation that triggers each sprinkler one-by-one for a fixed time to identify
+    how moisture levels change in all sensor locations. Moisture levels during our
+    training cycle can be seen for 4 selected devices in Figure 5 with rises caused
+    by the activation of the nearest sprinkler, and although each sprinkler is active
+    for the same amount of time, it can be seen that the amounts of increase are different
+    for each device due to spatial heterogeneity of runoff, sprinkler coverage, and
+    soil characteristics. Furthermore, as sprinkler overlap would cause multiple sensors
+    to rise simultaneously as a single sprinkler is active, it can be seen that this
+    irrigation system has minimal sprinkler overlap, as only one sensor rises at a
+    time. In a system with more sprinkler overlap, the methods of data collection
+    and processing would be identical. Figure 5: Sensor data from selected nodes during
+    short-term model training period Show All Table 1: Short-term model variables
+    The data from our deployment training period is parsed into ∼850 training pairs
+    of [ s t ,  f t ] vectors as inputs, and [ s t+Δt ] vectors as outputs, and the
+    regressor is trained. At the end of our deployment, we use this regressor to perform
+    single-step prediction across our 25 days of experimentation and compute the Root
+    Mean Squared Error (RMSE) between the vector of predicted VWC against the measured
+    ground truth; by then normalizing to the range between minimum and maximum values
+    of s t , we get a Normalized RMSE of just 0.2%. By analyzing the predictions for
+    individual sprinklers, we find that the range of errors among our K individual
+    sprinklers falls between 0.08% and 0.25%. As sensor data is inevitably noisy it
+    is important to choose a Δt that is not too big, which would result in high predictive
+    error or too small, where noise dominates the state signal. Our choice of one
+    minute seemed to work well in practice, but in future work we will analyze so
+    see how this choice impacts prediction accuracy and robustness. 4.3 Long-Term
+    Model To guarantee a high quality of control, we must compute a Goal State for
+    each node in the space as a target volumetric water content (VWC) for the Schedule
+    Optimization Module to reach as shown in Figure 2. In order to choose a useful
+    Goal State, we must consider both future predicted losses due to weather patterns
+    (evapotranspi-ration) as discussed in Section 4.1 and loss data trends from previous
+    data for each individual node. Figure 6: Sources of water movement between daily
+    irrigation (long-term) Show All Once irrigation is complete and the irrigated
+    moisture has infiltrated into the soil, it begins to move more slowly through
+    the processes of diffusion, leaching, and weather patterns as shown in Figure
+    6. Diffusion is the tendency of moisture in the soil to move from areas of higher
+    to lower concentration due to differences in hydrostatic pressure caused by intermolecular
+    forces in the soil, and leaching is the tendency of water to eventually move beyond
+    the root zone of the plant due to the force of gravity. Movement under either
+    of these forces tends to be very slow, as hydraulic conductivity of water through
+    soil can be on the order of 10 −2 − 10 −3 cm/s [18]. Losses due to evapotranspiration
+    (ET) occur slowly as well, as they are primarily caused by solar radiation and
+    high air temperature which occur during daylight hours. Figure 7 shows how moisture
+    losses occur at one selected sensor site across three consecutive days. In this
+    figure, t=0 is time-aligned to the end of irrigation where moisture losses start
+    to occur, and t=21 hours corresponds to the beginning of irrigation on the following
+    day. By tracking these losses using our deployed VWC sensors, we found that the
+    discharge of water from the soil medium tends to occur as an exponential decay
+    when irrigation ends as shown in the figure. In our system, we use these historical
+    loss trends to fit an exponential decay curve as our “LTM”, or Long-term model,
+    as shown in Figure 7. In addition, for each day d∈{1,…,D} , we record the measured
+    evapotranspiration on each day the system is run as E T d . With this fitted model,
+    the expected loss of this node is computed by taking the difference of the curve
+    at t=0 and at t= t s,d+1 − t f,d ‘the expected delay between irrigation of today
+    and tomorrow, e.g. 21 hours. This computed loss is finally offset by the average
+    of the daily evapotranspiration levels measured during the training period. Expected
+    Loss= θ pwp +(LTM(0)−LTM( t s,d+1 − t f,d )− 1 D ∑ d=1 D E T d (3) View Source
+    We perform this weather offset to ensure that the weather experienced when the
+    training trends were recorded do not impact the expected losses for future irrigation.
+    Before use as the Goal State for optimization, the predicted ET for the following
+    day will be re-added. We decouple these weather effects to prevent learning past
+    weather trends into our model. In a climate where the weather changes very little
+    from day-to-day, it may be reasonable to assume that past weather trends will
+    continue into the future, but to allow PICS to be more generalizable and reactive
+    we choose to utilize local weather forecasting. Figure 7: Sample moisture decay
+    fit between irrigation Show All Table 2: Optimization variables When the system
+    is first turned on, the model has no understanding of expected losses. It is not
+    until after the first day of irrigation, in our case a fixed schedule to train
+    the short-term model as discussed in Section 4.2, that the long-term model can
+    be trained. In our experiments, the model is retrained each day before irrigation
+    using the loss data from all of the preceding days. That is to say, on day d,
+    we re-train the model using d -1 days of data. This worked well in our experiment,
+    but in a very long-term installation, re-training the model on just the most recent
+    N days of data may allow the system to be more responsive to changing seasonal
+    conditions. In this work we have not investigated the optimal choice of N, and
+    we leave this for future work. SECTION 5 Optimization Over the Schedule We wish
+    to use our models as described in Section 4 to compute irrigation schedules that
+    will allow us to reach our goal volumetric water content (VWC) on each sensor/actuator
+    node while minimizing system water consumption. With a goal state, θ goal,k and
+    measured VWC θ k for each node index k∈{1,…,K} , we construct the following optimization
+    problem using optimization variables as defined in Table 2. We define f k,t to
+    be the binary actuation of sprinkler k at discrete time index t∈{0,…,T} . The
+    objective function is the sum of f k,t for all k∈{1,…,K},t∈{0,…,T} , weighted
+    by the water consumption rate of each sprinkler k, c k , a function of the sprinkler''s
+    angle of coverage as defined in the sprinkler datasheet. With pressure-regulated
+    sprinklers, this weighted sum represents the total system water consumption under
+    schedule F. The VWC at each discrete sensor location k at temporal index t is
+    defined as s k,t . This state variable is assigned the most recently measured
+    sensor value θ k at starting time index t=0 . This moisture level is constrained
+    to remain above the minimum acceptable moisture threshold, θ pwp at all times,
+    and above the goal state at final time index t=T . Changes in moisture level as
+    a result of sprinkler actuation is modeled by the linear function g, representing
+    our Short-term Model as defined in Section 4. min { f k,t , s k,t } K,T k=1,t=0
+    ∑ k=1 K ∑ t=0 T c k f k,t s.t. 0≤ f k,t ≤1k=1,…,Kt=0,…,T s k,t ≥ θ pwp   k=1,…,Kt=0,…,T−1
+    s k,T ≥ θ goal,k k=1,…,K s k,t=0 = θ k k=1,…,K s t =g( s t−1 , f t−1 )t=1,…,T
+    (4a) (4b) (4c) (4d) (4e) (4f) View Source Figure 8: Daily error in irrigation
+    schedules due to rounding of LP solution Show All As sprinkler valves can physically
+    be either on or off, sprinkler actuation f k,t is a binary variable in practice.
+    This makes the defined problem an integer linear program (ILP), which is NP-Complete.
+    We have found that solving this problem with reasonable values of K and T can
+    take as long as several minutes on our computationally-weak basestation. As this
+    optimization may be required to run as often as once per control time step, chosen
+    in our system to be 1 minute, we find an approximated solution more quickly by
+    treating f k,t as a real number within [0,1] , and then rounding the computed
+    optimal value to the closest binary value. This simplification makes the resulting
+    problem a linear program (LP), which are much simpler to solve in practice. In
+    our 4 weeks of deployment, we find that the resulting schedules tend to lie on
+    the 0/1 integer boundary, and that fewer than 1% of actuations require rounding.
+    Figure 8 shows how the amount of irrigation deviates each day due to this rounding,
+    and we can see that the worst day (day 17) has a resulting deviation of just over
+    1 second, negligible when the total irrigation is on the order of an hour. We
+    found that our irrigated space generally requires 30-60 minutes of irrigation
+    to be sufficiently watered. To give our optimization time to find schedules that
+    are as efficient as possible, we give the optimizer an irrigation window of 2
+    hours, well above the required time of a simple schedule. With a control time
+    step of 1 minute, this 2 hour irrigation window is converted to T=120 . By allowing
+    a larger irrigation window, the optimizer may find schedules that are more efficient,
+    but due to University water pressure limitations, irrigation in different regions
+    of the campus must operate within slots, making very large time windows impractical.
+    We chose to use the Julia programming language [19] as an interface to the GNU
+    Linear Programming Kit (GLPK) [5] solver. We chose these tools for their ease
+    of use and sufficient performance. Our linear program has 2×K×T Variables and
+    2K×(T+1) Constraints. In our deployment, solving for a schedule with a selected
+    setup of K=9 and T=120 takes less than a second on our computationally-weak basestation.
+    SECTION 6 Case Study: Live Deployment To perform a fair comparison of our PICS
+    system against a baseline, we installed an irrigation system that allows us to
+    run two control strategies side-by-side. As our campus greenskeepers were unwilling
+    for us to debug an operational campus irrigation system, we were required to officially
+    request a plot of land, design, and install our own system. The approval process
+    took between 2 and 3 months, and system design and installation required hundreds
+    of man-hours. One technique to ensure fair comparison between two control strategies
+    would be to periodically alternate the strategies between the two irrigation systems
+    to ensure results aren''t skewed by environmental variations. However, this would
+    require us to wait for soil moisture to settle between each alternation, causing
+    all experimentation to take much longer. Instead, we chose to install the two
+    systems directly side-by-side, where each would have as homogeneous solar exposure,
+    slope characteristic, and soil characteristics as possible. 6.1 Environmental
+    Description The two irrigation systems were installed side-by-side, and were designed
+    to be identical in hardware, sprinkler coverage, etc. Each irrigation system measured
+    60 ′ x 60 ′ , with sprinklers arranged in a 3x3 grid, each 30’ from the next.
+    The sprinklers chosen were MP Rotators by Hunter Industries [7], which are currently
+    considered state-of-the-art in sprinkler technology. In these devices, the water
+    pressure is focused through many rotating nozzles on the sprinkler head which
+    allow much greater range at lower water flow rates, applying water more efficiently
+    than their rotor counterparts. The MP Rotators can be adjusted to a range of 15‘-30’,
+    making them ideally suited for our system. The deployment area was located on
+    a sloped area that drops 3’ from the highest to the lowest point. During installation
+    of the sprinkler system, we noted that the topsoil was a “Clay Loam” type, approximately
+    10” deep. Beneath this layer sat a thick clay layer that went beyond 3’ deep.
+    The grass growing in the installation area is a natural field grass and not the
+    type found on a sports field or in university landscaping, but the goal of irrigation
+    is identical; providing a satisfactory amount of moisture to sustain healthy turf.
+    Figure 9: Sensing and actuation node Show All 6.2 Hardware Description The hardware
+    used in our experiments stemmed from the design introduced in [32], with battery
+    life and system safety as primary concerns. Control was provided by a latching
+    solenoid, which requires a 50ms pulse of power in either the positive or negative
+    direction to open or close the valve. The sensor chosen was the Decagon EC-5 [2],
+    commonly used in research for its high accuracy of ±3% and power consumption of
+    just 10mA for 10ms. Although the EC-5 outputs a raw voltage, Decagon provides
+    a linear function that maps this voltage to Volumetric Water Content (VWC) for
+    our use. Each sensor is inserted into the soil at the expected depth of the root
+    zone for the turf on site. A standalone board was developed to sit on the General
+    Purpose Input/Output (GPIO) pins of the Tmote Sky, whose purpose was to route
+    power from the attached 4xAA battery source to the peripheral devices. With these
+    peripherals installed, our devices could communicate with eachother, monitor the
+    local soil moisture conditions, and control the flow of water to the attached
+    sprinkler. These primary hardware components in their waterproof case can be seen
+    in Figure 9. Collocated with the irrigation system was a basestation module, consisting
+    of a Raspberry pi with a Tmote Sky attached via USB, and a wifi hotspot to allow
+    the system to be accessible remotely. The data processing pipeline as described
+    in Section 3 and the optimization as described in Section 5 was all run on this
+    device. Schedules computed by the Schedule Optimization Module were forwarded
+    over USB to the Tmote Sky for wireless distribution, and incoming data was pushed
+    by the Raspberry Pi to an off-site database for remote monitoring and analysis.
+    Later explained in Section 7, the only equipment failure that occurred in our
+    deployment was a failed USB connection between the Tmote and the Raspberry Pi,
+    possibly due to environmental factors. However, firmware running on the sensing/actuation
+    devices is designed to handle such a failure by automatically returning to the
+    default “Off” state, preventing massive water loss. 6.3 Baseline Strategies To
+    allow two side-by-side irrigation systems to operate independently, all sprinklers
+    are installed with a sensing/actuation node. In this way, the only difference
+    between the two systems are the schedules sent to the sensing/actuation nodes.
+    In this work, we compared the PICS system to two baseline systems, an Evapotranspiration
+    control strategy, the current industry leader in system efficiency, and MAGIC
+    [32], the current state-of-the-art in academia. As the University irrigation systems
+    operate on a daily schedule, all baseline systems and PICS was configured to irrigate
+    daily as well. The PICS system would operate identically on a different irrigation
+    cycle with no reconfiguration necessary. 6.3.1 Evapotranspiration Evapotranspiration
+    is an estimate of moisture lost from soil, subject to weather factors. In the
+    current standard, computing evapotranspiration requires wind, temperature, humidity,
+    and solar irradiance measurements. Many weather stations are available to the
+    public that calculate and provide evapotranspiration data based on measurements
+    of the other weather factors. To mimic an evapotranspiration controller, we query
+    a local weather station for the previous day''s ET losses, which is provided in
+    units of surface water height. With this information, we can simply use our sprinkler
+    datasheet for surface application rate to compute exactly how many minutes the
+    system should be activated to directly replace the previous day''s losses. In
+    a commercial evapotranspiration controller, this amount is then the amount irrigated,
+    plus a safety margin of water. However, despite contacting two of the largest
+    providers of ET controllers, Hunter [6] and Rain Bird [12], we were unable to
+    find the safety margin they use in practice, so we assumed NO safety margin. This
+    means two things-it means a commercial system using a safety margin may provide
+    better quality of service than what we see in our deployment, but at the cost
+    of increased water consumption. Please note that the PICS system is able to achieve
+    both goals, water savings and improved quality of service. 6.3.2 Magic The MAGIC
+    control framework requires that the installer pre-defines key irrigation and field
+    characteristics before use. The irrigation system characteristics including coverage
+    of sprinklers, application rates, angles, and positions are defined as described
+    in Section 6.1 to match the physical deployment. Likewise, the topography was
+    modeled to reflect the 3’ elevation drop of the field, and the estimated soil
+    type was chosen as observed to be a “Clay Loam” of depth 10”, sitting atop a deep
+    clay layer. To allow fair comparison to the PICS system, the MAGIC optimization
+    was defined with a 2-hour irrigation evening window, to match the campus'' irrigation
+    scheduling policy to avoid over-use of the system pressure. 6.4 Performance Metrics
+    The fields of plant physiology and soil physics make it clear that to cultivate
+    healthy plants, turf must be in an environment with an abundance of necessary
+    minerals (fertilized, kept in healthy soil), must receive adequate solar exposure,
+    and must be within roots''-reach of an adequate supply of water. If soil is kept
+    too dry, the plant will be unable to suck the necessary moisture out of the soil.
+    This level of moisture is known as the permanent wilting point (pwp) [14], [26],
+    [28], and keeping soil below this threshold of moisture for an extended period
+    of time will cause the plant to eventually wilt and die. Although the irrigation
+    system has no control over solar exposure and soil nutrients, it has direct control
+    over the moisture levels in the soil. For this reason, our primary metric for
+    irrigation quality is the system''s ability to maintain a soil moisture above
+    this threshold at all times at all of our measured locations. By doing so, we
+    are guaranteeing that the plant has sufficient moisture to be healthy. In this
+    paper, we call this the quality of service of the irrigation system. Figure 10:
+    Collected VWC data across deployment for all evapotranspiration (left) and PICS
+    (right) nodes Show All Figure 11: ET vs PICS quality of service results Show All
+    Although we must maintain moisture above a minimum threshold, it is also detrimental
+    to over-water the space. In addition to the environmental and financial impact,
+    an over-abundance of water in the soil can, over time, lead to the rotting of
+    the plant roots, discoloration of the plant (aesthetic penalty), and in extreme
+    cases excess irrigation has been linked to the leaching of fertilizer chemicals
+    into human drinking water supplies. As each sprinkler uses a pressure-regulated
+    water supply and we directly control the times at which each sprinkler is active,
+    we can monitor the amount of water consumed by both systems at all times to determine
+    the efficiency of each system. Thus another metric that is relevant is the water
+    consumption, which we would like to minimize subject to the quality of service
+    constraints. Finally, an aesthetic side-effect of uneven moisture distribution
+    is the appearance of “hotspots” where not enough water is received and oversaturated
+    regions where standing water remains on the surface. These can be identified by
+    a difference in color, and detract from the appearance of the space. Although
+    they can take a long time to develop, with our sensing/actuation platform, we
+    can investigate the long-term moisture trends under our comparative control strategies;
+    a more even moisture distribution prevents these localized effects from happening,
+    and uniformity can be monitored through the deployment''s sensor data. Figure
+    12: MAGIC vs PICS quality of service results Show All SECTION 7 Experimental Results
+    In this section, we discuss the experimental results of PICS when compared to
+    both the ET and the MAGIC systems side-by-side. These tests are performed under
+    the same conditions as explained in Section 6.1, analyzing the quality of service,
+    water consumption, and moisture uniformity metrics discussed in Section 6.4. 7.1
+    Quality of Service Irrigation systems are installed to maintain health in the
+    planted turf. However, these systems often fall short of their quality goals.
+    As such, a potential replacement system must either maintain or improve the quality
+    of service. Figure 10 shows the raw moisture data for each sprinkler in the field
+    for both ET and PICS. The center line shows the permanent wilting point (pwp).
+    We can see that the ET system spends more time and in some cases it is well below
+    that mininum threshold for many of the moisture sensors. In order to quantify
+    how much below the minimum moisture threshold (pwp) each system spends over time,
+    we plot the sum of the squared amount below the minimum moisture level over time
+    in Figures 11 and 12 for the experiments comparing PICS with ET and MAGIC respectively.
+    We used the squared amount to emphasize that the larger the amount below the pwp,
+    the worst the quality of service provided. Figure 13: Consumption of ET vs pics
+    Show All In our deployment of PICS against the evapotranspiration control strategy
+    in Figure 10, we see that one node in the control system is well below the threshold
+    we wish to hit. This emphasizes the limitations of ET and the core of our work.
+    The irrigated regions don''t receive moisture the same way, and without learning
+    these eccentricities, it''s very difficult to provide the best quality of service.
+    It should be noted that before the PICS system was turned on, the ET control strategy
+    was used to irrigate both irrigation systems. This can be seen in day 1 in Figure
+    10, where several sensors have moisture levels below our threshold. However, in
+    the first 4 days, the PICS system learns these increased needs and applies tailored
+    moisture to raise them above the threshold. This is a common problem in irrigation
+    systems, as uniform irrigation across the field, without understanding local variations
+    results in moistures that can vary wildly. In order to make this uniformly-irrigating
+    system provide perfect quality, we would have to irrigate all sprinklers enough
+    to raise the driest area above our threshold. This would be a significant waste
+    of water, as the rest of the space would be severely over-watered. In the comparison
+    against MAGIC in Figure 12, we can see that several days are spent with a poorer
+    quality of service in comparison to PICS. On days 1 and 4 in particular, it''s
+    clear that MAGIC''s model believes it can afford to reduce water consumption,
+    causing decreased quality of service on the following days. Likewise, although
+    the MAGIC system attempts to send increased water on day 2, the mismatch between
+    the model and the physical deployment does not send enough to reach this goal.
+    Overall, PICS spends an average of 4.04 times less than the ET system, and ignoring
+    the first day, we average 24.7 times less below the threshold. When compared to
+    MAGIC, PICS spends an average of 2.47 times less than MAGIC. Our system provides
+    significant improvements with respect to quality of service than the other irrigation
+    systems. 7.2 Water Consumption When a decision must be made to switch to a new
+    landscape irrigation control system, a primary concern is the efficiency of the
+    proposed system. The system''s ability to return its investment based on increased
+    efficiency will often dictate the acceptance of the technology. In addition, the
+    environmental benefits of reduced freshwater consumption are clear and help promote
+    system adoption. In our experimental setup, the water source providing for each
+    sprinkler is pressure-regulated to the industry standard, 40psi. A pressure-regulated
+    sprinkler head distributing water at a known angle uses a clearly-defined amount
+    of water per unit time, as described in the sprinkler documentation. By tracking
+    exactly when each sprinkler is actuated by the system, we can determine very accurately
+    how much water has been consumed. In this way, we compute the daily system consumptions
+    for the ET vs PICS and MAGIC vs PICS, as shown in Figures 13 and 14 respectively.
+    Figure 14: Consumption of MAGIC vs pics Show All As discussed in Section 7.1,
+    the experimental system started with moisture levels significantly beneath our
+    desired threshold. For this reason, the first 5 days of PICS control had steadily
+    improving quality of service as it learned its models and raised moisture to satisfactory
+    levels, but on days 2 and 4 this resulted in slightly higher water consumption
+    than the ET system. Day 8 saw slightly higher consumption than the ET system as
+    well, but these were some of the ET system''s worst days in terms of quality of
+    service. Day 11 of our first deployment saw increased water consumption as well,
+    caused by a hardware malfunction. A command telling 4 of the 9 PICS nodes to “Stop
+    irrigation” was lost due to a faulty USB connection to the basestation mote, causing
+    unintentional irrigation that was not corrected until failsafes in the node''s
+    firmware automatically disabled irrigation. This caused the PICS system to consumed
+    more water than intended, as shown on day 11 in Figure 10. We can also see PICS''s
+    ability to recover from such mistakes on days 5 and 12, where significantly less
+    water is required due to the residual moisture from the day before. The water
+    consumption of PICS when compared to MAGIC as seen in Figure 14 was much closer,
+    with some days using slightly less and others slightly more water. However, on
+    days 1 and 4, it is particularly evident that although MAGIC saves significant
+    water, the quality of service suffers immensely. Across the two deployments, the
+    PICS system reduced water consumption by an average of 11.99% compared to the
+    ET system, and 3.28% compared to the MAGIC system. 7.3 Moisture Uniformity Moisture
+    uniformity is a good side-effect, but is not considered a primary goal. In particular,
+    with our learning model, a core assumption is that as losses occur at different
+    rates at different spatiallocations, we are required to apply different amounts
+    of water across the space. However, if we apply the appropriate amount of moisture
+    across the space, the water in all sensing locations will settle towards a uniform
+    distribution as the moisture levels approach the uniform minimum moisture just
+    before irrigation. Figure 15: Average VWC (%) of compared systems across deployments
+    Show All Figure 16: Energy profile of the sensor node Show All Figure 15 shows
+    the average volumetric water content (VWC) colormap of the three compared systems
+    as periodically sampled across the entire deployment. For ease of visualization,
+    a bilinear interpolation is used to produce the figure (a more complex interpolation
+    such as cubic may create artifacts between sampling points). We see that the ET
+    has the least uniform coverage, with a heavy over-irrigated area around the center
+    of the field, and an under-irrigated area close to the lower right corner of the
+    field. In contrast, both MAGIC and PICS had a more uniform moisture distribution,
+    with MAGIC being slightly above the minimum in a cross-like pattern, and PICS
+    being slightly above the minimum in the upper right and lower left corners. 7.4
+    Energy Consumption In our devices, the three peripherals that consume significant
+    energy are the sensor, solenoid, and the radio. However, through clever use of
+    these peripherals, this system can achieve a substantial system lifetime using
+    our current power source of 4xAAs [3]. Each sensor sample requires 10mA of power
+    for 10ms, and each flip of the latching solenoid requires 400-450mA of power for
+    50ms. In our system, to ensure we don''t cut power too early, we add a safety
+    band of 50% on the timing on both of these devices, triggering for 15ms and 75ms
+    for the sensor and solenoid, respectively. The tmote sky [5] radio consumes 23mA
+    max when in transmitting mode. In our 25 day deployment, we found that on average
+    our control strategy flips the solenoid of a node 12 times per day. Assuming we
+    sample our sensor 1 time per minute, flip the solenoid 12 times per day, and utilize
+    a 1% duty cycle ratio across the full 24 hours for communication using techniques
+    such as Low Power Listening [30], even with our conservative timing of the peripherals,
+    our system lifetime is estimated to be 1.7 years, with 95% of this energy consumed
+    by the radio. However, as fresh data is only required less than 3 hours per day
+    during irrigation, by simply leaving the radio off the other 21 hours each day
+    while continue sampling the data and storing it in memory to be sent at the beginning
+    of the irrigation cycle, this lifetime is easily extended to ~11.9 years. Figure
+    17: Return on investment curve Show All Table 3: Sprinkler node manufacture cost
+    SECTION 8 Return on Investment Analysis There are social and political motivations
+    behind a project like this, but a primary consideration before the purchase and
+    installation of a replacement control system is the return on investment, or the
+    time it takes a system to save enough money to cover the cost of installation
+    and usage. To calculate the return on investment, we must take into account the
+    initial cost of the replacement system and the monetary savings expected from
+    the increased efficiency of the replacement system. In Table 3, we list the cost
+    of production for one of our irrigation control devices. Other than screwing these
+    devices under each sprinkler head, the original infrastructure does not need to
+    be modified in any way. Financial savings stem from the system''s ability to save
+    water. In Figure 17, we show how PICS will return its own investment based on
+    water savings alone. As the return on investment will differ depending on the
+    sprinkler heads used, we consider PICS''s installation on a representative University
+    sprinkler head with 11.99% water efficiency improvement compared to industry best,
+    and the fact that our University pays $5.60 per thousand gallons for irrigation.
+    Additionally shown in Figure 17 is a ±10% band in water pricing, to take variation
+    of water pricing into account. In this way, each unit device is estimated to return
+    its investment in 14-17 months. PICS''s improved efficiency and reduced need for
+    a powerful computation machine makes it even more financially attractive than
+    MAGIC, especially due to MAGIC''s additional setup costs that we are not including,
+    as discussed in Section 2. SECTION 9 Limitations and Future Work As shown in Section
+    8, the unit cost of our control devices is dominated by our soil moisture sensor,
+    which was chosen in our experiments due to its very high accuracy (±3% [2]). As
+    the size of the system scales up, the initial cost of the system may become impractically
+    high. To scale to very large systems, then, we must consider the use of significantly
+    cheaper soil moisture sensors at the price of slightly less accurate measurements
+    [31]. When setting up our system, we chose to use a control timestep of 1 minute,
+    and continued to use this to learn our short-term model through our experiments.
+    In future work, we will perform a more in-depth analysis to see how the choice
+    of this time step affects predictive power and practicality in irrigation control.
+    As PICS is designed for turf irrigation, it is unlikely to provide benefit in
+    shrubbery or tree irrigation, where much simpler drip irrigation systems can be
+    used. In addition, some very different turf species may require varying minimum
+    moisture levels to maintain health. Therefore, in turf irrigation systems where
+    the system covers multiple turf species such as a golf course irrigation system,
+    minimal configuration will be required beforehand to tell PICS where each grass
+    type is located. For instance, “Sprinklers 1-90 irrigate turf species A, Sprinklers
+    91-100 irrigate turf species B”, so that differing minimum moisture constraints
+    can be spatially assigned based on the species. Assigning heterogenous minimum
+    moisture constraints will not require any modification to our processing pipeline.
+    PICS can guarantee optimal moisture levels at the sensing locations, but due to
+    uncertainty on environmental conditions such as objects occluding the sprinklers
+    and other localized features, it is possible that perfect irrigation is not achieved
+    in between sensors. A future step may be the addition of an emerging plant health
+    imaging technology [11], [21] to provide supplemental long-term feedback to ensure
+    these locations are also satisfied at all times. SECTION 10 Conclusions Turf is
+    the largest crop by surface area in North America, and using fresh water for irrigation
+    puts significant pressure to make this process efficient for such a delicate resource.
+    In this work, we seek to improve the efficiency of turf irrigation systems by
+    designing, implementing and evaluating PICS, a data-driven control strategy that
+    automatically adapts to local conditions and weather patterns, requiring virtually
+    no human input in both setup and maintenance. Our system reduces the water consumption
+    by an average of 12.0% against the industry best and 3.3% against state-of-the-art
+    research. Despite this reduced water use, PICS was found to reduce turf exposure
+    to unhealthy levels of moisture by a factor of 4.0x and 2.5x with respect to the
+    two systems mentioned above. The PICS system is expected to return its investment
+    in 14-17 months based on water savings alone. ACKNOWLEDGEMENT We would like to
+    thank our referees and our shepherd Xiaofan (Fred) Jiang for their feedback and
+    assistance. This material is based upon work partially supported by the National
+    Science Foundation under grants #CNS-1254192 and #CNS-1430351. Authors Figures
+    References Citations Keywords Metrics More Like This Irrigation Impacts on Scaling
+    Properties of Soil Moisture and the Calibration of a Multifractal Downscaling
+    Model IEEE Transactions on Geoscience and Remote Sensing Published: 2016 Capacitance-Based
+    Soil Moisture Sensor for Irrigation Scheduling Application 2018 3rd International
+    Conference on Computer and Communication Systems (ICCCS) Published: 2018 Show
+    More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved.'
+  inline_citation: null
+  journal: ''
+  limitations: The authors do not mention any limitations of the paper for fully addressing
+    the point and outline, such as limited scope, methodological issues, dated information,
+    or tangential focus.
+  pdf_link: null
+  publication_year: 2018
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Plug-and-Play Irrigation Control at Scale
+  verbatim_quote1: '"The model system is tailored to the space in a data-driven way
+    that requires no human intervention. This allows us not only to deploy the system
+    with ease and minimal configuration, but perhaps more importantly, it allows us
+    to learn and adapt to the local conditions experienced in the field."'
+  verbatim_quote2: '"PICS does not require cumbersome measurements of soil type, topography,
+    direct solar irradiance, but rather adapts to the conditions measured from the
+    moisture data, even if the conditions are heterogeneous accross the field."'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.37675/jat.2022.00192
+  analysis: 'The paper, titled "Smart Crops Irrigation System with Low Energy Consumption,"
+    provides an overview of a smart irrigation system that utilizes Internet of Things
+    (IoT) technology and fuzzy logic control for automated irrigation in agriculture.
+    The system is designed to optimize water and energy consumption while increasing
+    crop production.
+
+
+    In the context of the literature review, the paper is relevant to the point "Considerations:
+    volume, frequency, format, and source of the data" within the subsection "3.1.
+    Irrigation Management Data." The paper discusses the use of wireless sensor networks
+    (WSNs) to collect soil moisture data, which is a crucial input for irrigation
+    scheduling. The data is transmitted to a gateway and then to the cloud for further
+    analysis and decision-making.
+
+
+    **Specific Contributions to the Point:**
+
+
+    - The paper presents a practical implementation of an automated irrigation system
+    that leverages WSNs and fuzzy logic control.
+
+    - It highlights the importance of data collection and transmission for effective
+    irrigation management.
+
+    - The presented system can optimize water usage based on real-time soil moisture
+    data.
+
+
+    **Verbatim Quotes:**
+
+
+    1. "Wireless Sensor Networks (WSNs) are deployed in the field to measure the water
+    content in the soil and water used for plants by measuring the soil moisture dynamics
+    throughout the entire duration of the crop growing season in the Maize crop farm."
+
+
+    2. "The system saves 50% of water and energy consumption for irrigation, 80% reduction
+    of farm-workers and increase in 20% of crop production."
+
+
+    3. "The fuzzy logic controller was used for data analytics and intelligent decision
+    making as well as Fuzzy logic toolbox in MATLAB to simulate irrigation scheduling
+    process."
+
+
+    **Relevance Score:** 0.7
+
+
+    **Limitations:**
+
+
+    - The paper does not provide a detailed analysis of data transmission protocols
+    and technologies used in the system.
+
+    - It does not discuss the scalability of the system to larger farms or different
+    crop types.
+
+    - The paper lacks a thorough evaluation of the system''s performance in terms
+    of water savings, energy efficiency, and crop yield under various conditions.
+
+    - The paper does not provide insights into the cost-effectiveness of the system.
+
+    - The paper does not address potential security concerns related to the wireless
+    transmission of data.
+
+
+    **Full Citation:** Nyakuri, J. P., Bikorimana, S., Bahizi, V., Mirembe, J. D.,
+    Kanyarwanda, D., Nzemerimana, J. P., Kalisa, J. B., & Harerimana, F. (2023). Smart
+    Crops Irrigation System with Low Energy Consumption. Journal of Appropriate Technology,
+    9(1), 9-19.
+
+
+    **Inline Citation:** (Nyakuri et al., 2023)
+
+    '
+  authors:
+  - Nyakuri Jean Pierre
+  - Bikorimana Sefu
+  - Sefu Venuste
+  - Mirembe Jean D’Amour
+  - Kanyarwanda Daniel
+  - Nzemerimana Jean Pierre
+  - Kalisa Jean Bosco
+  - Harerimana Felix
+  citation_count: 0
+  full_citation: Nyakuri, J. P., Bikorimana, S., Bahizi, V., Mirembe, J. D., Kanyarwanda,
+    D., Nzemerimana, J. P., Kalisa, J. B., & Harerimana, F. (2023). Smart Crops Irrigation
+    System with Low Energy Consumption. Journal of Appropriate Technology, 9(1), 9-19.
+  full_text: ">\nArticle\nJournal of Appropriate Technology\nVol. 9, No. 1, 9-19 (2023)\n\
+    This journal is ⓒ Academic Society for Appropriate Technology 2023\nJournal of\
+    \ Appropriate Technology, 2023, 9(1), 9-19 | 9\npISSN 2465-9169 • eISSN 2765-6551\n\
+    https://doi.org/10.37675/jat.2022.00192\nSmart Crops Irrigation System with Low\
+    \ Energy Consumption\nNyakuri Jean Pierre†, Bikorimana Sefu, Bahizi Venuste, Mirembe\
+    \ Jean D’Amour, Kanyarwanda Daniel, \nNzemerimana Jean Pierre, Kalisa Jean Bosco,\
+    \ Harerimana Felix\nRwanda Polytechnic IPRC-Gishari, Electrical and Electronics\
+    \ Engineering Department, Rwanda\nThe COVID-19 preventive measurements restrict\
+    \ farm-workers from travel to their farms, social distancing and lockdown\nto\
+    \ prevent them from getting infected. Consequently, farming and irrigation activities\
+    \ are dramatically reduced due to\nshortage of farm-workers and reduction of crops\
+    \ production. To find solutions, various technologies have been adopted\nto remotely\
+    \ connect farmers with their farm-fields from their homes and perform the same\
+    \ work as they are in the farm.\nAn Internet of Things (IoT) approach, modern\
+    \ sensor technologies, and smart irrigation equipment are coupled to allow\nthe\
+    \ collection of the field data for automatic irrigation of the field. This paper\
+    \ presents the IoT system based on Fuzzy\nlogic controller that assists farmers\
+    \ to receive and monitor necessary irrigation data from the farm field through\
+    \ their smart\nphones and PCs. The Wireless Sensor Networks (WSNs) are deployed\
+    \ in the field to measure the water content in the soil\nand water used for plants\
+    \ by measuring the soil moisture dynamics throughout the entire duration of the\
+    \ crop growing sea-\nson in the Maize crop farm. The Fuzzy logic controller was\
+    \ used for data analytics and intelligent decision making as well\nas Fuzzy logic\
+    \ toolbox in MATLAB to simulate irrigation scheduling process. The system saves\
+    \ 50% of water and energy\nconsumption for irrigation, 80% reduction of farm-workers\
+    \ and increase in 20% of crop production.\nKEYWORDS: Fuzzy logic, Soil moisture,\
+    \ IoT, GSM, WSN, Mobile app, MATLAB\nIntroduction\nAgriculture sector is crucial\
+    \ to the population welfare as it\nprovides the food, employment and raises the\
+    \ national econ-\nomy; In Rwanda, about 96% of its population living in rural\n\
+    areas depends mainly on agriculture for their income and it\nis almost impossible\
+    \ to survive without this sector. However,\nthe climate change, the irregular\
+    \ precipitation and long dry\nseason are negatively affecting the quantity and\
+    \ quality of crop\nproduction and results in agriculture production crisis in\
+    \ the\nregion. Each agricultural crop has its weather requirements for\ngrowing,\
+    \ that’s why the farmers wisely select the right season\nwhen to sow on the basis\
+    \ of weather condition (Zhu et al.,\n2020; Patil et al., 2019). Therefore, in\
+    \ order to achieve a high\nquantity and quality of crop production by balancing\
+    \ weather\ncondition, irrigation is essential.\nThe method used in irrigation\
+    \ involves building canals\nwhich supply uniformly water from water resources\
+    \ or use of\nwater pumps for spraying water evenly in the field. Never-\ntheless,\
+    \ the scarcity of water resources has been a problem that\nimpacts the agriculture\
+    \ development. Therefore, A convenient\nirrigation system shall make the agricultural\
+    \ process more\neffective (Patil et al., 2019). However, not only the currently\n\
+    used methods of irrigation consume more water than what\nplants need, but also\
+    \ require farmers to manually and con-\nstantly operate water valves or water\
+    \ pumps in case of absence\nor excess of water in the field. In addition, COVID-19\
+    \ pan-\ndemic as the biggest health crisis in this decade, due to its\npreventive\
+    \ measures taken by different organ around the world\nwhich restrict the people\
+    \ to stay at home (lockdown) and\nsocial distancing have severely affected agricultural\
+    \ activities\n(Filtjens, n.d.; GSMA, 2021). Therefore, the introduction of\nICT\
+    \ in agriculture has emerged as the effective and sustainable\nsolution to improve\
+    \ irrigation systems.\nThe emergence and rapid development of IoTs and Big Data\n\
+    Analytics presents interesting solutions to the above problem.\n(Badrun and Manaf,\
+    \ 2021; Salvi et al., 2017). In this context,\nan IoT system can connect multiple\
+    \ sensor nodes and other\n†To whom correspondence should be addressed. \nE-mail:\
+    \ njpindian@yahoo.fr\nReceived: 22 September 2022, Revised: 21 December 2022,\
+    \ \nAccepted: 2 March 2023\nThis is an Open Access article distributed under the\
+    \ terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/4.0/)\n\
+    which permits unrestricted non-commercial use, distribution, and reproduction\
+    \ in any medium, provided the original work is properly cited. \nSmart Crops Irrigation\
+    \ System with Low Energy Consumption\n10 | Journal of Appropriate Technology,\
+    \ 2023, 9(1), 9-19\nThis journal is ⓒ Academic Society for Appropriate Technology\
+    \ 2023\nsmart devices located in the field and link them to a local or\ncloud\
+    \ based controller. These nodes in turn collect and trans-\nmit real-time data\
+    \ from their surroundings to the controller.\nThis information can be either used\
+    \ to offer for example a\nfarmer both immediate and long term response or used\
+    \ by pre-\ndictive and adaptive algorithms to execute operational\nresponses such\
+    \ automate irrigation scheduler (Gautam and\nSen, 2015; Jamroen et al., 2020).\n\
+    The use of Smart Crops Irrigation System with Low Energy\nConsumption overcomes\
+    \ the above mentioned problems with\nAn Internet of Things (IoT) approach, modern\
+    \ sensor tech-\nnologies, and smart irrigation equipment are combined to per-\n\
+    mit the collection of the field data for automatic irrigation and\nnotification\
+    \ . This study presents the IoT based irrigation sys-\ntem using Fuzzy logic controller\
+    \ that assists farmers to receive\nand monitor the field parameters such as soil\
+    \ moisture, and\ntemperature as well as remotely controlling irrigation system\n\
+    installed in the farm field through their smart phones and PCs.\nRelated works\n\
+    This section presents the cutting-edge studies for currently\navailable related\
+    \ solutions. First, threatenings to farmers due\nto COVID-19 pandemic are evaluated\
+    \ followed by IoT tech-\nnologies for irrigation and finally the applications\
+    \ of Fuzzy\nlogic in agriculture are presented.\n1. Threatening to farmers due\
+    \ to the COVID-19 pandemic\nThreatening to farmers due to the COVID-19 pandemic\
+    \ has\nexacerbated, especially in developing countries. in Rwanda,\nbig number\
+    \ of the citizen are employed in farming activities\nwhere the report shows that\
+    \ in 2019 in Rwanda, 64% of the\npopulation was hired in this agriculture sector\
+    \ (MINAGRI,\n2020). Since outbreak of COVID-19, one among the effective\nmeasures\
+    \ to control the spread of the pandemic was to enforce\nthe citizen to stay-at-home\
+    \ (4.I. Workshop: Health systems\nresilience during COVID-19: Lessons for building\
+    \ back better,\n2021; Tripathi et al., 2021). The agriculture also was one\namong\
+    \ sectors affected by these COVID-19 prevention mea-\nsures. One among affected\
+    \ farming parts was irrigation where\nfarmers were restricted to go to irrigate\
+    \ their fields and had\nto depend again on rain season only which reduced dramat-\n\
+    ically their production (Boughton et al., 2021; Selim and\nEltarabily, 2022).\
+    \ nevertheless the IoT was introduced and\nbeing used in agriculture sector, challenges\
+    \ of COVID-19 pan-\ndemic have proved that the digital agriculture need to be\
+    \ accel-\nerated, where smart irrigation systems are needed for\nautonomous irrigation\
+    \ and assisting farmers in remote mon-\nitoring and tracking forming activities\
+    \ (GSMA, 2021; Nyakuri\net al., 2022).\n2. IoT connectivity technologies for irrigation\n\
+    Wi-Fi connectivity is a widely used wireless communication\ntechnique. Many agricultural\
+    \ monitoring systems, such as the\none presented in (Mendez et al., 2012) by Gerard\
+    \ Rudolph et\nal and (Hasan et al., 2021), employ Wi-Fi to communicate\namongst\
+    \ the various agents of their designs. They demon-\nstrated a Wi-Fi wireless sensor\
+    \ network for farm monitoring,\nwith nodes collecting data on temperature, humidity,\
+    \ light, soil\nmoisture, and water level. The data was also sent to a server\n\
+    so that it could be viewed later. As a result, researching MiFi\ncoverage in various\
+    \ agricultural settings is of tremendous\ninterest. In (Mendez et al., 2012; Li\
+    \ et al., 2020), Muhammad\nA. et al. reported a method for estimating the location\
+    \ of wire-\nless nodes based on signal intensity. The IEEE 802.11 b/g\nstandard\
+    \ was used and the locations included urban regions,\nrural areas, woodlands,\
+    \ and plantations. However, Wi-Fi\nrequires more internet infrastructure when\
+    \ deployed in remote\narea. \nCellular system employs GSM/GPRS standard for data\n\
+    communication between field sensor node and the cloud\nserver for data storage\
+    \ and further analysis. Additionally, the\nAndroid app is being developed to track\
+    \ the system's current\nstate instantly (Science, 2018). In (Munir et al., 2021;\
+    \ Yang\net al., 2021), the GSM module was used to connect an IoT\ncloud server\
+    \ to a network of sensors, analyzes the data at the\nedge server, transfers only\
+    \ a subset of the data to the main\nIoT cloud server to predict the amount of\
+    \ water that a field\nof crops will need, and uses an edge Android application\
+    \ to\ndisplay the outcome. The IoT devices communicate with cel-\nlular networks\
+    \ by using second generation (2G), third gen-\neration (3G), fourth generation\
+    \ (4G) and GPRS standards due\nto its relatively long-range wireless communication\
+    \ and its\nrobust communication links (Khattab et al., 2019; Science,\n2018).\n\
+    Bluetooth Low Energy enabled technology allows IoT\ndevices in irrigation system\
+    \ to communicate effectively with\nminimized cost and energy consumption but within\
+    \ a short\nNyakuri Jean Pierre et al.\nThis journal is ⓒ Academic Society for\
+    \ Appropriate Technology 2023\nJournal of Appropriate Technology, 2023, 9(1),\
+    \ 9-19 | 11\nrange less than 100 m (Kim et al., 2008), developed sensor-\nbased\
+    \ variable rate irrigation systems with Bluetooth tech-\nnology. The application\
+    \ in this article requires plug-and-play\ncompatibility to serial devices with\
+    \ affordable wireless com-\nmunication modules in order to accommodate existing\
+    \ data\nloggers and sensors. For wireless data transmission between\nin-field\
+    \ sensor stations and a base station, the Bluetooth mod-\nule was chosen (Ilapakurti\
+    \ and Vuppalapati, 2015) and (Hasan\net al., 2021) used the Bluetooth low energy\
+    \ framework to sen-\nsor sensor nodes. Their choice for using Bluetooth low energy,\n\
+    also known as Bluetooth Smart, was to maintain a same com-\nmunication range as\
+    \ Wi-Fi but using significantly less power\nand cost. When compared to other previous\
+    \ stated technol-\nogies used in irrigation, system design optimization, trans-\n\
+    mission energy, cost and security can be achieved by improved\nwith the only limitation\
+    \ of the device communication range.\n3. Fuzzy logic for Data Management and Analytics\
+    \ for\nIrrigation Optimization\nFuzzy logic system determines degree of truth\
+    \ for right deci-\nsion making to the problem as that of human perception and\n\
+    reasoning can make. Fuzzy logic algorithms are robust and\nadapt easily to the\
+    \ changing environments (Jane and Ganesh,\n2019; Pezol et al., 2020) in (Phogat\
+    \ et al., 2021) an irrigation\nsystem based on ANN and Fuzzy Logic was developed.\
+    \ Soil\nmoisture dynamics, precipitation, evapotranspiration for wheat\ncrop were\
+    \ considered. And the results of Fuzzy logic was\nfound suitable with 89% better\
+    \ performance due to better deci-\nsion making the lower implementation cost.\
+    \ An intelligent\nautomatic control system was developed in (Shongwe, 2022)\n\
+    and (Jamroen et al., 2020) using the fuzzy logic controller to\nenable smart irrigation\
+    \ based on environmental factors such\nas soil moisture variation, soil Ph, solar\
+    \ irradiation, air tem-\nperature, and air humidity. The system showed water and\n\
+    energy usage efficiency relatively to the optimal growth of the\nplant.\nAfter\
+    \ observing irrigation challenges faced by formers\nduring COVID-19 pandemic and\
+    \ reduction of their production\ndue to those challenges, based on the necessity\
+    \ of digitali-\nzation in irrigation system and gaps identified in different\n\
+    researches, the Smart Crops Irrigation System with Low\nEnergy Consumption was\
+    \ developed. It works by deploying\nsensor nodes in the field so that irrigation\
+    \ can be done based\non water requirements by the plants to reduce water wastage\n\
+    from irrigating unneeded location and assisting farmers in irri-\ngation activities\
+    \ using smart device.\nFigure 1. Wireless sensor network architecture of the system.\n\
+    Smart Crops Irrigation System with Low Energy Consumption\n12 | Journal of Appropriate\
+    \ Technology, 2023, 9(1), 9-19\nThis journal is ⓒ Academic Society for Appropriate\
+    \ Technology 2023\nSystem design \n1. System architecture\nThe proposed system\
+    \ is illustrated in the Figure 1 and is\ndesigned for semi-automatic irrigation\
+    \ system. The sensor\nnodes are deployed in the field and work in WSN mode at\n\
+    the edge of the network and consist of sensors, Microcon-\ntroller and ZigBee\
+    \ technology and gather all necessary field\ndata to a single gateway. The gateway\
+    \ gathers all data sends\ndata to the cloud platform for further analysis. The\
+    \ water for\nirrigation came from AKAGERA River and stored in the\nwater reservoir\
+    \ where it is pumped to the field by the solar-\npowered pump when it is needed\
+    \ by any sensor node in the\nfield. For any sensor node, if the water content\
+    \ in the soil get\nbelow the threshold value, the irrigation is done either auto-\n\
+    matically or by the farmer according to the weather fore-\ncasting.The field data\
+    \ is sent to the cloud platform through the\ngateway using SGM system. The cloud\
+    \ plat form receives big\ndata from the field and weather forecasting, analyses\
+    \ it, take\ndecision and sent notification to the farmer through smart\nphone\
+    \ and PC. The farmer accesses to all field information\nand can operate the irrigation\
+    \ system from home (whether to\nirrigate or stop irrigation if it is going to\
+    \ rain) using his smart\nphone. \n2. Solar powered sensor node\nThe sensor node\
+    \ presented in this project collects data from\nthe given section of the field\
+    \ (for this case is 2 ha), processes\nit and communicates it to the gateway which\
+    \ is the central unit\nof the WSN. It consists of four main units; the sensing\
+    \ unit\nthat employs Hobonet TEROS 12 Soil Moisture/Temperature/\nEC Sensor to\
+    \ detect the water content and temperature dynam-\nics in the soil, Atmega 328\
+    \ microcontroller which is respon-\nsible for processing data from sensors and\
+    \ determine the\nirrigation requirements, communication units using Xbee\nmodule\
+    \ for transmitting processed data to the gateway and\nfinally the solar panel\
+    \ module for powering the whole device.\n3. Wireless sensor network (WSN)\nWSN\
+    \ is the distributed sensor nodes structure that allows\nmany sensor nodes to\
+    \ communicate each other wirelessly in\nthe network. In this study, the standalone\
+    \ sensor node can\ncover area not more than 2 hectares while the field is 12 hect-\n\
+    ares; so, the sensor nodes are connected in the WSN structure\nin order to collect\
+    \ the entire field information to the central\nunit (The gateway) for further\
+    \ processing and communicating\nthe same data to the cloud for further analysis\
+    \ and decision\nmaking. The ZigBee technology has been chosen for their low\n\
+    power consumption, low cost and easy transmission compared\nto Lora, Wi-Fi and\
+    \ GSM technologies.\nFigure 2. Solar powered sensor node.\nFigure 3. Mobile application\
+    \ dashboard.\nNyakuri Jean Pierre et al.\nThis journal is ⓒ Academic Society for\
+    \ Appropriate Technology 2023\nJournal of Appropriate Technology, 2023, 9(1),\
+    \ 9-19 | 13\n4. Mobile application\nThe bazafarm mobile application is found in\
+    \ the google play\nstore. Its dashboard show the farm information and soil con-\n\
+    dition with notification to the farmer. The soil moisture level,\nsoil electrical\
+    \ conductivity, the battery level of each device and\nthe device ID is shown in\
+    \ the dashboard.\n5. System flowchart\nSmart crop irrigation operates by using\
+    \ microcontroller\nAtmega 328 which starts by scanning soil moisture, soil tem-\n\
+    perature, and electrical conductivity of the soil. Those three\nparameters were\
+    \ scanned with help of moisture sensor placed\nto in the soil. Therefore, those\
+    \ scanned parameters are sent to\nboth cloud and to mobile phone by using GSM.\
+    \ When soil\nmoisture becomes less than twenty four percent, then, turn on\nthe\
+    \ pump for irrigating the crop. Otherwise pump is off. The\nelectrical conductivity\
+    \ of soil turns pump on while it is\nbecomes greater 570 ms/m. \nFuzzy logic controller\
+    \ and MATLAB \nsimulation\n1. Fuzzy logic system for decision making\nFuzzy logic\
+    \ approach is a machine learning technique for\ndata analytics and intelligent\
+    \ decision making for uncertain\nproblems based on the degree of truth. Fuzzy\
+    \ logic helps in\nright decision making as that can be made by human per-\nception\
+    \ and reasoning based on the environment variation\nrather than convention true\
+    \ or false (1 or 0) logic (Arcos-\nAviles et al., 2021). \n2. Fuzzy inference\
+    \ system and membership functions\nFor the simulation of the output based on the\
+    \ input variation\nthrough the Fuzzy Logic Controller is done in the Fuzzy logic\n\
+    Toolbox in MATLAB (Alfin and Sarno, 2018). The output is\nthe speed variation\
+    \ of the electrical pump for irrigation that\ndetermines the quantity of water\
+    \ to be irrigated according to\nthe soil state. The soil state is determined by\
+    \ the soil moisture,\nFigure 4. System flowchart.\nSmart Crops Irrigation System\
+    \ with Low Energy Consumption\n14 | Journal of Appropriate Technology, 2023, 9(1),\
+    \ 9-19\nThis journal is ⓒ Academic Society for Appropriate Technology 2023\nsoil\
+    \ temperature and the soil EC data collected by sensors as\nillustrated in Fuzzy\
+    \ Inference System editor Figure 5.\nIn the proposed work, there are three Fuzzy\
+    \ input mem-\nbership functions including soil moisture, soil temperature and\n\
+    EC. The input membership functions with their linguistic vari-\nables, corresponding\
+    \ ranges and plots are illustrated in the\nTable 1. \nThe output membership function\
+    \ of the Fuzzy system is the\nvariation speed of electrical pump that varies from\
+    \ 0 to 30%\nfor low state, 30% to 60% for medium state and 60% to 100%\nfor high\
+    \ state of its total power. The linguistic variables, cor-\nresponding ranges\
+    \ and plot are described in the Table 2.\nFigure 5. Fuzzy inference system editor.\n\
+    Table 1. Input membership functions and their linguistic variable ranges with\
+    \ plots\nInput Membership \nfunctions\nLinguistic \nVariable\nRange\n(%)\nMembership\
+    \ Function plots\nSoil moisture (%)\nLOW(L)\n0-24\nMEDIUM(M)\n24-34\nHIGH(H)\n\
+    34-50\nSoil temperature \n(oC)\nLOW(L)\n0-20\nMEDIUM(M)\n20-24\nHIGH(H)\n24-50\n\
+    Soil EC (ms/m)\nLOW(L)\n0-110\nMEDIUM(M)\n110-570\nHIGH(H)\n570-1000\nNyakuri\
+    \ Jean Pierre et al.\nThis journal is ⓒ Academic Society for Appropriate Technology\
+    \ 2023\nJournal of Appropriate Technology, 2023, 9(1), 9-19 | 15\n3. Fuzzy IF-THEN\
+    \ Rules\nIn this study, the fuzzy IF-THEN rule system is based on\nthe expert\
+    \ knowledge in the field of irrigation to manage the\nappropriate quantity of\
+    \ water to irrigate the farm field at real-\ntime. The Fuzzy Rule System starts\
+    \ by determining water con-\ntent in the soil (in %), temperature (in oC) and\
+    \ EC (in mS/\nm) of the soil as input Fuzzy values. The input Fuzzy values\nare\
+    \ applied to IF-THEN rule system that determines the output\nFuzzy values as described\
+    \ in IF-THEN Rule viewer Figure 6.\n4. Surface view\nThe surface viewers of the\
+    \ proposed Fuzzy system are the\nthree-dimensional output surfaces that shows\
+    \ output variations\nwith their corresponding inputs. The surface views in Figure\n\
+    7(a), Figure 7(b) and Figure 7(c) represent the output variation\nspeed of the\
+    \ electrical pump during irrigation process that cor-\nrespond to soil moisture/soil\
+    \ temperature, soil moisture/EC\nand soil temperature/EC respectively.\nResults\
+    \ and Discussion\n1. Results \nThe 6 sensor nodes were deployed in the Maize farm\n\
+    located at Nyagatare in Eastern province of Rwanda near the\nAkagera River. The\
+    \ C9 section of the farm covers 12 hectors\nand each sensor node is able to serve\
+    \ not more than 2 hectors\nFigure 6. Fuzzy IF-THEN rule system.\nTable 2. Output\
+    \ membership functions and their linguistic variable ranges with plot\nInput Membership\
+    \ \nfunctions\nLinguistic \nVariable\nRange (%)\nMembership Function for output\n\
+    Variable speed \nelectrical pump (%)\nLOW(L)\n0-30\nMEDIUM(M)\n30-60\nHIGH(H)\n\
+    34-50\nSmart Crops Irrigation System with Low Energy Consumption\n16 | Journal\
+    \ of Appropriate Technology, 2023, 9(1), 9-19\nThis journal is ⓒ Academic Society\
+    \ for Appropriate Technology 2023\nFigure 7. 3D input-outout surface viewers.\n\
+    Figure 8. Average soil moisture and temperature by each of six sensor nodes of\
+    \ C9 section in season 1 and season 2 (in %).\nNyakuri Jean Pierre et al.\nThis\
+    \ journal is ⓒ Academic Society for Appropriate Technology 2023\nJournal of Appropriate\
+    \ Technology, 2023, 9(1), 9-19 | 17\nsection of the field. After smart irrigation\
+    \ system with low\nenergy consumption installed in the Maize farm, the data col-\n\
+    lected in two consecutive seasons, the season 1 started from\nApril to July 2021\
+    \ and the season 2 started from August to\nOctober the results obtained are presented\
+    \ in the Figure 8.\n1. The data collected by each sensor during those seasons\n\
+    show that the average of the soil moisture was 29.45%\nand 33.55% respectively,\
+    \ which are exactly in the\nexpected normal range.\n2. The average soil temperature\
+    \ was 22.56oC and 23.53oC\nrespectively which correspond to the normal recom-\n\
+    mended temperature range.\n3. Water usage and energy consumption was reduced by\n\
+    45% due to the reduction of the irrigation time duration.\n4. The 80% reduction\
+    \ in number of farm-workers due to\nautomatic irrigation and remote farm irrigation\
+    \ moni-\ntoring system via smart phone.\n5. 20% increase in maize production compare\
+    \ to previous\nseasons.\nThe resulting Averages of soil moisture and temperature\
+    \ in\nthe period of two seasons showed that water content in the\nsoil was maintained\
+    \ at desired level due to the regular auto-\nmatic irrigation system based on\
+    \ the water needs for the plant.\nData were collected in two periods, the first\
+    \ period was from\nMay to July and the second was from August to December\nand\
+    \ C9 section covers 12 Ha and the crop planted is Maize.\nEach sensor node sends\
+    \ data every 30 minutes and each single\ndata packet has 2.5 kb size.\nAccording\
+    \ to the above chart, the number of data collected\nin C9 section in season1 is\
+    \ estimated to 22.9 MB while num-\nber of data collected in season 2 is 18.5 MB.\
+    \ So, the number\nof data collected in season1 is more than season 2 because\n\
+    season 1 was longer than season two.\n2. Discussion\nThe project was well conducted\
+    \ durig the two seasons peri-\node which had defferent rainfall and sunshine patterns.\
+    \ The\nFigure 9. Average data transmitted by each of six sensor nodes of C9 section\
+    \ in season 1 and season 2 (in MB).\nSmart Crops Irrigation System with Low Energy\
+    \ Consumption\n18 | Journal of Appropriate Technology, 2023, 9(1), 9-19\nThis\
+    \ journal is ⓒ Academic Society for Appropriate Technology 2023\nresulting average\
+    \ soil moisture and temperature in that period\nproved that water content in the\
+    \ soil was maintained at desired\nlevel due to the regular automatic irrigation\
+    \ system based on\nthe water needs for the plant. By using this system, farmers\n\
+    can nolonger rely on rainfall condition. In addition, a sig-\nnificant benetit\
+    \ for farmers was achieved by saving 80% of\nlabor force (as COVID-19 pandemic\
+    \ prevention measures\nwere conserned) and 45% of energy consumption was saved\n\
+    with 20% increase in crop productivity.\nBy introducing this smart irrigation\
+    \ system, other types of\ncrop than Maize such as vegetables and potatos can be\
+    \ grown\nand increase significantly the productivity. The availability of\nsufficient\
+    \ sunlight makes renewable enery an additive source\nof free energy for irrigation\
+    \ equipment to overcome electrical\nenergy problem in the region.\nConclusion\n\
+    This study presents smart irrigation project based on soil\nparameters dynamics\
+    \ suitable for Maize crop irrigation. It uses\nsensors to sense variation in moisture\
+    \ and temperature in the\nsoil, process them using Raspberry-pi 3 and Fuzzy Inference\n\
+    Controller for decision making and gives recommendation\n(notification message)\
+    \ to the farmers according to standards\npredetermined through mobile application.\
+    \ This system pro-\nvides capabilities for the farmer to monitor their farm irri-\n\
+    gation activities anywhere they can be and at any time as the\nCOVID-19 pandemic\
+    \ prevention measures prevent movement.\nThe results shows that there are significant\
+    \ reduction of water\nquantity and energy for irrigation as well as preventing\
+    \ the\nCOVID-19 transmission by monitoring the farm activities\nremotely through\
+    \ smart phone.\nReferences\n4.I. Workshop: Health systems resilience during COVID-19:\
+    \ Les-\nsons for building back better. (2021). European Journal of\nPublic Health,\
+    \ 31(Supplement_3). https://doi.org/10.1093/\neurpub/ckab164.285\nAlfin, A. A.,\
+    \ and Sarno, R. (2018). Soil irrigation fuzzy estimation\napproach based on decision\
+    \ making in sugarcane industry.\nProceedings of the 11th International Conference\
+    \ on\nInformation and Communication Technology and System,\nICTS 2017, 2018-Janua,\
+    \ pp. 137-142. https://doi.org/10.1109/\nICTS.2017.8265659\nBadrun, B., and Manaf,\
+    \ M. (2021). The Development of Smart\nIrrigation System with IoT, Cloud, and\
+    \ Big Data. IOP Confer-\nence Series: Earth and Environmental Science, 830(1).\
+    \ https:/\n/doi.org/10.1088/1755-1315/830/1/012009\nBoughton, D., Goeb, J., Lambrecht,\
+    \ I., Headey, D., Takeshima, H.,\nMahrt, K., Masias, I., Goudet, S., Ragasa, C.,\
+    \ Maredia, M. K.,\nMinten, B., and Diao, X. (2021). Impacts of COVID-19 on\nagricultural\
+    \ production and food systems in late transforming\nSoutheast Asia: The case of\
+    \ Myanmar. Agricultural Systems,\n188 (December 2020), 103026. https://doi.org/10.1016/j.agsy.\n\
+    2020.103026\nFiltjens, J. (n.d.). COVID paper.\nGautam, G., and Sen, B. (2015).\
+    \ Design and Simulation of Wire-\nless Sensor Network in NS2. International Journal\
+    \ of Com-\nputer Applications, 113(16), pp. 14-16. https://doi.org/10.5120\n/19910-2018\n\
+    GSMA. (2021). COVID-19 : Accelerating the Use of Digital\nAgriculture. 80.\nJamroen,\
+    \ C., Komkum, P., Fongkerd, C., and Krongpha, W.\n(2020). An intelligent irrigation\
+    \ scheduling system using low-\ncost wireless sensor network toward sustainable\
+    \ and precision\nagriculture. IEEE Access, 8, pp. 172756-172769. https://\ndoi.org/10.1109/ACCESS.2020.3025590\n\
+    Li, W., Awais, M., Ru, W., Shi, W., Ajmal, M., Uddin, S., and Liu,\nC. (2020).\
+    \ Review of Sensor Network-Based Irrigation Sys-\ntems Using IoT and Remote Sensing.\
+    \ Advances in Meteorol-\nogy, 2020. https://doi.org/10.1155/2020/8396164\nMendez,\
+    \ G. R., Md Yunus, M. A., and Mukhopadhyay, S. C.\n(2012). A WiFi based smart\
+    \ wireless sensor network for mon-\nitoring an agricultural environment. 2012\
+    \ IEEE I2MTC -\nInternational Instrumentation and Measurement Technology\nConference,\
+    \ Proceedings, pp. 2640-2645. https://doi.org/10.1109\n/I2MTC.2012. 6229653\n\
+    MINAGRI. (2020). Minagri Annual Report 2019-2020, decrease\nin small animal population,\
+    \ 52.\nPatil, B., Gabhane, S. K., and Repal, S. S. (2019). Efficient auto-\nmated\
+    \ irrigation system. Proceedings of the International Con-\nference on I-SMAC\
+    \ (IoT in Social, Mobile, Analytics and\nCloud), I-SMAC 2018, pp. 682-687. https://doi.org/10.1109/I-\n\
+    SMAC.2018.8653697\nSalvi, S., Framed Jain, S. A., Sanjay, H. A., Harshita, T.\
+    \ K.,\nFarhana, M., Jain, N., and Suhas, M. V. (2017). Cloud based\ndata analysis\
+    \ and monitoring of smart multi-level irrigation\nsystem using IoT. Proceedings\
+    \ of the International Conference\non IoT in Social, Mobile, Analytics and Cloud,\
+    \ I-SMAC 2017,\nMarch 2022, pp. 752-757. https://doi.org/10.1109/I-SMAC.\nNyakuri\
+    \ Jean Pierre et al.\nThis journal is ⓒ Academic Society for Appropriate Technology\
+    \ 2023\nJournal of Appropriate Technology, 2023, 9(1), 9-19 | 19\n2017.8058279\n\
+    Selim, T., and Eltarabily, M. G. (2022). Impact of COVID-19\nlockdown on small-scale\
+    \ farming in Northeastern Nile Delta\nof Egypt and learned lessons for water conservation\
+    \ potentials.\nAin Shams Engineering Journal, 13(4), pp. 101649. https://\ndoi.org/10.1016/j.asej.2021.11.018\n\
+    Vaishali, S., Suraj, S., Vignesh, G., Dhivya, S., and Udhayakumar,\nS. (2018).\
+    \ Mobile integrated smart irrigation management and\nmonitoring system using IOT.\
+    \ Proceedings of the 2017 IEEE\nInternational Conference on Communication and\
+    \ Signal Pro-\ncessing, ICCSP 2017, 2018-Janua, pp. 2164-2167. https://\ndoi.org/10.1109/ICCSP.2017.8286792\n\
+    Zhu, S., Gao, S., Zhang, Y., and Yu, X. (2020). The Influence of\nCOVID-19 on\
+    \ Agricultural Economy and the New Mode of\nInformation Development. Proceedings\
+    \ - 2020 2nd Interna-\ntional Conference on Economic Management and Model\nEngineering,\
+    \ ICEMME 2020, pp. 855-857. https://doi.org/\n10.1109/ICEMME51517.2020.00008\n"
+  inline_citation: (Nyakuri et al., 2023)
+  journal: Journal of appropriate technology
+  limitations: '- The paper does not provide a detailed analysis of data transmission
+    protocols and technologies used in the system.
+
+    - It does not discuss the scalability of the system to larger farms or different
+    crop types.
+
+    - The paper lacks a thorough evaluation of the system''s performance in terms
+    of water savings, energy efficiency, and crop yield under various conditions.
+
+    - The paper does not provide insights into the cost-effectiveness of the system.
+
+    - The paper does not address potential security concerns related to the wireless
+    transmission of data.'
+  pdf_link: https://www.e-jat.org/upload/pdf/jat-2022-00192.pdf
+  publication_year: 2023
+  relevance_score: 0.7
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Smart Crops Irrigation System with Low Energy Consumption
+  verbatim_quote1: '"Wireless Sensor Networks (WSNs) are deployed in the field to
+    measure the water content in the soil and water used for plants by measuring the
+    soil moisture dynamics throughout the entire duration of the crop growing season
+    in the Maize crop farm."'
+  verbatim_quote2: '"The system saves 50% of water and energy consumption for irrigation,
+    80% reduction of farm-workers and increase in 20% of crop production."'
+  verbatim_quote3: '"The fuzzy logic controller was used for data analytics and intelligent
+    decision making as well as Fuzzy logic toolbox in MATLAB to simulate irrigation
+    scheduling process."'

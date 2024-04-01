@@ -1,0 +1,641 @@
+- analysis: This article proposes a dynamic spectrum access mechanism for wireless
+    smart sensor networks (WSSNs) that leverages channel availability modeling using
+    a continuous-time Markov chain to account for primary transmitting users, temporal
+    channel usage, channel patterns, and spatial distribution. It also recommends
+    utilizing a MIMO-OFDMA-based Cognitive Radio scheme to improve system capacity
+    and reduce interference in dynamic spectrum access networks. Furthermore, a focus
+    is placed on developing an energy-efficient spectrum sensing technique using dedicated
+    smart sensors and virtualized-operated networks, which the researchers claim improves
+    the spectrum efficiency of Cognitive Radio wireless smart sensor networks. Simulations
+    demonstrate the superiority of the proposed scheme in terms of effective capacity
+    and energy efficiency compared to existing schemes.
+  authors:
+  - Badri I.
+  - Abdellaoui M.
+  citation_count: '0'
+  description: 'The wireless smart sensors networks (WSSNs) is expected to play significant
+    role in Internet of Things (IoT) and wireless based application service delivery
+    such as: in healthcare, in environment monitoring, in intelligent agriculture,
+    …. Therefore, cognitive radio is promising in handling spectrum efficiently, however
+    the Cognitive Radio approach for WSSNs is not efficient in utilizing spectrum
+    because they also suffer from interference which induced collision. In this paper,
+    we present a dynamic spectrum access for WSSNs based on the channel availability
+    of likelihood distribution using continuous-time Markov chain considering primary
+    transmitting users, temporal channel usage, channel pattern and spatial distribution.
+    On the other hand, as the 5G promising technique, Multiple Inputs-Multiple Outputs
+    Orthogonal Frequency Division Multiple Access (MIMO-OFDMA) based Cognitive Radio
+    schemes are proposed to significantly improve the system capacity while mitigate
+    the interference for dynamic spectrum access networks. The energy efficient spectrum
+    sensing employing a dedicated smart sensors and virtualized-operated networks
+    for spectrum sensing is given focus in this paper. The experiment outcome shows
+    that the proposed approach improves overall spectrum efficiency of Cognitive Radio
+    wireless smart sensors networks. On the subject of the power-allocation policies
+    for the MIMO-OFDMA based Cognitive Radio network, a set of simulations show that
+    our proposed scheme outperforms the other existing schemes in terms of effective
+    capacity to efficiently implement the heterogeneous statistical QoS over MIMO-OFDMA
+    based Cognitive Radio network. The improvement virtualized-operated network life
+    time and energy efficiency is shown through simulations.'
+  doi: 10.1007/978-3-030-12388-8_14
+  full_citation: null
+  full_text: '>
+
+    "Your privacy, your choice We use essential cookies to make sure the site can
+    function. We also use optional cookies for advertising, personalisation of content,
+    usage analysis, and social media. By accepting optional cookies, you consent to
+    the processing of your personal data - including transfers to third parties. Some
+    third parties are outside of the European Economic Area, with varying standards
+    of data protection. See our privacy policy for more information on the use of
+    your personal data. Manage preferences for further information and to change your
+    choices. Accept all cookies Skip to main content Advertisement Log in Find a journal
+    Publish with us Track your research Search Cart Future of Information and Communication
+    Conference FICC 2019: Advances in Information and Communication pp 185–202Cite
+    as Home Advances in Information and Communication Conference paper Dynamic Spectrum
+    Access of Virtualized-Operated Networks over MIMO-OFDMA Dedicated to 5G Cognitive
+    WSSNs Imen Badri & Mahmoud Abdellaoui  Conference paper First Online: 02 February
+    2019 1280 Accesses Part of the book series: Lecture Notes in Networks and Systems
+    ((LNNS,volume 69)) Abstract The wireless smart sensors networks (WSSNs) is expected
+    to play significant role in Internet of Things (IoT) and wireless based application
+    service delivery such as: in healthcare, in environment monitoring, in intelligent
+    agriculture, … . Therefore, cognitive radio is promising in handling spectrum
+    efficiently, however the Cognitive Radio approach for WSSNs is not efficient in
+    utilizing spectrum because they also suffer from interference which induced collision.
+    In this paper, we present a dynamic spectrum access for WSSNs based on the channel
+    availability of likelihood distribution using continuous-time Markov chain considering
+    primary transmitting users, temporal channel usage, channel pattern and spatial
+    distribution. On the other hand, as the 5G promising technique, Multiple Inputs-Multiple
+    Outputs Orthogonal Frequency Division Multiple Access (MIMO-OFDMA) based Cognitive
+    Radio schemes are proposed to significantly improve the system capacity while
+    mitigate the interference for dynamic spectrum access networks. The energy efficient
+    spectrum sensing employing a dedicated smart sensors and virtualized-operated
+    networks for spectrum sensing is given focus in this paper. The experiment outcome
+    shows that the proposed approach improves overall spectrum efficiency of Cognitive
+    Radio wireless smart sensors networks. On the subject of the power-allocation
+    policies for the MIMO-OFDMA based Cognitive Radio network, a set of simulations
+    show that our proposed scheme outperforms the other existing schemes in terms
+    of effective capacity to efficiently implement the heterogeneous statistical QoS
+    over MIMO-OFDMA based Cognitive Radio network. The improvement virtualized-operated
+    network life time and energy efficiency is shown through simulations. Keywords
+    Dynamic spectrum access Virtualized operated networks MIMO-OFDMA 5G cognitive
+    WSSNs Intelligent agriculture Automated irrigation system Access provided by University
+    of Nebraska-Lincoln. Download conference paper PDF 1 Introduction The evolution
+    of technology in the fields of computer science and electronics has allowed the
+    emergence of wireless sensors networks (WSNs), which are considered a special
+    type of ad hoc networks whose nodes are sensors to low cost, low power and easy
+    to deploy. They are able to collect and transmit data in multiple applications
+    in an autonomous way. Recall that in recent years, many wireless sensors networks
+    have been deployed in different applications to explore the requirements, constraints
+    and guidelines for the overall design of the sensors network architecture. A static
+    sensor is a device sensitive to the physical quantity to be measured which transforms
+    the state of a physical quantity observed into a usable quantity, for example
+    an electrical voltage, a height of mercury, an intensity, the deflection of a
+    needle. The use of WSN in precision farming makes it possible to make the right
+    decision for each area on the farm [1]. The advantages of the traditional WSN
+    network is the absence of cabling, which greatly reduces the cost of installation,
+    the other advantage is deployment flexibility and ease of maintenance. Indeed,
+    the sensors are autonomous and require very little human intervention on the fields
+    especially in the case where the communication protocols are fault-tolerant and
+    support the mobility of the nodes. Nodes can measure different parameters such
+    as air and soil parameters. In order for this network to become functional and
+    complete at the architecture level, we must present the radio part which makes
+    it possible to transfer, transmit and change information from one source to another.
+    This network equipped with Cognitive Radio is called CWSN. In the CWSN which is
+    a specialized ad hoc network, in which the nodes present wireless sensors administered
+    by a SINK node, the wireless sensor is an instrument for measuring the physical
+    quantities in a well-defined field, its function is to collect and to transmit
+    the data to a base station. Sensors are the basic elements of data acquisition
+    systems [1]. Their implementation is in the field of instrumentation. This network,
+    in addition to the advantages presented above, recommends many limitations and
+    disadvantages which does not meet the expectations and needs of users since the
+    features of a static wireless sensor are limited; moreover, the static wireless
+    sensor is not able to make decisions and send orders to actuators. Faced with
+    the huge problems encountered in using the classic WSN (wireless sensors network)
+    and to solve and overcome its problems, we introduced the notion of a virtualized-operated
+    system. Remember that the aspect of virtualization is a solution used in the computer
+    world to share resources (execution, storage) between multiple applications, while
+    ensuring the tightness between applications. Network Functions of Virtualization
+    (NFV) is a key element in optimizing the use of network resources by “virtualizing”
+    functions usually implemented in proprietary hardware, thus reducing the costs
+    of investment and operation for operators. Virtualized-operated networks are more
+    agile, more scalable, more innovative and above all more adapted to the imperative
+    of operation. In another way, network virtualization consists of virtualizing
+    on application resource pools namely: computation, storage, network-DHCP-DNS service,
+    software firewall and load balancing. In this work, we will have modeled a specific
+    intelligent sensors network system based on virtualized-operated networks while
+    applying the MIMO-OFDMA technique and Cognitive Radio. The goal to be reached
+    by the proposed CWSSN is to answer and to solve the CWSN problems, we have proposed
+    another type of network occupied by intelligent sensors nodes that are equipped
+    with a promising Cognitive Radio in the effective management of spectrum called
+    cognitive wireless smart sensors network (CWSSNs) based on Cognitive Radio network,
+    virtualized-operated networks, smart sensors and MIMO-OFDMA technology. It is
+    a whole specific dedicated system for different applications, we propose in this
+    research to apply our new specific network in the field of agriculture to solve
+    such irrigation problems and for a comfortable agriculture, modernized, automated
+    and intelligent in order to have a very good product quality. To ensure the proper
+    functioning of this network and to ensure security against any attacks and intrusions,
+    we introduced the concept of Software-Defined Wireless Sensors Cognitive Radio
+    Networks (SD-WSCRNs). This intelligent sensors network consists of intelligent
+    sensors nodes and a base station on which all detected data are transmitted. This
+    network can be reconfigured remotely after the deployment and when its database
+    is saturated-empty and populated. This network is agile and adapts to topological
+    changes. It is also programmable, which facilitates network management [2]. To
+    meet the challenges of the spectrum, smart sensors nodes are equipped with a promising
+    Cognitive Radio in effective spectrum management since Cognitive Radio (CR) is
+    one of the technologies capable of enabling intelligent sensors nodes (as secondary
+    users) to detect and temporarily use the licensed underutilized spectrum when
+    primary users (PUs) do not use it [3]. But, the existing problems in the CWSN
+    are solved like as: the bandwidth problem, the problem of the response time, the
+    resolution problem and several other limits. In addition, there are also several
+    problems of: auto-configuration, self-monitoring, learning, decision-making and
+    control actuators. Conventional wireless sensors networks are used in several
+    fields of application [1]. Among these is the field of agriculture, where this
+    network has not met the expectations and needs of farmers since it requires a
+    large number of forestry workers who perform manual work recommending errors likely
+    as: firstly, in the delivered water quantity; secondly, at the time of the release/shutdown.
+    For this, we have proposed our CWSSN network which can provide an important support
+    facilitating agricultural practices allowing then the use of intelligent agriculture.
+    This paper is organized into sections as follows; Sect. 2 defines the model of
+    the proposed system, Sect. 3 describes the theoretical analysis of the network
+    of metrics, the application and simulations are presented in Sect. 4 and finally,
+    Sect. 5 concludes the article and the proposed prospects. 2 Cognitive Wireless
+    Smart Sensors Network System Model Based on MIMO-OFDMA To overcome the limitations
+    of the classic CWSN network equipped with a Cognitive Radio and their problems
+    mentioned in the previous chapter; For this, we proposed a specific wireless sensors
+    network model consisting of smart sensors called Cognitive Wireless Smart Sensors
+    Network (CWSSN). This type of network represents a new generation of the embedded
+    system running in real time with significant communication constraints different
+    from the traditional network. The key element of the CWSSN is the intelligent
+    sensor which is an embedded system with several intelligent features such as self-diagnosis,
+    self-calibration, remote reconfiguration, ease of maintenance, real-time data
+    storage on malfunction and possibly the diagnosis of defects. Thanks to the complementarity
+    of its functionalities, we can say that the intelligent sensor is a microsystem
+    intelligently managing the operation of an application. Also, we can integrate
+    several other features namely: Advanced communication interpreting a two-way digital
+    dialogue with other related microsystem or smart sensor. The generation of virtual
+    quantities (magnitudes that are not directly measurable but developed from the
+    available physical quantities and calculation models). The realization of an automatic
+    passage in a fallback position during a certain malfunction. The presentation
+    of the possibilities of self-adaptation, that is to say automatic choice of the
+    scale best suited to the quantities to be measured. In this study, we replaced
+    the static wireless sensor with a smart sensor. Smart sensor technology can detect
+    and connect objects in different applications, particularly intelligent agriculture.
+    The proposed network is an interconnected wireless network; it has grown massively
+    because of the vast potential of wireless smart sensors to connect the physical
+    globe to the virtual globe. So, it’s a multi-hop network. CWSSN nodes are located
+    in a monitoring field in a distributed manner. This CR-equipped network can help
+    overcome bandwidth limitation while detecting ghost holes and using MIMO-OFDMA
+    technology to improve spectrum sensing utilization on the one hand and minimize
+    interference on the other. Due to the characteristics and limitations of smart
+    sensors nodes, the coupling of cognitive technology into smart sensors nodes introduces
+    other challenges such as spectrum detection, spectrum sharing and spectrum management
+    [4]. As the use of Cognitive Radio increases day by day, the problems associated
+    with spectrum detection are also increasing. These communication problems in our
+    CWSSN network have been solved through Cognitive Radio technology. The cognitive
+    technique is the process of knowledge through perception, planning, reasoning,
+    updating action and continuous updating with a learning history; this allows us
+    to appear a network of distributed smart sensors. The CR offers some advantages
+    such as: the efficient use of the spectrum as well as spacing for new technologies,
+    the use of several channels, the energy efficiency, the use of the spectral band
+    specific to each application and the reduction of attacks. One of the primary
+    goals of integrating a CR into wireless smart sensors is to use the unused licensed
+    spectrum opportunistically. The overarching problem facing the CWSSN is the implementation
+    of an effective spectrum access mechanism to respond to existing challenges. In
+    this work, we propose and present a mechanism of access to the spectrum of the
+    opportunistic primary user by using a continuous time Markov chain. So, consider
+    a network of intelligent wireless cognitive radio smart sensors, which consists
+    of a set of primary users such as the base station (sink) and unauthorized secondary
+    users (smart sensors devices). An intelligent sensing device is equipped with
+    a Cognitive Radio for opportunistic access of licensed spectrum [4, 5]. Let us
+    consider the set U of the nonempty opportunistic channel accessible to intelligent
+    sensors. There is limited channel availability for an intelligent sensor device
+    due to the nature of the main user characteristics and the positions/locations
+    of the smart sensors devices. The characteristic of the opportunity of the spectrum
+    depends on the availability of the channel for an intelligent sensor device which
+    is defined as the time during which the channel is available for intelligent detection
+    devices or not [4]. Recall to the Cognitive Radio technology is an emerging technology
+    in order to solve the spectrum scarcity problem in wireless smart sensors communication
+    networks and especially in the virtualized-operated communication networks. Spectrum
+    sensing which enables dynamic spectrum is found to be one of the most complex
+    and power intensive tasks in a Cognitive Radio. The smart sensors nodes within
+    the communication range of each Cognitive Radio forms clusters around the Cognitive
+    Radio to sense the spectrum. These clusters (see Fig. 1.) are again divided into
+    disjoint subsets to further improve energy efficiency. Only one subset is made
+    active at a time to sense the spectrum. The benefits and application of a dedicated
+    smart sensors and virtualized-operated networks for Cognitive Radio spectrum sensing
+    was developed and discussed in [4]. A promising approach for energy efficient
+    spectrum sensing via a separate dedicated smart sensors and virtualized-operated
+    networks. Spectrum sensing via smart sensors and virtualized-operated networks
+    benefits in providing better primary user and effectively detecting a possible
+    weak primary user signal [4, 6,7,8]. Fig. 1. CWSSN network model Full size image
+    New generation communication systems promise to implement a wide variety of new
+    features requiring the exchange and transfer of a very wide range of information.
+    For this, older generations (2G, 3G and 4G) do not meet the expectations and growing
+    needs of communications and links; which requires the appearance of a new generation
+    that is 5G. 5G designs require MIMO antenna arrays with hundreds of antenna elements
+    on base stations (eNodeB). MIMO technology uses spatial multiplexing gain to achieve
+    the highest spectral efficiency. Since several transmit antennas can be applied
+    to OFDM-based Cognitive Radio systems, the researchers have designed and proposed
+    the very promising candidate, called MIMO-OFDMA, which can compensate for lack
+    of capacity while increasing spectral efficiency [4, 9]. OFDMA is considered a
+    modulation and multiple access technique for 5G generation wireless networks.
+    OFDMA is an extension of orthogonal frequency division multiplexing (OFDM) that
+    can achieve adaptive bandwidth allocation in intelligent wireless cognitive sensors
+    networks. In the MIMO technique, there are two concepts based on how base station
+    antennas are used to serve users. They are divided into two categories: single-user
+    MIMO and multi-users MIMO. In single-user MIMO, all streams from base station
+    antennas are focused on a single user. In multi-users MIMO, different streams
+    produced using a combination of different antennas are focused on different users
+    or subscribers [4, 10]. The model, presented in the Fig. 1, is formulated by a
+    graph R = (N; L; C; F), with: N is the set of the nodes of the network. L is the
+    set of links that are communication pairs achievable on the duty of transmissions.
+    This is the set of spectrum channels that are currently assigned to links in L.
+    F is the set of simultaneous multi-hop data streams in the network. We consider
+    Cognitive Radio networks based on MIMO-OFDMA, where there is secondary source
+    node with nodes (E1, E2, …, EK), a MIMO-based relay station, and secondary destination
+    node with nodes. (R1, R2, …, RK) in coexistence with the primary users (PUs),
+    as shown in Fig. 1. Assume that each intelligent transmit/receive sensor node
+    is equipped with a transmit antenna and a receive antenna, while the relay station
+    is composed of AE broadcast antennas and AR receive antennas. Then, in our application,
+    we assume that the number of antennas is finite AE = AR = 100 transmit/receive
+    antennas in a definite path. In this research, this model is considered as a virtual
+    network operated, it is composed by clusters. Actually in our application of intelligent
+    farming, clusters are considered as lines of apricot/peach/olive plants. Each
+    cluster has a responsible node called Cluster Head (CH) or SINK, which is the
+    group leader that coordinates cluster members, aggregates, processes data and
+    passes it to the data collector. The clustering method offers several objectives
+    to know: the reduction of energy consumption, the minimization of communication,
+    the load balancing, the extension of the service life of the network, the increase
+    of the rate of the total connectivity and the reduction of delays, the optimization
+    of bandwidth and the improvement of Quality of Service (QoS). Cluster members
+    or smart sensors nodes can access neighboring clusters and route data between
+    them. So, they measure the necessary data and send them to the SINK. Afterwards,
+    the SINK processes the data streams and transmits them to the base stations, which
+    are based on MIMO technology, using the 5G operated networks. 3 Dynamic Spectrum
+    Access, Spectral Allocation and Metric Networks Generally, the technique allowing
+    unlicensed users to dynamically access unused licensed tapes in order to minimize
+    unused spectral bands or blanks is known as a dynamic spectrum access scheme.
+    In the diagram above, unlicensed users essentially use unused licensed frequency
+    bands at no charge. When the licensed user starts using the frequency band, the
+    unlicensed user must release the group and move to another idle band. So, for
+    the intended purpose and the desired purpose, the CR technique and the dynamic
+    spectrum access scheme are major, interesting and essential solutions for increasing
+    the use of the spectrum in intelligent radio cognitive wireless smart sensors
+    networks [4]. In this paper, the impulse response function of the channel, denoted
+    \\( U_{i,j}^{l} \\left( t \\right) \\) of the ith transmit antenna at the jth
+    receive antenna at SUk at time t can be expressed as follows: $$ U_{i,j}^{l} \\left(
+    t \\right) = \\alpha_{i,j}^{l} \\delta \\left( {t - \\tau_{i,j}^{l} } \\right)
+    { \\exp }\\left( { - J\\phi_{i,j}^{l} } \\right) $$ (1) With \\( J = \\sqrt {
+    - j^{2} } \\); i ∈ {1, 2, …, AR}, j ∈ {1, 2, …, AE}, and l ∈ {1, 2, …, L}; \\(
+    \\left\\{ {\\tau_{i,j}^{l} } \\right\\} \\) is the path delay; \\( \\left\\{ {\\alpha_{i,j}^{l}
+    } \\right\\} \\) is the envelope of the path and \\( \\left\\{ {\\phi_{i,j}^{l}
+    } \\right\\} \\) is the phase shift. We assume that \\( \\left\\{ {\\phi_{i,j}^{l}
+    } \\right\\} \\) is an independent and uniformly distributed random variable (i.i.d.)
+    uniformly distributed between [0, 2π] and \\( \\left\\{ {\\alpha_{i,j}^{l} } \\right\\}
+    \\) is i.i.d. random variable. The path gains are assumed to be invariant in a
+    frame duration Tf, but vary independently from frame to frame. In subsequent discussions,
+    we can omit the discrete time index t when representing the impulse response of
+    the channel. We can derive an impulse response from the AR × AE channels, denoted
+    U(l), to the secondary relay station, remember that AR = AE = 100, as follows:
+    $$ U^{\\left( l \\right)} \\, = \\,\\left[ {\\begin{array}{*{20}c} {u_{0,0}^{l}
+    \\quad u_{0,1}^{l} } & \\cdots & {u_{0,99}^{l} } \\\\ \\vdots & \\ddots & \\vdots
+    \\\\ {u_{99,0}^{l} \\quad u_{99,1}^{l} } & \\cdots & {u_{99,99}^{l} } \\\\ \\end{array}
+    } \\right] $$ (2) where \\( U_{i,j}^{l} \\) with i ∈ {0, 1, …, (AR − 1)}, j ∈
+    {0, 1, …, (AE − 1)}, and l ∈ {1, 2, …, L} is the impulse response of the channel
+    specified by (1). Suppose that the path gains to be invariant in a frame duration
+    Tf, but varies independently from frame to frame. Assume that the channel state
+    information (CSI) is perfectly known at the receiver, using SVD (Singular Value
+    Decomposition), the impulse response matrix of the channel can be designated as
+    follows: $$ U^{\\left( l \\right)} \\, = \\,H^{\\left( l \\right)} \\varLambda^{\\left(
+    l \\right)} (V^{\\left( l \\right)} )^{U} $$ (3) with (·)U is the conjugated transpose
+    of the matrix; \\( \\text{H}^{{(\\text{l})}} \\, \\in \\,{\\mathcal{C}}^{{A_{R}
+    \\times A_{E} }} \\) and \\( \\varvec{V}^{{(\\text{l})}} \\, \\in \\,{\\mathcal{C}}^{{A_{R}
+    \\times A_{E} }} \\) are unitary matrices and Λ(l) is a rectangular matrix whose
+    diagonal elements {λl,1 ≥ λl,2 ≥ ⋯ ≥ λl,Amin ≥ 0 where \\( \\text{A}_{\\hbox{min}
+    } \\, = \\,\\hbox{min} \\,\\left\\{ {A_{R} \\, \\times \\,A_{E} } \\right\\}\\left(
+    {1\\, \\le \\,\\text{A}_{\\hbox{min} } } \\right) \\) are the ordered singular
+    values of the matrix U(l). Consequently, the whole wideband MIMO channel decomposes
+    into Amin independent subchannels. Since we assume that the transmit node and
+    the receive node are far enough apart, there is no direct link between them due
+    to shading conditions and power limiting in the network. The relay process consists
+    of two steps. In the first step, the transmitting nodes transmit signals to the
+    relay station after detecting the spectral white space. The received signal, denoted
+    \\( y_{S}^{\\left( l \\right)} \\), from the cognitive source node to the relay
+    station can be expressed as follows: $$ y_{S}^{\\left( l \\right)} \\, = \\,\\sqrt
+    {p_{S}^{\\left( l \\right)} } U_{S}^{\\left( l \\right)} x^{\\left( l \\right)}
+    \\, + \\,\\sqrt {p_{P} } U_{P}^{\\left( l \\right)} x^{\\left( P \\right)} \\,
+    + \\,\\sum\\nolimits_{n \\ne l}^{L} {\\sqrt {p_{S}^{\\left( n \\right)} } U_{S}^{\\left(
+    n \\right)} x^{\\left( n \\right)} \\, + \\,n_{S}^{\\left( l \\right)} } $$ (4)
+    With \\( p_{S}^{\\left( l \\right)} \\) and \\( p_{S}^{\\left( n \\right)} \\)
+    are respectively the transmission power of the source node lth and the source
+    node nth; \\( \\mathcal{P}_{P} \\) represents the transmission power of the base
+    station PU (BS). x(l) and x(n) respectively denote the signals sent by the lth
+    source node and the nth source node; x(p) denotes the signals sent by the BS PU.
+    \\( U_{S}^{\\left( l \\right)} \\) and \\( U_{S}^{\\left( n \\right)} \\) indicate
+    the impulse response of the transmitter channel of the source node lth and the
+    source node nth to the receiver of the relay node specified by (2), respectively;
+    \\( \\varvec{U}_{P}^{\\left( l \\right)} \\) indicates the impulse response of
+    the PU base station channel to the relay node receiver specified by (2); and \\(
+    n_{S}^{\\left( l \\right)} \\) is the Additive White Gaussian Noise (AWGN) with
+    zero mean and variance \\( \\sigma_{S}^{2} \\) [4, 9]. With regard to the dynamic
+    spectrum access, a generally fixed spectrum allocation scheme is used in the CWSSN
+    deployment. CWSSN can be used on unlicensed and licensed tape [4, 10]. Spectra
+    are directly associated with the cost that increases the cost of the network.
+    However, LPWAN and SigFox-LoRa WAN networks can also operate in the unlicensed
+    band. Access to multiple channels to comply with different spectrum regulations:
+    As we know that the availability of spectrum frequency varies, a band that is
+    available in Tunisia may not be available in another country. Thus, if the smart
+    sensors nodes are designed with a predefined frequency band, they create a problem
+    for the user. This problem can be overcome by the use of the Cognitive Radio capacity,
+    which changes their communication frequency according to the availability of the
+    spectrum. In the classical WSN [1], the Dynamic Spectrum Access (DSA) is considering
+    as the main key to solving the global spectrum shortage. Open wireless support
+    subjects DSA systems to unauthorized use of the spectrum by illegitimate users.
+    Secondary user authentication is therefore essential to ensure the proper functioning
+    of DSA systems [1, 11,12,13,14]. Detecting crowd misuse of spectrum eliminates
+    the need for dedicated sensor deployment and dramatically reduces deployment and
+    maintenance costs. Based on the foregoing that’s applied at CWSSNs and especially
+    in a DSA system of the CWSSNs, the spectrum owner leases its underutilized spectrum
+    under license to unlicensed users. To improve spectrum efficiency in the CWSSNs,
+    the spectrum owner can regulate spectrum access by issuing spectrum authorizations,
+    each specifying a frequency channel, a geographic area, and a duration. A valid
+    spectrum license is used to authorize the use of the corresponding frequency channel
+    in the specified area and duration. In traditional WSN networks [1], the Quality
+    of Service (QoS) is typically characterized by four parameters: bandwidth, delay,
+    jitter and reliability. To avoid dangerous consequences in critical applications
+    and especially in the CWSSNs, local storage virtualized-operated networks must
+    maintain an adequate level of Quality of Service. The QoS support is a complex
+    issue due to resource constraints such as: processing power, memory, and power
+    sources in wireless smart sensors nodes. The QoS is a management concept that
+    aims to optimize the resources of a virtualized-operated network or a process
+    on the one hand, and to guarantee good performance to critical applications for
+    the organization of somewhere else. The QoS allows users to offer different speeds
+    and response times depending on the applications considered and the protocols
+    that are implemented at the structure level. Different objective functions for
+    measuring communication quality metrics in the network. Three objective functions
+    of wireless communication performance are considered in this paper: Maximize Throughput/debit-rate
+    (5), Reduce Power Consumption (6) and Minimize Bit Error Rate (BER) (7): $$ f_{{{
+    \\hbox{max} }\\_{\\text{debit}}}} \\, = \\,\\frac{{log_{2} \\left( {\\bar{M}}
+    \\right)}}{{log_{2} \\left( {M_{ \\hbox{max} } } \\right)}} $$ (5) $$ f_{{{ \\hbox{min}
+    }\\_energy}} \\, = \\,1\\, - \\,\\frac{{\\bar{P}}}{{P_{max} }} $$ (6) $$ f_{{{
+    \\hbox{min} }\\_BER}} \\, = \\,1\\, - \\,\\frac{{log_{10} \\left( {0.5} \\right)}}{{log_{10}
+    \\left( {\\overline{{P_{BER} }} } \\right)}} $$ (7) We will also study the Signal-Interference-to-Noise
+    Ratio (SINR) that is used to measure the quality of communications. In link transmissions,
+    the SINR can be thought of as the received power of the signal provided at the
+    divided receiver by the sum of the received powers of unintended signals (interference)
+    from other links on the same spectrum channel. For a link (i, j) on the spectral
+    channel c, its SINR ratio can be calculated as follows (8): $$ SINR_{\\text{ij}}
+    \\left( c \\right)\\, = \\,\\frac{{G_{ij} p_{i} }}{{\\sigma^{2} \\, + \\,\\mathop
+    \\sum \\nolimits_{{\\left( {a,b} \\right) \\in I\\left( c \\right),\\left( {a,b}
+    \\right) \\ne \\left( {i,j} \\right)}} G_{aj} p_{a} }} $$ (8) With Pi: the transmission
+    power of the sender i. In this paper, we assume that the transmit power of all
+    links is at the fixed level. Gij: the gain of the channel between the transmitter
+    i and the receiver j, which can be denoted \\( k /(d_{ij} )^{\\alpha } \\); K:
+    the path loss constant; dij: the distance between i and j; α: the exponent of
+    path loss; σ2: the thermal noise that can be considered a constant, and the sigma
+    notation presents the global interference to the receiver j, which is generated
+    by the links transmitting concurrently on the current spectrum channel; I(c):
+    the set of links sharing the spectrum channel c [4]. To ensure the effective transmission
+    of the link, each intended signal must be decoded successfully at the receiver.
+    4 Spectral Detection Based on Cyclo-Stationary Intelligent Agriculture Application
+    and Simulation The use of the sensors network in the field of agriculture is not
+    new. Good crop irrigation is one of the most important aspects of product performance
+    and quality. If the plant does not receive the necessary amount of water and therefore
+    not enough moisture in the soil, it dries and veins. On the other hand, an excess
+    of water or exceeding the water limit causes too much moisture which is suitable
+    for the appearance and development of plant diseases [4, 15]. In addition, unnecessary
+    irrigation is significantly wasting water resources. In this context, the intelligent
+    sensors nodes for measuring soil moisture (dendrometers) and air temperature on
+    agricultural land have been developed. The measured values from the sensors nodes
+    had to be reliably transferred with minimal power consumption, regardless of their
+    position in the field and the distance to the central control unit of the system.
+    CWSSN has become a logical choice because it provides all the requirements. The
+    proposed intelligent irrigation system (see Fig. 2.) is designed to autonomously
+    decide when to activate and deactivate electronic valves for the release/shutdown
+    of water in the agricultural field [16]. The main control unit manages the autonomous
+    decision-making process. Thus, in addition to the automated control of the irrigation
+    process, the user can configure an autonomous operation of the system. In this
+    mode of operation, the appropriate decision on irrigation intervals is made by
+    an intelligent irrigation algorithm, based on ambient temperature, soil moisture,
+    brightness (day/night) and the season considered (spring, summer, autumn and winter)
+    applied on the SigFox CWSSN [16]. Fig. 2. Application for IoT intelligent agriculture
+    [16] Full size image In order to have a complete study, we detail the operating
+    principle of the irrigation system of intelligent agriculture application. Figure
+    2. shows and presents the functioning diagram of the new irrigation management
+    deployment. This irrigation management system architecture deployment is based
+    on smart sensors technology and consists in allowing remote control of the irrigation
+    system to facilitate the management of the water network [17]. Then, new irrigation
+    management system allows an automatic control of the electronic valves that close
+    or open the water flow. The system optimizes water consumption because it irrigates
+    with the proper amount according to weather conditions and the plant’s needs [16].
+    It’s saving resource such as water with IoT technology and contributing to enhance
+    the environment too [16,17,18]. To provide and to prospect the need of water for
+    a parcel irrigation with a good estimation and precise accurate quantity of water
+    [16, 17, 19]. Some apricot-peach and olive roots are too dry while others are
+    water logged smart sensors. The moisture soil smart sensors are simultaneously
+    placed at different depths, under each a tree (apricot/peach/olive), the local
+    water retention in the soil can be assessed. By measuring evapotranspiration it
+    is possible to work out how much irrigation water is being actually absorbed by
+    the plants [16, 17, 20]. To promote agricultural research, to deliberate an important
+    issues of agricultural research and to select/to use the better system versus
+    nature of plants. For this, we have installed, at the same time and to be placed
+    on the different footings: one connected at apricot-peach orchard whereas the
+    other at olive orchard, two different wireless smart sensors systems to monitor
+    soil water status to plan irrigation in an olive orchard and in peach-apricot
+    orchard. Data has been recorded with the same, but information has been transmitted
+    to the platform by two different connections (5G and SigFox). Two libelium waspmote
+    plug & sense-smart agriculture have been deployed with watermark smart sensors
+    in different depths to control soil moisture with fruit diameter dendrometer smart
+    sensors to measure the size of the fruit (see Fig. 3); and temperature and humidity
+    smart sensors to monitor environmental conditions. One of the smart sensors platforms
+    is connected to a 5G shield and the other with the SigFox. The information collected
+    by the smart sensors has been sent to the platforms that includes both 5G and
+    SigFox technologies. To manage SigFox-LoRa WAN stations however a server has had
+    to be configured. A Meshlium IoT Gateway has been used embedding management system
+    making data handling easier. Farmers can get valuable information to schedule
+    irrigation timing to avoid stress conditions, which is fundamental on apricot-peach
+    and olive plants [16, 17, 21]. Agriculture smart sensors networks using waspmote
+    send data using SigFox LoRa WAN communication system. Alarms can also be sending
+    to the mobile phone network using waspmote’s LoRa board. Data gathered by waspmote
+    smart sensor platform can be sent to a gateway or directly to the cloud. The information
+    collected in the Meshlium Gateway can be visualized in a platform which concentrates
+    and allows knowing the state in each parcel. We carry out the application which
+    can be controlled with computers, smart phones and also tablets. Multi-protocol
+    router is used to gather all the data from the smart sensors nodes and leaving
+    them in the cloud computing. The new smart agriculture IoT kit is factory programmed
+    and enables monitoring of environmental parameters in agriculture. The IoT kit
+    includes a visualization plugging in Meshlium where you can check data in real-time,
+    display a graphic with every measured parameter between two time periods or geo-locate
+    the smart nodes via GPS and compare different parameters in the same node. Fig.
+    3. Apricot fruit diameter dendrometer smart sensors [16] Full size image We note
+    that we can distinguish two types of intelligent sensor: intelligent sensor used
+    in the ground and intelligent sensor used on the plant. In our application, we
+    can use temperature sensors, humidity sensors Waspmote, agricultural product monitoring
+    sensors called dendrometers smart sensors (see Fig. 3). We recall that the deployment
+    of intelligent sensors nodes in the plot to be controlled and supervised is gigantic
+    and an important and essential role for the design of an efficient and cost-effective
+    irrigation system in intelligent agriculture. In this context, we have established
+    a topology of intelligent sensors deployment of the irrigation system designed
+    for our application of intelligent farming as shown in Fig. 4. Remember to the
+    smart sensors array is descripted as following as: the smart sensors array consisted
+    of a centrally located receiver connected to a laptop computer and multiple smart
+    sensors nodes installed in the field (irrigation parcel). The smart sensors nodes
+    consisted of smart sensors (soil moisture smart sensors and thermocouples, Waspmote,…)
+    an active transmitter which transmitted data to the receiver. The smart sensors
+    boards acquired sensors values and wirelessly (CR/5G/SigFox-LoRa WAN) transmitted
+    those values to a centrally located radio frequency receiver. The board can read
+    up to three watermark granular resistive type soil moisture smart sensors and
+    up to four thermocouple temperature smart sensors. Fig. 4. Network topology of
+    application IoT intelligent agriculture Full size image The topology of the Cognitive-Radio
+    IoT in the simulation of the intelligent farming application is shown in Fig.
+    4 where 100 nodes are randomly deployed over an area of 2000 m to 1000 m. Each
+    smart sensor node is mounted with a single TRX. There are several streams of data
+    simultaneously in the network. The transmission power of each link is set at 13
+    dBm and the thermal background noise σ2 is equal to −100 dBm. The gain of the
+    channel is defined as \\( hij\\, = \\,k /(d_{ij} )^{\\alpha } \\), where dij is
+    the distance between two smart sensors. We adopt the path loss constant k = 1
+    and the path loss exponent α = 5. Figure 5 shows an example of a Multiple Inputs-Multiple
+    Outputs (MIMO) system, which provides multiple antennas across the transmitter
+    and receiver of a wireless communication system. MIMO systems increasingly use
+    in communication systems for potential capacity gains in achieving the use of
+    multiple antennas. Fig. 5. MIMO simulation Full size image BER performance analysis
+    by SINR contribution of the binary PSK modulation technique with AWGN channel
+    (see Fig. 6). It presents a comparison between theory and simulation. Fig. 6.
+    Simulation of BER metric Full size image The genetic algorithm (GA) is a method
+    of solving optimization problems, with or without constraints, based on a natural
+    selection process. We used this algorithm to simulate our metrics from our new
+    CWSSN network which are presented in Eqs. (8), (6) and (5). Figure 7 proves the
+    simulation of SINR; but, Fig. 8 shows the energy consumption simulation; so, Fig.
+    9 presents the throughput simulation. Fig. 7. Simulation of SINR with genetic
+    algorithm Full size image Fig. 8. Power consumption metric simulation Full size
+    image Fig. 9. Throughput metric simulation Full size image 5 Conclusion In this
+    paper, a cognitive networking with dynamic spectrum access mechanism for WSSNs
+    is introduced. The channel availability of likelihood distribution is computed
+    using continuous-time Markov chain considering primary transmitting users, temporal
+    channel usage, channel pattern and spatial distribution. A slotted aloha medium
+    access control is considered. The outcome shows significant performance improvement.
+    An improvement of 18.5% is achieved in terms of collision reduction and an improvement
+    of 40.2% in terms of throughput is achieved. We proposed the resource allocation
+    scheme by applying the MIMO-OFDMA based on Cognitive Radio over virtualized-operated
+    networks. In the other hand and remember to, the available limited frequency spectrum
+    is not enough to cater the increasing in traffic demand. Thus, the Cognitive Radio
+    technology plays an important role in such a scenario by dynamically accessing
+    the licensed spectrum. Among the cognitive tasks, spectrum sensing is found to
+    be the most energy a consuming one. In this paper, an energy efficient spectrum
+    sensing technique was proposed which employs a dedicated wireless smart sensors
+    network to sense the spectrum. The simulation results show that the proposed virtualized-operated
+    network with clusters, subset and special subset formation shows an improved energy
+    efficient spectrum sensing approach increases the overall virtualized-operated
+    network life time of the Cognitive Radio networks. References Abedllaoui, M.:
+    Multitaskes-generic-intelligent-efficiency-secure WSNs and their applications.
+    In: Part 4, Reliable WSNs and their Applications, pp. 186–323. LAMBERT Academic
+    Publishing (LAP) (2017). ISBN: 978-3-330-04707-5 Google Scholar   Sejaphala, L.C.,
+    Velempini, M.: Detection algorithm of sinkhole attack in software-defined wireless
+    sensor cognitive radio networks. IEEE Glob. Wirel. Summit (GWS), 151–154 (2017)
+    https://doi.org/10.1109/gws.2017.8300470 Maisuria, J., Mehta, S.: An overview
+    of medium access control protocols for cognitive radio sensor networks. In: 4th
+    Int. Electronic Conference on Sensors and Applications, vol. 2, no. 3, p. 135
+    (2017). https://doi.org/10.3390/ecsa-4-04963 Article   Google Scholar   Badri,
+    I., Abdellaoui, M.: Spectral sensing & multi-objective spectrum allocation over
+    MIMO-OFDMA based on 5G cognitive WSSNs for IoT intelligent agriculture. Int. J.
+    Mod. Eng. Res. (IJMER) 6(8), 23–33 (2018). ISSN 2249-6645 Google Scholar   Xu,
+    Y., Wang, J., Wu, Q.: Opportunistic spectrum access in unknown dynamic environment:
+    a game-theoretic stochastic learning solution. IEEE Trans. Wirel. Commun. 4(11)
+    (2012). https://doi.org/10.1109/twc.2012.020812.110025 Article   Google Scholar   Giweli,
+    N., Shahrestani, S., Cheung, H.: Spectrum sensing in cognitive radio networks:
+    QoS considerations. Comput. Sci. Inf. Technol. (CS & IT) 09–19 (2015). https://doi.org/10.5121/csit.2015.51602
+    Jayakrishna, P.S., Sudha, T.: Energy efficient wireless sensor network assisted
+    spectrum sensing for cognitive radio network. In: IEEE International Conference
+    on Intelligent Techniques in Control, Optimization and Signal Processing (2017).
+    ISSN 978-1-5090-4772-9/17 Google Scholar   Ghasemi, A., Sousa, E.S.: Spectrum
+    sensing in cognitive radio networks: requirements, challenges and design trade-offs.
+    IEEE Commun. Mag. 4(46), 32–39 (2008). https://doi.org/10.1109/MCOM.2008.4481338
+    Article   Google Scholar   Zhang, X., Wang, J.: Heterogeneous statistical QoS-driven
+    resource allocation over MIMO-OFDMA based 5G cognitive radio networks. In: IEEE
+    Wireless Communications and Networking Conference (WCNC), pp. 1–6 (2017) 978-1-5090-4183-1/17
+    Google Scholar   Shahraki, H.S., Mohamed-pour, K., Vangelista, L.: Sum capacity
+    maximization for MIMO–OFDMA based cognitive radio networks. Phys. Commun. 10,
+    106–115 (2014) https://doi.org/10.1016/j.phycom.2012.10.002 Article   Google Scholar   Saroja,
+    T.V., Ragha, L.: A dynamic spectrum access model for cognitive radio wireless
+    sensor network. In: 4th International Conference on Electronics and Communication
+    Systems (ICECS), pp. 7–11 (2017). https://doi.org/10.1109/ecs.2017.8067845 Akyildiz,
+    I.F., Lo, B.F., Balakrishnan, R.: Cooperative spectrum sensing in cognitive radio
+    networks: a survey. Phys. Commun. 1(4), 40–62 (2011). https://doi.org/10.1016/j.phycom.2010.12.003
+    Article   Google Scholar   Jin, X., Sun, J., Zhang, R., Zhang, Y., Zhang, C.:
+    SpecGuard: spectrum misuse detection in dynamic spectrum access systems. IEEE
+    Trans. Mob. Comput. 1–14 (2018). https://doi.org/10.1109/tmc.2018.2823314 Article   Google
+    Scholar   Myrvoll, T.A., Hakegard, J.E.: Dynamic spectrum access in realistic
+    environments using reinforcement learning. In: International Symposium on Communications
+    and Information Technologies (ISCIT), Gold Coast, QLD, Australia, 2–5 October
+    2012 (2012). https://doi.org/10.1109/iscit.2012.6380943 Savic, T., Radonjic, M.:
+    WSN architecture for smart irrigation system. In: IEEE 23rd International Scientific-Professional
+    Conference on Information Technology (IT) Zabljak, Montenegro, pp. 1–4 (2018).
+    https://doi.org/10.1109/spit.2018.8350859 Abdellaoui, M.: Two different smart
+    irrigation agriculture systems to improve apricot-peach and olive production in
+    Sidi Bouzid area. Agric. Res. J. 3(6), 62–68 (2016) Google Scholar   Abdellaoui,
+    M.: Smart sensors & internet of things platform for remote control and identification
+    of advanced irrigation agriculture project. In: European Advanced Materials Congress,
+    Stockholm, Sweden, 22–24 August 2017 (2017) Google Scholar   Gubbi, J., Buyya,
+    R., Marusic, S., Palaniswami, M.: Internet of things (IoT): a vision architectural
+    elements and future direction. Future Gener. Comput. Syst. 29, 1645–1660 (2013)
+    Article   Google Scholar   Xiao, K., Xiao, D., Luo, X.: Smart water-saving irrigation
+    system in precision agriculture based on wireless sensors network. Trans. CSAE
+    11(26), 170–175 (2010) Google Scholar   Veldis, G., Tucker, M., Perry, G., Kiven,
+    G., Bednarz, C.: A real-time wireless smart sensors array for scheduling irrigation.
+    Comput. Electron. Agric. 61, 44–50 (2008) Article   Google Scholar   Gargouri,
+    F., Abdellaoui, M.: Smart sensors & internet of things platform for remote control
+    and identification of advanced irrigation agriculture project. In: Advanced Materials
+    World Congress-American Sensors & Actuators Summit, Miami, USA, 03 August, December
+    2017 (2017) Google Scholar   Download references Acknowledgements This work has
+    been accomplished at WIMCS-Research Team, ENET’COM, Sfax-University, Tunisia.
+    Part of this work has been supported by APIA-Tunisia Agriculture Ministry & MESRSTIC
+    Scientific Research Group-Tunisia. Author information Authors and Affiliations
+    WIMCS Research Team, ENET’COM, Sfax-University, Sfax, Tunisia Imen Badri & Mahmoud
+    Abdellaoui Corresponding author Correspondence to Mahmoud Abdellaoui . Editor
+    information Editors and Affiliations Faculty of Science and Engineering, Saga
+    University, Saga, Japan Kohei Arai The Science and Information (SAI) Organization,
+    Bradford, UK Rahul Bhatia Rights and permissions Reprints and permissions Copyright
+    information © 2020 Springer Nature Switzerland AG About this paper Cite this paper
+    Badri, I., Abdellaoui, M. (2020). Dynamic Spectrum Access of Virtualized-Operated
+    Networks over MIMO-OFDMA Dedicated to 5G Cognitive WSSNs. In: Arai, K., Bhatia,
+    R. (eds) Advances in Information and Communication. FICC 2019. Lecture Notes in
+    Networks and Systems, vol 69. Springer, Cham. https://doi.org/10.1007/978-3-030-12388-8_14
+    Download citation .RIS.ENW.BIB DOI https://doi.org/10.1007/978-3-030-12388-8_14
+    Published 02 February 2019 Publisher Name Springer, Cham Print ISBN 978-3-030-12387-1
+    Online ISBN 978-3-030-12388-8 eBook Packages Intelligent Technologies and Robotics
+    Intelligent Technologies and Robotics (R0) Share this paper Anyone you share the
+    following link with will be able to read this content: Get shareable link Provided
+    by the Springer Nature SharedIt content-sharing initiative Publish with us Policies
+    and ethics Download book PDF Download book EPUB Sections Figures References Abstract
+    Introduction Cognitive Wireless Smart Sensors Network System Model Based on MIMO-OFDMA
+    Dynamic Spectrum Access, Spectral Allocation and Metric Networks Spectral Detection
+    Based on Cyclo-Stationary Intelligent Agriculture Application and Simulation Conclusion
+    References Acknowledgements Author information Editor information Rights and permissions
+    Copyright information About this paper Publish with us Discover content Journals
+    A-Z Books A-Z Publish with us Publish your research Open access publishing Products
+    and services Our products Librarians Societies Partners and advertisers Our imprints
+    Springer Nature Portfolio BMC Palgrave Macmillan Apress Your privacy choices/Manage
+    cookies Your US state privacy rights Accessibility statement Terms and conditions
+    Privacy policy Help and support 129.93.161.222 Big Ten Academic Alliance (BTAA)
+    (3000133814) - University of Nebraska-Lincoln (3000134173) © 2024 Springer Nature"'
+  inline_citation: null
+  journal: Lecture Notes in Networks and Systems
+  limitations: The proposed dynamic spectrum access mechanism does not consider the
+    impact of mobility on channel availability. The energy efficiency of the proposed
+    spectrum sensing technique is only evaluated through simulations and not through
+    real-world deployments. The paper does not provide a comprehensive comparison
+    with other existing dynamic spectrum access mechanisms for WSSNs.
+  relevance_score: 0.8
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Dynamic spectrum access of virtualized-operated networks over MIMO-OFDMA
+    DEDICATED TO 5G cognitive WSSNs
+  verbatim_quote1: '"In this paper, we present a dynamic spectrum access for WSSNs
+    based on the channel availability of likelihood distribution using continuous-time
+    Markov chain considering primary transmitting users, temporal channel usage, channel
+    pattern and spatial distribution."'
+  verbatim_quote2: '"On the other hand, as the 5G promising technique, Multiple Inputs-Multiple
+    Outputs Orthogonal Frequency Division Multiple Access (MIMO-OFDMA) based Cognitive
+    Radio schemes are proposed to significantly improve the system capacity while
+    mitigate the interference for dynamic spectrum access networks."'
+  verbatim_quote3: '"The energy efficient spectrum sensing employing a dedicated smart
+    sensors and virtualized-operated networks for spectrum sensing is given focus
+    in this paper."'

@@ -1,0 +1,1076 @@
+- analysis: '\n
+
+    This paper presents a novel cognitive radio-based hospital system architecture
+    called CogMed for e-health applications, including a priority mechanism-aware
+    heterogeneous architecture, system design, and communication policies. It analyzes
+    the shortcomings of recent wireless healthcare facilities and proposes a fully
+    opportunistic network-based hospital system architecture where dynamic spectrum
+    access (DSA) capable medical, non-medical, and sensor devices are categorized
+    based on a dynamic priority management mechanism. The paper also presents some
+    communication protocols. \n\nAlthough the paper does not directly address the
+    specific issue of data volume, frequency, format, or source in the context of
+    irrigation management, some general observations can be made based on its focus
+    on wireless communication in a healthcare environment.\n\nThe authors acknowledge
+    that different types of e-health applications have different priorities, and therefore,
+    communication protocols and network maintenance policies for wireless healthcare
+    need to be priority mechanism agile. This suggests that the proposed CogMed architecture
+    is designed to accommodate diverse requirements for data transmission in terms
+    of volume, frequency, and format. \n\nAdditionally, the paper mentions that the
+    proposed system includes a dynamic priority management mechanism for categorizing
+    medical, non-medical, and sensor devices. This mechanism could potentially be
+    used to prioritize data transmission based on factors such as the urgency or importance
+    of the data, ensuring that critical information is transmitted reliably and efficiently.
+    \n\nWhile the paper does not provide specific details on the data formats or sources
+    supported by CogMed, it is reasonable to assume that the system is designed to
+    handle various data types commonly encountered in healthcare settings, such as
+    patient vital signs, medical images, and electronic health records. \n\n**Overall,
+    the paper provides a conceptual framework for a priority-aware wireless healthcare
+    system, but it does not delve into the specific technical aspects of data management
+    and transmission that are relevant to the context of irrigation management.**'
+  authors:
+  - Mamoon I.A.
+  - Islam A.K.M.M.
+  - Baharun S.
+  - Wakabayashi T.
+  - Komaki S.
+  citation_count: '10'
+  description: Recently, wireless communication in medical data and patient information
+    transmission has received tremendous attention to the researchers since effective,
+    timely, accurate, complete and unambiguous communication reduces errors and results
+    in improved patient safety. However, wireless communication technology in a healthcare
+    environment poses some major challenges. For example, medical band scarcity for
+    future wireless healthcare system, bandwidth restriction, spectrum utilization
+    and electromagnetic interference (EMI) are major concerned. In addition, different
+    types of e-health applications have different priorities. Therefore, communication
+    protocols and network maintenance policies for wireless healthcare need to be
+    priority mechanism agile. Compared to traditional wireless network, cognitive
+    radio network (CRN) can be more flexible and solve these problems. In this paper,
+    a novel CRN based hospital system architecture namely CogMed, is proposed for
+    e-health applications where priority mechanism aware heterogeneous architecture,
+    system design and communication policies are included. The article first analyzes
+    the shortcomings of recent wireless healthcare facility by critically analyzing
+    the contemporary literatures on CRN centric healthcare facility. It then proposes
+    a fully opportunistic network based hospital system architecture where dynamic
+    spectrum access (DSA) capable medical, non-medical and sensor devices are categorized
+    based on a dynamic priority management mechanism. The paper also presents some
+    communication protocols. © 2014 IEEE.
+  doi: 10.1109/ISMICT.2014.6825225
+  full_citation: "Al Mamoon, I., Islam, A. K. M. M., Baharun, S., Wakabayashi, T.,\
+    \ & Komaki, S. (2014). A priority aware cognitive radio based hospital system\
+    \ architecture, priority management and communication protocols. 2014 8th International\
+    \ Symposium on Medical Information and Communication Technology (ISMICT), 1–6.\
+    \ \nhttps://doi.org/10.1109/ISMICT.2014.6825225"
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2014 8th International Sympos... A priority
+    aware cognitive radio based hospital system architecture, priority management
+    and communication protocols Publisher: IEEE Cite This PDF Ishtiak Al Mamoon; A.
+    K. M. Muzahidul Islam; Sabariah Baharun; Toshio Wakabayashi; Shozo Komaki All
+    Authors 11 Cites in Papers 377 Full Text Views Abstract Document Sections I. Introduction
+    II. Proposed System Architecture and Priority & Spectrum Policy III. Proposed
+    Network Communication Protocols IV. Conclusion and Future Work Authors Figures
+    References Citations Keywords Metrics Abstract: Recently, wireless communication
+    in medical data and patient information transmission has received tremendous attention
+    to the researchers since effective, timely, accurate, complete and unambiguous
+    communication reduces errors and results in improved patient safety. However,
+    wireless communication technology in a healthcare environment poses some major
+    challenges. For example, medical band scarcity for future wireless healthcare
+    system, bandwidth restriction, spectrum utilization and electromagnetic interference
+    (EMI) are major concerned. In addition, different types of e-health applications
+    have different priorities. Therefore, communication protocols and network maintenance
+    policies for wireless healthcare need to be priority mechanism agile. Compared
+    to traditional wireless network, cognitive radio network (CRN) can be more flexible
+    and solve these problems. In this paper, a novel CRN based hospital system architecture
+    namely CogMed, is proposed for e-health applications where priority mechanism
+    aware heterogeneous architecture, system design and communication policies are
+    included. The article first analyzes the shortcomings of recent wireless healthcare
+    facility by critically analyzing the contemporary literatures on CRN centric healthcare
+    facility. It then proposes a fully opportunistic network based hospital system
+    architecture where dynamic spectrum access (DSA) capable medical, non-medical
+    and sensor devices are categorized based on a dynamic priority management mechanism.
+    The paper also presents some communication protocols. Published in: 2014 8th International
+    Symposium on Medical Information and Communication Technology (ISMICT) Date of
+    Conference: 02-04 April 2014 Date Added to IEEE Xplore: 05 June 2014 Electronic
+    ISBN:978-1-4799-4856-7 ISSN Information: DOI: 10.1109/ISMICT.2014.6825225 Publisher:
+    IEEE Conference Location: Firenze, Italy SECTION I. Introduction A. Background
+    and limitation on Wireless Healthcare Wireless communication is a key technology
+    to improve mobility and service flexibility for different e-health applications
+    such as remote patient monitoring, telemedicine, and mobile hospital information
+    system applications [1]. The transmission of medical information such as vital
+    signs can be performed using any or a combination of the existing wireless technologies,
+    e.g., cellular, WiFi, Zigbee, Bluetooth. Each of these technologies provides different
+    advantages in terms of coverage (e.g., cellular) or bandwidth (e.g., WiFi) [2].
+    With the advent of heterogeneous wireless access networks, recent healthcare system
+    can take advantages on both licensed and unlicensed bands to serve an increasing
+    amount of automated health monitoring demands [2]–[3]. However, radio spectrum
+    is a finite precious natural resource and almost all portion of spectrum has already
+    been allocated. FCC has allocated a very small amount of spectrum for wireless
+    medical purposes, which can lead to a spectrum scarcity problem for upcoming wireless
+    biomedical technologies and tele-health applications [1] [4]. This leads towards
+    dynamic spectrum assess (DSA) or opportunistic frequency usage in future wireless
+    medical field. Healthcare system and healthcare facility has also facing problem
+    with wireless devices [5]. In a wireless healthcare system, most of the researchers
+    focus on electromagnetic interference (EMI) that emitted from wireless devices
+    while transmitting data whereas EMI effects on medical devices in a hospital [4]–[6].
+    Wireless medical devices face EMI problems in a scenario where two devices operate
+    in the same frequency at the same time in a same area [1] [4]–[6]. In such scenario,
+    some wireless medical devices can be malfunctioned even though they do not operate
+    within a very close proximity [1] [4]. That is why conventional electronic medical
+    devices in healthcare facility equipped with frequency jammer to protect those
+    medical devices. However, this is not considered as intelligent solution for hospital
+    since communication plays a key role in a tele healthcare system [7]. B. Cognitive
+    radio and cognitive radio driven recent healthcare literature analysis The key
+    concept of cognitive radio is to make use of the unutilized license radio spectrum
+    in an adaptable and opportunistic manner. A cognitive radio has the ability to
+    measure, sense and be aware of the characteristics of the radio channel atmosphere
+    like availability of spectrum, power, interference, noise level, user application
+    and other operating restrictions [9]. Cognitive radio network operation may involve
+    the following four steps: spectrum sensing, adaptive learning, spectrum decision,
+    and transmission parameter setting [8]–[9]. It also can play a vital role in future
+    wireless healthcare and medical telemetric monitoring system. Cognitive radio
+    network and spectrum sensing concept can contribute to overcome the unlicensed
+    band issue, prioritize the device as per services, bandwidth constrain, EMI optimization
+    and reliability for wireless devices in health care sector mainly on hospital
+    critical patient status monitoring and telemedicine issue [8]–[16]. Contemporary
+    cognitive radio based healthcare system can be discussed and critically analyzed
+    based on some parameters, such as architecture and infrastructure type, consideration
+    for device in hospital environment, services categories spectrum sensing methods,
+    common control channel, radio characteristics, etc. Furthermore, in conventional
+    spectrum management, the spectrums are statically allocated to each licensed user.
+    If the number of wireless medical device increases, system may face channel congestion
+    problem. By introducing the cognitive radio in wireless healthcare, spectrum scarcity
+    problem can be solved [9] [11] [13]. To avoid the EMI problem and co-channel interference,
+    cognitive radio techniques can be used in a healthcare environment [11]–[13].
+    Most of the literature supports homogeneous network architecture based infrastructure
+    [11]–[14] [18]–[19]. For the senior citizen healthcare facility like hospital,
+    it is obvious to consider the heterogeneous network and architecture. In such
+    hospital, stationary and movable devices exist and control the fixed and dynamic
+    environment, thus need to consider hybrid network topology. Nodes or all medical/non-medical
+    devices are not cognitive radio (CR) capable in most of the CR based healthcare
+    literature [11]–[13] [19]–[20]. Future spectrum scarcity is one of the vital arguments
+    of necessity of cognitive radio in wireless healthcare system. To avoid that inescapable
+    situation for future healthcare, it needs to consider that all medical and nonmedical
+    (for communication purpose) are CR enable. Very recently, researches show some
+    primary concept of medical device priority scheme [11] [16]. However, there is
+    no sufficient literature are also rare in other conventional wireless healthcare
+    system [1]–[3] [5]–[6]. The CR based wireless healthcare need to focus on medical
+    service based priority management. The recent and future medical devices in a
+    hospital would be operates in multimode and provides multi services form same
+    machine. And network mobility demands non-stationary priority. It is urgent to
+    develop a dynamic and intelligent priority framework for the wireless medical
+    and non-medical device to cope up with DSA enabled future hospital design, which
+    is absent in reviewed literature [3] [5] [11]–[14] [18]. Location of a device
+    is a vital requirement of CR based healthcare system to resolve the EMI issue,
+    device priority and transmission power calculation of CR devices [11]–[13]. Most
+    of the authors have suggested RFID, GPS and indoor positioning system o locate
+    the co-ordinate of CR device [11]–[12] [18]–[19]. Several authors discussed about
+    spectrum sensing methods or policies based on their architecture [11] [13] [17]
+    [19]. However, device priority based centralize cooperative sensing concept is
+    still absent in current wireless healthcare system. Therefore, a dynamic priority
+    policy and priority aware protocols, spectrum sensing and network maintenance
+    scheme need to be developed for recent and future hospital care system. The proposed
+    CogMed satisfies all of the attributes or select the better option that can ensure
+    a future robust dynamic spectrum enabled healthcare system. The remaining of this
+    paper is organized as follows: Section II describes the proposed network architecture,
+    system design, dynamic priority mechanism policies and priority aware spectrum
+    decision-making assumptions. Section III contains proposed EMI and priority controlled
+    communication protocols like cognitive device to device and device to medical
+    admin center communication polices, that is well fit for our proposed architecture.
+    Section IV concludes with contributions and provides some future work directions.
+    SECTION II. Proposed System Architecture and Priority & Spectrum Policy A. Proposed
+    System Brief description The cognitive radio network based hospital is equipped
+    with cognitive terminal (CT) enabled wireless medical devices, nonmedical wireless
+    communicator, cognitive radio sensor network-CRSN (medical, utility and monitoring)
+    and cognitive terminal sink access control (CT-SAC) as access point & spectrum
+    fusion center for sensors [17]. In this proposed system, wireless hospital devices
+    are mainly categorized into: CR-medical devices and CR non-medical devices. Both
+    medical and non-medical devices are subcategorized into real time, non-real time
+    manner and only for medical device life supporting and non-life supporting pattern.
+    All CR devices can communicate through a wire connected cognitive base station
+    (CBS). It is also considered an administration, database (DB) and a monitoring
+    cell is connected with cognitive base station controller backhaul [12] [13]. These
+    consist of different administrative modules, different database for medical (e.g.
+    EMR, device location, different application for WMTS, MICS & other ISM based medical
+    devices, EMI inventory (EMI threshold level of all devices) and channel/spectrum
+    occupancy register. The location register can retrieve the location of device
+    from predefined CR RFID reader network and all devices (both static and dynamic
+    device) are RFID tagged [11] [14]. B. Proposed System Architecture of CoGMed CoGMed
+    system is based on IEEE 802.22 standard [21]. Fig. 1. Mesh topology based proposed
+    CogMed Architecture Show All Fig. 1 illustrates the network architecture of cognitive
+    radio based hospital. The cognitive terminal (CT) medical and nonlife supporting
+    cognitive terminal enabled sink access control (CT-SAC) are mobile and have direct
+    communication link with cognitive base station backbone system in single-hop manner.
+    Which mean the topology of our proposed network is hybrid combination of mesh
+    and star for CT medical and CT-SAC. The CT-SAC for life supporting sinks access
+    are in fixed position and wired connected with main CBS backbone. The communication
+    between medical CSRN and admin center is considering single hope communication.
+    Fig. 2. Cluster Architecture for Non-medical CR device Show All On the other hand,
+    nonlife supporting CT-SAC are consider that they are fixed and that access point
+    are dealing with low priority medical non-lifesaving CRSN and transmission is
+    Two-hop/multi-hop communication. It is considered, multi-hop communication for
+    non-medical cognitive terminal if the nonmedical CR is not at range of CBS. So
+    an ad-hoc flat network for these non-medical CR devices would be form to manage
+    this multi-hop wireless network. Clustering concept can be introduced to reduce
+    the communication cost, balancing traffic load and inner cluster centric spectrum
+    distribution. In the Fig. 2. the clustering scenario for non-medical CR devices
+    has been shown. The cluster system consists of cluster gateway (GW), cluster head
+    (CH) and cluster member (CM). Let''s consider the non-medical device has created
+    a flat mesh network. The nonmedical devices within the range of CBS are considered
+    as gateway (GW). Non-medical devices within the range of gateway are formatting
+    mesh topology based clusters. Considering an undirected graph G = (V, E), where
+    V represents the set of health non-medical devices in a region, E represents the
+    set of all undirected edges within communication range of devices. A cluster head
+    (CH) can be selected considering the parameters of weighted node, number of free
+    channel (periodically spectrum sensing) and the priority of the device and rest
+    of the non-medical considered as cluster member (within range of CH at same zone).
+    The nodes are moveable so the formation of clustering is very dynamic. And the
+    nomination of CH changes in the manner of time and node movement. The gateway
+    node (Gw) is consider as the border node of cluster and border nodes are connected
+    each other for intra cluster communication. CH sends spectrum sensing report including
+    spectrum hole and presence the primary users to main fusion center (CBS) via gateway
+    node. C. Consideration for priority mechanism policy We have proposed a dynamic
+    priority mechanism for heterogeneous topology supported cognitive radio based
+    future hospital grid. The two networks are interlinked by cognitive base station
+    (CBS) and cognitive terminal sink access control (CT-SAC). There is also a mobility
+    agile cluster based network exist to support multi hop routing capable non-medical
+    CR device. As per Fig 1, the CBS are static and CT-SAC might be static or dynamic.
+    The priority level of CT-SAC based sensor categorized from P1-P3. Where P1 level
+    is dedicated for life supporting and MBAN in real time mode. P2 allocated for
+    non-real-time life supporting sensor mode and non-life supporting real time mode.
+    And nonlife supporting non-real time sensors, rehabilitation purpose non-real
+    time sensor like different sensors which is in store forward based data transmission
+    mode will be categorized as low priority. Fig. 3. Block diagram of Initial Priority
+    Management for CogMed Show All On the other hand, the life-supporting real-time
+    mode medical devices, emergency/telemedicine purposes both real-time and non-real-time
+    mode having the high priority in terms of spectrum sensing and data transmission.
+    As per Fig. 3, the medical, non-medical devices and CT-SAC can be prioritizing.
+    The proposed high priority transmissions are lifesaving medical device (real time
+    and non-real time), emergency telemedicine service and medical lifesaving CT-SAC.
+    Non-lifesaving medical and non-medical real time transmission are categorized
+    as middle priority. Rest of the CR medical and non-life are assigned, as low priority
+    goes to lower priority. Fig. 3 describes spectrum access and sensing pattern where
+    only non-real-time medical life/non-life supporting and emergency telemedicine
+    non-real-time mode of transmission are consider to access from WMTS band. It means
+    these store-forward capable devices sense the spectrum from WMTS band whereas
+    the rest of medical devices and sensor can sense and dynamically access from any
+    band. Our proposed priority mechanism is dynamic due to complexity grid system
+    and CR devices are mobile. To meet up the requirement of medical service, multimode
+    transmission capability of future device and upcoming parameter of next wireless
+    healthcare lead a mobility aware priority mechanism technique. The location of
+    device also plays an important role in medical priority management. It is considered
+    that all hospital wireless medical or non-medical devices are not stationary and
+    priority of devices can be changed. In a situation, if any top priority medical
+    devices are not able to transmit due to EMI and bandwidth constrain, the admin
+    center and network controller instruct the nearby low priority medical and nonmedical
+    to go to switch-off mode. D. Primary assumption for co-operative spectrum sensing
+    Scheme All cognitive radio enabled devices are spectrum sensing capable and able
+    to sense the presence of primary devices (PU), spectrum hole (SH) and distance
+    from other devices. The devices starts sensing from low frequency if want to communicate
+    (mainly monitoring cell, application API and other CT enable device). It is assumed
+    that after acquiring the local sensing information, a CT sends the sensing report
+    along with current location of device and other features to its nearby Cognitive
+    base station controller (CBS) using defined reporting or common control channel
+    for selecting the appropriate frequency and allowable transmission power. It is
+    also assumed that some fixed licensed frequencies would be allocated for common
+    control or reporting channel purpose by using spectrum broker concept or share
+    with any licensed spectrum. The location information of CT-devices has emphasized
+    since we need to calculate the maximum transmittable power under threshold level
+    of EMI of surrounding device and secondly we are considering that our priority
+    mechanism is dynamic and device priority can be altered if the location has changed.
+    The transmission power will determine of cognitive radio enable devices by the
+    information from EMI inventory and crosschecking retrieved information by CT-device
+    provided location and converge information. The CBS is acting as local fusion
+    center and determine the spectrum decision of CT devices with CBS coverage. Beside
+    the main CBS backhaul system, there also run a sink based networking (CT-SAC)
+    for managing the CRSNs. In the second network cognitive terminal sink access control
+    acting as sensing decision maker of nearby CR sensors only, setting priority of
+    nodes (depend on location and critical level) and calculating transmission power
+    of CSRN [8]. This local cognitive base station (CT-SAC) communicates with main
+    base station backbone (CBS) through wired or baud band wireless in a single hope
+    communication manner. CT-SAC represented as gateway between the CBS network and
+    CRSN. And the CT-SAC is multifunctional cognitive radio doing both local sensing
+    for own and spectrum fused for adjunct CRSN. In addition a cluster based mesh
+    topology driven network also exists to serve the multi hop communication for non-medical
+    CR devices. To reduce the communication overhead, the elected cluster leader fused
+    the spectrum for its cluster member. Device priority is one major factor to take
+    the spectrum decisions along with presence of PU, SH. The benefit of this type
+    spectrum sensing is fused it decision such a way that the high priority devices
+    are achieving less utilized channels (by PU) and spectrum hands-off is rare situation
+    for high priority device. And every CR devices are MIMO radio or at least two
+    trans-receivers have to be there. Some limitation lies in single trans-receiver
+    (TR) based CR. Reference [11] has suggested single TR because the author has considered
+    that low priority non-medical device are CR capable. The advantage of two trans-receiver
+    is that one receiver is dedicated for continuous spectrum sensing & and another
+    is used for data and CCC. Global common control channel (CCC) should be considered
+    in future healthcare system to reduce the transmission complexity [8]–[9] [11]–[12]
+    [18]–[19]. Another proposition (from Fig. 2) is that both life supporting and
+    nonlife supporting non-real-time WMTS device only sensed the WMTS Band (608–614,
+    1395–1401, 1427–1432 MHz). Because WMTS band is not capable transmit the real
+    time streaming data [14]–[15]. But the advantages are, less effort needed to upgrade
+    the device because the spectrum sensing range is predefined WMTS is appropriate
+    for non-real time medical telemetry. Other medical and non-medical device can
+    select any band for transmission. CBS will keep the location area based spectrum
+    occupancy report and current activity of PU and the admin center keep a historic
+    record of spectrum free space and activity of PU. So while the CBS taking spectrum
+    decision of any high priority medical user, the fusion center allocated most reliable
+    spectrum and less occupied channel to the high priority user and it is expected
+    that spectrum hands-off would be rare and dramatically medical reliability would
+    be increased. SECTION III. Proposed Network Communication Protocols In this section,
+    the following three communication protocols have been proposed: (i) communication
+    between medical devices and admin center, (ii) communication between two non-medical
+    devices, and (iii) communication between wireless medical sensors and admin center.
+    A. Communication Protocol between a Medical Device and Admin Center Communication
+    from admin center to a cognitive enabled medical device may become common in a
+    wireless hospital management in near future. This is because most of the wireless
+    devices are used in vital monitoring purposes and it requires a centralized monitoring
+    and alarm zone. The protocol is as follows: The admin center sends a request to
+    any medical device for fetching information or monitoring the vital sign of patient.
+    The request travels along with medical device id and its current location. It
+    is assume that every CR medical device continuously performing the local spectrum
+    sensing and update to the CBS. Base station (CBS) confirms the current location
+    of device; check the recent priority status of medical device, then determine
+    the spectrum decision (form device sensing information & priority) and CBS calculate
+    the transmission parameter of that device (EMI threshold level of adjunct devices
+    and distance from them. After receiving clearance from CBS, device starts transmitting
+    data. B. Communication Protocol for non-medical to non-medical CR device In a
+    hospital area communication between doctor and nurse, video conferencing for medical
+    consultation, real time patient information retrieval and information of different
+    inventory plays a vital role. So to communicate with non-medical CR device from
+    other CR communicator and from admin center the following communication protocol
+    can establish the connectivity. The process of the communication between two nonmedical
+    devices as follows: Let consider device A would like to communicate with device
+    B. ‘A’ send his spectrum sensing information, own id, destination id, distance
+    from other medical devices, current location and request massage to adjunct CBS.
+    In this case CBS first trace the location of device B and set the spectrum decision
+    and maximum transmittable power for device A. The CBS of adjunct of device B first
+    check the status of B. If B is already in transmitting mode, then the request
+    waiting is in queue. Otherwise the CBS (adjunct B) convey the request massage
+    to device B and device B send the sensing info, other information along with request
+    acknowledgement and clearance massage for device A. The device B receiving the
+    spectrum decision and maximum allowable transmission power and communication between
+    A & B has established. Here admin center acting as system register (providing
+    location information, EMI threshold level of different device) and admin center
+    is also communicate to that nonmed CR device for application sharing purposes.
+    C. Communication theory for CT-SAC Cognitive Radio enabled sensor network (CRSN)
+    can also exist in our future hospital network. CSN are collecting different telemetric,
+    medical data and patient vital information and send to Admin center. And the communication
+    between CSN and admin center is occurred in following steps: Suppose CR sensor
+    u would like to send telemetric data to admin center and electronic medical record
+    (EMR). Sensor u sends its sensing information and recent priority to adjunct CT-SAC
+    along with the request massage. CT-SAC determines the spectrum decision and transmittable
+    power for u . In that mean time adjunct CT-SAC send his sensing report, request
+    massage and other information to admin center and CBS to calculating his transmission
+    parameter. After receiving the positive acknowledge from admin center CT-SAC allows
+    the sensor u to transmit the data. SECTION IV. Conclusion and Future Work In this
+    paper, a cognitive radio based system design for future e-health applications
+    and hospital management system is proposed. The proposed system design is for
+    wireless health care where EMI and other harmful radiation can be avoided. In
+    near future, there may be really scarcity of spectrum and will be unsolvable issue
+    in wireless communication system. Our proposed system not only ensures the environment
+    friendly solution but ensure the reliability in e-health and tele-health field.
+    In this article, we have already covered the system architecture, priority control
+    management, priority queue system enable spectrum sensing policy and the priority
+    and EMI aware communication protocols. In future we would like to extend the current
+    research and develop a medical priority aware centralize co-operative spectrum
+    sensing policy and traffic load balancing on the overall network. ACKNOWLEDGMENT
+    This work is partially supported by MJIIT Research Grant of UTM Year 2012–2014
+    with Vote No. 4J044. Authors Figures References Citations Keywords Metrics More
+    Like This Channel bonding in cognitive radio wireless sensor networks 2012 International
+    Conference on Selected Topics in Mobile and Wireless Networking Published: 2012
+    Using Cognitive Radio for Interference-Resistant Industrial Wireless Sensor Networks:
+    An Overview IEEE Transactions on Industrial Informatics Published: 2015 Show More
+    IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: (Al Mamoon et al., 2014)
+  journal: International Symposium on Medical Information and Communication Technology,
+    ISMICT
+  limitations: The paper does not delve into the specific technical aspects of data
+    management and transmission that are relevant to the context of irrigation management.
+  relevance_score: 0.59
+  relevance_score1: 0
+  relevance_score2: 0
+  title: A priority aware cognitive radio based hospital system architecture, priority
+    management and communication protocols
+  verbatim_quote1: null
+  verbatim_quote2: null
+  verbatim_quote3: null
+- analysis: This paper introduces a novel protocol for the distributed selection of
+    a Common Control Channel (CCC) in cognitive radio networks. The protocol aims
+    to minimize disruption caused by primary user activity and maximize connectivity
+    among nodes when the control channel is established. It also facilitates adaptive
+    recovery of the control channel if a primary user is detected. The paper evaluates
+    the protocol's performance under various network conditions, demonstrating its
+    effectiveness in selecting a reliable and stable CCC.
+  authors:
+  - Kim M.R.
+  - Yoo S.J.
+  citation_count: '28'
+  description: The exponential growth in wireless services has resulted in an overly
+    crowded spectrum. The current state of spectrum allocation indicates that most
+    usable frequencies have already been occupied. This makes one pessimistic about
+    the feasibility of integrating emerging wireless services such as large-scale
+    sensor networks into the existing communication infrastructure. Cognitive radio
+    is an emerging dynamic spectrum access technology that can be used for flexibly
+    and efficiently achieving open spectrum sharing. Cognitive radio is an intelligent
+    wireless communication system that is aware of its radio environment and that
+    is capable of adapting its operation to statistical variations of the radio frequency.
+    In ad hoc cognitive radio networks, a common control channel (CCC) is usually
+    used for supporting transmission coordination and spectrum-related information
+    exchange. Determining a CCC in distributed networks is a challenging research
+    issue because the spectrum availability at each ad hoc node is quite different
+    and dynamic due to the interference between and coexistence of primary users.
+    In this paper, we propose a novel CCC selection protocol that is implemented in
+    a distributed way according to the appearance patterns of primary systems and
+    connectivity among nodes. The proposed protocol minimizes the possibility of CCC
+    disruption by primary user activities and maximizes node connectivity when the
+    control channel is set up. It also facilitates adaptive recovery of the control
+    channel when the primary user is detected on that channel. © 2012 KICS.
+  doi: 10.1109/JCN.2012.6184551
+  full_citation: 'Mi-Ryeong Kim; Sang-Jo Yoo. Distributed coordination protocol for
+    ad hoc cognitive radio networks. Journal of Communications and Networks, Volume:
+    14, Issue: 1, February 2012, pp. 51 - 62, DOI: 10.1109/JCN.2012.6184551'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Journals & Magazines >Journal of Communications and...
+    >Volume: 14 Issue: 1 Distributed coordination protocol for ad hoc cognitive radio
+    networks Publisher: KICS Cite This PDF Mi-Ryeong Kim; Sang-Jo Yoo All Authors
+    20 Cites in Papers 930 Full Text Views Abstract Document Sections I. Introduction
+    II. Related Work III. Dcp-Ccc: Distributed Coordination Protocol for Common Control
+    Channel Selection IV. Cluster Management V. Simulation Results Show Full Outline
+    Authors Figures References Citations Keywords Metrics Abstract: The exponential
+    growth in wireless services has resulted in an overly crowded spectrum. The current
+    state of spectrum al- location indicates that most usable frequencies have already
+    been occupied. This makes one pessimistic about the feasibility of integrating
+    emerging wireless services such as large-scale sensor net- works into the existing
+    communication infrastructure. Cognitive radio is an emerging dynamic spectrum
+    access technology that can be used for flexibly and efficiently achieving open
+    spectrum sharing. Cognitive radio is an intelligent wireless communication system
+    that is aware of its radio environment and that is capable of adapting its operation
+    to statistical variations of the radio frequency. In ad hoc cognitive radio networks,
+    a common control channel (CCC) is usually used for supporting transmission coordination
+    and spectrum-related information exchange. Determining a CCC in distributed networks
+    is a challenging research issue be- cause the spectrum availability at each ad
+    hoc node is quite different and dynamic due to the interference between and coexistence
+    of primary users. In this paper, we propose a novel CCC selection protocol that
+    is implemented in a distributed way according to the appearance patterns of primary
+    systems and connectivity among nodes. The proposed protocol minimizes the possibility
+    of CCC disruption by primary user activities and maximizes node connectivity when
+    the control channel is set up. It also facilitates adaptive recovery of the control
+    channel when the primary user is detected on that channel. Published in: Journal
+    of Communications and Networks ( Volume: 14, Issue: 1, February 2012) Page(s):
+    51 - 62 Date of Publication: February 2012 ISSN Information: DOI: 10.1109/JCN.2012.6184551
+    Publisher: KICS SECTION I. Introduction Wireless spectrum licensing on a long-term
+    basis is currently under way over vast geographical regions. In order to address
+    the critical problem of spectrum scarcity, the federal communications commission
+    (FCC) has recently approved the use of unlicensed devices in licensed bands [1].
+    The report published by the spectrum policy task force of the FCC in 2002 [2],
+    which was aimed at improving the way of utilizing the spectrum resource, catalyzed
+    intensive research activities in this new field of open spectrum sharing. Consequently,
+    dynamic spectrum access (DSA) techniques have been proposed to solve spectrum
+    inefficiency problems. Cognitive radio (CR), a term first coined by J. Mitola
+    III in 1999 [3], is a promising approach for flexibly and efficiently achieving
+    open spectrum sharing [4], [5]. A CR system is an intelligent wireless communication
+    system that is aware of its radio environment and is capable of adapting its operation
+    to statistical variations of the radio freqeuncy of incoming signals. IEEE 802.22
+    [6] is the first standard based on CR. IEEE 802.16h [7] is expected to implement
+    CR functions in worldwide interoperability for microwave access (WiMAX) networks
+    for facilitating the coexistence of homogeneous and heterogeneous networks. A
+    number of cognitive radio test-beds based on different architectures and radio
+    technologies have been developed [8], [9]. Since most of the useful spectrum is
+    already assigned to primary systems (licensed systems), to utilize the spectrum
+    holes of the licensed bands, CR devices should be capable of detecting primary
+    user signals on the licensed primary channels and not lead to harmful interference
+    to the primary system users. Research on CR covers a wide range of areas, including
+    spectrum analysis, channel estimation, spectrum sharing, medium access control
+    (MAC), and routing. However, CR networks pose unique challenges owing to high
+    fluctuations in the available spectrum as well as the diverse quality of service
+    (QoS) requirements [5]. Specifically, in ad hoc networks based on CR, the distributed
+    multi-hop architecture, the dynamic network topology, and the variation of the
+    spectrum availability with time and location are key distinguishing factors. CR
+    networks are different from traditional ad hoc networks in the sense that the
+    CR networks can opportunistically utilize various spectral holes for smooth peer-to-peer
+    communications by virtue of the unique CR functionalities [10]. The ad hoc cognitive
+    radio network requires reliable control and spectrum management message exchanges
+    between neighbor nodes to communicate local sensing results, set up data channels,
+    immediately notify incumbent detection events, announce spectrum handover, and
+    so on. These message exchanges are usually assumed to be carried out on a dedicated
+    control channel, the so-called common control channel (CCC) [5]. However, in many
+    cases, we cannot guarantee that dedicated CCCs can be set up for all different
+    cognitive radio networks, and further, dedicated control channels are wasteful
+    of channel resources when there is no CR user. Therefore, a dynamic and distributed
+    method is required for CCC selection in ad hoc CR networks. In this paper, we
+    propose a novel CCC selection protocol (distributed coordination protocol for
+    a CCC (DCP-CCC)) in a distributed way, based on the appearance patterns of the
+    primary system (PS) and network connectivity. The proposed protocol provides a
+    decentralized cluster-based architecture to form a large-scale network, and it
+    provides mechanisms to adapt the network topology to network and radio environment
+    changes. Preliminary results of the proposed protocol were presented in [11].
+    In this paper, we have extended the cluster management methods (cluster merge,
+    cluster interconnection, and common channel change schemes) and have intensively
+    studied the performance of the proposed protocol for various network conditions.
+    The rest of this paper is organized as follows. Related work is discussed in Section
+    II. The proposed DCP-CCC protocol is presented in detail in Section III. Cluster
+    management is presented in Section IV. The performance of the proposed protocol
+    is studied in Section V. Finally, we conclude this paper in Section VI. SECTION
+    II. Related Work Most of the existing distributed CR network protocols for MAC
+    and routing assume that there exists a dedicated CCC. However, such protocols
+    are in conflict with the opportunistic nature of cognitive radio, and moreover,
+    most of the available spectrum has already been allocated to existing communication
+    systems. Therefore, it may not be feasible to assign dedicated CCCs to all possible
+    types of CR networks in the future. Some CR systems use an unlicensed band, such
+    as industrial, scientific, and medical (ISM) bands, or ultra-wide bands (UWBs)
+    for the control channel. In this case, the unlicensed band is already overcrowded
+    and suffers strong interference from existing unlicensed band users; therefore,
+    reliability, which is one of the most important features of the control channel,
+    cannot be guaranteed [12]. In the absence of a dedicated CCC, a distributed and
+    dynamic self-configurable procedure is required for setting up a common channel.
+    A CCC can be classified as an in-band CCC or out-of-band CCC, depending on whether
+    the control channel shares the data channel or uses a dedicated spectrum, respectively
+    [13]. In the in-band CCC, the current data transmission channel is also used for
+    exchanging control messages. Since each node pair may use a different channel
+    for communication, the CCC is generally limited to the corresponding communication
+    pair (i.e., local coverage). Therefore, the out-of-band CCC is widely considered
+    for ad hoc CR networks. Some studies assume that there exists a common channel
+    with global coverage available for all nodes in ad hoc CR networks. The network
+    nodes also have the capability determine and use an alternate global control channel
+    if the original control channel is jammed [14]–[16]. Two neighboring nodes can
+    exchange available channel information or negotiate channel assignments of a link
+    via the control channel. In [16] and [17], the authors propose a global control
+    channel to carry out the MAC-layer control mechanisms in the open spectrum sharing
+    paradigm which is so popular so that it is not required to be explained further.
+    The C-MAC protocol presented in [18] is based on the dynamic channel assignment
+    protocol [19]. These protocols use the packet-based channel assignment approach.
+    However, it is difficult to find a globally common channel in a network, and there
+    are frequent individual spectrum changes even if a CCC covering the entire network
+    is found. Changing the CCC frequently leads to drastic communication overhead.
+    There is high possibility that the global CCC can suffer denial of service (DoS)
+    attacks [20]. Therefore, global CCC approaches are unlikely to be applicable to
+    real CR network scenarios. Since the probability that a global CCC is available
+    to every node in the network is small, CR users can be grouped into clusters and
+    a CCC may be used for the nodes in the same cluster. In this case, the selected
+    CCC has only group coverage. In [14], Zhao et al. proposed a distributed coordination
+    scheme for spectrum allocations that addresses the spectrum variability problem
+    without using a global control channel. Zhao et al.''s scheme uses a group coordination
+    channel instead. In [21], a close group of users form a sub ad hoc network and
+    select a channel for communicating control information. If the primary user of
+    the channel returns, then a different channel that is available to everyone in
+    the available sub-group channels is chosen. It is assumed that one of the members
+    of the group has the capability to connect to the neighboring groups. In CogMesh
+    [10], a cluster-based framework is used to form a wireless mesh network in the
+    context of open spectrum sharing. The study in [10] investigates the issues involved
+    in setting up an ad hoc open spectrum sharing network that coexists with primary
+    users of the spectrums and proposes a decentralized cluster-based architecture
+    to form a large-scale network. The basic unit of the network is a cluster, which
+    is a sub-network formed by a group of neighbor nodes sharing common channels and
+    coordinated by a selected node (called cluster head) in the cluster. On the other
+    hand, some proposed MAC protocols do not require separate control channels for
+    the purpose of control signal exchange. Using a single CCC may introduce control
+    channel saturation that degrades the overall performance of the network. In [22],
+    SYN-MAC was proposed for avoiding the use of the CCC. The main idea is to divide
+    the total time into fixed-time intervals, each corresponding to one of the available
+    channels. At the beginning of each time slot, all nodes in the network listen
+    to a channel whose time slot is equal to the time required for the exchange of
+    control messages. However, this scheme requires global time synchronization. Synchronization
+    in an ad hoc network is a challenge owing to the absence of centralized coordination.
+    SECTION III. Dcp-Ccc: Distributed Coordination Protocol for Common Control Channel
+    Selection A. Network Architecture and Design Requirements Fig. 1 shows the network
+    environments of cognitive radio ad hoc networks. We assume that there is no fixed
+    dedicated CCC and that the average spectrum idle time of the PSs is much longer
+    than the packet transmission time. As shown in Fig. 1, each node may have a different
+    set of available channels after local spectrum sensing. In the proposed common
+    channel selection and maintenance protocol, we form clusters with desired sizes,
+    and within the cluster range, an optimal CCC is selected. In order to choose a
+    CCC, the DCP-CCC takes into account not only the locally available spectrum bands
+    of each node, but also the temporal and spatial variations in the primary user
+    spectrum activities. In Fig. 1, the cluster head (CH) is a node that initiates
+    cluster formation for selecting the CCC. The actual cluster nodes that share the
+    same CCC are determined by the initially desired cluster size and each node''s
+    available channel set. Multiple clusters can be merged or interconnected by using
+    gateway nodes. Fig. 1. Proposed ad hoc CR network architecture. Show All The proposed
+    DCP-CCC has the following unique design features. No global time synchronization:
+    Achieving time synchronization in ad hoc networks is not a trivial task and generally
+    requires complex device implementation or synchronization protocols. Therefore,
+    we assume that time synchronization is not provided in the proposed method. Configurable
+    cluster size: A cluster is a set of nodes that use the same control channel. To
+    increase the network connectivity, a cluster should include as many CR nodes as
+    possible. If the cluster size is too small, then an entire CR network can be partitioned
+    into many small clusters, and they may not be connected to exchange the control
+    messages of the MAC and of the routing operations. Even if some of them can be
+    interconnected by gateway nodes, the control channel switching overheads of the
+    interconnected clusters, which use different CCCs, increase the packet delivery
+    time and decrease the throughput. In this paper, the cluster size is adaptively
+    configurable when the CH initiates the control channel setup procedure. The actual
+    cluster size can be smaller than the desired size when the optimal channel in
+    terms of the proposed performance criteria (average primary system appearance
+    probability and idle time) is not available for all nodes in the desired cluster.
+    Fast common channel setup: In CCC-based MAC operations of ad hoc CR networks,
+    before the CCC is setup, each node cannot send data packets to or receive data
+    packets from neighbor nodes. Exchanges pertaining to the data channel negotiation
+    and transmission time schedule are performed on the control channel. Therefore,
+    the control channel setup time should be minimized. Since nodes may have different
+    sets of available channels and since they can tune into different channels at
+    a given time, ensuring fast message delivery for setting up a common channel is
+    not a trivial task. New CCC selection criteria: A single cluster should include
+    as many nodes as possible while having a size less than the desired cluster size,
+    and the selected channel should have low PS activities. Common channel change
+    mechanism upon the primary signal detection: When some of the cluster nodes have
+    detected the primary signals of the current CCC, then this information should
+    be delivered to the neighbor nodes in the cluster to make them perform local sensing.
+    By considering the number of interfering CR nodes, the cluster should decide whether
+    all cluster nodes should reselect the control channel or whether the interfering
+    nodes should be isolated. Cluster merge and interconnection: For control message
+    exchange or packet delivery between any nodes in the entire ad hoc network, the
+    clusters should be able to communicate through CCCs. Clusters with the same CCC
+    are merged, and the clusters with different CCCs are interconnected by gateway
+    nodes in the proposed protocol. The proposed DCP-CCC can set up a wide-area CCC
+    that can reach many CR nodes with a single control channel without channel switching.
+    In CogMesh [10], which is also a cluster-based common channel CR network, a CH
+    constructs a cluster only with single-hop neighbors, and therefore, many gateway
+    nodes are required to interconnect other neighboring clusters. Since gateway nodes
+    should manage the data transmission schedule for multiple clusters and frequently
+    switch channels, their use results in a decrease in the channel throughput. In
+    DCP-CCC, the CH selects an optimum control channel on the basis of primary signal
+    activities and the number of possibly covered nodes, unlike CogMesh. B. Common
+    Control Channel Setup Procedure To set up a CCC, CR nodes follow six steps: 1)
+    Local sensing and scanning, 2) common channel invitation, 3) cluster tree construction,
+    4) common channel reporting, 5) CCC decision, and 6) common channel advertisement.
+    In the following subsections, the operations are explained in detail. 1. Local
+    Sensing and Scanning Each node i in a ad hoc CR network periodically or aperiodically
+    performs local sensing to determine the available channel set ( C a (i)) and primary
+    channels. If a node needs to find an existing cluster to share the common channel,
+    then it should scan all channels to possibly receive a common channel beacon (CC_BC)
+    message from a neighbor node; CC_BC is periodically broadcast by a CH. A node
+    should listen to one channel for a duration of at least T p to receive CC_BC.
+    T p is the time interval taken for beacon transmission from the CH. The CC_BC
+    includes the CCC information. Therefore, once a node receives the message, it
+    can immediately tune to the indicated CCC and start exchanging control messages.
+    In this case, there is no explicit procedure for connecting to the CH. The local
+    sensing and scanning of each channel may be done simultaneously. 2. Common Channel
+    Invitation If a node does not receive any CC_BC during the scanning procedure,
+    then it can be inferred that there is no CCC or that the existing CCCs are not
+    available for the node. In this case, the CR node initiates the cluster construction
+    process by broadcasting a common channel invite (CC_IVT) message to its neighbor
+    nodes using carrier sense multiple access with collision avoidance (CSMA/CA).
+    The CC_IVT message format is defined as in Fig. 2. The CC_IVT can be rebroadcast
+    until the desired cluster size is reached. Transmitting node ID: ID of the node
+    that transmits the CC_IVT. CH node ID (cluster head node ID): ID of the node that
+    initially generated the CC_IVT. When a CH sends the CC_IVT at first, “Transmitting
+    node ID” and “CH node ID” are the same. SEQ number (sequence number): Whenever
+    a CH sends a CC_IVT to find a new CCC, it increases the SEQ number by 1. This
+    number is for uniquely identifying CC_IVT messages; periodic CC_IVT repetitions
+    have the same SEQ number. Hop count: The desired maximum hop counts (cluster size)
+    from the CH to retain the same CCC. When a node receives a CC_IVT, it decreases
+    the hop count by 1, and it broadcasts it again only if the count is not zero.
+    Candidate channel list (CCL): This list contains the candidate channels that can
+    possibly be used as the CCC. Whenever a node rebroadcasts a CC_IVT, the CCL can
+    be updated. Fig. 2. CC_IVT message format. Show All If a CH node broadcasts the
+    CC_IVT message only on a single channel, then some neighbor nodes cannot receive
+    the message when the channel used to broadcast the CC_IVT is not available to
+    these neighbor nodes. Further, because each CR node tunes into one of the available
+    channels at a given time, the neighbor nodes may not be able to receive the message
+    even though the channel is available to the neighbor nodes. Therefore, a CH sequentially
+    broadcasts a CC_IVT on each available channel using a single transceiver, as is
+    shown in Fig. 3. If the CH has multiple transceivers, then the available channels
+    are subdivided among the different transceivers. After a duration of T p , the
+    CH rebroadcasts the CC_IVT with the same SEQ number. Each neighbor node should
+    wait at least for a duration of T p for each of its available channels. If a neighbor
+    node does not receive the CC_IVT, then it switches to the next channel on its
+    local available channel list. Fig. 3. Broadcasting CC_IVT via the CH. Show All
+    3. Common Channel Cluster Tree Construction After a node receives a CC_IVT from
+    its neighbor node, it stores the candidate channel list of the CC_IVT and the
+    node ID of the transmitting node. When node i receives a CC_IVT from neighbor
+    node j , it determines the overlapping common channel set C ^ c (i,j) from its
+    local available channel list C a (i) and the CCL of the received CC_IVT, C IVT
+    c (j) , from node j . C ^ c (i,j)= C a (i)∩ C IVT c (j). (1) View Source If node
+    i first receives a CC_IVT message from node j and C ^ c (i,j)≠Φ , then node i
+    records node j as a parent node. Note that within a cluster, each node can reach
+    the CH through its parent node using one of the overlapping common channels. Then,
+    node i rebroadcasts the CC_IVT with an updated CCL as indicated in (2). C IVT
+    c (i)= C c (i,j)= C ^ c (i,j)= C a (i)∩ C IVT c (j) (2) View Source where C c
+    (i,j) is the set of channels in the CCL field rebroadcast by nodc i after receiving
+    a CC_IVT from node j . After decreasing the hop count of the received CC_IVT,
+    unless the hop count is zero, node i sequentially and periodically rebroadcasts
+    the CC_IVT message on all available channels. If there are no overlapping channels
+    between its locally available channels and the received CCL from node j , then
+    it indicates that node i and node j do not have any common channels; therefore,
+    they are not able to setup a CCC. In this case, node i simply discards the CC_IVT.
+    If node i receives additional CC_IVT messages satisfying the following three conditions
+    from any other neighbor node k , then it simply discards them. The same CH node
+    ID with the previously received CC_IVT from node j . The same SEQ number. C ^
+    c (i,k)⊂ ∪ of node i for all parent nodes j C c (i,j). (3) View Source If some
+    channels of C ^ c (i,k) were not included in the previous CC_INV forwarded, then
+    it indicates that node i can have new channels that can be used as a CCC; these
+    new channels are not selected on the basis of CC_IVTs sent by the previous parent
+    nodes. Therefore, if the condition in (4) is satisfied despite the CH node ID
+    and SEQ number of the CC_IVT from node i being the same as those in the CC_IVT
+    from the previous parent nodes, then node k becomes a new parent node of node
+    i and node i rebroadcasts the CC_IVT from node k to its neighbor nodes with the
+    CCL in (5). C IVT c (i)= = C ^ c (i,k)⊄ ∪ of node i for all parent nodes j C
+    c (i,j), C c (i,k) { C a (i)∩ C IVT c (k)}− ∪ of node i for all parent nodes j
+    C c (i,j). (4) (5) View Source Fig. 4 explains the CC_IVT message transmissions
+    and presents an example of tree construction. As shown in the figure, the CC_IVT
+    message is propagated until the desired cluster size is reached, and the common
+    channel cluster tree is constructed accordingly. When there is no neighbor node
+    to rebroadcast the CC_IVT or when the neighbor nodes cannot receive the CC_IVT,
+    the message cannot be propagated further even if the desired cluster size is not
+    reached. It should be noted that unlike the conventional multicasting tree, a
+    node can be involved in multiple tree paths because the common control tree is
+    built according to channel availability. The numbers in brackets for each node
+    are the available channels of that node. Assume that node A is the CH that generated
+    the CC_IVT message. Node B receives the CC_IVT message from node A on one of its
+    available channels (channel 1 or channel 2) and computes the candidate channel
+    list, which consists of the overlapping available channels between node A and
+    node B, as indicated in (2). Then, node B rebroadcasts the CC_IVT message (in
+    Fig. 4, CC_IVT (3) message). For channel 1 and channel 2, node B records node
+    A as a parent node. On the other hand, node D cannot receive the CC_IVT from node
+    A because it does not have any available channels overlapping with node A. When
+    node B receives CC_IVT (2) from node C, since node B has already set up a common
+    channel tree for the channel set {1, 2}, node B simply ignores the message. Fig.
+    4. CC_IVT transmission and tree construction. Show All As shown in Fig. 4, node
+    H receives two CC_IVT messages. We assume that the CC_IVT from node F arrives
+    later than the CC_IVT from E. Node H discovers that the CH node ID and the SEQ
+    number of each of the CC_IVTs are the same, but the CCLs are different. At node
+    H, first, the candidate channel list with parent node E is derived as {1, 2} using
+    (2), and when node H receives the list a little later in the CC_IVT from F, the
+    CCL with parent node F is newly derived as {3} using (5). Therefore, node H has
+    two parent nodes: Node E for channel set {1, 2} and node F for {3}. When node
+    K finally receives the CC_IVT, the hop count reaches 0, and therefore, node K
+    stops CC_IVT broadcasting. 4. Common Channel Reporting Common channel report (CC_RPT)
+    message is used to deliver CCC information on the path through which the CC_IVT
+    is delivered, to the CH to help in deciding the final common channel. For the
+    following two cases, a node stops broadcasting a CC_IVT and periodically sends
+    back a CC_RPT message to its parent nodes. A node receives a CC_IVT and the hop
+    count reaches zero. A node has broadcast a CC_IVT, but has not received any CC_RPT
+    message during a certain time T R T R =(R_Hop_Count) T W (6) View Source where
+    R_Hop_Count is the hop count at the node when it has broadcast the CC_IVT and
+    T W indicates the maximum waiting time to receive a CC_RPT from one hop neighbor
+    node. The CC_RPT message format is illustrated in Fig. 5. Transmitting node ID:
+    ID of the node that transmits the CC_RPT. CH node ID: ID of the CH node that initially
+    generated CC_IVT. SEQ number: The same SEQ number as that of the received CC_IVT.
+    Tuple {Ch, P p , T pi , NUM C } : For each candidate common channel on the path
+    to the CH, the following definitions hold. Ch : Candidate CCC P p : Accumulated
+    PS appearance probability on the channel “ Ch ” T pi : Accumulated average PS
+    idle time on the channel “ Ch ” NUM C : Accumulated number of connected nodes
+    that can use the channel “ Ch ” as a CCC Fig. 5. CC_RPT message format. Show All
+    Each node in ad hoc CR networks senses the channels and maintains a channel status
+    table that contains the PS appearance probability ( P p ) and the average PS idle
+    time ( T pi ) of each channel. In this paper, we utilize the PS appearance probability
+    and idle time statistics for the CCC decision. As we mentioned in the subsection
+    on design requirements, to ensure that the common channel in a cluster is used
+    by as many nodes of the cluster as possible, information on the number of nodes
+    on the channel tree to the cluster head is included in the CC_RPT message. Fig.
+    6 shows an example of a CC_RPT delivery procedure. When nodes I and K receive
+    CC_IVT messages, the hop count reaches zero, so nodes I and K cease to broadcast
+    the CC_IVT and respond with CC_RPT messages to their parent nodes. After node
+    C sends a CC_IVT, it does not receive any CC_RPT during a certain time (i.e.,
+    2 T W ). Therefore, node C initiates a CC_RPT response message. The CC_PRT message
+    is delivered to the parent node on the channel cluster tree to the CH. Note that
+    the tree formation from the CH to nodes with a hop count within a predetermined
+    value is already performed upon the delivery of the CC_IVT message, so that nodes
+    can send a CC_RPT to only their stored parent nodes on available channels. Each
+    node on the common channel cluster tree adds the PS appearance probability and
+    the average primary idle time of each channel to the received CC_RPT message.
+    In Fig. 6, node B adds its local measurement information on channel 1 to that
+    of CC_RPT (2) from node G, so that the tuple of channel 1 of CC_RPT (3) is {1,
+    0.8, 25, 3}. Node H has two different parent nodes, E and F, for the candidate
+    channel sets {1, 2} and {3}, respectively. Therefore, the channel information
+    on {1, 2} and {3} is delivered to the CH through node E and node F, respectively.
+    In the proposed mechanism, the channel and connectivity information of each node
+    inside the desired cluster size is delivered to the CH through a unique path so
+    that each node''s information is not counted as duplicate content. Fig. 7 shows
+    the pseudocode for our proposed CC_RPT transmission scheme. Fig. 6. CC_RPT transmission
+    example. Show All Fig. 7. Pseudocode for the common channel reporting procedure.
+    Show All 5. Common Control Channel Decision A CH maintains a candidate CCC status
+    table. Whenever the CH receives CC_RPT messages, it updates the table. For each
+    channel in the received CC_RPT messages, P p , T pi , and the connected nodes
+    are accumulated. Finally, the CH divides P p and T pi by the number of connected
+    nodes for each channel after the CH has received a sufficient number of CC_RPT
+    messages, or after the maximum waiting time has expired. The cluster head can
+    estimate the average PS appearance probability, average PS idle time, and the
+    total number of possibly connected nodes including CH itself for each candidate
+    CCC. Therefore, the CH can identify a CCC based on the PS activities and determine
+    the number of nodes that can be connected together via a common channel. Table
+    1 shows the status of each candidate channel for the example scenario in Fig.
+    6. Table 1. Candidate CCC status for a scenario corresponding to the table in
+    Fig. 6. Depending on the importance of each parameter, the CH can determine the
+    optimal CCC. Various decision rules can be applied (e.g., a cost function with
+    different weights for three parameters). In this paper, the purpose of determining
+    a CCC is that as many CR nodes as possible should be able to share the same CCC
+    as long as the primary activity values are less than the pre-defined thresholds.
+    As shown in Fig. 8, in step 1, the channel set CS P is determined by considering
+    the PS appearance probability, and the average PS idle time is considered in step
+    2. From the channel set CS T , the channel with the largest number of connected
+    nodes is finally selected for use as the CCC. After step 1 or step 2, if the number
+    of channels determined is less than 2, then the channel with the minimum P p (in
+    step 1) or maximum T pi (in step 2) is selected. Fig. 8. Procedure for the CCC
+    decision. Show All 6. Common Control Advertisement After the CH determines the
+    optimal CCC, information on the selected CCC is sequentially broadcast with a
+    common channel advertisement (CC_ADV) message to the nodes in the cluster hop
+    count on all available channels. After a sufficient number of CC_ADV transmissions
+    have been completed, the CH switches to the CCC and periodically broadcasts CC_BC.
+    The CC_BC is a message to indicate activation of the new CCC. The neighbor nodes
+    that receive CC_ADV sequentially rebroadcast the CC_ADV along with their available
+    channels and then switch to the CCC. Therefore, switching to the new CCC is performed
+    sequentially in the cluster. When a node receives a CC_ADV message, the selected
+    CCC may not be available to the node. In this case, the node discards the CC_ADV
+    and tries to find or construct a new cluster by starting from procedure A (scanning).
+    It should be noted that since ad hoc nodes can move without notifications, the
+    CH should periodically reinitiate the common channel setup procedure. In this
+    paper, the proposed CCC selection algorithm relies on many broadcast messages.
+    Since radio signals are likely to overlap with other signals in a geographical
+    area, straightforward broadcasting usually results in serious redundancy and collision,
+    which is referred to as the broadcast storm problem. To reduce the number of broadcast
+    packets and possible packet losses resulting from collisions, several mechanisms
+    have been proposed in the literature, such as a probabilistic scheme, a counter-based
+    scheme, and spanning tree clustering [23], [24]. Any broadcast storm avoidance
+    mechanism can be used with the proposed method. SECTION IV. Cluster Management
+    A. Cluster Merge and Interconnection Multiple CCC clusters organized in the network
+    can be merged or interconnected by gateway nodes. Cluster merge and interconnection
+    mechanisms facilitate seamless data exchanges between any pair of nodes in the
+    network by enhancing the network connectivity. A node that already uses a CCC
+    of a certain cluster may overhear another cluster''s CC_ADV or CC_BC messages
+    through one of the available channels during its normal operation. When both clusters
+    use the same control channel, the overhearing node can be a gateway node to merge
+    two clusters, as shown in Fig. 9(a). In this case, all ad hoc nodes in the two
+    clusters can exchange control messages by using a single common channel. If the
+    CCC in the overheard messages is different but one available to the node, then
+    the node can interconnect the two clusters via control channel switching, as shown
+    in Fig. 9(b). Fig. 9. Cluster merge and interconnection: (a) Cluster merge and
+    (b) cluster interconnection. Show All In the case of cluster interconnection,
+    if a single transceiver is used to access a common control channel, the gateway
+    node needs to divide its resources between both clusters, as shown in Fig. 9(b),
+    so the neighbor nodes (nodes B and G) of the gateway node should know the exact
+    time schedule of the gateway node. The time schedule indicates when the gateway
+    node switches to the neighbor cluster''s CCC. Therefore, the greater the number
+    of gateway nodes in the network, the higher the cluster connection overheads and
+    the lower the control channel throughput. In the proposed procedure for CCC selection,
+    a CH selects a CCC that can reach many nodes without gateway nodes. When the CH
+    selects a new control channel, it considers the number of nodes connected to each
+    candidate CCC, which is obtained from NUM c in the CC_RPT message. Another method
+    to reduce the gateway nodes in this paper is to broadcast a gateway node announcement
+    to its neighbors. If there are many overlapping nodes between two clusters, we
+    may have multiple candidate gateway nodes. Once any node assumes the gateway role,
+    it broadcasts a gateway advertisement (GATE_ADV) message to its neighbor nodes,
+    and any neighbor node that receives the message will not be a gateway node. The
+    GATE_ADV message includes the CH IDs of both clusters. B. Common Channel Change
+    Even though the CH selects the CCC after proper consideration of the average PS
+    appearance probability and idle time, the PS may suddenly use the CCC. Since the
+    cognitive radio network should avoid harmful interference with PSs, when nodes
+    detect the primary signal on the current CCC, the detection information should
+    be conveyed to the neighbors. In addition, the detecting nodes should stop using
+    the CCC, to protect the PSs. In the proposed mechanism, the primary system detection
+    information is delivered to the CH, and the CH decides whether the common channel
+    should be changed. This decision will be made on the basis of the cost of changing
+    the CCC (i.e., message exchange overhead and delay) and the number of detecting
+    nodes in the cluster. If the CCC is not changed, then the detecting nodes simply
+    leave the cluster without exchanging messages. As mentioned in Section III, the
+    detecting nodes may try to form a new cluster or join one of the other existing
+    clusters. 1. Primary Detection Notification When a node detects a primary signal
+    on the current CCC, it sends a common channel detection (CC_DET) message to the
+    CH on the present CCC and immediately returns to listen mode. In this mode, a
+    node can listen to a common channel signal, but it is prohibited from sending
+    messages on the channel. Even though it is not on the routing path to the CH,
+    any neighbor node that overhears the CC_DET message performs local sensing to
+    determine whether it is inside the primary signal area. The CC_DET message includes
+    the CH node ID, the SEQ number (the same as the SEQ in CC_ADV), information on
+    the primary detected CCC, and NUM d . NUM d is the number of detecting nodes on
+    the routing path. At the first detecting node, NUM d is set to 1. 2. Forwarding
+    CC_DET Message When a node receives a CC_DET message, if it is the next node on
+    the routing path, then it forwards the message to the CH node. If it is not on
+    the routing path and has simply overheard the message, then it performs local
+    sensing. If the node detects a primary signal on the CCC as a result of local
+    sensing, then it initiates the primary detection notification procedure by sending
+    a CC_DET message. If the node is on the path and has also detected a primary signal
+    and if it has not previously forwarded any CC_DET message with the same SEQ and
+    CH node ID, then it increases NUM d by 1 and forwards the CC_DET to the CH. If
+    the node has already transmitted the CC_DET with the same SEQ and CH node ID to
+    the same CH node or if it does not detect a primary signal on the CCC, then it
+    simply forwards the message to the CH without increasing NUM d . Fig. 10 shows
+    the CC_DET forwarding procedure. Nodes A, B, C, D, E, F, and G belong to the cluster
+    using channel 1 as the CCC; node A is the CH of that cluster. As soon as node
+    F detects the primary signal of channel 1, it transmits a CC_DET to its neighbor
+    node E that is on the routing path to node A. Since node E is also within the
+    range of the primary signal, it increases NUM d by 1. Node B is not influenced
+    by the primary signal, and therefore, it forwards the CC_DET to node A without
+    increasing NUM d . Fig. 10. Forwarding CC_DET. Show All 3. Common Channel Change
+    On the basis of the received CC_DETs, the CH decides whether it should change
+    the cost CCC. To change the current CCC, the CH should take into account of CCC
+    in terms of the number of control message exchanges and the delay in forming a
+    new cluster. The percentage of NUM d in the total number of nodes in the cluster
+    can be used to determine CCC change criteria. If the CH decides to change the
+    current CCC, then it broadcasts a common channel change (CC_CNG) message in all
+    available channels, including the new CCC. The new channel is selected from the
+    candidate common channel set shown in Table 1. If there is no candidate channel
+    for the new CCC, then the CH initiates a new common channel construction procedure
+    by sending a CC_IVT. When a node receives a CC_CNG, it decreases the hop count
+    and checks whether the hop count is zero. If it is not zero, the node rebroadcasts
+    the CC_CNG on all available channels. Then, the node switches to the new CCC.
+    4. Cluster Division If a node in the listen mode is not able to hear the CC_CNG
+    message from the CH until the CC_CNG waiting time has expired or if the new CCC
+    of the received CC_CNG is not available to the node, then the node starts a new
+    CCC setup procedure as discussed in Section III. Before it initiates a new cluster,
+    it should wait to check whether it receives any CC_BCs from neighboring clusters
+    for joining one of the existing clusters. If there is no CC_BC matching the available
+    channels, then it starts to create a new cluster by sending a CC_IVT message.
+    In this case, cluster division can occur. SECTION V. Simulation Results In this
+    section, simulation experiments conducted to evaluate the performance of the proposed
+    algorithm are discussed. For the simulation study, we implemented a CR network
+    simulator completely in object-oriented C++, and the simulator includes a multi-channel
+    system environment, channel sensing, and CSMA/CA based data transmission. We employ
+    the common channel selection algorithm of CogMesh [10], [25] for performance comparison.
+    CR network devices are randomly placed in a two-dimensional area 600 m×600 m ,
+    and the maximum transmission range of a CR node is set to 40 m. We use the ON-OFF
+    model for the PS appearance pattern. The CSMA/CA back-off mechanism is used when
+    each node sends control messages. The entire area is subdivided into 36 grids
+    ( 6×6 grids), as shown in Fig. 11. PSs are located at the cross points of the
+    grids, and they affect the 4 neighboring grids. The channels used by the PSs are
+    randomly selected from the channel pool (CP). The specific simulation parameters
+    are shown in Table 2. Fig. 11 shows an example of a topology (300 CR nodes in
+    the entire network and 5 channels in the CP) considered in our simulation study.
+    Fig. 12 shows the corresponding PS appearances on grids G1, G15, and G25. From
+    the ON-OFF model, the activation and idle time of the PSs are found to follow
+    an exponential distribution with λ and μ . We set λ as 0.2 and μ as 0.4. Fig.
+    11. Example of a simulation topology. Show All Fig. 12. PS appearances according
+    to the ON-OFF model. Show All Table 2. Simulation parameters. In the first experiment,
+    we observe the average number of clusters for different numbers of nodes. As shown
+    in Fig. 13, when the cluster size (CS) is set to 1, the proposed scheme shows
+    performance similar to that of CogMesh. However, as we increase the cluster size,
+    the number of generated clusters decreases in the proposed method. Therefore,
+    many CR nodes can have the same common channel. The number of channels in the
+    CP is fixed at 5 in Figs. 13 and 14. Fig. 13. Number of clusters. Show All Fig.
+    14. Number of isolated nodes. Show All The number of single-node clusters is compared
+    for the different methods in Fig. 14. A single-node cluster has only a single-node
+    that is acting as a CH. It can be considered as an isolated node, and it cannot
+    exchange control messages with neighbor nodes. Therefore, a smaller percentage
+    of single-node clusters indicates better network connectivity. As shown in Fig.
+    14, the proposed method results in a lesser number of isolated nodes. In the CCC
+    selection, it is desirable that the selected CCC should be stable for the longest
+    time possible. This stability can be measured by determining the average PS appearance
+    probability and the average idle time of the PS of the chosen CCC. For different
+    CP sizes, ranging from 1 to 20 channels, the stability factors are compared (Figs.
+    15 and 16). The number of nodes in the network is set to 150. Regardless of the
+    total number of channels, PS appearance probabilities determined by using CogMesh
+    do not show a specific trend with increasing CP for the selected CCC because it
+    is not aware of the PS statistics. When the network has a single channel, the
+    two algorithms show similar performances in selecting the CCC. However, as the
+    number of channels in the CP increases, the proposed protocol shows outstanding
+    performance with regard to not only the PS appearance probability but also the
+    CCC idle time. In other words, the proposed method needs less frequent CCC changes
+    compared to the conventional method. Fig. 15. Average PS appearance probability
+    for the selected CCC. Show All Fig. 16. Average primary system idle time for the
+    selected CCC. Show All Fig. 17 presents the number of clusters for different CP
+    sizes. When the size of the CP is one, the network is reduced to a single-channel
+    network. Upon increasing the CP size, CogMesh retains a similar number of clusters.
+    On the other hand, the number of clusters is significantly reduced as the CPs
+    are increased in the proposed protocol because if the number of channels increases,
+    then each cluster can find a CCC that can cover many CR nodes with high possibility.
+    Fig. 17. The number of clusters in different CPs: (a) CogMesh and (b) proposed.
+    Show All In Fig. 18, we show the average delay of cluster formation. To successfully
+    set up a CCC for a cluster, some control message exchanges (CC_IVT, CC_RPT, and
+    CC_ADV) are required in the proposed method. When the cluster size is 1, the required
+    time is relatively short and similar to that of CogMesh. However, as the cluster
+    size increases, the path from a CH to the last node on the cluster boundary also
+    increases, so the average delay increases. However, the larger the cluster size,
+    the more the nodes that can use the CCC and the lesser the number of gateway nodes
+    required. Fig. 18. Average delay for cluster formation. Show All Figs. 19 and
+    20 show the number of gateway nodes for cluster merging and cluster interconnection,
+    respectively. As the number of nodes in the network increases, we can observe
+    that the number of gateway nodes also increases. In the proposed method, as the
+    CS increased, the required number of gateway nodes for a given number of nodes
+    in the network decreases since each cluster contains more member nodes. The gateway
+    node should perform common channel switching, resource sharing between multiple
+    clusters, and frequent control message exchanges. Therefore, a small number of
+    gateway nodes are required if reliable network connectivity is supported. The
+    proposed method (with CS≥2 ) always shows a lesser number of gateway nodes than
+    CogMesh, as can be observed in Figs. 19 and 20, and the network connectivity is
+    also superior to that of CogMesh, as shown in Fig. 14. Fig. 19. Number of gateway
+    nodes that perform cluster merging. Show All Fig. 20. Number of gateway nodes
+    that perform cluster interconnection. Show All Fig. 21 explains the CCC change
+    trials performed by the CH when the nodes detect PS appearances. In this experiment,
+    the number of nodes is 300, and if the number of detected nodes in a certain cluster
+    is 5, 10, 15, 20, 25, or 30% of the total number of nodes in the cluster, then
+    the CH tries to change the existing CCC. In the proposed method, upon detecting
+    PS appearances, the detecting node in a certain cluster sends a CC_DET message
+    to its CH. After the CH receives several CC_DETs, it should decide on the basis
+    of the number of detected nodes whether the cluster should change the current
+    CCC. If a large number of nodes detect the PS, then the CH selects a new CCC using
+    the aforementioned CCC selection algorithm. The x-axis of Fig. 21 represents the
+    threshold percentage of detecting nodes required to effect a CCC change. As expected,
+    a lower threshold percentage results in more CCC change trials. In fact, a CCC
+    change involves high cost in terms of convergence time, cluster re-formation,
+    and message exchanges. Therefore, if the area of the primary detected signal is
+    relatively small, then local CCC repair is preferred. In local CCC repair, if
+    the nodes that transmitted CC_DET do not receive any CCC change message within
+    a predetermined time, then they simply join one of the neighbor clusters or start
+    a new cluster formation process. Fig. 21. CCC change trials performed by the CH
+    upon detecting the PS. Show All Fig. 22 shows the CCC switching delay. When a
+    CH decides to change the current CCC, it transmits a CC_CNG message and the message
+    is sent to all the nodes in the cluster. In this experiment, we measured the delay
+    up to the instant at which a node successfully changed the control channel after
+    the CH announced a CCC change. As can be observed in Fig. 22, as the cluster size
+    increases, the average delay also increases. Since the CC_CNG is sent from the
+    CH, a node that is closer to the CH can switch to the new control channel much
+    faster than cluster boundary nodes. Fig. 22. Common control channel switching
+    delay. Show All SECTION VI. Conclusion In this paper, we have proposed an efficient
+    common control channel selection protocol for ad hoc networks in the context of
+    CR. The control channel for CR operation is constructed in a distributed way.
+    To determine an optimal common control channel, we have defined a channel-based
+    tree from the cluster head to the nodes within a predetermined number of hops.
+    The proposed distributed coordination protocol takes into account the primary
+    system activities of each channel and node connectivity for common channel selection.
+    We have also proposed a primary detection notification procedure to efficiently
+    change the common control channel. In a simulation study, we have evaluated the
+    protocol performance under various network conditions. Compared with the conventional
+    CogMesh CR clustering method, the proposed DCP-CCC requires a smaller number of
+    clusters, and therefore, many CR nodes can communicate with the same control link.
+    Further, the proposed DCP-CCC enhances the control channel connectivity at the
+    cost of an increase in the delay in cluster formation. The most important contribution
+    of this paper is that the common control channel selected by using the proposed
+    protocol is more reliable and stable since it is selected by considering channel
+    activities of the primary systems. The proposed protocol also reduces the frequency
+    with which control channels are changed and cluster re-formation. Authors Figures
+    References Citations Keywords Metrics More Like This A Novel Distributed Global
+    Time Synchronization Protocol in Cognitive Radio Ad Hoc Networks 2015 IEEE Global
+    Communications Conference (GLOBECOM) Published: 2015 A trusted lightweight synchronisation
+    protocol for wireless ad-hoc networks 2017 IEEE International Conference on Computational
+    Intelligence and Virtual Environments for Measurement Systems and Applications
+    (CIVEMSA) Published: 2017 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: null
+  journal: Journal of Communications and Networks
+  limitations: null
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Distributed coordination protocol for ad hoc cognitive radio networks
+  verbatim_quote1: '"The proposed protocol minimizes the possibility of CCC disruption
+    by primary user activities and maximizes node connectivity when the control channel
+    is set up.'
+  verbatim_quote2: '"It also facilitates adaptive recovery of the control channel
+    when the primary user is detected on that channel."'
+  verbatim_quote3: '>'

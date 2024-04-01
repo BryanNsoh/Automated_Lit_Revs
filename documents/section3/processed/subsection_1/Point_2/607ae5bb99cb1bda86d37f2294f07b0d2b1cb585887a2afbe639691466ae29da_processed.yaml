@@ -1,0 +1,2152 @@
+- DOI: https://doi.org/10.1186/s13174-018-0097-0
+  analysis: 'This paper aims to explore how automated real-time irrigation can contribute
+    to addressing global food challenges, and how the current state of such technology
+    fits the vision of resource optimization that smart cities seek to achieve.
+
+    It then identifies key aspects and factors that should be considered for successful
+    implementation of real-time irrigation systems within the broader context of smart
+    cities and the Internet of Things (IoT).
+
+    The authors investigate the degree to which existing network protocols fulfill
+    the requirements of such systems and provide a survey of networking architectures
+    and communication protocols for smart city systems.'
+  authors:
+  - Imad Jawhar
+  - Nader Mohamed
+  - Jameela Al-Jaroodi
+  citation_count: 62
+  full_citation: '>'
+  full_text: ">\nJournal of Internet Services\nand Applications\nJawhar et al. Journal\
+    \ of Internet Services and Applications            (2018) 9:26 \nhttps://doi.org/10.1186/s13174-018-0097-0\n\
+    RESEARCH\nOpen Access\nNetworking architectures and protocols\nfor smart city\
+    \ systems\nImad Jawhar1*\n, Nader Mohamed2 and Jameela Al-Jaroodi3\nAbstract\n\
+    The smart city model is used by many organizations for large cities around the\
+    \ world to significantly enhance and\nimprove the quality of life of the inhabitants,\
+    \ improve the utilization of city resources, and reduce operational costs.\nThis\
+    \ model includes various heterogeneous technologies such as Cyber-Physical Systems\
+    \ (CPS), Internet of Things\n(IoT), Wireless Sensor Networks (WSNs), Cloud Computing,\
+    \ and Unmanned Aerial Vehicles (UAVs). However, in order to\nreach these important\
+    \ objectives, efficient networking and communication protocols are needed to provide\
+    \ the\nnecessary coordination and control of the various system components. In\
+    \ this paper, we identify the networking\ncharacteristics and requirements of\
+    \ smart city applications, and identify the networking protocols that can be used\
+    \ to\nsupport the various data traffic flows that are needed between the different\
+    \ components. In addition, we provide\nillustrations of networking architectures\
+    \ of selected smart city systems, which include smart grid, smart home energy\n\
+    management, smart water, UAV and commercial aircraft safety, and pipeline monitoring\
+    \ and control systems.\nKeywords: Smart city, Cyber-physical systems (CPS), Networking\
+    \ architectures, Unmanned aerial vehicle (UAV),\nWireless sensor networks (WSNs)\n\
+    1\nIntroduction\nA number of large cities around the world are inves-\ntigating\
+    \ applying the smart city model to heighten the\nliving quality of their inhabitants\
+    \ and enhance the uti-\nlization of the city infrastructure and resource s. Var-\n\
+    ious advanced technologies and techniques supporting\nsuch models provide smart\
+    \ services to improve the per-\nformance and operations in healthcare, transportation,\n\
+    energy, education, and many other fields. At the same\ntime these services reduce\
+    \ operational costs and resource\nconsumption in smart cities. Examples of these\
+    \ technolo-\ngies are Wireless Sensor Networks (WSNs), the Internet\nof Things\
+    \ (IoT), Cyber-Physical Systems (CPS), robotics,\nUnmanned Aerial Vehicles (UAVs),\
+    \ fog computing, cloud\ncomputing, and big data analytics. Utilizing these tech-\n\
+    nologies provides many advantages and services for smart\ncities. WSNs are used\
+    \ to provide real-time monitoring\nof the conditions of smart city resources,\
+    \ and infrastruc-\ntures [1]. The IoT facilitates the integration of the physical\n\
+    objects in a city network [2]. CPS are used to provide\n*Correspondence: ihjawhar@gmail.com;\
+    \ imad.jawhar@mu.edu.lb\n1Al Maaref University, Old Airport Avenue, P.O. Box 25-5078,\
+    \ Beirut, Lebanon\nFull list of author information is available at the end of\
+    \ the article\nuseful interactions between the cyber world and the phys-\nical\
+    \ world in smart cities [3]. Robotics and UAVs are used\nto provide automation\
+    \ and offer useful services for smart\ncities [4]. Such services include enhancement\
+    \ delivery of\nservices, environmental monitoring, traffic monitoring,\nsecurity\
+    \ and safety controls, and telecommunication ser-\nvices [5]. Fog computing is\
+    \ used to provide low latency\nsupport, location awareness, better mobility support,\
+    \ and\nstreaming and real-time support for smart city applica-\ntions [6]. Cloud\
+    \ computing provides a scalable and cost\neffective computation and data storage\
+    \ platform to sup-\nport smart city applications [7]. Big data analytics is used\n\
+    to provide intelligent and optimized short and long term\ndecisions based on collected\
+    \ data to enhance smart city\nservices [8].\nThese advanced technologies are used\
+    \ to implement\na number of smart city services [9–11]. Examples of\nthese smart\
+    \ services are intelligent transportation ser-\nvices that can be used to enhance\
+    \ route planning and\ncongestion avoidance in city streets, provide intelligent\n\
+    traffic light controls and parking services, enhance vehicu-\nlar safety, and\
+    \ enable self-driving cars. Other examples are\nsmart energy services that provide\
+    \ better energy decisions\nfor more efficient energy consumption in smart cities.\n\
+    © The Author(s). 2018 Open Access This article is distributed under the terms\
+    \ of the Creative Commons Attribution 4.0\nInternational License (http://creativecommons.org/licenses/by/4.0/),\
+    \ which permits unrestricted use, distribution, and\nreproduction in any medium,\
+    \ provided you give appropriate credit to the original author(s) and the source,\
+    \ provide a link to the\nCreative Commons license, and indicate if changes were\
+    \ made.\nJawhar et al. Journal of Internet Services and Applications         \
+    \   (2018) 9:26 \nPage 2 of 16\nApplications of these smart energy services are\
+    \ used to\nsupport smart grids, and smart buildings, as well as pro-\nvide better\
+    \ utilization of renewable energy. Other smart\nservices involve structural health\
+    \ monitoring as well as\nreal-time monitoring of water networks, bridges, tun-\n\
+    nels, train and subway rails, and oil and gas pipelines.\nAdditional services\
+    \ include smart services for environ-\nmental monitoring and smart services for\
+    \ public safety\nand security.\nThese smart city services do not only need the\
+    \ various\nadvanced technologies discussed here, but also need reli-\nable and\
+    \ robust networking and communication infras-\ntructures to enable efficient exchange\
+    \ of messages among\nthe different components of the systems that provide a\n\
+    particular service. Smart city services are designed at\ndifferent scales, which\
+    \ require various networking and\ncommunication technologies for their implementation\n\
+    and operations. Furthermore, different network and com-\nmunication models and\
+    \ approaches can be utilized for\nsmart city services. This paper investigates\
+    \ the commu-\nnication and network issues of smart city systems. It also\ninvestigates\
+    \ networking technologies, architectures, and\ncommunication requirements for\
+    \ such systems. The suit-\nability of existing network protocols for different\
+    \ smart\ncity services will be discussed. Although there are sig-\nnificant research\
+    \ efforts to investigate different issues in\nsmart cities and provide solutions\
+    \ for these issues, very\nlittle research has been done to investigate the network-\n\
+    ing and communication parts of smart city systems, which\nconstitute the main\
+    \ objective of this paper.\nThe rest of the paper is organized as follows. Section\
+    \ 2\nprovides an overview of related work in this field.\nSection 3 includes an\
+    \ overview of some smart city appli-\ncations. Section 4 presents networking architectures\
+    \ and\ncommunication requirements for smart city applications.\nSection 5 offers\
+    \ an illustration of selected smart city\nsystems. Section 6 discusses open issues\
+    \ in the area of\nnetworking and communication for smart city systems.\nFinally,\
+    \ Section 7 concludes the paper and provides some\nfuture research directions.\n\
+    2\nRelated work\nThere are a few papers published addressing the network\nand\
+    \ communication issues for smart cities. In this section\nwe discuss some of the\
+    \ work presented in these papers.\nZanella et al. [2] provided an interesting\
+    \ study that ana-\nlyzed the current technologies available for deploying IoT\n\
+    for a smart city. In addition, the authors presented and\ndiscussed a proof-of-concept\
+    \ implementation of IoT in\nthe city of Padova, Italy. There are generally two\
+    \ com-\nmon approaches to offer data access to things in IoT. The\nfirst is using\
+    \ multi-hop mesh networks with short-range\ncommunication in the unlicensed spectrum\
+    \ among the\nnetwork nodes. The second is using long-range cellular\ntechnologies\
+    \ in the licensed frequency band. A new com-\nmunication technology is introduced\
+    \ to provide alter-\nnative connectivity for IoT named LPWAN (Low-Power\nWide\
+    \ Area Network) [12]. From its name, this com-\nmunication technology can provide\
+    \ low-rate, long-range\ntransmission in the unlicensed frequency bands using star\n\
+    topology. These features can be very useful for some smart\ncity applications.\
+    \ Leccese et al. [13] introduced a smart\ncity application of fully controlled\
+    \ street lighting using a\nZigBee Sensor Network and WiMAX while the applica-\n\
+    tion is controlled by Raspberry-Pi Card. Sanchez et al. [14]\nintroduced a smart\
+    \ city testbed for IoT experimentation\nnamed SmartSantander.\nSome work more\
+    \ related to our contribution in this\npaper is investigating network architectures\
+    \ for smart\ncities. Wan et al. [15] presented an event-based communi-\ncation\
+    \ architecture that helps manage and facilitates coop-\neration among Machine\
+    \ to machine (M2M) components\nin smart cities. The authors also conducted a case\
+    \ study\nusing this architecture for vehicular applications. Gaur\net al. [16]\
+    \ proposed a multi-level smart city architecture\nbased on semantic web technologies.\
+    \ This architecture\nis mainly for wireless sensor networks applications in a\n\
+    smart city. It consists of 4 levels: Data Collection, Data\nProcessing, Integration\
+    \ and Reasoning, and Device Con-\ntrol and Alerts. Jin et al. [17] studied distinct\
+    \ IoT network\narchitectures with focus on Quality of Service (QoS) for\ndifferent\
+    \ smart city applications.\nThe last paper [17] is the closest to our contribu-\n\
+    tions in the paper, thus we will elaborate on it. The\nauthors presented five\
+    \ different IoT network architec-\ntures: (1) Autonomous Network Architecture,\
+    \ (2) Ubiqui-\ntous Network Architecture, (3) Application-Layer Overlay\nNetwork\
+    \ Architecture, (4) Service-Oriented Architecture,\nand (5) Participatory Sensing.\
+    \ The autonomous network\narchitecture is usually not directly linked to public\
+    \ net-\nworks such as the Internet. It can be connected though\ngateways if this\
+    \ link is needed. This network architecture\nis suitable for some smart city applications\
+    \ such as auto-\nmatic parking management in which most of the network\nconnections\
+    \ are mainly to support the application. The\nQoS requirements in this network\
+    \ architecture are mainly\ndependent on the requirements of the application.\n\
+    In the ubiquitous network architecture, smart objects\nincluding the sensors and\
+    \ actuators are part of the Inter-\nnet. Information from these smart objects\
+    \ can be obtained\nby authorized users and applications through the Internet\n\
+    directly or through intermediate servers which serve as\nsinks that gather data\
+    \ from the connected smart objects.\nThe servers’ option can provide better scalability\
+    \ and\nresource efficiency than the direct access option. The\nsmart objects can\
+    \ be connected to the Internet through\nmultitier and multiradio. This network\
+    \ architecture is\nsuitable for smart city applications such as structure\nJawhar\
+    \ et al. Journal of Internet Services and Applications            (2018) 9:26\
+    \ \nPage 3 of 16\nhealth monitoring in which multiple software applica-\ntions\
+    \ can collect and analyze different structures’ health\nin a city. The QoS of\
+    \ such network architecture can be\nchallenging due to the level of heterogenous\
+    \ network\ncomponents used. The application layer overlay network\narchitecture\
+    \ is suitable for large scale networks with a\nlarge number of distributed nodes.\
+    \ These nodes can be\nlogically structured in clusters with cluster heads that\n\
+    can run in-network data processing task to reduce net-\nwork traffics. In this\
+    \ network architecture ad hoc and/or\nmesh are used. One application of this network\
+    \ archi-\ntecture is using a wireless sensor network (WSN) for\nenvironmental\
+    \ monitoring. The QoS for applications suit-\nable for such architecture is generally\
+    \ tolerable to some\nlevel. The service-oriented network architecture is based\n\
+    on an innovative network architecture, called Informa-\ntion Driven Architecture\
+    \ (IDRA) [18]. In this architecture\ndifferent network functions such as addressing,\
+    \ naming,\nforwarding, and routing are provided as network services.\nThese network\
+    \ services can be utilized to provide differ-\nent network configurations to suit\
+    \ different applications.\nAlthough, this approach can be very useful, flexible\
+    \ and\ncan provide advanced network features, it requires new\nnetwork components\
+    \ technology. The participatory sens-\ning network architecture is considered\
+    \ a special case and\na new model of IoT. In this model, residents through their\n\
+    consumer devices collect, analyze, and share sensor data.\nThis can be called\
+    \ “human-as-a-sensor”. In this mode,\nwireless communications such as WiFi, GPRS,\
+    \ and 3G are\nused. Some possible applications of this architecture are\nenvironmental\
+    \ monitoring, intelligent transportation, and\nhealthcare. QoS in such network\
+    \ can be challenging as\nhumans are the main source of data and humans can be\n\
+    lazy, privacy-worried, error-prone, and misbehaving.\nUnlike other related work,\
+    \ our contributions in this\npaper is mainly in investigating networking architec-\n\
+    tures focusing on the communication characteristics and\nrequirements of the main\
+    \ smart city applications includ-\ning smart buildings, smart grids, gas and oil\
+    \ pipeline\nmonitoring and control, smart water network, intelli-\ngent transportation,\
+    \ manufacturing control and monitor-\ning, and unmanned aerial vehicle applications\
+    \ for smart\ncities. The works we studied usually focus on a sin-\ngle attribute\
+    \ or characteristic such as quality of service\nin [17]. We considered several\
+    \ communication charac-\nteristics and requirements including bandwidth, delay\n\
+    tolerance, power consumption, reliability, security, het-\nerogeneous network\
+    \ support, network type, and mobility\nsupport. In addition, we studied the suitability\
+    \ of different\nnetworking protocols for different smart city applications.\n\
+    These protocols are IEEE 802.15.4 (Zigbee), IEEE 802.15.1\n(Bluetooth), IEEE 802.11a,\
+    \ IEEE 802.11b, IEEE 802.11g,\nIEEE 802.11n, IEEE 802.16 (WiMAX), Cellular 3G,\
+    \ Cel-\nlular 4G/LTE, and Satellite. With this, we are providing\na comprehensive\
+    \ study in networking architectures and\nprotocols for smart city systems.\n3\n\
+    Smart city applications\nDevelopment and operation of smart city applications\n\
+    can face many challenges. To identify and understand\nthese challenges, we discuss\
+    \ some important smart city\napplications used or proposed for different domains.\
+    \ We\nhighlight their benefits as well as their development and\noperational challenges.\
+    \ This will help us identify the type\nof support needed by the networking platforms\
+    \ designed\nfor smart city applications.\nIn the energy domain, smart city applications\
+    \ are used\nto add values such as efficiency, reliability, and sustainabil-\n\
+    ity of the production and distribution of electric power\nin smart grids [19].\
+    \ A smart grid is a renovated electri-\ncal grid system that uses information\
+    \ and communication\ntechnology (ICT) to collect and act on available informa-\n\
+    tion about the behavior of suppliers and consumers in an\nautomated fashion. A\
+    \ smart grid uses CPS to provide self-\nmonitoring and advanced control mechanisms\
+    \ for power\nproductions and consumer needs to increase grid effi-\nciency and\
+    \ reliability. In addition, CPS systems are used\nto control the processes of\
+    \ generating renewable energy\nfrom hydropower plants [20] and wind power plants\
+    \ [21].\nFurthermore, some applications are used to monitor and\ncontrol energy\
+    \ consumptions in smart buildings [3]. The\nbuildings’ equipment such as HVAC\
+    \ (Heating, Ventilating,\nand Air-Conditioning) systems, appliances, and lighting\n\
+    systems are controlled with CPS. Smart building sys-\ntems are usually equipped\
+    \ with different types of sensor\nnodes that monitor the current energy usage\
+    \ and envi-\nronmental conditions. These sensors report their obser-\nvations\
+    \ and measurements to a centralized monitoring\nand control system. The control\
+    \ system implements intel-\nligent algorithms to control the sub-systems used\
+    \ in the\nbuildings to optimize energy usage based on the sensed\nobservations\
+    \ and current operational and environmental\nconditions.\nIn the transportation\
+    \ domain, an important smart city\napplication area that recently received high\
+    \ attention is\nintelligent transportation. Vehicular safety applications\nconstitute\
+    \ one of the most important classes of such\napplications. There are many safety\
+    \ applications for vehi-\ncles including lane change warning messages, emergency\n\
+    breaking, collision avoidance mechanisms, and blind spot\nmonitoring. These applications\
+    \ provide fully automatic\nor semi-automatic actions to enhance driving safety.\
+    \ The\nmost important features of such applications are the real-\ntime and reliability\
+    \ support in detection and response.\nAll aspects of vehicular safety applications\
+    \ including\nthreat observations, decision making, communication,\nand actions\
+    \ must be reliable and able to run in real-time.\nThis imposes a serious restriction\
+    \ on how the software\nJawhar et al. Journal of Internet Services and Applications\
+    \            (2018) 9:26 \nPage 4 of 16\nis designed and how well it supports\
+    \ high levels of\nintegration across all the devices involved to ensure real-\n\
+    time and reliable responses. In addition, self-driving cars\nare considered as\
+    \ important smart city applications [22].\nSince they practically integrate all\
+    \ the mentioned features\nin addition to vision and monitoring components to allow\n\
+    the vehicle to navigate the roads based on sensed data\nand intelligent software\
+    \ that interprets and responds to\nthis data in real-time. Another intelligent\
+    \ transportation\napplication include intelligent traffic light controls, which\n\
+    include monitoring devices across multiple locations to\naccurately predict traffic\
+    \ patterns and adjust traffic lights\nto optimize flow. One example of such domain\
+    \ is dis-\ncussed in [23].\nIn addition, smart city systems can be used to protect\n\
+    water networks and to make them smarter, more efficient,\nmore reliable, and more\
+    \ sustainable. CPS systems can be\nembedded within water networks to provide some\
+    \ moni-\ntoring and control mechanisms and to add smart features\nto the operations\
+    \ of water distribution [24]. One of these\nfunctions is to provide early warning\
+    \ mechanisms to iden-\ntify problems in water networks. For examples, leaks and\n\
+    pipe bursts can be easily detected while fast and tempo-\nrary solutions can be\
+    \ applied to reduce water waste and to\nminimize further risks or damages to the\
+    \ network.\nOther smart city applications include greenhouse mon-\nitoring that\
+    \ aims to provide efficient control for suitable\nclimate, soil, lighting, and\
+    \ water level in greenhouses [25].\nIn addition, some applications involve autonomous\
+    \ oper-\nation of unmanned vehicles using CPS systems. Such sys-\ntems provide\
+    \ networks that connect the payloads on the\nunmanned vehicles like sensors, actuators,\
+    \ cameras, stor-\nage, communication devices, and microcontrollers [26].\nAdditional\
+    \ smart city systems are also used to auto-\nmate, control, monitor, and enhance\
+    \ manufacturing pro-\ncesses [27]. Finally, monitoring and controlling oil, and\n\
+    gas pipelines is another one of the applications for smart\ncities. We discuss\
+    \ the corresponding architecture and\nfeatures of this and other important applications\
+    \ in the\nsection illustrating selected smart city systems later in this\npaper.\n\
+    4\nSmart city networking architectures and\ncommunication requirements\nIn this\
+    \ section, we investigate the different networking\nand communication requirements\
+    \ of the various smart\ncity applications, as well as the protocols that can be\n\
+    used to connect the components used to support such\napplications.\n4.1\nNetworking\
+    \ characteristics, requirements, and\nchallenges of smart city systems\nTable\
+    \ 1 describes the various smart city applications along\nwith the appropriate\
+    \ networking protocols that can be\nused, the bandwidth requirements, the delay\
+    \ tolerance,\npower consumption level, reliability and security require-\nments,\
+    \ heterogeneity of the networking links, whether\nthey use wired communication,\
+    \ wireless communication,\nor both, and the mobility characteristics for each\
+    \ of these\napplications.\n4.1.1\nNetwork protocols\nAs shown in the table, applications\
+    \ with short range com-\nmunication such as smart buildings, and smart water\n\
+    networks can use protocols from the personal area net-\nwork (PAN) class such\
+    \ as IEEE 802.15.4 (Zigbee), and\n801.15.1 (Bluetooth). These protocols are generally\
+    \ char-\nacterized by lower bandwidth, low energy consumption,\nand short range.\
+    \ Applications requiring longer ranges\nsuch as intelligent transportation, and\
+    \ manufacturing and\ncontrol use protocols, which are in the local area network\n\
+    (LAN) class, such as IEEE 802.11 (WiFi). Applications\nrequiring wide range communication\
+    \ such as UAVs and\nsmart grid can use protocols that are in the wide area\nnetwork\
+    \ (WAN) class such as IEEE 802.16 (WiMAX), cel-\nlular, and satellite. All of\
+    \ these protocols have provisions\nto support asynchronous and synchronous data\
+    \ connec-\ntions. The former can be used with smart city applications\nwith best\
+    \ effort traffic, which can tolerate delay, while\nthe latter can be used with\
+    \ applications that generate\ntraffic requiring more stringent quality of service\
+    \ (QoS)\nrequirements such as larger bandwidth and limited delay.\nSuch applications\
+    \ involve real-time and multimedia com-\nmunication. In addition, these protocols\
+    \ have reliability\nand security services. However, most of the security fea-\n\
+    tures require more processing, and can cause added delay\nand energy consumption.\
+    \ Consequently, these considera-\ntions should be taken into account before enabling\
+    \ such\nfeatures.\n4.1.2\nBandwidth\nAlso, the table shows that certain applications,\
+    \ such as\nintelligent transportation, have low bandwidth require-\nments. Others,\
+    \ such as smart buildings, gas and oil\npipeline monitoring, and UAVs require\
+    \ more bandwidth.\nHowever, even inside the same type of applications, the\nbandwidth\
+    \ requirements can range from low to medium\nor even high, depending on the type\
+    \ of data that is gen-\nerated. For example, telemetric and control data such\
+    \ as\nUAV ground-to-air control commands only require small\nbandwidth, while\
+    \ UAVs taking images and videos, and\ntransmitting them to ground base units require\
+    \ consider-\nably larger bandwidth.\n4.1.3\nDelay tolerance\nIn addition, it is\
+    \ shown that some applications have\nlow tolerance for end-to-end delay. Such\
+    \ applications\ninclude intelligent transportation. This is the case, since\n\
+    Jawhar et al. Journal of Internet Services and Applications            (2018)\
+    \ 9:26 \nPage 5 of 16\nTable 1 Networking characteristics and requirements of\
+    \ smart city applications\nSmart city\napplication\nAppropriate\nNet. Prot.\n\
+    Band- width\nDelay\ntolerance\nPower\nConsump.\nReliabil- ity\nSecurity\nHet.\n\
+    Net.\nWired /\nwireless\nMobility\nSmart buildings [3]\nIEEE 802.15.4,\nIEEE 802.15.1\n\
+    L, M, H\nL\nL, M\nM, H\nH\nH\nWD/WL\nM\nSmart grid [19]\nIEEE 802.16 ,\nCellular\n\
+    L, M\nL, H\nM, H\nH\nH\nM, H\nWD/WL\nL\nGas and oil pipeline\nmonitoring and\n\
+    control [22]\nIEEE 802.16 ,\nCellular\nL, M, H\nL, H\nL\nM, H\nH\nM\nWL\nL\nSmart\
+    \ water\nnetworks [24]\nIEEE 802.15.4\n, IEEE 802.11,\nIEEE 802.16\nL, M\nL, H\n\
+    L\nM\nH\nM\nWL\nL\nIntelligent\ntransportation [54]\nIEEE 802.16,\nIEEE 802.11,\n\
+    IEEE 802.15.4,\nCellular\nL, M\nL, H\nL, M\nM, H\nH\nH\nWD/WL\nH\nManufacturing\n\
+    control and\nmonitoring [27]\nIEEE 802.15.4\n, IEEE\n802.15.1 ,\nIEEE 802.11\n\
+    L, M\nL, H\nL, M\nM\nM\nM\nWD/WL\nM\nUnmanned aerial\nvehicle [5]\nIEEE 802.11\
+    \ ,\nIEEE 802.16,\nSatellite\nL, M, H\nL, H\nL\nM, H\nM, H\nM\nWD/WL\nH\nIEEE\
+    \ 802.15.1: Bluetooth, IEEE 802.15.4: Zigbee, IEEE 801.11: WiFi, IEEE 802.16:\
+    \ WiMAX, H: High, M: Medium, L: Low. WD: Wired, WL: Wireless\nthe data that is\
+    \ being transmitted needs to arrive\nwithin microseconds in order to allow the\
+    \ control sys-\ntems to react within an acceptable time frame to avoid\ncar imminent\
+    \ danger or life-threatening collisions. On\nthe other hand, other smart city\
+    \ applications have\nhigher tolerance for delay. These applications include\n\
+    ones that rely on the collection of information and\nmonitoring data for later\
+    \ analysis. Examples of such\napplications\ninclude\nUAVs\ntaking\nimages\nfor\n\
+    later\nprocessing.\n4.1.4\nPower consumption\nPower consumption is also an important\
+    \ requirement for\nsmart city applications. However, as shown in the table,\n\
+    some applications that have local high energy sources\nsuch as smart grid systems,\
+    \ can tolerate protocols with\nhigher power consumption levels. Other applications,\n\
+    which have energy sources with limited capacities have\nmedium power requirements.\
+    \ Such applications include\nintelligent transportation. Other applications have\
+    \ very\nlimited energy sources and require protocols with low or\nvery low energy\
+    \ consumption characteristics. Such appli-\ncations include gas and oil pipeline\
+    \ monitoring, smart\nwater networks, and UAVs.\n4.1.5\nReliability\nReliability\
+    \ is another important parameter in smart city\napplications, and the table shows\
+    \ that most applications\neither have medium reliability requirements such as\
+    \ smart\nwater networks, while others have high reliability require-\nments such\
+    \ as smart grid, and intelligent transportation.\n4.1.6\nSecurity\nWith respect\
+    \ to security, most applications require\nmedium to high security. For example,\
+    \ applications such\nas manufacturing control and monitoring require medium\n\
+    security, while others such as smart grid have high secu-\nrity requirements due\
+    \ to the sensitivity of the data and\ncriticality of the functions that are performed.\n\
+    4.1.7\nHeterogeneity of network protocols\nMost smart city systems include networking\
+    \ protocols,\nwhich connect the various components within the system.\nExamples\
+    \ of such systems include include smart buildings,\nand intelligent transportation.\
+    \ In such cases, these pro-\ntocols must be able to co-exist without interfering\
+    \ with\neach other. In addition, appropriate mapping of the vari-\nous control\
+    \ information inside the headers at the various\nlayers of the networking stack\
+    \ of the different heteroge-\nneous protocols and networks must be done to ensure\n\
+    seamless and efficient operation.\n4.1.8\nWired/wireless connectivity\nThe table\
+    \ also shows that some smart city applica-\ntions such as gas and oil pipeline\
+    \ monitoring, and UAVs\nmostly involve wireless communication. Others, such as\n\
+    smart buildings and intelligent transportation involve\nboth wired as well as\
+    \ wireless communication. In such\nJawhar et al. Journal of Internet Services\
+    \ and Applications            (2018) 9:26 \nPage 6 of 16\ncases, communication\
+    \ within a particular physical system\ncan use wired networking (e.g. inside a\
+    \ UAV), while wire-\nless communication can be used to connect the physical\n\
+    system with other similar physical systems, or backbone\nand infrastructure networks.\n\
+    4.1.9\nMobility\nFinally, mobility is another important characteristic of\nsmart\
+    \ city applications. The table shows that some sys-\ntems have low or medium mobility\
+    \ such as smart grid, gas\nand oil pipeline monitoring, and smart water networks.\n\
+    Other systems have high mobility such as intelligent trans-\nportation, and UAVs.\
+    \ Consequently, the networking pro-\ntocols that are used to connect medium to\
+    \ high mobility\nsmart city systems must be robust and adapt well to\nnode mobility\
+    \ without consuming too much bandwidth\non control messages and related processing\
+    \ to readjust to\nchanges in the network topology.\n4.2\nAdditional issues and\
+    \ challenges\nIn addition to the requirements and characterization of\nthe links\
+    \ between nodes in smart city systems, we identify\nthe following additional issues\
+    \ and challenges, which must\nbe considered.\n4.2.1\nInteroperability\nSmart city\
+    \ systems rely on various heterogeneous net-\nworking protocols at the physical\
+    \ and data link layers,\nwhich use different medium access control (MAC) strate-\n\
+    gies Interoperability between these protocols is important\nin order to provide\
+    \ seamless integration of the underly-\ning technologies. The IEEE 1905.1 protocol,\
+    \ which was\ndesigned to provide convergent interface between physi-\ncal/data\
+    \ link layers and the network layer is intended to\nplay such a role for digital\
+    \ home networks [28]. Develop-\nment of similar protocols to expand the support\
+    \ mech-\nanism for smart city systems is a good area for future\nresearch.\n4.2.2\n\
+    Availability\nSoftware and hardware availability are essential compo-\nnents of\
+    \ smart city systems due to the criticality and real-\ntime nature of a lot of\
+    \ the related applications. Software\navailability can be achieved by ensuring\
+    \ that the various\nservices are available to the corresponding applications.\n\
+    On the other hand, hardware availability is obtained by\nensuring that the various\
+    \ devices that are needed to pro-\nvide networking contestability and efficient\
+    \ performance\nare readily available anytime and anywhere. One way to\naccomplish\
+    \ these objectives is through redundancy of\nboth software and hardware components\
+    \ and systems.\nThis was already considered and studied for IoT devices\n[29,\
+    \ 30]. Furthermore, considerations to attain availability\nneed to be incorporated\
+    \ as a part of the design objectives\nof networking and communication protocols\
+    \ for smart\ncity systems.\n4.2.3\nPerformance\nPerformance is always an important\
+    \ consideration for any\ntype of architecture, and this is also the case for smart\n\
+    city systems. In order to achieve this essential objective,\nmore evaluation needs\
+    \ to be done for the various net-\nworking protocols at the various layers of\
+    \ the architecture,\nespecially at the data link, network and transport layers.\n\
+    These three layers are critical components in order to sup-\nport traffic of various\
+    \ QoS requirements. In addition, the\nmiddleware layer can be used to provide\
+    \ proper interface\nand convergence services between these layers and the\napplication\
+    \ layer.\n4.2.4\nManagement\nAnother important aspect of smart city system net-\n\
+    working is management of the thousands or even mil-\nlions of devices that are\
+    \ involved in many applications.\nFor example, to achieve energy management in\
+    \ smart\nbuildings thousands of sensor and actor devices can be\ndeployed in each\
+    \ building. Efficient protocols are needed\nto provide effective management of\
+    \ fault, configuration,\naccounting, performance, and security (FCAPS) aspects\n\
+    of these devices. The Light-weight machine-to-machine\n(LWM2M) [31] standard is\
+    \ being done by the Open\nMobile Alliance to specify the interface between M2M\n\
+    devices and servers. On the other hand, the NETCONF\nLight protocol [32] is designed\
+    \ by IETF to provide mech-\nanisms to install, manipulate and delete the configuration\n\
+    of network devices. Similar efforts are encouraged for\nsmart city systems in\
+    \ order to offer standard mechanisms\nand services to efficiently manage and control\
+    \ the commu-\nnication of devices at the various levels of the architecture.\n\
+    4.2.5\nScalability\nIt is important for smart city systems to be able to accom-\n\
+    modate new devices without appreciable loss in the qual-\nity of the provided\
+    \ services and associated network traffic\nflows. This can be accomplished through\
+    \ virtualization\nand extensibility in the platforms and their operations. An\n\
+    extensible IoT architecture was proposed in [33], which\nconsists of three layers:\
+    \ Virtual object, Composite virtual\nobject, and Service layer. The design must\
+    \ have objec-\ntives of automation, intelligence, and zero-configuration\nfor\
+    \ objects and related devices in order to achieve scal-\nability and interoperability.\
+    \ More research is desirable in\norder to extend this strategy to smart city systems.\n\
+    4.2.6\nBig data analytics\nHuge amounts of data is collected by smart city systems\n\
+    and the corresponding IoT devices that are spread out\nover a considerably larger\
+    \ geographic area. Analyzing and\nextracting useful information from this data\
+    \ can provide\nJawhar et al. Journal of Internet Services and Applications   \
+    \         (2018) 9:26 \nPage 7 of 16\nconsiderable advantages for businesses and\
+    \ government\ninstitutions. In addition, communication and collection\nof a very\
+    \ large number of messages in a timely fashion\naccording to their priority, delay-tolerance,\
+    \ and size is vital\nto the efficient operation of smart city systems. In order\
+    \ to\nreduce the amount of exchanged traffic, local processing,\ncompression,\
+    \ and aggregation of the generated messages\nneed to be done at the lower and\
+    \ intermediate levels of the\nnode hierarchy and geographic areas. Consequently,\
+    \ More\nresearch is needed to provide proper convergence and\nmapping of the networking\
+    \ parameters between the vari-\nous layers of the networking stack at the data-generating\n\
+    nodes (e.g. sensors, IoT devices, etc.), the intermediate\nrouters, processing\
+    \ servers (typically in the cloud), and\nactor nodes at the other end of the communication\
+    \ cycle.\n4.2.7\nCloud computing\nCloud computing is an important component of\
+    \ any smart\ncity as it can provide scalable processing power and data\nstorage\
+    \ for different smart city applications [34]. Cloud\ncomputing has powerful processing\
+    \ capabilities, large and\nscalable data storage, and advanced software services\
+    \ that\ncan be utilized to build different support services to provi-\nsion diverse\
+    \ smart city applications. Cloud computing can\nbe used as the main control and\
+    \ management platform\nused to execute smart city applications. Different sensors\n\
+    and actuators of smart city applications can be connected\nto the city’s cloud\
+    \ computing services to collect, pro-\ncess, store the sensors’ data and perform\
+    \ management\ntasks for different smart city applications. As the col-\nlected\
+    \ data from a smart city can also become big data\nas huge amounts of data are\
+    \ collected throughout the\ncity. Cloud computing can provide the necessary power-\n\
+    ful platforms for storing and processing this big data to\nenhance operations\
+    \ and planning.\nThe communication between city sensors and actua-\ntors and cloud\
+    \ computing can involve different commu-\nnication requirements to smoothly support\
+    \ smart city\napplications. These requirements should be supported\nby the network\
+    \ architectures deployed in the smart city.\nSmart applications rely on the integration\
+    \ between sen-\nsors and actuators on one side and the cloud on the\nother and\
+    \ cannot performed well unless there is a good\nnetwork that provides good communication\
+    \ services con-\nnecting both sides. Another issue that arises when using\ncloud\
+    \ computing for a smart city is that the cloud ser-\nvices are either offered\
+    \ at a centralized location or across\nmultiple distributed platform in various\
+    \ locations. The\ndistributed cloud computing approach can provide better\nquality\
+    \ and reliability support for different cloud appli-\ncations [35]. However, there\
+    \ is usually a need to provide\ngood communication links among the distributed\
+    \ cloud\ncomputing facilities available in different places. Another\nissue arising\
+    \ when using the cloud is the reliability and\nperformance of the networks connecting\
+    \ all components\non both sides. With the Internet in the mix, there are prob-\n\
+    lems with delays, lost packets and unstable connections.\nCareful planning and\
+    \ management of network resources\nand communication models in addition to the\
+    \ design and\narchitecture of the smart city application is necessary to\naccount\
+    \ for these issues. Yet, there are some unavoidable\naspects such as the transmission\
+    \ delays.\n4.2.8\nFog computing\nWhile cloud computing can provide many advanced\
+    \ and\nbeneficial services for smart city applications, it can-\nnot provide good\
+    \ provisions for distributed applications\nthat need real-time, mobility, low-latency,\
+    \ data streaming,\nsynchronization, coordination, and interaction support\nservices.\
+    \ This is mainly due to the transmission delays\nimposed by the large distances\
+    \ to be covered between the\nsmart city censors and devices and the cloud platforms.\
+    \ In\naddition, it is difficult for cloud computing to manage and\ndeal with a\
+    \ large number of heterogenous sensors, actua-\ntors, and other devices distributed\
+    \ over a large-area. Fog\ncomputing was lately introduced to offer more localized,\n\
+    low latency, and mobility services. Fog computing allows\nto move some functionalities\
+    \ from the cloud closer to the\ndevices [36]. This approach aims to enable different\
+    \ IoT\napplications through distributed fog nodes that provide\nlocalized services\
+    \ to support these IoT applications. In a\nsmart city, fog computing can complement\
+    \ cloud comput-\ning to support smart city applications [37]. While cloud\ncomputing\
+    \ can provide powerful and scalable services for\nsmart city applications, fog\
+    \ computing can provide more\nlocalized, fast-response, mobility, and data streaming\
+    \ ser-\nvices for smart city applications. Furthermore, integrating\nIoT, fog\
+    \ computing, and cloud computing as shown in\nFig. 1 can provide a powerful platform\
+    \ to support different\nsmart city applications. Figure 2 shows a hierarchical\
+    \ rep-\nresentation where the IoT devices use a multihop topology\nto reach the\
+    \ gateway connecting to the fog server. This\nintegrated platform needs good networking\
+    \ and commu-\nnication support to efficiently handle the communication\nbetween\
+    \ all these components. This also includes a good\nnetwork security support to\
+    \ avoid any threat vulnerabil-\nity issues in the integration and in supporting\
+    \ smart city\napplications.\n4.3\nLinks between nodes in smart city systems\n\
+    Table 2 describes the various networking protocols that\ncan be used in smart\
+    \ city systems [38–40]. The table shows\ntheir main characteristics, the physical\
+    \ and data link layer\nspecifications, their data rates, and transmission range.\n\
+    We can see that the applications requiring short range\nsuch as smart buildings,\
+    \ smart grid and smart water, gen-\nerally can use the IEEE 802.15.4 (Zigbee)\
+    \ protocol, which\nis a very short range protocol that is mainly designed\nJawhar\
+    \ et al. Journal of Internet Services and Applications            (2018) 9:26\
+    \ \nPage 8 of 16\nFig. 1 An Illustration of the integration of IoT, fog computing,\
+    \ and cloud computing to support smart city applications\nfor very small devices\
+    \ that have very limited energy. It is\nintended to allow these devices to last\
+    \ up to several years\nusing the same battery. In addition, the IEEE 802.15.1\n\
+    (Bluetooth) protocol can be used by such applications.\nIt is a WPAN protocol,\
+    \ which uses the 2.4 GHz band.\nIt employs a master/slave time division duplex\
+    \ (TDD)\nstrategy, with a 1 Mbps data rate, and a range of 10\nto 100 m.\nThe\
+    \ IEEE 802.11a/b/g/n protocol can be used with\nalmost all smart city systems.\
+    \ The IEEE 802.11n proto-\ncol, which is the later version, works in the 2.4 GHz\
+    \ and\n5.1 GHz ranges, uses direct sequence spread spectrum\n(DSSS) and orthogonal\
+    \ frequency division multiplexing\n(OFDM). It employs a carrier sense multiple\
+    \ access with\ncollision avoidance (CDMA/CA) MAC strategy. It allows\nbest effort\
+    \ operation using the distributed coordination\nfunction (DCF) as well as reservation-based\
+    \ operation\nusing the point coordination function (PCF). The latter\nservice\
+    \ is useful for multimedia audio, video, and real-\ntime data traffic, which require\
+    \ QoS guarantees of certain\nparameters such as bandwidth, delay and delay jitter.\
+    \ It\nsupports data rates from 15 to 150 Mbps, and has a\ncommunication range\
+    \ up to 25 m.\nThe cellular 3G and 4G protocols can be used with\napplications\
+    \ such as smart grid, smart water, UAVs and\npipeline monitoring. They use packet\
+    \ switching for data\ncommunication and optional packet or circuit switching\n\
+    for voice communication. They use frequencies in the 800\nMHz to 1900 MHz, 700\
+    \ MHz, and 2500 MHz ranges.\nThey also use code division multiple access (CDMA)\
+    \ and\nFig. 2 An hierarchical representation showing the integration of IoT, fog\
+    \ computing, and cloud computing to support smart city applications\nJawhar et\
+    \ al. Journal of Internet Services and Applications            (2018) 9:26 \n\
+    Page 9 of 16\nTable 2 The various networking protocols that are useful for smart\
+    \ city applications\nProtocol\nMain\ncharacteristics\nPhysical layer specs\nData\
+    \ link layer\nspecs\nData rate\nTransmission range\nSmart city\napplication\n\
+    IEEE 802.15.4\n(Zigbee)\nEnergy saving, very\nshort range\n2.4 GHz Band, DSSS\n\
+    CSMA/CA\n20 Kbps to 250\nKbps\n10 to 20 m\nSmart Buildings,\nSmart Grid, Smart\n\
+    Water\nIEEE 802.15.1\n(Bluetooth)\nCable replacement\n2.4 GHz Band,\nFHSS/FSK\n\
+    Master/Slave, TDD\n1 Mbps\n10 to 100 m\nSmart Buildings,\nSmart Grid, Smart\n\
+    Water\nIEEE 802.11a\nData networking,\nlocal area network\n5 GHz Band, OFDM\n\
+    CSMA/CA,\nDCF/PCF\n6, 9, 12, 18, 24, 36,\n48, 54 Mbps\n120 m outdoors\nAll\nIEEE\
+    \ 802.11b\nData networking,\nlocal area network\n2.4 GHz Band, DSSS\nCSMA/CA,\n\
+    DCF/PCF\n1, 2, 5.5, 11 Mbps\n140 m outdoors\nAll\nIEEE 802.11g\nData networking,\n\
+    local area network\n2.4 GHz Band,\nDSSS, OFDM\nCSMA/CA, DFS/PFS\n6, 9, 12, 18,\
+    \ 24, 36,\n48, 54 Mbps\n140 m outdoors\nAll\nIEEE 802.11n\nData networking,\n\
+    local area network\n2.4 GHz and 5 GHz\nBand, DSSS, OFDM\nCSMA/CA, DFS/PFS\n15,\
+    \ 30, 45, 60, 90,\n120, 135, 150 Mbps\n250 m outdoors\nAll\nIEEE 802.16\n(WiMAX)\n\
+    Metropolitan area\nnetwork\n2 to 66 GHz Band,\nOFDMA\nTDD, FDD\n2 to 75 Mbps\n\
+    Up to 35 miles (56\nKm)\nSmart Grid, Smart\nWater, UAVs,\nPipeline\nMonitoring\n\
+    Cellular 3G\nWide area network\nconnectivity.\nDigital, packet\nswitched for data\n\
+    800 MHz to 1900\nMHz\nCDMA, HSDPA\n144 Kbps (mobile)\nto 42 Mbps\n(stationary)\n\
+    Depends on cell\nradius (1 Km to\nseveral Km’s)\nSmart Grid, Smart\nWater, UAVs,\n\
+    Pipeline\nMonitoring\nCellular 4G/LTE\nSame as 3G\n700 MHz to 2500\nMHz\nLTE and\
+    \ LTE\nAdvanced\n300 Mbps to 1\nGbps\nDepends on cell\nradius (1 Km to\nseveral\
+    \ Km’s)\nSmart Grid, Smart\nWater, UAVs,\nPipeline\nMonitoring\nSatellite\nWide\
+    \ area network\n1.53 GHz to 31 GHz\nFDMA and TDMA\n10 Mbps (upload)\nand 1 Gbps\n\
+    (download)\nSatellie can cover\n100’s of Km’s to\nentire earth\nUAVs, Pipeline\n\
+    Monitoring,\nIntelligent\nTransportation\nhigh-speed downlink packet access (HSDPA)\
+    \ as well as\nlong term evolution (LTE) advanced technology. The data\nrates that\
+    \ are supported are 300 Mbps to 1 Gbps. The\ngeographic area that is covered is\
+    \ the entire city or coun-\ntry without roaming, and it has world-wide coverage\
+    \ if\nroaming is used.\nSatellite communication can also be used with appli-\n\
+    cations such as UAVs, pipeline monitoring, and intel-\nligent transportation.\
+    \ They typically use frequencies\nin the range of 1.53 GHz to 31 GHz. They also\n\
+    employ frequency division multiple access (FDMA) and\ntime division multiple access\
+    \ (TDMA) at the data\nlink layer. The data rate is between 10 Mbps (down-\nload)\
+    \ and 1 Gbps (upload). Geographically, satellite\ncommunication covers the entire\
+    \ earth since handoff\nbetween satellites can be used to achieve such continuous\n\
+    coverage.\n5\nIllustration of selected smart city systems\nIn this section, five\
+    \ selected smart city systems are briefly\npresented in order to illustrate some\
+    \ possible networking\nand communication models that are used.\n5.1\nSmart grid\
+    \ system\nFigure 3 shows the general architecture of a smart grid sys-\ntem, which\
+    \ is one of the essential applications in a smart\ncity. As shown in the figure,\
+    \ smart grid systems are divided\ninto three categories: (1) generation, (2) transportation,\n\
+    and (3) consumer. In turn, the consumer systems are\nseparated into three sub-categories:\
+    \ (1) commercial, (2)\nresidential, and (3) industrial. Each of these sites usu-\n\
+    ally contains sensing and acting devices that are deployed\nto monitor and control\
+    \ the different mechanisms and\nmachines that are located on the premises. These\
+    \ devices\nform nodes in a mobile ad hoc network (MANET) or a\nwireless sensor\
+    \ and actor network (WSAN). The nodes\ncan communicate using multihop networking\
+    \ protocols\nspecifically designed for MANETs and WSANs [41, 42].\nUsually, one\
+    \ (or more) of the nodes plays the role of a gate-\nway and it provides connectivity\
+    \ to the network at that\nsite with the infrastructure LAN or the Internet. Cloud\n\
+    computing platforms can also be used to provide storage,\nanalysis, processing\
+    \ and decision making services to the\nsmart grid network system [43]. In addition,\
+    \ the control\ncenter and various users can collect information and issue\nJawhar\
+    \ et al. Journal of Internet Services and Applications            (2018) 9:26\
+    \ \nPage 10 of 16\nFig. 3 The general architecture for a smart grid system used\
+    \ in a smart city\nrequests and commands to provide real-time control of\nthe\
+    \ corresponding systems.\n5.2\nSmart home energy management\nIn a typical smart\
+    \ city, the electric company will have\ndifferent rates for different time periods.\
+    \ Typically these\nperiods would be three: Peak, Mid-Peak, and OFF-Peak.\nAlso,\
+    \ most homes would be equipped with environment-\nfriendly local energy generation\
+    \ sources such as wind-\nmills, solar panels, or photovoltaic cells (PVC). In\
+    \ Fig. 4, a\ngeneral architecture of a smart home energy management\nsystem is\
+    \ shown. In this model, when a specific service is\nrequested from a particular\
+    \ appliance (e.g. wash the laun-\ndry, run the dishwasher, use a robot to clean\
+    \ the pool, etc.),\nthe energy management unit (EMU) is used to decide\nwhich\
+    \ energy source is used to supply the requested power\nand the time to turn ON\
+    \ the corresponding electric appli-\nance. The user enters the requested task\
+    \ (or service) to be\ncarried out by a particular appliance along with a dead-\n\
+    line (or an amount of acceptable delay) by which the task\nneeds to be accomplished.\
+    \ This allows the EMU to calcu-\nlate the amount of maximum delay that can be\
+    \ tolerated\nfor the performance of the task. Then it performs an algo-\nrithm,\
+    \ which determines the source of the energy and the\ntime for executing the desired\
+    \ task by the indicated appli-\nance. The algorithm consists of the following\
+    \ logic. If the\namount of energy that is needed by the task is available\nin\
+    \ the locally generated/stored energy, then it runs the\nappliance immediately\
+    \ using the local energy storage as a\nsource. Otherwise, it tries to shift the\
+    \ time of running the\nappliance to the OFF-Peak period, with the electric com-\n\
+    pany as a source, using the maximum tolerable delay that\nis calculated based\
+    \ on the user input. If the delay does not\nallow such shifting, it tries to shift\
+    \ the task executing to\nthe Mid-peak period. Otherwise, if the shifting is not\
+    \ pos-\nsible, it executes the task during the current time period.\nThis type\
+    \ of energy management system provides consid-\nerable environmental benefits.\
+    \ It also lowers the cost of\nenergy for both the user as well as the electric\
+    \ company.\n5.3\nSmart water systems\nFigure 5 shows the general architecture\
+    \ of a smart water\nsystem, which is another important smart city application.\n\
+    The system is used to monitor and control the irrigation\nof the soil with various\
+    \ types of crops using an optimized\nprocess. In general, sensing devices are\
+    \ placed in selected\nareas in the farm in order to monitor different parame-\n\
+    ters such as temperature, and moisture of the soil. Actor\ndevices are used to\
+    \ control different activities such as the\ntime and amount of water that is provided\
+    \ by the sys-\ntem. Both sensor and actor devices constitute nodes in\na WSAN.\
+    \ The nodes can have various topologies includ-\ning mesh and star configurations.\
+    \ In either case, one of\nthe nodes acts as a gateway to provide connectivity\
+    \ to the\nsink, which in turn connects the WSANs to the backbone\nLAN or the Internet.\
+    \ Cloud computing platforms can\nalso be used to provide storage, analysis, processing,\
+    \ and\ndecision making services. The figure also shows that dif-\nferent databases\
+    \ can be used to provide plant and weather\nrelated information to the system.\
+    \ Such information is\nJawhar et al. Journal of Internet Services and Applications\
+    \            (2018) 9:26 \nPage 11 of 16\nFig. 4 The architecture of a home-based\
+    \ energy management system used in a smart city\ntypically combined with the collected\
+    \ sensing data to\nmake optimized decisions related to the time, location,\nand\
+    \ amount of water that is released by the system. The\nsystem is also capable\
+    \ of issuing alert notifications to the\nusers whenever it is appropriate. In\
+    \ addition, the net-\nwork is connected to the control center, which oversees\n\
+    the operations. It also issues different configuration and\ncommand requests to\
+    \ supervise and manage the network.\n5.4\nUAV and Commercial Aircraft Safety Communication\n\
+    Due to the several challenges of the new aeronautical\napplications including\
+    \ emerging UAV applications for\nFig. 5 The general architecture for a smart water\
+    \ system used in a smart city\nJawhar et al. Journal of Internet Services and\
+    \ Applications            (2018) 9:26 \nPage 12 of 16\nsmart cities, there are\
+    \ high needs to define new com-\nmunication solutions, which can effectively support\
+    \ these\nnew applications. The National Aeronautics and Space\nAdministration\
+    \ (NASA) in the United States and the\nEuropean Organization for the Safety of\
+    \ Air Navigation\n(EUROCONTROL) are leading the development of new\ncommunication\
+    \ systems. A standard for UAS Control\nand Non-Payload Communication (CNPC) links\
+    \ is being\ndeveloped in the United States to enable safe integration\nof UAS\
+    \ operations within the National Airspace System\n(NAS) [44]. NAS is the main\
+    \ aviation system in the United\nStates that involves, the US airspace, airports,\
+    \ and moni-\ntoring and control equipment and services that implement\nthe enforced\
+    \ rules, regulations, policies, and procedures.\nThis system covers the airspace\
+    \ of the United States and\nlarge portions of the oceans. Some of its components\
+    \ are\nalso shared with the military air force. For safe integration\nof UAS operations\
+    \ in NAS, sense and avoid techniques,\naircraft-human interface, air traffic management\
+    \ policies\nand procedures, certification requirements, and CNPC\nare being studied\
+    \ [45]. This integration allows UAVs to\nfunction within the airspace used for\
+    \ manned aircrafts\nused for carrying passengers and cargo.\nCNPC links are defined\
+    \ to provide communication\nconnections to be used for aircraft safety applications\n\
+    and to enable remote pilots and other ground stations\nto control and monitor\
+    \ the UAVs. Figure 6 show an\nillustration of required communication links between\n\
+    the UAVs, commercial airlines, and the control center.\nThis involves several\
+    \ issues including communication\narchitecture types as well as rate, bandwidth,\
+    \ frequency\nspectrum allocation, security, and reliability require-\nments. Two\
+    \ communication architecture types were\nproposed including line-of-sight (LOS)\
+    \ communication,\nwhich provides communication with unmanned air-\ncrafts through\
+    \ ground-based communication stations and\nbeyond-line-of-sight (BLOS) communication,\
+    \ which pro-\nvides communication with unmanned aircrafts through\nsatellites.\
+    \ The communication rates requirements for\nboth uplink (ground-to-air) and downlink\
+    \ (air-to-ground)\nwere defined based on the size of unmanned aircrafts\nas shown\
+    \ in Table 3. The uplink rates are much lower\nthan downlink rates as the uplink\
+    \ communication will\nbe mainly used to send small messages to control the\nunmanned\
+    \ aircrafts while the downlink communication\nis used for different types of communication\
+    \ includ-\ning video transmission. The uplink rate was determined\nto support\
+    \ transmission of 20 individual control mes-\nsages per second. This rate is required\
+    \ to provide a\ncomplete real-time ground control for a UAV using a\njoystick\
+    \ [44].\nThe supported density requirements of unmanned air-\ncrafts that use\
+    \ CNPC to the year 2030 are also specified\n[45] and shown in Table 4. The third\
+    \ column shows the\nnumbers of unmanned aircrafts (of different sizes) that\n\
+    can be supported if a terrestrial-based communication\nlink of radius 100 Km is\
+    \ used.\nBased on the defined UAV density, the required band-\nwidth for CNPC\
+    \ links is 90 MHz divided into 34 MHz\nfor the terrestrial-based LOS CNPC links\
+    \ and 56 MHz\nfor the BLOS CNPC links [44]. Two frequency spectrum\nranges were\
+    \ assigned by the 2012 International Telecom-\nmunications Union World Radio Communications\
+    \ Con-\nference (WRC-12) to be used by CNPC to provide reliable\nand real-time\
+    \ data transmissions. These frequency spec-\ntrums are from 960 MHz to 1164 MHz\
+    \ (L-Band) and\nfrom 5030 MHz to 5091 MHz. However, a portion of the\nfirst range\
+    \ will be shared with other legacy applications\nFig. 6 UAV and commercial aircraft\
+    \ safety communication\nJawhar et al. Journal of Internet Services and Applications\
+    \            (2018) 9:26 \nPage 13 of 16\nTable 3 CNPC data communication rates\n\
+    Aircraft size\nUplink rate\nDownlink usages\nDownlink rate\nSmall\n(<=55 kg)\n\
+    2424 bps\nBasic services only\n4008 bps\nMedium\nand Large\n(>55 kg)\n6925 bps\n\
+    Basic services only\n13,573 bps\nMedium\nand Large\n(>55 kg)\n6925 bps\nBasic\
+    \ and weather\nradar\n34,133 bps\nMedium\nand Large\n(>55 kg)\n6925 bps\nBasic,\
+    \ weather radar\nand video\n234,134 bps\nfor surveillance and navigation purposes.\
+    \ Another issue\nof CNPC links is the high security requirements. Good\nsecurity\
+    \ mechanisms should be used on CNPC links to\navoid any possibility of spoofed\
+    \ control or navigation sig-\nnals that may allow unauthorized persons to control\
+    \ the\nUAVs [46]. For meeting future communication capac-\nity requirements in\
+    \ aeronautical communications, a new\nair-ground communication system, called\
+    \ L-Band Dig-\nital Aeronautical Communication System (L-DACS), is\nbeing developed\
+    \ in Europe with funding from EURO-\nCONTROL. L-DACS is the system in the Future\
+    \ Com-\nmunication System (FCS) for L-band, 960-1164 MHz.\nL-DACS comprises of\
+    \ L-DACS1 [47] and L-DACS2\n[48]. L-DACS1 is multi-carrier broadband Orthogo-\n\
+    nal Frequency-Division Multiplexing (OFDM)-based sys-\ntem while L-DACS2 is narrow\
+    \ band single-carrier with\nGaussian Minimum Shift Keying (GMSK) modulation\n\
+    system. More information about L-DACS1 and L-DACS2\nincluding their benefits with\
+    \ the current aeronautical sys-\ntem and their physical and medium access layers\
+    \ can be\nfound in [49].\n5.5\nPipeline monitoring and control\nIn this section,\
+    \ we provide further discussion and illustra-\ntion of the smart city application\
+    \ of monitoring pipelines\nsystems as an example of infrastructure monitoring.\n\
+    Figure 7 shows a CPS system for pipeline monitoring and\ncontrol. In our previous\
+    \ work in [50, 51], we present a\nframework for monitoring oil, gas, and water\
+    \ pipelines\nusing linear sensor networks (LSNs). We defined an LSN\nto be a WSN\
+    \ where the sensors are aligned in linear form\ndue to the linearity of the structure\
+    \ or geographic area\nTable 4 CNPC supported aircraft density\nAircraft size\n\
+    Density of UAVs\nNo. of UAVs within\nin Space (km3)\nRadius of 100 km\nSmall\n\
+    0.000802212\n1680\nMedium\n0.000194327\n407\nLarge\n0.00004375\n91\nthat is being\
+    \ monitored, such as pipelines, borders, rivers,\nsea coasts, railroads, and more.\
+    \ In the system illustrated\nin the figure, the sensor nodes (SNs) are placed\
+    \ on the\npipeline in order to monitor various important parame-\nters such as\
+    \ temperature, pressure, fluid velocity, chemical\nsubstances, leaks, etc. The\
+    \ collected data could either be\nrouted to the sink, which is placed at the end\
+    \ of the\npipeline or pipeline segment using a multihop strategy\n[51], or it\
+    \ could be collected using a mobile node such as\na low flying UAV [52]. In the\
+    \ latter case, the SN trans-\nmits its stored data to the UAV when it comes within\
+    \ its\nrange. The UAV, which flies along the pipeline, delivers\nthe collected\
+    \ data to the sink at the other end. Once the\ndata arrives at the sink using\
+    \ either one of these strategies,\nit transmits the data to the infrastructure\
+    \ network using\nany one of the communication networks that are available\nin\
+    \ the area such as IEEE 802.16 (WiMAX), cellular, and\nsatellite.\nThe storage\
+    \ and processing servers that are used by the\nCPS system can be a part of the\
+    \ cloud computing environ-\nment. The results are then sent in appropriate format\
+    \ to\nthe network control center (NCC), where they can be pre-\nsented to the\
+    \ NCC personnel using applications that allow\nvisualization of the pipeline structure.\
+    \ The graphic repre-\nsentation that is displayed can show the pipeline’s current\n\
+    status as well as any anomalies that need more attention\nand further inspection.\
+    \ The NCC officers can then issue\ncertain commands back to the SNs in a particular\
+    \ hot spot.\nAlternatively, such commands might be automatically\nissued by the\
+    \ CPS system in accordance with algorithms\nand configurations that are programmed\
+    \ by the sys-\ntem administrators. The command messages intended to\nreach the\
+    \ target SNs are communicated via the network,\nthe sink, and other SNs (if the\
+    \ multihop routing strategy is\nused) or the UAV (if UAV-based communication is\
+    \ used).\nAn example of such commands could be: (1) increase the\nquantity and/or\
+    \ quality of the collected data, (2) turn ON\nmore SNs in the hot spot, and (3)\
+    \ turn ON additional\nsensing or monitoring devices (that might be in sleep-\n\
+    mode to save energy) such as higher resolution cameras,\nas well as audio or video\
+    \ monitoring equipment. Also,\nthe NCC might dispatch specialized UAVs and/or\
+    \ quick\nresponse teams for further inspection, or to take remedial\nemergency\
+    \ actions (put out fire, etc.) In other cases, the\ncollected data can be used\
+    \ to generate appropriate main-\ntenance schedules, which could result in the\
+    \ service of\nvarious parts of the pipeline according to a pre-set priority\n\
+    strategy.\n6\nOpen issues\nIn this section, we identify some of the most important\n\
+    open issues that need further research and investigation in\nthe area of networking\
+    \ and communication in smart city\nsystems.\nJawhar et al. Journal of Internet\
+    \ Services and Applications            (2018) 9:26 \nPage 14 of 16\nFig. 7 CPS\
+    \ for pipeline monitoring and control\n6.1\nCommunication middleware for smart\
+    \ city\napplications\nAs a smart city network can consist of different devices,\n\
+    communication technologies, and protocols, managing\nsuch a network can be very\
+    \ complex. One of the pos-\nsible approaches to relax this complexity is to use\n\
+    a specialized communication middleware capable of\nabstracting these communication\
+    \ details. In addition, this\nmiddleware can offer value-added features that are\
+    \ com-\nmonly needed for different smart city applications and\nare not fully\
+    \ supported by existing network technolo-\ngies. These features can include provisions\
+    \ and services\nfor security, reliability, scalability, and quality of service\n\
+    provisioning.\n6.2\nSoftware defined network support for smart city\napplications\n\
+    Software defined networking (SDN) is an approach to\nenable flexible and efficient\
+    \ network configuration to\nenhance a network. SDN can provide many advantages\n\
+    for configuring city networks to support different appli-\ncations. While there\
+    \ are some efforts in investigating this\napproach for supporting smart city applications\
+    \ [37], there\nis room for developing more advanced management and\nnetworking\
+    \ mechanisms in SDN for efficient, reliable, and\nsecure network configurations\
+    \ in smart cities.\n6.3\nNew networks and network protocols\nMost of the current\
+    \ communication infrastructure uses\nthe Internet infrastructure or the cellular\
+    \ networks.\nAlthough these have proven to be efficient and usable,\nthey often\
+    \ lack some necessary requirements for smart\ncity applications. Issues in real-time\
+    \ responses, mobility\nsupport and the ability to handle huge volume of network\n\
+    traffic. When a smart city application is deployed city-\nwide and collects find\
+    \ grain data, it will generate massive\ntraffic, which could cause serious performance\
+    \ problems\nfor the underlying network infrastructure. Some work is\nunderway\
+    \ to add more capabilities such as the progres-\nsion from 3G, to 4G and now 5G\
+    \ cellular networks [53],\nadvances in MESH networks and investigation of more\n\
+    efficient protocols on the existing networks. However,\nthere is a lot to be done\
+    \ in this regard.\n6.4\nModeling and simulation\nThere are limited efforts in\
+    \ studying modeling and sim-\nulation of the communication performance of different\n\
+    smart city applications on different network architectures.\nIt is important to\
+    \ develop different models and simula-\ntion tools to be able to design, evaluate,\
+    \ and plan for\nsuch networks. In addition, more detailed traffic pat-\nterns\
+    \ of different smart applications need to be compre-\nhensively studied. Modeling\
+    \ and simulation of both the\nJawhar et al. Journal of Internet Services and Applications\
+    \            (2018) 9:26 \nPage 15 of 16\ntraffic of smart city applications and\
+    \ the used networks’\ncapabilities may lead to better end results for the smart\n\
+    city applications.\n7\nConclusions and future research\nSignificant advancements\
+    \ in various technologies such as\nCPS, IoT, WSNs, cloud computing, and UAVs have\
+    \ taken\nplace lately. The smart city paradigm combines these\nimportant new technologies\
+    \ in order to enhance the qual-\nity of life of city inhabitants, provide efficient\
+    \ utilization\nof resources, and reduce operational costs. In order for\nthis\
+    \ model to reach its goals, it is essential to provide\nefficient networking and\
+    \ communication between the dif-\nferent components that are involved to support\
+    \ various\nsmart city applications. In this paper, we investigated the\nnetworking\
+    \ requirements for the different applications\nand identified the appropriate\
+    \ protocols that can be used\nat the various system levels. In addition, we illustrated\n\
+    networking architectures for five different smart city sys-\ntems. This area of\
+    \ research is still in its initial stages.\nFuture studies can focus on important\
+    \ requirements\nincluding routing, energy efficiency, security, reliability,\n\
+    mobility, and heterogeneous network support. Conse-\nquently, more investigations\
+    \ and studies need to be done,\nwhich should lead to the design and development\
+    \ of\nefficient networking and communication protocols and\narchitectures to meet\
+    \ the growing needs of the various\nimportant and rapidly expanding smart city\
+    \ applications\nand services.\nAbbreviations\nCPS: Cyber-physical systems; UAV:\
+    \ Unmanned aerial vehicle; WSN: Wireless\nsensor networks\nAcknowledgments\nNot\
+    \ applicable.\nFunding\nThis research was not supported by any external funding\
+    \ source.\nAuthors’ contributions\nIJ wrote the main sections of the paper. NM\
+    \ contributed to the section on\nsmart city applications, and illustration of\
+    \ smart city systems. JA contributed to\nthe introduction and related work content.\
+    \ All authors read, and approved the\nfinal manuscript, and contributed to various\
+    \ sections in the paper according to\ntheir background.\nEthics approval and consent\
+    \ to participate\nNot applicable.\nCompeting interests\nThe authors declare that\
+    \ they have no competing interests.\nPublisher’s Note\nSpringer Nature remains\
+    \ neutral with regard to jurisdictional claims in\npublished maps and institutional\
+    \ affiliations.\nAuthor details\n1Al Maaref University, Old Airport Avenue, P.O.\
+    \ Box 25-5078, Beirut, Lebanon.\n2Middleware Technologies Laboratory, Pittsburgh,\
+    \ Pennsylvania, USA.\n3Robert Morris University, Moon Township, Pennsylvania,\
+    \ USA.\nReceived: 24 April 2018 Accepted: 11 October 2018\nReferences\n1.\nWatteyne\
+    \ T, Pister KSJ (2011) Smarter cities through standards-based\nwireless sensor\
+    \ networks. IBM J Res Dev 55(1.2):1–7\n2.\nZanella A, Bui N, Castellani A, Vangelista\
+    \ L, Zorzi M (2014) Internet of\nthings for smart cities. IEEE Internet Things\
+    \ J 1(1):22–32\n3.\nGurgen L, Gunalp O, Benazzouz Y, Gallissot M (2013) Self-aware\n\
+    cyber-physical systems and applications in smart buildings and cities.\nIn: Proceedings\
+    \ of the Conference on Design, Automation and Test in\nEurope, pages 1149–1154.\
+    \ EDA Consortium\n4.\nErmacora G, Rosa S, Bona B (2015) Sliding autonomy in cloud\
+    \ robotics\nservices for smart city applications. In: Proceedings of the Tenth\
+    \ Annual\nACM/IEEE International Conference on Human-Robot Interaction\nExtended\
+    \ Abstracts. ACM. pp 155–156\n5.\nMohammed F, Idries A, Mohamed N, Al-Jaroodi\
+    \ J, Jawhar I (2014) Uavs for\nsmart cities: Opportunities and challenges. In:\
+    \ Unmanned Aircraft\nSystems (ICUAS), 2014 International Conference on. IEEE.\
+    \ pp 267–273\n6.\nGiordano A, Spezzano G, Vinci A (2016) Smart agents and fog\
+    \ computing\nfor smart city applications. In: International Conference on Smart\
+    \ Cities.\nSpringer. pp 137–146\n7.\nClohessy T, Acton T, Morgan L (2014) Smart\
+    \ city as a service (scaas): a\nfuture roadmap for e-government smart city cloud\
+    \ computing initiatives.\nIn: Proceedings of the 2014 IEEE/ACM 7th International\
+    \ Conference on\nUtility and Cloud Computing. IEEE Computer Society. pp 836–841\n\
+    8.\nAl-Nuaimi E, Al-Neyadi H, Mohamed N, Al-Jaroodi J (2015) Applications of\n\
+    big data to smart cities. J Internet Serv Appl 6(1):25\n9.\nMohamed N, Lazarova-Molnar\
+    \ S, Al-Jaroodi J (2017) Cloud of things:\nOptimizing smart city services. In:\
+    \ Proceedings of the International\nConference on Modeling, Simulation and Applied\
+    \ Optimization. IEEE.\npp 1–5\n10. Erol-Kantarci M, Mouftah HT (2012) Suresense:\
+    \ sustainable wireless\nrechargeable sensor networks for the smart grid. IEEE\
+    \ Wirel Commun 19(3)\n11. Gutiérrez J, Villa-Medina JF, Nieto-Garibay A, Porta-Gándara\
+    \ MÁ (2014)\nAutomated irrigation system using a wireless sensor network and gprs\n\
+    module. IEEE Trans Instrum Meas 63(1):166–76\n12. Centenaro M, Vangelista L, Zanella\
+    \ A, Zorzi M (2016) Long-range\ncommunications in unlicensed bands: The rising\
+    \ stars in the iot and smart\ncity scenarios. IEEE Wirel Commun 23(5):60–7\n13.\
+    \ Leccese F, Cagnetti M, Trinca D (2014) A smart city application: A fully\ncontrolled\
+    \ street lighting isle based on raspberry-pi card, a zigbee sensor\nnetwork and\
+    \ wimax. Sensors 14(12):24408–24\n14. Sanchez L, Muñoz L, Galache JA, Sotres P,\
+    \ Santana JR, Gutierrez V,\nRamdhany R, Gluhak A, Krco S, Theodoridis E, et al.\
+    \ (2014) Smartsantander:\nIot experimentation over a smart city testbed. Comput\
+    \ Netw 61:217–38\n15. Wan J, Di L, Zou C, Zhou K (2012) M2m communications for\
+    \ smart city: An\nevent-based architecture. In: Computer and Information Technology\n\
+    (CIT), 2012 IEEE 12th International Conference on. IEEE. pp 895–900\n16. Gaur\
+    \ A, Scotney B, Parr G, McClean S (2015) Smart city architecture and its\napplications\
+    \ based on iot. Procedia Comput Sci 52:1089–94\n17. Jin J, Gubbi J, Luo T, Palaniswami\
+    \ M (2012) Network architecture and qos\nissues in the internet of things for\
+    \ a smart city. In: Communications and\nInformation Technologies (ISCIT), 2012\
+    \ International Symposium on. IEEE.\npp 956–961\n18. De Poorter E, Moerman I,\
+    \ Demeester P (2011) Enabling direct connectivity\nbetween heterogeneous objects\
+    \ in the internet of things through a\nnetwork-service-oriented architecture.\
+    \ EURASIP J Wirel Commun Netw\n2011(1):61\n19. Karnouskos S (2011) Cyber-physical\
+    \ systems in the smartgrid. In: Industrial\nInformatics (INDIN), 2011 9th IEEE\
+    \ International Conference on. IEEE.\npp 20–23\n20. Miclea L, Sanislav T (2011)\
+    \ About dependability in cyber-physical systems.\nIn: Design & Test Symposium\
+    \ (EWDTS), 2011 9th East-West. IEEE. pp 17–21\n21. Sridhar S, Hahn A, Govindarasu\
+    \ M (2012) Cyber–physical system security\nfor the electric power grid. Proc IEEE\
+    \ 100(1):210–24\n22. Berger C, Rumpe B (2014) Autonomous driving-5 years after\
+    \ the urban\nchallenge: The anticipatory vehicle as a cyber-physical system. arXiv\n\
+    preprint arXiv:1409.0413\nJawhar et al. Journal of Internet Services and Applications\
+    \            (2018) 9:26 \nPage 16 of 16\n23. Cunningham R, Garg A, Cahill V,\
+    \ et al. (2008) A collaborative\nreinforcement learning approach to urban traffic\
+    \ control optimization.\nIn: Web Intelligence and Intelligent Agent Technology,\
+    \ 2008. WI-IAT’08.\nIEEE/WIC/ACM International Conference on. IEEE Vol. 2. pp\
+    \ 560–566\n24. Kartakis S, Abraham E, McCann JA (2015) Waterbox: A testbed for\n\
+    monitoring and controlling smart water networks. In: Proceedings of the\n1st ACM\
+    \ International Workshop on Cyber-Physical Systems for Smart\nWater Networks.\
+    \ ACM. p 8\n25. Gonda L, Cugnasca CE (2006) A proposal of greenhouse control using\n\
+    wireless sensor networks. In: Proceedings of 4thWorld Congress\nConference on\
+    \ Computers in Agriculture and Natural Resources, Orlando,\nFlorida, USA. p. 229\n\
+    26. Mohamed N, Al-Jaroodi J, Jawhar I, Lazarova-Molnar S (2014) A\nservice-oriented\
+    \ middleware for building collaborative uavs. J Intell Robot\nSyst 74(1-2):309–21\n\
+    27. Lee J, Bagheri B, Kao H-A (2015) A cyber-physical systems architecture for\n\
+    industry 4.0-based manufacturing systems. Manuf Lett 3:18–23\n28. López P, Fernández\
+    \ D, Jara AJ, Skarmeta AF (2013) Survey of internet of\nthings technologies for\
+    \ clinical environments. In: Advanced Information\nNetworking and Applications\
+    \ Workshops (WAINA), 2013 27th\nInternational Conference on. IEEE. pp 1349–1354\n\
+    29. Macedo D, Guedes LA, Silva I (2014) A dependability evaluation for\ninternet\
+    \ of things incorporating redundancy aspects. In: Networking,\nSensing and Control\
+    \ (ICNSC), 2014 IEEE 11th International Conference on.\nIEEE. pp 417–422\n30.\
+    \ Silva I, Leandro R, Macedo D, Guedes LA (2013) A dependability evaluation\n\
+    tool for the internet of things. Comput Electr Eng 39(7):2005–18\n31. (2014) Oma\
+    \ lightweight m2m. Available: http://technical.\nopenmobilealliance.org/technical/technical-information/release-\n\
+    program/current-releases/oma-lightweightm2m-v1-0-2\n32. Perelman V, Ersue M, Schönwälder\
+    \ J, Watsen K (2012) Network\nConfiguration Protocol Light (NETCONF Light). Network\n\
+    33. (2013) Commercial building automation systems. Navigant Consulting\nRes, Boulder\n\
+    34. Suciu G, Vulpe A, Halunga S, Fratu O, Todoran G, Suciu V (2013) Smart\ncities\
+    \ built on resilient cloud computing and secure internet of things.\nIn: Control\
+    \ Systems and Computer Science (CSCS), 2013 19th\nInternational Conference on.\
+    \ IEEE. pp 513–518\n35. Bolodurina I, Parfenov D (2017) Development and research\
+    \ of models of\norganization distributed cloud computing based on the software-defined\n\
+    infrastructure. Procedia Comput Sci 103:569–76\n36. Bonomi F, Milito R, Zhu J,\
+    \ Addepalli S (2012) Fog computing and its role in\nthe internet of things. In:\
+    \ Proceedings of the first edition of the MCC\nworkshop on Mobile cloud computing.\
+    \ ACM. pp 13–16\n37. Liu J, Li Y, Chen M, Dong W, Jin D (2015) Software-defined\
+    \ internet of\nthings for smart urban sensing. IEEE Commun Mag 53(9):55–63\n38.\
+    \ Olenewa JL (2014) Guide to Wireless Communications. Cengage Learn\n39. Stallings\
+    \ W (2005) Wireless Communications and Networks. Prentice Hall,\nPearson Education,\
+    \ Inc., Upper Saddle River\n40. IEEE 802.11, IEEE 802.16. http://en.wikipedia.org/wiki,\
+    \ viewed December\n10, 2014\n41. Goyal D, Tripathy MR (2012) Routing protocols\
+    \ in wireless sensor networks:\nA survey. In: Advanced Computing & Communication\
+    \ Technologies\n(ACCT), 2012 Second International Conference on. IEEE. pp 474–480\n\
+    42. Jawhar I, Mohamed N, Agrawal DP (2011) Linear wireless sensor networks:\n\
+    Classification and applications. J Netw Comput Appl 34(5):1671–82\n43. Nunes BAA,\
+    \ Mendonca M, Nguyen X-N, Obraczka K, Turletti T (2014)\nA survey of software-defined\
+    \ networking: Past, present, and future of\nprogrammable networks. IEEE Commun\
+    \ Surv Tutor 16(3):1617–34\n44. Kerczewski RJ, Griner JH (2012) Control and non-payload\n\
+    communications links for integrated unmanned aircraft operations.\nIn: Report,\
+    \ NASA Glenn Research Center, Cleveland, Ohio, USA\n45. (2012) Unmanned aircraft\
+    \ systems (uas) integrated in the national\nairspace system (nas) technology development\
+    \ project plan. In: National\nAeronautics and Space Administration\n46. Zeng Y,\
+    \ Zhang R, Lim TJ (2016) Wireless communications with unmanned\naerial vehicles:\
+    \ opportunities and challenges. IEEE Commun Mag. arXiv\npreprint arXiv:1602.03602\
+    \ 54(5)\n47. Sajatovic M, Haindl B, Ehammer M, Graupl T, Schnell M, Epple U, Brandes\
+    \ S\n(2009) L-dacs1 system definition proposal: Delivrable d2. EUROCONTROL,\n\
+    Tech. Rep. Version 1.0\n48. Fistas N (2009) L-dacs2 system definition proposal:\
+    \ Delivrable d2.\nEUROCONTROL, Tech. Rep. Version 1.0\n49. Neji N, De Lacerda\
+    \ R, Azoulay A, Letertre T, Outtier O (2013) Survey on the\nfuture aeronautical\
+    \ communication system and its development for\ncontinental communications. IEEE\
+    \ Trans Veh Technol 62(1):182–91\n50. Jawhar I, Mohamed N, Agrawal DP (2011) Linear\
+    \ wireless sensor\nnetworks: Classification and applications. Elsevier J Netw\
+    \ Comput Appl\n(JNCA) 34:1671–82\n51. Jawhar I, Mohamed N, Shuaib K (2007) A framework\
+    \ for pipeline\ninfrastructure monitoring using wireless sensor networks. In:\
+    \ The Sixth\nAnnual Wireless Telecommunications Symposium (WTS 2007), IEEE\nCommunication\
+    \ Society/ACM Sigmobile, Pomona, California, U.S.A.\npp 1–7\n52. Jawhar I, Mohamed\
+    \ N, Al-Jaroodi J, Zhang S (2014) A framework for using\nunmanned aerial vehicles\
+    \ for data collection in linear wireless sensor\nnetworks. J Intell Robot Syst\
+    \ 74(1-2):437–453\n53. Andrews JG, Buzzi S, Choi W, Hanly SV, Lozano A, Soong\
+    \ ACK, Zhang JC\n(2014) What will 5g be? IEEE J Sel Areas Commun 32(6):1065–82\n\
+    54. Fallah YP, Huang C, Sengupta R, Krishnan H (2010) Design of cooperative\n\
+    vehicle safety systems based on tight coupling of communication,\ncomputing and\
+    \ physical vehicle dynamics. In: Proceedings of the 1st\nACM/IEEE International\
+    \ Conference on Cyber-Physical Systems. ACM.\npp 159–167\n"
+  inline_citation: '>'
+  journal: Journal of Internet Services and Applications
+  limitations: '>'
+  pdf_link: https://jisajournal.springeropen.com/track/pdf/10.1186/s13174-018-0097-0
+  publication_year: 2018
+  relevance_score: 0.7900000095367432
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Networking architectures and protocols for smart city systems
+  verbatim_quote1: 'Some of these smart services involve structural health monitoring
+    as well as
+
+    real-time monitoring of water networks, bridges, tunnels, train and subway rails,
+    and oil and gas pipelines.'
+  verbatim_quote2: This paper investigates the communication and network issues of
+    smart city systems. It also investigates networking technologies, architectures,
+    and communication requirements for such systems.
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.21203/rs.3.rs-2042812/v1
+  analysis: "\\\n\\\n\tDifferent data types (e.g., soil moisture, canopy temperature,\
+    \ weather) and their collection and use\\n\t\t- Importance of collecting and using\
+    \ various data types for accurate irrigation management\\n\t\t- Examples of data\
+    \ collection methods and sensors used in IoTA systems\\n\\n\\\n\tExisting emerging\
+    \ cyber attacks and cyber crime (CACC) in IoTA\\n\t\t- Overview of common cyber\
+    \ attacks targeting IoTA systems\\n\t\t- Impact of cyber attacks on IoTA systems\
+    \ and farm operations\\n\t\t- Case studies of notable cyber attacks on IoTA systems\\\
+    n\\n\\\n\tDigital forensics challenges in IoTA\\n\t\t- Challenges in acquiring\
+    \ and preserving digital evidence from IoT devices\\n\t\t- Difficulties in analyzing\
+    \ and correlating data from IoTA systems\\n\t\t- Lack of standardized forensic\
+    \ tools and methodologies for IoTA devices\\n\\n\\\n\tHighlighting the role of\
+    \ interoperability and standardization in IoTA systems\\n\t\t- Importance of interoperability\
+    \ for seamless data exchange and device integration\\n\t\t- Benefits of standardization\
+    \ in ensuring device compatibility and data accuracy\\n\t\t- Challenges and ongoing\
+    \ efforts in promoting interoperability and standardization\\\n"
+  authors:
+  - Santoshi Rudrakar
+  - Parag H. Rughani
+  citation_count: 1
+  full_citation: '>'
+  full_text: ">\nIoT based Agriculture (IoTA): Architecture, Cyber\nAttack, Cyber\
+    \ Crime and Digital Forensics\nChallenges\nSantoshi Rudrakar \nNational Forensic\
+    \ Sciences University\nParag Rughani  (  parag.rughani@nfsu.ac.in )\nNational\
+    \ Forensic Sciences University\nResearch Article\nKeywords:\nPosted Date: September\
+    \ 13th, 2022\nDOI: https://doi.org/10.21203/rs.3.rs-2042812/v1\nLicense:   This\
+    \ work is licensed under a Creative Commons Attribution 4.0 International License.\
+    \  \nRead Full License\nIoT based Agriculture (IoTA):\nArchitecture, Cyber Attack,\
+    \ Cyber Crime and Digital Forensics Challenges\nSantoshi Rudrakara,1, Parag Rughanib,1\n\
+    1National Forensic Sciences University, Gandhinagar, India\nReceived: date / Accepted:\
+    \ date\nAbstract The Internet of Things (IoT) is a thriving technol-\nogy in almost\
+    \ all ﬁelds of human life to make their lives easy.\nSmart Agriculture is one\
+    \ of the IoT applications on which\nfarmers are widely switching to improve productivity\
+    \ and re-\nduce labor costs. As IoT involves the Internet, data transmis-\nsion\
+    \ technology creates the possibility of privacy/security\nbreaches concerning\
+    \ users’ data. The cybercrime rate may\nalso increase in IoT-based agriculture\
+    \ (IoTA). Thus there\nmust be ready concerning digital forensics in IoTA. Various\n\
+    review articles are available regarding the emerging cyber\nattack, cybercrime,\
+    \ and forensics challenges in IoT appli-\ncations like smart home, smart city,\
+    \ smart healthcare, smart\ngrid, smart retail, smart supply chain management,\
+    \ and smart\nagriculture, while a few review articles on IoTA security and\nforensic\
+    \ challenges. This review paper is focused on IoTA\nsolutions and their security\
+    \ and forensics challenges. The\nsystematic literature review method has been\
+    \ used for this\nstudy which includes articles published from 2011 - 2021.\nThis\
+    \ article has brought the limelight on IoT architecture\nand its application in\
+    \ agricluture (IoTA) to emphasize on\nits introduction, architecture, challenges\
+    \ and issues related\nemerging cybercrimes and digital forensics. At the end,\
+    \ this\nreview paper discusses various challenges in securing IoTA\nsystems and\
+    \ presents future directions for research.\n1 Introduction\nInternet of things\
+    \ (IoT) refers to interconnected things. Karl\nSteinbuch, a German computer science\
+    \ pioneer, said, \"In a\nfew decades, computers will be interwoven into almost\
+    \ ev-\nery industrial product .\" IoT is frequently used in the do-\nmains like\
+    \ healthcare, food and restaurant industry, travel\nand tourism industry and library\
+    \ services, smart home, smart\nae-mail: santoshi.phdcs21@nfsu.ac.in\nbe-mail:\
+    \ parag.rughani@nfsu.ac.in\ngrid, smart retail and smart agriculture [1] [2].\
+    \ The IoT mar-\nket value projected to reach from 157 billion USD in 2016\nto\
+    \ 771 billion USD by 2026. Cisco predicted that by 2030,\n500 billion objects\
+    \ would be connected and linked up to the\nInternet [3].\nFood Requirement will\
+    \ increase by 70% more to supply\nfor an estimated population of 10.1 billion\
+    \ by 2050, says the\nUN Food & Agriculture Report [4]. The volatility of food\n\
+    prices, climate change and timely harvest forecasts are cru-\ncial to counteract,\
+    \ which has a major impact on the economy\nand is closely linked to issues such\
+    \ as malnutrition, and un-\ndernourishment, [5] [6] [7]. By 2050 the global population\n\
+    of 9 billion people will face the challenge of feeding [8].\nTo deal with these\
+    \ challenges and meet the need of future\nfood requirements. Agriculture 5.0 implies\
+    \ that farms are\nfollowing Precision Agriculture principles and using equip-\n\
+    ment that involves crewless operations and autonomous de-\ncision support systems\
+    \ using the IoTA, robotics and AI [9].\nMany developed and developing counties\
+    \ are widely using\nIoT based Agriculture (IoTA). It is observed that the 26.7%\n\
+    global population and approximately 58% of the Indian pop-\nulation rely on agriculture\
+    \ and farming to meet their liveli-\nhood. The Economic Survey of India 2020-21\
+    \ report stated\nthat in FY20, the total food grain production was recorded at\n\
+    296.65 million tonnes by India [10]. This high dependency\nmakes agriculture a\
+    \ signiﬁcant factor in improving higher-\nyielding and better quality agriculture\
+    \ and farming produc-\ntion. These higher-yielding and better quality requirements\n\
+    are being taken with the help of technology. Many of the\ndeveloped and developing\
+    \ countries are transforming into\nIoTA.\nIoTA is a smart technique where the\
+    \ researchers have\nbeen working on inventing tools and techniques for improv-\n\
+    ing the production and quality in agriculture and farming.\nIn general, technologies\
+    \ like GPS (Global Positioning Sys-\ntem), sensor networks and remote sensing\
+    \ are used in IoTA\n2\n[11][12]. IoTA is helpful for various farm activities like\
+    \ crop\nmonitoring, automated irrigation system, insect/pest moni-\ntoring, warehousing\
+    \ of food, supply chain and smart farming\nsuch as livestock management, livestock\
+    \ disease monitoring,\ndairy management [13]. Many IT organizations like Google,\n\
+    Microsoft, Watson, IBM, Intel, Jasper, CISCO, Dell, HPE,\nHello Tractors, Farm\
+    \ 2050 and Qualcomm are continuously\ndeveloping IoTA solutions that would have\
+    \ a huge economic\nimpact [14]. The authors also estimate 2.7−6.2 trillion each\n\
+    year, which will bring evolution in agriculture [15]. At present,\nmore than 26\
+    \ billion smart devices are in circulation, while\na forecast says that this number\
+    \ will triple within the coming\n5-6 years [16].\nThis paper presents a review\
+    \ of different papers on IoT\ndevices supporting agricultural use, focusing on\
+    \ the applica-\ntions, the emerging cyber attack and cyber crime (CACC)\nand Digital\
+    \ Forensics (DF) challenges. With many farms\n(plant and livestock, small and\
+    \ large) using automation and\nremote, networked sensors to monitor and manage\
+    \ the op-\nerations, from watering and feeding, to growth and health\nmonitoring,\
+    \ this is a sector that has not traditionally been as-\nsociated with high risks\
+    \ of computer and network security\nproblems impacting their operation. And when\
+    \ security is,\nat best, an afterthought, the enterprise can be at risk. Since\n\
+    the number of IoTA solutions will rise, the number of crimes\non smart agriculture\
+    \ may also increase soon. Sensitive data\nprocessed through IoTA could be a luring\
+    \ means for hacking\ntargets by cyber criminals targeting the agricultural sector\n\
+    for ﬁnancial gain, cyber warfare, activist/political purposes,\nor to obtain intellectual\
+    \ property and technological advance-\nments. This study aims to review the work\
+    \ done in the ﬁelds\nof IoTA based CACC and DF challenges as listed below.\n–\
+    \ Introduction to IoTA\n– IoTA architecture\n– IoTA applications and IoTA solutions\n\
+    – Existing vulnerabilities in IoTA\n– Existing and novel cyber crimes on IoTA\n\
+    – DF challenges in IoTA.\nThe review article is organized in following way: Sec-\n\
+    tion 2 includes the review selection methodology. Section 3\ncontains a literature\
+    \ review has been taken through the IoTA\narchitecture. IoTA application and available\
+    \ IoTA solutions\nto existing vulnerabilities in IoTA. Existing and novel cyber\n\
+    crimes were pertaining to IoTA and DF challenges in IoTA.\nOur views on DF challenges\
+    \ are discussed in Section 4. This\nreview paper has discussed directions for\
+    \ future research and\nchallenges in IoTA tools and techniques. This article is\
+    \ con-\ncluded in Section 5.\n2 Review Selection Method\nIn this article, we have\
+    \ followed the article selection method-\nology using the method Systematic Literature\
+    \ Review (SLR)\nshows a representation in Fig 1. The ﬁrst step was to choose\n\
+    reputed journals for selecting articles from there. The second\nphase of SLR was\
+    \ the article published between 2011-2022.\nThe third step was to include articles\
+    \ related to IoT/IOTA\nonly. The fourth phase was to check articles related to\
+    \ IoTA\nor IoT architecture, security, CACC and DF challenges. All\nthe articles\
+    \ fall in these categories that have been included\nin the systematic review.\
+    \ The search focused on the scientiﬁc\nresearch publishers like Elsevier, IEEE\
+    \ Xplore, Springer, Wi-\nley, MDPI, Inderscience, Taylor, Francis and UGC care-listed\n\
+    journals. We considered the articles which were published\nbetween 2011 and 2021.\
+    \ We have also considered a few\nwhitepapers, statistical survey papers and websites\
+    \ to refer\nIoTA based tools. We have considered various IoTA relevant\nkeyword\
+    \ search to ﬁnd relevant articles. The keywords were\n(\"Internet of Things\"\
+    \ OR \"IoTA\" OR \"AIoT\" OR \"IoT based\nAgriculture Tools OR Appliance\" OR\
+    \ \"Unmanned Ground\nVehicle (UGV)\" OR \"Unmanned Aerial Vehicle (UAV)\")\nAND\
+    \ (\"Internet of things based Agriculture\" OR \"Precision\nFarming\" OR \"Smart\
+    \ Agriculture\" OR \"e – Agriculture\" OR\n\"Smart Farming\" OR \"Smart Livestock\
+    \ Management\" OR\n\"Livestock Disease Monitoring\" OR \"Smart Cattle Manage-\n\
+    ment\" OR \"Food Monitoring\" OR \"Crop Monitoring\" OR\n\"Plant Monitoring\"\
+    \ OR \"Smart Irrigation\" OR \"Automatic\nIrrigation\" OR \"Disease Monitoring-Detection\"\
+    ) AND (\"Dig-\nital Forensic in IoT\" OR \"Challenges OR Issue in IoT\").\nIn\
+    \ this SLR method, we could identiﬁed 111 articles\nfor the study. In these articles\
+    \ 91 were journal papers, 12\nconference papers and 8 book chapters. We have referred\
+    \ 3\nwhite papers and 10 websites additionally. The selected pa-\npers were analyzed,\
+    \ considered and classiﬁed for IoTA and\nfarming applications of the method used\
+    \ in this review for\narticle selection.\n3 IoT Based Agriculture (IoTA)\nIoTA\
+    \ is an automated functioning system in which devices\ncommunicate over the Internet\
+    \ and function according to the\nrequirements of the resources. The IoTA refers\
+    \ to the usage\nof the Internet to connect sensors, Single Board Computer\n(SBC)\
+    \ and servers. The Sensors sense the agriculture envi-\nronment status (plants,\
+    \ crops, animals and their relative pa-\nrameters such as soil moisture, soil\
+    \ nutrient ingredients, pest\nimages, water quality, climate, humidity, temperature,\
+    \ crop\nstatus, animal health and reproductive system). The sensed\ndata is to\
+    \ be sent to the SBC. SBCs such as Node MCU, Ar-\nduino, Raspberry pi and others\
+    \ decide according to set con-\nditioned values and update the agriculture status\
+    \ using the\n3\nFig. 1: Review Article Selection Method\nInternet. IoTA is used\
+    \ for increasing the quality and quan-\ntity of agriculture production so that\
+    \ the agriculture can be\nmonitored or operated from remote places and the action\
+    \ be\ntaken by IoTA as per the requirement of the plants and an-\nimals. It reduces\
+    \ the monitoring and labor costs [17]. IoTA\nallows devices to operate automatically\
+    \ so that the chores in\nagriculture can be monitored and controlled remotely.\
+    \ IoTA\nis being adopted widely to reduce labor costs and improve\nproductivity.\
+    \ IoTA applications can manage land, animals,\ncrops and farms without human intervention.\
+    \ IoTA is also re-\nferred to as smart agriculture[18], precision agriculture\
+    \ [19]\n[20], digital farming [21], smart farming[22] [23], digital\nagriculture\
+    \ [24].\n4 IoTA Architecture\nIn general, there are ﬁve layers in IoTA architecture\
+    \ i.e. ap-\nplication layer, middleware layer, network layer, edge layer,\nphysical\
+    \ layer. The illustrated with the diagram as shown\nin Fig 2 IoTA architecture\
+    \ with its basic components such\nas sensors, SBC, gateway, cloud and the Internet\
+    \ [25] [26]\n[27].\nIn [28] by ITU-T (International Telecommunications Union\n\
+    Telecommunication Standard Sector) had been supposed four\nlayered architecture\
+    \ for holistic IoT. The ﬁrst is device layer\nwhich interacts with hardwares like\
+    \ sensors, actuators, RFID\ntags and GPS in IoT. The second is network layer which\n\
+    performs functions such as networking, communication and\ntransport. The third\
+    \ layer is service and application support\nlayer and the topmost layer IoT application\
+    \ layer, which\nmanages IoT applications.\nIn IoT World Forum 2014, [29] has presented\
+    \ 7 layer\nbased IoT achitecture reference model by the combination\nof three\
+    \ layered and ﬁve layered IoT architectures. The lay-\ners included are physical,\
+    \ connectivity, edge computing, data\naccumulation, data absraction, application\
+    \ and collaboration\nand processes. The physical layer manages things in IoT,\n\
+    connectivity layer is resposible for communication and pro-\ncessing units. The\
+    \ edge computing layer analyze data ele-\nment and transforms it. The data accumulation\
+    \ layer works\nas a storage of data to be recived or sent. The abstraction\nlayer\
+    \ performs aggregation and access of the data. The ap-\nplication layer controls,\
+    \ performs analytics and presents re-\nport of the functionality of IoT regarding\
+    \ present environ-\nment. The collaboration and process layer includes people\n\
+    and business processes.\n[30] proposed a three layerd based IoTA architecture.\n\
+    The authors adopted the concept of fog coputing and cloud\ncomputing in this architecture.\
+    \ In which, the ﬁrst layer named\nas IoT layer includes IoTA devices such as sensors,\
+    \ drones,\nSBC and actuators. The sensor measures the environmental\nvariables\
+    \ such as temperature, humidity, soil moisture and\nactivates the actuator to\
+    \ perform respective function in the\nagriculture. Second is the fog layer where\
+    \ IoTA devices are\nconnected with gateways by LoRaWAN or other network.\nThe\
+    \ third layer is cloud layer which deals with API’s to man-\nage the data received\
+    \ from the agricultral environment.\n[31] proposed four layer based IoTA architecture.\
+    \ In this\nIoTA architecture, the perception layer is consists of phys-\nical\
+    \ devices like sensor, actuators and microcontroller. The\nsensors fetch the data\
+    \ of sensed agriculture environment and\nstored into the local server; Subsequently\
+    \ after error anal-\nysis precised data is uploaded to the cloud. The network\n\
+    layer performs abstraction of raw data recieved from the per-\nception layer and\
+    \ trasnsmit on to the upper layers. The sen-\nsors are connected distinct communication\
+    \ newtwork com-\nmunication technologies such as wireless networks like 4G,\n\
+    Wi-Fi, Bluetooth, ZigBee. The middleware layer provides\ninter-communication between\
+    \ network layer and application\n4\nlayer. It also manages resourses and services\
+    \ and performs\noperation the remote database. The application layer is re-\n\
+    ceives data from middleware layer. It consists of interface\nmethods and communication\
+    \ protocols such as MQTT, AMQL\nand CoAP. It receives encrypted data, decrypts\
+    \ it using soft-\nware internally and stores data on the local machine for fu-\n\
+    ture use.\n[26], presented IoTA architecture where the 3 main layer\nare discussed.\
+    \ Those layer are platform layer, edge layer and\ncommunication layer. The plateform\
+    \ layer perform raw data\ncollection IoTA hardwares sensing by the agricultural\
+    \ envi-\nronment. The edge layer performs decision making based on\ndata merging\
+    \ and processing the sensors data. The commu-\nnication layer comunicates between\
+    \ gateway and cloud.\n[32], discussed three layer based IoTA architecture. The\n\
+    authors considered device layer, network layer and applica-\ntion layer. They\
+    \ did not include middleware layer in their\narticle.\n[33] discussed two categories\
+    \ of architecture based on\nholistic IoT applications. That IoT architectures\
+    \ were three\nlayered and ﬁve layer according to different vendors of IoT.\nAuthor\
+    \ raised the challenge of standarization issue of the\nIoTA architectures.\n[34]\
+    \ discussed a common IoTA architecture. The archi-\ntecture consists of three\
+    \ layers namely IoTA hardwares, com-\nmunication technologies and data processing\
+    \ and storage.\nIoTA hardwares included sensors, actuators, embedded sys-\ntem\
+    \ with processor, communication modules, memory, I/O\ninterfaces and battery power.\
+    \ The authours have discussed\nvarious communication technoloies such as ZigBee,\
+    \ Z-Wave,\n6LoWPAN and NFC, based on various parameters as li-\ncensed, transmission\
+    \ distance, frequncy and data rate.\n[35] discussed drawbacks of tradional cloud\
+    \ based archi-\ntecture and to overcome the drawbacks they proposed edge\nand\
+    \ fog computing architecture for IoTA. The shortcom-\nings of existing system\
+    \ were as high energy consumption\nduring agricultural data transfer from and\
+    \ to the cloud and\nhigh network traﬁc. The proposed architecture reduces the\n\
+    load over cloud layer which minimize the energy consump-\ntion, network traﬁc\
+    \ and latency for IoTA applications and\nservices. The proposed architecture consists\
+    \ of four layer\nsuch as IoT sensor layer, edge layer, fog layer and cloud\nlayer.\
+    \ The IoT sensor layer responsible for all IoTA har-\nwares deployment.The edge\
+    \ layer performs computation of\nsensors/actuators data at the edge of the network.\
+    \ The fog\nlayer is responsible for process and analyze complex data\nreceived\
+    \ from IoTA sensors through edge layer. The cloud\nlayer provides higher scalibility\
+    \ and on demand computing\nresources such as storage, networking and processing.\n\
+    [36] proposed user centrinc IoTA architecture which con-\nsists of three main\
+    \ layers perception layer, communication\nlayer and control layer. The perception\
+    \ layer is responsi-\nble for data aquisition via sensors. The communication layer\n\
+    \ \nPhysical Layer\nSensor                      Actuator                     \
+    \ Microcontroller                    RFID \nEdge Layer\nWiFi\nZigBee\nWireless\
+    \ \nHART\nLPWAN\nNB-IoT\nLoRaWAN\n6LowPAN\nNFC\nFog Layer\nIPv4\nIPv6    \nARP\
+    \  \nApplication Layer\nMQTT\nHTTP\nREST\nCoAP\nAMQP\nXMPP\nDDS\nCloud Layer\n\
+    REST\nWEBSocket\nFig. 2: IoTA Architecture\ntransmits acquired data to and fro\
+    \ the network. The control\nlayer works as a decision maker and performs analysis\
+    \ of\nthe acquired data.\n[37] proposed IoTA architecture based on the holistic\n\
+    IoTA architecture. This proposed architecture contains six\nlayers namely device\
+    \ layer, network layer, session layer, ap-\nplication layer, cloud layer, business\
+    \ layer. The business layer\nconsists of several business modules where the information\n\
+    can be accessed as per the business nature.\nThe comparision in various IoTA architectures\
+    \ is pre-\nsented in Table 1. This table includes total number of layers\nused\
+    \ in IoTA, layers name and function of each layer.\nAfter the reviewing the previous\
+    \ work there is given lay-\nered architecture based on 5 layers as physical layer,\
+    \ edge\nlayer, fog layer, application layer and cloud layer. Each lay-\ners described\
+    \ in the cronological way are as follows:\nPhysical Layer: The Physical Layer\
+    \ consists of physi-\ncal devices like sensors, actuators, SBC (Single Board Com-\n\
+    puter) and a gateway in the farm [38]. This layer senses and\ncollects agricultural\
+    \ environment based speciﬁc data through\nsensor devices. Based on the speciﬁc\
+    \ type of sensor, the col-\nlected data is about location, temperature, orientation,\
+    \ mo-\ntion, vibration, acceleration, humidity and chemical changes\nin the air.\
+    \ The information is then passed to the Network\nlayer for its secure transmission\
+    \ to the information [39]. The\n5\nTable 1: Comparision of Different IoTA Architectures\n\
+    Article\nLayers\nName of Layers\nFunction of Each Layer\n[30]\n3\nIoT layer\n\
+    The IoTA hardwares measures the environmental variables such as temperature, humidity,\
+    \ soil moisture\nand activates the actuator to perform respective function in\
+    \ the agriculture\nFog layer\nIntra-networked communication for the IoTA system\n\
+    Cloud layer\ndeals with API’s to manage the data received from the agricultral\
+    \ environment\n[36]\n3\nPerception layer\nData aquisition via sensors\nCommunication\n\
+    layer\nTransmits acquired data to and fro the network\nControl layer\nWorks as\
+    \ a decision maker and performs analysis of the acquired data\n[26]\n3\nPlatform\
+    \ layer\nPerform raw data collection of agricultural environment using sensors\n\
+    Edge layer\nDecision making based on data merging and processing the sensors data\n\
+    Communication\nlayer\nComunicates between gateway and cloud\n[32]\n3\nDevice layer\n\
+    Interacts with hardwares like sensors, actuators and RFID tags in IoT\nNetwork\
+    \ layer\nPerforms functions such as networking, communication and data transport\n\
+    Application\nlayer\nTo monitor, analyze and automate irrigation remotely\n[34]\n\
+    3\nIoTA\nhardware\nbased Layer\nInteracts with hardwares like sensors, actuators\
+    \ and RFID tags in IoT sensors, actuators, embedded system\nwith processor, communication\
+    \ modules, memory, I/O interfaces and battery power\nCommunication\ntechnologies\n\
+    based Layer\nPerforms functions such as networking, communication and transport\n\
+    Data processing\nand\nstorage\nbased Layer\nTo monitor, analyze and automate irrigation\
+    \ remotely using IoTA applications\n[28]\n4\nDevice layer\nInteracts with hardwares\
+    \ like sensors, actuators and RFID tags in IoT\nNetwork layer\nPerforms functions\
+    \ such as networking, communication and transport\nService and ap-\nplication\
+    \ support\nlayer\nTo monitor, analyze and automate irrigation remotely\nApplication\n\
+    layer\nManages IoTA applications\n[31]\n4\nPerception layer\nTo fetch the data\
+    \ of sensed agriculture environment from IoTA hardwares and stored into the local\
+    \ server\nNetwork layer\nPerforms abstraction of raw data recieved from the perception\
+    \ layer and trasnsmit on to middleware layer\nMiddleware\nlayer\nServes as a interconnection\
+    \ between different IoT Components and manages resourses and services and\nperforms\
+    \ operation the remote database\nApplication\nlayer\nManages IoTA applications,\
+    \ receives encrypted data and decrypts it using software internally, conse-\n\
+    quently stores data on the local machine\n[35]\n4\nIoT sensor layer\nProvides\
+    \ deployment to IoTA harwares\nEdge layer\nPerforms computation of sensors/actuators\
+    \ data at the edge of the network\nFog layer\nTo process and analyze complex data\
+    \ received from IoTA sensors through edge layer\nCloud layer\nProvides higher\
+    \ scalibility and on demand computing resources such as storage, networking and\
+    \ process-\ning\n[37]\n6\nDevice layer\nProvides deployment to IoTA harwares\n\
+    Network layer\nPerforms functions such as networking, communication and data transport\n\
+    Session layer\nApplication\nlayer\nData updation on IoTA based Applications\n\
+    Cloud layer\nProvides higher scalibility and on demand computing resources such\
+    \ as storage, networking and process-\ning\nBusiness layer\nconsists of several\
+    \ business modules where the information can be accessed as per the business nature\n\
+    [29]\n7\nPhysical layer\nManages things in IoT\nConnectivity\nlayer\nResposible\
+    \ for communication and processing units\nEdge computing\nlayer\nAnalyze data\
+    \ element and transforms it\nData accumula-\ntion layer\nWorks as a storage of\
+    \ data to be recived or sent and Data updation on IoTA based applications\nAbstraction\n\
+    layer\nPerforms aggregation and access of the data\nApplication\nlayer controls\n\
+    performs analytics and presents report of the functionality of IoT regarding present\
+    \ environment\nCollaboration\nand\nprocess\nlayer\nIncludes people and business\
+    \ processes\n6\nPhysical Layer is also known as the Device Layer/ Percep-\ntion\
+    \ Layer [40].\nEdge Layer: The edge layer collects raw data from the\nphysical\
+    \ layer and proceeds to the network layer based. It\nmerges sensor data and processes\
+    \ it [26]. It enables the ac-\ntuators to what the conditioned value has been\
+    \ set in the\nﬁrmware of IoTA. For instance, in a smart irrigation sys-\ntem,\
+    \ the conditioned unit value for the soil moisture sensor\nis 1000; thus, if the\
+    \ sensor provides less than 1000 soil mois-\nture values, the actuation will start.\
+    \ Some of the commu-\nnication technologies namely 802.11*, Sigfox, LoRaWAN,\n\
+    NBIoT, LTE-3GPP, EC-GPRS, WiMAX, Bluetooth, ZigBee,\nZ-Wave, 6LoWPAN and NFC used\
+    \ in IoTA are categorised\nbased on distinct parameters like licenced spectrum,\
+    \ trans-\nmission distance, type of network used, frequency, and data\nrate [41]\
+    \ [38] [32] [42] [34]. The communication technol-\nogy allows the hardware (in\
+    \ the physical layer such as sen-\nsors, actuators and the controller) to communicate\
+    \ by wired\nor wireless medium [43]. According to[44], Low-Frequency\nCommunication\
+    \ (LFC) is popular in smart villages due to a\nlack of infrastructure. However,\
+    \ some prominent high com-\nmunication technology used in IoTA is IEEE 802.15.4,\
+    \ Zensy\nWave, Long Term Evolution (LTE), LongRange (LoRa), Near\nField Communication\
+    \ (NFC), Ultra-wideband (UWB) and\nothers. These communication technologies help\
+    \ to commu-\nnicate hardwares like sensors, actuators in IoTA devices present\n\
+    in the farm for are also commonly used in smart villages\nfor different applications\
+    \ like postharvest management, cat-\ntle health monitoring and others.\nFog Layer:\
+    \ Fog layer is a virtual cloud which recieves\ndata from edge layer and transmits\
+    \ it to the upper layers. It\nprocess and analyze complex data received from IoTA\
+    \ sen-\nsors through edge layer. It includes fog nodes like gateways,\nrouters,\
+    \ entry points, distinct fog servers. The fog nodes sit-\nuates between end devices\
+    \ and cloud data centers. This layer\nworks as a local cloud server.It provides\
+    \ intra-networked\ncommunication for the IoTA system. By this means the IoTA\n\
+    devices communcates through low frequencies and activates\nthe actuators. The\
+    \ raw data collected from the sensors do not\nneed to travel frquently over the\
+    \ Internet. Hence, the concept\nof fog layer overcomes the drawback like high\
+    \ latency be-\ncause of real time control and mitigates security risk about\n\
+    data transmission as the Internet were acted as a backbone.\nThus, the compromisation\
+    \ of the Internet will lead to com-\nplete obstruction IoTA system [30].\nApplication\
+    \ Layer: Application layer consists of vari-\nous communication protocols such\
+    \ as HTTP, MQTT, CoAP,\nAMQP and XMPP [45] [46]. This layer provides a graphical\n\
+    user interface of the agricultural environment information\nprocessed by the Middleware\
+    \ layer in encrypted form and in-\nternally decrypts this information using software,\
+    \ thus stores\ndata for further use. The application layer monitors the agri-\n\
+    cultural environment and suggests actions to be performed\nto get better throughput\
+    \ using IoTA. The applications im-\nplemented by IoTA like smart crop monitoring,\
+    \ smart irriga-\ntion, smart fertilizer/pesticides sprinkling, smart greenhouse\n\
+    and livestock monitoring. The data is uploaded to the Cloud\nfor data warehousing\
+    \ through these applications. Some of\nthe Cloud-based IoTA platforms are AgroCloud,\
+    \ AT&T M2X\ncloud, AWS, Azure IoT hub, Blynk, Cropinfra, Dropbox,\nERMES, FIWARE,\
+    \ freeboard, Google, GroveStream MACQU,\nMobius, NETPIE, Rural IoT, self-developed,\
+    \ SmartFarm-\nNET, ThingSpeak, Ubidots, Nimbits, ThingWorx, Phytech\n[45][46].\n\
+    Cloud Layer: The cloud layer works as a centerlised data\nstorage for the IoTA\
+    \ system. It receives data through appli-\ncation layer from the fog layer and\
+    \ stores it for long time us-\nage. It provides greater scalibility and on demand\
+    \ computing\nresources such as storage, networking and processing [35].\n5 IoTA\
+    \ Applications\nThe IoTA applications have become very popular among\nfarmers\
+    \ due to their efﬁciency and productivity. The IoTA\nsolutions are designed to\
+    \ help farmers with time efﬁciency,\nimproved productivity and better monitoring\
+    \ of daily agri-\ncultural tasks. Some of the sensors are soil moisture sen-\n\
+    sor, temperature sensor, distance sensor, direction sensor,\nlivestock’s temperature\
+    \ sensor, humidity sensor, ultrasonic\nsensor, acoustic sensors, leaf sensors,\
+    \ stem sensors and fruit\nsize sensor. These sensors have speciﬁc functionality\
+    \ in IoT\napplications like identifying environment temperature, crop\nstatus,\
+    \ soil preparation, irrigation, pest monitoring and de-\ntection [14]. The IoTA\
+    \ applications are classiﬁed into two\ncategories crop and livestock based applications.\
+    \ Crop based\nIoTA applications are smart irrigation, frost protection, com-\n\
+    post management, pest monitoring, pest controlling, weed\ndetection, chemical\
+    \ control, seedbed preparation to reseed-\ning, yield analysis and mapping, arable\
+    \ farming, spraying,\nvehicle and machinery control, crop assistant, weather con-\n\
+    dition, soil quality, agricultural drones UAV, smart green-\nhouse. The applications\
+    \ based on livestock management based\nare livestock monitoring, livestock identiﬁcation,\
+    \ milking au-\ntomation technology, early disease detection, offspring man-\n\
+    agement and care, smart poultry farming.\n[47] discussed the Niger research project\
+    \ to highlight\nthe development of IoT-based smart city and smart village\nfor\
+    \ the fulﬁllment of sustainable development goals (SDG-\n2030) 11 and 9 for revolution\
+    \ through smart cities and smart\nvillages in Niger.\n[23] mainly focused on holistic\
+    \ deﬁnitions of IoTA and\nits applications such as crop health, weeding and spraying,\n\
+    planting sowing, seedbed preparation to reseeding, planting\nfrom the air, harvesting\
+    \ from the ﬁeld, drones for a ﬁeld,\nyielding analysis and mapping.\n7\n[48] described\
+    \ the types of agricultural UAV (Harvesting\nUAV, Spraying UAV, Mapping UAV, Sensing\
+    \ UAV), includ-\ning their area of application in terms of seeding, planting\n\
+    seed, monitoring, detecting weed, mapping, infestation and\nspraying pesticides/fertilizers,\
+    \ forecasting and controlling.\n[49] have discussed IoTA applications that have\
+    \ utilized\nmodern technologies like WSN, RFID, Cloud Computing\nand end-user\
+    \ applications. These IoTA devices are found\nto be automotive, cost and time-efﬁcient\
+    \ for the farmers.\nThe authors have also presented IoTA technologies and the\n\
+    classiﬁcation of IoTA applications of monitoring activities.\nThe applications\
+    \ are irrigation and water quality monitor-\ning, soil monitoring, weather monitoring,\
+    \ farm monitoring),\ndisease and pest control, greenhouse production, automa-\n\
+    tion and precision, agricultural machinery and crop manage-\nment with other applications\
+    \ in smart farming as smart cat-\ntle farming, smart poultry, smart hatchery,\
+    \ smart aquaponics\nand smart beehive monitoring.\n[50] did a comprehensive study\
+    \ about crop data man-\nagement in agriculture 5.0. The authors displayed a tabular\n\
+    analysis of various crop data management applications and\ntheir main features\
+    \ based on parameters, namely software,\ncompany, headquarters and relevant features\
+    \ .\n[13] discussed various solutions used in IoTA. Few of\nIoTA solutions are\
+    \ water quality monitoring, farm land mon-\nitoring system, greenhouse envioronment\
+    \ monitoring sys-\ntem, automated hydroponic system, smart mashrrom farm,\nsmart\
+    \ vegitable storage, smart vineyard monitoring system\nand others. They compared\
+    \ IoTA monitoring and control\nsystems based on parameters like a gateway, sensor\
+    \ and ac-\ntuator, communication system, storage, user interface, ex-\nperiment\
+    \ nature (outdoor/indoor), plant name/type, advan-\ntages of the existing system\
+    \ and weaknesses in the current\nsystem.\n[46] did a thorough review of IoTA applications.\
+    \ Based\non the usage, they classiﬁed IoTA applications into two types,\nIndoor\
+    \ (i.e., crop beds, greenhouse, hydroponic) and out-\ndoor (arable land, orchard).\
+    \ Some other works include IoT\nbased smart greenhouse and precision farming applications\n\
+    [51]. In Europe, there is ongoing work on IoTA based re-\nsearch projects [52].\
+    \ The classiﬁcation of holistic IoTA ap-\nplications and various IoTA solutions\
+    \ are tabulated Table 2\nrespectively.\nIn the few states of India like Orisa,\
+    \ Madhya Pradesh\nfaced the problem of crop vandalization. To deal with this\n\
+    situation, IoTA based alarming system has been designed.\nWhenever trespassing\
+    \ of the elephants is observed, the smart\ncamera detects the suspected activity\
+    \ and an alarming sys-\ntem is activated [53].\nIn the next section, we have specialized\
+    \ in CACC and\nDF challenges and issues in the IoTA realms.\n6 Existing Emerging\
+    \ Cyber Attacks and Cyber Crime\n(CACC) in IoTA\nCyber attack (CA) is a attack\
+    \ based on pertaining to digi-\ntal devices and its nework to disturb distrupt\
+    \ or destroy the\nservices of the system. The other aim be perform data theft\n\
+    or malicious intension of the attackers. As the CA gets re-\nported into the police\
+    \ is called as Cyber Crime (CC). CC is\nan unlawfull activity againsts making\
+    \ subotage, disruption\nor harm pertaining to any digital device, network, data,\
+    \ or\nany living being.\nA senior vice president, Corey Reed with Deere, admit-\n\
+    ted that cybercriminals have been looking for farming infor-\nmation.\nDue to\
+    \ the interconnectivity of IoTA devices with the\ninternet, there are the possibility\
+    \ of various CACC. The at-\ntackers could drive Sprout into a ditch or a hedge\
+    \ or prevent\nit from working. In [2] [74], cyber-attack taxonomy included\nvectors,\
+    \ viruses, malware, worms, trojans, ransomware, ad-\nware, zero-day vulnerability,\
+    \ Stuxnet, exploit toolkit, Bot-\nnet, Man In The Middle (MITM), phishing and\
+    \ spooﬁng,\nside channel, DoS, DDoS, RFID based attacks. These cyber-\nattacks\
+    \ have included case studies for IoT smart devices.\n[45] the authors covered\
+    \ the simulation tools for the vulnera-\nbility assessment of holistic IoT devices,\
+    \ i.e., Bevywise IoT\nSimulator, IoTIFY, CupCarbon U-One, Simple IoT Simula-\n\
+    tor, Mimic IoT Simulator, Cooja. The authors suggested se-\ncurity measures and\
+    \ precautions for the user only. They had\nemphasized cyber-attacks and security\
+    \ measures as well.\nIoT has been emphasized greatly since the 90s, when it\n\
+    was proposed as an idea of interconnecting different elec-\ntronic devices through\
+    \ various technologies. However, dur-\ning the past decade, IoT has rapidly developed\
+    \ without con-\nsidering the profound security goals and challenges involved.\n\
+    Consequently, the IoTA will face various emerging CACC.\nAccording to Statista,\
+    \ by 2025 there will be 75 billion IoT-\nconnected devices [75]. Due to the rapid\
+    \ development, it im-\nplies that checking for the security and vulnerability\
+    \ assess-\nment is impossible. The absence of a complete trust zone can\nbe detected\
+    \ in the microcontrollers used for IoTA devices.\n[76], ForeScout IoT Enterprise\
+    \ Risk Report clearly sug-\ngests that by 2018, two-thirds of enterprises will\
+    \ experience\nIoT security breaches. It has captured a broader spectrum of\nthe\
+    \ security vulnerabilities and attacks in IoT systems. Their\nclassiﬁcation is\
+    \ unique compared to the other classiﬁcations\nas it divides the different attacks\
+    \ into four distinct classes;\nPhysical, Network, Software, and Encryption attacks.\
+    \ The\nsame statement is true for an IoTA system, where the IoTA\ndevices can\
+    \ be attacked physically or at its network or to the\napplications. Similarly,\
+    \ the attacks can be tried on encryp-\ntion schemes, as IoTA is implemented using\
+    \ various existing\nnetwork technologies.\n8\nTable 2: IoTA Solutions and Techniques\n\
+    Area of Appli-\ncations\nIoTA Solution De-\nveloped By\nCommunication\nTechnology\n\
+    Working Efﬁciency/ Functionality\nMonitoring\nof\nClimate Condi-\ntions\nMeteoHelix[54]\n\
+    LoRaWAN,\nSigfox\nand NB-IoT\nClimatic observations in all weather conditions\
+    \ as set by the World Meteo-\nrological Organization (WMO)/NWS.\nNetBeat [55]\n\
+    To monitor, analyze and automate irrigation remotely.\nEnthutech [56]\nLoRaWAN\n\
+    To monitor rainfall, wind speed, wind direction, air quality (i.e. CO2, PM2.5\n\
+    and PM10), Rain or Snow event, temperature, humidity, illuminance, pres-\nsure\
+    \ and solar radiation.\nSoil\nSampling\nand Mapping\nAgroceres [57]\nMonitoring\
+    \ of soil properties, such as texture, water-holding capacity, ab-\nsorption rate,\
+    \ minimize erosion, densiﬁcation, salinization, acidiﬁcation and\npollution (by\
+    \ avoiding excessive use of fertilizer)\nSoil NPK Sensing\nSystem [58]\nLoRaWAN\n\
+    To measure the Soil Fertility Nutrient (soil’s Nitrogen, Phosphorus, and\nPotassium).\n\
+    Soil pH value Sens-\ning System [59]\nLoRaWAN\nTo monitor soil PH and soil temperature\
+    \ and analyze the soil PH and soil\ntemperature.\nSoil Moisture Sens-\ning System\
+    \ [60]\nLoRaWAN\nTo monitor soil’s moisture, temperature, conductivity and upload\
+    \ the data\nvia wireless to LoRaWAN IoT Server.\nAgribot [61]\nSensor and Vision\n\
+    based\nAutonomous\nRobot\nTo decide distance and depth for sowing, picking, harvesting,\
+    \ weeding,\npruning, planting, grafting seed.\nCropX [62]\nTo calculate soil moisture,\
+    \ temperature and electric conductivity.\nIrrigation\nCrop\nWater\nStress\nIndex\
+    \ (CWSI) [63]\nWireless Sensors\nIrrigation management, VRI (Variable Rate Irrigation)\
+    \ optimization by crop\nmetrics which works according to topography or soil variability.\n\
+    Waspmote plug and\nsense [64]\nMonitoring and ac-\ntuating the function\nPrecision\
+    \ agriculture, irrigation systems, greenhouses, weather stations.\nLeaf Sensing[65]\n\
+    LoRaWAN\nTo monitor and analyze moisture and temperature for the leaf and analyze\n\
+    its status like watering, moisturizing, dew, frozen.\nFertilizer\nAutomatic\n\
+    VRT\nChemigation Device\nfor Agriculture [14]\nIoT\nAutomated capture, count and\
+    \ characterization of insects.\nCrop\nDisease\nand Pest Man-\nagement\nCrop Disease\
+    \ Moni-\ntoring and Pest Man-\nagement [66]\nIoT\nbased\nUAVs\nor Remote Sensing\n\
+    Satellites\nCrop disease monitoring and pest management.\nSemios [67]\nTo monitor\
+    \ crop growth and diseases or infections that could harm yielding.\nLivestock\n\
+    Dairy\nProduction\nAnalytics (DPA) []\nSensor, Cloud-based\nLivestock feeding\
+    \ so that improve the milk production.\nAllﬂex [68]\nRFID\nLivestock monitoring,\
+    \ Milking, tracking all the insights about each herd par-\nticipant (heat, health\
+    \ and nutrition), optimizing milking process.\nCowlar [68]\nCow Router\nEarly\
+    \ disease detection, feed optimization, operational efﬁciency, stress\nmanagement\n\
+    Smart Bee Hive\nHermes Smart Hive\nGate []\nTo ensure that the beehive colony\
+    \ closes up simultaneously, in multiple bee\nhives, during periods of poison hazard\
+    \ of bee extinction.\nSmart\nGreen-\nhouse\nIwire’s Smart Farm\n[69]\nIoT\nTo\
+    \ collect data from weather stations and adjust climate conditions automat-\n\
+    ically according to a particular set of instructions.\nFarmapp [70]\nPest Management\
+    \ (IPM) software-based service for crops.\nGreenIQ [71]\nSmart sprinklers controller\
+    \ that allows to manage your irrigation and light-\ning systems remotely.\nUAV\n\
+    DroneSeed [72]\nPlanting trees in deforested areas.\nSense Fly [73]\nTo estimate\
+    \ the health of crops using multispectral imaging analyzes.\nAgribot [72]\nIoT\n\
+    Spraying plant protection chemicals in farms\nSurveybot [72]\nIoT\nTo provide\
+    \ aerial survey services of crop by LiDAR drones.\n9\n[77], discussed various\
+    \ emerging Cyber Attacks (CA) in\nIoTA based on each IoTA layer. The CA on the\
+    \ physical\nlayer was autonomous system hijacking/disruption, irregular\nmeasurement,\
+    \ node capturing and sleep deprivation. Edge\nlayer based attacks were forged\
+    \ for control actuator, boot-\ning, ﬂooding and signature wrapping attack. The\
+    \ network\nlayer attacks were DoS, DDoS, data transit attacks, routing\nattacks,\
+    \ signal disruption, Radiofrequency (RF) Jamming at-\ntacks, side-channel attacks,\
+    \ malware injection, and Botnet\nattacks. An application layer based CA were phishing,\
+    \ ma-\nlicious scripts, DoS, or DDoS. Cloud computing attacks and\ncyber terrorism\
+    \ are other types of attacks have been dis-\ncussed.\n[78], covered network layer\
+    \ based CA in IoTA. These\nattacks are replay attacks on Zigbee protocol that\
+    \ can create\ndiﬁculties to implemnting other protocols. The smart farm,\nwhich\
+    \ uses IEEE 802.11 protocol, can face attacks like pass-\nword cracking and evil\
+    \ twin access point, which allows at-\ntackers to get credentials by creating\
+    \ a rogue access point.\nKey reinstallation attack, which exploits 4-way handshake\n\
+    in WPA2, which was responsible for securing modern wiﬁ.\nARP spooﬁng attack where\
+    \ an attacker fakes the MAC ad-\ndress of the gateway and convinces the victims\
+    \ to send frames\nto the fake address except the destination address. DNS spoof-\n\
+    ing attacks where the trafﬁc is directed to the fake website\ncause altered DNS\
+    \ records.\n[79],discussed UAV oriented CA and its consequences.\nUAV is an automated\
+    \ aerial vehicle IoTA system used for\ncrop monitoring, pesticides or chemical\
+    \ sprinkling, etc. The\nCA is integrity exploitation of UAV or IoTA devices. The\n\
+    consequences of this attack can vandalize the whole stand-\ning crop in the ﬁeld,\
+    \ ﬂood the crop, and sprinkle the pesti-\ncides in excess quantity. If such attacks\
+    \ are widely coordi-\nnated, they can take the place of agro-terrorism. The authors\n\
+    discussed other UAV based CA, such as radio frequency\njamming, malicious code\
+    \ injection, MITM, DoS/DDOS, ran-\nsomware attacks, etc. These attacks can tamper/modify\
+    \ the\ncommunication devices.\n[80], [81], [82] [49] discussed emerging CA aspects\
+    \ in\nIoTA system on the different levels such as physical secu-\nrity of devices\
+    \ due to the harsh nature of climate and nat-\nural disaster in IoTA, emerging\
+    \ cyber threats like endpoint\nattacks, phishing, third party attack, supply chain\
+    \ attacks,\nransomware, state-sponsored IoT attacks, threats in smart\ndevices.\
+    \ They speciﬁed risks or dangers in terms of data\nbreaches, data integrity, privacy\
+    \ breaches in business secrets,\nrisk of crypto-jacking, cyber-physical attacks,\
+    \ state-sponsored\nattacks, highjacking, or threats to autonomous drones or trac-\n\
+    tors.\n[83] described the several issues in IoTA caused by the\nInternet connectivity\
+    \ for data processing and covered param-\neters based on CA in IoTA. In the IoTA\
+    \ system, at the phys-\nical layer, the emerging CA such as unintentional physical\n\
+    modiﬁcation in hardwired, temporary or permanent damage,\nautonomous system hijacking,\
+    \ autonomous system disrup-\ntion, optical deformation, rough treatment, power\
+    \ depletion\nof battery, sensor weakening as per the sensor aging, node\ncapturing,\
+    \ adding a malicious node and sleep deprivation.\nIn sleep deprivation attack\
+    \ there is draining the battery of\nthe smart devices. Network layer-based emerging\
+    \ CA dis-\ncussed as DoS/DDoS, data transit attack, and routing attack.\nThe emerging\
+    \ CA at the edge layer can be forged controls\nfor actuators, gateway-cloud request\
+    \ forgery, forged mea-\nsure injection, booting, unauthorized access, MITM, signa-\n\
+    ture wrapping, and ﬂooding. In the sequence, the concern-\ning CA in the application\
+    \ layer is phishing, malicious script,\nDoS, and DDoS attacks. The author emphasized\
+    \ the current\nstate of security in smart agriculture as the researcher and\n\
+    developer leave default security features for the MQTT and\nCoAP since the researchers’\
+    \ probability keeps it disabled.\nMoreover, IoT device manufacturers use IoTs\
+    \ to keep them\ninvisible to the security feature, validation processes, col-\n\
+    lecting, transferring, or storing phases or failure checks. This\npaper further\
+    \ illustrates these invisible parameters for the in-\nvisible security features.\
+    \ The authors also suggested a future\nenhancement in the perspective of better\
+    \ security in smart\nagriculture and farming applications.\n[84] presented a literature\
+    \ survey on CA pertaining to\ndistinct components of IoTA. They have discussed\
+    \ attacks\nbased on hardwares like sensors, controllers, RFID tags. Few\nattacks\
+    \ based on protocol such as RFID, NFC,bluetooth, wiﬁ,\nZigbee, 6loWPAN, and protocols\
+    \ on application layer.\n[85], authors classiﬁed CA in IoTA based on the phys-\n\
+    ical layer, network layer, middleware layer, and application\nlayer. The CA on\
+    \ the physical layer is such a RF jamming,\nside-channel attack, which aims to\
+    \ gather unauthorized in-\nformation regarding the implementation description\
+    \ of the\nIoTA system using monitoring parameters of hardware like\nan electric\
+    \ current or voltage [86]. Attacks on the network\nlayer are DoS, MITM, and cloud\
+    \ computing attacks. At-\ntacks regarding data are data leakage, ransomware, cloud\n\
+    data leakage, and misconﬁguration. Application layer based\nattacks are software\
+    \ update based attacks such as malware\ninjection, buffer overﬂow and SQL injection.\
+    \ Other attacks\nthey have covered are cyber terrorism and invalidation, which\n\
+    refers to false data fabrication.\n[87], authors are concerned that exposure of\
+    \ personnel’s\nprivate information, social engineering, cyber espionage, and\n\
+    agroterrorism to any CA is a potentially severe threat that\nshould be seriously\
+    \ and carefully considered.The possibil-\nity of cyber terrorism in the agriculture\
+    \ sector is known as\nagroterrorism.\n[88], authors warn the cyber threat risk\
+    \ in IoTA, for internet-\nbased automatic functional devices, like smart crop\
+    \ sprayers,\ndrones, UAV in agriculture can be hacked.\n10\nCybercriminals are\
+    \ looking to ruin the particular revenue\nbusiness, where agriculture plays a\
+    \ very important role in\nrevenue generation for the individual and the country.\n\
+    [89] homeland security of U.S. department mention the\nconcern potential cyber\
+    \ threats and vulnerabilities in IoTA.\nTheir released report disscussed different\
+    \ technologies in\nIoTA sucha as on farm device, location or remote sensing\n\
+    technologies and machine learning. This report highlights\nhypothetical scenarios\
+    \ pertaining to CACC. Likewise IoTA\nbased sensors could be the signaﬁcant cause\
+    \ for CACC is-\nsues. A warning from the UK government and FBI states\nthat Cyber\
+    \ criminals could exploit ﬂaws present in the IoTA\nhardware which were used to\
+    \ plant and harvest crops, such\nas automatic crop sprayers, drones and robotic\
+    \ harvesters\nto disrupt the GDP growth, food production of the country\n[90].\
+    \ According to an FBI report, CA in IoTA has slowed\ndown the agriculture processing\
+    \ system and also interrupted\nthe email communication and website-based administration.\n\
+    A cyber crime by disrupting process dairy facilities can quickly\nspoil the result.\
+    \ FBI has released a list of cybercrime in agri-\nculture. Where the means of\
+    \ cybercrime was a ransomware\nattack, where data was stolen and encrypted, and\
+    \ criminals\ndemanded ransom, cyber actors may perceive cooperatives\nas lucrative\
+    \ targets with a willingness to pay due to the time-\nsensitive role in agricultural\
+    \ production. The goal could be\nto disrupt the seed and fertilizer supplies.\n\
+    Various IoT based CACC has been already observed and\nsevere consequences had\
+    \ faced by users. [91], the Mirai bot-\nnet in 2016 is an example of DDoS attack\
+    \ which was launched\non IoT devices in smart home on a large scale. Similar CA\n\
+    are possible in the context of IOTA. The consequences of\nsuch attack can disrupt\
+    \ normal functionality of distinct mod-\nules of an individual IoTA farm and leverage\
+    \ for interrupt-\ning legitimate cyber services in other areas. [92], the IoTA\n\
+    system can be compromised and controlled by utilising cen-\ntral malicious system\
+    \ know as Botnet of Things. [93], a CA\nnamed as Night Dragon could steal big\
+    \ amount of informa-\ntion from various petrochemical companies. [94], an another\n\
+    incidence of devastation using phishing attack attemped on\nGerman steel mill\
+    \ for gaining access on network plant pro-\nduction system of the mill ofﬁce.\n\
+    The increase in CACC in IoT based devices has become\nthe concern in smart agriculture\
+    \ where these CACC can bring\ndevastation to IoTA, crop demage, animal production\
+    \ loss\nand vast ecconomical loss.\nIn 2020, JBS, one of the world’s biggest meat\
+    \ processing\ncompanies, paid $11 million as a ransome to resolve a CA;\nmalware\
+    \ attack that shut down Australian and New Zealand\nwool sales [95]. The US agriculture\
+    \ ﬁrm AGCO was af-\nfected production by a ransomware attack. President Greg\n\
+    Gatzke of ZAG Technical Services Inc observed losses be-\ntween $40,000 to $200,000\
+    \ caused by cyber-criminals [96].\nIn the US, Jan 2021, faced the business lost\
+    \ $9 million as cy-\nber criminals inﬁltrated a farm’s internal network via com-\n\
+    promised administrative credentials. The total loss derives\nfrom the temporary\
+    \ shutdown of operations.\nCo-founder of agricultural ﬁrm Muddy Machines, Chris\n\
+    Chavasse, states that the IoTA based devices can be attacked\nand hacked. Their\
+    \ study says that IoTA sector is at risk.\nIn industrial espionage, revenge-minded\
+    \ employees can\ndamage farmers having a treaty in contract farming with that\n\
+    particular company. In the case of IoTA, the farmer/contractor\nmay face severe\
+    \ loss due to linked cyber security breaches or\nattacks on the contract provider\
+    \ company. Subsequently, se-\nvere data loss/breaches or sabotage might be found\
+    \ in IoTA.\nVarious emerging CACC, its consequences on IoTA and un-\nfavourable\
+    \ affects on the farming are summarised in Table\n3.\nAgribusiness is suspected\
+    \ of attacking and disturbing,\ndisrupting, or destroying its existing functional\
+    \ system due\nto its fragility in nature, as IoTA is a hackable and crack-\nable\
+    \ system. Consequently, various unsolved cases could be\nfound in the court of\
+    \ law. Thus various challenges are being\nfaced in evidence collection and DF\
+    \ investigation regarding\nIoTA. The various challenges are discussed in the next\
+    \ sec-\ntion.\n7 Digital Forensics Challenges in IoTA\nDF is a superset of cyber\
+    \ forensics, which includes forensics\nof all digital devices like computers,\
+    \ mobile phones, PDAs,\npalmtops, storage devices, obscure devices like gaming\
+    \ de-\nvices, recording devices, digital cameras, IoTs and many\nmore. DF consists\
+    \ of the systematic propelled and scientif-\nically proven approach for preservation,\
+    \ collection, valida-\ntion, identiﬁcation, analysis, interpretation, documentation\n\
+    and presentation of digital evidence [100]. DF is a conven-\ntional technique\
+    \ as the law enforcement acknowledges that\nmodern day life includes a distinct\
+    \ of devices where IoT is at\nthe top of the list of digital devices. The IoT\
+    \ can be exploited\nby criminal activity [101].\nThe IoTA is a subset of IoT.\
+    \ It includes a sensor, gate-\nway, network, Internet and the cloud. Thus IoTA\
+    \ also in-\nherits properties of DF challenges belong IoT. We have in-\ncluded\
+    \ a few articles to discuss various DF challenges and\nissues in IoTA. According\
+    \ to the principle of exchange given\nin 1934 by Dr. Edmond Locard (1877-1966),\
+    \ \"Every action\nleaves a trace.\" Any action of a crime commiter cannot occur\n\
+    without leaving a trace. The Locard’s principle was also de-\nﬁned in the perspective\
+    \ of conventional crime that is proved\nin the digital world. The same rule is\
+    \ equally applicable in\nthe IoTA.\n11\nTable 3: Emerging CACC and Its Consequences\
+    \ on IoTA and Smart Farming\nCyber\nAttacks\nand\nCyber\nCrime (CACC)\nFunction\n\
+    Consequences in IoTA\nEffect on the Agriculture Production\nMalware [80]\nTo corrupt\
+    \ the ﬁrmware\nTo destroy farm control sys-\ntem\nCrop\nrotting,\ndraught,\nirregular-\n\
+    ity/excess\nof\nfertilizer/\npesticides/\nherbicides,\nIrregular\nmonitoring\n\
+    of\ncrop/animal\nTrojans [84]\nInvades a system\nAttacks by opening a back-\n\
+    door in IoTA\nStealing user identity and information\nof IoTA owner\nViruses [84]\n\
+    Creates innumerable repli-\ncas (based on single click\nevent by User)\nSlowing\n\
+    down/obstructing\nactual\nfunctionality\nof\nSystem\nSlowing down/obstructing\
+    \ actual func-\ntionality of System\nWorms [84]\nSpreads without the user’s\n\
+    interaction and can act inde-\npendently disseminated via\nthe network\nMalfunctioning\
+    \ or deactiva-\ntion of IoTA application\nDisrupting farming work\nBotnet [80]\n\
+    Bots targets to infect to IoTs\nin group\nConnect to a server, also\nknown as\
+    \ a “bot master”,\nwhich acts as a central con-\ntrol hub for compromised\ndevices\n\
+    Compromise whole IoTA system, ob-\nstruct all the functionality of agricul-\n\
+    ture\nRansomware\nat-\ntack\nTo encrypt, stole the data\nand obstruct the service\
+    \ to\naccess\nUnable to access IoTA de-\nvices and services and crimi-\nnals demanded\
+    \ ransom to re-\nsume the services back in\nIoTA\nUnable to operate IoTA using\
+    \ remote\nplaces. The sub-sequential barrier like\nslow-down have to face in the\
+    \ produc-\ntion of IoTA due to obstructions in the\nIoTA production\nMan In The\
+    \ Mid-\ndle (MITM) [84]\nTo store and replay data\ntransmitted over a connec-\n\
+    tion\nAccess the communication\nbetween IoTA nodes\nEavesdropping the farm status\
+    \ of IoTA\nand get ready for further attack or de-\nstruction\nDoS/ DDoS [84]\n\
+    To prevent authorised user\nor device to access the re-\nsources\nCreates Obstacles\
+    \ to access\nnetwork,\nserver,\nnode\nor\ncommunication link\nDisrupt normal functionality\
+    \ of distinct\nmodules of an individual IoTA farm\nand leverage for interrupting\
+    \ legitimate\ncyber services in other areas\nWiFi\nde-\nauthentication\nattack\
+    \ [78]\nTo Force to SBC to discon-\nnect fro from the network\nand prevent from\
+    \ reconnect-\ning\nThe sensors data could not\nupdate on the cloud. It ex-\nposes\
+    \ the weakness of the\nIEEE 802.11\nObstruction for live monitoring of farm\n\
+    Evil twin access\nPhishing [78]\nTo create rouge access point\nand Allows attackers\
+    \ to get\naccess\nNA\nFramers credentials present on IoTA\nmay get compromised\n\
+    Password\ncrack-\ning [78]\nCracking the Wi-Fi pass-\nword\nExploit the Wi-Fi\
+    \ password\nExploit the IoTA based user’s network\nKey reinstallation\nspooﬁng\
+    \ [78]\nTo exploit the vulnerability\nof WPA 2 4-way handshake\nAttacker could\
+    \ trick to the\nvictim by reinstalling key\nwhich was already in use.\nThis action\
+    \ will allow pack-\nets replaying, forging or de-\ncryption\nIoTA which use on\
+    \ IEEE 802.11 and\noutdated version of Wi-Fi are suscep-\ntible to such CA\n12\n\
+    Cyber\nAttacks\nand\nCyber\nCrime (CACC)\nFunction\nConsequences in IoTA\nEffect\
+    \ on the Agriculture Production\nKr00k-\nCVE-\n2019-15126\n[78]\nTo affect Wi-Fi\
+    \ chips in Wi-\nFi devices of Broadcom and\nCypress\nNA\nCould affect IoTA which\
+    \ includes vul-\nnerable devices or access points that\nuse 802.11\nARP\nSpooﬁng\n\
+    [78]\nTo fake the MAC address of\ngateway, convince the vic-\ntim to send frames\
+    \ to the\nfake address on the place of\nthe destined address\nWithout issuing\
+    \ requests the\nARP accepts the replies.\nThere is no way to verify\nthe sender\
+    \ due to no authen-\ntication method in standard\nARP\nIoTA data trafﬁc can be\
+    \ recorded, ma-\nnipulated or trafﬁc eavesdropping, ses-\nsion hijacking\nDNS\n\
+    spooﬁng\n[78]\nTo direct trafﬁc to a fake\nwebsite as DNS record has\nbeen altered\n\
+    Cache\npoisoning\nattack\nwhere\nattacker\nintercept\ntrafﬁc\nbetween\ngateway\n\
+    router and client. Reading\nDNS messages, can change\nIP of name server and a\n\
+    same query ID and fake IP\nof amen server\nIP forge beneﬁt in IoTA. Due to fake\n\
+    data reading malfunctioning of IoTA.\ni.e. it may cause to crop rotting/drought\n\
+    due to variation in water supply irre-\nspective of conditioned value\nSide-channel\n\
+    at-\ntack [84]\nTo gather unauthorized in-\nformation pertaining to im-\nplementation\
+    \ description of\nthe IoTA system using mon-\nitoring parameters of hard-\nware\
+    \ like an electric current\nor voltage\nNA\nViolation of conﬁdentiality of users\n\
+    through IoTA\nRF jamming [97]\nTo attack Wi-Fi channels\nwhich are open in nature\n\
+    To design jamming resistive\nwireless networking system\nViolate the availability\
+    \ of the system\nCloud\nCom-\nputing\nAttacks\n[98]\nTo take advantage of cloud\n\
+    resources\nMisuse of cloud feature like\nauto scaling and on demand\nservice\n\
+    The farmer might miss well-informed\nand timely decision cause of false\nstatistics\
+    \ generated by the cloud about\nfarm\nData leakage Or\nCloud data leak-\nage [98]\n\
+    To expose the data related to\nusers or organization\nNA\nViolates data privacy\
+    \ of the user or\ncontract farming-based organization\nFalse data injec-\ntion\
+    \ [83]\nTo feed control commands\nor malicious information\nIn large farm high\
+    \ volt-\nage grid pass over can pro-\nduce high an high electro-\nmagnetic ﬁeld\
+    \ which can\ndemage IoTA devices and\nperform distortion or data\ncurrption\n\
+    19. The inaccuracy of data gets com-\npromised to IoTA and the farmer would\n\
+    get the false updates about farm; the\nagriculture production will get badly\n\
+    affected due to timely actions have not\ntaken\nMisconﬁguration\n[85]\nTo conﬁgure\
+    \ reporting sys-\ntem in a manner that it could\npresent invalid information\n\
+    False\ndata\nreading\nusing\nIoTs\nIt will lead to disruptive actions and de-\n\
+    cision through the farmers\nSoftware\nupdate\nattack [85]\nDisrupting the software\
+    \ up-\ndate process\nNA\nDisrupt\nto\nupdate,\nadd\nnew\nfea-\ntures/functionality\
+    \ in IoTA\nMalware\ninjec-\ntion [85]\nTo infact nodes and devices\nby malicious\
+    \ codes\nNA\nNA\n13\nCyber\nAttacks\nand\nCyber\nCrime (CACC)\nFunction\nConsequences\
+    \ in IoTA\nEffect on the Agriculture Production\nBuffer\noverﬂow\n[85]\nTo gain\
+    \ access for corporate\nsystem by taking beneﬁt of\nsoftware error\nUnauthorised\
+    \ use to corpo-\nrate system\nMakes unavailability issue of IoTA sys-\ntem\nSQL\n\
+    injection\n[85]\nTo mislead database server\nfor running malicious injec-\ntion\
+    \ codes running into entry\nﬁelds of the database\nNA\nTrust violation due to\
+    \ indirect attack\nThird Party attack\n[85]\nTo inﬁltrate a system with\nthe help\
+    \ of adversary who\nhas access on the data or sys-\ntem\nNA\nIoTA user may loose\
+    \ his conﬁdentiality\nData Fabrication\n[85]\nTo fabricate data by misus-\ning\
+    \ the access\nIt violates the integrity of\nIoTA\nFalse data in IoTA will distrupt,\
+    \ disturb\nits functionality\nCyber Terrorism\n[85]\nTo use IoTs to make harm\n\
+    or premise a large group of\npeople\nTo distrupt or sabotage of\nIoTA\nLarge number\
+    \ of IoTA will malfunction\nwhich can cause of death i.e. the supply\nof high\
+    \ pesticides by smart sprinkler\nmay affect food quality and access of\npoison\
+    \ in food and in leaves may cause\nthe death of consumer of it\nNode capturing\
+    \ /\nMalicious\nnode\ninjection [99]\nTo stop services and modify\ndata\nNA\n\
+    It will add malicious node in-between\nlegitimate node\nRFID Based At-\ntacks\
+    \ [84]\nTo compromise RFID tags,\nsignals\nReplay,\nspooﬁng,\neaves-\ndropping,\n\
+    MITM,\nKilling\ntag, unauthorised access\nIoTA will unable to function or get\n\
+    compromised by attackers or criminals\nAutonomous\nSystem\nHijack-\ning/Disruption\n\
+    [83]\nTo hijack autonomous sys-\ntem like drones, UAV\nMalicious agent hijacks\
+    \ an\nUAV and without authoriza-\ntion the attackers can access,\ncontrol and\
+    \ guide it remotely\nUnavailability will cause fully damage\nof crops as well\
+    \ as UAV devices\nSleep\nDepriva-\ntion [83]\nTo drain the batteries by us-\n\
+    ing more power supply\nDrain the IoTA nodes\nService unavailability of IoTA Nodes\n\
+    will deprive the farmer to access auto-\nmatic functioning of the IoTA system\n\
+    Zero-Day Vulner-\nability [2]\nTo exploit the vulnerability\nin the system which\
+    \ is un-\nknown to the developer\nSystem unavailability\nService unavailability,\
+    \ disrupt or de-\nstroy the IoTA\nFake Node [83]\nTo add fake or malicious\nnode\
+    \ into IoT nodes\nDisruption in IoTA\nThis type of attack can modify the\nhardware\
+    \ or system. In this the mali-\ncious data could send wrong data for\ninterfering\
+    \ decision making\nData\ntransit\nat-\ntack [83]\nTo intercept data exchange\n\
+    between network objects\nTo gain access of sensi-\ntive information like crypto-\n\
+    graphic keys, unique identi-\nﬁers or credentials\nTrafﬁc interception can corrupt\
+    \ net-\nwork trafﬁc, compromising whole sys-\ntem or enabling malicious control\n\
+    Routing\nAttacks\n[85]\nTo alter network route for\nachieving trafﬁc control\n\
+    Wormhole and sinkhole\ncould subvert communica-\ntion\nnetwork\nfor\ngetting\n\
+    unauthorised access\nThe recipients of IoTA may receive par-\ntial, modiﬁed or\
+    \ late information which\nwill affect on the crop cause of not tak-\ning decision\
+    \ timely\n14\n[102] classiﬁed the most challenging aspects for IoT foren-\nsics\
+    \ into six categories: identiﬁcation, collection, preserva-\ntion, analysis, correlation,\
+    \ attack attribution and presenta-\ntion. These challenges are further divided\
+    \ into its subclasses.\nThe authors discussed DF challenges for various IoT appli-\n\
+    cations except for IoTA.\nThe following section discusses the work done in the\n\
+    area of IoT/IoTA forensics. In this article We have classi-\nﬁed related articles\
+    \ into different categories, some of which\nare discussed below.\n7.1 Jurisdictions\n\
+    [103] identiﬁed the challenge presented as the devices cross\nthe borderline of\
+    \ jurisdictions. Likely, data in transit between\nIoTA devices and globally distributed\
+    \ cloud computing plat-\nforms cross these borderlines more frequently. It is\
+    \ unclear\nunder which law the case should be prosecuted i.e., the de-\nvice jurisdiction,\
+    \ the attacker jurisdiction, or the data storage\njurisdiction. For this reason,\
+    \ it is necessary to create an in-\nternational commission that updates the current\
+    \ legislation\nand can deﬁne uniform procedures in IoT DF [102] [104].\nThe same\
+    \ jurisdiction challenge stands for IoTA too.\nAccording to [105], DF is an interdisciplinary\
+    \ process of\ninvestigation where cooperation and coordination between\nnations\
+    \ is indeed required for transnational law enforcement.\nThe Council of Europe’s\
+    \ Convention on Cybercrime formed\na committee, \"Council of Europe, 2001,\" for\
+    \ harmonizing\nprocedural and substantive laws related to digital crime and\n\
+    evidence among its signatories. The treaty commissions states\nto create standard\
+    \ systems of substantive and procedural laws\nprohibiting cyber-criminal conduct\
+    \ and investigating crimi-\nnal conduct with computer devices with respective\
+    \ to each\ncountry. This treaty includes the number of signatories coun-\ntries\
+    \ was 63; the few of 63 counties are USA, Canada, Ger-\nmany, France, Great Britain,\
+    \ Italy, Hungary, Israel, Japan.\nThe other high technology nations have not signed\
+    \ the treaty\nat the convention. That countries are like the Russian Feder-\n\
+    ation, Peoples Republic of China, India, the Islamic Repub-\nlic of Iran, Mexico,\
+    \ Pakistan and South Africa) [103].\n7.2 Search and Seizure\nSearch and seizure\
+    \ is an essential step in any DF examina-\ntion. However, detecting the presence\
+    \ of IoT evidences is\nquite challenging as the IoT devices are designed to work\n\
+    passively and autonomously. In most cases, when an IoT de-\nvice is identiﬁed,\
+    \ there is no documented method or reliable\ntool to collect residual pieces of\
+    \ evidence from the device in\na forensically sound manner [106].\n[107] concerned\
+    \ that the standards by which the evi-\ndence is in DF investigations could have\
+    \ been altered to ac-\ncommodate the changing nature of the cloud computing en-\n\
+    vironment. We believe that the alalogical statement holds for\nIoTA DF investigations\
+    \ too. Beyond technical challenges,\nprivacy is a signiﬁcant issue to consider\
+    \ when analyzing and\ncorrelating collected data, primarily as most IoT sensors\
+    \ col-\nlect innate personal information [106].\n[108] authors reviewed various\
+    \ DF limitations and chal-\nlenges in IoT. Those limitations include impracticability\
+    \ of\ncloning of all data by a service provider, requirement of ex-\ncess time\
+    \ in data acquisition and other challenges.\n7.3 Identiﬁcation\nIn the term of\
+    \ IoT based DF investigation, the question arises\nof whether to investigate devices\
+    \ or data in the case of cloud\nor else the devices may be viewed as a metadata\
+    \ aspect of\nthe data or if the reverse is true, the cloud computing ar-\nchitectures\
+    \ (PaaS, SaaS, IaaS) allow data fragmentation and\ndistribution among different\
+    \ countries and continents [109].\nAs IoTA is one of the applications, IoT may\
+    \ face the same\nchallenge in the identiﬁcation phase of the investigation.\n\
+    7.4 Preservation\nIn evidence, the acquisition is to maintain the integrity of\n\
+    the evidence collected. The most frequently used technique\nfor computers and\
+    \ phones is calculating a hash to assure\nintegrity. The question arises about\
+    \ calculating hash at the\ntime of creating an image. The problem here is the\
+    \ lack of\navailable tools that can prevent accidental changes in the IoT\nbased\
+    \ evidence [103].\n7.5 Challenge in imaging\nThe challenge of the acquisition\
+    \ is to decide whether to cre-\nate an image of an endpoint or to acquire it physically.\
+    \ In the\ncase of computer crimes, the standard practice is to create a\nworking\
+    \ copy/image of the storage media and seal the actual\nmedia to avoid accidental\
+    \ alteration in the actual evidence.\nSince the endpoints in IoT crime scenes,\
+    \ excluding comput-\ners and smartphones, may store minimal or sometimes no\n\
+    information, creating an image of those IoT nodes is com-\nplicated. If a component\
+    \ stores some information, then it\nshould be technically possible to create an\
+    \ image of that de-\nvice. The suggested way is to create images from available\n\
+    sources [106].\n7.6 Analysis and correlation\nThe huge amount of data collected\
+    \ in diverse type of IoT\ndevices makes it nearly impossible to provide an end\
+    \ to end\n15\nanalysis of residual evidence. IoTA is a frequently evolv-\ning\
+    \ technologies. Hence different Operating Systems (OS),\nvarious ﬁle formats and\
+    \ distinct cryptographic methods. The\nExisting digital forensics tools or methodologies\
+    \ do not sup-\nport for data extraction from emerging IoTA devices [102].\n7.7\
+    \ Absence of Standard IoTA Architecture\nThe different standards for IoTA architecture\
+    \ are followed\nby manufacturers, the lack of cooperation, and the many pe-\n\
+    culiarities are the terrible thing about the IoT working within\nthe same area\
+    \ of application. Due to the lack of standardiza-\ntion of IoTA architecture,\
+    \ the smart irrigation system facil-\nitated by one manufacturer and the smart\
+    \ crop monitoring\nsystem by another manufacturer can have problems in coor-\n\
+    dination. The absence of a standard IoTA architecture chal-\nlenges the design\
+    \ of the standard DF framework.\n7.8 Malware\nIn [97], the authors discussed various\
+    \ research challenges in\nIoT forensics. The challenges are the complexity and\
+    \ versa-\ntility of IoT devices, lack of standard IoT architecture, ev-\nidence\
+    \ contamination due to overwriting data, and use of\nconventional tools forensics\
+    \ tools.\n8 Discussion\nIoTA is the highest trending technology in human life\
+    \ to\nmake life much easier, faster and more comfortable. Accord-\ning to Cisco\
+    \ Internet Business Solution Group (IBSG), IoT\nwas born between 2008 - 2009,\
+    \ with an average of 1.84 IoTs\nper person; the propositional logic can be derived\
+    \ from this\nIBSG statistics that people will possess 10 IoTs per person\non an\
+    \ average, in the coming age. Thus this ﬁeld requires\nthe most potential to research\
+    \ in the IoTA domain to better\nits characteristics and work on its challenges.\n\
+    This literature review is focused on IoTA. The rationale\nof this study is helpful\
+    \ to understand IoTA architecture and\nits working environment from the physical\
+    \ layer to the ap-\nplication layer from different authors’ perspectives. We have\n\
+    included IoTA architecture, emerging CA, cyber crimes and\nDF investigation challenges\
+    \ about IoT based Agriculture (IoTA).\nWe have done a comprehensive study about\
+    \ the DF chal-\nlenges and issues that can have obstacles in this growing era\n\
+    of IoTA and possible crime and related that scenario pre-\ncisely with IoTA. Many\
+    \ challenges are discussed in previous\npapers. Those challenges include Jurisdiction\
+    \ at IoT crime\nscenes, lack of available tools and documentation methods,\npreservation,\
+    \ imaging, evidence analysis and correlation. There\ncan be future work on these\
+    \ challenges, so the data must\nbe presentable in a court of law. In this review\
+    \ work, we\nleft out elaborative discussion about all the IoTA based ap-\nplications,\
+    \ deﬁnitions for IoT sensors, protocols, communi-\ncation technology, vulnerabilities,\
+    \ cyber-attack, cybercrime,\ncybersecurity and DF, which can be added in the subsequent\n\
+    study.\nThe concerning point of a literature review is that the\nauthors’ statement\
+    \ was based on assumptions. The articles\nwere not found assured about CACC issues\
+    \ in IoTA solu-\ntions. These weaknesses of the IoT system could be tested\nfor\
+    \ being assured CACC. Consequently, the manufacturer\nand security experts would\
+    \ have saved their time in ﬁnding\ncyber threats for each IoTA device with all\
+    \ aspects through\nproactive measures.\nAs a part of the study, there has been\
+    \ found a scarcity of\narticles on IoTA based cyber crime and DF discussion. Thus\n\
+    the researchers can further explore emerging CACC and DF\ninvestigation based\
+    \ on IoTA in this article to have survey\nbased insights. There must be readiness\
+    \ for IoTA based CC\nand DF investigation process for running an agriculture busi-\n\
+    ness (agribusiness) and to justice for the victim. The fail-\nure to prove the\
+    \ suspect will cause the encourage CACC\nin IoTA. Those CACC will be responsible\
+    \ for disturbing,\ndisrupting, or even destroying the IoTA system in agribusi-\n\
+    ness. It will directly demotivate agribusiness persons to con-\ntribute to crop\
+    \ and food production. Subsequently, individ-\nual agribusiness people, consumers,\
+    \ laymen, countries and\nthe nation’s GDP could be affected. Thus there is an\
+    \ urgent\nneed to have readiness towards CACC and DF in IoTA. It is\nalso observed\
+    \ that most experiments were not conducted in\na practice environment and seemed\
+    \ just an assumption. To\nsolve more real-time problems, researchers should also\
+    \ ex-\nperiment with these techniques on real-world solutions for\nIoTA.\n9 Conclusion\n\
+    It is a concerning point in SDG 2030; goal 2 is to promote\nsustainable agriculture\
+    \ to achieve zero hunger. To smart agri-\nculture and farming the practice effectively,\
+    \ IoTA is applied\nin almost all ﬁelds of agriculture, such as farm monitor-\n\
+    ing, irrigation, pest monitoring, livestock monitoring, smart\ngreenhouse, smart\
+    \ poultry farm and so on. Existing smart\nfarming techniques are classiﬁed and\
+    \ reviewed; from this\nstudy, it is understood that researchers should concentrate\n\
+    more on readiness for emerging CACC for IoTA applica-\ntions or tools. The readiness\
+    \ will provide non-interruptable\nservices. There is a need to be readiness for\
+    \ DF investiga-\ntion for IoTA speciﬁcally which will make a robust judicial\n\
+    system and strengthen the judicial system by catching the\nnatural suspected person.\n\
+    16\n10 Compliance with Ethical Standards\nWe the authors, declare that there is\
+    \ no grant or ﬁnancial\nsupport we got for this research work.\nConﬂict of Interest:\
+    \ The authors declare that they have\nno conﬂicts of interest.\nThis article has\
+    \ no human or animals contain any stud-\nies involving participants performed\
+    \ by any of the authors.\n11 Competing Interests\nNone declaring.\n12 Research\
+    \ Data Policy and Data Availability\nStatements\nNot applicable.\nReferences\n\
+    1. Li, S., Xu, L. D., & Zhao, S.: The internet of things: a\nsurvey. Information\
+    \ Systems Frontiers, 17(2), 243–259.\n(2014). https://doi.org/10.1007/s10796-014-9492-7.\n\
+    2. Patel, C., & Doshi, N.: Security challenges in IoT cyber\nworld. In Security\
+    \ in smart cities: models, applications,\nand challenges (pp. 171-191). Springer,\
+    \ Cham. (2019).\ndoi.org/10.1007/978-3-030-01560-2_8.\n3. Cisco, T.: Cisco annual\
+    \ internet report. FoodRequirment.\n(2020).\n4. Mekouar, M. A.: 15. Food and Agriculture\
+    \ Organization\nof the United Nations (FAO). Yearbook of International\nEnvironmental\
+    \ Law, 29, 448-468. (2018).\n5. Goel, R. K., Yadav, C. S., Vishnoi, S., & Rastogi,\
+    \ R.:\nSmart agriculture–Urgent need of the day in developing\ncountries. Sustainable\
+    \ Computing: Informatics and Sys-\ntems, 30, 100512. (2021).\n6. Schneider, S.,\
+    \ Sarukhan, J., Adejuwon, J., Azar, C.,\nBaethgen, W., Hope, C., ... & Van Ypersele,\
+    \ J. P.:\nOverview of impacts, adaptation, and vulnerability to cli-\nmate change.\
+    \ Climate change, 75-103. (2001).\n7. Yaffa, S.: Coping measures not enough to\
+    \ avoid loss and\ndamage from drought in the North Bank Region of The\nGambia.\
+    \ International Journal of Global Warming, 5(4),\n467-482. (2013).\n8. Hubert,\
+    \ B., Rosegrant, M., Van Boekel, M. A., & Ortiz,\nR. The future of food: scenarios\
+    \ for 2050. Crop Science,\n50, S-33.Agriculture5.0. (2010).\n9. Saiz-Rubio, V.,\
+    \ & Rovira-Más, F. (2020). From smart\nfarming towards agriculture 5.0: A review\
+    \ on crop data\nmanagement. Agronomy, 10(2), 207.\n10. Worldbank Report.: Employment\
+    \ in agriculture (% of\ntotal employment) (modeled ILO estimate) - India | Data.\n\
+    https //data.worldbank.org/indicator/SL.AGR.EMPL.ZS\n?locations=IN (2020). Accessed\
+    \ 26 Dec 2021.\n11. Zheng, L., Li, M., Wu, C., Ye, H., Ji, R., Deng, X., ... &\n\
+    Guo, W.: Development of a smart mobile farming service\nsystem. Mathematical and\
+    \ computer modelling, 54(3-4),\n1194-1203. (2011).\n12. Satyanarayana, G. V.,\
+    \ & Mazaruddin, S. D.: Wireless\nsensor based remote monitoring system for agriculture\n\
+    using ZigBee and GPS. In Conference on Advances\nin Communication and Control\
+    \ Systems (CAC2S 2013)\n(pp. 110-114). Atlantis Press. (2013).\n13. Terence, S.,\
+    \ & Purushothaman, G.: Systematic review\nof Internet of Things in smart farming.\
+    \ Transactions\non Emerging Telecommunications Technologies, 31(6),\ne3958. (2020).\
+    \ doi.org/10.1002/ett.3958.\n14. Ayaz,\nM.,\nAmmad-Uddin,\nM.,\nSharif,\nZ.,\n\
+    Man-\nsour, A., & Aggoune, E. H. M.: Internet-of-Things\n(IoT)-based smart agriculture:\
+    \ Toward making the\nﬁelds talk. IEEE access, 7, 129551-129583. (2019).\ndoi.org/10.1109/ACCESS.2019.2932609.\n\
+    15. Brahima,\nS.:\nICT\nFacts\n&\nFig-\nures.\nhttps://www.itu.int/en/ITU-\nD/Statistics/Documents/facts/ICTFactsFigures2015.pdf\n\
+    (2015). 05 Sep 2022.\n16. Schwarz, F., Schwarz, K., & Creutzburg, R. New\nmethodology\
+    \ and checklist of Wi-Fi connected and app-\ncontrolled IoT-based consumer market\
+    \ smart home de-\nvices. Electronic Imaging, 2020(3), 276-1. (2020).\n17. Goel,\
+    \ R. K., Yadav, C. S., Vishnoi, S., & Rastogi, R.\nSmart agriculture–Urgent need\
+    \ of the day in developing\ncountries. Sustainable Computing: Informatics and\
+    \ Sys-\ntems, 30, 100512. (2021).\n18. Patil, K. A., & Kale, N. R.: A model for\
+    \ smart agri-\nculture using IoT. In 2016 international conference on\nglobal\
+    \ trends in signal processing, information comput-\ning and communication (ICGTSPICC)\
+    \ (pp. 543-545).\nIEEE. doi.org/10.1109/icgtspicc.2016.7955360. (2016).\n19. Shannon,\
+    \ S., Brennan, D., Hanna, D., Younger, Z.,\nHassan, J., & Breslin, G.: The effect\
+    \ of a school-\nbased intervention on physical activity and well-being:\nA non-randomised\
+    \ controlled trial with children of low\nsocio-economic status. Sports medicine-open,\
+    \ 4(1), 1-12.\n(2018).\n20. Shaﬁ, U., Mumtaz, R., García-Nieto, J., Hassan, S.\n\
+    A., Zaidi, S. A. R., & Iqbal, N.: Precision agri-\nculture techniques and practices:\
+    \ From considera-\ntions to applications. Sensors, 19(17), 3796. (2019).\ndoi.org/10.3390/s19173796.\n\
+    21. Cambra Baseca, C., Sendra, S., Lloret, J., & Tomas, J.:\nA smart decision\
+    \ system for digital farming. Agronomy,\n9(5), 216. (2019). doi.org/10.3390/agronomy9050216.\n\
+    17\n22. Pivoto, D., Waquil, P. D., Talamini, E., Finocchio, C. P.\nS., Dalla Corte,\
+    \ V. F., & Mores, G. V.: Scientiﬁc develop-\nment of smart farming technologies\
+    \ and their application\nin Brazil. Inf. Process. Agric. 5 (1), 21–32. (2018).\n\
+    23. Virk, A. L., Noor, M. A., Fiaz, S., Hussain, S., Hussain,\nH. A., Rehman,\
+    \ M., ... & Ma, W.: Smart farming: An\noverview. Smart Village Technology, 191-201.\
+    \ (2020).\nDoi.org/10.1007/978-3-030-37794-6_10.\n24. Tang, S., Zhu, Q., Zhou,\
+    \ X., Liu, S., & Wu, M.:\nA conception of digital agriculture. In IEEE in-\nternational\n\
+    geoscience\nand\nremote\nsensing\nsym-\nposium\n(Vol.\n5,\npp.\n3026-3028).\n\
+    IEEE.\n(2002).\ndoi/.org10.1109/igarss.2002.1026858.\n25. Boursianis, A. D., Papadopoulou,\
+    \ M. S., Diaman-\ntoulakis, P., Liopa-Tsakalidi, A., Barouchas, P., Salahas,\n\
+    G., & Goudos, S. K. Internet of things (IoT) and agricul-\ntural unmanned aerial\
+    \ vehicles (UAVs) in smart farming:\nA comprehensive review. Internet of Things,\
+    \ 18, 100187.\n(2022). doi.org/10.1016/j.iot.2020.100187.\n26. Marcu, I., Suciu,\
+    \ G., Balaceanu, C., Vulpe, A., & Drag-\nulinescu, A. M.: Arrowhead technology\
+    \ for digitalization\nand automation solution: Smart cities and smart agricul-\n\
+    ture. Sensors, 20(5), 1464. (2020).\n27. Elhadi, S., Marzak, A., Sael, N., & Merzouk,\
+    \ S. Com-\nparative study of IoT protocols. Smart Application and\nData Analysis\
+    \ for Smart Cities (SADASC’18). (2018).\n28.\n29. Cisco: The Intenet of Things\
+    \ Reference Model Cisco.\nCisco Systems, 2. (2014).\n30. Kuaban, G. S., Czekalski,\
+    \ P., Molua, E. L., &\nGrochla, K.: An architectural framework proposal for\n\
+    IoT driven agriculture. In International Conference\non Computer Networks (pp.\
+    \ 18-33). Springer, Cham.\n(2019). doi.org/10.1007/978-3-030-21952-9_2.\n31. Verma,\
+    \ S., Gala, R., Madhavan, S., Burkule, S.,\nChauhan, S., & Prakash, C. An internet\
+    \ of things (IoT)\narchitecture for smart agriculture. In 2018 Fourth In-\nternational\
+    \ Conference on Computing Communication\nControl and Automation (ICCUBEA) (pp.\
+    \ 1-4). IEEE.\n(2018).\n32. Vha, B., Gtce, B., Lap, C., Ogb, D., & Cags,\nA.\n\
+    Internet\nof\nthings\nin\narable\nfarming:\nimple-\nmentation,\napplications,\n\
+    challenges\nand\npotential-\nScienceDirect. Biosystems Engineering, 191, 60-84.\n\
+    (2020). doi.org/10.1016/j.biosystemseng.2019.12.013.\n33. Al-Qaseemi, S. A., Almulhim,\
+    \ H. A., Almulhim, M.\nF., & Chaudhry, S. R.: IoT architecture challenges and\n\
+    issues: Lack of standardization. In 2016 Future tech-\nnologies conference (FTC)\
+    \ (pp. 731-738). IEEE. (2016).\ndoi.org/10.1109/FTC.2016.7821686.\n34. Quy, V.\
+    \ K., Hau, N. V., Anh, D. V., Quy, N. M., Ban,\nN. T., Lanza, S., & Muzirafuti,\
+    \ A.: IoT-Enabled Smart\nAgriculture: Architecture, Applications, and Challenges.\n\
+    Applied Sciences, 12(7), 3396. (2022).\n35. Alharbi, H. A., & Aldossary, M.: Energy-efﬁcient\
+    \ edge-\nfog-cloud architecture for IoT-based smart agriculture\nenvironment.\
+    \ IEEE Access, 9, 110480-110492. (2021).\ndoi.org/10.1109/ACCESS.2021.3101397.\n\
+    36. Sinha, A., Shrivastava, G., & Kumar, P. Architecting\nuser-centric internet\
+    \ of things for smart agriculture. Sus-\ntainable Computing: Informatics and Systems,\
+    \ 23, 88-\n102. (2019). doi.org/10.1016/j.suscom.2019.07.001\n37. Mohapatra, H.,\
+    \ & Rath, A. K.: IoE based framework\nfor smart agriculture. Journal of ambient\
+    \ intelligence and\nhumanized computing, 13(1), 407-424. (2022).\n38. Sahana,\
+    \ S., Singh, D., Pal, S., & Sarddar, D. A Design\nof IoT-Based Agricultural System\
+    \ for Optimal Manage-\nment. In IoT and Analytics for Agriculture (pp. 211-227).\n\
+    Springer, Singapore. (2020).\n39. Khan, R., Khan, S. U., Zaheer, R., & Khan, S.:\
+    \ Future\ninternet: the internet of things architecture, possible ap-\nplications\
+    \ and key challenges. In 2012 10th international\nconference on frontiers of information\
+    \ technology (pp.\n257-260). IEEE. (2012). doi.org/10.1109/FIT.2012.53.\n40. Moseley,\
+    \ P. T., & Crocker, J. Sensor materials. CRC\nPress. (2020). doi.org/10.1201/9781003062820.\n\
+    41. Tao, W., Zhao, L., Wang, G., & Liang, R.: Review of the\ninternet of things\
+    \ communication technologies in smart\nagriculture and challenges. Computers and\
+    \ Electronics in\nAgriculture, 189, 106352. (2021).\n42. Antony, A. P., Leith,\
+    \ K., Jolley, C., Lu, J., &\nSweeney, D. J.: A review of practice and imple-\n\
+    mentation of the internet of things (IoT) for small-\nholder agriculture. Sustainability,\
+    \ 12(9), 3750. (2020).\ndoi.org/10.3390/su12093750.\n43. Fremantle, P.: A reference\
+    \ architecture for the internet\nof things. WSO2 White paper, 02-04. (2015).\n\
+    44. Chanak, P., Banerjee, I.: Internet-of-Things-enabled\nsmartvillages: An overview.\
+    \ IEEE Consumer Electronics\nMagazine, 10(3), 12-18. (2020).\n45. Nayyar, A. N.\
+    \ A. N. D., Rameshwar, R. U. D. R. A.,\n& Solanki, A. R. U. N.: Internet of Things\
+    \ (IoT) and the\ndigital business environment: a standpoint inclusive cy-\nber\
+    \ space, cyber crimes, and cybersecurity. In The Evo-\nlution of Business in the\
+    \ Cyber Age (pp. 111-152). Apple\nAcademic Press. (2020). doi.org/10.3390/su10082727.\n\
+    46. Grifﬁth, C., Heydon, G., Lamb, D., Lefort, L.,\nTaylor, K., Trotter, M., &\
+    \ Wark, T. Smart Farm-\ning: Leveraging the impact of broadband and the\ndigital\
+    \ economy. Engineering & Technology. (2013).\ndoi.org/10.1049/et.2012.0601.\n\
+    47. Zakari, I. S.: Bridging data gap for understanding\nemerging issues in Niger:\
+    \ challenges and opportunities in\nthe era of smart cities and smart villages.\
+    \ In 2020 IEEE\nInternational Conf on Natural and Engineering Sciences\nfor Sahel’s\
+    \ Sustainable Development-Impact of Big\n18\nData Application on Society and Environment\
+    \ (IBASE-\nBF) (pp. 1-7). IEEE. (2020). doi.org/10.1109/IBASE-\nBF48578.2020.9069593.\n\
+    48. Islam, N., Rashid, M. M., Pasandideh, F., Ray, B.,\nMoore, S., & Kadel, R.:\
+    \ A review of applications\nand communication technologies for internet of things\n\
+    (Iot) and unmanned aerial vehicle (uav) based sustain-\nable smart farming. Sustainability,\
+    \ 13(4), 1821. (2021).\ndoi.org/10.3390/SU13041821.\n49. Nayak, P., Kavitha, K.,\
+    \ & Rao, M.: IoT-enabled agri-\ncultural system applications, challenges and security\
+    \ is-\nsues. In IoT and analytics for agriculture (pp. 139-163).\nSpringer, Singapore.\
+    \ (2020). doi.org/10.1007/978 −\n981−13−9177−47.\n50. Saiz-Rubio, V., & Rovira-Mas,\
+    \ F. From smart farm-\ning\ntowards\nagriculture\n5.0:\nA\nreview\non\ncrop\n\
+    data\nmanagement.\nAgronomy,\n10(2),\n207.\n(2020).\ndoi.org/10.3390/agronomy10020207.\n\
+    51. Astillo, P. V., Kim, J., Sharma, V., & You, I.\nSGF-MD:\nbehavior\nrule\n\
+    speciﬁcation-based\ndis-\ntributed\nmisbehavior\ndetection\nof\nembedded\nIoT\n\
+    devices in a closed-loop smart greenhouse farming\nsystem.\nIEEE\nAccess,\n8,\n\
+    196235-196252.\n(2020).\ndoi.org/10.1109/ACCESS.2020.3034096.\n52. Dayioglu, M.\
+    \ A., Turker, U.: Digital Transformation\nfor Sustainable Future-Agriculture 4.0:\
+    \ A review. Jour-\nnal of Agricultural Sciences, 27(4), 373-399. (2021).\ndoi.org/10.1016/j.cosrev.2020.100345.\n\
+    53. Badotra, S., Panda, S. N., Bath, K. S., Pattnaik, P. K.,\nRani, R., Tanwar,\
+    \ S., & Sundas, A.: e-Device for the\nProtection of Agricultural Land from Elephant\
+    \ Attacks\nin Odisha: A Review. IoT and Analytics for Agriculture,\n69-86. (2020).\n\
+    54. Kaur, P., & Bharti, V.: Applications of Smart Devices.\nIn Recent Trends and\
+    \ Advances in Artiﬁcial Intelligence\nand Internet of Things (pp. 483-517). Springer,\
+    \ Cham.\ndoi.org/10.1007/978-3-030-32644-9_35. (2020).\n55. NetaFarm: Digital\
+    \ Farming & Digital Agriculture.\nNetaFarm. https //www.netaﬁm.com/en/digital-farming/.\n\
+    Accessed 06 Sept 2022.\n56. EnthuTech.: Weather station based on LoRaWAN.\nhttps://www.enthutech.in/shop/product/weather-station-\n\
+    based-on-lorawan-3733?category=13. Enthu Technology\nSolutions India Pvt Ltd.\
+    \ Accessed 06 Sept 2022.\n57. Saskia,\nV.,\nHenri,\nH.,\nChristy,\nV.\nB.,\n&\n\
+    An-\ngelique,\nV.\nH.:\nPlacing\nsoil\ninformation\nin\nthe\nhands\nof\nfarmers.\n\
+    Multidisciplinary\nDigital\nPub-\nlishing\nInstitute\nProceedings,\n30(1),\n88.\n\
+    (2020).\ndoi.org/10.3390/proceedings2019030088.\n58. EnthuTech\nSoilMonitoring.\n\
+    Soil\nNPK\nSensor\nbased\non\nLoRaWAN.\nhttps://www.enthutech.in/shop/product/lsnpk01-soil-\n\
+    npk-sensor-based-on-lorawan-2785?category=13.\nSoil\nNPK Sensor based on LoRaWAN.\
+    \ Accesed 06 Sept\n2022.\n59. EnthuTech\nSoilMonitoringPH.\nSoil\nNPK\nSensor\n\
+    based\non\nLoRaWAN.\nhttps://www.enthutech.in/shop/product/lsph01-soil-\nph-sensor-based-on-lorawan-2783?category=13.\n\
+    Soil\nNPK Sensor based on LoRaWAN. Accesed 06 Sept\n2022.\n60. Soil\nNPK\nSensor\n\
+    based\non\nLoRaWAN.\nhttps://www.enthutech.in/shop/product/lse01-8500mah-\nsoil-moisture-temperature-ec-sensor-based-on-lorawan-\n\
+    594?category=13. Soil NPK Sensor based on Lo-\nRaWAN. Accesed 06 Sept 2022.\n\
+    61. Umarkar, S., & Karwankar, A. Automated seed\nsowing\nagribot\nusing\narduino.\n\
+    In\n2016\ninterna-\ntional\nconference\non\ncommunication\nand\nsignal\nprocessing\
+    \ (ICCSP) (pp. 1379-1383). IEEE. (2016).\ndoi.org/10.1109/ICCSP.2016.7754380.\n\
+    62. Badouel, E., Gmati, N., & Watson, B. Proceedings of\nCARI 2018 (African Conference\
+    \ on Research in Com-\nputer Science and Applied Mathematics). In CARI 2018-\n\
+    Colloque africain sur la recherche en informatique et\nmath. Appl. (2018).\n63.\
+    \ Alghory, A.: Evaluation of crop water stress index and\nleaf water potential\
+    \ for deﬁcit irrigation management of\nsprinkler-irrigated wheat. Irrigation Science,\
+    \ 37(1), 61-\n77. (2019). Doi.org/10.1007/s00271-018-0603-y.\n64. Agriculture\
+    \ Sensor Guide. Smart agriculture pro.\nurl=https://development.libelium.com/agriculture-\n\
+    sensor-guide/waspmote-plug-amp-sense.\nWaspmote\nPlug and amp Sense. Libelium.\
+    \ Accessed 06 Sept 2022.\n65. Leaf\nMoisture\nSensor\nbased\non\nLoRaWAN.\nhttps://www.enthutech.in/shop/product/llms01-leaf-\n\
+    moisture-sensor-based-on-lorawan-2784?category=13.\nLeaf Moisture Sensor based\
+    \ on LoRaWAN. Accesed 06\nSept 2022.\n66. Gao, D., Sun, Q., Hu, B., & Zhang, S.\
+    \ A framework\nfor agricultural pest and disease monitoring based on\ninternet-of-things\
+    \ and unmanned aerial vehicles. Sen-\nsors, 20(5), 1487. (2020). doi.org/10.3390/s20051487.\n\
+    67. Semios. All-in-one crop management platform - know\nmore, worry less. https://semios.com/.\
+    \ Semios. Accessed\n06 Sept 2022.\n68. Rodrigues, J. P. P., Pereira, L. G. R.,\
+    \ Neto, H.\nD. C. D., Lombardi, M. C., de Assis Lage, C. F.,\nCoelho, S. G., &\
+    \ Campos, M. M. Evaluation of an\nautomatic system for monitoring rumination time\
+    \ in\nweaning calves. Livestock Science, 219, 86-90. (2019).\ndoi.org/10.1016/j.livsci.2018.11.017.\n\
+    69. Gao, D., Sun, Q., Hu, B., & Zhang, S. A framework\nfor agricultural pest and\
+    \ disease monitoring based on\ninternet-of-things and unmanned aerial vehicles.\
+    \ Sen-\nsors, 20(5), 1487. (2020). doi.org/ 10.3390/s20051487.\n19\n70. Garg,\
+    \ P. K., & Sharma, L. (2019). Internet of Things\nand Its Applications. In From\
+    \ Visual Surveillance to In-\nternet of Things (pp. 29-40). Chapman and Hall/CRC.\n\
+    doi.org/10.1201/9780429297922-3.\n71. Silva, A. O. D., Silva, B. A. D., Souza,\
+    \ C. F., Azevedo,\nB. M. D., Bassoi, L. H., Vasconcelos, D. V., & Carneiro,\n\
+    F. M. (2021). Irrigation in the age of agriculture 4.0:\nmanagement, monitoring\
+    \ and precision. Revista Ciência\nAgronômica, 51. doi.org/10.5935/1806-6690.20200090.\n\
+    72. Fadziso, T. Internet of Things in Agriculture for\nSmart\nFarming.\nMalaysian\n\
+    Journal\nof\nMedical\nand\nBiological\nResearch,\n5(2),\n147-156.\n(2018).\ndoi.org/10.18034/mjmbr.v5i2.565.\n\
+    73. SenseFly.: Fixed-Wings - senseFly – The Professional’s\nMapping Drone. https\
+    \ //www.senseﬂy.com/. Accessed 06\nSept2022.\n74. Zhou, W., Jia, Y., Peng, A.,\
+    \ Zhang, Y., & Liu, P.:\nThe effect of iot new features on security and privacy:\n\
+    New threats, existing solutions, and challenges yet to be\nsolved. IEEE Internet\
+    \ of things Journal, 6(2), 1606-1616.\n(2018). doi.org/10.1109/jiot.2018.2847733.\n\
+    75. Vailshery, Sujay,L.: Number of IOT devices 2015-2025.\nhttps://www.statista.com/statistics/471264/iot-number-\n\
+    of-connected-devices-worldwide/#statisticContainer.\nStatista. Accessed 06 Sept\
+    \ 2022.\n76. De\nCesare,\nMichael.\nHow\nHackable\nis\nYour\nSmart\nEnterprise?.\n\
+    https //www.forescout.com/wp-\ncontent/uploads/2016/10/iot-enterprise-risk-report.pdf.\n\
+    Accessed 06 Sept 2022.\n77. Sinha, Bam B., Dhanalakshmi, R.: Recent advance-\n\
+    ments and challenges of Internet of Things in smart agri-\nculture: A survey.\
+    \ Future Generation Computer Systems.\n126, 169—184. (2022).\n78. Sontowski, S.,\
+    \ Gupta, M., Chukkapalli, S. S. L., Abdel-\nsalam, M., Mittal, S., Joshi, A.,\
+    \ & Sandhu, R. Cyber at-\ntacks on smart farming infrastructure. In 2020 IEEE\
+    \ 6th\nInternational Conference on Collaboration and Internet\nComputing (CIC)\
+    \ (pp. 135-143). IEEE. (2020).\n79. Kumar, R., Kumar, P., Tripathi, R., Gupta,\
+    \ G. P.,\nGadekallu, T. R., & Srivastava, G. SP2F: A secured\nprivacy-preserving\
+    \ framework for smart agricultural Un-\nmanned Aerial Vehicles. Computer Networks,\
+    \ 187,\n107819. (2021).\n80. Demestichas, K., Peppes, N., & Alexakis, T.: Sur-\n\
+    vey\non\nsecurity\nthreats\nin\nagricultural\nIoT\nand\nsmart\nfarming.\nSensors,\n\
+    20(22),\n6458.\n(2020).\nDoi.org/10.3390/S20226458.\n81. Rao, V., & Prema, K.\
+    \ V.: Performing Real-time Network\nAttacks on Smart Weather Monitoring Device\
+    \ Using Kali\nLinux. In 2020 IEEE Bangalore Humanitarian Technol-\nogy Conference\
+    \ (B-HTC) (pp. 1-6). IEEE. (2020).\n82. Ferrag, M. A., Shu, L., Yang, X., Derhab,\
+    \ A., &\nMaglaras, L. Security and privacy for green IoT-based\nagriculture: Review,\
+    \ blockchain solutions, and chal-\nlenges. IEEE access, 8, 32031-32053. (2020).\n\
+    83. de Araujo Zanella, A. R., da Silva, E., & Albini, L.\nC. P.: Security challenges\
+    \ to smart agriculture: Current\nstate, key issues, and future directions. Array,\
+    \ 8, 100048.\n(2020). Doi.org/10.1016/j.array.2020.100048.\n84. Abdul-Ghani, H.\
+    \ A., Konstantas, D., & Mahyoub,\nM.: A comprehensive IoT attacks survey based\
+    \ on a\nbuilding-blocked reference model. International Journal\nof Advanced Computer\
+    \ Science and Applications, 9(3).\n(2018).\n85. Yazdinejad, A., Zolfaghari, B.,\
+    \ Azmoodeh, A., De-\nhghantanha, A., Karimipour, H., Fraser, E., ... & Duncan,\n\
+    E.: A review on security of smart farming and precision\nagriculture: Security\
+    \ aspects, attacks, threats and coun-\ntermeasures. Applied Sciences, 11(16),\
+    \ 7518. (2021).\n86. Alahmadi, A. N., Rehman, S. U., Alhazmi, H. S.,\nGlynn, D.\
+    \ G., Shoaib, H., & Sole, P. Cyber-Security\nThreats and Side-Channel Attacks\
+    \ for Digital Agricul-\nture. Sensors, 22(9), 3520. (2022).\n87. Barreto, L.,\
+    \ & Amaral, A.: Smart farming: Cyber se-\ncurity challenges. In 2018 International\
+    \ Conference on\nIntelligent Systems (IS) (pp. 870-876). IEEE. (2018).\n88. Tzachor,\
+    \ A., Devare, M., King, B., Avin, S., & O\nhEigeartaigh, S. Responsible artiﬁcial\
+    \ intelligence in\nagriculture requires systemic understanding of risks and\n\
+    externalities. Nature Machine Intelligence, 4(2), 104-\n109. (2022).\n89. Boghossian,\
+    \ A., Linksy, S., Brown, A., Mutschler, P.,\nUlicny, B., Barrett, L., & Koehler,\
+    \ S.: Threats to Preci-\nsion Agriculture–Homeland Security. A Study Supported\n\
+    by the United States Ofﬁce of the Director of National\nIntelligence (ODNI) and\
+    \ the Department of Homeland\nSecurity (DHS). (2018).\n90. Tim, H. FBI warns about\
+    \ cyber attacks in agriculture.\nhttps://www.profarmer.com/news/agriculture-news/fbi-\n\
+    warns-about-cyber-attacks-agriculture. Pro Farmer. 06\nSept 2022.\n91. Antonakakis,\
+    \ M., April, T., Bailey, M., Bernhard, M.,\nBursztein, E., Cochran, J., & Zhou,\
+    \ Y. Understanding\nthe mirai botnet. In 26th USENIX security symposium\n(USENIX\
+    \ Security 17) (pp. 1093-1110). (2017).\n92. Tyagi, T.: Botnet of things: Menace\
+    \ to Internet of\nThings. LAP LAMBERT Academic Publishing. (2018).\n93. Line,\
+    \ M. B., Zand, A., Stringhini, G., & Kemmerer,\nR.: Targeted attacks against industrial\
+    \ control systems: Is\nthe power industry prepared?. In Proceedings of the 2nd\n\
+    Workshop on Smart Energy Grid Security (pp. 13-22).\n(2014).\n94. BBC.\nSteel-Mill\n\
+    Phishing.\nHack\nattack\ncauses\n’massive\ndamage’\nat\nSteel\nWorks.\nhttps://www.bbc.com/news/technology-30575104.\n\
+    BBC News. Accessed 06 Sept 2022.\n20\n95. Ry, C.: Australian wool sales stopped\
+    \ by ransomware\nattack.\nhttps://www.itnews.com.au/news/australian-\nwool-sales-stopped-by-ransomware-attack-538657.\n\
+    iTnews. Accessed 06 Sept 2022.\n96. GovTech.\nAgriculture\nindustry\non\nalert\n\
+    after\nstring\nof\ncyber\nattacks.\nhttps://www.govtech.com/security/agriculture-industry-\n\
+    on-alert-after-string-of-cyber-attacks.\nGovTech.\nAc-\ncessed 06 Sept 2022.\n\
+    97. Sadineni, L., Pilli, E., & Battula, R. B. A holistic foren-\nsic model for\
+    \ the internet of things. In IFIP International\nConference on Digital Forensics\
+    \ (pp. 3-18). Springer,\nCham. (2019).\n98. Roopaei, M., Rad, P., & Choo, K. K.\
+    \ R.: Cloud of things\nin smart agriculture: Intelligent irrigation monitoring\
+    \ by\nthermal imaging. IEEE Cloud computing, 4(1), 10-15.\n(2017). doi.org/10.1109/MCC.2017.5.\n\
+    99. Lin, J. C. W., & Yeh, K. H. Security and privacy tech-\nniques in IoT environment.\
+    \ Sensors, 21(1), 1. (2020).\n100. Chang, C. P., Chen, C. T., Lu, T. H., Lin,\
+    \ I. L., Huang,\nP., & Lu, H. S. Study on constructing forensic procedure\nof\
+    \ digital evidence on smart handheld device. In 2013 In-\nternational Conference\
+    \ on System Science and Engineer-\ning (ICSSE) (pp. 223-228). IEEE. (2013).\n\
+    101. Cohen, F.: Two models of digital forensic examination.\nIn 2009 Fourth International\
+    \ IEEE Workshop on System-\natic Approaches to Digital Forensic Engineering (pp.\
+    \ 42-\n53). IEEE. (2009).\n102. Stoyanova,\nM.,\nNikoloudakis,\nY.,\nPanagiotakis,\n\
+    S., Pallis, E., & Markakis, E. K. A survey on the\ninternet of things (IoT) forensics:\
+    \ challenges, ap-\nproaches, and open issues. IEEE Communications\nSurveys\n&\n\
+    Tutorials,\n22(2),\n1191-1221.\n(2020).\nDoi.org/10.1109/COMST.2019.2962586.\n\
+    103. Hegarty,\nR.,\nLamb,\nD.\nJ.,\n&\nAttwood,\nA.:\nDigital\nEvidence\nChallenges\n\
+    in\nthe\nInter-\nnet\nof\nThings.\nIn\nINC\n(pp.\n163-172).\n(2014).\ndoi.org/10.4108/icst.collaboratecom.2013.254159.\n\
+    104. O shaughnessy, S., & Keane, A. (2013, January). Im-\npact of cloud computing\
+    \ on digital forensic investiga-\ntions. In Iﬁp international conference on digital\
+    \ forensics\n(pp. 291-303). Springer, Berlin, Heidelberg.\n105. Losavio, M. M.,\
+    \ Pastukov, P., Polyakova, S., Zhang,\nX., Chow, K. P., Koltay, A., & Ortiz, M.\
+    \ E. The ju-\nridical spheres for digital forensics and electronic evi-\ndence\
+    \ in the insecure electronic world. Wiley Interdisci-\nplinary Reviews: Forensic\
+    \ Science, 1(5), e1337. (2019).\nDoi.org/10.1002/wfs2.1337.\n106. DOrazio, C.\
+    \ J., Choo, K. K. R., & Yang, L. T.: Data\nexﬁltration from Internet of Things\
+    \ devices: iOS devices\nas case studies. IEEE Internet of Things Journal, 4(2),\n\
+    524-535. (2016). doi.org/10.1109/JIOT.2016.2569094.\n107. Taylor, M., Haggerty,\
+    \ J., Gresty, D., & Hegarty, R.\nDigital evidence in cloud computing systems.\
+    \ Com-\nputer law & security review, 26(3), 304-308. (2010).\nDoi.org/10.1016/J.CLSR.2010.03.002.\n\
+    108. Lutta, P., Sedky, M., Hassan, M., Jayawickrama, U.,\n& Bastaki, B. B. (2021).\
+    \ The complexity of internet of\nthings forensics: A state-of-the-art review.\
+    \ Forensic Sci-\nence International: Digital Investigation, 38, 301210.\n109.\
+    \ Chi, H., Aderibigbe, T., & Granville, B. C. A\nframework for IoT data acquisition\
+    \ and forensics\nanalysis. In 2018 IEEE International Conference on\nBig Data\
+    \ (Big Data) (pp. 5142-5146). IEEE. (2018).\ndoi.org/10.1109/BigData.2018.8622019.\n"
+  inline_citation: '>'
+  journal: Research Square (Research Square)
+  limitations: '>'
+  pdf_link: https://www.researchsquare.com/article/rs-2042812/latest.pdf
+  publication_year: 2022
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'IoT based Agriculture (IoTA): Architecture, Cyber Attack, Cyber Crime and
+    Digital Forensics Challenges'
+  verbatim_quote1: "\\n\tDifferent data types (e.g., soil moisture, canopy temperature,\
+    \ weather) and their collection and use\\n\t\t- Importance of collecting and using\
+    \ various data types for accurate irrigation management\\n\t\t- Examples of data\
+    \ collection methods and sensors used in IoTA systems\\n"
+  verbatim_quote2: "\\n\tExisting emerging cyber attacks and cyber crime (CACC) in\
+    \ IoTA\\n\t\t- Overview of common cyber attacks targeting IoTA systems\\n\t\t\
+    - Impact of cyber attacks on IoTA systems and farm operations\\n\t\t- Case studies\
+    \ of notable cyber attacks on IoTA systems\\n"
+  verbatim_quote3: '>'

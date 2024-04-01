@@ -1,0 +1,553 @@
+- analysis: 'This manuscript presents a systematic methodology to couple water quality
+    and quantity allocation in the typical reach of the Yellow River. The authors
+    sought to develop a model that could not only simulate the state variables and
+    process of water systems but also simultaneously control water quality and quantity
+    in the target water function areas.
+
+
+    The model was comprised of several key modules:
+
+    * Water Quantity Module - This module was responsible for simulating the flow
+    of water through the river system and included processes like reservoir operations,
+    water distribution, and water balance calculations.
+
+    * Water Quality Module - This module simulated the transport and transformation
+    of pollutants in the river system using parameters influencing pollutant attenuation,
+    and included processes like pollutant decay and advection.
+
+    * Model Coupling and Control Module - This module coordinated the water quantity
+    and quality modules by means of data transfer. It also identified the targets
+    for water intake, discharge, and water quality, and controlled the direction of
+    adjustment and correction based upon target deviation.
+
+
+    The combined model was first calibrated against observed data from the period
+    2001-2007, and was found to accurately simulate both water quantity and quality.
+    It was then used to develop an integrated water quantity and quality allocation
+    scheme for the typical reach of the Yellow River. The scheme was developed using
+    data from the year 2020, and included optimization of water intake, discharge,
+    and pollutant emissions. The results showed that the model was able to effectively
+    control the discharge and quality of water in the target areas while also meeting
+    the water demands of the region. Overall, this model provides a valuable tool
+    for addressing the complex problem of water quality and quantity allocation in
+    river systems. It is a robust and flexible model that can be used to simulate
+    and optimize water allocation schemes under a variety of conditions.'
+  authors:
+  - Zhou K.
+  citation_count: '2'
+  description: Taking a typical reach of the Yellow River as the research object,
+    using decomposition, coordination, coupling and control technology and through
+    real-time data transmission and feedback, the simultaneous coupling of water quantity
+    and quality is realized. Based on the identification parameters of water intake,
+    section discharge and water quality index in the water function areas, the on-line
+    identification and process control of the allocation target are realized, and
+    an integrated model of water quantity and quality with the functions of cycle
+    iteration, on-line feedback and rolling correction is established. Taking the
+    natural runoff from 1956 to 2000 as input and the water demand and sewage discharge
+    from the upper reaches of the Yellow River in 2015 as an example and through optimization,
+    an integrated water quantity and quality allocation scheme for the typical reach
+    of the Yellow River is put forward. It is shown that the model can realize the
+    integrated allocation of water quantity and quality in the Yellow River.
+  doi: 10.2166/ws.2020.126
+  full_citation: Zhou, K. (2020). Integrated allocation model of water quantity and
+    quality and its application in the Yellow River. Water Supply, 20(8), 3768–3778.
+    https://doi.org/10.2166/ws.2020.126
+  full_text: '>
+
+    "All Content All Journals This Journal                              Advanced Search
+    Cart Register UNIVERSITY OF NEBRASKA Sign In ISSUES JOURNAL INFORMATION LIBRARIANS
+    BOOKS ABOUT Select Language▼ Volume 20, Issue 8 1 December 2020 Previous Article
+    Next Article Article Contents Abstract HIGHLIGHTS INTRODUCTION GENERALIZATION
+    OF TYPICAL REACH INTEGRATED ALLOCATION MODEL CONSTRUCTION OF WATER QUANTITY AND
+    QUALITY MODEL VERIFICATION EXAMPLE ANALYSIS CONCLUSIONS ACKNOWLEDGEMENTS REFERENCE
+    RESEARCH ARTICLE| JUNE 15 2020 Integrated allocation model of water quantity and
+    quality and its application in the Yellow River Ke Zhou Water Supply (2020) 20
+    (8): 3768–3778. https://doi.org/10.2166/ws.2020.126 Article history Views PDF
+    Share Tools Abstract Listen Taking a typical reach of the Yellow River as the
+    research object, using decomposition, coordination, coupling and control technology
+    and through real-time data transmission and feedback, the simultaneous coupling
+    of water quantity and quality is realized. Based on the identification parameters
+    of water intake, section discharge and water quality index in the water function
+    areas, the on-line identification and process control of the allocation target
+    are realized, and an integrated model of water quantity and quality with the functions
+    of cycle iteration, on-line feedback and rolling correction is established. Taking
+    the natural runoff from 1956 to 2000 as input and the water demand and sewage
+    discharge from the upper reaches of the Yellow River in 2015 as an example and
+    through optimization, an integrated water quantity and quality allocation scheme
+    for the typical reach of the Yellow River is put forward. It is shown that the
+    model can realize the integrated allocation of water quantity and quality in the
+    Yellow River. HIGHLIGHTS Listen Using decomposition, coordination, coupling and
+    control technology and through real-time data transmission and feedback, the simultaneous
+    coupling of water quantity and quality was realized. On-line identification and
+    process control of the allocation target were realized. An integrated model of
+    water quantity and quality was established. Through optimization, an integrated
+    water quantity and quality allocation scheme for the typical reach of the Yellow
+    River was put forward. Important reference value for water resources optimal utilization
+    and environment protection. Graphical Abstract Graphical Abstract VIEW LARGEDOWNLOAD
+    SLIDE identification and control, integrated allocation model, synergetic coupling,
+    water quality and quantity, Yellow River INTRODUCTION Listen Water quantity and
+    quality are two basic attributes of water resources, and they belong to an interdependent
+    unity. With the growth of population, economic and social development, the increasing
+    demand of water resources and the increase of sewage discharge, the double pressure
+    of water quality and quantity is increasing, and the integrated allocation of
+    quantity and quality has become a hot issue in the current research field (Wang
+    et al. 2013). Globally speaking, research on river water quantity and quality
+    is limited by many factors, and research findings on the integrated regulation
+    of water quantity and quality are few (Shokri et al. 2014). There are few studies
+    on the joint allocation of water quantity, quality and water shortage. The main
+    research works focus on the impact of water quality on the process of water resources
+    allocation, or use water quality as a constraint to develop water resources allocation
+    schemes (Dong et al. 2009; Peng et al. 2015). The key technology of integrated
+    water quality and quantity research is to establish an integrated allocation model.
+    The regulation objectives of an integrated allocation model of water quantity
+    and quality include: water allocation, pollution control and water ecological
+    protection. The model can be divided into three categories according to the purpose
+    of solving problems: (1) a model for joint optimal regulation of water quantity
+    and quality with reservoir optimal operation as central (Nikoo et al. 2014); (2)
+    a model based on a carrying capacity assessment of the ecological environment
+    system of a river network, and taking the simulation of water quantity and quality
+    of the river network as central (Chen et al. 2014a, 2014b); (3) a model focusing
+    on the hydrological environment effect of rivers under the control of sluice dams,
+    and the regulation and control of sluice dams on polluted rivers (Liu et al. 2014).
+    From the view point of modeling method, the current joint allocation of water
+    quality and quantity can achieve the goal of water quality and quantity control
+    through water quality and quantity joint simulation models. ‘Loose coupling’ is
+    widely used in coupling technology (Zhao et al. 2012), i.e. the separation of
+    the water quality and quantity model, and the realization of water quantity and
+    quality simulation in turn, ignoring the relation and interaction between water
+    quality and quantity. Control technology generally simplifies the water quality
+    target as a constraint, and lacks process coordination within the model, which
+    does not consider real-time feedback and on-line identification function. Therefore,
+    most models only solve the problem of water quality effect evaluation of river
+    water allocation and do not realize the integrated allocation of water quantity
+    and quality. The Yellow River is short of water resources, the contradiction between
+    water supply and demand is prominent, and water pollution is serious. At present,
+    research on Yellow River regulation mainly focuses on flood control, silt reduction,
+    water supply and power generation. For the study of water quality, it is based
+    on the ability to absorb pollution and the law of pollutant transformation. It
+    mostly aims at a single problem such as water regulation, capacity assessment,
+    or water quality evaluation and so on. Study on the integration of water quantity
+    and quality is still at the stage of comprehensive evaluation (Lyu et al. 2013).
+    The research methods and means of water resources integration allocation need
+    to be deepened. Therefore, taking the Lanzhou to Hekouzhen reach as an example,
+    by means of systematic generalization and supported by numerical simulation, a
+    model of integrated allocation of water quantity and quality is established, and
+    the water allocation scheme is optimally put forward. GENERALIZATION OF TYPICAL
+    REACH General situation of the reach Listen The soil and water resources distribution
+    in the Yellow River Basin is uneven. The main water production area is located
+    above the Lanzhou section, and the runoff discharge at the Lanzhou section accounts
+    for 62% of the total runoff of the Yellow River. The reach from Lanzhou to Hekouzhen
+    is 1,362 km long. It spans Gansu, Ningxia and Inner Mongolia provinces and regions.
+    It belongs to arid and semi-arid areas with less water production. The average
+    annual water consumption of the reach accounts for 41% of the total water use
+    in the Yellow River Basin, and the discharge of waste water accounts for 32%.
+    It is the main water resource consuming area and pollutant source area of the
+    Yellow River, and the water quantity and quality problems are prominent. The Longyang
+    Gorge, Liujiaxia and other large reservoirs have been built in the upper reaches
+    of the Yellow River, with a regulation capacity of more than 200.0 × 108m3, which
+    has the basic conditions for carrying out the integrated regulation of water quantity
+    and quality. Generalization of the reach Listen The calculation is carried out
+    according to different sections. The main engineering nodes, control nodes and
+    system elements such as water supply and drainage are expressed by generalized
+    ‘point’ and ‘line’ elements, and the system network node diagram describing the
+    hydraulic connection of the watershed is drawn, which is used as the basis of
+    simulation and calculation. In order to ensure the simulation accuracy of the
+    model, the river reach generalization and node division could follow five principles:
+    reflecting the characteristics of river flow and sewage production; reflecting
+    the hydraulic connection and the process of movement transformation; reflecting
+    the taking and using of drainage characteristics; reflecting the engineering conditions
+    of the reach; and reflecting the water quality and quantity requirements of the
+    reach. According to the investigation, there are 23 water intake outlets, 44 drainage
+    outlets, three tributaries and 20 hydrological and water quality monitoring stations
+    from Lanzhou to Hekouzhen section. The river reach water system is generalized
+    into ten basic nodes of runoff, confluence, power station, reservoir, urban water
+    use, agricultural irrigation, runoff control, wetland, hydrological station and
+    water quality monitoring station. The generalized network nodes of the river reach
+    water system are summarized in Figure 1. Figure 1 VIEW LARGEDOWNLOAD SLIDE Generalized
+    nodes of the reach from Lanzhou to Hekouzhen of the Yellow River. INTEGRATED ALLOCATION
+    MODEL CONSTRUCTION OF WATER QUANTITY AND QUALITY Water quantity model Listen Based
+    on the hydraulic connection of the nodes and the evolution, transformation and
+    balance of river flow, a water allocation model with network technology as the
+    core is established to simulate the response of the river water resources system
+    under different allocation strategies of water resources (Lee et al. 2010). Construction
+    of water quantity model Listen Aiming at the minimum water shortage and reasonable
+    distribution of water in the reach of the river, the main purpose is to solve
+    the problem of the spatial–temporal equilibrium of water volume and water allocation
+    in different water demand departments. When the water supply cannot meet the water
+    demand, the spatial–temporal distribution of water is optimized through reasonable
+    allocation, to increase the system water supply and realize the minimum water
+    shortage and reasonable water distribution. The objective function is as follows:
+    (1) in which QD(i, j, t), QS(i, j, t) (m3/s) denote the water demand and water
+    intake of the j water user in area i during the t time period, respectively. W
+    is the water shortage, (m3); I is the total number of provinces and regions, J
+    is the total number of water users and T is the total number of time periods.
+    In order to meet the water demand of the ecological environment in a river channel,
+    it is necessary for the river to maintain a certain amount of ecological environmental
+    discharge. This is characterized by the water demand satisfaction degree E of
+    the ecological environment of the section. (2) in which E is the water demand
+    satisfaction degree of the river ecological environment, and the larger the value,
+    the higher the satisfaction degree of river ecological water demand will be; QR(x,
+    t) (m3/s), De(x, t) (m3) is the section discharge and ecological environmental
+    water demand of the river channel in t time period and x river reach respectively;
+    ϕx is the weight coefficient of the reach; X is the total number of river reaches.
+    Constraints Listen The purpose of setting up the constraints of the water quantity
+    model is to realize the simulation of the environment and the operation boundary.
+    Here, the unit of Q is m3/s. Discharge constraint Listen To ensure river function
+    and meet section discharge requirements. (3) Engineering constraint Listen Water
+    supply amount of the water source project does not exceed its water supply capacity.
+    (4) Output constraint Listen The hydropower station should meet the requirement
+    of system output (Qian et al. 2013). (5) Safety constraint Listen Safety requirements
+    for reservoir operation. (6) Water balance constraint Listen (7) Water available
+    constraint Listen The total water consumption in the region is less than the water
+    distribution index in this region (Peng et al. 2013). (8) Variables non-negative
+    constraint Listen In which QR(x, t) is the discharge in the t period of the x
+    reach; Qmin(x,t) is the minimum discharge demand of the reach; QM(m, t) is the
+    water intake in the m project of t period; Qp.max(m) is the maximum water intake
+    capacity; N(n, t) is the output of reservoir n in t period; Nmin(n) is the minimum
+    output of installed units in reservoir n; Nmax(n) is installed capacity; V(n,
+    t) is the storage capacity of n reservoir during t period; Vmin(n) is for dead
+    storage; Vmax(n,t) is the maximum allowable reservoir capacity in t period; QR(x
+    − 1, t) is the runoff in t period of the upper reach x; QRn(x, t) is interval
+    inflow in t period of reach x; QSx(x, t) is water intake in t period of reach
+    x; QL(x, t) is water loss in t period of reach x; QT(x − 1, t) is the channel
+    receding water in t period in the upper reaches; Qcon(i) is the annual water consumption
+    in i region; QY(i) is the index of water allocation in i area. Water quality model
+    Listen Based on the simulation of pollutant migration and transformation in river
+    channels and the control goal of water quality in the water function areas, a
+    water quality model with numerical simulation as the core is established to simulate
+    the river environmental effects under different water resource allocation and
+    pollutant discharge scenarios. Construction of water quality model Listen In order
+    to meet the requirement of water quality in the water function areas, the model
+    was established with the aim of minimum deviation between water quality index
+    and target water quality index (Razmkhah et al. 2010). (9) in which θj is the
+    weight coefficient of water quality in reach j; Cob is the target water quality
+    control index in the water function areas; is the water quality index function
+    under water intake ⁠. Boundary condition treatment Lateral inflow Listen This
+    mainly includes three categories. (1) Tributary inflow. Runoff and pollutant concentration
+    can be calculated with long-term observation data. (2) Sewage discharged to the
+    river channel. Regular monitoring of discharges and emission concentrations. (3)
+    Interval surface inflow. Inflow and pollutant concentration are calculated by
+    using a distributed model. There is no underground water inflow because the river
+    bed is higher than the surface land outside the river. The mass of the lateral
+    pollutants entering the equilibrium region can be expressed as follows (Tang et
+    al. 2014): (10) in which m1t is the mass of pollutants from lateral inflow; QRu(l,
+    t) is the inflow at the I lateral entry point in the x reach; Clt is the pollutant
+    concentration at the I entry point; and L is the total inflow reaches. Boundary
+    outflow Listen This mainly refers to the amount of water (agricultural, industrial,
+    living water use) taken from the section, which is generalized as the intake node
+    with spatial coordinates, and the pollutant concentration of the water intake
+    is deduced according to the water quality model. The quality of the extraction
+    pollutant is related to the quantity of water intake and the concentration of
+    the pollutant. The pollutant mass of the water intake can be expressed as follows:
+    (11) in which m2t is the mass of water intake pollutants; Cijt is the pollutant
+    concentration for the j user, t period and in i area; Qs(i, j, t) is the water
+    intake for the j user, t period and in i area; and I, J is the total number of
+    water users and regions in the reach, respectively. Considering the degradation
+    of pollutants, discharge of pollutants along the river and water intake, a model
+    of river water quality is established according to the principle of material balance
+    (Yang et al. 2014). (12) in which Cx-1 is the pollutant concentration at time
+    t above the cross-section x; Z is the length between the upper and lower section;
+    Kp is the degradation coefficient of pollutant p; Zl is the length between the
+    section x and the l lateral inflow; u is the flow velocity of the reach, there
+    being a nonlinear relationship between the flow velocity and the flow rate; and
+    the other symbols have the same meaning as above. Model coupling and control Listen
+    Joint control of water quantity and quality is the basis of integrated allocation,
+    and data transmission, coupling and coordination are the key to realizing joint
+    control. Using decomposition, coordination, coupling and control methods, the
+    model is decomposed into water quantity model M1 and water quality model M2. The
+    function of M1 is to calculate reservoir operation, water evolution, water distribution
+    and section water balance in the reach, and output discharge from the section
+    and nodes will be used as the basic input of M2. Based on the output of M1, M2
+    simulates the process of pollutant transfer and transformation and gives feedback
+    to M1 on the concentration of pollutants. The real time connection between the
+    two models is established by means of data transfer, and the synchronous coupling
+    of the two models is realized. The coordinated control model M0 is used to identify
+    the water intake, the discharge under the section and the water quality of the
+    water function areas output by the water quantity model. According to the satisfaction
+    degree of the system information identification control target, Model M0 gives
+    feedback to M1 and M2 on the target deviation of water quantity and quality allocation
+    according to the satisfaction degree of the control target of system information
+    identification, and controls the direction of adjustment and correction to guide
+    the model to be optimized step by step. The composition of the model is shown
+    in Table 1. Table 1 Model composition of integrated water quality and quantity
+    Model Model target Solve problems Core module Model parameters Output variables
+    M0  Coordinate and control  Control and coordinate  Control, coordinate  N    M1  Water
+    allocation  Water distribution  Water balance, reservoir operation, water distribution      M2  Water
+    quality simulation  Pollutant distribution  Pollutant migration, mass balance,
+    pollutant control  K     Model M0 realizes water allocation target based on the
+    following measures: cross-section water intake control, cross-section discharge
+    control, taking the water quality of the water function areas as identification
+    control variables, the top-down forward calculation of water quality and the reverse
+    control of water quality from bottom to top, on-line adjustment, rolling correction
+    of water amount and pollutants into the river, etc. being carried out. The model
+    framework and control flow are shown in Figure 2. Figure 2 VIEW LARGEDOWNLOAD
+    SLIDE Model framework and control process. Forward calculus Listen According to
+    the water requirement of the section below the Liujiaxia Reservoir, water inflow
+    and water loss between sections, the initial operation line of the Longyangxia
+    Reservoir and the Liujiaxia Reservoir is preliminarily determined. Discharge is
+    carried out according to preset flow. The water evolution is carried out at intervals
+    of one hour and river reach by reach. Reverse control Listen The reverse calculation
+    is carried out to determine the minimum discharge of the reservoir. Taking the
+    requirement of water intake, cross-section discharge and water quality index as
+    the control condition, when the result output does not meet the control condition,
+    the discharge under Longyangxia Reservoir and Liujiaxia Reservoir is automatically
+    changed to recalculate the discharge, so as to iterate calculation until the section
+    discharge and water quality meet the requirements (Zhang et al. 2011). Process
+    adjustment Listen To identify the water intake, the section discharge and the
+    water quality parameters of the water function areas, if the outputs are not satisfied,
+    then, coordinate the control to reduce the amount of water intake and the amount
+    of pollutants entering the river in a discounted proportion; if it is still not
+    satisfied, then go up by feedback and adjust the parameters (Zhang et al. 2010).
+    Rolling correction Listen The water quality and quantity simulation results and
+    system status are renewed at time intervals. According to the results of the water
+    quantity calculation in the previous period and the pollution control situation,
+    the remaining period water allocation scheme is recalculated, that is, revise
+    the scheme, and then roll to the end of the sequence (Yuan et al. 2015). MODEL
+    VERIFICATION Model parameters Listen (1) Water quantity parameters. Considering
+    the relatively complex flow in the Lanzhou to Hekouzhen reach, the Muskinggem
+    algorithm is used to calculate the flow. The relevant main parameters include:
+    flow advance time and flow specific gravity factor, which is determined by the
+    flow, the flow velocity and the distance between the upper and lower sections.
+    (2) Water quality parameters. According to the relevant research results, the
+    variation range of chemical oxygen demand (COD) attenuation coefficient is 0.15–0.25
+    and the ammonia nitrogen (NH3-N) attenuation coefficient is 0.3–0.6 in the Yellow
+    River (Yun et al. 2005). There are many factors affecting the attenuation coefficient
+    of pollutants. The fluctuation of influence factors will cause the change of pollutant
+    attenuation coefficient. Through sensitivity analysis, the concentration of pollutants,
+    water temperature, hydraulic characteristics and suspended solids are considered
+    as the key factors affecting the comprehensive attenuation coefficient of a water
+    quality model (Zhou et al. 2013). The attenuation coefficient of pollutants in
+    a river reach consists of two parts: the basic coefficient and the influence coefficient.
+    (13) in which is the basic value of attenuation coefficient of polluntant p; ⁠,
+    is the affecting coefficient of pollutant p attenuation of factor q at time t
+    and their variation respectively. The influence factors of the main pollutant
+    attenuation coefficient are set out in Table 2. Rating and verification Listen
+    (1) Parameter rating. The main parameter rating in the model is carried out based
+    on the period 2001–2007. The measured runoff of Lanzhou section is taken as the
+    basic inflow of the model, and the amount of water intake, the process of water
+    intake and the discharge of pollutants are taken as the basic input. The simulated
+    discharge process and pollutant concentration in different sections are compared
+    with the measured water quantity and quality data from 2001 to 2007 in the section
+    from Lanzhou to Hekouzhen of the Yellow River, and the parameters are adjusted
+    until the fitting accuracy meets the requirement, then, the parameter rate is
+    determined. (2) Model verification. The reliability of the model is verified using
+    2008–2010 as the verification period. The discharge of 14 main sections from Lanzhou
+    to Hekouzhen are simulated using the water volume model. The model simulation
+    accuracy criteria are required as follows. The average deviation of monthly discharge
+    is less than 8%. The Nash coefficients of section water flow simulation are greater
+    than 0. 84. The main pollutant concentration, water quality category and change
+    trend of the main section simulated by the water quality model are basically consistent
+    with the actual measurement. The relative errors of COD and ammonia nitrogen (NH3-N)
+    are less than 20%. Table 2 Influence factors of main pollutant attenuation coefficient
+    in water quality model from Lanzhou to Hekouzhen Parameters/coefficients Rating
+    value Influence factors Symbol Temperature  COD = 1.022 NH3-N = 1.026  Temperature  k1,t  Hydraulic
+    velocity  0.1  Velocity, ratio of channel width to depth  k2,t  Pollutant concentration  −1.018  Initial
+    pollutant concentration  k3,t  Suspended solids  2.25 × 10−4  Sediment content  k4,t   EXAMPLE
+    ANALYSIS Basic data analysis Listen (1) Water resources quantity. From 1956 to
+    2000, the average annual natural runoff at the Tangnaihe section is 205.2 × 108
+    m3, and 329.90 × 108 m3 at the Lanzhou section. The amount of surface water resources
+    between Lanzhou and Hekouzhen is 17.68 × 108 m3, the loss of evaporation and leakage
+    between the two sections is 15.82 × 108 m3, the natural runoff at the Hekouzhen
+    section is 331.8 × 108 m3, and the amount of groundwater availability is 40.55
+    × 108 m3. (2) Water demand. It is predicted that the total water demand from Lanzhou
+    to Hekouzhen at the 2020 level (relative to probabilities of 50%, 75% and 90%)
+    is 191.1 × 108 m3, 200.0 × 108 m3, and 207.3 × 108 m3 respectively, of which more
+    than 50 percent are agricultural water use. Water demands for different reaches
+    are shown in Table 3. (3) Pollutant emission. Pollutants in the reach come mainly
+    from municipal sewage, industrial waste water and agricultural irrigation water
+    recession. According to the current pollutant discharge level and the development
+    trend of different water use and drainage technology, and based on the water demand
+    of different sectors in the river reach, the average annual COD emission from
+    Lanzhou to Hekouzhen at the 2020 level is predicted to be 53.8 × 104t. The amount
+    of ammonia and nitrogen (NH3-N) emission is 6.328 × 104t. Emissions of major pollutants
+    are shown in Table 4. (4) Section discharge and ecological water flow control.
+    According to ‘The Detailed Rules in the Implementation of the Yellow River Water
+    Allocation Act’, the minimum control discharge at the sections of Xiaheyan, Shizuishan
+    and Toudaoguai is 200 m3/s, 150 m3/s and 50 m3/s respectively. Annual discharge
+    quantity at the Hekouzhen section should not be less than 197.0 × 108 m3. (5)
+    Water quality objectives in water function areas. There are five water function
+    primary areas and 22 water function secondary areas in the reach from Lanzhou
+    to Hekouzhen. The water quality targets in the water function areas are all of
+    class III, corresponding to the target water quality control index: COD is not
+    more than 20 mg/L, ammonia nitrogen (NH3-N) is not more than 1 mg/L. Table 3 Prediction
+    of water demand from Lanzhou to Hekouzhen × 108 m3 Reaches Living Production Eco-environment
+    urban rural urban rural urban rural P = 50% P = 75% P = 90% 1  1.10  0.40  4.230  12.27  13.29  14.94  0.10  0.03  2  1.25  0.56  7.960  65.74  68.64  71.97  0.35  0.27  3  2.44  0.64  12.48  79.18  83.82  86.16  0.33  2.09  Total  4.79  1.60  24.66  157.2  165.7  173.1  0.78  2.39  *Reach
+    1 = Lanzhou–Xiaheyan; reach 2 = Xiaheyan–Shizuishan; reach 3 = Shizuishan–Hekouzhen.
+    Table 4 Pollutant emission prediction in the reach from Lanzhou to Hekouzhen ×104
+    t Reaches COD NH3-N living industrial agriculture living industrial agriculture
+    Lanzhou–Xiaheyan  1.70  2.55  0.540  0.460  0.510  0.030  Xiaheyan–Shizuishan  2.13  9.20  20.4  0.570  1.02  0.970  Shizuishan–Hekouzhen  3.94  11.0  2.29  1.06  1.58  0.110  Total  7.76  22.8  23.2  2.10  3.11  1.11  Integrated
+    allocation model of water quantity and water quality Listen Adopting the flow
+    chart of simulation, feedback, coordination and control, under the guidance and
+    control of water discharge and water quality target in the water function areas,
+    through water intake adjustment, control and feedback, and reducing the amount
+    of pollutant emission, the integrated allocation purpose of water quality and
+    quantity can be realized. (1) Water quantity allocation. The requirements of section
+    discharge and water quality in function areas are met by the water intake control
+    and water supply process. Water allocation results: the annual average water supply
+    above Hekouzhen is 202.50 × 108 m3, in which surface water supply is 166.50 ×
+    108 m3, underground water supply is 23.59 × 108 m3, reclaimed water is 12.42 ×
+    108 m3, and water shortage in the reach is 22.41 × 108 m3. Water intake is controlled
+    reasonably. The annual average natural runoff at the section of Lanzhou is 329.90
+    × 108 m3, the annual average water intake above the Lanzhou section is 30.67 ×
+    108 m3, and the water consumption is 22.02 × 108 m3. The annual average water
+    discharge at the Lanzhou section is 315.9 × 108 m3. The annual average surface
+    water consumption in the reach from Lanzhou to Hekouzhen is 125.2 × 108 m3. The
+    reduction of water consumption is 6.72 × 108 m3 compared with the surface water
+    consumption index allocated by the ‘87 Water Diversion Scheme’. The section discharge
+    meets the relevant requirements. The average annual inflow of the Lanzhou section
+    is 307.90 × 108 m3. The section discharge at Xiaheyan, Shizuishan and Hekouzhen
+    is 288.0 × 108 m3 and 263.7 × 108 m3, and 206.6 × 108 m3 respectively. Water allocation
+    in the different reaches is shown in Table 5. (2) Water quality allocation. Through
+    controlling the section discharge volume, the environmental capacity is improved,
+    the amount of pollutant emission is controlled and the water quality in the water
+    function areas is improved. Water quality allocation results: the discharge of
+    waste water is controlled to 41.34 × 108 m3, in which the discharge of industrial
+    and domestic sewage is 17.28 × 108 m3 and the agricultural irrigation water recession
+    is 24.05 × 108 m3. The main pollutant COD into the river is reduced to 26.5 ×
+    104t, which is reduced by 27.3 × 104t, and the rate of reduction is 50.6%. The
+    amount of ammonia nitrogen (NH3-N) entering the river is controlled within 2.17
+    × 104 t, which is reduced by 4.15 × 104t, and the rate of reduction is 65.7%.
+    The water quality in 14 water function areas in the river reach achieves the third
+    class (class III), and the water quality control goal is realized. The pollutants
+    entering the river are shown in Table 6. Table 5 Water allocation scheme in the
+    reaches from Lanzhou to Hekouzhen × 108 m3 Reaches Water demand Water supply Water
+    use surface ground reclaimed ind. and living agr. and eco-env. Up Lanzhou  41.95  30.67  2.240  2.
+    160  10.38  24.70  Lanzhou–Xiaheyan  28.65  23.52  0.090  1.960  13.74  11.84  Xiaheyan–Shizuishan  72.09  50.43  8.220  5.510  9.350  54.81  Shizuishan–Hekouzhen  94.18  61.91  13.04  2.800  4.68  63.07  Total  236.9  166.5  23.59  12.42  38.15  154.4  Table
+    6 The key pollutant emission into the Yellow River × 104 t Reaches COD NH3-N domestic
+    industrial agriculture domestic industrial agriculture Up Lanzhou  1.10  1.74  0.570  0.120  0.230  0.060  Lanzhou–Xiaheyan  1.30  2.10  0.370  0.130  0.280  0.020  Xiaheyan–Shizuishan  0.250  1.81  12.9  0.020  0.240  0.610  Shizuishan–Hekouzhen  0.130  2.78  1.50  0.010  0.370  0.070  Total  2.79  8.42  15.3  0.290  1.12  0.760  Effect
+    of water quantity and quality allocation Listen (1) Water distribution in the
+    reach. The exploitation of groundwater is controlled to 23.59 × 108 m3. Under
+    the condition of meeting the discharge quantity and water quality target, the
+    average annual water supply from Lanzhou to Hekouzhen is 202.50 × 108 m3, water
+    shortage is 27.45 × 108 m3, and the water shortage rate is 14.1%. Uniform distribution
+    of water shortage in time and space and the target of the minimum water shortage
+    have been realized. (2) Section discharge. The annual discharge at Hekouzhen section
+    is 206.6 × 108m3, which is greater than the amount of the water regulation requirement
+    (197.0 × 108 m3). The minimum discharge at the section is 269 m3/s, which is over
+    the minimum controlled flow (250 m3/s). The discharge at the 14 control sections
+    all meet the requirements of the downstream discharge process. (3) Water quality
+    in the water function areas. The main pollutants (COD and NH3-N) in the reach
+    of the river are strictly controlled. The maximum COD is no more than 20 mg/L,
+    the highest ammonia nitrogen (NH3-N) is no more than 0. 8 mg /L. The water quality
+    at the main section and in the water function areas is up to class III (The State
+    Surface Water Quality Standard). The water quality target rate in the water function
+    areas reaches 100%. CONCLUSIONS Listen In view of the characteristics of the river
+    reach from Lanzhou to Hekouzhen, such as the large amount of water intake and
+    recession points, the large amount of water requirement and the complicated process,
+    the reach was abstracted as a conceptual element of parameter expression by means
+    of generalization. The water system network of a river reach was established in
+    describing the hydraulic relation between various elements in mathematical language.
+    Using decomposition, coordination, coupling and control methods, an integrated
+    model of water quantity and quality was established. Through real-time transfer
+    of water quantity and quality models the synchronous coupling of water quantity
+    and quality was realized. Taking the 2020 level year of the Lanzhou to Hekouzhen
+    reach as an example, the integrated allocation of water quantity and quality was
+    carried out. It is shown by the results that the model can control the surface
+    water intake from Lanzhou to Hekouzhen by identifying the water intake and section
+    discharge. The surface water consumption of Lanzhou to Hekouzhen is 125.2 × 108m3,
+    and the surface water intake is 166.5 × 108m3. Through the identification of water
+    quality in the water function areas, the optimized COD and ammonia nitrogen (NH3-N)
+    flow control reduction rates are 50.6% and 65.7% respectively, which effectively
+    improve the water quality in the water function areas and meet the water quality
+    target in the water function areas. ACKNOWLEDGEMENTS Listen The study is financially
+    supported by the National Key Technologies R&D Program of China (No. 2013BAC10B02).
+    REFERENCE Chen L. G. Shi Y. Qian X. Luan Z. Y. Jin Q. 2014a Hydrology, hydrodynamics,
+    and water quality model for impounded rivers. I: Theory. Advances in Water Science
+    25 (4), 534–541. Google Scholar  Chen L. G. Shi Y. Qian X. Jin Q. Lai X. Z. Wang
+    S. 2014b Hydrology, hydrodynamics, and water quality model for impounded rivers.
+    II: Application. Advances in Water Science 25 (6), 856–863. Google Scholar  Dong
+    Z. C. Bian G. Y. Wang C. H. Li D. Y. 2009 Joint operation of water quantity and
+    quality based on numerical model. Advances in Water Science 20 (2), 184–189. Google
+    Scholar  Lee H. W. Bhang K. J. Park S. S. 2010 Effective visualization for the
+    spatiotemporal trend analysis of the water quality in the Nakdong River of Korea.
+    Ecological Informatics 5 (4), 281–292. Google ScholarCrossref   Liu D. Guo S.
+    Shao Q. Jiang Y. Chen X. 2014 Optimal allocation of water quantity and waste load
+    in the Northwest Pearl River Delta, China. Stochastic Environmental Research and
+    Risk Assessment 28 (6), 1525–1542. Google ScholarCrossref   Lyu S. Y. Xu Y. S.
+    Lan L. Du Y. P. Mei Y. D. 2013 Study of ecological storage based on optimization
+    simulation technique. Advances in Water Science 24 (3), 402–409. Google Scholar  Nikoo
+    M. R. Kerachian R. Karimi A. Azadnia A. A. Jafarzadegan K. 2014 Optimal water
+    and waste load allocation in reservoir–river systems: a case study. Environmental
+    Earth Sciences 71 (9), 4127–4142. Google ScholarCrossref   Peng S. M. Wang H.
+    Wang Y. He L. Y. 2013 Study on the pan-basin optimization of water resources system.
+    Journal of Hydraulic Engineering 44 (1), 6–11. Google Scholar  Peng Z. Y. Zhang
+    L. L. Yin J. X. Wang H. 2015 Advance and prospect of study on joint regulation
+    of water quality and quantity. Water Resources and Hydropower Engineering 46 (4),
+    6–10. Google Scholar  Qian L. Liu Y. Chao J. Y. 2013 The current situation and
+    development trend of China joint regulating of water quality and water quantity.
+    Environmental Science & Technology 36 (6), 484–487. Google Scholar  Razmkhah H.
+    Abrishamchi A. Torkian A. 2010 Evaluation of spatial and temporal variation in
+    water quality by pattern recognition techniques: a case study on Jajrood River
+    (Tehran, Iran). Journal of Environmental Management 91 (4), 852–860. Google ScholarCrossref
+    PubMed  Shokri A. Haddad O. B. Mariño M. A. 2014 Multi-objective quantity–quality
+    reservoir operation in sudden pollution. Water Resources Management 28 (2), 567–586.
+    Google ScholarCrossref   Tang H. W. Yuan S. Y. Xiao Y. 2014 Effects of flow and
+    sediment on the transport and transformation of pollutants in rivers. Advances
+    in Water Science 25 (1), 139–147. Google Scholar  Wang J. H. Xiao W. H. Wang H.
+    Chai Z. K. Niu C. W. Li W. 2013 Integrated simulation and assessment of water
+    quantity and quality for a river under changing environmental conditions. Chinese
+    Science Bulletin 58 (12), 1101–1108. Google ScholarCrossref   Yang H. D. Xiao
+    Y. Wang Z. M. Shao D. G. Liu B. Y. 2014 On source identification method for sudden
+    water pollution accidents. Advances in Water Science 25 (1), 122–129. Google Scholar  Yuan
+    D. Zhang Y. J. Liu J. M. Gao S. C. 2015 Water quantity and quality joint operation
+    modeling of dams and floodgates in Huai River basin, China. Journal of Water Resources
+    Planning and Management 141 (9), 04015005. Google ScholarCrossref   Yun F. Li
+    Y. Yang J. N. Yang Z. X. 2005 Investigation on simulation of dynamic distribution
+    of COD and ammonia-nitrogen pollution in Ningxia segment of the Yellow River.
+    Journal of Ningxia University 26 (3), 283–286. Google Scholar  Zhang W. S. Wang
+    Y. Peng H. Li Y. T. Tang J. S. Wu K. B. 2010 A coupled water quantity–quality
+    model for water allocation analysis. Water Resources Management 24 (3), 485–511.
+    Google ScholarCrossref   Zhang H. B. Wang Y. M. Jiang X. H. 2011 Ecological regulation
+    of reservoirs on the Yellow River main stream oriented to ecological flow restoration.
+    Journal of Hydroelectric Engineering 30 (6), 15–21. Google Scholar  Zhao B. K.
+    Wang L. P. Zhang Y. K. Liu F. 2012 Study on the coupling model for water quality
+    and quantity control in the urban raw water system. Journal of Hydraulic Engineering
+    43 (11), 1373–1380. Google Scholar  Zhou G. Hei P. F. Lei K. Fu G. Qiao F. 2013
+    Numerical modeling of the relationship between pollution loads and water quality
+    in lower reach of Ganjiang River. Advances in Water Science 24 (6), 883–893. Google
+    Scholar  © IWA Publishing 2020 View Metrics Cited by Web Of Science (1) Google
+    Scholar CrossRef (3) We recommend Study on the method and model of water balance
+    allocation of the Yellow River with overall fairness and efficiency Yu Wang et
+    al., Water Science and Technology: Water Supply, 2023 An integrated fuzzy optimization
+    and simulation method for optimal quality-quantity operation of a reservoir-river
+    system Omid Babamiri et al., Water Science and Technology: Water Supply, 2022
+    Decomposition–coordination model of reservoir group and flood storage basin for
+    real-time flood control operation Benyou Jia et al., Hydrology Research, 2015
+    Joint optimization of water allocation and water quality based on multi-objective
+    control in Nanning, China Xinghua Ma et al., Water Science and Technology, 2021
+    Optimization of capacity continuity during the deep-area transition for an underground
+    metal mine HOU Jie et al., Chinese Journal of Engineering, 2023 Online intelligent
+    product quality monitoring method based on machine learning XU Gang et al., Chinese
+    Journal of Engineering, 2022 STRENGTHENING NON-POINT SOURCE POLLUTION CONTROL
+    TO PROMOTE AGRICULTURAL GREEN DEVELOPMENT Wen XU et al., Frontiers of Agricultural
+    Science and Engineering, 2023 FULL TIME-SPACE GOVERNANCE STRATEGY AND TECHNOLOGY
+    FOR CROPLAND NON-POINT POLLUTION CONTROL IN CHINA Lihong XUE et al., Frontiers
+    of Agricultural Science and Engineering, 2023 Powered by ISSN 1606-9749 EISSN
+    1607-0798 Cart Journals eBooks Open Access Collections Subscriptions Subscribe
+    to Open Editorial Services Rights and Permissions Crossmark FAQ Contact us Sign
+    Up for Our Mailing List IWA Publishing Republic – Export Building, Units 1.04
+    & 1.05 1 Clove Crescent London, E14 2BA, UK Telephone: +44 208 054 8208 Fax: +44
+    207 654 5555 IWAPublishing.com IWA-network.org IWA-connect.org Cookie Policy Terms
+    & Conditions Privacy Site Map Get Adobe Acrobat Reader ©Copyright 2021 IWA Publishing
+    This site uses cookies. By continuing to use our website, you are agreeing to
+    our privacy policy. Accept"'
+  inline_citation: Zhou (2020)
+  journal: 'Water Science and Technology: Water Supply'
+  limitations: null
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Integrated allocation model of water quantity and quality and its application
+    in the Yellow River
+  verbatim_quote1: '"Based on the identification parameters of water intake, section
+    discharge and water quality index in the water function areas, the on-line identification
+    and process control of the allocation target are realized, and an integrated model
+    of water quantity and quality with the functions of cycle iteration, on-line feedback
+    and rolling correction is established."'
+  verbatim_quote2: '"Taking the natural runoff from 1956 to 2000 as input and the
+    water demand and sewage discharge from the upper reaches of the Yellow River in
+    2015 as an example and through optimization, an integrated water quantity and
+    quality allocation scheme for the typical reach of the Yellow River is put forward.
+    It is shown that the model can realize the integrated allocation of water quantity
+    and quality in the Yellow River."'
+  verbatim_quote3: '>'

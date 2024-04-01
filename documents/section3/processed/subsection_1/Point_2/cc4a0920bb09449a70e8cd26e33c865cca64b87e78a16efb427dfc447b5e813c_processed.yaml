@@ -1,0 +1,1536 @@
+- DOI: https://doi.org/10.3390/hydrology5040053
+  analysis: 'This study focuses on the impacts of three land use regimes on water
+    conservation, including irrigated farming, dryland farming, and entire-year fallow,
+    to evaluate the current state and future potential of real-time automated irrigation
+    management systems. The results are particularly relevant to the Southern High
+    Plains (SHP), where cotton is the main crop but producers have expressed increased
+    interest in crops with reduced water requirements due to groundwater regulations.
+    Dryland crop production is also expected to increase as groundwater levels decline.
+    Scenarios for different crops and management methods were modeled and simulated
+    using the Soil and Water Assessment Tool (SWAT) with a newly developed management
+    allowed depletion (MAD) irrigation scheduling algorithm. The SWAT model was calibrated
+    and validated for irrigated conditions using ten years of measured irrigation,
+    evapotranspiration (ET), and crop yield data, as well as for dryland conditions
+    using measured data from a west lysimeter field. Twelve scenarios were evaluated:
+    six irrigated crops (grain corn, winter wheat, cotton, soybeans, sunflowers, and
+    grain sorghum), five dryland crops (winter wheat, cotton, soybeans, sunflowers,
+    and grain sorghum), and a continuous fallow scenario. Simulated irrigation, ET,
+    and crop yield were considered representative of actual long-term average values
+    in the study site. Irrigated grain sorghum resulted in the lowest net groundwater
+    use (293 mm), while irrigated corn showed the highest (432 mm). Irrigated soybean,
+    sunflower, and grain sorghum reduced net groundwater use by 18.9%, 21.3%, and
+    32.2%, respectively, compared to irrigated corn. No net groundwater use was estimated
+    under dryland conditions, but the continuous fallow simulation resulted in an
+    annual 31 mm of water for eventual groundwater recharge. These results indicate
+    that land use changes from water-intensive irrigated corn to less water-demanding
+    crops might be necessary to extend the availability of the Ogallala Aquifer for
+    sustainable crop production. However, economic analyses of alternative cropping
+    and land use strategies are recommended for comprehensive decision-making.'
+  authors:
+  - Yong Chen
+  - Gary W. Marek
+  - Thomas H. Marek
+  - Jerry E. Moorhead
+  - Kevin Heflin
+  - David Bräuer
+  - Prasanna H. Gowda
+  - Raghavan Srinivasan
+  citation_count: 17
+  full_citation: Assessment of Alternative Agricultural Land Use Options for Extending
+    the Availability of the Ogallala Aquifer in the Northern High Plains of Texas
+  full_text: ">\nhydrology\nArticle\nAssessment of Alternative Agricultural Land Use\n\
+    Options for Extending the Availability of the Ogallala\nAquifer in the Northern\
+    \ High Plains of Texas\nYong Chen 1,*, Gary W. Marek 2, Thomas H. Marek 3, Jerry\
+    \ E. Moorhead 2\n, Kevin R. Heﬂin 3\n,\nDavid K. Brauer 2, Prasanna H. Gowda 4\
+    \ and Raghavan Srinivasan 1\n1\nDepartment of Ecosystem Science and Management,\
+    \ Texas A&M University, 2138 TAMU, College Station,\nTX 77845, USA; r-srinivasan@tamu.edu\n\
+    2\nUSDA-ARS Conservation and Production Research Laboratory, 2300 Experiment Station\
+    \ Rd.,\nP.O. Drawer 10, Bushland, TX 79012, USA; Gary.Marek@ars.usda.gov (G.W.M.);\n\
+    Jed.Moorhead@ars.usda.gov (J.E.M.); David.Brauer@ars.usda.gov (D.K.B.)\n3\nTexas\
+    \ A&M AgriLife Research, Texas A&M AgriLife Research and Extension Center, 6500\
+    \ Amarillo Blvd W,\nAmarillo, TX 79106, USA; Thomas.Marek@ag.tamu.edu (T.H.M.);\
+    \ Kevin.Heﬂin@ag.tamu.edu (K.R.H.)\n4\nForage and Livestock Production Unit, USDA-ARS\
+    \ Grazinglands Research Laboratory,\n7207 West Cheyenne Street, El Reno, OK 73036,\
+    \ USA; Prasanna.Gowda@ars.usda.gov\n*\nCorrespondence: yongchen@neo.tamu.edu\n\
+    Received: 11 September 2018; Accepted: 25 September 2018; Published: 26 September\
+    \ 2018\n\x01\x02\x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\x06\a\nAbstract:\
+    \ The Ogallala Aquifer has experienced a continuous decline in water levels due\
+    \ to decades\nof irrigation pumping with minimal recharge. Corn is one of the\
+    \ major irrigated crops in the\nsemi-arid Northern High Plains (NHP) of Texas.\n\
+    Selection of less water-intensive crops may\nprovide opportunities for groundwater\
+    \ conservation. Modeling the long-term hydrologic impacts\nof alternative crops\
+    \ can be a time-saving and cost-effective alternative to ﬁeld-based experiments.\n\
+    A newly developed management allowed depletion (MAD) irrigation scheduling algorithm\
+    \ for\nSoil and Water Assessment Tool (SWAT) was used in this study. The impacts\
+    \ of irrigated farming,\ndryland farming, and continuous fallow on water conservation\
+    \ were evaluated. Results indicated\nthat simulated irrigation, evapotranspiration,\
+    \ and crop yield were representative of the measured\ndata. Approximately 19%,\
+    \ 21%, and 32% reductions in annual groundwater uses were associated\nwith irrigated\
+    \ soybean, sunﬂower, and sorghum, respectively, as compared to irrigated corn.\
+    \ On\naverage, annual soil water depletion was more than 52 mm for dryland farming\
+    \ scenarios. In contrast,\nonly 18 mm of soil water was lost to evaporation annually,\
+    \ for the long-term continuous fallow\nsimulation. The fallow scenario also showed\
+    \ 31 mm of percolation for aquifer recharge.\nKeywords: SWAT; evapotranspiration;\
+    \ irrigation; soil water content; groundwater recharge; crop\nyield; lysimeter;\
+    \ management allowed depletion\n1. Introduction\nThe Ogallala Aquifer serves as\
+    \ a crucial groundwater source for agricultural production in the\nsemi-arid Texas\
+    \ High Plains (THP). This region is one of the most productive irrigated agricultural\n\
+    regions in the United States (U.S.). However, decades of irrigation pumping combined\
+    \ with limited\nrecharge has led to reduced water levels in the aquifer, resulting\
+    \ in decreased well capacities.\nThe saturated thickness of the aquifer generally\
+    \ decreases in a southward gradient across the\nTHP (Figure 1). Differences in\
+    \ associated pumping capacities effectively divides the THP into two\nagricultural\
+    \ production regions, the Northern High Plains (NHP) and the Southern High Plains\
+    \ (SHP).\nThe SHP consists of 16 counties extending from northwest of Lubbock\
+    \ to Midland, while the NHP\nHydrology 2018, 5, 53; doi:10.3390/hydrology5040053\n\
+    www.mdpi.com/journal/hydrology\nHydrology 2018, 5, 53\n2 of 16\nregion is comprised\
+    \ of the 25 northernmost counties of the Texas Panhandle. The saturated thickness\n\
+    of the aquifer and associated well capacities in each region directly inﬂuence\
+    \ land use and crop\ncomposition. Cotton (Gossypium hirsutum L.) is the major\
+    \ cultivated crop in the SHP, which produces\nnearly one-third of all U.S. cotton\
+    \ [1]. Currently, grain corn (Zea mays L.) is the dominant irrigated crop\ngrown\
+    \ in the NHP, and several counties have reported some of the largest average corn\
+    \ yields in the\nnation [1]. However, production of relatively water-intensive\
+    \ corn in this semi-arid environment often\nrequires large amounts of supplemental\
+    \ irrigation, as in-season precipitation is inadequate, variable,\nand unpredictable.\n\
+    Hydrology 2018, x, x FOR PEER REVIEW  \n4 of 17 \n \nFigure 1. Location, size,\
+    \ orientation, and water management of the two large weighing lysimeter fields\
+    \ \nat the USDA-ARS Conservation and Production Research Laboratory (CPRL), Bushland,\
+    \ TX. \nTable 1. Soil properties of the study site. \nSoil Properties \nLayer\
+    \ 1 \nLayer 2 \nLayer 3 \nLayer 4 \nLayer depth (mm) \n0–180 \n180–860 \n860–1800\
+    \ \n1800–2300 \nBulk density (g cm−3) \n1.43 \n1.38 \n1.38 \n1.45 \nClay content\
+    \ (% soil mass) \n33.9 \n42.1 \n39.4 \n39.1 \nSilt content (% soil mass) \n53.8\
+    \ \n48.0 \n47.6 \n47.1 \nSand content (% soil mass) \n12.3 \n9.9 \n13.0 \n13.8\
+    \ \nAvailable water capacity (mm H2O per mm soil) \n0.20 \n0.18 \n0.19 \n0.14\
+    \ \nSaturated hydraulic conductivity (mm h−1) \n9.72 \n2.16 \n2.16 \n9.72 \nTable\
+    \ 2. Crops grown in the large weighing lysimeter fields at Bushland, Texas under\
+    \ full irrigation \nand dryland conditions from 1996 to 2016. \nYear \nFull Irrigation\
+    \ Using Sprinkler System \nDryland Conditions \n1996 \nAlfalfa \nEntire-year fallow\
+    \ with bare soil \n1997 \nAlfalfa \nGrain sorghum \n1998 \nAlfalfa \nGrain sorghum\
+    \ \n1999 \nAlfalfa \nGrain sorghum \n2000 \nCotton \nCotton \n2001 \nCotton \n\
+    Cotton \n2002 \nCotton \nEntire-year fallow with bare soil \n2003 \nSoybean \n\
+    Grain sorghum \n2004 \nSoybean \nCotton \nFigure 1. Location, size, orientation,\
+    \ and water management of the two large weighing lysimeter ﬁelds\nat the USDA-ARS\
+    \ Conservation and Production Research Laboratory (CPRL), Bushland, TX.\nGroundwater\
+    \ regulations have been enacted in major portions of the THP for restricting annual\n\
+    irrigation withdrawals to mitigate depletion of the Ogallala Aquifer [2]. In response\
+    \ to these regulations,\nmany producers have expressed increased interest in crops\
+    \ with reduced water requirements or\neven conversion to dryland farming [3].\n\
+    Less water-intensive crops, such as cotton, soybean\n(Glycine max L.), sunﬂower\
+    \ (Helianthus annuus L.), grain sorghum (Sorghum bicolor L.), winter wheat\n(Triticum\
+    \ aestivum L.), and others are of interest. For example, drought-tolerant crops,\
+    \ such as cotton,\ngrain sorghum, and winter wheat, are less sensitive to water\
+    \ stress and can produce proﬁtable yields\nunder both limited irrigation and dryland\
+    \ conditions [4,5]. Although less drought tolerant than\nwheat and sorghum, soybean\
+    \ is adapted to drought conditions because photosynthesis continues\nat lower\
+    \ leaf-water potentials [6], and yield is less sensitive to water deﬁcit during\
+    \ the vegetative\nstage [7]. Sunﬂowers are characterized by deep and extensive\
+    \ root systems, which can extract water\nand nutrients from the soil proﬁle as\
+    \ deep as 3.0 m [8–10]. This allows sunﬂowers to survive in even\nsevere drought\
+    \ conditions. According to the National Agricultural Statistics Service (NASS),\
+    \ 47% of all\ncultivated agricultural land in the THP was classiﬁed as dryland\
+    \ in 2017 [1]. Dryland crop production\nin the THP is expected to increase as\
+    \ groundwater levels continue to decline and competition for\nother uses increases\
+    \ [11]. Accurate crop-speciﬁc water requirements and their respective impacts\
+    \ on\ngroundwater depletion are useful for selecting viable and proﬁtable alternative\
+    \ crops in the NHP.\nHydrology 2018, 5, 53\n3 of 16\nLong-term ﬁeld experiments\
+    \ for determining irrigation requirements of various crops are time\nconsuming\
+    \ and costly. Computational modeling programs are especially useful for studying\
+    \ long-term\neffects of crop or land use selections on hydrology [12]. Modeling\
+    \ applications also mitigate the time\nand ﬁnancial resources needed to evaluate\
+    \ alternative agricultural land use options compared to\nthe ﬁeld experiments.\
+    \ However, adequate model parameterization and representative agronomic\nalgorithms\
+    \ are required for meaningful simulation and interpretation of results. Past modeling\n\
+    attempts have been unable to adequately simulate irrigation strategies that use\
+    \ management allowed\ndepletion (MAD) scheduling, an approach used by producers\
+    \ in the THP and in the arid and semi-arid\nclimates around the world [13–18].\n\
+    The Soil and Water Assessment Tool (SWAT) is a physically-based, semi-distributed,\
+    \ watershed-\nscale hydrologic model [19]. Primary model inputs include elevation\
+    \ information, land use and cover,\nsoil properties, climate conditions, and management\
+    \ practices such as tillage, planting date, fertilizer\napplication, irrigation\
+    \ scheduling, and harvest date [20]. Recently, Chen et al. [21] developed and\n\
+    tested a new auto-irrigation algorithm for simulating MAD irrigation scheduling\
+    \ with the SWAT model\nusing ten years of measured irrigation, evapotranspiration\
+    \ (ET), and crop growth data from lysimeter\nﬁelds at the USDA-ARS Conservation\
+    \ and Production Research Laboratory (CPRL), Bushland, Texas.\nThe MAD-based algorithm\
+    \ more accurately simulated irrigation practices typical of the THP and\noutperformed\
+    \ the default auto-irrigation functions in SWAT [21]. The improved algorithm allows\
+    \ for a\nuser deﬁned depletion of plant available water to occur before irrigations\
+    \ are triggered. In addition,\nthe MAD algorithm suspends irrigation after crop\
+    \ harvest. However, when using the SWAT default\nsoil water content auto-irrigation\
+    \ method, irrigation may still occur after crop harvest, resulting in\nthe overestimation\
+    \ of seasonal irrigation [22,23]. These reﬁnements allow for improved simulation\
+    \ of\nirrigation practices that result in more accurate representation of long-term\
+    \ land use scenarios under\nirrigated conditions.\nAltering crop composition or\
+    \ changing a land use regime (e.g., irrigated farming, dryland farming,\nor fallow\
+    \ with bare soil conditions) in the THP may signiﬁcantly inﬂuence the water budget\
+    \ by altering\nproportions of irrigation, ET, soil water content, and groundwater\
+    \ recharge. For example, using the\nSWAT model, Luan et al. [24] predicted an\
+    \ 8% increase in annual ET in the Hetao irrigation district of\nChina due to a\
+    \ change in land use from wheat to corn. VanLoocke et al. [25] also reported that\
+    \ land\nuse conversion from corn to perennial grasses would increase ET by up\
+    \ to 150 mm yr−1 and decrease\nstreamﬂow by 250 mm yr−1 in the Corn Belt of U.S.\
+    \ Midwest. However, long-term assessments of the\nwater use impacts of land use\
+    \ scenarios are lacking for arid/semi-arid regions, such as the THP, due to\n\
+    limited ﬁeld-based data [26]. In addition, no study has provided a comprehensive\
+    \ assessment of water\nbalance for long-term continuous fallow conditions.\nThe\
+    \ primary goal of this study was to assess the impacts of multiple land use scenarios\
+    \ of irrigated\nfarming, dryland farming, and entire-year fallow on ET, soil water\
+    \ content, and crop yield in the\nNHP region. Speciﬁcally, the objectives of this\
+    \ study were to: (1) determine the appropriateness of\nvarious crops including\
+    \ corn, winter wheat, cotton, soybean, sunﬂower, sorghum under irrigated and\n\
+    dryland farming conditions in the NHP; and (2) quantify the effects of long-term\
+    \ continuous fallow on\ngroundwater recharge and soil water depletion.\n2. Materials\
+    \ and Methods\n2.1. Study Site\nThe study site is located at the USDA-ARS CPRL\
+    \ at Bushland, Texas (35.2◦ N, 102.1◦ W, ~1170 m\nabove mean sea level). The regional\
+    \ climate is classiﬁed as the semi-arid with average annual rainfall\nand temperature\
+    \ of 496 mm and 14.1 ◦C, respectively for years 2001–2010. The dominant soil is\n\
+    classiﬁed as Pullman clay loam (ﬁne, mixed, superactive, thermic Torrertic Paleustoll)\
+    \ [27]. Selected\nsoil properties are provided in Table 1. The study site is relatively\
+    \ ﬂat with a minimal slope of less than\none percent.\nHydrology 2018, 5, 53\n\
+    4 of 16\nTable 1. Soil properties of the study site.\nSoil Properties\nLayer 1\n\
+    Layer 2\nLayer 3\nLayer 4\nLayer depth (mm)\n0–180\n180–860\n860–1800\n1800–2300\n\
+    Bulk density (g cm−3)\n1.43\n1.38\n1.38\n1.45\nClay content (% soil mass)\n33.9\n\
+    42.1\n39.4\n39.1\nSilt content (% soil mass)\n53.8\n48.0\n47.6\n47.1\nSand content\
+    \ (% soil mass)\n12.3\n9.9\n13.0\n13.8\nAvailable water capacity (mm H2O per mm\
+    \ soil)\n0.20\n0.18\n0.19\n0.14\nSaturated hydraulic conductivity (mm h−1)\n9.72\n\
+    2.16\n2.16\n9.72\nTwo 4.7 ha ﬁelds (one irrigated and one dryland), each having\
+    \ a large weighing lysimeter situated\nin its center, was selected as the study\
+    \ site (Figure 1). Climate data were obtained from an adjacent\nresearch-grade\
+    \ weather station maintained to the American Society of Civil Engineers-Environmental\n\
+    and Water Resources Institute (ASCE-EWRI) speciﬁcations [28]. Irrigated ﬁeld crops\
+    \ grown from 1996\nto 2016 included alfalfa (Medicago sativa L.), cotton, soybean,\
+    \ grain, and forage sorghum, sunﬂower,\nand grain and forage corn. Dryland crops\
+    \ included grain sorghum, cotton, soybean, and sunﬂower\n(Table 2). A N–S oriented\
+    \ linear move sprinkler system was used to apply water to the east irrigated\n\
+    lysimeter ﬁeld. The west lysimeter ﬁeld was managed as dryland with fallow years\
+    \ of 1996, 2002,\n2005, and 2009. Management of fallow ﬁeld included weed control\
+    \ operations, including tillage and\nherbicide treatments as needed. Fertilizer\
+    \ applications for irrigated and dryland crops were applied\naccording to recommendations\
+    \ from annual soil testing.\nTable 2. Crops grown in the large weighing lysimeter\
+    \ ﬁelds at Bushland, Texas under full irrigation\nand dryland conditions from\
+    \ 1996 to 2016.\nYear\nFull Irrigation Using Sprinkler System\nDryland Conditions\n\
+    1996\nAlfalfa\nEntire-year fallow with bare soil\n1997\nAlfalfa\nGrain sorghum\n\
+    1998\nAlfalfa\nGrain sorghum\n1999\nAlfalfa\nGrain sorghum\n2000\nCotton\nCotton\n\
+    2001\nCotton\nCotton\n2002\nCotton\nEntire-year fallow with bare soil\n2003\n\
+    Soybean\nGrain sorghum\n2004\nSoybean\nCotton\n2005\nGrain sorghum\nEntire-year\
+    \ fallow with bare soil\n2006\nForage corn\nGrain sorghum\n2007\nForage sorghum\n\
+    Grain sorghum\n2008\nCotton\nCotton\n2009\nSunﬂower\nEntire-year fallow with bare\
+    \ soil\n2010\nCotton\nSoybean\n2011\nSunﬂower\nSunﬂower\n2012\nNo crop\nDrip installation\n\
+    2013\nGrain corn\nDrip-irrigated grain corn\n2014\nGrain sorghum\nDrip-irrigated\
+    \ grain sorghum\n2015\nGrain sorghum\nDrip-irrigated grain sorghum\n2016\nGrain\
+    \ corn\nDrip-irrigated grain corn\n2.2. Model Inputs and Crop Growth Data\nElevation\
+    \ information and the soil data for the study site were obtained from the U.S.\
+    \ Geological\nSurvey (USGS) and Web Soil Survey [29], respectively. All management\
+    \ information, including tillage,\nplanting, fertilizer applications, harvest,\
+    \ etc., were recorded for each ﬁeld for every year. Irrigation\namounts and application\
+    \ dates were also recorded. Climatic data, including precipitation, maximum\n\
+    air temperature, minimum air temperature, relative humidity, solar radiation,\
+    \ and wind speed were\naggregated into daily values for modeling input.\nHydrology\
+    \ 2018, 5, 53\n5 of 16\nCrop LAI samples were collected periodically during the\
+    \ growing season by destructive sampling.\nLeaf samples were measured using a\
+    \ digital scanning bed leaf area meter (model LI-3100, LI-COR,\nLincoln, Nebraska).\
+    \ LAI values were calculated as the ratio of upper side leaf area (m2) to the\
+    \ ground\narea (m2). Final yield was determined by both combine harvest and hand\
+    \ harvest sampling at the\nend of the growing season. Speciﬁcally, agronomic data\
+    \ collected from the east lysimeter ﬁeld from\n2000 to 2010 were used for SWAT\
+    \ inputs. Actual irrigation frequency and magnitude data were input\ninto SWAT\
+    \ using the manual irrigation function and the schedule by speciﬁc date method.\
+    \ Daily ET,\nseasonal LAI, and ﬁnal crop yield from 2001 to 2010 were used to\
+    \ calibrate and validate the SWAT\nmodel for the irrigated conditions [26]. Analyses\
+    \ of long-term alternative land use scenarios using\nthe newly developed MAD auto-irrigation\
+    \ function [21] were performed in this study. Measured\ndata from the west lysimeter\
+    \ ﬁeld from 2001 to 2010 were used to calibrate and validate SWAT under\ndryland\
+    \ conditions [30].\n2.3. Lysimetric ET Data Collection\nEach lysimeter contains\
+    \ an undisturbed soil monolith collected on site, weighing ~45 Mg including\n\
+    the container mass.\nThe lysimeter surface dimensions are 3 m × 3 m (9 m2) with\
+    \ a depth of\n2.3 m [31]. The accuracy of ET measurements has ranged from 0.05\
+    \ mm to 0.01 mm when expressed\nas an equivalent depth of water [32,33]. Experienced\
+    \ technicians and scientists work to ensure that\nthe lysimeters are as representative\
+    \ of the surrounding ﬁelds as possible. Lysimeter design and\nmanagement are described\
+    \ in detail by Marek et al. [31]. Daily ET (mm) is calculated using the\nfollowing\
+    \ soil water balance equation:\nET = I + P − R − F − ∆SW\n(1)\nwhere I is irrigation\
+    \ (mm; assigned a value of zero for dryland lysimeter), P is precipitation (mm),\n\
+    R is surface runoff (assigned a value of zero due to lysimeter freeboard and furrow\
+    \ diking in the\nsurrounding ﬁelds), F is water ﬂux exiting the lysimeter storage\
+    \ volume (mm), and ∆SW is the\nchange in soil water content (mm), calculated as\
+    \ the difference between the midnight-centered average\nlysimeter mass of the\
+    \ current and previous day. The lysimeters are equipped with vacuum drainage\n\
+    systems, which collect soil proﬁle drainage into tanks suspended from the bottom\
+    \ of the lysimeters.\nAs such, drainage does not inﬂuence overall lysimeter mass\
+    \ and subsequent ET measurements except\nwhen the tanks are periodically drained.\
+    \ Therefore, F is assigned to zero. Mass-changing events such\nas this are ﬂagged\
+    \ and adjusted in the lysimeter mass datasets. Missing or spurious data resulting\n\
+    from the days of lysimeter calibration, maintenance, agronomic activities, and\
+    \ power outages were\nnot used. Detailed lysimeter data processing and data quality\
+    \ assurance/quality control (QA/QC)\nprocedures are provided by Marek et al. [34].\n\
+    2.4. Default and Management Allowed Depletion Auto-Irrigation Functions in SWAT\n\
+    The default SWAT auto-irrigation functions allow for irrigation based on (1) plant\
+    \ water demand\nor (2) soil water content. Using the soil water content method,\
+    \ irrigation is triggered whenever the soil\nwater in the proﬁle falls below ﬁeld\
+    \ capacity by more than a user-deﬁned soil water deﬁcit threshold.\nThe alternative\
+    \ MAD auto-irrigation function triggers an irrigation when a user-deﬁned percentage\n\
+    of plant available water is depleted. Plant available water is determined by soil\
+    \ proﬁle texture and\ncrop-speciﬁc maximum rooting depth [21].\nArcSWAT was developed\
+    \ by Stone Environmental, Inc.\nin collaboration with Texas A&M\nSpatial Sciences\
+    \ Laboratory and Backland Research and Extension Center. ArcSWAT 2012 (version\n\
+    2012.10_2.19; revision 664) modiﬁed with the MAD-based auto-irrigation function\
+    \ was used in this\nstudy. Two SWAT projects, one calibrated for ET, LAI, and\
+    \ crop yield for the east irrigated lysimeter\nﬁeld [21,26], and the other for\
+    \ west dryland lysimeter ﬁeld [30], were used in this study for the\nHydrology\
+    \ 2018, 5, 53\n6 of 16\nanalysis of alternative land use scenarios. Both SWAT\
+    \ projects were structured as 11-year (2000–2010)\ncontinuous simulations. In\
+    \ both projects, the ﬁrst year (2000) was used for the model warmup.\n2.5. Scenario\
+    \ Design and Assessment of Land Use Scenarios\nThe effects of three land use regimes\
+    \ including irrigated farming, dryland farming, and continuous\nfallow on water\
+    \ conservation were evaluated. Speciﬁcally, twelve agricultural land use scenarios\
+    \ for\nthe 2000–2010 simulation period were evaluated. They consisted of irrigated\
+    \ farming scenarios of\ngrain corn, winter wheat, cotton, soybean, sunﬂower, and\
+    \ grain sorghum. Dryland farming scenarios\nconsisted of winter wheat, cotton,\
+    \ soybean, sunﬂower, and grain sorghum, as well as an entire-year\nfallow (Table\
+    \ 3).\nTable 3. Long-term crop management information under the land use scenarios.\n\
+    Scenarios\nCrop\nPlanting\nDate\nFertilizer\n(kg ha−1) *\nHarvest\nDate\nInformation\
+    \ Source\n1\nIrrigared grain corn\n14 May\n644.5\n19 Oct.\n2013 and 2016 data\n\
+    2\nIrrigated winter wheat\n5 Oct.\n412\n28 June\n[35,36]\n3\nIrrigared cotton\n\
+    21 May\n326.5\n22 Nov.\n2000, 2001, 2002, 2008,\nand 2010 data\n4\nIrrigared soybean\n\
+    16 May\n0\n17 Oct.\n2003 and 2004 data\n5\nIrrigared sunﬂower\n4 June\n510\n19\
+    \ Oct.\n2009 and 2011 data\n6\nIrrigared grain sorghum\n30 May\n612\n15 Oct.\n\
+    2005, 2014, and 2015 data\n7\nDryland winter wheat\n15 Oct.\n150\n1 July\n[35,37]\n\
+    8\nDryland cotton\n21 May\n207.7\n8 Dec.\n2000, 2001, 2004, and\n2008 data\n9\n\
+    Dryland soybean\n16 May\n0\n17 Oct.\n2010 data\n10\nDryland sunﬂower\n4 June\n\
+    91\n20 Sept.\n[38]\n11\nDryland grain sorghum\n13 June\n170\n17 Oct.\n2003, 2006,\
+    \ and 2007 data\n12\nFallow with bare soil\n- -\n- -\n- -\n2002, 2005, and 2009\
+    \ data\n* Ammonium nitrate fertilizer.\nAverage values of actual crop management\
+    \ information from 1996 to 2016 were used as the\nmodel inputs for SWAT scenario\
+    \ analysis (Table 3). The MAD auto-irrigation function was used\nto schedule irrigation\
+    \ in the irrigated scenarios. The average values of the calibrated crop growth\n\
+    parameters from the two SWAT projects [21,26,30], in addition to other literature\
+    \ from Bushland studies,\nwere used to parameterize the crop database for the\
+    \ land use scenarios (Supplementary Materials\nTable S1). The SWAT outputs for\
+    \ the long-term land use scenarios were also evaluated against observed\nirrigation,\
+    \ ET, and crop yield data for the same crops at the study site. Finally, the impacts\
+    \ of various\nland use selections on irrigation, ET, soil water depletion, and\
+    \ groundwater recharge were analyzed\nand discussed.\n3. Results and Discussion\n\
+    3.1. Comparison of Simulated Irrigation, ET, and Crop Yield with Observed Data\n\
+    The range of simulated seasonal irrigation using the MAD auto-irrigation function\
+    \ for the\nten-year period (2001–2010) was representative of the actual irrigation\
+    \ range for the same crops,\nexcept for soybean and sunﬂower, which had greater\
+    \ maximums than the actual irrigation amounts\n(Table 4). Chen et al. [39] also\
+    \ showed that the MAD auto-irrigation function represented well the\nmeasured\
+    \ irrigation data from ﬁve states in the Southern Great Plains including Texas,\
+    \ Colorado,\nKansas, Nebraska, and New Mexico. Speciﬁcally, the SWAT default soil\
+    \ water content and plant\nwater demand auto-irrigation methods tended to overestimate\
+    \ and underestimate seasonal irrigation,\nrespectively, when compared to the actual\
+    \ MAD-based irrigation management. Simulated average\nseasonal irrigation was\
+    \ the largest for corn, followed by winter wheat, cotton, soybean, sunﬂower, and\n\
+    grain sorghum.\nHydrology 2018, 5, 53\n7 of 16\nTable 4. Comparison of long-term\
+    \ simulated and actual irrigation (annual amount in mm).\nCrop\nSimulated\nIrrigation\n\
+    Range\nSimulated\nIrrigation\nAverage\nActual\nIrrigation\nRange\nActual\nIrrigation\n\
+    Average\nObserved Data\nSource\nGrain corn\n254–635\n450\n470–618\n544\n2013 and\
+    \ 2016\nirrigated data\nWinter wheat\n0–762\n409\n400.0\n400\n[35]\nCotton\n279–559\n\
+    406\n282–486\n389\n2001, 2002, 2008, and\n2010 irrigated data\nSoybean\n229–483\n\
+    361\n313–495\n404\n2003 and 2004\nirrigated data\nSunﬂower\n178–483\n353\n375–485\n\
+    430\n2009 and 2011\nirrigated data\nGrain sorghum\n178–457\n305\n198–238\n224\n\
+    2005, 2014, and 2015\nirrigated data\nA comparison of the range of annual ET for\
+    \ the irrigated conditions showed that the simulated\nET range bracketed the observed\
+    \ ET range. However, the continuous fallow simulation resulted in\na lower minimum\
+    \ value for ET compared to actual ET. The continuous fallow simulation did not\n\
+    have cropping between subsequent years (Table 5). However, the actual fallow conditions\
+    \ in 2002,\n2005, and 2009 were preceded by dryland cropping in the previous year,\
+    \ which resulted in low initial\nsoil moisture for evaporation in those years.\
+    \ As expected, simulated average annual ET followed\nthe same descending order\
+    \ as simulated irrigation with fallow scenario having the least amount of\nsimulated\
+    \ ET (largely evaporation) of 457 mm (Table 5). Under dryland farming conditions,\
+    \ more than\n99% of the input water from precipitation (~500 mm) was lost through\
+    \ ET in this semi-arid region.\nChen et al. [37] also found that annual ET values\
+    \ of all SWAT simulated cotton and bioenergy crop\nscenarios accounted for about\
+    \ 99% of annual rainfall in the Double Mountain Fork Brazos watershed\nin the\
+    \ Texas High Plains. Therefore, average annual simulated ET (~500 mm) approximated\
+    \ average\nannual precipitation for all dryland farming scenarios.\nTable 5. Comparison\
+    \ of long-term simulated evapotranspiration (ET) under irrigated and fallow\n\
+    conditions with the observed ET (annual amount in mm).\nLand Use\nSimulated ET\n\
+    Range\nSimulated\nET Average\nObserved ET\nRange\nObserved ET\nAverage\nObserved\
+    \ Data\nSource\nGrain corn\n796–1055\n938\n847–957\n902\n2013 and 2016\nirrigated\
+    \ data\nWinter wheat\n599–1158\n918\n833.0\n833\n[35]\nCotton\n739–1030\n901\n\
+    798–1018\n905\n2001, 2002, 2008, and\n2010 irrigated data\nSoybean\n740–969\n\
+    856\n884–949\n917\n2003 and 2004\nirrigated data\nSunﬂower\n716–942\n845\n766–932\n\
+    849\n2009 and 2011\nirrigated data\nGrain sorghum\n623–893\n798\n790–823\n807\n\
+    2005, 2014, and 2015\nirrigated data\nFallow with\nbare soil\n375–578\n457\n319–457\n\
+    400\n2002, 2005, and 2009\ndryland data\nSimulated average crop yields closely\
+    \ matched average measured yields under both irrigated\nand dryland management\
+    \ scenarios (Table 6). Overall, the range of simulated yields bracketed the\n\
+    range of observed yields with the exceptions of irrigated grain corn and sorghum.\
+    \ Average annual\nrainfall for the 2001–2010 simulation period was around 500\
+    \ mm, which approximated the long-term\nHydrology 2018, 5, 53\n8 of 16\nannual\
+    \ average for precipitation [40]. However, corn grown in 2013 received relatively\
+    \ low annual\nprecipitation with only 333 mm. Conversely, annual precipitation\
+    \ was exceedingly large (928 mm) for\nthe grain sorghum grown in 2015. These conditions\
+    \ likely contributed to the differences between the\nsimulated and measured yields\
+    \ for irrigated grain corn and sorghum. Overall, the long-term simulated\naverage\
+    \ annual irrigation, ET, and crop yield were considered representative of the\
+    \ long-term actual\naverage values in the study site.\nTable 6. Comparison of\
+    \ long-term simulated crop yields with the measured yields (annual yield in\n\
+    Mg ha−1).\nCrop\nSimulated\nYield Range\nSimulated\nYield Average\nObserved\n\
+    Yield Range\nObserved\nYield Average\nObserved Data\nSource\nIrrigated grain\n\
+    corn\n10.9–13.7\n12.41\n10.4–14.1\n12.25\n2013 and 2016\nirrigated data\nIrrigated\
+    \ winter\nwheat\n6.10–8.13\n6.82\n7.11\n7.11\n[35]\nIrrigated cotton\n0.28–1.22\n\
+    0.67\n0.33–1.10\n0.67\n2001, 2002, 2008, and\n2010 irrigated data\nIrrigated\n\
+    soybean\n2.25–3.43\n2.90\n2.66–3.16\n2.91\n2003 and 2004\nirrigated data\nIrrigated\n\
+    sunﬂower\n2.29–4.71\n3.67\n3.31–3.33\n3.32\n2009 and 2011\nirrigated data\nIrrigated\
+    \ grain\nsorghum\n6.62–8.93\n8.09\n6.54–9.40\n8.01\n2005, 2014, and 2015\nirrigated\
+    \ data\nDryland winter\nwheat\n0.52–4.40\n2.20\n2.43\n2.43\n[36]\nDryland cotton\n\
+    0.16–0.64\n0.32\n0.25–0.46\n0.33\n2001, 2004, and 2008\ndryland data\nDryland\n\
+    soybean\n0.03–1.98\n0.64\n0.56\n0.56\n[41]\nDryland\nsunﬂower\n0.20–1.59\n0.86\n\
+    0.51–1.01\n0.76\n[38]\nDryland grain\nsorghum\n0.85–5.58\n2.95\n2.31–3.49\n3.06\n\
+    1997, 1998, and 1999\ndryland data\n3.2. Evaluation of Annual Net Groundwater\
+    \ Use, Soil Water Depletion, and Groundwater Recharge under\nDifferent Land Uses\n\
+    In this study, net groundwater use was deﬁned as the groundwater used for irrigation\
+    \ minus\nthe amount of percolation. Water that percolates below the plant rooting\
+    \ zone can be deﬁned as\ngroundwater recharge. Under irrigated scenarios, grain\
+    \ sorghum had the lowest net groundwater\nuse of 293 mm (Table 7). As expected,\
+    \ irrigated grain corn showed the highest net groundwater use\nat 432 mm. In six\
+    \ of the ten years of the simulation period, irrigation water for corn exceeded\
+    \ the\n457 mm (18 inches) groundwater pumping restriction imposed by the High\
+    \ Plains Underground Water\nConservation District [2].\nAs compared to irrigated\
+    \ grain corn, irrigated winter wheat and cotton reduced net groundwater\nuse by\
+    \ 5.5% and 8.3%, respectively. However, the cotton grown on the lysimeter ﬁelds\
+    \ of the study\nsite was managed as full irrigation (near 100% of cotton ET requirements).\
+    \ Similar management of\nwinter wheat led to larger seasonal irrigation amounts\
+    \ for both crops than those typically observed\nin production agriculture from\
+    \ producers, resulting in 27% and 37% reductions of irrigation water\ncompared\
+    \ to corn [42]. Winter wheat is generally not fully irrigated as marginal increases\
+    \ in yield do\nnot offset input costs [43]. As for cotton, water stress, deﬁned\
+    \ as irrigation less than 100% of ET, can\nsupport partitioning of photosynthate\
+    \ to cotton bolls (seed and lint), thereby promoting ﬁber maturity\nHydrology\
+    \ 2018, 5, 53\n9 of 16\nand quality. However, reduction of irrigation generally\
+    \ results in negative impacts on corn production.\nTherefore, production data\
+    \ from producers revealed a ~30% reduction in irrigation water for typical\nlimited\
+    \ irrigation cotton and winter wheat relative to the grain corn production in\
+    \ the NHP [42].\nReductions in net groundwater use of 18.9% and 21.3% were estimated\
+    \ for irrigated soybean and\nsunﬂower, respectively, compared to the irrigated\
+    \ corn. A 32.2% decrease in net groundwater use was\nestimated for irrigated grain\
+    \ sorghum as compared to grain corn. A land use change from corn to\nsoybean and\
+    \ sunﬂower may yield a 15–20% reduction in net groundwater use in the region.\
+    \ Producers\nfacing reduced well capacities may be forced to target grain sorghum\
+    \ production which is estimated\nto reduce net groundwater use by more than 30%\
+    \ as compared to grain corn. It is worth noting that\nsimulated irrigation water\
+    \ for grain sorghum never exceeded the 457 mm restriction during the 10-year\n\
+    simulation period (Table 4).\nTable 7. Comparison of different crop selection\
+    \ scenarios under irrigated conditions.\nIrrigated Crops\n(mm)\nIrrigation\nPercolation\n\
+    Net Groundwater Use\nDifference in Net Groundwater\nUse Compared to Grain Corn\n\
+    Grain corn\n450\n18\n432\n0.0\nWinter wheat\n409\n1\n408\n−24 (−5.5%)\nCotton\n\
+    406\n11\n396\n−36 (−8.3%)\nSoybean\n361\n10\n350\n−82 (−18.9%)\nSunﬂower\n353\n\
+    13\n340\n−92 (−21.3%)\nGrain sorghum\n305\n12\n293\n−139 (−32.2%)\nNet groundwater\
+    \ use = irrigation − percolation; The number in the brackets is the change percentage.\n\
+    There was no net groundwater use under the dryland conditions as no irrigation\
+    \ water was\napplied and negligible or no percolation under the dryland conditions\
+    \ in this region. However,\nit is worth noting that the continuous fallow simulation\
+    \ resulted in an annual average of 31 mm\nof percolated precipitation available\
+    \ for eventual groundwater recharge (Table 8). Dryland farming\nscenarios forfeited\
+    \ this potential beneﬁt to groundwater conservation. In addition, annual soil\
+    \ water\ndepletion ranged from 47 mm to 57 mm under the dryland cotton and sunﬂower\
+    \ scenarios. However,\nan average of only 18 mm of soil water was lost in the\
+    \ fallow scenario on a yearly basis. Finally,\nthe system available water loss\
+    \ (groundwater and soil proﬁle water) was 60 mm more for the dryland\nfarming\
+    \ scenarios compared to the fallow scenario. Obviously, fallow management precludes\
+    \ the\nproduction of a crop and any associated proﬁts. However, this study is\
+    \ aimed at advancing the\nunderstanding of impacts on water balance components\
+    \ associated with long-term dryland and\nirrigated production, as well as continuous\
+    \ fallow. Assessments of these agricultural land uses and\nmanagement practices\
+    \ are limited, and the effect of long-term fallow management is largely absent\n\
+    from the literature [44].\nTable 8. Comparison of different land use scenarios\
+    \ under dryland conditions.\nDryland Crops\n(mm)\nPercolation\nSoil Moisture\n\
+    Depletion\nSoil Moisture Depletion\nCompared to Fallow\nWater Lost from System\n\
+    Compared to Fallow\nWinter wheat\n0\n55\n37\n68\nCotton\n0\n47\n29\n60\nSoybean\n\
+    0\n54\n36\n67\nSunﬂower\n0\n57\n39\n70\nGrain sorghum\n0\n51\n34\n64\nFallow with\
+    \ bare soil\n31\n18\n0.0\n−13\nA large amount of research has been conducted on\
+    \ groundwater recharge for the Ogallala Aquifer\nin Texas. A summary of the literature\
+    \ of the groundwater recharge studies for the Ogallala Aquifer\nin Texas from\
+    \ 1960 to 2016 was provided in Table 9. Using a groundwater model, Sophocleous\
+    \ [45]\npredicted 7 mm groundwater recharge annually for irrigated cropland in\
+    \ Muleshoe, located in the\nHydrology 2018, 5, 53\n10 of 16\nSHP. In addition,\
+    \ Crosbie et al. [46] simulated groundwater recharge in clay-loam soils were 11\
+    \ and\n8 mm yr−1 for irrigated and dryland farming, respectively, at Amarillo\
+    \ in the NHP. Chen et al. [37],\nusing SWAT, reported average annual (1994–2009)\
+    \ groundwater recharge was ~10.5 mm in the Double\nMountain Fork Brazos watershed\
+    \ of the Ogallala Aquifer region in Texas. The average annual\ngroundwater recharge\
+    \ rate in the Texas Ogallala Aquifer from 1960 to 2016 is 10.7 mm (Table 9),\n\
+    which agrees closely with the simulated average annual percolation amount for\
+    \ crops (10.8 mm) in\nthis study.\nTable 9. A summary of the literature for groundwater\
+    \ recharge studies in the Texas Ogallala Aquifer\nregion from 1960 to 2016.\n\
+    Literature\nGroundwater Recharge/Percolation\n(mm year−1)\nCronin [47]\n13.0\n\
+    Havens [48]\n20.6\nBrown and Signor [49]\n1.3\nBell and Morrison [50]\n13.0\n\
+    Klemt [51]\n4.8\nU.S. Bureau of Reclamation [52]\n24.0\nWood and Osterkamp [53]\n\
+    2.5\nWood and Petraitis [54]\n2.5\nKnowles et al. [55]\n3.9\nGutentag et al. [56]\n\
+    2.1\nNativ [57]\n30.0\nMullican et al. [58]\n6.0\nDugan et al. [59]\n25.5\nWood\
+    \ and Sanford [60]\n11.0\nRosenberg et al. [61]\n6.0\nSophocleous [45]\n7.0\n\
+    Crosbie et al. [46]\n9.5\nChen et al. [37]\n10.5\nTotal average\n10.7\n3.3. Simulated\
+    \ Monthly ET, Irrigation, and Soil Water Content under Twelve Land Use Scenarios\n\
+    A monthly analysis showed that the simulated peak ET occurred in July or August\
+    \ in all irrigated\ncrops, except for irrigated winter wheat which peaked in May\
+    \ (Figure 2). The peak monthly ET was\napproximately 230 mm and 180–200 mm for\
+    \ irrigated grain corn and other crop scenarios, respectively.\nAs expected, simulated\
+    \ monthly ET trended with irrigation scheduling. Precipitation was concentrated\n\
+    from June to August in the NHP region. However, it was far lower than the alfalfa\
+    \ reference ET\n(ETrs) of ~1600 mm in the region (Figure 2). Therefore, a large\
+    \ amount of irrigation was supplied\nto minimize crop stress. For instance, precipitation\
+    \ may only satisfy half of corn water demand in\nsome years, with the remainder\
+    \ coming from irrigation. As for irrigated winter wheat, it is planted\nin the\
+    \ early October, and producers typically do not irrigate until the following January,\
+    \ during the\ndrought-sensitive wheat jointing period [35]. This was the reason\
+    \ for a large amount of irrigation\nsimulated in January (Figure 2b). Other irrigation\
+    \ events for winter wheat occurred during anthesis\nand grain ﬁlling periods from\
+    \ April to June.\nPrecipitous declines in soil water content of the whole soil\
+    \ proﬁle occurred from February to May\nfor the dryland winter wheat scenario\
+    \ (Figure 3a). For all other summer crops, soil water content levels\ndecreased\
+    \ continuously from May to September (Figure 3). However, soil water content generally\n\
+    rebounded to 100–120 mm before next year’s planting through rainfall under the\
+    \ dryland soybean,\nsunﬂower, and grain sorghum scenarios. The soil water content\
+    \ was lower than 100 mm before planting\nfor dryland cotton (80–100 mm). It is\
+    \ worth noting that the continuous fallow simulation maintained a\n300 mm soil\
+    \ water content throughout the year (Figure 3f). In general, simulated dryland\
+    \ winter wheat\nsustained good soil moisture conditions compared to summer crops,\
+    \ primarily due to the majority\nHydrology 2018, 5, 53\n11 of 16\nof annual precipitation\
+    \ occurring in July and August after the winter wheat harvest (transpiration\n\
+    ceased). Similar to the continuous fallow scenario, only evaporation accounted\
+    \ for the majority of\nwater lost in this summer fallow period. Recently, Holman\
+    \ et al. [44] concluded that the fallow period\nwas very important for the dryland\
+    \ winter wheat production according to a ﬁve-year (2007–2012)\nﬁeld experiment\
+    \ in Garden City, Kansas. They found that soil available water was reduced by\
+    \ 1 mm\nfor every 125 kg ha−1 of biomass of summer crop that was produced during\
+    \ the summer fallow\nperiod. They also reported that for every millimeter of soil\
+    \ water saved in the summer fallow period,\nwheat yield was increased by 5.5 kg\
+    \ ha−1. Therefore, occasional fallow years may not only increase\ngroundwater\
+    \ recharge, but also beneﬁt dryland crop production in the following year. Continuous\n\
+    dryland cotton production resulted in the lowest initial soil water content at\
+    \ planting, suggesting that\nsuch a scenario may beneﬁt from the occasional fallow\
+    \ rotation.\nHydrology 2018, x, x FOR PEER REVIEW  \n11 of 17 \n3.3. Simulated\
+    \ Monthly ET, Irrigation, and Soil Water Content under Twelve Land Use Scenarios\
+    \ \nA monthly analysis showed that the simulated peak ET occurred in July or August\
+    \ in all irrigated \ncrops, except for irrigated winter wheat which peaked in\
+    \ May (Figure 2). The peak monthly ET was \napproximately 230 mm and 180–200 mm\
+    \ for irrigated grain corn and other crop scenarios, \nrespectively. As expected,\
+    \ simulated monthly ET trended with irrigation scheduling. Precipitation \nwas\
+    \ concentrated from June to August in the NHP region. However, it was far lower\
+    \ than the alfalfa \nreference ET (ETrs) of ~1600 mm in the region (Figure 2).\
+    \ Therefore, a large amount of irrigation was \nsupplied to minimize crop stress.\
+    \ For instance, precipitation may only satisfy half of corn water \ndemand in\
+    \ some years, with the remainder coming from irrigation. As for irrigated winter\
+    \ wheat, it \nis planted in the early October, and producers typically do not\
+    \ irrigate until the following January, \nduring the drought-sensitive wheat jointing\
+    \ period [35]. This was the reason for a large amount of \nirrigation simulated\
+    \ in January (Figure 2b). Other irrigation events for winter wheat occurred during\
+    \ \nanthesis and grain filling periods from April to June. \n \nFigure 2. Simulated\
+    \ monthly precipitation, irrigation, and ET amounts under irrigated (a) corn,\
+    \  \n(b) winter wheat, (c) cotton, (d) soybean, (e) sunflower, and (f) grain sorghum\
+    \ scenarios. \nFigure 2. Simulated monthly precipitation, irrigation, and ET amounts\
+    \ under irrigated (a) corn, (b)\nwinter wheat, (c) cotton, (d) soybean, (e) sunﬂower,\
+    \ and (f) grain sorghum scenarios.\nHydrology 2018, 5, 53\n12 of 16\navailable\
+    \ water was reduced by 1 mm for every 125 kg ha−1 of biomass of summer crop that\
+    \ was \nproduced during the summer fallow period. They also reported that for\
+    \ every millimeter of soil water \nsaved in the summer fallow period, wheat yield\
+    \ was increased by 5.5 kg ha−1. Therefore, occasional \nfallow years may not only\
+    \ increase groundwater recharge, but also benefit dryland crop production \nin\
+    \ the following year. Continuous dryland cotton production resulted in the lowest\
+    \ initial soil water \ncontent at planting, suggesting that such a scenario may\
+    \ benefit from the occasional fallow rotation. \n \nHydrology 2018, x, x FOR PEER\
+    \ REVIEW  \n13 of 17 \n \nFigure 3. Simulated monthly soil water content of the\
+    \ whole soil profile under dryland (a) winter \nwheat, (b) cotton, (c) soybean,\
+    \ (d) sunflower, (e) grain sorghum, and (f) fallow land use scenarios. \n4. Conclusions\
+    \ \nA newly developed auto-irrigation method for simulating MAD irrigation scheduling\
+    \ in SWAT \nwas used in this study. The MAD auto-irrigation algorithm was developed\
+    \ and evaluated based on \nten years of field measurements for irrigation, ET,\
+    \ LAI, and crop yield data at the USDA-ARS CPRL \nat Bushland, TX. In this study,\
+    \ a total of 20 years of observed field data were used to evaluate the \nrepresentativeness\
+    \ of the simulated results under multiple land use scenarios. Overall, the long-term\
+    \ \nsimulated average annual irrigation, ET, and crop yield were representative\
+    \ of the long-term actual \naverage values in the study area. \nIn order to extend\
+    \ the availability of the Ogallala Aquifer for sustainable crop production, a\
+    \ shift \nfrom water-intensive corn to less water demanding crops such as cotton,\
+    \ winter wheat, soybean, \nsunflower, grain sorghum, or dryland farming may be\
+    \ necessary. Simulation results showed that \nirrigated grain sorghum resulted\
+    \ in the lowest net groundwater use of 293 mm as compared to the \nhighest (432\
+    \ mm) for irrigated grain corn. Conventional thought may argue that no net groundwater\
+    \ \nu e e i t u de d yla d o ditio\nHo\ne e\ni\nulatio\nof o ti uou fallo\nho\n\
+    ed a\na\nual\nFigure 3. Simulated monthly soil water content of the whole soil\
+    \ proﬁle under dryland (a) winter\nwheat, (b) cotton, (c) soybean, (d) sunﬂower,\
+    \ (e) grain sorghum, and (f) fallow land use scenarios.\n4. Conclusions\nA newly\
+    \ developed auto-irrigation method for simulating MAD irrigation scheduling in\
+    \ SWAT\nwas used in this study. The MAD auto-irrigation algorithm was developed\
+    \ and evaluated based on\nten years of ﬁeld measurements for irrigation, ET, LAI,\
+    \ and crop yield data at the USDA-ARS CPRL\nat Bushland, TX. In this study, a\
+    \ total of 20 years of observed ﬁeld data were used to evaluate the\nrepresentativeness\
+    \ of the simulated results under multiple land use scenarios. Overall, the long-term\n\
+    simulated average annual irrigation, ET, and crop yield were representative of\
+    \ the long-term actual\naverage values in the study area.\nHydrology 2018, 5,\
+    \ 53\n13 of 16\nIn order to extend the availability of the Ogallala Aquifer for\
+    \ sustainable crop production, a shift\nfrom water-intensive corn to less water\
+    \ demanding crops such as cotton, winter wheat, soybean,\nsunﬂower, grain sorghum,\
+    \ or dryland farming may be necessary. Simulation results showed that\nirrigated\
+    \ grain sorghum resulted in the lowest net groundwater use of 293 mm as compared\
+    \ to the\nhighest (432 mm) for irrigated grain corn. Conventional thought may\
+    \ argue that no net groundwater\nuse exists under dryland conditions. However,\
+    \ simulations of continuous fallow showed an annual\naverage of 31 mm of water\
+    \ for eventual groundwater recharge from rainfall as compared to dryland\nfarming,\
+    \ which resulted in minimal or no groundwater recharge. Results also showed that\
+    \ soil\nwater was quickly depleted during the growing season of dryland farming\
+    \ while fallow conditions\nmaintained a relatively high soil water content throughout\
+    \ the year.\nFrom the perspective of groundwater conservation, fallow management\
+    \ is essential and plays a\ncritical role. However, food shortage and security\
+    \ are still dominant issues in the world. Simulated\nproduction of dryland cotton\
+    \ and grain sorghum showed that less water is lost from the soil and\ngroundwater\
+    \ systems compared to others, which may be promising for the dryland farming in\
+    \ the\nregion. However, comprehensive economic analyses of the revenue potential\
+    \ of alternative cropping\nand land use strategies need to be assessed before\
+    \ making land use conversion recommendations\nto producers.\nSupplementary Materials:\
+    \ The following is available online at http://www.mdpi.com/2306-5338/5/4/53/s1,\n\
+    Table S1:\nDefault and used values of crop parameters in Soil and Water Assessment\
+    \ Tool (SWAT) for\nlong-term simulations.\nAuthor Contributions: Conceptualization,\
+    \ Y.C., G.W.M. and T.H.M.; methodology, Y.C., G.W.M., T.H.M., J.E.M.,\nK.R.H.,\
+    \ D.K.B., P.H.G. and R.S.; software, Y.C., G.W.M., T.H.M. and R.S.; validation,\
+    \ Y.C., G.W.M., T.H.M., J.E.M.,\nK.R.H., D.K.B., P.H.G. and R.S.; formal analysis,\
+    \ Y.C. and G.W.M.; investigation, Y.C., G.W.M. and J.E.M.; resources,\nG.W.M.,\
+    \ P.H.G., J.E.M. and D.K.B.; data curation, Y.C., G.W.M., P.H.G., J.E.M. and D.K.B.;\
+    \ writing—original\ndraft preparation, Y.C. and G.W.M.; writing—review and editing,\
+    \ T.H.M., J.E.M., K.R.H., D.K.B., P.H.G. and R.S.;\nvisualization, Y.C. and G.W.M.;\
+    \ supervision, G.W.M., R.S. and D.K.B.; project administration, G.W.M. and D.K.B.;\n\
+    funding acquisition, G.W.M. and D.K.B.\nFunding: This research received no external\
+    \ funding.\nAcknowledgments: This research was supported in part by the Ogallala\
+    \ Aquifer Program, a consortium between\nUSDA-Agricultural Research Service, Kansas\
+    \ State University, Texas A&M AgriLife Research, Texas A&M AgriLife\nExtension\
+    \ Service, Texas Tech University, and West Texas A&M University.\nConﬂicts of\
+    \ Interest: The authors declare no conﬂict of interest.\nReferences\n1.\nNational\
+    \ Agricultural Statistics Service (NASS). Available online: https://www.nass.usda.gov/\
+    \ (accessed\non 29 May 2018).\n2.\nHigh Plains Underground Water Conservation\
+    \ District (HPUWCD). Available online: http://static1.\nsquarespace.com/static/53286fe5e4b0bbf6a4535d75/t/54db8326e4b09b0ec42ee61d/1423672102940/\n\
+    %28RuleExplanationRevised.pdf (accessed on 24 May 2018).\n3.\nRajan, N.; Maas,\
+    \ S.; Cui, S. Extreme drought effects on evapotranspiration and energy balance\
+    \ of a pasture in\nthe Southern Great High Plains. Ecohydrology 2015, 8, 1194–1204.\
+    \ [CrossRef]\n4.\nSchneider, A.D.; Musick, J.T.; Dusek, D.A. Efﬁcient wheat irrigation\
+    \ with limited water. Trans. Am. Soc. Agric.\nEng. 1969, 12, 23–26. [CrossRef]\n\
+    5.\nStewart, B.A.; Musick, J.T.; Dusek, D.A. Yield and water use efﬁciency of\
+    \ grain sorghum in a limited\nirrigation-dryland farming system. Agron. J. 1983,\
+    \ 75, 629–634. [CrossRef]\n6.\nBoyer, J.S. Differing sensitivity of photosynthesis\
+    \ to low leaf water potentials in corn and soybean.\nPlant Physiol. 1970, 46,\
+    \ 236–239. [CrossRef]\n7.\nEck, H.V.; Mathers, A.C.; Musick, J.T. Plant water\
+    \ stress at various growth stages and growth and yield of\nsoybeans. Field Crops\
+    \ Res. 1987, 17, 1–16. [CrossRef]\n8.\nSalih, A.A.; Ali, I.A.; Lux, A.; Luxova,\
+    \ M.; Cohen, Y.; Sugimoto, Y.; Inanaga, S. Rooting, water uptake, and\nxylem structure\
+    \ adaptation to drought of two sorghum cultivars. Crop Sci. 1999, 39, 168–173.\
+    \ [CrossRef]\nHydrology 2018, 5, 53\n14 of 16\n9.\nStone, L.R.; Goodrum, D.E.;\
+    \ Jafaar, M.N.; Khan, A.H. Rooting front and water depletion depths in grain\n\
+    sorghum and sunﬂower. Agron. J. 2001, 93, 1105–1110. [CrossRef]\n10.\nMoroke,\
+    \ T.S. Root Distribution, Water Extraction Patterns, and Crop Water Use Efﬁciency\
+    \ of Selected Dryland\nCrops under Differing Tillage Systems. Ph.D. Thesis, Texas\
+    \ A&M Univercity, College Station, TX, USA, 2002.\n11.\nBaumhardt, R.L.; Salinas-Garcia,\
+    \ J. Dryland agriculture in Mexico and the US southern Great Plains.\nDryland\
+    \ Agric. 2006, 23, 341–364.\n12.\nLi, Q.; Qi, J.; Xing, Z.; Li, S.; Jiang, Y.;\
+    \ Danielescu, S.; Zhu, H.; Wei, X.; Meng, F. An approach for assessing\nimpact\
+    \ of land use and biophysical conditions across landscape on recharge rate and\
+    \ nitrogen loading of\ngroundwater. Agric. Ecosyst. Environ. 2014, 196, 114–124.\
+    \ [CrossRef]\n13.\nCallison, D. Management Allowed Depletion Irrigation Scheduling.\
+    \ Available online: http://awqa.org/wp-\ncontent/toolkits/IrrigationScheduling/ManagementAllowedDepletion-IrrigationScheduling.pdf\
+    \ (accessed\non 3 May 2018).\n14.\nEvett, S.R.; Schwartz, R.C.; Mazahrih, N.T.;\
+    \ Jitan, M.A.; Shaqir, I.M. Soil water sensors for irrigation\nscheduling: Can\
+    \ they deliver a management allowed depletion? Acta Hortic. 2011, 888, 231–237.\
+    \ [CrossRef]\n15.\nGheysari, M.; Mirlatiﬁ, S.M.; Homaee, M.; Asadi, M.E.; Hoogenboom,\
+    \ G. Nitrate leaching in a silage maize\nﬁeld under different irrigation and nitrogen\
+    \ fertilizer rates. Agric. Water Manag. 2009, 96, 946–954. [CrossRef]\n16.\nLamm,\
+    \ F.R.; Rogers, D.H.; Clark, G.A. Irrigation scheduling for corn: Macromanagement.\
+    \ In Proceedings of\nthe ASABE Evapotranspiration and Irrigation Scheduling Conference,\
+    \ San Antonio, TX, USA, 3–6 November\n1996; pp. 741–748.\n17.\nMerriam, J.L. A\
+    \ management control concept for determining the economical depth and frequency\
+    \ of\nirrigation. Trans. ASAE 1966, 9, 492–498. [CrossRef]\n18.\nSuarez-Rey, E.;\
+    \ Choi, C.Y.; Waller, P.M.; Kopec, D.M. Comparison of subsurface drip irrigation\
+    \ and sprinkler\nirrigation for Bermuda grass turf in Arizona. Trans. ASAE 2000,\
+    \ 43, 631–640. [CrossRef]\n19.\nArnold, J.G.; Srinivasan, R.; Muttiah, R.S.; Williams,\
+    \ J.R. Large-area hydrologic modeling and assessment:\nPart I. Model development.\
+    \ J. Am. Water Resour. Assoc. 1998, 34, 73–89. [CrossRef]\n20.\nSrinivasan, R.;\
+    \ Zhang, X.; Arnold, J.G. SWAT ungauged: Hydrological budget and crop yield predictions\
+    \ in\nthe upper Mississippi river basin. Trans. ASABE 2010, 53, 1533–1546. [CrossRef]\n\
+    21.\nChen, Y.; Marek, G.W.; Marek, T.H.; Brauer, D.K.; Srinivasan, R. Improving\
+    \ SWAT auto-irrigation functions\nfor simulating agricultural irrigation management\
+    \ using long-term lysimeter ﬁeld data. Environ. Model.\nSoftw. 2018, 99, 25–38.\
+    \ [CrossRef]\n22.\nMcInerney, D.; Thyer, M.; Kavetski, D.; Githui, F.; Thayalakumaran,\
+    \ T.; Liu, M.; Kuczera, G. The importance\nof spatio-temporal variability in irrigation\
+    \ inputs for hydrological modelling of irrigated catchments.\nWater Resour. Res.\
+    \ 2018. [CrossRef]\n23.\nUniyal, B.; Dietrich, J.; Vu, N.Q.; Jha, M.K.; Arumí,\
+    \ R.J.L. Simulation of regional irrigation requirement with\nSWAT in different\
+    \ agro-climatic zones driven by observed climate and two re-analysis datasets.\
+    \ Sci. Total\nEnviron. 2019, 649, 846–865. [CrossRef] [PubMed]\n24.\nLuan, X.B.;\
+    \ Wu, P.T.; Sun, S.K.; Li, X.L.; Wang, Y.B.; Gao, X.R. Impact of land use change\
+    \ on hydrologic\nprocesses in a large plain irrigation district. Water Resour.\
+    \ Manag. 2018, 32, 3203–3217. [CrossRef]\n25.\nVanLoocke, A.; Bernacchi, C.J.;\
+    \ Twine, T.E. The impacts of Miscanthus×giganteus production on the Midwest\n\
+    US hydrologic cycle. Glob. Chang. Biol. Bioenergy 2010, 2, 180–191. [CrossRef]\n\
+    26.\nChen, Y.; Marek, G.W.; Marek, T.H.; Brauer, D.K.; Srinivasan, R. Assessing\
+    \ the efﬁcacy of the SWAT\nauto-irrigation function to simulate irrigation, evapotranspiration,\
+    \ and crop response to management\nstrategies of the Texas High Plains. Water\
+    \ 2017, 9, 509. [CrossRef]\n27.\nUnger, P.W.; Pringle, F.B. Pullman Soils: Distribution\
+    \ Importance, Variability, and Management; Bulletin B-1372;\nTexas Agricultural\
+    \ Experiment Station: College Station, TX, USA, 1981.\n28.\nAmerican Society of\
+    \ Civil Engineers (ASCE). The ASCE Standardized Reference Evapotranspiration Equation;\n\
+    ASCE Environmental and Water Resources Institute: Reston, VA, USA, 2005.\n29.\n\
+    Web Soil Survey. Soil Survey Staff, Natural Resources Conservation Service, United\
+    \ States Department\nof Agriculture, 2011. Available online: https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm\n\
+    (accessed on 25 September 2018).\n30.\nMarek, G.W.; Gowda, P.H.; Evett, S.R.;\
+    \ Baumhardt, R.L.; Brauer, D.K.; Howell, T.A.; Marek, T.H.; Srinivasan, R.\nEstimating\
+    \ evapotranspiration for dryland cropping systems in the semiarid Texas High Plains\
+    \ using SWAT.\nJ. Am. Water Resour. Assoc. 2016, 52, 298–314. [CrossRef]\nHydrology\
+    \ 2018, 5, 53\n15 of 16\n31.\nMarek, T.H.; Schneider, A.D.; Howell, T.A.; Ebeling,\
+    \ L.L. Design and construction of large weighing\nmonolithic lysimeters. Trans.\
+    \ ASAE 1988, 31, 477–484. [CrossRef]\n32.\nHowell, T.A.; Schneider, A.D.; Dusek,\
+    \ D.A.; Marek, T.H.; Steiner, J.L. Calibration and scale performance of\nBushland\
+    \ weighing lysimeters. Trans. ASAE 1995, 38, 1019–1024. [CrossRef]\n33.\nEvett,\
+    \ S.R.; Schwartz, R.C.; Howell, T.A.; Baumhardt, R.L.; Copeland, K.S. Can weighing\
+    \ lysimeter ET\nrepresent surrounding ﬁeld ET well enough to test ﬂux station\
+    \ measurements of daily and sub-daily ET?\nAdv. Water Resour. 2012, 50, 79–90.\
+    \ [CrossRef]\n34.\nMarek, G.W.; Evett, S.R.; Gowda, P.H.; Howell, T.A.; Copeland,\
+    \ K.S.; Baumhardt, R.L. Post-processing\ntechniques for reducing errors in weighing\
+    \ lysimeter evapotranspiration (ET) datasets. Trans. ASAE 2014, 57,\n499–515.\
+    \ [CrossRef]\n35.\nXue, Q.; Zhu, Z.; Musick, J.T.; Stewart, B.A.; Dusek, A.D.\
+    \ Physiological mechanisms contributing to the\nincreased water-use efﬁciency\
+    \ in winter wheat under deﬁcit irrigation. J. Plant Phys. 2006, 163, 154–164.\n\
+    [CrossRef] [PubMed]\n36.\nAttia, A.; Rajan, N.; Xue, Q.; Nair, S.; Ibrahim, A.;\
+    \ Hays, D. Application of DSSAT-CERES-Wheat model to\nsimulate winter wheat response\
+    \ to irrigation management in the Texas High Plains. Agric. Water Manag.\n2016,\
+    \ 165, 50–60. [CrossRef]\n37.\nChen, Y.; Ale, S.; Rajan, N.; Morgan, C.L.S.; Park,\
+    \ J.Y. Hydrological responses of land use change from cotton\n(Gossypium hirsutum\
+    \ L.) to cellulosic bioenergy crops in the Southern High Plains of Texas, USA.\
+    \ Glob. Chang.\nBiol. Bioenergy 2016, 8, 981–999. [CrossRef]\n38.\nMoroke, T.S.;\
+    \ Schwartz, R.C.; Brown, K.W.; Juo, A.S.R. Water use efﬁciency of dryland cowpea,\
+    \ sorghum and\nsunﬂower under reduced tillage. Soil Tillage Res. 2011, 112, 76–84.\
+    \ [CrossRef]\n39.\nChen, Y.; Ale, S.; Rajan, N. Implications of biofuel-induced\
+    \ changes in land use and crop management on\nsustainability of agriculture in\
+    \ the Texas High Plains. Biomass Bioenergy 2018, 111, 13–21. [CrossRef]\n40.\n\
+    National Oceanic and Atmospheric Administration-National Climatic Data Center\
+    \ (NOAA-NCDC). Weather\nData. Available online: http://gis.ncdc.noaa.gov/map/viewer/#app=cdo&cfg=cdo&theme=daily&layers=\n\
+    111&node=gis (accessed on 30 May 2018).\n41.\nMusick, J.T.; New, L.L.; Dusek,\
+    \ D.A. Soil water depletion—Yield relationships of irrigated sorghum, wheat,\n\
+    and soybeans. Trans. ASABE 1976, 19, 489–493. [CrossRef]\n42.\n2011 Regional Water\
+    \ Plans | Texas Water Development Board. Region A 2011 RWP Appendices.\nAvailable\
+    \ online: http://www.twdb.texas.gov/waterplanning/rwp/plans/2011/A/Region_A_2011_RWP_\n\
+    Appendices.pdf?d=258905.39999999964 (accessed on 6 July 2018).\n43.\nMarek, G.W.;\
+    \ Baumhardt, R.L.; Brauer, D.K.; Gowda, P.H.; Mauget, S.A.; Moorhead, J.E. Evaluation\
+    \ of the\nOceanic Niño Index as a decision support tool for winter wheat cropping\
+    \ systems in the Texas High Plains\nusing SWAT. Comput. Electron. Agr. 2018, 151,\
+    \ 331–337. [CrossRef]\n44.\nHolman, J.D.; Arnet, K.; Dille, J.; Maxwell, S.; Obour,\
+    \ A.; Roberts, T.; Roozeboom, K.; Schlegel, A. Can cover\nor forage crops replace\
+    \ fallow in the semiarid Central Great Plains? Crop Sci. 2018, 58, 932–944. [CrossRef]\n\
+    45.\nSophocleous, M. Groundwater recharge and sustainability in the High Plains\
+    \ aquifer in Kansas, USA.\nHydrogeol. J. 2005, 13, 351–365. [CrossRef]\n46.\n\
+    Crosbie, R.S.; Scanlon, B.R.; Mpelasoka, F.S.; Reedy, R.C.; Gates, J.B.; Zhang,\
+    \ L. Potential climate change\neffects on groundwater recharge in the High Plains\
+    \ Aquifer, USA. Water Resour. Res. 2013, 49, 3936–3951.\n[CrossRef]\n47.\nCronin,\
+    \ J.G. A Summary of the Occurrence and Development of Ground Water in the Southern\
+    \ High Plains of Texas;\nTexas Board of Water Engineers: Washington, DC, USA,\
+    \ 1961; 104p.\n48.\nHavens, J.S. Recharge Studies on the High Plains in Northern\
+    \ Lea County, New Mexico; U.S. Geological Survey:\nWashington, DC, USA, 1966;\
+    \ 52p.\n49.\nBrown, R.F.; Signor, D.S. Artiﬁcial Recharge Experiments and Operations\
+    \ on the Southern High Plains of Texas and\nNew Mexico; U.S. Geological Survey:\
+    \ Washington, DC, USA, 1973; 54p.\n50.\nBell, A.E.; Morrison, S. Analytical Study\
+    \ of the Ogallala Aquifer in Carson County, Texas, Projections of Saturated\n\
+    Thickness, Volume of Water in Storage, Pumpage Rates, Pumping Lifts, and Well\
+    \ Yields; Texas Department of Water\nResources: Austin, TX, USA, 1979; 64p.\n\
+    51.\nKlemt, W.B. Evaluating the Ground-Water Resources of the High Plains of Texas,\
+    \ Neutronprobe Measurements of\nDeep Soil Moisture as an Indicator of Aquifer\
+    \ Recharge Rates; Texas Department of Water Resources: Austin, TX,\nUSA, 1981;\
+    \ 31p.\nHydrology 2018, 5, 53\n16 of 16\n52.\nTexas Department of Water Resources.\
+    \ U.S. Bureau of Reclamation. Llano Estacado Playa Lake Water Resources\nStudy;\
+    \ U.S. Department of the Interior: Amarillo, TX, USA, 1982.\n53.\nWood, W.W.;\
+    \ Osterkamp, W.R. Recharge to the Ogallala aquifer from playa lake basins on the\
+    \ Llano Estacado\n(an outrageous proposal?). In Proceedings of the Ogallala Aquifer\
+    \ Symposium II; Whetstone, G.A., Ed.; Texas\nTech University, Water Resources\
+    \ Center: Lubbock, TX, USA, 1984; pp. 337–349.\n54.\nWood, W.W.; Petraitis, M.J.\
+    \ Origin and distribution of carbon dioxide in the unsaturated zone of the Southern\n\
+    High Plains of Texas. Water Resour. Res. 1984, 20, 1193–1208. [CrossRef]\n55.\n\
+    Knowles, T.R.; Nordstrom, P.; Klemt, W.B. Evaluating the Ground-Water Resources\
+    \ of the High Plains of Texas;\nRecords of Wells and Maps Showing Locations, Base\
+    \ of Aquifer, Water Levels, and Saturated Thickness; Texas\nDepartment of Water\
+    \ Resources: Austin, TX, USA, 1984; 475p.\n56.\nGutentag, E.D.; Heimes, F.J.;\
+    \ Krothe, N.C.; Luchkey, R.R.; Weeks, J.B. Geohydrology of the High Plains Aquifer\
+    \ in\nParts of Colorado, Kansas, Nebraska, New Mexico, Oklahoma, South Dakota,\
+    \ Texas, and Wyoming; U.S. Geological\nSurvey: Alexandria, VA, USA, 1984; 63p.\n\
+    57.\nNativ, R. Recharge into Southern High Plains aquifer-possible mechanisms,\
+    \ unresolved questions. Environ.\nGeol. Water Sci. 1992, 19, 21–32. [CrossRef]\n\
+    58.\nMullican III, W.F.; Fryar, A.E.; Johns, N.D. Vertical Transport of Contaminants\
+    \ through Perched Aquifers to the\nOgallala Aquifer, Pantex Plant Area, Southern\
+    \ High Plains, Texas, in Dutton; American Institute of Hydrology:\nAustin, TX,\
+    \ USA, 1994; pp. 547–562.\n59.\nDugan, J.T.; McGrath, T.; Zelt, R.B. Water Level\
+    \ Changes in the High Plains Aquifer-Predevelopment to 1992; U.S.\nGeological\
+    \ Survey: Denver, CO, USA, 1994; 56p.\n60.\nWood, W.W.; Sanford, W.E. Chemical\
+    \ and isotopic methods for quantifying ground-water recharge in a\nregional, semiarid\
+    \ environment. Ground Water 1995, 33, 458–468. [CrossRef]\n61.\nRosenberg, N.J.;\
+    \ Epstein, D.J.; Wang, D.; Vail, L.; Srinivasan, R.; Arnold, J.G. Possible impacts\
+    \ of global\nwarming on the hydrology of the Ogallala Aquifer region. Clim. Chang.\
+    \ 1999, 42, 677–692. [CrossRef]\n© 2018 by the authors. Licensee MDPI, Basel,\
+    \ Switzerland. This article is an open access\narticle distributed under the terms\
+    \ and conditions of the Creative Commons Attribution\n(CC BY) license (http://creativecommons.org/licenses/by/4.0/).\n"
+  inline_citation: Chen et al. 2018
+  journal: Hydrology
+  limitations: 'The economic implications of the evaluated land use and cropping scenarios
+    were not assessed.
+
+
+    The study looked at specific crops, but a more generalizable model may be valuable.
+
+
+    The study is specific to the NHP region and may not be generalizable to other
+    regions, particularly those with different climates or soil types.'
+  pdf_link: https://www.mdpi.com/2306-5338/5/4/53/pdf?version=1537965235
+  publication_year: 2018
+  relevance_score: 0.69
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Assessment of Alternative Agricultural Land Use Options for Extending the
+    Availability of the Ogallala Aquifer in the Northern High Plains of Texas
+  verbatim_quote1: Approximately 19%, 21%, and 32% reductions in annual groundwater
+    uses were associated with irrigated soybean, sunﬂower, and sorghum, respectively,
+    as compared to irrigated corn.
+  verbatim_quote2: On average, annual soil water depletion was more than 52 mm for
+    dryland farming scenarios. In contrast, only 18 mm of soil water was lost to evaporation
+    annually, for the long-term continuous fallow simulation.
+  verbatim_quote3: A fallow scenario also showed 31 mm of percolation for aquifer
+    recharge.
+- DOI: https://doi.org/10.7176/jiea/13-1-03
+  analysis: 'The paper is relevant to the outline point because it discusses the use
+    of different data types in precision agriculture, including soil moisture, canopy
+    temperature, and weather. It provides an overview of the current state of the
+    art in this area and identifies the research gaps that need to be addressed.
+
+
+    The most relevant verbatim quote is:
+
+
+    "IoT technologies collect data and relay it to data analytics for in-depth analysis.
+    Farmers receive the analyzed data via devices such as smartphones. The data helps
+    farmers manage crop varieties, phenotypes, and selection, crop performance, soil
+    quality, pH level, irrigation, and fertilizer application quantity."
+
+
+    The paper is very relevant to the outline point and provides valuable information
+    for understanding the current state of the art in the use of different data types
+    in precision agriculture. The relevance score is 0.9-1.0.'
+  authors: []
+  citation_count: 0
+  full_citation: null
+  full_text: ">\nJournal of Information Engineering and Applications             \
+    \                                                                            \
+    \                              www.iiste.org \nISSN 2224-5782 (print) ISSN 2225-0506\
+    \ (online) \n \nVol.13, No.1, 2023 \n \n19 \nIoT, Big Data Analytics and Deep\
+    \ Learning for Sustainable \nPrecision Agriculture \n \nJackson MACHII1, Julius\
+    \ MURUMBA2, Elyjoy MICHENI3 \nThe Technical University of Kenya, P.O. Box 52428,\
+    \ Nairobi, 00200, Kenya \nEmail: machiijack@gmail.com; Email: j.murumba@gmail.com;\
+    \ \nEmail: elyjoymicheni@gmail.com \n \nAbstract \nAgriculture is undergoing a\
+    \ digital transformation because of population growth, climate change, and food\
+    \ \nsecurity concerns. Agriculture is influenced by information technology in\
+    \ terms of cost reduction, efficiency, and \nsustainability. Precision agriculture\
+    \ employs IoT, deep learning, predictive analytics, and AI-based technologies\
+    \ \nto aid in the detection of plant diseases, pests, and poor plant nutrition\
+    \ in the field. The study's objectives are as \nfollows: 1) evaluate the role\
+    \ of smart technologies and their impact on precision agriculture sustainability;\
+    \ 2) \nassess the typical application of IoT data analytic and deep learning in\
+    \ precision agriculture; and 3) investigate \nthe barriers to the adoption of\
+    \ sustainable precision farming. IoT technologies collect data and relay it to\
+    \ data \nanalytics and deep learning for in-depth analysis. According to the findings,\
+    \ data assists farmers in managing \ncrop variety, phenotypes and selection, crop\
+    \ performance, soil quality, pH level, irrigation, and fertilizer \napplication\
+    \ quantity. Technological issues, safety, privacy, cost, and legal issues also\
+    \ influence the adoption of \nthese technologies. \nKeywords: IoT, Big Data Analytics,\
+    \ Deep Learning, Precision Agriculture, Sustainability \nDOI: 10.7176/JIEA/13-1-03\
+    \ \nPublication date: February 28th 2023 \n \n1. Introduction  \nAgriculture,\
+    \ like many other industries, is undergoing a digital transformation because of\
+    \ population growth, \nclimate change, and food security concerns, which necessitate\
+    \ the adoption of innovative crop productivity \nmethods [33]. Agriculture's role\
+    \ in climate change and global warming, on the other hand, has been the subject\
+    \ \nof a long-running and contentious debate [8]. Precision agriculture drives\
+    \ by technological and innovative \nmethods for efficiently managing agricultural\
+    \ characteristics such as crop, soil, production, and management by \nunderstanding\
+    \ the temporal and spatial changes of these aspects [45]. Agriculture makes an\
+    \ important \ncontribution to the global economy [28]. Farming also plays a role\
+    \ in the global socio-economic activity. \nBecause of market growth, both agricultural\
+    \ research and industry are aiming for sustainable agricultural \nproductivity\
+    \ [24], as well as addressing societal needs in acquiring, managing, analyzing,\
+    \ visualizing, and \nutilizing data and information in dealing with cross-disciplinary\
+    \ precision agriculture problems [45]. The rising \ntrend in crop demand, combined\
+    \ with rising fertilizer and pesticide prices, has highlighted the need for resource-\n\
+    efficient, environmentally friendly agriculture [8]. Precision farming defines\
+    \ as the management of spatial and \ntemporal variability with ICT-enabled technologies\
+    \ to provide food security [46]. Precision agriculture, \naccording to [14], is\
+    \ a strategic approach that collects, processes, and analyzes temporal, spatial,\
+    \ and individual \ndata, integrating it with other information to support managerial\
+    \ decisions based on estimated variations to \nimprove utilization efficiency,\
+    \ productivity, quality, profit margins, and sustainability of agricultural output.\
+    \ \nPrecision agriculture is based on the idea that production inputs such as\
+    \ seed, chemicals, fertilizer, and so on \nshould only be applied when and where\
+    \ they are needed to achieve the most efficient production [35]. In \nprecision\
+    \ agriculture, thorough plant phenology tracking of agricultural plants transversely\
+    \ by deep learning at \nlarge spatial levels is critical. The precise information\
+    \ aids in the timing of farm management practices such as \nfarm monitoring, harvesting,\
+    \ yield prediction, pest control, and disaster warning, among others. Governments\
+    \ \ncan use crop-mapping information to invalidate farmer subsidies, detect fraud,\
+    \ and process insurance claims. The \napplication's design is similar to that\
+    \ of the Internet of Things (IoT)-based irrigation systems and sensors capable\
+    \ \nof tracking pH, soil moisture, temperature, humidity, and digital soil mapping\
+    \ [26]. Adoption of IoT, predictive \nanalytics, and deep learning in precision\
+    \ agriculture is important for 1) profitability; 2) efficiency of input cost \n\
+    reduction; 3) food safety; 4) sustainability; 5) and environmental safety [1].\
+    \         \nAgriculture is expected to meet societal values such as increased\
+    \ food productivity, cultural diversity, \nrecreation, and climate conservation,\
+    \ as well as economic, environmental, and social viability. This has not been\
+    \ \nthe case due to a variety of impediments. Precision agriculture is one of\
+    \ the farming practices that are efficient \nand safe for the environment. The\
+    \ farmer through observation, measurement, and a quick response to variability\
+    \ \non crops through the treatment of variable rates with high precision and accuracy\
+    \ [29] achieves it. To achieve \nsustainable farm productivity, it is critical\
+    \ to forecast and understand the various variability and dynamics of the \nagricultural\
+    \ system to improve crop performance. Climate change, fertilization, and irrigation,\
+    \ as well as soil \nJournal of Information Engineering and Applications      \
+    \                                                                            \
+    \                                     www.iiste.org \nISSN 2224-5782 (print) ISSN\
+    \ 2225-0506 (online) \n \nVol.13, No.1, 2023 \n \n20 \ninsights, are all part\
+    \ of this. Precision agriculture enables a data-driven method that enables farmers\
+    \ to make the \nbest crop variety, selection, and decisions to cope with changing\
+    \ conditions, resource scarcity, and the effects of \nagricultural production\
+    \ on society. Agricultural activities are a major source of income for the majority\
+    \ of \nKenyans. Its practices have long been unsatisfactory in terms of yield\
+    \ maximization and cost minimization due \nto an over-reliance on traditional\
+    \ farming orientation. The vice is not information-driven, particularly in terms\
+    \ of \nmanagement practices as inputs in terms of timing or quantification, but\
+    \ most farmers rely on estimates. \nHowever, they failed to account for field\
+    \ variability, resulting in resource misallocations such as under or over-\napplication\
+    \ of inputs, which had a significant impact on the ecosystem and harmed production\
+    \ sustainability [49]. \nThe issues have an impact on food security, requiring\
+    \ farmers to adopt other effective, efficient, and \nproductive farm practices.\
+    \ This is realized with precision agriculture and the adoption of novel technologies.\
+    \ Soil \nvariability and crop management are critical in precision agriculture\
+    \ for achieving productivity, profitability, and \nenvironmental effluence control\
+    \ [15]. Agriculture is expected to meet societal values such as increased food\
+    \ \nproductivity, cultural diversity, recreation, and climate conservation, as\
+    \ well as economic, environmental, and \nsocial viability. These have not been\
+    \ the case due to various barriers. Precision agriculture is considered as one\
+    \ \nof the farming practices that are efficient and safe to the environment achieved\
+    \ through observation, \nmeasurement with quick response to variability’s on crops\
+    \ by the farmer through the treatment of variable rates \nwith high precision\
+    \ and accuracy [29].  \nAccording to the United Nations Food and Agriculture Organization,\
+    \ food production must increase by 60% \nby 2050 to keep up with the world's rapid\
+    \ population growth. Precision farming is seen as a long-term solution to \nthe\
+    \ problem of food scarcity and unprofitable farm practices [19]. The environmental\
+    \ impact has been alarming \nglobally because of various pollutants. Sociable\
+    \ and sustainable agriculture entails excellent agricultural resource \nutilization\
+    \ management for sustainability in fulfilling the food production demand, conserving\
+    \ the environment, \nand natural resources. As a result, a policy framework that\
+    \ guides the use and effects of poor agricultural \npractices on the environment\
+    \ is required. This necessitates a transformation of our dominant conventional\
+    \ \nfarming into smart farming through strategic alignment of agricultural product\
+    \ development with the \nenvironment using smart technologies. Pollutants can\
+    \ be reduced by preventing soil erosion, avoiding the \noveruse of fertilizers,\
+    \ herbicides, and pesticides, protecting biodiversity, and conserving natural\
+    \ resources [12]. \nThe study will benefit a variety of stakeholders, including\
+    \ individual farmers, communities, government, and \nagricultural authorities.\
+    \ It will provide insight and understanding to facilitate economic impact by providing\
+    \ \ngood agricultural services, important data collection, analysis, and insight\
+    \ exposure for decision-making and \nfarming practice management. These will boost\
+    \ productivity, food security, and long-term sustainability. It aids \nstakeholders\
+    \ in development while also improving their standard of living. It encourages\
+    \ entrepreneurship and \njob creation. \n \n1.1 Sustainable Agriculture \nPrecision\
+    \ agriculture significantly contributes to addressing agricultural challenges.\
+    \ It can also contribute to a \nmore sustainable agricultural system while remaining\
+    \ profitable [8]. Precision agriculture and the concept of \nsustainability are\
+    \ inextricably linked. The term \"sustainability\" refers to the economic ability\
+    \ to maintain \nconsistent productivity without jeopardizing the needs of future\
+    \ generations. Sustainable agriculture improves \nenvironmental quality and resource-based\
+    \ agriculture, where agriculture is based on basic human food and \neconomic viability,\
+    \ thereby improving farmers' lifestyles and society. Sustainability has remained\
+    \ a \ncomprehensive examination of the economic, environmental, and sociological\
+    \ consequences of any expansion \n[6]. Agro-technology and precision farming,\
+    \ as well as digital agriculture, use data-driven approaches to increase \nagricultural\
+    \ productivity while minimizing environmental impacts [28].  \nPrecision agriculture's\
+    \ critical success is hampered by factors such as a lack of training, a low return\
+    \ on \ninvestment, high costs, and a lack of precision agriculture big data analytics\
+    \ [45]. Precision farming collects real-\ntime data on farm elements such as crops,\
+    \ air, and soil to protect the environment while also ensuring profits and \n\
+    sustainability [1]. The incorporation of AI techniques in agricultural practices\
+    \ has advanced aspects such as crop \nand soil health, irrigation systems, crop\
+    \ disease identification, weed control, and recommended control measures \n[26].\
+    \ Farming problems may be addressed by robotics and sensing technologies. As a\
+    \ result, adopting a robotic \nagricultural system will have a significant impact\
+    \ on crop production, efficiency, and sustainability [22]. \n \n1.2 Precision\
+    \ agriculture \nPrecision agriculture has recently received a lot of attention\
+    \ due to the world's ever-increasing demand for water \nand food [20]. Precision\
+    \ agriculture is no exception to how information systems have influenced and shaped\
+    \ \nevery aspect of our society [8]. Precision agriculture, according to [11],\
+    \ is the “collection of real-time data from \nfarm variables and use of predictive\
+    \ analytics for smart decisions to maximize yields, minimize environmental \n\
+    impact, and reduce cost.” Precision agriculture's goal is to understand the soil\
+    \ and crop qualities that are specific \nto each section of the field and to streamline\
+    \ production inputs in small sections of the field [35]. According to \nJournal\
+    \ of Information Engineering and Applications                                \
+    \                                                                            \
+    \           www.iiste.org \nISSN 2224-5782 (print) ISSN 2225-0506 (online) \n\
+    \ \nVol.13, No.1, 2023 \n \n21 \n[4], precision farming has the potential to provide\
+    \ both economic and environmental benefits by reducing the use \nof water, fertilizers,\
+    \ herbicides, and pesticides, as well as farm machinery. Thereby resolving both\
+    \ the economic \nand climate change issues that currently plague production agriculture\
+    \ precision agriculture is a field in which \ntechnology can be used to effectively\
+    \ manage agriculture by understanding the temporal and spatial changes in \nsoil,\
+    \ crop, production, and management via innovative techniques [45]. The Internet\
+    \ of Things (IoT) technology \nplays an important role in precision farming by\
+    \ driving the total market value, which is expected to be around \n$4.7 billion\
+    \ by 2021. Despite an increase in research and novel projects in smart farming\
+    \ projects, agriculture as \nan industry has been slow to adopt emerging M2M and\
+    \ IoT technologies in comparison to other industries. \nSmart farming necessitates\
+    \ the incorporation of sensor technologies capable of collecting data from the\
+    \ crop, soil, \nanimal behavior, tractor status, and a variety of environmental\
+    \ characteristics. Sensor data from IoT computing \nand analytics can provide\
+    \ a farmer with valuable information on weather conditions, forecasts, yield prediction,\
+    \ \ncrop monitoring, animal and plant disease detection, and crop monitoring [33].\
+    \  \nPrecision Agriculture enables more efficient use of inputs (such as seed,\
+    \ pesticide, fertilizer, or herbicide), \nnew efficient tillage equipment operation,\
+    \ better crop and field measurements, and improved management \ndecisions [4],\
+    \ [35]. The use of Smart greenhouses encourages crop cultivation with a minimum\
+    \ of human \nintervention by constantly monitoring climatic conditions such as\
+    \ humidity, luminosity, temperature, and soil \nmoisture, generating automated\
+    \ actions based on the assessed changes, and enacting corrective mechanisms to\
+    \ \nmaintain the most valuable conditions for development [1]. Deep Learning's\
+    \ contribution to improving precision \nagriculture includes the following: 1)\
+    \ Optimal control of the agricultural production system 2) Management of \nthe\
+    \ agricultural economic system, Agriculture information processing, and smart\
+    \ agriculture machinery \nequipment [44]. Growing agricultural technology has\
+    \ enabled the use of high-precision sensors to remotely \nmonitor nutrients, water,\
+    \ humidity, light, and temperature. The collected data is exposed through an advanced\
+    \ \nanalysis using robust algorithms to aid in prediction processes and strategic\
+    \ decision-making. Machine learning \nand deep learning technologies are important\
+    \ in precision agriculture because they enable computers to become \nintelligent\
+    \ through the development of image and video processing algorithms [9]. Information\
+    \ and \ncommunication technologies (ICT) are a tool for promoting industrial transformations.\
+    \ It is expected that the \navailability of analytics and modern farming techniques\
+    \ will increase agricultural production output to 60% by \n2030. Agriculture has\
+    \ been influenced by information technology, which has improved cost reduction,\
+    \ efficiency, \nand sustainability [26]. Precision agriculture is a method of\
+    \ managing farm practices that involve the use of \nvarious technologies such\
+    \ as remote sensors, RFID, and cameras to achieve the proximal collection of key\
+    \ data \nin real-time. Using data analytics strategies and other intelligent technologies,\
+    \ these can be converted into \ninformation insights. Farmers can then use this\
+    \ information to optimize their input returns, improve their \nefficiency, and\
+    \ reduce their environmental impact. Precision agriculture can be defined as \"\
+    applying the right \ntreatment in the right place at the right time.\" It is a\
+    \ collection of IT artifacts that includes information systems, \nsmart sensors,\
+    \ and improved machinery with cognizance management for production optimization\
+    \ via tracking \nand monitoring of uncertainties and variability in agricultural\
+    \ structures. It is a concept for managing farm \nactivities that are based on\
+    \ observation, measurement, and response to any internal or external field variation\
+    \ in \ncrops [13]. Precision agriculture employs IoT, deep learning, predictive\
+    \ analytics, and AI-based technologies to \ndetect plant diseases, pests, and\
+    \ poor plant nutrition in the field [11]. Precision agriculture enables efficient\
+    \ \nobservation and close monitoring of crops as they grow by using information\
+    \ collected directly from the field \n(such as weather or soil condition). It\
+    \ is also known as satellite farming [32]. Precision agriculture necessitates\
+    \ \nthe collection and interpretation of detailed field data to account for variability\
+    \ in productivity. New technologies, \nsuch as wireless sensor networks, are now\
+    \ assisting in the real-time streaming of data for strategic decision-\nmaking.\
+    \ Sensor networks are used in agriculture for a variety of reasons, including\
+    \ 1) Agriculture with pinpoint \naccuracy 2) Consumer advertisement 3) Plant growth\
+    \ optimization 4) Farm surveillance 5) Research 6) Farming \neducation and training\
+    \ 7) Farm administration [27]. \n \n2. IoT Technologies in Agriculture \nThe Internet\
+    \ of Things (IoT) entailed the connection of objects via RFID [36]. It is no longer\
+    \ a buzzword, but it \nis being used practically all over the world as a result\
+    \ of the advancement and use of devices such as mobile, \ndistributed systems,\
+    \ embedded systems, cloud computing, ubiquitous communication, and big data analytics.\
+    \ It \nenables physical object interconnection over a network, sensing, information\
+    \ collection, sharing, and analysis, all \nof which aid in decision making, planning,\
+    \ and management [40]. Precision farming makes use of smart \ntechnologies such\
+    \ as IoT and big data analytics. It can handle farming problems adequately by\
+    \ monitoring crops, \nsoil, environment, irrigation, and fertilization with IoT\
+    \ sensors, RFID, and cameras. These IoT technologies \ncollect data and relay\
+    \ it to data analytics for in-depth analysis. Farmers receive the analyzed data\
+    \ via devices \nsuch as smartphones. The data helps farmers manage crop varieties,\
+    \ phenotypes, and selection, crop performance, \nsoil quality, pH level, irrigation,\
+    \ and fertilizer application quantity [19]. With the use of IoT, farmers will\
+    \ find \nthat agricultural problems are a thing of the past. It plays an important\
+    \ role in gathering relevant information [32]. \nJournal of Information Engineering\
+    \ and Applications                                                           \
+    \                                                            www.iiste.org \n\
+    ISSN 2224-5782 (print) ISSN 2225-0506 (online) \n \nVol.13, No.1, 2023 \n \n22\
+    \ \nDrones are used in agricultural applications such as monitoring fields, crops,\
+    \ and livestock, as well as scanning \nlarge areas, whereas sensors on the ground\
+    \ collect a vast amount of data [1]. The Internet of Things (IoT) refers \nto\
+    \ intelligent networks that connect objects to allow information exchange and\
+    \ communication via sensing \ndevices over the internet using certain standards\
+    \ and protocols. An IoT is a framework of integrated technologies \n(such as RFID,\
+    \ cloud computing, wireless sensor networks, Internet protocols, data analytics,\
+    \ and so on) [36].  It \nidentifies, tracks, locates, monitors, and manages things\
+    \ efficiently and effectively [7]. [38] Propose a low-cost \nIoT sensing platform\
+    \ that consists of three components: 1) the monitoring sensors; 2) the sensing\
+    \ box and 3) the \navailable interfaces. They are intended to provide soil data\
+    \ that is critical for increasing crop yield. The soil \nhumidity, pH, temperature,\
+    \ light, and camera sensors in the monitoring sensors collect soil images for\
+    \ computer \nvision analysis. These sensors are collected in the Sensing Box,\
+    \ which collects data from smartphones or clouds. \nThe Sensing Box communicates\
+    \ with the smartphone/cloud and sensor essentials via radio and analog/digital\
+    \ \ninterfaces, respectively, allowing monitoring and support for other soil,\
+    \ environmental, and camera sensors. IoT \nconnectivity includes people, machines,\
+    \ tools, and locations that are designed to perform intelligent functions \nsuch\
+    \ as data sharing and information exchange. The Internet of Things (IoT) is playing\
+    \ an important role in \nagricultural product management in real-time data, alongside\
+    \ 1) control; 2) tracking; 3) evaluating; 4) searching; \n5) monitoring; 6) managing;\
+    \ and 7) logistic operations [1]. \n. \n \nFigure 1 – IoT Sensing Platform Architecture\
+    \ (Adapted from [38]) \n \n3. Big Data Analytics (BDA) and Deep Learning in agriculture\
+    \ \n3.1 Big Data Analytics (BDA) \nCurrently, big data analytics is being increasingly\
+    \ adopted to meet the evolving needs of big data technologies \nacross a wide\
+    \ range of topics. Big data's approachability, accessibility, and rapid emergence\
+    \ have fueled \nconsistent technological developments and applications [17]. Big\
+    \ data is defined as a large data set that can be \nstructured, semi-structured,\
+    \ or unstructured and collected, analyzed, distributed, and managed for informed\
+    \ \ndecision-making. The data sources for BDA are incorporated through the integration\
+    \ of IoT devices (RFID and \nsensors) within a network-enabled environment. The\
+    \ BDA enables knowledgeable insights to be extracted from \nmassive IoT data sets\
+    \ through the application of data mining approaches aimed at predicting, identifying\
+    \ patterns, \ncorrelations, trends, and decision making. The massive amounts of\
+    \ data generated by IoT have made a \nsignificant contribution to the vast field\
+    \ of big data. Big data characteristics include the 5 Vs: volume, veracity, \n\
+    variety, value, and velocity [30], [31]. Big data provides predictive insights\
+    \ into farming practices, drives real-\ntime effective decisions, and redesigns\
+    \ business processes to create game-changing business models [41]. The \nsmart\
+    \ decision made possible by data analytics results in less waste of resources\
+    \ such as water, pesticides, \nfertilizer, and so on [11].  \nThe BDA is responsible\
+    \ for capturing, storing, analyzing, searching, and identifying hidden patterns\
+    \ in the \ncollected data. As a result, BDA necessitates the use of (a) tools\
+    \ for classification and clustering; (b) techniques \nfor data mining, machine\
+    \ learning, and statistical analysis; and (c) technologies like Hadoop and Spark.\
+    \ It aids in \naccurately forecasting and decision-making in agricultural practices\
+    \ [1]. Adoption and optimization of \ninnovation and technologies will help to\
+    \ ensure the long-term viability of precision farming through better \npractices\
+    \ and increased productivity. These can be realized by measuring, storing, and\
+    \ analyzing data to improve \nyield quality; managing cost revenues through crop\
+    \ risk probability and minimization, and adopting improved \npreventive care methods\
+    \ to increase productivity satisfaction [51]. Adoption of IoT Big Data is critical\
+    \ in farm \nmanagement practices such as crop imaging, irrigation, soil analysis\
+    \ (Acidity, PH), pesticide and herbicide \napplication, fertilizers, temperature,\
+    \ and moisture monitoring [2]. Precision agriculture enables efficient \nobservation\
+    \ and close monitoring of crops as they grow by using information collected directly\
+    \ from the field \n(such as weather or soil condition). It is also known as satellite\
+    \ farming [32].  \nThere is a disconnect between research and practice. There\
+    \ is a need for researchers to not focus on a \nJournal of Information Engineering\
+    \ and Applications                                                           \
+    \                                                            www.iiste.org \n\
+    ISSN 2224-5782 (print) ISSN 2225-0506 (online) \n \nVol.13, No.1, 2023 \n \n23\
+    \ \nspecific restricted domain or problem, but rather to take a holistic approach\
+    \ for farmers to understand crop \nproduction with the incorporation of technology\
+    \ and innovation. A farmer focuses on new techniques and \napproaches based on\
+    \ individual perceptions such as resource availability, experience, age, education\
+    \ level, and \nrisk management attitude [29]. Adoption of IoT big data technologies\
+    \ can have a positive economic impact by \nfacilitating the provision of good\
+    \ agricultural services, important data collection, analysis, and the dissemination\
+    \ \nof insights that assist farmers in making informed and correct decisions about\
+    \ farming practices and management. \nThese will increase farmer productivity,\
+    \ and a ready market will allow farmers to sell their products and use \nthem\
+    \ for development while also improving their livelihood. It encourages entrepreneurship\
+    \ and job creation \n[51]. The government contributes significantly to the success\
+    \ or failure of agriculture by encouraging farmers to \nbe risk-averse. Factors\
+    \ such as drought, heavy rain, pest and disease infestations, or poor seed quality\
+    \ contribute \nto the high risk. The government must provide full intervention\
+    \ to farmers, such as input subsidies, permits, rates, \nirrigation facilitation,\
+    \ and training and sensitization for the adoption of modern farming technologies\
+    \ for high \nyields and productivity [2]. The expansion of big climate data and\
+    \ its analytics has resulted in the widespread use \nof smart information management\
+    \ systems, precision agriculture, and intelligent automatic agriculture [17].\
+    \  \n \n3.2 Deep Learning  \nAccording to [16], deep learning technologies are\
+    \ now being used in a variety of agricultural and farming \nsystems. Autonomous\
+    \ weed identification can aid in weed control, resulting in higher yields. Weed\
+    \ detection in \ncrops using imagery is a difficult task because weeds and crops\
+    \ have similar colors, shapes, and textures during \nthe growth stage. Deep learning\
+    \ is an important branch of machine learning. Deep learning is a type of artificial\
+    \ \nintelligence that is trained on data sets and then learns on its own, and\
+    \ it is at the heart of many technologies [39]. \nAside from image segmentation,\
+    \ object detection, and identification, deep learning algorithms have several\
+    \ \nadvantages over previous machine learning approaches. Machine learning algorithms\
+    \ can be used in precision \nagriculture decision support tools to recognize statistical\
+    \ correlations rather than causal explanations. It takes into \naccount a set\
+    \ of entities such as crop yields in addition to data characteristics (training\
+    \ data) linked to entities \nsuch as weather conditions and soil conditions to\
+    \ predict the outcome [5]. Deep learning is defined as an \n“algorithm-assisted\
+    \ structure that mimics human learning” [9]. Robotic vision is based on machine\
+    \ learning from \nreal-world datasets using methods such as deep neural networks,\
+    \ allowing robots to share their knowledge by \nlearning from Big Data [10]. Machine\
+    \ Learning is an Artificial Intelligence subset that can detect patterns and \n\
+    anomalies in data generated by smart sensors [41].  \nDeep Learning algorithms\
+    \ have been used in agriculture in a variety of ways. Recurrent Neural Networks\
+    \ \n(RNN), Convolutional Neural Networks (CNN), and Generative Adversarial Networks\
+    \ (GAN) are examples of \nthese (GAN). Deep Neural Networks can extract their\
+    \ features, allowing them to prompt multifaceted \nrelationships or patterns amongst\
+    \ the data [52].  Convolutional neural networks (CNNs) are Deep Learning \nmodels\
+    \ that interact with images by extracting features or objects and learning to\
+    \ differentiate between them [18]. \nDeep learning enables computational models\
+    \ with multiple layers of processing that represent multiple data \nlevels of\
+    \ abstraction. The layering aspect is learned from data rather than created by\
+    \ humans using a general-\npurpose learning technique. Several Deep Learning algorithms\
+    \ rely heavily on the Back Propagation Neural \nNetwork. Weather forecasting,\
+    \ plant disease detection, image translation, fruit counting, land classification,\
+    \ \nobstacle detection, plant classification, weed identification, animal behavior\
+    \ classification, and yield prediction \nare all areas where deep learning is\
+    \ used in agriculture  [44], [9]. \n \nFigure 2: Deep Learning Approach (Adapted\
+    \ from [52]) \n \n4. Typical Application Areas \nPest Management is one of the\
+    \ most common applications of smart technologies in precision agriculture. Insect\
+    \ \npest infestation in agriculture has been a major issue for farmers, resulting\
+    \ in significant economic losses. These \ncan be mitigated by the development\
+    \ of computerized systems that identify active pests and advise on control \n\
+    measures [3]. Modern and intelligent technology, such as the use of drones, can\
+    \ independently eradicate pests \nand selectively target agrichemicals, reducing\
+    \ collateral damage to the ecosystem, lowering resistance, and \nlowering costs\
+    \ [22]. \nJournal of Information Engineering and Applications                \
+    \                                                                            \
+    \                           www.iiste.org \nISSN 2224-5782 (print) ISSN 2225-0506\
+    \ (online) \n \nVol.13, No.1, 2023 \n \n24 \n \nFigure 3: Drones with precision\
+    \ sprayers (adapted from [22]) \nWeed Control: The direct application of herbicides\
+    \ in the field to control weeds has had a significant impact \non the environment\
+    \ and human health complications. Nonetheless, technological advancements have\
+    \ enabled the \nuse of artificial intelligence for safe and risk-free herbicide\
+    \ applications. The use of a rule-based expert system; \nmachine vision; neural\
+    \ network models (backpropagation, counter propagation, and radial basis function-based\
+    \ \nmodel); and image analysis are among the approaches that are now taking center\
+    \ stage in weed identification and \nelimination [47]. Artificial intelligence\
+    \ sensors can detect and target weeds before determining which herbicides \nare\
+    \ needed and when. As a result, we save money by not using as many herbicides\
+    \ and we reduce the number of \ntoxins in our food. Machine vision can aid in\
+    \ site-specific crop management by detecting and distinguishing the \npresence\
+    \ of weeds in the crop and identifying the weed for the appropriate chemical to\
+    \ spray [27].  \nAgricultural Product Monitoring:  Food monitoring and quality\
+    \ control mechanisms based on proper drying, \nstorage, and grading of harvested\
+    \ crops are critical. These practices can be aided by the conception of artificial\
+    \ \nintelligence [1]. Storage Management: Many agricultural products are lost\
+    \ as a result of poor storage \nmanagement systems. Unrequired temperature, moisture,\
+    \ and other environmental factors can contribute to the \ntoxicity of food products\
+    \ or aid in the infestation of insects, microorganisms, rodents, and other pests,\
+    \ all of \nwhich harm the quality and quantity of food products. IoT, AI, and\
+    \ data analytics will be used to improve \nagricultural product storage [11].\
+    \ Crop disease management: Crop diseases reduce crop productivity yield. \nPrecision\
+    \ agriculture is the adaptation of a computer-aided system that can assist in\
+    \ the identification of crop \ndiseases and proposed control measures. Various\
+    \ systems and algorithms for predicting, classifying, detecting, \nand controlling\
+    \ crop diseases have been proposed. Rule-based systems, a fuzzy logic-based model,\
+    \ an artificial \nneural network-based model, an image processing model, and the\
+    \ k-means segmentation algorithm are among \nthe techniques used [3]. Weather\
+    \ Monitoring: The growth of plants is dependent on weather conditions and \nfactors\
+    \ such as sunlight and rainwater, which are now naturally unpredictable as a result\
+    \ of human pollution and \nglobal warming. The new technologies can monitor and\
+    \ predict the weather, providing farmers with useful \ninformation to help them\
+    \ avoid unfavorable conditions that can reduce crop yields [42]. Irrigation Management:\
+    \ \nIoT-based smart irrigation systems help improve irrigation efficacy by reducing\
+    \ water loss and conserving \ncurrent water resources [1].  \nYield Prediction:\
+    \ The prediction model is critical for precision agriculture analytics because\
+    \ it forecasts \ncrop yield, which is critical for marketing strategies and crop\
+    \ cost estimation. A backpropagation learning \nalgorithm of an artificial neural\
+    \ network has been used to forecast yield based on soil parameters, atmospheric\
+    \ \ninputs, and fertilizer consumption [3]. Management of Soils: Soil management\
+    \ is a critical area in agriculture that \nrequires attention because improper\
+    \ soil management results in a loss of crop yield and quality. Soil minerals and\
+    \ \npH levels must be measured and monitored for plants to grow healthier as a\
+    \ result of proper soil minerals and pH \nlevels [42]. Any farmer will find the\
+    \ soil to be a fascinating resource. The use of large harvesters has greatly \n\
+    damaged and compacted soil, and the overuse of agrochemicals, such as nitrogen\
+    \ fertilizer, has harmed the \nenvironment. Aside from autonomous technologies,\
+    \ the use of robotics could be of great assistance and relief to \nfarmers. Drone\
+    \ data analytics are used to make smarter nitrogen fertilizer applications for\
+    \ healthy vegetation. \nBonirob (a car-sized robot) is used to measure soil value\
+    \ indicators using various sensors and components, \nincluding a moisture sensor\
+    \ and a penetrometer that can evaluate soil compaction [22]. Artificial intelligence\
+    \ \ntechniques can help with supervised activities such as crop and land suitability\
+    \ mapping, stem water intake \nestimation, soil water content management, soil\
+    \ moisture, and rainfall prediction [3]. \nJournal of Information Engineering\
+    \ and Applications                                                           \
+    \                                                            www.iiste.org \n\
+    ISSN 2224-5782 (print) ISSN 2225-0506 (online) \n \nVol.13, No.1, 2023 \n \n25\
+    \ \n \nFigure 4: Bonirob (car-sized robot) for measuring soil quality (adapted\
+    \ from [22]) \nAgricultural Machinery Management: Agricultural machinery, such\
+    \ as tractors, must be managed to \nimprove agricultural efficiency, competitiveness,\
+    \ and sustainability. Integrating these types of machinery with \nsmart technologies\
+    \ will aid in reducing negative environmental effects, increasing soil productivity,\
+    \ and \npromoting economic yields. Smart agricultural machines are quick, versatile,\
+    \ precise, and intelligent, with low \ncarbon dioxide emissions and bioenergy\
+    \ utilization [1]. IoT-enabled agricultural machinery can boost crop \nproductivity\
+    \ while reducing grain losses. Furthermore, the use of global positioning systems\
+    \ and global \nnavigation satellite systems can improve machinery because they\
+    \ can be driven in autopilot mode. Machines \nwith vehicles, unmanned aerial vehicles,\
+    \ and robots can be controlled remotely, allowing farmers to map their \nfield\
+    \ management practices such as fertilizing, irrigation, nutrition, and so on [11].\
+    \ \n \nFigure 5: Autonomous Harvester (adapted from [10]) \n \n5. Economic Benefits\
+    \ \nAdvances in technological services, new business models, and markets drive\
+    \ significant GDP growth [45]. \nRadical advancements in information systems,\
+    \ such as satellites, the internet, mobile phones, and social media, \nare now\
+    \ being used to solve agricultural challenges. Artificial intelligence and the\
+    \ Internet of Things are \nrevolutionizing agricultural activities, addressing\
+    \ productivity issues such as weather unpredictability, crop loss, \nand economic\
+    \ stagnation [26]. These IoT technologies collect data and relay it to data analytics\
+    \ for in-depth \nanalysis. Farmers receive the analyzed data via devices such\
+    \ as smartphones. The data helps farmers manage \ncrop varieties, phenotypes,\
+    \ and selection, crop performance, soil quality, pH level, irrigation, and fertilizer\
+    \ \napplication quantity [19]. \nAs of the popularity of IoT, it can now be used\
+    \ in a variety of fields (i.e. smart home, smart agriculture, \nsmart city, smart\
+    \ health-care, smart logistics, smart transport, smart energy, and so on) It is\
+    \ estimated that the \nworld's population will reach 9.7 billion by 2050, up from\
+    \ 7.7 billion today [20]. This raises concerns about food \nsecurity, in addition\
+    \ to global warming, which has made climatic conditions uncertain, scarcity of\
+    \ natural \nresources, and arid land, which are the most significant challenges\
+    \ faced by the majority of countries. This \nnecessitates the implementation of\
+    \ novel and strategic agricultural production methods. As a result, for future\
+    \ \nfood sustainability, most countries are opting for precision farming with\
+    \ the use of both IoT and data analytics. \nThis will enable smart agriculture,\
+    \ which is expected to improve operational efficiency, crop quality, and crop\
+    \ \nyields [11]. Big data's role is to extract valuable insights from massive\
+    \ amounts of heterogeneous data about crop \ngrowth and other parameters measured\
+    \ [31].   \nJournal of Information Engineering and Applications              \
+    \                                                                            \
+    \                             www.iiste.org \nISSN 2224-5782 (print) ISSN 2225-0506\
+    \ (online) \n \nVol.13, No.1, 2023 \n \n26 \n6. Challenges Affecting Adoption\
+    \ of Sustainable Precision Farming  \nThe adoption of innovative technologies\
+    \ in precision agriculture has not been easy. Industrial agriculture \ntechniques\
+    \ are already heavily criticized for harming the environment, according to [8].\
+    \ Examples of such effects \ninclude: I Monocultures reduce biodiversity in plants\
+    \ and animals. (ii) The use of chemical pesticides and \nfertilizers pollutes\
+    \ the soil and groundwater. (iii) Soil degrades much faster than it can be replenished.\
+    \ (iv) \nExtinction of fish. (v) Excessive use of water and fossil fuels. (vi)\
+    \ The global population is expected to increase \nsignificantly, increasing global\
+    \ food demand. (vii) Fertilizer and pesticide prices are also projected to increase.\
+    \ \nAccording to [35], the following are the barriers to precision farming implementation\
+    \ in developing countries: a) \nThe cultures and perceptions of users. b) A scarcity\
+    \ of technical expertise on the local level. c) Taking into \naccount system heterogeneity\
+    \ and market imperfections. d) The availability, quality, and cost of data. e)\
+    \ A small \nfarm size and a lack of success stories. f) Knowledge and technology\
+    \ gaps. h) Land ownership, infrastructure, \nand institutional constraints. \n\
+    Among the factors impeding full implementation among farmers are Concerns about\
+    \ privacy and trust: The \npresence of malware attacks and data thefts is a risk\
+    \ factor for connected systems. Because of their presence in \nthe complex IoT\
+    \ system, these malicious third-party programs are difficult to detect and remove.\
+    \ There is an \nurgent need for a strong security and policy framework for agricultural\
+    \ IoT and other technologies for systems to \npromote trust and be more acceptable\
+    \ to customers [43], [50]. Agronomical challenges include a lack of basic \ninformation,\
+    \ limited sampling and inspection procedures, information misuse, a lack of qualified\
+    \ agronomic \nservices, and a lack of site-specific fertilizer references [25].\
+    \ Profitability issue: The inability to demonstrate that \nthe use of precision\
+    \ agriculture technology improves farm profitability through the strategy of “right\
+    \ quantity of \ncrop inputs in the right location at the right time” [34], [21].\
+    \ Lack of skills: Precision agriculture is primarily \ninformation-intensive and\
+    \ technology-driven, necessitating extensive technical skills gained through education\
+    \ \nand training to analyze data and exhaustively interpret information derived\
+    \ from data mining techniques and \nalgorithms [37],[25]. Cost challenge: Precision\
+    \ agriculture management activities such as the use of machinery \nsuch as driverless\
+    \ tractors with sensors that are suitable for large-scale farmers are not cost-effective\
+    \ for \ndomestic farmers. Financial constraints and a lack of credit for technological\
+    \ machinery and inputs are deterring \nfarmers from adopting precision farming\
+    \ [50].  \nLack of broadband infrastructure: Due to the unfavorable landscape,\
+    \ internet connectivity in remote rural \nareas in developing countries is unreliable.\
+    \ As a result, improved network performance and bandwidth speeds are \nrequired\
+    \ in these areas. Precision agriculture systems located in farm environments with\
+    \ poor connectivity \ncannot effectively share data with other systems on the\
+    \ same farm. The issues with GPS signals and agro-\nsensors/gateways have an impact\
+    \ on cloud services in terms of data transmission and storage [48]. Technical\
+    \ \nchallenges: Any mechanical failure in technological equipment, such as hardware\
+    \ or IoT sensors, causes serious \ncrop damage. For example, if a smart irrigation\
+    \ sensor fails, crops may be under-watered or over-watered, \naffecting crop growth.\
+    \ Food security can also be jeopardized if storage technologies fail or if there\
+    \ is a power \noutage with no backup power [25], [48]. Perception of utilitarianism:\
+    \ Farmers' negative attitudes toward the use \nof precision agriculture technologies\
+    \ in comparison to traditional farming methods. This has had a significant \n\
+    impact on adoption rates, necessitating the need for farmer education, sensitization,\
+    \ and awareness [25]. \n \n7. Critical Success Factors for Implementation of Precision\
+    \ Agriculture \nAgricultural service providers are filling the gap in assisting\
+    \ farms in making use of the data they collect and \noptimizing it for strategies\
+    \ such as variable rate application, zone-based soil sampling, soil electrical\
+    \ \nconductivity mapping, cloud solutions, and areas-based plant tissue testing\
+    \ [14]. Adoption of new technologies: \nSmart devices and methods for detecting\
+    \ and monitoring biotic factors such as weeds and diseases must be \nimplemented.\
+    \ This technology aids in the management of soil moisture as well as variable\
+    \ irrigation applications \n[23]. Transdisciplinary approach: By combining several\
+    \ competencies and academic fields, ICT can make a \nsignificant contribution\
+    \ to long-term sustainable development. These disciplines must collaborate to\
+    \ help \ndevelop sustainable agricultural development through a transdisciplinary\
+    \ approach that has the potential to \nimpact society on multiple levels [29].\
+    \ The assistance provided by governments and the private sectors: As a \nresult,\
+    \ early adoption assistance from governments and the private sector is critical\
+    \ [35]. \nTraining programs: Farmers must be trained in the proper use of innovations\
+    \ and consultation, particularly \ndata, software management, and analysis resources.\
+    \ This can instill confidence that today's precision agriculture \ntools provide\
+    \ the most critical insights [23]. Bringing together temporal and spatial data:\
+    \ Bringing together \ntemporal and spatial output data can help farmers and advisers\
+    \ manage fields or farms due to differences in \nagricultural average yield and\
+    \ variation to improve nutrient uptake [14]. Data quality assurance is required\
+    \ \nbecause quality data must be handled and retrieved. It is necessary to ensure\
+    \ the use of predictable or precise \nsensors for smarter agronomic data for inputs\
+    \ explaining receptiveness under various environmental pressures \n[23].  \nJournal\
+    \ of Information Engineering and Applications                                \
+    \                                                                            \
+    \           www.iiste.org \nISSN 2224-5782 (print) ISSN 2225-0506 (online) \n\
+    \ \nVol.13, No.1, 2023 \n \n27 \n8. Conclusions and Recommendation \nThe study\
+    \ assessed the application of various technologies in precision agriculture. Farmers\
+    \ will find agricultural \nproblems obsolete as a result of the use of IoT, Big\
+    \ Data, and Deep Learning. Big data provides predictive \ninsights into farming\
+    \ practices, drives real-time effective decisions, and redesigns business processes\
+    \ to create \ngame-changing business models. Weather forecasting, plant disease\
+    \ detection, image translation, fruit counting, \nland classification, obstacle\
+    \ detection, plant classification, weed identification, animal behavior classification,\
+    \ \nand yield prediction are all areas where deep learning is used in agriculture.\
+    \ The study also looks at the typical \napplication areas and challenges in precision\
+    \ agriculture adoption. The study examines the critical success \nfactors for\
+    \ implementing precision agriculture. According to the findings, technological\
+    \ advancements, new \nbusiness models, and markets drive significant GDP growth.\
+    \ The study recommends the adoption and \noptimization of innovations and technologies\
+    \ that will enable precision farming to be sustainable through quality \npractices\
+    \ and increased productivity. \n \nReferences \n[1]   Alreshidi, E. (2019). Smart\
+    \ Sustainable Agriculture (SSA) solution underpinned by Internet of Things (IoT)\
+    \ \nand Artificial Intelligence (AI). International Journal of Advanced Computer\
+    \ Science and Applications, \n10(5), 93–102.  \n[2]   Alves, G. M., & Cruvinel,\
+    \ P. E. (2016). Big Data Environment for Agricultural Soil Analysis from CT \n\
+    Digital Images. Proceedings - 2016 IEEE 10th International Conference on Semantic\
+    \ Computing, ICSC \n2016, 429–431.  \n[3]    Bannerjee, G., Sarkar, U., Das, S.,\
+    \ & Ghosh, I. (2018). Artificial intelligence in agriculture. Agricultural \n\
+    and Livestock Technology / АгроЗооТехника, 7(4 (4)).  \n[4]  Banus, S. (2015).\
+    \ Precision Agriculture: Tomorrow’s Technology for Today’s Farmer. Journal of\
+    \ Food \nProcessing & Technology, 06(08). \n[5]  Boghossian, A., Linsky, S., Brown,\
+    \ A., Mutschler, P., & Ulicny, B. (2018). Threats to Precision \nAgriculture.\
+    \ \n[6]  Bongiovanni, R., & Lowenberg-deboer, J. (2004). Precision Agriculture\
+    \ and Sustainability.Precision \nAgriculture, 5, 359–387.  \n[7]  Chen, S., Xu,\
+    \ H., Liu, D., Hu, B., & Wang, H. (2014). A vision of IoT: Applications,Challenges\
+    \ and \nopportunities with China Perspective. IEEE Internet of Things Journal,\
+    \ 1(4), 349–359.  \n[8]  Demestichas, K., & Daskalakis, E. (2020). Data Lifecycle\
+    \ Management in Precision Agriculture Supported \nby Information and Communication\
+    \ Technology. Agronomy, 10(11), 1648.  \n[9]  Diaz, M. C. A., Medina Castaneda,\
+    \ E. E., & Mugruza Vassallo, C. A. (2019). Deep Learning for Plant \nClassification\
+    \ in Precision Agriculture. 2019 International Conference on Computer, Control,\
+    \ Informatics, \nand Its Applications: Emerging Trends in Big Data and Artificial\
+    \ Intelligence, IC3INA 2019, 9–13. \n[10]  Duckett, T., Pearson, S., Blackmore,\
+    \ S., Grieve, B., Chen, W.-H., Cielniak, G., Cleaversmith, J., Dai, J., \nDavis,\
+    \ S., Fox, C., From, P., Georgilas, I., Gill, R., Gould, I., Hanheide, M., Hunter,\
+    \ A., Iida, F., Mihalyova, \nL., Nefti-Meziani, S., … Yang, G.-Z. (2018). Agricultural\
+    \ Robotics: The Future of Robotic Agriculture. \n[11]  Elijah, O., Rahman, T.\
+    \ A., Orikumhi, I., Leow, C. Y., & Hindia, M. N. (2018). An Overview of Internet\
+    \ of \nThings (IoT) and Data Analytics in Agriculture: Benefits and Challenges.\
+    \ IEEE Internet of Things Journal, \n5(5), 3758–3773.  \n[12]  Far, T. S., & Rezaei-Moghaddam,\
+    \ K. (2017). Determinants of Iranian agricultural consultants’ intentions \ntoward\
+    \ precision agriculture: Integrating innovativeness to the technology acceptance\
+    \ model. Journal of the \nSaudi Society of Agricultural Sciences, 16(3), 280–286.\
+    \  \n[13]  Ferrández-Pastor, F. J., García-Chamizo, J. M., Nieto-Hidalgo, M.,\
+    \ & Mora-Martínez, J. (2018). Precision \nagriculture design method using a distributed\
+    \ computing architecture on the internet of things context. \nSensors (Switzerland),\
+    \ 18(6).  \n[14]  Flis, S. A. (2020). Data Management and Variability: Precision\
+    \ Agriculture Considerations for 4R \nManagement Planning. Crops & Soils, 53(4),\
+    \ 14–17. \n[15]  Fountas, S., Blackmore, S., Ess, D., Hawkins, S., Blumhoff, G.,\
+    \ Lowenberg-Deboer, J., & Sorensen, C. G. \n(2005). Farmer experience with precision\
+    \ agriculture in Denmark and the US Eastern Corn Belt. Precision \nAgriculture,\
+    \ 6(2), 121–141.  \n[16]  Hasan, A. S. M. M., Sohel, F., Diepeveen, D., Laga,\
+    \ H., & Jones, M. G. K. (2021). A Survey of Deep \nLearning Techniques for Weed\
+    \ Detection from Images. ArXiv:2103.01415 [Cs].  \n[17]  Hassani, H., Huang, X.,\
+    \ & Silva, A. E. (2019). Big data and climate change. Big Data and Cognitive \n\
+    Computing, 3(1), 1–17. https://doi.org/10.3390/bdcc3010012 \n[18]  Høye, T. T.,\
+    \ Ärje, J., Bjerge, K., Hansen, O. L. P., Iosifidis, A., Leese, F., Mann, H. M.\
+    \ R., Meissner, K., \nMelvad, C., & Raitoharju, J. (2021). Deep learning and computer\
+    \ vision will transform entomology. \nProceedings of the National Academy of Sciences,\
+    \ 118(2), e2002545117.  \nJournal of Information Engineering and Applications\
+    \                                                                            \
+    \                                           www.iiste.org \nISSN 2224-5782 (print)\
+    \ ISSN 2225-0506 (online) \n \nVol.13, No.1, 2023 \n \n28 \n[19]  Jayaraman, P.\
+    \ P., Yavari, A., Georgakopoulos, D., Morshed, A., & Zaslavsky, A. (2016). Internet\
+    \ of things \nplatform for smart farming: Experiences and lessons learned. Sensors\
+    \ (Switzerland), 16(11), 1–17.  \n[20]  Kashyap, P. K., Kumar, S., Jaiswal, A.,\
+    \ Prasad, M., & Gandomi, A. H. (2021). Towards Precision \nAgriculture: IoT-enabled\
+    \ Intelligent Irrigation Systems Using Deep Learning Neural Network. IEEE \nSensors\
+    \ Journal, 1–1. \n[21]  Khosla, R. (2010). Precision agriculture: Challenges and\
+    \ opportunities in a flat world. August, 26–28. \n[22]  King, A. (2017). The Future\
+    \ of Agriculture. Springer Nature, 544(21), 174–184.  \n[23]  Kitchen, N. R.,\
+    \ Snyder, C. J., Franzen, D. W., & Wiebold, W. J. (2002). Educational Needs of\
+    \ Precision \nAgriculture. Precision Agriculture, 3, 341–351. \n[24]  Kounalakis,\
+    \ T., Triantafyllidis, G. A., & Nalpantidis, L. (2019). Deep learning-based visual\
+    \ Recognition of \nrumex for robotic precision farming. Computers and Electronics\
+    \ in Agriculture, 165(November).  \n[25]  Kritikos, M. (2017). Precision agriculture\
+    \ in Europe: Legal, social and ethical considerations. In European \nParliamentary\
+    \ Research Service (Issue November). \n[26]  Lakshmi, V., & Corbett, J. (2020).\
+    \ How Artificial Intelligence Improves Agricultural Productivity and \nSustainability:\
+    \ A Global Thematic Analysis. Proceedings of the 53rd Hawaii International Conference\
+    \ on \nSystem Sciences, 3, 5202–5211.  \n[27]  Lee, W. S., Alchanatis, V., Yang,\
+    \ C., Hirafuji, M., Moshou, D., & Li, C. (2010). Sensing Technologies for \nprecision\
+    \ specialty crop production. Computers and Electronics in Agriculture, 74(1),\
+    \ 2–33.  \n[28] Liakos, K. G., Busato, P., Moshou, D., Pearson, S., & Bochtis,\
+    \ D. (2018). Machine learning in agriculture: \nA review. Sensors (Switzerland),\
+    \ 18(8), 1–29. https://doi.org/10.3390/s18082674 \n[29]  Lindblom, J., Lundström,\
+    \ C., Ljung, M., & Jonsson, A. (2017). Promoting sustainable Intensification in\
+    \ \nprecision agriculture: Review of decision support systems development and\
+    \ strategies. Precision \nAgriculture, 18(3), 309–331.  \n[30]  Machii, J. K.,\
+    \ & Kaara, M. (2018). Big Data Analytics on Decision Making By Smart Firms in\
+    \ Kenya. \nResearch Acies International Journal of Computing and Knowledge Management\
+    \ (RICKM), 1(1), 1–19. \n[31]  Marjani, M., Nasaruddin, F., Gani, A., Karim, A.,\
+    \ Hashem, I. A. T., Siddiqa, A., & Yaqoob, I. (2017). Big \nIoT Data Analytics:\
+    \ Architecture, Opportunities, and Open Research Challenges. IEEE Access, 5, 5247–\n\
+    5261.  \n[32]  Mekala, M. S., & Viswanathan, P. (2017). A Survey: Smart agriculture\
+    \ IoT with cloud Computing. 2017 \nInternational Conference on Microelectronic\
+    \ Devices, Circuits and Systems, ICMDCS 2017, 2017-Janua, \n1–7.  \n[33]  Mekonnen,\
+    \ Y., Namuduri, S., Burton, L., Sarwat, A., & Bhansali, S. (2020). Review—Machine\
+    \ Learning \nTechniques in Wireless Sensor Network Based Precision Agriculture.\
+    \ Journal of the Electrochemical \nSociety, 167(3), 037522. https://doi.org/10.1149/2.0222003jes\
+    \ \n[34]  Mintert, J., Widmar, D., Langemeier, M., Boehlje, M., & Erickson, B.\
+    \ (2016). The Challenges of Precision \nAgriculture: Is Big Data the Answer? 1–9.\
+    \ \n[35]  Natikar, P. K., R A Balikai, & Ch Anusha. (2020). Pest Management Strategies\
+    \ in Precision Farming. \nhttps://doi.org/10.13140/RG.2.2.27009.48484 \n[36] \
+    \ Nukala, R., Panduru, K., Shields, A., Riordan, D., Doody, P., & Walsh, J. (2016).\
+    \ Internet of Things: A \nreview from “Farm to Fork.” 2016 27th Irish Signals\
+    \ and Systems Conference, ISSC 2016.  \n[37]  Ofori, M., & El-Gayar, O. (2021).\
+    \ Drivers and challenges of precision agriculture: A social Media \nperspective.\
+    \ Precision Agriculture, 22(3), 1019–1044.  \n[38]  Oliveira-jr, A., Resende,\
+    \ C., Gonçalves, J., & Soares, F. (2020). IoT Sensing Platform for e-Agriculture\
+    \ in \nAfrica. In M. C. and P. C. (Eds) (Ed.), IST-Africa 2020 Conference Proceedings\
+    \ (pp. 1–8). IEEE. \n[39]  Pantoja, M., Kurfess, F., & Humer, I. (2020). Deep\
+    \ Learning for Agriculture. 2020 ASEE Virtual Annual \nConference Content Access\
+    \ Proceedings, 34371.  \n[40]  Patel, K. K., Patel, S. M., & Scholar, P. G. (2016).\
+    \ Internet of Things-IoT: Definition,Characteristics, \nArchitecture, Enabling\
+    \ Technologies, Application &amp; Future Challenges. International Journal of\
+    \ \nEngineering Science and Computing, 6(5), 1–10. \n[41]  Rabah, K. (2018). Convergence\
+    \ of AI, IoT, Big Data and Blockchain: A Review. The Lake Institute \nJournal,\
+    \ 1(1), 1–18. \n[42]  Ramdinthara, I. Z., & Shanthi, B. P. (2019). A comparative\
+    \ study of IoT technology in Precision \nagriculture. 2019 IEEE International\
+    \ Conference on System, Computation, Automation, and Networking, \nICSCAN 2019.\
+    \  \n[43]  Rotz, S., Duncan, E., Small, M., Botschner, J., Dara, R., Mosby, I.,\
+    \ Reed, M., & Fraser, E. D. G. (2019). \nThe Politics of Digital Agricultural\
+    \ Technologies: A Preliminary Review. Sociologia Ruralis, 59(2), 203–\n229.  \n\
+    [44]  Saiz-Rubio, V., & Rovira-Más, F. (2020). From smart farming towards agriculture\
+    \ 5.0: A Review on crop \ndata management. Agronomy, 10(2).  \nJournal of Information\
+    \ Engineering and Applications                                               \
+    \                                                                        www.iiste.org\
+    \ \nISSN 2224-5782 (print) ISSN 2225-0506 (online) \n \nVol.13, No.1, 2023 \n\
+    \ \n29 \n[45]  Salam, A., & Shah, S. (2019). Internet of things in smart agriculture:\
+    \ Enabling technologies. IEEE 5th \nWorld Forum on Internet of Things, WF-IoT\
+    \ 2019 - Conference Proceedings, 692–695.  \n[46]  Tagarakis, A. C., F, V. E.,\
+    \ Kempenaar, C., Ljubicic, N., Milic, D., Bengin, V., & Crnojevic, V. (2018).\
+    \ \nOpportunities for precision agriculture in Serbia. 14th International Conference\
+    \ on Precision Agriculture \nJune 24 – June 27, 2018, 1–12. \n[47]  Talaviya,\
+    \ T., Shah, D., Patel, N., Yagnik, H., & Shah, M. (2020). Implementation of artificial\
+    \ intelligence in \nagriculture for optimization of irrigation and application\
+    \ of pesticides and herbicides. Artificial Intelligence \nin Agriculture, 4, 58–73.\
+    \  \n[48]  Tantalaki, N., Souravlas, S., & Roumeliotis, M. (2019). Data-Driven\
+    \ Decision Making in Precision \nAgriculture: The Rise of Big Data in Agricultural\
+    \ Systems. Journal of Agricultural and Food Information, \n20(4), 344–380. \n\
+    [49]  Tey, Y. S., & Brindal, M. (2012). Factors influencing the adoption of precision\
+    \ agricultural Technologies: \nA review for policy implications. Precision Agriculture,\
+    \ 13(6), 713–730.  \n[50]  Wiseman, L., Sanderson, J., Zhang, A., & Jakku, E.\
+    \ (2019). Farmers and their data: An Examination of \nfarmers’ reluctance to share\
+    \ their data through the lens of the laws Impacting smart farming. NJAS - \nWageningen\
+    \ Journal of Life Sciences, 1–10.  \n[51]  Yadav, R., Rathod, J., & Nair, V. (2015).\
+    \ Big Data Meets Small Sensors in Precision Agriculture. \nInternational Journal\
+    \ of Computer Applications, 1–4. \n[52] Yalcin, H. (2017). Plant phenology recognition\
+    \ using deep learning: Deep-Pheno. 2017 6th International \nConference on Agro-Geoinformatics,\
+    \ Agro-Geoinformatics 2017. Kitchen, N. R., Snyder, C. J., Franzen, D. \nW., &\
+    \ Wiebold, W. J. (2002). Educational Needs of Precision Agriculture. Precision\
+    \ Agriculture, 3, 341–\n351. \n \n \n"
+  inline_citation: null
+  journal: Journal of Information Engineering and Applications
+  limitations: null
+  pdf_link: https://iiste.org/Journals/index.php/JIEA/article/download/60484/62431
+  publication_year: 2023
+  relevance_score: 0.9
+  relevance_score1: 0
+  relevance_score2: 0
+  title: IoT, Big Data Analytics and Deep Learning for Sustainable Precision Agriculture
+  verbatim_quote1: '"IoT technologies collect data and relay it to data analytics
+    for in-depth analysis. Farmers receive the analyzed data via devices such as smartphones.
+    The data helps farmers manage crop varieties, phenotypes, and selection, crop
+    performance, soil quality, pH level, irrigation, and fertilizer application quantity."'
+  verbatim_quote2: null
+  verbatim_quote3: '>'
