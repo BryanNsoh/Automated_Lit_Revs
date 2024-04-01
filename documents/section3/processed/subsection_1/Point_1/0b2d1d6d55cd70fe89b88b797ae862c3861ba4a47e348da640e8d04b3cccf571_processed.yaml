@@ -1,36 +1,45 @@
-- analysis: 'Planning for precise irrigation is a crucial aspect of automated systems
-    for real-time irrigation management. This paper contributes to this perspective
-    by presenting a planning strategy for sprinkler-based VRI using self-propelled
-    rain gun sprinklers. The strategy leverages an information system that processes
-    remote sensor data to compute VRI prescription maps. The map is then converted
-    into irrigation commands by considering system dynamics and constraints, including
-    retraction speed and sprinkler head orientation, to achieve differential water
-    distribution.
+- analysis: 'The paper develops a planning strategy for VRI with self-propelled rain
+    gun sprinklers and provides a detailed simulation of the automated irrigation
+    system.
 
 
-    The proposed approach offers several advantages:
-
-    * Integration: It seamlessly connects high-level prescription maps to actual rain
-    gun actuators, bridging the gap between planning and execution.
-
-    * Model-based: The planning algorithm is grounded in a physical model of the sprinkler''s
-    water distribution and dynamics, ensuring accurate and realistic irrigation plans.
-
-    * Variable rate capability: The strategy enables precise differentiation of water
-    quantities distributed within each pull area, accommodating the variability in
-    crop water requirements.
+    This paper is highly relevant to the outline point—"Types of data most applicable
+    to irrigation management and their typical sources"—as it discusses satellite
+    data (vegetation index) and spatial maps describing crop water needs as the primary
+    sources of data for irrigation management. The paper also presents a detailed
+    model and simulation of the proposed planning strategy, making it a valuable resource
+    for researchers and practitioners in the field of precision agriculture.
 
 
-    The paper provides a detailed description of the planning algorithm, including
-    a mathematical model for sprinkler motion and water distribution. It evaluates
-    the effectiveness of the approach through both simulation and field experiments,
-    demonstrating its ability to deliver water according to the desired VRI prescription
-    map.
+    The primary contribution of this paper is the development and validation of a
+    planning strategy for VRI with self-propelled rain gun sprinklers. The proposed
+    strategy uses satellite data and spatial maps describing crop water needs to compute
+    a VRI prescription map, which is then used to compute the motion commands for
+    a rain gun system pulled by a hose reel. The paper also provides a detailed simulation
+    of the proposed planning strategy, which demonstrates the precision in water distribution
+    achievable with software-controlled sprinklers and effective planning strategies.
+    This work is novel and provides valuable insights into the use of VRI with self-propelled
+    rain gun sprinklers.
 
 
-    Overall, this paper contributes to the development of practical and automated
-    VRI systems for sprinkler irrigation, an important step towards efficient and
-    sustainable water management in agriculture.'
+    The paper is well-written and provides a comprehensive overview of the proposed
+    planning strategy. The simulation results are presented in detail, and the paper
+    provides a thorough discussion of the results. The paper also includes a number
+    of references to relevant literature, which provides readers with additional resources
+    for further research.
+
+
+    However, the paper could be improved by including additional details about the
+    simulation setup and parameters. For example, the paper does not provide any information
+    about the size of the field used in the simulation, the type of crop being grown,
+    or the specific parameters used in the planning strategy. This information would
+    be helpful for readers who are interested in replicating the results of the simulation.
+
+
+    Overall, this is a well-written and informative paper that provides valuable insights
+    into the use of VRI with self-propelled rain gun sprinklers. The proposed planning
+    strategy is novel and provides a valuable resource for researchers and practitioners
+    in the field of precision agriculture.'
   authors:
   - Penzotti G.
   - Lodi Rizzini D.
@@ -50,7 +59,7 @@
     precision in water distribution achievable with software-controlled sprinklers
     and effective planning strategies.
   doi: 10.1016/j.compag.2023.108126
-  full_citation: '>'
+  full_citation: A planning strategy for sprinkler-based variable rate irrigation
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -850,49 +859,81 @@
     © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved,
     including those for text and data mining, AI training, and similar technologies.
     For all open access content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Gabriele Penzotti, Dario Lodi Rizzini, Stefano Caselli
   journal: Computers and Electronics in Agriculture
   limitations: null
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: A planning strategy for sprinkler-based variable rate irrigation
-  verbatim_quote1: Automated variable rate irrigation (VRI) is one of the frontiers
-    for sustainable water use in agriculture.
-  verbatim_quote2: The sprinkler is commanded by an information system which acquires
+  verbatim_quote1: The sprinkler is commanded by an information system which acquires
     data from remote sensors (satellite), processes vegetation indices and spatial
     maps describing the water need of the crop, and computes a VRI prescription map
     for a specific field, i.e. the water quantity to be supplied to each field sub-area.
-  verbatim_quote3: The procedure is based on a sprinkler model, has been validated
-    by simulation, and is fully automated. Experiments have shown the precision in
-    water distribution achievable with software-controlled sprinklers and effective
-    planning strategies.
-- analysis: 'The study''s findings in this paper are especially pertinent to the point
-    of what types of data are most applicable for irrigation management and their
-    typical sources, considering the overall purpose of the literature review.
+  verbatim_quote2: The VRI prescription map is used to compute the motion commands
+    for a rain gun system pulled by a hose reel.
+  verbatim_quote3: '>'
+- analysis: 'The research paper titled, "Prediction of soil water infiltration using
+    multiple linear regression and random forest in a dry flood plain, eastern Iran"
+    by Mohammad Reza Pahlavan-Rad et al. addresses the type of data most applicable
+    to irrigation management and its typical sources. The study was conducted in the
+    Sistan plain, an arid, low-relief flood plain in eastern Iran, where a large irrigation
+    project is being implemented. The authors used multiple linear regression (MLR)
+    and random forests (RF) models to predict the spatial variation of soil infiltration,
+    and compared their performance.
 
 
-    Firstly, the study focuses on assessing the effectiveness of digital soil mapping
-    (DSM) techniques for predicting the spatial variation of soil infiltration. It
-    highlights the importance of input data in this process and emphasizes the value
-    of environmental covariates derived from digital elevation models and satellite
-    imagery. These covariates, such as channel networks, sand concentration, and elevation,
-    were found to significantly influence soil infiltration.
+    The authors found that the RF model performed slightly better than the MLR model,
+    with RMSE values of 13.4 mm h−1 and 13.9 mm h−1, respectively, and MAE values
+    of 10.5 and 10.9, respectively. They also found that the most important covariates
+    for predicting soil infiltration were channel networks, sand concentration, normalized
+    difference salinity index (NDSI), and elevation in the RF model, and distance-from-river
+    and sand concentration in the MLR model.
 
 
-    Second, the study investigates the performance of two modeling approaches: multiple
-    linear regression (MLR) and random forests (RF). It compares their accuracy in
-    predicting soil infiltration and identifies the key variables that contribute
-    to each model''s predictions. By evaluating the relative importance of different
-    covariates, the study provides insights into the types of data that are most relevant
-    for irrigation management.
+    This study contributes to the understanding of the spatial variation of soil infiltration
+    in dryland flood plains and provides valuable insights for the design and implementation
+    of irrigation projects in similar environments.
 
 
-    Overall, the paper contributes to the review''s focus on data collection and processing
-    in automated irrigation management systems. It provides valuable information on
-    the types of data (environmental covariates) that are most applicable to irrigation
-    management and demonstrates how these data can be used to effectively predict
-    soil infiltration using DSM techniques.'
+    **Relevance to the Outline Point and Review Intention:**
+
+
+    This paper is relevant to the outline point "Types of data most applicable to
+    irrigation management and their typical sources" because it provides a detailed
+    analysis of the types of data that are most useful for predicting soil infiltration,
+    a key parameter for irrigation management. The paper also discusses the typical
+    sources of these data, such as digital elevation models, satellite imagery, and
+    soil surveys.
+
+
+    The paper is also relevant to the review intention of "Examining automation across
+    the entire pipeline: The review intends to systematically analyze the automation
+    of each component of the irrigation management pipeline, from data collection
+    and transmission to processing, analysis, decision-making, and automated action.
+    It aims to investigate the effectiveness and efficiency of integrated end-to-end
+    automated irrigation systems.", as it provides a detailed analysis of the data
+    collection and processing methods used in the prediction of soil infiltration.
+    The paper also discusses the potential for using automated methods to improve
+    the efficiency of irrigation management.
+
+
+    **Verbatim Quotes:**
+
+
+    1. "The most important covariates were channel networks, sand concentration, normalized
+    difference salinity index (NDSI), and elevation in the random forest model and
+    distance-from-river and sand concentration in the multiple linear regression model."
+
+
+    2. "Accuracy metrics for both models were comparable, but the random forest predictions
+    were judged to be closer to reality based on visual review, thus random forests
+    was chosen to make predictive maps of soil infiltration."
+
+
+    3. "This study contributes to the understanding of the spatial variation of soil
+    infiltration in dryland flood plains and provides valuable insights for the design
+    and implementation of irrigation projects in similar environments."'
   authors:
   - Pahlavan-Rad M.R.
   - Dahmardeh K.
@@ -929,7 +970,10 @@
     to be closer to reality based on visual review, thus random forests was chosen
     to make predictive maps of soil infiltration.
   doi: 10.1016/j.catena.2020.104715
-  full_citation: '>'
+  full_citation: Pahlavan-Rad, M. R., Dahmardeh, K., Hadizadeh, M., Keykha, G., Mohammadnia,
+    N., Gangali, M., Keikha, M., Davatgar, N., & Brungard, C. (2020). Prediction of
+    soil water infiltration using multiple linear regression and random forest in
+    a dry flood plain, eastern Iran. Catena, 194, 104715.
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -1343,68 +1387,56 @@
     its licensors, and contributors. All rights are reserved, including those for
     text and data mining, AI training, and similar technologies. For all open access
     content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Pahlavan-Rad et al., 2020
   journal: Catena
-  limitations: 'The study is specific to the Sistan plain in eastern Iran, and the
-    findings may not be directly transferable to other regions with different soil
-    and environmental conditions.
+  limitations: 'The study was conducted in a single location, and the results may
+    not be generalizable to other dryland flood plains.
 
 
-    The study focuses on steady-state soil infiltration, which may not fully capture
-    the dynamic nature of infiltration under different soil moisture conditions and
-    rainfall intensities.
+    The study used a relatively small number of sampling locations (138) and the results
+    may not be representative of the entire study area.
 
 
-    The accuracy of the models may be limited by the availability and quality of the
-    input data, particularly the environmental covariates derived from remote sensing
-    and digital elevation models.'
-  relevance_score: 0.9
-  relevance_score1: 0.9
+    The study did not evaluate the accuracy of the infiltration predictions at different
+    spatial scales.'
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Prediction of soil water infiltration using multiple linear regression and
     random forest in a dry flood plain, eastern Iran
-  verbatim_quote1: A simple (multiple linear regression) and a complex (random forests)
-    model were used to link covariates and infiltration measurements.
-  verbatim_quote2: The most important covariates were channel networks, sand concentration,
+  verbatim_quote1: '"The most important covariates were channel networks, sand concentration,
     normalized difference salinity index (NDSI), and elevation in the random forest
     model and distance-from-river and sand concentration in the multiple linear regression
-    model.
-  verbatim_quote3: Accuracy metrics for both models were comparable, but the random
+    model."'
+  verbatim_quote2: '"Accuracy metrics for both models were comparable, but the random
     forest predictions were judged to be closer to reality based on visual review,
-    thus random forests was chosen to make predictive maps of soil infiltration.
-- analysis: "In this paper, the authors studied the potential for using remotely sensed\
-    \ NDVI data and soil moisture sensor measurements to inform the delineation of\
-    \ dynamic management zones across a field for real-time irrigation scheduling\
-    \ in maize. The primary goal of the authors was to evaluate the use of an unsupervised\
-    \ classification approach to delineate management zones based on sentinel-2 NDVI\
-    \ time series data, and to assess soil moisture spatial variability, across dynamic\
-    \ management zones. The authors also sought to integrate simulation forecasts\
-    \ from the Hydrus-1D model to optimize irrigation scheduling for each zone. \n\
-    Based on my review, I consider the paper's relevance to the overall research area\
-    \ to be Very relevant, as it addresses a critical need in irrigation scheduling,\
-    \ particularly in the context of increasing water scarcity. Irrigation scheduling\
-    \ decision-support tools can indeed improve water use efficiency by matching irrigation\
-    \ recommendations to prevailing soil and crop conditions within a season. Yet,\
-    \ little research exists to provide guidance on how to support real-time precision\
-    \ irrigation that varies both in time and space within a given growing season.\
-    \ This paper takes important steps towards filling this gap by investigating the\
-    \ integration of remotely sensed NDVI, soil moisture sensor measurements, and\
-    \ simulation forecasts for the in-season delineation of dynamic management zones\
-    \ (MZ) for variable rate irrigation scheduling. \nAs for the authors' specific\
-    \ results, they found that the delineation of management zones based on NDVI clustering\
-    \ outperformed the delineation of zones based on maize variety, with the former\
-    \ able to better capture the spatial variability of soil properties and conditions.\
-    \ Additionally, the authors found that soil water content, as measured by soil\
-    \ moisture sensors, was consistently the most significant contributor to changes\
-    \ in crop vigor across MZ. Therefore, the authors argue that available water should\
-    \ be incorporated into in-season evaluation of management zone designs. In terms\
-    \ of the integration of Hydrus-1D model forecasts, the authors found that simulation\
-    \ results indicated that crop transpiration could be optimized while reducing\
-    \ water applications between 11 and 28.5% across the dynamic MZs. \nOverall, I\
-    \ believe that the paper contributes novel insights into the use of dynamic management\
-    \ zones and the integration of different data sources to improve irrigation scheduling.\
-    \ The paper provides a practical framework that can be used by researchers and\
-    \ practitioners in the field of precision agriculture."
+    thus random forests was chosen to make predictive maps of soil infiltration."'
+  verbatim_quote3: '>'
+- analysis: "The paper presents a full workflow for the real-time delineation of management\
+    \ zones and for variable rate, in-season precision irrigation scheduling of maize.\
+    \ This process takes into account remotely sensed NDVI data, soil moisture readings,\
+    \ and root growth zone simulations to improve irrigation methods and crop performance.\
+    \ The effectiveness of the proposed method is illustrated using data from a commercial\
+    \ maize field.\nThis in-depth study includes comprehensive methods, an impressive\
+    \ data collection and analysis, and a valuable discussion of the implications\
+    \ of the findings.\n\nThe authors begin by discussing the current state of automated\
+    \ irrigation systems and the need for real-time, in-season irrigation management.\
+    \ They then introduce the concept of MZs and explain their advantages over traditional\
+    \ irrigation methods. \n\nThe study was conducted in a 5.8-ha maize field, where\
+    \ 33 soil moisture sensors were installed at 11 locations and Sentinel-2 NDVI\
+    \ time-series data was acquired to characterize the spatial and temporal variability\
+    \ of crop-soil-water relations. A k-means unsupervised clustering algorithm was\
+    \ then applied to the NDVI data to delineate MZs.\n\nThe authors found that the\
+    \ number and spatial extent of MZs changed through the growing season. They also\
+    \ found that soil water content was a significant contributor to changes in crop\
+    \ vigor across the MZs. The study developed a workflow for in-season optimization\
+    \ of irrigation scheduling and water delivery management using the Hydrus-1D model.\
+    \ The model simulations indicated that crop transpiration could be optimized while\
+    \ reducing water applications between 11 and 28.5% across different MZs.\n\nOverall,\
+    \ this study provides a valuable contribution to the field of precision agriculture.\
+    \ The proposed method effectively uses real-time data to improve irrigation management\
+    \ and has the potential to help farmers increase crop yields while reducing water\
+    \ usage."
   authors:
   - Fontanet M.
   - Scudiero E.
@@ -1437,7 +1469,7 @@
     crop and soil moisture data can be used to support management decisions to effectively
     control outputs of crop × environment × management interactions.
   doi: 10.1016/j.agwat.2020.106207
-  full_citation: '>'
+  full_citation: Dynamic Management Zones for Irrigation Scheduling.
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -2290,151 +2322,43 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: null
   journal: Agricultural Water Management
-  limitations: "Some limitations of the paper and areas for further research include:\
-    \ \n\n- Limited scope: The study was conducted in a single field during a single\
-    \ growing season, so the results may not be generalizable to other fields or regions.\n\
-    - Limited number of variables: The authors only considered NDVI and soil moisture\
-    \ data in their analysis. Other variables, such as soil texture or yield data,\
-    \ could also be incorporated to improve the accuracy of management zone delineation\
-    \ and irrigation scheduling.\n- Limited discussion of uncertainty: The authors\
-    \ do not discuss the uncertainty associated with their results. For example, they\
-    \ do not provide any measures of the accuracy of their management zone delineation\
-    \ or irrigation scheduling recommendations.\n- Lack of validation: The authors\
-    \ do not validate their proposed irrigation scheduling framework with real-world\
-    \ data. This would be a valuable step in demonstrating the practical applicability\
-    \ of their approach.\n- Computational cost: The authors do not discuss the computational\
-    \ cost of their proposed approach. This could be a limiting factor for large-scale\
-    \ applications.\nDespite these limitations, the paper provides a valuable contribution\
-    \ to the field of precision irrigation scheduling. The authors' proposed framework\
-    \ has the potential to improve water use efficiency and crop yields, and it could\
-    \ be used to inform the development of future irrigation scheduling tools."
+  limitations: 'There are no major limitations to the study, which is well-designed
+    and executed.
+
+    However, it is important to note that the study was conducted in a single field,
+    and the results may not be generalizable to other fields or crops.'
+  points_content: Types of data most applicable to irrigation management and their
+    typical sources
   relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Dynamic Management Zones for Irrigation Scheduling
   verbatim_quote1: Delineation of MZ was conducted in a 5.8-ha maize field during
-    2018 using Sentinel-2 NDVI time-series and an unsupervised classification. The
-    number and spatial extent of MZs changed through the growing season. A network
-    of soil moisture sensors was used to interpret spatiotemporal changes of the NDVI.
-    Soil water content was a significant contributor to changes in crop vigor across
-    MZs through the growing season. Real-time cluster validity function analysis provided
-    in-season evaluation of the MZ design. For example, the total within-MZ daily
-    soil moisture relative variance decreased from 85% (early vegetative stages) to
-    below 25% (late reproductive stages).
-  verbatim_quote2: Finally, using the Hydrus-1D model, a workflow for in-season optimization
-    of irrigation scheduling and water delivery management was tested. Data simulations
-    indicated that crop transpiration could be optimized while reducing water applications
-    between 11 and 28.5% across the dynamic MZs.
-  verbatim_quote3: The proposed integration of spatiotemporal crop and soil moisture
-    data can be used to support management decisions to effectively control outputs
-    of crop × environment × management interactions.
-- analysis: 'The paper "Adapting weather conditions based IoT enabled smart irrigation
-    technique in precision agriculture mechanisms" by Keswani et al. explores the
-    use of an IoT-enabled wireless sensor network (WSN) for automated irrigation management
-    in precision agriculture.
+    2018 using Sentinel-2 NDVI time-series and an unsupervised classification.
+  verbatim_quote2: For example, the total within-MZ daily soil moisture relative variance
+    decreased from 85% (early vegetative stages) to below 25% (late reproductive stages).
+  verbatim_quote3: '>'
+- analysis: 'The paper contributes to the precise management of water valves for irrigation
+    by leveraging soil moisture prediction using variable learning rate gradient descent
+    neural networks. Here are the key points:
 
+    - Proposing a real-time irrigation management system based on IoT-enabled wireless
+    sensor networks gathering various farm data like soil moisture, temperature, CO2
+    levels, and humidity.
 
-    **Relevance to the review point:**
+    - Utilizing variable learning rate gradient descent (VLRGD) neural network pattern
+    classification to forecast soil moisture content (MC) an hour in advance, outperforming
+    the gradient descent optimization method.
 
+    - Generating MC distribution maps using bilinear interpolation and identifying
+    water-deficient regions using a structural similarity index (SSIM). Controlling
+    irrigation valves using an SSIM-based mechanism and further adjusting valve commands
+    based on weather conditions through a fuzzy logic-based model.
 
-    The paper addresses the identification of the most applicable data types for irrigation
-    management and their typical sources, as mentioned in the review point "Types
-    of data most applicable to irrigation management and their typical sources". Specifically,
-    the paper proposes a system that collects real-time soil and environmental parameters
-    using IoT-enabled WSN nodes, including soil moisture content (MC), soil temperature,
-    temperature of the surrounding, humidity level of the surrounding, CO2 level of
-    air, and sunlight intensity level.
-
-
-    **Insight and novelty:**
-
-
-    While some of the data types collected by the system, such as soil moisture content
-    and temperature, are commonly used in irrigation management, the paper also includes
-    less commonly used data types such as CO2 level and sunlight intensity. Additionally,
-    the paper proposes a novel irrigation control scheme based on structural similarity
-    (SSIM) and fuzzy logic to optimize water usage and ensure uniform water distribution
-    across the farm area, considering different weather conditions.
-
-
-    **Verbatim quotes:**
-
-
-    1. "The projected work relies on independent internet of things (IoT) enabled
-    wireless sensor network (WSN) framework consisting of soil moisture (MC) probe,
-    soil temperature measuring device, environmental temperature sensor, environmental
-    humidity sensing device, CO2 sensor, daylight intensity device (light dependent
-    resistor) to acquire real-time farm information through multi-point measurement."
-
-    2. "Moreover, a close comparative study of optimization techniques, like variable
-    learning rate gradient descent, gradient descent for feedforward neural network-based
-    pattern classification, is performed and the best practice is employed to forecast
-    soil MC on hourly basis together with interpolation method for generating soil
-    moisture content (MC) distribution map."
-
-    3. "The valve control commands are again processed using fuzzy logic-based weather
-    condition modeling system to manipulate control commands by considering different
-    weather conditions."
-
-
-    **Credibility, Reliability, and Scope:**
-
-
-    The paper appears to be credible, as it provides detailed information about the
-    proposed system, including the hardware components, data collection methods, and
-    algorithms used for data processing and decision-making. The results of the study
-    are presented in a clear and concise manner, and the paper is well-written and
-    well-organized.
-
-
-    **Scope:**
-
-
-    The paper primarily focuses on the development and evaluation of an IoT-enabled
-    WSN system for automated irrigation management in precision agriculture. It does
-    not cover other aspects of irrigation management data, such as data storage, data
-    sharing, or data security.
-
-
-    **Recency:**
-
-
-    The paper was published in 2018, which is relatively recent compared to other
-    papers in the field. However, there may be more recent research available on this
-    topic that is not covered in this review.
-
-
-    **Overall, I would give this paper a relevance score of 0.85 out of 1.0. It directly
-    addresses the point in question, provides novel insights and valuable information,
-    and appears to be credible and reliable. The scope of the paper is somewhat limited,
-    and there may be more recent research available on this topic, but these limitations
-    do not significantly detract from the overall value of the paper.
-
-
-    **Limitations:**
-
-
-    One potential limitation of the paper is that it does not evaluate the performance
-    of the proposed system in a real-world setting. The results presented in the paper
-    are based on simulations, and it is possible that the system may not perform as
-    well in practice due to factors such as hardware failures, environmental interference,
-    or changes in crop conditions.
-
-
-    Another potential limitation is that the paper does not discuss the cost of implementing
-    the proposed system. While the paper mentions that the system uses low-cost hardware
-    components, it does not provide a detailed analysis of the overall cost of the
-    system, including the cost of hardware, software, installation, and maintenance.
-    This information would be valuable for potential users who are considering implementing
-    the system.
-
-
-    Overall, the paper provides a valuable contribution to the field of automated
-    irrigation management in precision agriculture. The proposed system has the potential
-    to improve water usage efficiency and crop yields, and the results of the study
-    provide valuable insights into the design and implementation of such systems.'
+    - Implementing an SMS notification system to alert farmers about irrigation needs
+    and valve statuses.'
   authors:
   - Keswani B.
   - Mohapatra A.G.
@@ -2469,7 +2393,7 @@
     processed using fuzzy logic-based weather condition modeling system to manipulate
     control commands by considering different weather conditions.
   doi: 10.1007/s00521-018-3737-1
-  full_citation: '>'
+  full_citation: null
   full_text: '>
 
     "Your privacy, your choice We use essential cookies to make sure the site can
@@ -3027,40 +2951,36 @@
     cookies Your US state privacy rights Accessibility statement Terms and conditions
     Privacy policy Help and support 129.93.161.222 Big Ten Academic Alliance (BTAA)
     (3000133814) - University of Nebraska-Lincoln (3000134173) © 2024 Springer Nature"'
-  inline_citation: '>'
+  inline_citation: null
   journal: Neural Computing and Applications
-  limitations: '1. The paper does not evaluate the performance of the proposed system
-    in a real-world setting.
-
-    2. The paper does not discuss the cost of implementing the proposed system.'
-  relevance_score: 0.85
-  relevance_score1: 0.85
+  limitations: null
+  relevance_score: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Adapting weather conditions based IoT enabled smart irrigation technique
     in precision agriculture mechanisms
-  verbatim_quote1: The projected work relies on independent internet of things (IoT)
-    enabled wireless sensor network (WSN) framework consisting of soil moisture (MC)
-    probe, soil temperature measuring device, environmental temperature sensor, environmental
-    humidity sensing device, CO2 sensor, daylight intensity device (light dependent
-    resistor) to acquire real-time farm information through multi-point measurement.
-  verbatim_quote2: Moreover, a close comparative study of optimization techniques,
+  verbatim_quote1: '"Our proposed irrigation control scheme utilizes structural similarity
+    (SSIM)-based water valve management mechanism which is used to locate farm regions
+    having water deficiency."'
+  verbatim_quote2: '"Moreover, a close comparative study of optimization techniques,
     like variable learning rate gradient descent, gradient descent for feedforward
     neural network-based pattern classification, is performed and the best practice
     is employed to forecast soil MC on hourly basis together with interpolation method
-    for generating soil moisture content (MC) distribution map.
-  verbatim_quote3: The valve control commands are again processed using fuzzy logic-based
-    weather condition modeling system to manipulate control commands by considering
-    different weather conditions.
-- analysis: The paper uses relevant, meaningful, and credible information from soil
-    moisture sensors, weather, irrigation, and yield data to address the point of
-    utilizing automated systems for real-time irrigation management with both regression
-    and classification models. The models are able to predict irrigation plans and
-    can be used to support irrigation decisions and increase efficiency. The study
-    also provides some insights into which variables are most useful for constructing
-    irrigation recommendation models. Overall, the paper provides valuable information
-    for the review's intention of exploring how automated, real-time irrigation management
-    systems can contribute to the efficient use of water resources and enhance agricultural
-    productivity.
+    for generating soil moisture content (MC) distribution map."'
+  verbatim_quote3: '"Finally, SSIM index-based soil MC deficiency is calculated to
+    manipulate the specified valves for maintaining uniform water requirement through
+    the entire farm area. The valve control commands are again processed using fuzzy
+    logic-based weather condition modeling system to manipulate control commands by
+    considering different weather conditions."'
+- analysis: The study integrated and utilized data from various sources to not only
+    monitor and control crops but also to predict and recommend irrigation. Different
+    regression and classification algorithms were applied to develop models that predicted
+    the weekly irrigation plan as recommended by the agronomist, with the best regression
+    and classification models achieving 93% and 95% accuracy, respectively. Subsets
+    of variables were used to determine the variables that contributed to the prediction
+    accuracy. Data that did not contribute to the model's success rate were identified,
+    and the potential of using machine learning for yield and disease prediction was
+    also discussed.
   authors:
   - Goldstein A.
   - Fink L.
@@ -3095,7 +3015,11 @@
     planning process. In addition, the potential of applying machine learning on the
     company data for yield and disease prediction is discussed.
   doi: 10.1007/s11119-017-9527-4
-  full_citation: '>'
+  full_citation: 'Applying machine learning on sensor data for irrigation recommendations:
+    revealing the agronomist’s tacit knowledge
+
+    Anat Goldstein , Lior Fink, Amit Meitin, Shiran Bohadana, Oscar Lutenberg & Gilad
+    Ravid'
   full_text: '>
 
     "Your privacy, your choice We use essential cookies to make sure the site can
@@ -3828,14 +3752,20 @@
     privacy rights Accessibility statement Terms and conditions Privacy policy Help
     and support 129.93.161.222 Big Ten Academic Alliance (BTAA) (3000133814) - University
     of Nebraska-Lincoln (3000134173) © 2024 Springer Nature"'
-  inline_citation: '>'
+  inline_citation: null
   journal: Precision Agriculture
   limitations: null
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score: 0.7
+  relevance_score1: 0
   relevance_score2: 0
   title: 'Applying machine learning on sensor data for irrigation recommendations:
     revealing the agronomist’s tacit knowledge'
-  verbatim_quote1: null
-  verbatim_quote2: null
-  verbatim_quote3: null
+  verbatim_quote1: '"In particular, a dataset was constructed by integrating data
+    collected over almost two years from 22 soil-sensors spread in four major plots
+    (which are divided into 28 subplots and eight irrigation groups), from a meteorological
+    station, and from actual irrigation records."'
+  verbatim_quote2: '"By comparing the resulting models, it was shown that the best
+    regression model was Gradient Boosted Regression Trees, with 93% accuracy, and
+    the best classification model was the Boosted Tree Classifier, with 95% accuracy
+    (on the test-set)."'
+  verbatim_quote3: '>'

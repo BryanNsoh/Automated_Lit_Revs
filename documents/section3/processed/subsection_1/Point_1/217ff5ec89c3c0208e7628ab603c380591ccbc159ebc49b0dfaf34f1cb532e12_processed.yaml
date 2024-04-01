@@ -1,214 +1,20 @@
-- analysis: 'The paper designs and evaluates a heat source adaptive stemflow detection
-    and regulation system that utilizes a genetic algorithm and support vector regression
-    (GA-SVR) model for heat source power prediction. While the paper focuses on camphor
-    stalks, its findings may have implications for irrigation management in various
-    contexts.
+- analysis: 'The main focus of the paper is fault detection in automated irrigation
+    systems using frequency domain analysis. The paper explores two techniques for
+    determining soil moisture content using frequency domain analysis and discusses
+    how these techniques can be used to automatically detect probe damage or moisture
+    intrusion into the probe''s housing by analyzing changes in the relationship between
+    the two techniques'' measurements.
 
-    The paper contributes to addressing the point on types of data most applicable
-    to irrigation management and their typical sources by providing a specific example
-    of data collection and processing within the context of stemflow measurement.
-    It demonstrates the use of environmental factors such as temperature and stemflow
-    rate to calibrate the thermal equilibrium method for stemflow measurement, a technique
-    that could be adapted to other irrigation-related data collection scenarios.
 
-    The paper''s relevance to the review''s intention is moderate, as it focuses on
-    a specific aspect of data collection rather than providing a comprehensive overview
-    of data types and sources for irrigation management. The insights provided are
-    valuable for researchers and practitioners working on stemflow measurement or
-    similar data collection methods but may not be directly applicable to all aspects
-    of irrigation management.
+    The paper also discusses how the probe''s cost can be kept below 10 Euros. However,
+    the cost of the implementation and maintenance of the automated irrigation system
+    as a whole is not discussed.
 
-    The credibility of the paper is good, as it presents a well-defined methodology,
-    experimental setup, and quantitative results. The GA-SVR model demonstrated high
-    accuracy and robustness, with a determination coefficient of 0.989. However, the
-    paper does not explicitly address limitations or potential sources of error, which
-    could be considered a limitation.
 
-    The paper''s scope is limited to stemflow measurement using a specific method,
-    so its coverage of topics relevant to irrigation management is narrow. It does
-    not provide a comprehensive analysis of different data types or sources used in
-    irrigation management.
-
-    The paper is relatively recent, published in 2023, and aligns with the current
-    state of knowledge in the field of stemflow measurement. However, its relevance
-    to the broader context of irrigation management data may be limited due to its
-    specific focus.
-
-    **Verbatim Quotes**
-
-    * **Verbatim quote 1:** "A combined prediction model of heat source power based
-    on support vector regression (SVR) and genetic algorithm (GA) was established."
-
-    * **Verbatim quote 2:** "The accuracy verification test suggested that the average
-    relative error of the system was 2.64 percentage points (6℃), 2.53 percentage
-    points (11℃) and 3.68 percentage points (16℃) smaller than that of the FLOW-32KS
-    sensor in the low-temperature section."
-
-    * **Verbatim quote 3:** "It was demonstrated that the stemflow detection system
-    improved the accuracy of the heat balance stemflow measurement after embedding
-    the GA-SVR heat source power adaptive model."
-
-    **Relevance Score:** 0.7'
-  authors:
-  - Hu J.
-  - Sun Z.
-  - Feng P.
-  - Yang Y.
-  - Lu M.
-  - Hou J.
-  citation_count: '0'
-  description: Existing stemflow sensors based on the thermal equilibrium method are
-    not accurate in measurement, and the stemflow response is not sensitive to transient
-    changes when transpiration is not significant or when the external temperature
-    is low. Therefore, an adaptive stemflow detection system of heat source power
-    was proposed. Taking camphor stalks as the object, a nested experiment based on
-    the thermal equilibrium method of stemflow calibration was designed by comprehensively
-    considering the trend of the proportional change of stemflow in heat source energy,
-    and the sample set of stemflow rates with multi-gradient under different environmental
-    factors such as external temperature, stemflow rate and cross-sectional area were
-    collected. A combined prediction model of heat source power based on support vector
-    regression (SVR) and genetic algorithm (GA) was established. The results showed
-    that the GA - SVR had good accuracy and robustness, its root mean square error
-    (RMSE), mean absolute error (MAE) and determination coefficient (R2) were 0.015
-    W, 0.012 W and 0.989, respectively. The accuracy verification test suggested that
-    the average relative error of the system was 2. 64 percentage points (6X1), 2.
-    53 percentage points (lit) and 3. 68 percentage points (16T1) smaller than that
-    of the FLOW - 32KS sensor in the low-temperature section. The adaptive model had
-    a small effect on the correction of the results in the high-temperature section
-    which was similar to FLOW -32KS. It was demonstrated that the stemflow detection
-    system improved the accuracy of the heat balance stemflow measurement after embedding
-    the GA-SVR heat source power adaptive model.
-  doi: 10.6041/j.issn.1000-1298.2023.07.029
-  full_citation: '>'
-  full_text: '>
-
-    "首页 | 学会首页 | 学报简介 | 投稿须知 | 编委会 | 期刊浏览 | EI收录结果 | 联系我们 | OSID建码 | English | 加入收藏
-    胡瑾,孙章彤,冯盼,杨永霞,卢苗,侯军英.基于GA-SVR的热源自适应茎流检测与调控系统研究[J].农业机械学报,2023,54(7):290-299. HU
-    Jin,SUN Zhangtong,FENG Pan,YANG Yongxia,LU Miao,HOU Junying.Study of Heat Source
-    Adaptive Stemflow Detection System Based on GA-SVR[J].Transactions of the Chinese
-    Society for Agricultural Machinery,2023,54(7):290-299. 摘要点击次数:525 全文下载次数:138 基于GA-SVR的热源自适应茎流检测与调控系统研究   [下载全文]
-    Study of Heat Source Adaptive Stemflow Detection System Based on GA-SVR   [Download
-    Pdf][in English] 投稿时间：2022-11-01   DOI：10.6041/j.issn.1000-1298.2023.07.029 中文关键词:  茎流  精准灌溉  热源自适应模型  热平衡法  遗传算法
-    基金项目:国家重点研发计划项目（2020YFD1100602）和陕西省重点研发计划项目（2021ZDLNY03-02） 作者 单位 胡瑾  西北农林科技大学  孙章彤  西北农林科技大学  冯盼  西北农林科技大学  杨永霞  西北农林科技大学  卢苗  西北农林科技大学  侯军英  西北农林科技大学  中文摘要:茎流测量是研究植物耗水规律的重要手段，现有茎流传感器多基于热平衡法进行设计，但在低温天气时，植物蒸腾作用不明显，茎流瞬时变化响应不灵敏，导致测量结果不精确。针对上述问题，设计了一种热源自适应茎流检测与调控系统。综合考虑不同因素下茎流消耗在热源提供能量占比中变化趋势的建模需求，设计融合外界温度、茎流速率、横截面积等多环境因子茎流标定嵌套试验。在此基础上，利用支持向量机回归算法（Support
-    vector regression，SVR)和遗传算法（Genetic algorithm，GA)，建立热源功率自适应模型。结果表明所建模型的最优决定系数与均方根误差分别为0.989和0.015W。基于LoRa无线传感网络构建茎流检测与调控系统，实现多组温度信息和热源功率的监测，系统调用移植到嵌入式设备的热源自适应模型动态获取热源功率调控目标值，并发送至执行控制器，控制功率调控模块，实现热源自适应融合的功率动态控制。精度验证试验显示：在低温段时，本系统比FLOW-32KS型传感器平均相对误差小2.64（6℃）、2.53（11℃）、3.68个百分点（16℃）。在高温段时，自适应模型修正对结果影响不大，双系统相对误差互有高低。证明本系统嵌入基于热平衡法的GA-SVR算法热源自适应模型后，能确保茎流消耗能量Qf在输入总能量Pin中占比稳定，满足提高热平衡茎流测量精度的需求。
-    HU Jin  SUN Zhangtong  FENG Pan  YANG Yongxia  LU Miao  HOU Junying Northwest
-    A&F University Key Words:stemflow  precision irrigation  adaptive model of heat
-    source  thermal equilibrium method  genetic algorithm Abstract:Existing stemflow
-    sensors based on the thermal equilibrium method are not accurate in measurement,
-    and the stemflow response is not sensitive to transient changes when transpiration
-    is not significant or when the external temperature is low. Therefore, an adaptive
-    stemflow detection system of heat source power was proposed. Taking camphor stalks
-    as the object, a nested experiment based on the thermal equilibrium method of
-    stemflow calibration was designed by comprehensively considering the trend of
-    the proportional change of stemflow in heat source energy, and the sample set
-    of stemflow rates with multi-gradient under different environmental factors such
-    as external temperature, stemflow rate and cross-sectional area were collected.
-    A combined prediction model of heat source power based on support vector regression
-    (SVR) and genetic algorithm (GA) was established. The results showed that the
-    GA-SVR had good accuracy and robustness, its root mean square error (RMSE), mean
-    absolute error (MAE) and determination coefficient (R2) were 0.015W, 0.012W and
-    0.989, respectively. The accuracy verification test suggested that the average
-    relative error of the system was 2.64 percentage points (6℃), 2.53 percentage
-    points (11℃) and 3.68 percentage points (16℃) smaller than that of the FLOW-32KS
-    sensor in the low-temperature section. The adaptive model had a small effect on
-    the correction of the results in the high-temperature section which was similar
-    to FLOW-32KS. It was demonstrated that the stemflow detection system improved
-    the accuracy of the heat balance stemflow measurement after embedding the GA-SVR
-    heat source power adaptive model. Transactions of the Chinese Society for Agriculture
-    Machinery (CSAM), in charged of China Association for Science and Technology (CAST),
-    sponsored by CSAM and Chinese Academy of Agricultural Mechanization Science(CAAMS),
-    started publication in 1957. It is the earliest interdisciplinary journal in Chinese
-    which combines agricultural and engineering. It always closely grasps the development
-    direction of agriculture engineering disciplines and the published papers represent
-    the highest academic level of agriculture engineering in China. Currently, nearly
-    8,000 papers have been already published. There are around 3,000 papers contributed
-    to the journal each year, but only around 600 of them will be accepted. Transactions
-    of CSAM focuses on a wide range of agricultural machinery, irrigation, electronics,
-    robotics, agro-products engineering, biological energy, agricultural structures
-    and environment and more. Subjects in Transactions of the CSAM have been embodied
-    by many internationally well-known index systems, such as: EI Compendex, CA, CSA,
-    etc.    下载PDF阅读器 相似文献(共20条): [1] 基于RF-GSO的温室番茄自适应调光系统设计与试验[J].农业机械学报 [2] 王奇,高鹏翔,王金武,那明君,唐汉,周文琪.胡萝卜联合收获机智能监控系统设计与试验[J].农业机械学报,2022,53(6):118-128.
-    [3] 杨立伟,黄家运,张季琴,胡号,刘刚,吕树盛.基于微波多普勒法的施肥质量流量检测系统研究[J].农业机械学报,2020,51(S1):210-217.
-    [4] 金诚谦,蔡泽宇,杨腾祥,刘政,印祥,达飞鹏.基于占空比测量的谷物联合收获机产量监测系统研究[J].农业机械学报,2022,53(5):125-135.
-    [5] 南玉龙,张慧春,郑加强,焦祥,徐幼林,王国苏.基于圆柱面模型的仿形喷雾植物冠层密度超声量化测试[J].农业机械学报,2019,50(1):209-216.
-    [6] 王奇,高鹏翔,王金武,那明君,唐汉,周文琪.胡萝卜联合收获机智能监控系统设计与试验[J].农业机械学报,2022,53(13):118-128. [7]
-    张小龙,潘登,姜山,陈彬,曹成茂.基于加速度的汽车悬架位移实时测试方法试验研究[J].农业机械学报,2013,44(10):15-22. [8] 张利凤,郭文川,付鹤翔,夏文斌.数字式蜂蜜含水率检测仪设计[J].农业机械学报,2011,42(4):139-143,147.
-    [9] 孙意凡,刘仁杰,欧颢,张振乾,张漫,李寒.基于功率测量的联合收获机喂入量检测方法研究[J].农业机械学报,2020,51(5):118-123. [10]
-    郑玲,朱大洲,王成,潘大宇,罗斌,赵春江.基于LabVIEW的小麦生物量检测系统[J].农业机械学报,2013,44(9):214-218. [11] 刘理民,王金宇,毛文华,石光智,张晓辉,姜红花.基于传感器融合阵列的果树冠层信息采集方法[J].农业机械学报,2018,49(S1):347-353，359.
-    [12] 汪凤珠,赵博,刘阳春,毛文华,王吉中,姜含露.玉米青贮收获机多参数检测系统设计与试验[J].农业机械学报,2023,54(1):127-136.
-    [13] 段凌凤,潘井旭,郭子龙,刘海北,覃建祥,柯希鹏.基于深度信念网络的多品种水稻生物量无损检测[J].农业机械学报,2019,50(11):136-143.
-    [14] 华洪良,宋杰,廖振强,赵景波.面向机器人抓取的小型直线串联弹性驱动器设计与控制[J].农业机械学报,2022,53(12):445-451. [15]
-    陈成,张西良,张亚磊,苏小青,徐坤,徐云峰.栽培基质超亲水pH传感器测量误差影响因素分析与补偿[J].农业机械学报,2023,54(3):356-362.
-    [16] 王新,张圆圆,陈度,曾浩,许苗,王书茂.主动式温室地暖系统温控效果仿真与试验[J].农业机械学报,2017,48(S1):308-314. [17]
-    张军华,陈丹艳,卢有琦,孙章彤,张海辉,胡瑾.基于碳同化的群体光合速率测量系统设计与试验[J].农业机械学报,2022,53(3):357-367. [18]
-    江辉,刘良源,陈全胜.基于嗅觉可视化技术的花生黄曲霉毒素B1定量检测[J].农业机械学报,2022,53(12):308-313. [19] 田华.基于Arduino的简易水情检测系统设计与试验[J].农业工程,2018,8(7):34-37.
-    [20] 王煜华,申立中,王鹏.PTC电阻式车用油位传感器控制系统研究[J].农业装备与车辆工程,2021(2). 主管单位：中国科学技术协会 主办单位：中国农业机械学会;中国农业机械化科学研究院集团有限公司  主编：任露泉
-    地址：北京德胜门外北沙滩1号6信箱  邮政编码：100083 电话：64882610  技术支持：北京勤云科技发展有限公司  京ICP备11001094号-1
-    京公网安备 11010502033880号"'
-  inline_citation: '>'
-  journal: Nongye Jixie Xuebao/Transactions of the Chinese Society for Agricultural
-    Machinery
-  limitations: The paper focuses on a specific method of stemflow measurement using
-    a heat balance approach and does not provide a comprehensive analysis of different
-    data types or sources used in irrigation management. Additionally, the paper does
-    not explicitly address limitations or potential sources of error in the proposed
-    system, which could be considered a limitation.
-  relevance_score: 0.7
-  relevance_score1: 0.7
-  relevance_score2: 0
-  title: Study of Heat Source Adaptive Stemflow Detection System Based on GA-SVR
-  verbatim_quote1: '"A combined prediction model of heat source power based on support
-    vector regression (SVR) and genetic algorithm (GA) was established."'
-  verbatim_quote2: '"The accuracy verification test suggested that the average relative
-    error of the system was 2.64 percentage points (6℃), 2.53 percentage points (11℃)
-    and 3.68 percentage points (16℃) smaller than that of the FLOW-32KS sensor in
-    the low-temperature section."'
-  verbatim_quote3: '"It was demonstrated that the stemflow detection system improved
-    the accuracy of the heat balance stemflow measurement after embedding the GA-SVR
-    heat source power adaptive model."'
-- analysis: "The paper focuses on the use of Frequency Domain Analysis (FDR) to measure\
-    \ moisture content in soil and presents two methods for employing this technique.\
-    \ It also highlights the potential for fault detection in FDR-based soil moisture\
-    \ sensors, which is crucial for reliable irrigation management. The key aspects\
-    \ addressed within the paper's scope are:\n\n1. **Measurement Techniques**: The\
-    \ paper describes two FDR techniques for measuring soil moisture content, one\
-    \ using soil capacitance as part of a low-pass filter and the other using it as\
-    \ the controlling component in a variable frequency oscillator. These techniques\
-    \ provide diverse sensitivities to varying conditions but exhibit a stable reciprocal\
-    \ relationship across a wide range of soil moisture levels.\n\n2. **Fault Detection**:\
-    \ The paper emphasizes the importance of fault detection in FDR-based soil moisture\
-    \ sensors. It explains that insulated probes used in field conditions can get\
-    \ damaged or allow moisture intrusion, leading to erroneous readings. The paper\
-    \ proposes a method to automatically detect these faults by analyzing the divergence\
-    \ of readings from the two FDR techniques described earlier.\n\n3. **Applications\
-    \ in Irrigation Management**: The paper highlights the practical implications\
-    \ of fault detection in irrigation management. It explains that automatic fault\
-    \ detection can prevent unnecessary irrigation based on faulty sensor readings,\
-    \ ensuring efficient water usage and avoiding crop damage due to over- or under-watering.\n\
-    \nThe paper demonstrates the effectiveness of the proposed fault detection method\
-    \ through experimental results obtained using a low-cost FDR-based soil moisture\
-    \ sensor costing less than 10 Euros. The results show that the fault detection\
-    \ method can reliably identify sensor damage and moisture intrusion, indicating\
-    \ its potential for practical applications in irrigation management.\n\n**Relevance\
-    \ to the outline point and review intention**: This paper directly addresses the\
-    \ point of \"Types of data most applicable to irrigation management and their\
-    \ typical sources\" within the context of the review's intention to evaluate automated\
-    \ irrigation management systems. By providing insights into the measurement techniques,\
-    \ fault detection, and applications of FDR-based soil moisture sensors, the paper\
-    \ contributes to the understanding of data types and sources relevant to irrigation\
-    \ management.\n\n**Specific examples of how the paper contributes to understanding\
-    \ the point**: \n\n1. The paper demonstrates the use of FDR to measure soil moisture\
-    \ content, providing information on a specific type of data applicable to irrigation\
-    \ management.\n\n2. The paper discusses the importance of fault detection in soil\
-    \ moisture sensors, highlighting the impact of sensor damage and moisture intrusion\
-    \ on data accuracy.\n\n3. The paper presents a method for automatic fault detection\
-    \ in FDR-based sensors, which can improve the reliability of data used for irrigation\
-    \ management.\n\n**Limitations of the paper**: One limitation of the paper is\
-    \ that it primarily focuses on FDR-based soil moisture sensors and does not delve\
-    \ into other types of sensors or measurement techniques used in irrigation management.\
-    \ Additionally, the paper does not provide a comprehensive evaluation of the accuracy\
-    \ and reliability of the proposed fault detection method under various soil conditions\
-    \ and environmental factors."
+    Additionally, it is worth noting that the paper does not discuss the accuracy
+    of the soil moisture content measurements obtained using the two techniques. Hence,
+    the suitability of the proposed fault detection method for practical applications
+    cannot be fully evaluated based on the information provided in the paper.'
   authors:
   - Oates M.J.
   - Ramadan K.
@@ -234,7 +40,12 @@
     This paper presents results demonstrating these phenomena using a Frequency Domain
     capacitance based sensor costing less than 10 Euros.
   doi: 10.1016/j.agwat.2016.12.002
-  full_citation: '>'
+  full_citation: 'Automatic fault detection in a low cost frequency domain (capacitance
+    based) soil moisture sensor
+
+    M.J. Oatesa,∗, K. Ramadana,∗, J.M. Molina-Martíneza, A. Ruiz-Canalesa,∗
+
+    Agricultural Water Management, Volume 183, 31 March 2017, Pages 41-48'
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -745,46 +556,40 @@
     B.V., its licensors, and contributors. All rights are reserved, including those
     for text and data mining, AI training, and similar technologies. For all open
     access content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: null
   journal: Agricultural Water Management
-  limitations: null
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: The paper does not discuss the accuracy of the soil moisture content
+    measurements obtained using the two techniques. Hence, the suitability of the
+    proposed fault detection method for practical applications cannot be fully evaluated
+    based on the information provided in the paper.
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Automatic fault detection in a low cost frequency domain (capacitance based)
     soil moisture sensor
-  verbatim_quote1: With insulated probes, it is possible under field conditions for
-    these probes to be damaged or for moisture to creep into the electronics housing.
+  verbatim_quote1: '"With insulated probes, it is possible under field conditions
+    for these probes to be damaged or for moisture to creep into the electronics housing.
     Either of these conditions make the soil capacitor appear to ‘leak’ by providing
-    a lower electrically resistive path in parallel with the soil capacitance. This
-    resistance affects the measurements of the two techniques described above in different
-    ways and thus readings from the sensors diverge from their normal relationships.
-    These variations are measureable and thus the fault condition can be automatically
-    detected.
-  verbatim_quote2: This can be used to flag potential problems in the soil moisture
-    measurements raising an alarm condition, or stopping unnecessary irrigation based
-    on erroneous results from a damaged sensor.
-  verbatim_quote3: This paper presents results demonstrating these phenomena using
-    a Frequency Domain capacitance based sensor costing less than 10 Euros.
-- analysis: 'The paper combines static and dynamic data reconciliation methods to
-    detect and isolate faults in irrigation canals.
-
-
-    The static approach uses static models at regulation gates to validate measurements
-    and identify sensor and actuator faults, as well as detect drift in the stage
-    discharge rating curve.
-
-
-    The dynamic approach employs a dynamic model of the canal to validate measurements
-    and detect faults and withdrawals.
-
-
-    By combining both approaches, the method can distinguish between withdrawals and
-    faults.
-
-
-    The paper demonstrates the effectiveness of the combined approach using measurements
-    from a real irrigation canal located in the South of France.'
+    a lower electrically resistive path in parallel with the soil capacitance."'
+  verbatim_quote2: '"This resistance affects the measurements of the two techniques
+    described above in different ways and thus readings from the sensors diverge from
+    their normal relationships."'
+  verbatim_quote3: '"These variations are measurable and thus the fault condition
+    can be automatically detected."'
+- analysis: "The paper provides a methodology for detecting and isolating fault events\
+    \ in irrigation canals through data reconciliation. Fault detection methods are\
+    \ investigated based on local or global data reconciliation for detection of sensor/actuator\
+    \ faults and unmeasured withdrawals, respectively, and their combination for event\
+    \ isolation. A case study is presented using data from the Canal de Gignac to\
+    \ evaluate and demonstrate the methodology with respect to static and dynamic\
+    \ data reconciliation and a combination of local and global approaches for fault\
+    \ detection. The methodology has the benefit of being applicable in scenarios\
+    \ with limited sensor information for validation and is assessed for use in real-time\
+    \ fault detection and isolation for automated irrigation canal management. \n\n\
+    The paper contributes to the literature by offering a combined approach that addresses\
+    \ limitations in prior research methods. Specifically, the methodology can distinguish\
+    \ between unmeasured withdrawals and sensor or actuator faults, which is a unique\
+    \ element and improvement over current methods."
   authors:
   - Bedjaoui N.
   - Litrico X.
@@ -805,7 +610,9 @@
     measurements from a real irrigation canal located in the South of France. © 2008
     ASCE.
   doi: 10.1061/(ASCE)0733-9437(2008)134:6(778)
-  full_citation: '>'
+  full_citation: Bedjaoui, N. et al. (2008). Static and Dynamic Data Reconciliation
+    for an Irrigation Canal. Journal of Irrigation and Drainage Engineering, 134(6),
+    778–787. https://doi.org/10.1061/(ASCE)0733-9437(2008)134:6(778)
   full_text: '>
 
     "This website uses cookies to ensure you get the best experience on our website.
@@ -1268,20 +1075,16 @@
     HELP PRIVACY SITEMAP TERMS OF USE SUBSCRIBE CONTACT US ACCESSIBILITY, DIVERSITY,
     EQUITY & INCLUSION Follow us @ASCEPublishing LinkedIn YouTube © 1996–2024 American
     Society of Civil Engineers"'
-  inline_citation: '>'
+  inline_citation: Bedjaoui et al. (2008)
   journal: Journal of Irrigation and Drainage Engineering
   limitations: null
-  relevance_score: 0.89
-  relevance_score1: 0.89
+  relevance_score: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Static and dynamic data reconciliation for an irrigation canal
   verbatim_quote1: This paper deals with the problem of fault detection and isolation
-    in irrigation canals. We have developed a method which combines static and dynamic
-    data reconciliation for the validation of measurements, detection, and isolation
-    of sensors and actuator faults and reconstruction of missing data.
-  verbatim_quote2: Static data reconciliation uses static models at a regulation gate
-    to validate measurements and detect sensor and actuator faults. It also enabled
-    us to detect a drift in the stage discharge rating curve.
-  verbatim_quote3: The dynamic data reconciliation uses additional measurements and
-    a dynamic model of the canal in order to validate measurements and detect faults
-    and withdrawals.
+    in irrigation canals.
+  verbatim_quote2: We have developed a method which combines static and dynamic data
+    reconciliation for the validation of measurements, detection, and isolation of
+    sensors and actuator faults and reconstruction of missing data.
+  verbatim_quote3: '>'

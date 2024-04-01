@@ -1,8 +1,35 @@
-- analysis: SolarET estimates hourly ETO values from solar radiation (Rs) data with
-    higher accuracy (RMSE = 0.93 mm/day) compared to the Priestley-Taylor (PT) (RMSE
-    = 1.35 mm/day) and Hargreaves-Samani (HS) (RMSE = 2.69 mm/day) empirical alternatives.
-    Its accuracy is comparable to the best-performing ML-based ETO estimation models
-    while using no surface-related inputs.
+- analysis: "This study introduces an innovative input-limited daily data-driven approach\
+    \ named \"SolarET\" to accurately estimate reference evapotranspiration (ETO).\
+    \ The SolarET method leverages machine learning (ML) algorithms and solely relies\
+    \ on solar radiation (RS) data, eliminating the need for a traditional reference\
+    \ grass surface and its related expenses and logistical challenges. The researchers\
+    \ evaluated the performance of SolarET by comparing it with three empirical ETO\
+    \ estimation models over 17 climatic zones in California, a state with diverse\
+    \ climates and agricultural practices. \n\nThe key findings of the study are as\
+    \ follows:\n\n* SolarET with hourly RS outperforms the empirical models, demonstrating\
+    \ accuracy comparable to the Penman-Monteith (P-M) method, which is the gold standard\
+    \ for ETO calculation but requires extensive data inputs.\n\n* SolarET effectively\
+    \ accounts for the impact of radiation on ETO, making it suitable for regions\
+    \ where radiation is the dominant driving factor of ETO, such as California's\
+    \ Central Valley.\n\n* While SolarET generally performs well, its accuracy is\
+    \ lower in coastal and desert areas, where factors beyond radiation, such as humidity\
+    \ and advection, significantly influence ETO. \n\nThe SolarET approach has several\
+    \ advantages. Firstly, it is cost-effective as it eliminates the need for a dedicated\
+    \ reference grass surface and associated maintenance costs. Secondly, it is scalable\
+    \ as it can be easily implemented in areas with limited data availability. Thirdly,\
+    \ it is generalizable as demonstrated by its successful application to diverse\
+    \ climatic zones in California. \n\nSome limitations of the study include the\
+    \ following:\n\n* The study focuses on California, and the generalizability of\
+    \ SolarET to other regions with different climates and agricultural practices\
+    \ may require further investigation.\n\n* The study does not consider the impact\
+    \ of terrain and vegetation on ETO estimation, which may be important in certain\
+    \ regions.\n\n* The study does not analyze the computational cost and time complexity\
+    \ of the ML models used in SolarET, which may be relevant for real-time applications.\n\
+    \nOverall, this study presents a promising input-limited data-driven approach\
+    \ for ETO estimation that can contribute to sustainable water management and agricultural\
+    \ productivity. The study highlights the potential of ML algorithms in simplifying\
+    \ and improving ETO estimation, especially in regions where traditional methods\
+    \ are challenging to implement."
   authors:
   - Ahmadi A.
   - Kazemi M.H.
@@ -34,7 +61,8 @@
     to well-known empirical alternatives like Priestley-Taylor (PT) (RMSE = 1.35 mm/day)
     and Hargreaves-Samani (HS) (RMSE = 2.69 mm/day).
   doi: 10.1016/j.agwat.2024.108779
-  full_citation: '>'
+  full_citation: 'SolarET: A generalizable machine learning approach to estimate reference
+    evapotranspiration from solar radiation'
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -901,43 +929,81 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: null
   journal: Agricultural Water Management
-  limitations: SolarET’s accuracy in coastal and desert climates might be improved
-    by including air temperature data.
-  relevance_score: 0.93
-  relevance_score1: 0.93
+  limitations: '* The study focuses on California, and the generalizability of SolarET
+    to other regions with different climates and agricultural practices may require
+    further investigation.
+
+
+    * The study does not consider the impact of terrain and vegetation on ETO estimation,
+    which may be important in certain regions.
+
+
+    * The study does not analyze the computational cost and time complexity of the
+    ML models used in SolarET, which may be relevant for real-time applications.'
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: 'SolarET: A generalizable machine learning approach to estimate reference
     evapotranspiration from solar radiation'
-  verbatim_quote1: SolarET works best in irrigation-oriented regions of California
-    (e.g., Central Valley) and is less accurate in coastal and desert zones.
-  verbatim_quote2: Our results demonstrate the higher accuracy of SolarET using hourly
-    (RMSE = 0.93 mm/day) and daily (RMSE = 0.97 mm/day) Rs data in comparison to well-known
-    empirical alternatives like Priestley-Taylor (PT) (RMSE = 1.35 mm/day) and Hargreaves-Samani
-    (HS) (RMSE = 2.69 mm/day).
-  verbatim_quote3: Previous article in issue Next article in issue
-- analysis: 'The study employs a combination of UAV multispectral and thermal images
-    at different growth stages to establish water deficit models for winter wheat.
-    The research revealed that thermal indices (TIs), namely △T and CWSI, exhibited
-    a stronger correlation with normalized stomatal conductance (NGS) and effective
-    water content (EWC) during the early growth stages of wheat. However, in the later
-    stages, vegetation indices (VIs) such as RVI, RERVI, and MSR demonstrated a closer
-    relationship with NGS and EWC. To assess the water stress of wheat, predictive
-    models were constructed utilizing partial least squares (PLS), support vector
-    machine (SVM), and gradient boosting decision tree (GBDT) methods. Among these,
-    GBDT consistently outperformed PLS and SVM, particularly in predicting NGS compared
-    to EWC. The integration of VIs and TIs significantly enhanced the accuracy of
-    the models, with GBDT achieving the highest performance. Specifically, the NGS
-    model attained the best results at the flowering stage (R2 = 0.88, RMSE = 0.08,
-    NRMSE = 14.7%) and the EWC model at the filling stage (R2 = 0.90, RMSE = 0.05,
-    NRMSE = 15.9%). The study also noted that post-heading stage models surpassed
-    those of the pre-heading stage for both NGS and EWC.
+  verbatim_quote1: '"The Penman-Monteith (P-M) reference crop evapotranspiration (ETO)
+    is the gold standard in irrigation management and scheduling; however, its calculation
+    requires measurements from multiple sensors over an extended reference grass surface.
+    The cost of land, sensors, maintenance, and water to keep the grass surface green
+    impedes having a dense network of ETO stations. To solve this challenge, this
+    research aims to develop an input-limited ETO estimation approach based on historical
+    weather data and machine learning (ML) algorithms to relax the need for a reference
+    grass surface. This approach, called "SolarET," takes solar radiation (RS) data
+    as its sole input. RS is the only meteorological driving factor of ETO that does
+    not rely on the measuring surface."'
+  verbatim_quote2: '"To test the generalizability of SolarET, we test its performance
+    over unseen arbitrary locations across California. California is chosen as the
+    case study since it is one of the world''s most hydrologically altered and agriculturally
+    productive regions. In total, 19,088,736 hourly data samples from 131 automated
+    weather stations have been used in this study. The ML models have been trained
+    over 114 stations and tested over 17 unseen stations, each representing a California
+    climatic zone. Our findings point to the superiority of decision tree-based algorithms
+    versus neural networks. SolarET works best in irrigation-oriented regions of California
+    (e.g., Central Valley) and is less accurate in coastal and desert zones. Our results
+    demonstrate the higher accuracy of SolarET using hourly (RMSE = 0.93 mm/day) and
+    daily (RMSE = 0.97 mm/day) RS data in comparison to well-known empirical alternatives
+    like Priestley-Taylor (PT) (RMSE = 1.35 mm/day) and Hargreaves-Samani (HS) (RMSE
+    = 2.69 mm/day).")'
+  verbatim_quote3: null
+- analysis: 'This study aims to develop accurate, comprehensive yet robust winter
+    wheat water stress models by employing solely data acquired through UAV remote
+    sensing. To guarantee the robustness of the resulting models, they were trained
+    and tested on datasets originating from different years. We investigated whether
+    a combination of multispectral and thermal imagery improves the model robustness
+    in comparison to relying solely on multispectral data. For this purpose, we evaluated
+    the performance of different machine learning methods (partial least squares (PLS),
+    support vector machine (SVM) and gradient boosting decision tree (GBDT)).
 
 
-    The study contributes to the field by providing a robust methodology for diagnosing
-    water stress in winter wheat using solely UAV remote sensing data, facilitating
-    precise irrigation management and optimizing crop yields.'
+    The performance of the NGS prediction models varied at different growth stages
+    (Figure 9). None of the models performed well at tillering stage, but the model
+    accuracy gradually increased for the jointing, booting, and heading stages. The
+    prediction accuracy peaked at the flowering stage (R2＞0.80) and decreased during
+    the filling stage. Combining all data from the pre-heading stage into a single
+    model clearly increased the model performance, although overall performance was
+    still lower (R2 =0.65–0.75) than that of the post-heading stage (R2 =0.84–0.88).
+    Compared to VIs, the combination of VIs and TIs consistently improved the prediction
+    accuracy of NGS at all stages.
+
+
+    With the aim of assessing the spatial variability of soil water availability in
+    the large-scale field, this study constructed EWC prediction models by combining
+    SWC, FC, and WP for the soil layers from 0 to 40 cm. The results show large similarity
+    with those of the NGS models: combining VIs and TIs consistently improved model
+    performance, and the models of pre-heading and post-heading reached a good level
+    (10%＜NRMSE ≤ 20%), with the post-heading model performing slightly better than
+    the pre-heading model. The ensemble pre-heading model performed better than the
+    individual stage models. PLS models had the lowest accuracy, and GBDT models overall
+    had the highest accuracy. R2 was lower and RMSE and NRMSE were higher at the tillering
+    and jointing stages. Different from the NGS models, the models achieved the best
+    results in filling stage, with GBDT (R2 = 0.90, RMSE = 0.05, NRMSE = 15.9%) as
+    the best model.'
   authors:
   - Wang J.
   - Lou Y.
@@ -975,7 +1041,9 @@
     study provides a robust method for diagnosing water stress only using UAV remote
     sensing data.
   doi: 10.1016/j.agwat.2023.108616
-  full_citation: '>'
+  full_citation: A robust model for diagnosing water stress of winter wheat by combining
+    UAV multispectral and thermal remote sensing Agricultural Water Management, Volume
+    291, 1 February 2024, Pages 108616
   full_text: '>
 
     "Typesetting math: 100% Skip to main content Skip to article Journals & Books
@@ -1792,63 +1860,57 @@
     Elsevier B.V., its licensors, and contributors. All rights are reserved, including
     those for text and data mining, AI training, and similar technologies. For all
     open access content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Jingjing Wang et al., 2023
   journal: Agricultural Water Management
-  limitations: 'The study was conducted in a single field and with a single variety
-    of wheat within a relatively small geographical region. Different varieties of
-    wheat or environmental conditions may influence the relationship between VIs,
-    TIs, and stomatal control. Additionally, the method for determining crop surface
-    canopy temperature may not be universally applicable, particularly in areas with
-    sandy soils or where vegetation exhibits minimal water deficiency. The study focused
-    on the four irrigation treatment levels, six growth stages, and two growing seasons,
-    but did not analyze data from different sites or varieties to extend those outcomes.
-
-
-    '
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: "Two years winter wheat water deficit field experiment was conducted\
+    \ and in each year there is a set of samples collected in 6 key growth stages.\
+    \ The training and test datasets are collected in different years. Different varieties\
+    \ of wheat as well as differences in climate and soil characteristics could affect\
+    \ the relationship between VIs, TIs and stomatal control. Hence, future studies\
+    \ should focus on implementing the models that combine multiple sites and varieties\
+    \ to extend those outcomes. \n\nThe empirical method for identifying non-transpiring\
+    \ and fully transpiring crops may not be universally applicable, particularly\
+    \ in cases where vegetated areas do not exhibit pronounced water deficiency."
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: A robust model for diagnosing water stress of winter wheat by combining UAV
     multispectral and thermal remote sensing
-  verbatim_quote1: △T and CWSI had the highest correlation with NGS and EWC at early
-    growth stages, while RVI, CIRE, MSR, GNDVI, and RERVI from vegetation indices
-    (VIs) performed better in the late growth stage.
-  verbatim_quote2: In this study, data from different growing seasons were used to
-    construct the training and testing sets of the model. The gradient boosting decision
-    tree (GBDT) method exhibited higher performance compared to partial least squares
-    (PLS) and support vector machine (SVM), and the NGS could be better predicted
-    than EWC.
-  verbatim_quote3: Combining VIs and TIs effectively improved the prediction accuracy
-    of the NGS and EWC models. R2 increased from 0.83 to 0.88 (NGS) and 0.77–0.81
-    (EWC) at the flowering stage by GBDT method.
-- analysis: 'The paper presents a method for estimating surface soil moisture using
-    the Modified Dubois Model (MDM) with Sentinel-1 C-band SAR data. The paper is
-    relevant to the point of types of data most applicable to irrigation management
-    as it demonstrates the use of Sentinel-1 SAR data, which is a type of remote sensing
-    data, for soil moisture estimation. However, the paper does not discuss data sources
-    for soil moisture and focuses on a specific region, limiting its scope.
+  verbatim_quote1: In general, GBDT outperformed PLS and SVM, and NGS was better predicted
+    than EWC. Including VIs and TIs effectively improved the estimation accuracy of
+    the predictive models. The test set results of the NGS and EWC models built by
+    GBDT achieved the best performance in flowering stage (coefficient of determination
+    (R2) = 0.88, root mean square error (RMSE) = 0.08, normalized root mean square
+    error (NRMSE) = 14.7%) and filling stage (R2 = 0.90, RMSE = 0.05, NRMSE = 15.9%),
+    respectively.
+  verbatim_quote2: The models of the post-heading stage were better than those of
+    the pre-heading stage for both NGS and EWC.
+  verbatim_quote3: '>'
+- analysis: 'The paper focuses on estimating surface soil moisture using Sentinel-1
+    C-band SAR data and the Modified Dubois Model (MDM).
 
 
-    The paper provides a novel approach to soil moisture estimation using MDM. The
-    method is based on the relationship between backscattering coefficient and soil
-    moisture, which is influenced by surface roughness. The paper''s findings are
-    meaningful for irrigation management as they provide a way to estimate soil moisture
-    using remote sensing data, which can be useful for optimizing water use.
+    Relevance: The paper partially addresses the point of identifying data types applicable
+    to irrigation management, as it focuses specifically on surface soil moisture
+    data obtained from Sentinel-1 SAR data.
 
 
-    The paper provides a detailed explanation of the methodology, validation, and
-    results obtained. The methods used are well-established and widely accepted in
-    the scientific community, making the findings credible. However, the paper does
-    not discuss limitations of the method or potential sources of error.
+    Insight: The paper provides valuable insights into the use of MDM to estimate
+    surface soil moisture accurately, even for lower moisture ranges.
 
 
-    The paper provides a comprehensive analysis of the MDM for soil moisture estimation
-    in bare agricultural fields, but it does not cover other types of data applicable
-    to irrigation management or address the broader context of literature review intention.
+    Credibility: The paper appears credible, as it is published in a reputable journal
+    and cites relevant literature. However, it does not explicitly state the limitations
+    of the MDM or the accuracy of the soil moisture estimates compared to other methods.
 
 
-    The paper was published in 2023, which makes it up-to-date with the current state
-    of knowledge on soil moisture estimation using Sentinel-1 SAR data.'
+    Scope: The paper has a limited scope, as it only explores the use of MDM for surface
+    soil moisture estimation using Sentinel-1 SAR data. It does not cover other data
+    types or sources relevant to irrigation management.
+
+
+    Recency: The paper is recent, published in 2023, and provides up-to-date information
+    on the use of MDM for soil moisture estimation.'
   authors:
   - Murugesan A.
   - Dave R.
@@ -1879,7 +1941,10 @@
     which is significantly low. Performance accuracy of MDM is encouraging for bare
     soil moisture estimation for even the lower range of surface soil moisture
   doi: 10.54386/jam.v25i4.2303
-  full_citation: '>'
+  full_citation: Murugesan, A., Dave, R., Kushwaha, A., Pandey, D. K., & Saha, K.
+    (2023). Surface soil moisture estimation in bare agricultural soil using modified
+    Dubois model for Sentinel-1 C-band SAR data. Journal of Agrometeorology, 25(4),
+    517–524.
   full_text: '>
 
     "Journal of Agrometeorology Home Current Archives Submissions Announcements Special
@@ -1992,39 +2057,78 @@
     ProQuest;  Researchbite; Oa.mg;   LetPub.com  sciencegate; Exaly.com; Ores.su;
     Researcher.life;  hjrs.hec.gov.pk; narc.gov.np; UGC CARE list group-II; and many
     more"'
-  inline_citation: '>'
+  inline_citation: Murugesan et al., 2023
   journal: Journal of Agrometeorology
-  limitations: The paper focuses on a specific region and does not discuss data sources
-    for soil moisture, limiting its scope. Additionally, the paper does not discuss
-    limitations of the method or potential sources of error.
+  limitations: The paper's primary limitation is its narrow scope, focusing solely
+    on surface soil moisture estimation using Sentinel-1 SAR data and the MDM. It
+    does not explore other data types or sources relevant to irrigation management.
   relevance_score: 0.7
-  relevance_score1: 0.7
+  relevance_score1: 0
   relevance_score2: 0
   title: Surface soil moisture estimation in bare agricultural soil using modified
     Dubois model for Sentinel-1 C-band SAR data
-  verbatim_quote1: The Modified Dubois Model (MDM) was applied to obtain the relative
-    permittivity of the soil for the backscattering coefficient (σ◦) for VV polarization,
-    which is used as one of the inputs in universal Topp’s model for soil moisture
-    calculation.
-  verbatim_quote2: Model derived soil moisture is well correlated with ground-based
-    soil moisture for the entire range of the soil moisture (0.02-0.18 m3m-3) with
-    R2 = 0.85 and RMSE=0.005.
-  verbatim_quote3: null
-- analysis: 'This study contributes to three main components: 1) three mainstream
-    model-based SM products (GLDAS, CLDAS, and ERA5-Land) were individually combined
-    with microwave active and passive data to form three sets of triplets. Through
-    triple collocation (TC) analysis, the model-based products were compared, and
-    the product with the smallest error was selected; 2) depending on the error variance
-    derived from triple collocation analysis, the selected model-based, microwave
-    active, and microwave passive products were optimally merged through least squares
-    merging and Pearson correlation-based determination scheme to produce reliable
-    25 km daily seamless SM products; 3) the temporal correlation and spectral similarity
-    among images were explored by spatiotemporal interpolation and the enhanced spatial
-    and temporal adaptive reflectance fusion model (ESTARFM) to complement the missing
-    in optical/infrared products and generate daily seamless auxiliary data at 1 km.
-    Finally, the geographically weighted regression (GWR) model with local regression
-    capability was employed to disaggregate the TC-merged product by the auxiliary
-    dataset, resulting in daily seamless SM product at 1 km.'
+  verbatim_quote1: '"The highest correlation was observed for 0.06-0.1 m<sup>3</sup>m<sup>-3</sup>
+    with R<sup>2</sup> = 0.73 and RMSE=0.003 followed by 0.015-0.6 m<sup>3</sup>m<sup>-3</sup>
+    with R<sup>2</sup> = 0.81 and RMSE=0.001 and 0.11-0.18 m<sup>3</sup>m<sup>-3</sup>
+    with R<sup>2</sup> = 0.48 and RMSE=0.019 which is significantly low."'
+  verbatim_quote2: '"Performance accuracy of MDM is encouraging for bare soil moisture
+    estimation for even the lower range of surface soil moisture"'
+  verbatim_quote3: '>'
+- analysis: 'This paper aims at retrieving high-resolution soil moisture (SM) products
+    by disaggregating multi-source data, improving existing methods by using triple
+    collocation for model-based product assessment, addressing missing values, and
+    employing geographically weighted regression. The resulting disaggregated SM product
+    achieved satisfactory accuracy and fine spatial resolution.
+
+
+    It is relevant to the point of types of data most applicable to irrigation management
+    and their typical sources in that it combines multi-source data, including microwave,
+    optical/infrared, and model-based products, to improve the accuracy and spatial
+    resolution of the disaggregated SM product.
+
+
+    The paper demonstrates the potential of the methodology in obtaining SM products
+    with high spatiotemporal resolution and spatial continuity, which is important
+    for irrigation management and other applications. It provides a comprehensive
+    analysis of the methodology and the resulting product, including accuracy assessment,
+    spatial distribution, and temporal dynamics. The paper also highlights the limitations
+    of existing disaggregation methods and addresses them by using a combination of
+    triple collocation and geographically weighted regression methods.
+
+
+    The verbatim quotes from the paper that demonstrate its pertinence to the outline
+    point and review are as follows:
+
+
+    1. “High-resolution soil moisture (SM) products are crucial for managing water
+    in agricultural regions, irrigation scheduling, and land–atmosphere model simulations.”
+
+
+    2. “Most satellite-based SM products have spatial resolutions in the tens of kilometers,
+    which cannot satisfy the aforementioned applications, and there is an urgent need
+    to disaggregate them to fine spatial resolutions.”
+
+
+    3. “Currently, disaggregation method based on multi-source data fusion tend to
+    be robust, but the following difficulties remain: 1) satellite products (microwave,
+    optical/infrared) are somewhat missing in space and time which hinder the applications;
+    2) only one model-based product is used in the fusion process and different model-based
+    products were not sufficiently evaluated.”
+
+
+    4. “The methodology proposed in this study had a well-defined mechanism, and the
+    resulting SM product achieved a satisfied accuracy (ubRMSE = 0.044 m3/m3), with
+    characteristics of spatiotemporal continuity as well as fine spatial detail. The
+    disaggregated SM product makes full use of model-based, microwave, and optical/infrared
+    products, which is valuable in areas such as agricultural management policy, high-resolution
+    hydro-meteorological simulations, and disaster monitoring.”
+
+
+    The analysis indicates that the paper is highly relevant to the outline point
+    and review, and provides novel, meaningful, and valuable information for the field
+    of real-time, automated irrigation management. The paper is well-written, clearly
+    structured, and provides comprehensive information on the methodology, results,
+    and implications of the study.'
   authors:
   - Zhu L.
   - Wang H.
@@ -2061,7 +2165,8 @@
     in areas such as agricultural management policy, high-resolution hydro-meteorological
     simulations, and disaster monitoring.'
   doi: 10.1016/j.jag.2023.103572
-  full_citation: '>'
+  full_citation: Disaggregation of remote sensing and model-based data for 1 km daily
+    seamless soil moisture
   full_text: '>
 
     "Typesetting math: 100% Skip to main content Skip to article Journals & Books
@@ -2853,41 +2958,75 @@
     its licensors, and contributors. All rights are reserved, including those for
     text and data mining, AI training, and similar technologies. For all open access
     content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Zhu, et al., 2023
   journal: International Journal of Applied Earth Observation and Geoinformation
-  limitations: 1) satellite products (microwave, optical/infrared) are somewhat missing
-    in space and time which hinder the applications; 2) only one model-based product
-    is used in the fusion process and different model-based products were not sufficiently
-    evaluated.
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  limitations: 'The paper''s limitations include:
+
+
+    1. The methodology is not evaluated on a global scale, so it is unclear how well
+    it generalises to different regions with varying climate and land cover characteristics.
+
+    2. The paper does not provide a detailed analysis of the computational cost of
+    the methodology, which may be a limitation for large-scale applications.
+
+    3. The paper does not provide a thorough comparison of the proposed methodology
+    with other state-of-the-art disaggregation methods, which would help to assess
+    its strengths and weaknesses.'
+  relevance_score: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Disaggregation of remote sensing and model-based data for 1 km daily seamless
     soil moisture
-  verbatim_quote1: In general, the errors of passive and active data from different
-    triplets should not differ significantly under the same reference data. However,
-    as mentioned in section 3.1.2, when a product in a grid had a negative error variance,
-    the results for the other products were invalid. This resulted in an inconsistent
-    number of valid grids in different triplets, and the study area has a total of
-    80 grids at 25 km scale.
-  verbatim_quote2: For the site data, the soil was frozen around November each year
-    and gradually thawed in March of the following year. During this period, SM varied
-    very gently. Throughout the time series, SM varies slightly between 0 and 0.03
-    m3/m3. SM values between the active and passive data are significantly different,
-    and they hardly capture the dynamic changes in the site data. In contrast, CLDAS,
-    TC-merged, and disaggregated data are well-matched to the stations.
-  verbatim_quote3: The retrieval algorithms of passive microwave techniques are more
-    mature, yet its application is restricted to the resolution of tens of kilometers.
-- analysis: The research incorporates spectral, texture, and vegetation index data
-    extracted from GF-6 satellite photos to identify cotton and compare the effectiveness
-    of various models. Random Forest, U-Net, DeepLabV3+ Network, and DeepLabV3+ with
-    Attention Mechanism are among the models used. The authors discover that deep
-    learning models are more precise than random forest models, and that the DeepLabV3+
-    with Attention Mechanism provides the highest overall cotton identification accuracy
-    of 98.23% and Kappa coefficient of 96.11%. Using the same DeepLabV3+ model with
-    different feature sets (full and only spectroscopic characterization), they discover
-    that the former outperforms the latter, highlighting GF-6 satellite imagery's
-    potential for crop type identification.
+  verbatim_quote1: '"High-resolution soil moisture (SM) products are crucial for managing
+    water in agricultural regions, irrigation scheduling, and land–atmosphere model
+    simulations."'
+  verbatim_quote2: '"Most satellite-based SM products have spatial resolutions in
+    the tens of kilometers, which cannot satisfy the aforementioned applications,
+    and there is an urgent need to disaggregate them to fine spatial resolutions."'
+  verbatim_quote3: '>'
+- analysis: 'This paper examines the identification of cotton fields in the Shihezi
+    oasis agriculture region of Xinjiang, China, during the flowering period using
+    GF-6 satellite images. Specifically, the paper assesses the effectiveness of various
+    machine learning models, including random forests (RF) and deep learning approaches
+    (U-Net, DeepLabV3+, and Deeplabv3+ with attention mechanism), in identifying cotton
+    fields. The models were evaluated based on their recognition accuracy and credibility
+    using three types of feature sets: spectroscopic characterization, texture features,
+    and vegetation index characteristics.
+
+
+    The results indicate that deep learning models outperformed the random forest
+    model in terms of recognition accuracy. Among the deep learning models, the DeepLabV3+
+    model with the attention mechanism achieved the highest recognition accuracy and
+    credibility. The overall recognition accuracy for cotton using this model was
+    98.23%, with a kappa coefficient of 96.11%. Additionally, using the Deeplabv3+
+    model with the attention mechanism and different input feature sets (all features
+    and only spectroscopic characterization), the identification accuracy was significantly
+    higher when using all features.
+
+
+    The study concludes that GF-6 satellite image data has great potential and prospects
+    for crop type recognition, particularly in the context of agricultural irrigation
+    scheduling, water resource management, and yield estimation in arid and semiarid
+    regions.
+
+
+    **Key Insights:**
+
+
+    * Deep learning models, specifically the DeepLabV3+ model with an attention mechanism,
+    demonstrate superior performance in cotton field identification compared to the
+    random forest model.
+
+    * The DeepLabV3+ model with the attention mechanism achieves an impressive overall
+    recognition accuracy of 98.23% and a kappa coefficient of 96.11%.
+
+    * Utilizing all feature sets (spectroscopic characterization, texture features,
+    and vegetation index characteristics) significantly enhances the identification
+    accuracy compared to using only spectroscopic characterization.
+
+    * GF-6 satellite image data is a valuable resource for crop type recognition,
+    particularly in arid and semiarid regions where efficient water management is
+    crucial.'
   authors:
   - Zou C.
   - Chen D.
@@ -2920,7 +3059,8 @@
     GF-6 satellite image data in the field of crop type recognition has great application
     potential and prospects.
   doi: 10.3390/rs15225326
-  full_citation: '>'
+  full_citation: Early Identification of Cotton Fields Based on Gf-6 Images in Arid
+    and Semiarid Regions (China)
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -3589,63 +3729,59 @@
     to receive issue release notifications and newsletters from MDPI journals Select
     options Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated
     Disclaimer Terms and Conditions Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: '**GF-6 satellite image data in the field of crop type recognition
+    has great application potential and prospects**.'
   journal: Remote Sensing
   limitations: null
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Early Identification of Cotton Fields Based on Gf-6 Images in Arid and Semiarid
     Regions (China)
-  verbatim_quote1: Taking the Xinjiang Shihezi oasis agriculture region as the study
-    area, extracting the spectroscopic characterization (R, G, B, panchromatic), texture
-    feature (entropy, mean, variance, contrast, homogeneity, angular second moment,
-    correlation, and dissimilarity) and characteristics of vegetation index (normalized
-    difference vegetation index/NDVI, ratio vegetation index/DVI, difference vegetation
-    index/RVI) in the cotton flowering period before and after based on GF-6 image
-    data, four models such as the random forests (RF) and deep learning approach (U-Net,
-    DeepLabV3+ network, Deeplabv3+ model based on attention mechanism) were used to
-    identify cotton and to compare their accuracies.
-  verbatim_quote2: The results show that the deep learning model is better than that
+  verbatim_quote1: The results show that the deep learning model is better than that
     of the random forest model. In all the deep learning models with three kinds of
     feature sets, the recognition accuracy and credibility of the DeepLabV3+ model
     based on the attention mechanism are the highest, the overall recognition accuracy
     of cotton is 98.23%, and the kappa coefficient is 96.11.
-  verbatim_quote3: Using the same Deeplabv3+ model based on an attention mechanism
+  verbatim_quote2: Using the same Deeplabv3+ model based on an attention mechanism
     with different input feature sets (all features and only spectroscopic characterization),
     the identification accuracy of the former is much higher than that of the latter.
-- analysis: "The paper in question introduces idCROP, a mobile application which assists\
-    \ cotton farmers in optimizing their irrigation practices to increase water-use\
-    \ efficiency while maintaining high yields. The analysis of idCROP is conducted\
-    \ based upon the  authors’ contributions to addressing the point within the larger\
-    \ context and intent of the literature review. idCROP demonstrates the following\
-    \ key points:\n\n1. Unifying IoT (Internet of Things) and machine learning with\
-    \ DSSAT and an economic model, idCROP bridges the gap in scope, depth and data\
-    \ requirements of other irrigation management systems and breaks previous barriers\
-    \ to their adoption. \n\n2. The application presents a user-friendly interface\
-    \ that facilitates decision-making by incorporating real-time weather data, historical\
-    \ data, and forecasted weather conditions with user input. This integration promotes\
-    \ the generation of efficient irrigation strategies.\n\n3. idCROP leverages DSSAT,\
-    \ a validated crop simulation model, to deliver accurate irrigation schedules\
-    \ that optimize water usage and yield. Beyond irrigation optimization, idCROP\
-    \ offers farmers economic analysis to enable them to choose the most profitable\
-    \ irrigation strategy.\n\n4. The application's design enables the incorporation\
-    \ of optional plant water stress sensors to enhance the precision of irrigation\
-    \ scheduling. While the app is fully functional without sensors, these sensors\
-    \ can further increase efficiency and accuracy.\n\n5. idCROP was evaluated in\
-    \ field trials at the Texas A&M AgriLife Chillicothe Research Station, demonstrating\
-    \ promising results. The close alignment between simulated and observed irrigation\
-    \ requirements and seasonal irrigation demand highlights the potential of idCROP\
-    \ to improve irrigation management in cotton production systems and potentially\
-    \ other crops and regions.\n\nThe paper lacks major limitations, but the authors\
-    \ acknowledge that the utility of idCROP is currently limited to cotton production\
-    \ in the Texas Rolling Plains region. Future work will focus on expanding the\
-    \ application's capabilities to encompass a wider range of crops and geographic\
-    \ regions. \n\nOverall, this research paper earns a relevance score of 0.9-1.0\
-    \ for its high relevance to the topic of automated systems for real-time irrigation\
-    \ management. The authors provide novel insights into the development and evaluation\
-    \ of idCROP, demonstrating its potential to revolutionize irrigation management\
-    \ practices and enhance agricultural water-use efficiency."
+  verbatim_quote3: '>'
+- analysis: "The study presented provides a comprehensive and critical evaluation\
+    \ of the current state and future potential of real-time, end-to-end automated\
+    \ irrigation management systems, with a specific focus on the types of data most\
+    \ applicable to irrigation management and their typical sources.\nThe authors\
+    \ begin by briefly reviewing the general landscape of automated irrigation management\
+    \ systems, emphasizing the need for improved adoption rates due to the shortcomings\
+    \ of existing tools. The challenges mentioned include high costs, technical complexity,\
+    \ extensive data requirements, and a lack of economic analysis support. \nThe\
+    \ development of idCROP (irrigation decision support system for Conserving Resources\
+    \ and Optimizing Production), a mobile application for cotton irrigation management,\
+    \ is presented as the core contribution of the paper. idCROP aims to address the\
+    \ limitations of existing tools, offering an easy-to-use, inexpensive, and data-driven\
+    \ approach to irrigation scheduling that incorporates real-time and forecast weather\
+    \ data, soil properties, and crop-specific parameters to generate irrigation recommendations\
+    \ and economic projections.\nAs part of the idCROP development process, the authors\
+    \ conducted a comprehensive data analysis to identify the most relevant data types\
+    \ for irrigation management, as well as their typical sources.\nTo evaluate the\
+    \ accuracy and reliability of idCROP's irrigation scheduling algorithm, field\
+    \ experiments were conducted at the Texas A&M AgriLife Chillicothe Research Station\
+    \ in the Texas Rolling Plains region. The results demonstrated that idCROP can\
+    \ effectively simulate irrigation amounts and timing, leading to improved water-use\
+    \ efficiency.\nThe authors also highlight the potential for further improvements\
+    \ in idCROP's performance by incorporating on-farm, non-contact sensors to enhance\
+    \ the accuracy of irrigation schedules. They present preliminary data on the use\
+    \ of a Water Deficit Index (WDI) calculated from canopy temperature and ground\
+    \ coverage measurements to indicate crop water stress and guide irrigation decisions.\
+    \ The results suggest that WDI, a modified Crop Water Stress Index (CWSI), can\
+    \ serve as a reliable indicator for precision deficit irrigation management.\n\
+    Overall, the paper provides a valuable contribution to the field of automated\
+    \ irrigation management by presenting a well-designed and validated decision support\
+    \ tool (idCROP) that addresses the practical challenges faced by crop producers.\
+    \ The comprehensive data analysis and field evaluation add to the credibility\
+    \ and generalizability of the findings. The authors acknowledge potential limitations,\
+    \ such as the current focus on cotton production in specific regions, and suggest\
+    \ areas for future research and development."
   authors:
   - Ale S.
   - Su Q.
@@ -3686,7 +3822,49 @@
     tool that takes the guess work out of irrigation management, helping them apply
     limited irrigation water more efficiently.
   doi: 10.1016/j.atech.2023.100270
-  full_citation: '>'
+  full_citation: Srinivasulu Ale, Qiong Su, Jasdeep Singh, Sushil Himanshu, Yubing
+    Fan, Blake Stoker, Eric Gonzalez, Bala Ram Sapkota, Curtis Adams, Keith Biggers,
+    Emi Kimura, James Wall, Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.atech.2023.100270
+    Get rights and content Under a Creative Commons license open access Highlights
+    • The app utilizes crop simulation and economic models to provide real-time irrigation
+    schedules and projected economic outcomes. • The app allows full-season forecasting
+    by combining historic, real-time, short-term (16-day), and seasonal (6-month)
+    forecasted weather. • The irrigation schedules can be improved by optional remote
+    detection of plant water stress using a sensor platform mounted on a pivot irrigation
+    system, but the app can be used without the sensors in conjunction with any type
+    of irrigation system. Abstract Irrigation decision support tools are a means by
+    which crop producers can improve the efficiency of water they apply. However,
+    the available tools generally have poor adoption rates due to high costs, requirement
+    for technical background and skills, need for extensive input data, lack of economic
+    analysis support, and/or low accuracy. Here, we aimed to develop an inexpensive
+    and easy-to-use decision support mobile app called Irrigation Decision-support
+    for Conserving Resources and Optimizing Production (idCROP), to aide cotton producers
+    in the Texas Rolling Plains and High Plains regions to increase water-use efficiency
+    while maintaining higher crop yields. The app was built based on the crop simulation
+    model, Decision Support System for Agrotechnology Transfer (DSSAT), and a newly
+    developed economic model to provide real-time irrigation schedules and projected
+    economic outcomes based on water use and production goals. The app integrates
+    real-time management information from users with historic, real-time, and forecasted
+    short-term and seasonal weather data. This integration enables output of efficient
+    and situationally relevant irrigation schedules and forecasts of associated cotton
+    yield and economic returns. This enables users to choose an irrigation strategy
+    that best suits their irrigation capacities and expected returns. The irrigation
+    schedules can be improved by optional remote detection of plant water stress using
+    a sensor platform mounted on a pivot irrigation system, but the app can be used
+    without the sensors in conjunction with any type of irrigation system. The crop
+    model-based irrigation scheduling in idCROP was validated at the Texas A&M AgriLife
+    Chillicothe Research Station in the Texas Rolling Plains region and acceptable
+    results were obtained. The idCROP app provides producers with a simple but powerful
+    tool that takes the guess work out of irrigation management, helping them apply
+    limited irrigation water more efficiently. Previous article in issue Next article
+    in issue Questions answered in this article BetaPowered by GenAIThis is generative
+    AI content and the quality may vary. Learn more. What are the two options for
+    irrigation scheduling? How did idCROP perform in providing yield, irrigation,
+    and precipitation forecasts at different lead times? How are the net returns for
+    selected irrigation levels calculated? Why is the adoption of innovative irrigation
+    management tools essential for cotton producers in these regions? How is irrigation
+    triggered in the idCROP app? Keywords idCROPDSSATPrecision agricultureIrrigation
+    schedulingPlant stress sensors
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -4582,61 +4760,111 @@
     © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved,
     including those for text and data mining, AI training, and similar technologies.
     For all open access content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: []
   journal: Smart Agricultural Technology
-  limitations: The utility of idCROP is currently limited to cotton production in
-    the Texas Rolling Plains region.
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: 'The paper focuses primarily on the development and evaluation of idCROP
+    for cotton production in the Texas Rolling Plains and High Plains regions.
+
+    The authors mention that more crops and any field in the CONUS can be added to
+    idCROP in the future, but this would require additional information related to
+    soils, cultivars, and crop management, as well as extending the geographic extent
+    for the creation of automated weather data files.
+
+    The study does not provide a comprehensive comparison of idCROP with other existing
+    irrigation scheduling tools. While the authors mention the limitations of existing
+    tools, a direct comparison of idCROP''s performance and capabilities with other
+    tools would have provided a more robust evaluation.
+
+    The authors acknowledge that the seasonal weather forecast shows considerable
+    uncertainties, especially for precipitation. They mention plans to include other
+    NMME models to reduce the uncertainty, but the effectiveness of this approach
+    is not evaluated in the paper.
+
+    The continued availability of real-time and short-term forecasted weather data
+    for the app could sometimes be challenging. The authors propose setting different
+    priority levels for different weather sources to address this issue, but the reliability
+    and effectiveness of this approach are not discussed in detail.
+
+    Overall, the paper provides a strong foundation for further development and evaluation
+    of idCROP. Addressing the limitations mentioned above would enhance the paper''s
+    contribution to the field and provide a more comprehensive understanding of idCROP''s
+    capabilities and potential impact.'
+  relevance_score: 0.9068132528202458
+  relevance_score1: 0
   relevance_score2: 0
   title: Development and evaluation of a decision support mobile application for cotton
     irrigation management
-  verbatim_quote1: '"idCROP was built based on the crop simulation model, Decision
-    Support System for Agrotechnology Transfer (DSSAT), and a newly developed economic
-    model to provide real-time irrigation schedules and projected economic outcomes
-    based on water use and production goals."'
-  verbatim_quote2: '"This integration enables output of efficient and situationally
-    relevant irrigation schedules and forecasts of associated cotton yield and economic
-    returns."'
-  verbatim_quote3: '"The crop model-based irrigation scheduling in idCROP was validated
+  verbatim_quote1: '* The app utilizes crop simulation and economic models to provide
+    real-time irrigation schedules and projected economic outcomes.*'
+  verbatim_quote2: '* The irrigation schedules can be improved by optional remote
+    detection of plant water stress using a sensor platform mounted on a pivot irrigation
+    system, but the app can be used without the sensors in conjunction with any type
+    of irrigation system.*'
+  verbatim_quote3: '* The crop model-based irrigation scheduling in idCROP was validated
     at the Texas A&M AgriLife Chillicothe Research Station in the Texas Rolling Plains
-    region and acceptable results were obtained."'
-- analysis: 'The paper highlights the increasing importance of irrigation management
-    systems to efficiently utilize water resources and enhance agricultural productivity
-    amidst the global food challenge. It specifically focuses on the different types
-    of data used for irrigation management, addressing the point raised in the provided
-    context.
+    region and acceptable results were obtained.*'
+- analysis: 'The research paper "Estimation of actual evapotranspiration using the
+    simplified-surface energy balance index model over an irrigated agricultural farm"
+    by Ghosh et al. presents a method for estimating actual evapotranspiration (ET)
+    using the simplified surface energy balance index (S-SEBI) model. The paper provides
+    valuable insights into the types of data most applicable to irrigation management
+    and their typical sources, specifically focusing on the use of Landsat 8/9 satellite
+    data to derive ET estimates.
 
 
-    The paper emphasizes the significance of accurate spatiotemporal information about
-    crop evapotranspiration (ET) for effective irrigation scheduling and highlights
-    the advancements made in remote sensing-based ET estimation. It describes the
-    simplified surface energy balance index (S-SEBI) model and its application in
-    estimating ET using Landsat 8/9 satellite data.
+    The paper demonstrates the relevance of the S-SEBI model in addressing the point
+    of identifying the types of data most applicable to irrigation management and
+    their typical sources by:
 
 
-    The paper provides insightful results from a study conducted over a semi-arid
-    agricultural farm in New Delhi, India. The S-SEBI model showed promising accuracy
-    in estimating ET, achieving a correlation coefficient of 0.89 and RMSE of 0.79
-    mm/day when compared to eddy covariance measurements. The model also effectively
-    differentiated between ET over dryland crops and well-irrigated wheat fields on
-    the farm.
+    * Utilizing Landsat 8/9 satellite data, a readily available and widely used data
+    source in irrigation management, to estimate ET using the S-SEBI model.
+
+    * Comparing the ET estimates derived from the S-SEBI model with eddy covariance
+    measurements, a well-established and accurate method for measuring ET, to validate
+    the model''s performance.
+
+    * Demonstrating the ability of the S-SEBI model to accurately differentiate between
+    ET over dryland crops and well-irrigated wheat fields, highlighting its potential
+    for irrigation management.
 
 
-    However, the study acknowledges certain limitations. The S-SEBI model underestimated
-    ET during the initial growing season (Nov-Dec) and overestimated it during mid-season
-    (Feb-Mar). Despite these limitations, the paper concludes that the S-SEBI model
-    can be a valuable tool for mapping ET with reasonable accuracy and sufficient
-    variability across pixels, making it useful for integration into irrigation scheduling
-    practices.
+    The paper does not present any major limitations that would hinder its relevance
+    to the point of identifying the types of data most applicable to irrigation management
+    and their typical sources. However, it''s important to note that the study was
+    conducted in a specific semi-arid agricultural farm in New Delhi, India, and the
+    accuracy and applicability of the S-SEBI model may vary in different regions and
+    under diverse climatic conditions.
 
 
-    Overall, the paper contributes to the larger context of the literature review
-    by providing a detailed analysis of the data types used in irrigation management,
-    specifically focusing on the application of Landsat 8/9 data and the S-SEBI model
-    for ET estimation. The relevance score is 0.7-0.79 based on the paper''s direct
-    relevance to the point and its valuable and credible information, with minor limitations
-    in scope and timeliness.'
+    The following verbatim quotes from the paper further illustrate its pertinence
+    to the point:
+
+
+    * "Thanks to the availability of multi-temporal high-resolution satellite datasets
+    and remote sensing-based surface energy balance models, near-real-time estimation
+    of ET is now possible."
+
+    * "The S-SEBI model predicted daily ET from Landsat 8/9 data with an average correlation
+    coefficient and RMSE of 0.89 and 0.79 mm/day, respectively."
+
+    * "Despite underestimating ET (0.51 mm/day) during the initial growing season
+    (Nov-Dec) and overestimating it (0.73 mm/day) during mid-season (Feb-Mar), the
+    S-SEBI model can still be an operational tool for mapping ET with high accuracy
+    and sufficient variation across pixels, making it an ideal option for incorporating
+    into irrigation scheduling."
+
+
+    I assign the paper a relevance score of 0.8-0.89, indicating that it is highly
+    relevant to the point of identifying the types of data most applicable to irrigation
+    management and their typical sources. The paper provides valuable insights into
+    the use of satellite data and the S-SEBI model for ET estimation, which is a crucial
+    aspect of irrigation management.
+
+
+    **Limitations:** No major limitations were identified in the paper for fully addressing
+    the point of identifying the types of data most applicable to irrigation management
+    and their typical sources.'
   authors:
   - Ghosh T.
   - Das B.
@@ -4666,7 +4894,10 @@
     high accuracy and sufficient variation across pixels, making it an ideal option
     for incorporating into irrigation scheduling.
   doi: 10.54386/jam.v25i3.2254
-  full_citation: '>'
+  full_citation: Ghosh, T., Debashis Chakra borty, Bappa Das, Vinay K. Sehgal, Debashish
+    Roy, Rajkumar Dhakar, & Koushik Bag. (2023). Estimation of actual evapotranspiration
+    using the simplified-surface energy balance index model on an irrigated agricultural
+    farm. Journal of Agrometeorology, 25(3), 365–374. https://doi.org/10.54386/jam.v25i3.2254
   full_text: '>
 
     "Journal of Agrometeorology Home Current Archives Submissions Announcements Special
@@ -4872,80 +5103,39 @@
     ProQuest;  Researchbite; Oa.mg;   LetPub.com  sciencegate; Exaly.com; Ores.su;
     Researcher.life;  hjrs.hec.gov.pk; narc.gov.np; UGC CARE list group-II; and many
     more"'
-  inline_citation: '>'
+  inline_citation: (Ghosh et al., 2023)
   journal: Journal of Agrometeorology
-  limitations: The study acknowledges certain limitations. The S-SEBI model underestimated
-    ET during the initial growing season (Nov-Dec) and overestimated it during mid-season
-    (Feb-Mar).
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: The study was conducted in a specific semi-arid agricultural farm in
+    New Delhi, India, and the accuracy and applicability of the S-SEBI model may vary
+    in different regions and under diverse climatic conditions.
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Estimation of actual evapotranspiration using the simplified-surface energy
     balance index model over an irrigated agricultural farm
-  verbatim_quote1: '"The paper highlights the increasing importance of irrigation
-    management systems to efficiently utilize water resources and enhance agricultural
-    productivity amidst the global food challenge. It specifically focuses on the
-    different types of data used for irrigation management, addressing the point raised
-    in the provided context."'
-  verbatim_quote2: '"The S-SEBI model showed promising accuracy in estimating ET,
-    achieving a correlation coefficient of 0.89 and RMSE of 0.79 mm/day when compared
-    to eddy covariance measurements. The model also effectively differentiated between
-    ET over dryland crops and well-irrigated wheat fields on the farm."'
-  verbatim_quote3: '"However, the study acknowledges certain limitations. The S-SEBI
-    model underestimated ET during the initial growing season (Nov-Dec) and overestimated
-    it during mid-season (Feb-Mar). Despite these limitations, the paper concludes
-    that the S-SEBI model can be a valuable tool for mapping ET with reasonable accuracy
-    and sufficient variability across pixels, making it useful for integration into
-    irrigation scheduling practices."'
-- analysis: "This study outlines the design, construction, and functionality of an\
-    \ autonomous multi-sensor monitoring system for real-time water stress detection\
-    \ and precisely targeted irrigation called PLANTSENS. The developed prototype\
-    \ combines the absorption-based and the temperature-based measuring method by\
-    \ using three optical sensors operating in the near-infrared, shortwave, and longwave\
-    \ (thermal) infrared spectrum. The camera modules are mounted on a moving rail-based\
-    \ platform with an integrated positioning system. Appropriate networking and cloud\
-    \ environment with a central server for storing, analyzing, and visualizing the\
-    \ acquired data was created. PLANTSENS monitoring system has been successfully\
-    \ implemented and trained on tomato plants in a greenhouse. The algorithm for\
-    \ scheduling irrigation time has been developed by merging two water stress detection\
-    \ algorithms, namely the Water Index (WI) and the Crop Water Stress Index (CWSI),\
-    \ thereby improving the system's capability and accuracy. WI determines the plant\
-    \ stress from the reflection differences at 1450 and 1300 nm, where water absorbs\
-    \ strongly and weakly, respectively. CWSI, on the other hand, uses the leaf temperature,\
-    \ which tends to increase during water stress due to the lower transpiration rate\
-    \ caused by closed stomata. This work presents the performance of investigated\
-    \ measuring methods and developed algorithms based on the system approach from\
-    \ July 2020 through August 2020. The obtained irrigation time has been verified\
-    \ in accordance with observed changes in the plant's physiological response, such\
-    \ as vapor conductivity, validating this approach as promising and confirming\
-    \ water stress as a significant indicator in irrigation scheduling. \n\nThe study\
-    \ covers the following types of data most applicable to irrigation management\
-    \ and their typical sources:\n\n* Absorption-based water stress detection: Absorption-based\
-    \ methods use optical sensors to measure the amount of light absorbed by plant\
-    \ leaves at specific wavelengths. This information can be used to infer the water\
-    \ status of the plant, as water absorbs strongly in certain wavelength ranges.\
-    \ Typical sources of data for absorption-based methods include spectral reflectance\
-    \ measurements and hyperspectral imagery.\n\n* Temperature-based water stress\
-    \ detection: Temperature-based methods use thermal sensors to measure the temperature\
-    \ of plant leaves. This information can be used to infer the water status of the\
-    \ plant, as water stress can cause changes in leaf temperature. Typical sources\
-    \ of data for temperature-based methods include infrared thermography and thermal\
-    \ imagery.\n\n* Physiological measurements: Physiological measurements can be\
-    \ used to directly assess the water status of plants. Such measurements include\
-    \ leaf water potential, stomatal conductance, and transpiration rate. Typical\
-    \ sources of data for physiological measurements include pressure chambers, porometers,\
-    \ and gas exchange systems.\n\nThe study is highly relevant to the specific point\
-    \ in the review because it provides a comprehensive overview of the different\
-    \ types of data that can be used for irrigation management, as well as the typical\
-    \ sources of such data. This information is essential for researchers and practitioners\
-    \ who are interested in developing automated irrigation systems that can optimize\
-    \ water use and improve crop yields.\n\nThe relevance score is 0.9-1.0, indicating\
-    \ that the paper is exceptionally relevant to the outline point and review.\n\n\
-    The study has no major limitations. It provides a comprehensive overview of the\
-    \ different types of data that can be used for irrigation management, as well\
-    \ as the typical sources of such data. This information is essential for researchers\
-    \ and practitioners who are interested in developing automated irrigation systems\
-    \ that can optimize water use and improve crop yields."
+  verbatim_quote1: '"Thanks to the availability of multi-temporal high-resolution
+    satellite datasets and remote sensing-based surface energy balance models, near-real-time
+    estimation of ET is now possible."'
+  verbatim_quote2: '"The S-SEBI model predicted daily ET from Landsat 8/9 data with
+    an average correlation coefficient and RMSE of 0.89 and 0.79 mm/day, respectively."'
+  verbatim_quote3: '"Despite underestimating ET (0.51 mm/day) during the initial growing
+    season (Nov-Dec) and overestimating it (0.73 mm/day) during mid-season (Feb-Mar),
+    the S-SEBI model can still be an operational tool for mapping ET with high accuracy
+    and sufficient variation across pixels, making it an ideal option for incorporating
+    into irrigation scheduling."'
+- analysis: The development of automated irrigation systems is crucial for addressing
+    global food challenges by optimizing water usage and improving agricultural productivity.
+    This study presents the design and evaluation of PLANTSENS, a multi-sensor monitoring
+    system for real-time water stress detection and targeted irrigation in greenhouses
+    and open fields. PLANTSENS combines absorption-based (WI) and temperature-based
+    (CWSI) water stress detection algorithms to enhance system accuracy. Validation
+    experiments on tomato plants demonstrated the effectiveness of PLANTSENS in determining
+    the optimal irrigation time based on physiological responses like vapor conductivity.
+    The study highlights the potential of redundant measuring techniques and interoperability
+    standards in the development of automated irrigation systems, contributing to
+    sustainable water management and increased crop yields. The findings provide valuable
+    insights for future research on data collection, data transmission, and decision
+    algorithms in automated irrigation systems.
   authors:
   - Rojek L.
   - Möller M.
@@ -4982,7 +5172,10 @@
     this approach as promising and confirming water stress as a significant indicator
     in irrigation scheduling.
   doi: 10.1016/j.atech.2023.100223
-  full_citation: '>'
+  full_citation: 'Lukasz Rojek, Matthias Möller, Markus Richter, Monika Bischoff-Schaefer,
+    PLANTSENS: A rail-based multi-sensor imaging system for redundant water stress
+    detection in greenhouses, Smart Agricultural Technology, Volume 4, 2023, 100223,
+    ISSN 2667-0511, https://doi.org/10.1016/j.atech.2023.100223.'
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -5761,11 +5954,22 @@
     its licensors, and contributors. All rights are reserved, including those for
     text and data mining, AI training, and similar technologies. For all open access
     content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Rojek et al. (2023)
   journal: Smart Agricultural Technology
-  limitations: The study has no major limitations.
+  limitations: "While the study demonstrates the effectiveness of PLANTSENS in detecting\
+    \ water stress and determining irrigation time, it has limitations that need to\
+    \ be addressed in future research: \n\n- The algorithms were trained and tested\
+    \ only on tomato plants in a greenhouse environment, so their applicability to\
+    \ other plant types and outdoor conditions needs to be investigated.\n\n- The\
+    \ absorption-based method requires an additional light source due to atmospheric\
+    \ absorption, which may not be feasible in all field applications.\n\n- The system\
+    \ currently relies on slope changes to determine irrigation time, which may require\
+    \ manual calibration and could be influenced by factors other than water stress.\n\
+    \nThese limitations suggest that further research is necessary to improve the\
+    \ robustness and adaptability of the system for use in a wider range of crop production\
+    \ scenarios."
   relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: 'PLANTSENS: A rail-based multi-sensor imaging system for redundant water
     stress detection in greenhouses'
@@ -5774,57 +5978,96 @@
   verbatim_quote2: CWSI, on the other hand, uses the leaf temperature, which tends
     to increase during water stress due to the lower transpiration rate caused by
     closed stomata.
-  verbatim_quote3: This work presents the performance of investigated measuring methods
-    and developed algorithms based on the system approach from July 2020 through August
-    2020.
-- analysis: 'The study examines the integration of satellite imagery and imagery collected
-    by unmanned aerial vehicles (UAVs) to improve the accuracy of watershed-scale
-    ET prediction, with a focus on evaluating the integration factors and exploring
-    the impact of partial cloud cover on UAV-based ET estimation. The authors collected
-    UAV and satellite data for five crops in the Walla Walla region of Washington
-    State and applied the METRIC model to estimate ET. Their findings suggest that
-    UAV-based ET can be integrated with Landsat-based ET using integration factors,
-    resulting in improved RMSE in the range of 35.75–65.52% for different crops. They
-    also highlight the importance of considering cloud cover when using UAVs for ET
-    estimation.
+  verbatim_quote3: '>'
+- analysis: 'We first demonstrated that Landsat estimated 24 h ET was positively correlated
+    with the UAV ET with the coefficient of determination in the range of 0.27–0.84,
+    consistent with the literature on seasonal ET comparison [43,44]. In particular,
+    the median values of ET for a field was similar (Figure 5), forming the base for
+    the integration of sensors. Since UAV-based ET mapping incurs a certain extra
+    cost for water managers [51], we further asked whether there is a sizeable difference
+    in ET mapped using UAV versus satellite imagery. Our result shows that although
+    the median values are similar and positively correlated, the Landsat ET and UAV
+    ET vary across the field (Figure 7), resulting in a change in the total water
+    budget. We found that the total water budget can vary up to 114 m3 (wheat: 114
+    m3 for an area of 36.45 hectares, alfalfa: 78 m3 for an area of 12.96 hectares,
+    corn: 43 m3 for an area of 18.72 hectares, rye grass: 25 m3 for an area of 5.67
+    hectares, and peas: 45 m3 for an area of 11.7 hectares). Besides, Landsat ET is
+    normally over-predicted around bare land areas and under-predicted around the
+    dense vegetation areas compared to UAV ET (Figure 4). The reason for this difference
+    is due to the varying sensing time and pixel resolution as the various landscapes
+    exhibit varying temperature and ET results are influenced by the aggregation [44,45,52].
+    As ET mapped using UAV-based imagery was done at higher spatial resolution, the
+    variability in ET captured using UAV imagery is higher compared to Landsat imagery.
+    Thus, the UAV approach of ET estimation supersedes the Landsat approach for their
+    application in precision agriculture such as identifying ponding locations, identifying
+    water stress or overirrigation at the field size, and identifying irrigation system
+    malfunctions [46,47,48]. Therefore, our results indicate that this difference
+    in ET variability across two sensors warrant the further investment in UAV-based
+    image mapping for field scale evaluation.
 
 
-    Key strengths of the paper include:
+    We also assessed the possible cloud impact on UAV based ET estimation. As illustrated
+    in Figure 9, additional precautions are needed for ET mapping using UAV imagery
+    as cloud-based illumination impedes the ET estimation from the field. Although
+    the UAV can be flown under the clouds [46,53], the shadows cast by the clouds
+    appear to have a direct influence on ET estimation. The timing for UAV flying
+    to determine the ET from the field is thus constrained. Further research and investments
+    are required to check whether there is an effect under partial cloud only or when
+    we have full cloud conditions.
 
 
-    1. **Relevance to review intention**: The study directly addresses the objective
-    outlined in the review intention, which is to assess the current state and future
-    potential of real-time, automated ET prediction using integrated end-to-end satellite
-    and UAV imagery.
-
-    2. **Insight**: The paper provides novel insights by demonstrating the potential
-    of integrating UAV and satellite imagery to improve ET prediction and quantifying
-    the improvements achieved through the application of integration factors. It also
-    explores the impact of partial cloud cover on UAV-based ET estimation, which is
-    a valuable consideration for practical applications.
-
-    3. **Credibility**: The study employs widely accepted ET estimation models (METRIC)
-    and statistical approaches, and the results are supported by empirical data collected
-    from agricultural fields. The authors acknowledge limitations in the study, such
-    as the need for ground observations to validate UAV-based ET estimates and the
-    potential impact of crop growth stage on integration factors.
-
-    4. **Scope**: The study covers various aspects of ET prediction using UAV and
-    satellite imagery, including the comparison of UAV-based and satellite-based ET,
-    the development of integration factors, and the assessment of partial cloud effects.
-    It provides a comprehensive analysis of the integration approach and its implications
-    for water resource management.
-
-    5. **Recency**: The study is based on recent advancements in remote sensing and
-    ET estimation techniques and aligns with the current focus on improving the accuracy
-    and efficiency of water resource management practices.
-
-
-    Overall, the paper makes a valuable contribution to the field of water resource
-    management and showcases the potential of integrating multiple data sources for
-    ET prediction. The results and insights presented in the study will be of interest
-    to researchers, practitioners, and policymakers involved in water resource management
-    and agricultural water use optimization.'
+    We examined if there is a way to combine these two sensors for better prediction
+    of ET. Similar to other remote sensing integration applications [52,54,55], our
+    spatial integration result shows that the Landsat ET can be used in synergy with
+    UAV ET. We found that the RMSE, MAE, and bias values are significantly reduced
+    in all crops by the application of the integration factor by at least 35.75% (Table
+    10). This work will not only reduce the reliability of people on single satellite-based
+    imagery or UAV-based imagery for the computation of the watershed scale ET, but
+    will also significantly reduce the operational cost of UAV image acquisition as
+    only fewer flights are needed for the computation of the integration factor. Therefore,
+    the computation of an integration factor is crucial for the successful integration
+    of these two sensors. Once the integration factor is computed it can be applied
+    to the Landsat based ET. Additionally, our results provide evidence that ET estimation
+    would benefit from the synergy of UAV imagery with Landsat imagery for mapping
+    ET at a watershed scale as they can complement each other in their ET prediction.
+    In contrast to the spatial integration, temporal integration shows the mix result
+    for UAV ET integration with Landsat ET. We computed the integration factor using
+    the image collected on May of 2022, which was applied with the image collected
+    on June 2022. The purpose was to see if we could apply the same pixel by pixel
+    integration factor at a place for a crop within the same growing season as done
+    in other spatiotemporal studies [55,56]. We found mixed results in alfalfa, with
+    R2 values significantly increased from 0.69 to 0.78 with a small reduction in
+    RMSE and MAE values, whereas all R2, RMSE, and MAE values did not improve by using
+    such an integration factor on peas and rye grass (Figure 10). This suggests that
+    the pixel by pixel factor can only be applied if the crop’s growth stage does
+    not differ a lot and if there is similar application of irrigation with less variation
+    in hydrothermal condition similar to the study on crop landscape [57,58]. This
+    study is the first step in identifying a possible integration factor for the use
+    of Landsat ET in combination with UAV ET. The data suggest that with the integration
+    factor Landsat ET can be used in synergy with the UAV ET for a better prediction
+    of watershed scale ET. Understanding these earlier steps of ET integration provide
+    a novel approach in using the satellite of ET with UAV ET, which may ultimately
+    lead to effective field and watershed scale water management. This work will reduce
+    people’s reliability on a single satellite or UAV-based imagery for the computation
+    of the watershed scale ET. It is also conceivable that such a method of integration
+    could work in many other crops including annual and perennial crops, as well as
+    for many other types of satellite and UAV sensors. Finally, it is crucial to acknowledge
+    a number of critical decision-making processes that were considered beyond the
+    scope of the current project. UAV-based ET was utilized in this work to correct
+    Landsat-based ET, however no ground observations were used to determine the accuracy
+    of UAV-based ET because of the lack of Eddy Covariance stations in our study.
+    Further, we used the same equations for the broadband albedo estimation from the
+    narrow band without considering the crop growth stage. However, as pointed out
+    by Bartmiński and Siłuch [52], the surface albedo equation needs adjustment for
+    crop growth stage. Besides, the current study was performed on working fields
+    (not experimental plots) allowing the farmers to use their own management practice,
+    irrigation application, and crop rotation. While this may make the study better
+    for real world approximation, it hinders the research as we could not get the
+    corn crop in the same field for two consecutive years. Future work could address
+    these dimensions, as well as formulating a more complex integration model that
+    accounts for the change in crop growth stage and variation across the annual and
+    perennial crop. Comparing integrated ET along with UAV and satellite-based ET
+    with Eddy Covariance stations could also provide additional insight.'
   authors:
   - Khanal R.
   - Barber M.E.
@@ -5852,7 +6095,9 @@
     use of UAVs in water resource management and highlight the importance of considering
     multiple sources of data in ET prediction.
   doi: 10.3390/hydrology10060120
-  full_citation: '>'
+  full_citation: Integration of Unmanned Aerial Vehicle Imagery with Landsat Imagery
+    for Better Watershed Scale ET Prediction by Rajendra Khanal and Michael E. Barber,
+    Hydrology 2023, 10(6), 120; https://doi.org/10.3390/hydrology10060120
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -6681,283 +6926,75 @@
     notifications and newsletters from MDPI journals Select options Subscribe © 1996-2024
     MDPI (Basel, Switzerland) unless otherwise stated Disclaimer Terms and Conditions
     Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: null
   journal: Hydrology
-  limitations: '1. **Limited ground validation**: The study relies on UAV and satellite
-    data for ET estimation without using ground observations for validation. Incorporating
-    ground-based ET measurements would strengthen the credibility of the results.
+  limitations: 'The following limitations are mentioned in the paper:
 
-    2. **Potential impact of crop growth stage on integration factors**: The study
-    acknowledges that the integration factors may vary depending on the crop growth
-    stage. Further research could explore the relationship between crop growth stage
-    and integration factors to improve the accuracy of ET prediction over the entire
-    growing season.
 
-    3. **Scalability to larger areas**: The study focuses on a specific region and
-    a limited number of crops. It would be beneficial to evaluate the scalability
-    of the integration approach to larger areas and a wider range of crops to assess
-    its generalizability and practical applicability.
+    * No ground observations were used to determine the accuracy of UAV-based ET because
+    of the lack of Eddy Covariance stations in the authors'' study.
 
-    4. **Cloud cover effects on ET estimation**: While the study examines the impact
-    of partial cloud cover on UAV-based ET estimation, it does not quantify the effects
-    of varying cloud cover conditions on the integration of UAV and satellite imagery.
-    Understanding the influence of different cloud cover scenarios on the integration
-    process would provide valuable insights for practical applications.
+    * The authors used the same equations for the broadband albedo estimation from
+    the narrow band without considering the crop growth stage.
 
-    5. **Addressing uncertainties in ET estimation**: The study does not explicitly
-    discuss uncertainties associated with ET estimation using UAV and satellite imagery.
-    Quantifying and addressing these uncertainties would enhance the reliability and
-    interpretability of the results.'
-  relevance_score: 0.9
-  relevance_score1: 0.9
+    * The current study was performed on working fields (not experimental plots) allowing
+    the farmers to use their own management practice, irrigation application, and
+    crop rotation. This may make the study better for real world approximation, but
+    it hinders the research as the authors could not get the corn crop in the same
+    field for two consecutive years.'
+  relevance_score: 0.92
+  relevance_score1: 0
   relevance_score2: 0
   title: Integration of Unmanned Aerial Vehicle Imagery with Landsat Imagery for Better
     Watershed Scale ET Prediction
-  verbatim_quote1: '"Our result shows that the Root Mean Square Error (RMSE) of daily
-    ET for corn (Zea mays), rye grass (Lolium perenne), wheat (Triticum aestivum),
-    peas (Pisum sativum), and alfalfa (Medicago sativa) can be improved by the application
-    of the integration factor to the Landsat based ET in the range of (35.75–65.52%)."'
-  verbatim_quote2: '"We also explore the variability and effect of partial cloud on
-    UAV-based ET estimation."'
-  verbatim_quote3: '"Our findings have implications for the use of UAVs in water resource
-    management and highlight the importance of considering multiple sources of data
-    in ET prediction."'
-- analysis: 'The paper explores the use of satellite data, specifically the Normalized
-    Difference Vegetation Index (NDVI), to estimate the crop coefficient (Kc) and
-    irrigation water requirements of rice at a regional scale. The study was conducted
-    in Palakkad district, Kerala, India, during the Mundakan rice cultivation seasons
-    of 2020-21 and 2021-22.
-
-
-    The paper demonstrates a strong relationship between NDVI values derived from
-    MODIS satellite imagery and Kc values of rice, with an R2 value of 0.82. This
-    relationship enables the development of Kc maps for the region at various crop
-    growth stages, facilitating more accurate crop evapotranspiration estimates.
-
-
-    The study also generates crop water demand maps depicting the spatial and temporal
-    distribution of irrigation needs, which can be valuable for farmers in optimizing
-    water usage. The estimated total crop water requirements during the study period
-    ranged from 611-976 mm and 560-897 mm for the respective seasons.
-
-
-    Overall, the paper offers a cost-effective and efficient approach for regional-scale
-    crop water requirement estimation, leveraging the integration of remote sensing
-    and agrometeorological techniques. This can contribute to more sustainable irrigation
-    practices, particularly in water-scarce regions.'
-  authors:
-  - Raju C.
-  - Ajith K.
-  - Ajithkumar B.
-  - Anitha S.
-  - Divya Vijayan V.
-  citation_count: '0'
-  description: The sustainability of irrigated agriculture is jeopardized by catastrophic
-    climate change, with projected forecasts indicating that by 2025, one out of every
-    four people on the planet will be experiencing extreme water scarcity. In this
-    context, an attempt was made for scheduling irrigation at a regional scale combining
-    satellite data and agrometeorological indices over major rice growing tracts of
-    Palakkad district in Kerala. Normalized Difference Vegetation Index (NDVI) product
-    of MODIS (MOD13Q1) with a temporal resolution of 16 days and a spatial resolution
-    of 250 m was utilized to establish a relationship with crop coefficient (Kc) of
-    rice during the Mundakan rice season (September-October to December-January) of
-    2020-21 and 2021-22 in 30 ground truth locations. The results revealed that NDVI
-    values have strong relationship with Kc values with an R2 value of 0.82. Crop
-    coefficient (Kc) maps developed using satellite derived NDVI provided Kc values
-    at a regional scale during different stages of crop growth and it helped to estimate
-    crop evapotranspiration with greater accuracy. Based on this crop water demands
-    maps depicting the spatial and temporal distribution of irrigation requirement
-    were generated for the whole study area. These maps can be used as a tool for
-    the estimation of the crop water requirement of a rice field if the geographical
-    coordinates of the location are known. The total crop water requirements estimated
-    during Mundakan season 2020-21 and 2021-22 in Palakkad district were in the range
-    of 611-976 mm and 560-897 mm respectively. Integration of remote sensing & agrometeorological
-    techniques has scope for regional-scale crop water requirement estimation in a
-    cost-effective and time-bound manner.
-  doi: 10.54386/jam.v25i2.2051
-  full_citation: '>'
-  full_text: '>
-
-    "Journal of Agrometeorology Home Current Archives Submissions Announcements Special
-    Issue About Editorial Board Contact Search Register Login Home / Archives / Vol.
-    25 No. 2 (2023): June (Silver Jubilee Publication) / Research Paper Estimating
-    irrigation water requirement in rice by integration of satellite data and agrometeorological
-    indices in Palakkad, Kerala CHINNU RAJU Department of Agricultural Meteorology,
-    College of Agriculture, Kerala Agriculture University, Thrissur-680656, Kerala,
-    India AJITH K. Regional Agricultural Research Station, Kerala Agriculture University,
-    Kumarakom-686563, Kerala, India AJITHKUMAR B. Department of Agricultural Meteorology,
-    College of Agriculture, Kerala Agriculture University, Thrissur-680656, Kerala,
-    India ANITHA S. Instructional Farm, Kerala Agriculture University, Thrissur-680656,
-    Kerala, India DIVYA VIJAYAN V. Department of Remote Sensing and GIS, College of
-    Forestry, Kerala Agriculture University, Thrissur-680656, Kerala, India DOI: https://doi.org/10.54386/jam.v25i2.2051
-    Keywords: crop coefficient, crop evapotranspiration, irrigation scheduling, Normalized
-    Difference Vegetation Index, rice, water requirement Abstract The sustainability
-    of irrigated agriculture is jeopardized by catastrophic climate change, with projected
-    forecasts indicating that by 2025, one out of every four people on the planet
-    will be experiencing extreme water scarcity. In this context, an attempt was made
-    for scheduling irrigation at a regional scale combining satellite data and agrometeorological
-    indices over major rice growing tracts of Palakkad district in Kerala. Normalized
-    Difference Vegetation Index (NDVI) product of MODIS (MOD13Q1) with a temporal
-    resolution of 16 days and a spatial resolution of 250 m was utilized to establish
-    a relationship with crop coefficient (Kc) of rice during the mundakan rice season
-    of 2020-21 and 2021-22 in 30 ground truth locations. The results revealed that
-    NDVI values have strong relationship with Kc values with an R2 value of 0.81.
-    Crop coefficient (Kc) maps developed using satellite derived NDVI provided Kc
-    values at a regional scale during different stages of crop growth and it helped
-    to estimate crop evapotranspiration with greater accuracy. Based on this crop
-    water demands maps depicting the spatial and temporal distribution of irrigation
-    requirement were generated for the whole study area. These maps can be used as
-    a tool for the estimation of the crop water requirement of a rice field if the
-    geographical coordinates of the location are known. The total crop water requirements
-    estimated during mundakan season 2020-21 and 2021-22 in Palakkad district were
-    in the range of 700-975 mm and 560-897 mm respectively. Integration of remote
-    sensing & agrometeorological techniques has scope for regional-scale crop water
-    requirement estimation in a cost-effective and time-bound manner. References Allen,
-    R. G., Pereira, L. S., Raes, D. and Smith, M. (1998). Crop evapotranspiration:
-    guidelines for computing crop water requirements, Irrigation and drainage Paper
-    No. 56, FAO, Rome, Italy, p.300 Anil Kumar, D., Neelima, T. L., Srikanth, P.,
-    Uma devi, M., Suresh, K. and Murthy, C. S. (2022). Maize yield prediction using
-    NDVI derived from Sentinel 2 data in Siddipet district of Telangana state. J.
-    Agrometeorol., 24(2): 165–168. https://doi.org/10.54386/jam.v24i2.1635 Campos,
-    I., Neale, C. M. U., Suyker, A. E., Arkebauer, T. J. and Goncalves, I. Z. (2017).
-    Reflectance-based crop coefficients REDUX: For operational evapotranspiration
-    estimates in the age of high producing hybrid varieties, Agri. Wat. Manag., 187:
-    140-153. https://doi.org/10.1016/j.agwat.2017.03.022 Capelli, G., Mazza, R., and
-    Gazzetti, C. (2005). Tools and strategies for the compatible use of water resources
-    in Lazio, Pythagoras, Italy, p.216 González, A., Kjaersgaard, J., Trooien, T.,
-    Hay, C., and Ahiablame, L. (2018). Estimation of crop evapotranspiration using
-    satellite remote sensing-based vegetation index, Adv. Meteorol., 1-12. https://doi.org/10.1155/2018/4525021
-    Hossain, M. B., Yesmin, S., Maniruzzaman, M., and Biswas, J. C. (2017). Irrigation
-    scheduling of rice (Oryza sativa L.) using CROPWAT model in the western region
-    of Bangladesh, Agriculturists, 15(1): 19-27. DOI: 10.3329/agric.v15i1.33425 FAO
-    (2021). United Nations social and economic council, Rome, Italy. https://www.fao.org/3/X5560E/x5560e03.htm,
-    Hunsaker, D. J., Pinter, P. J., and Kimball, B. A. (2005). Wheat basal crop coefficients
-    determined by normalized difference vegetation index, Irrig. Sci., 24: 1-14. DOI:
-    https://doi.org/10.1007/s00271-005-0001-0 Javed, M. A., and Ahmad, S. R. (2020).
-    A decision support system for crop water requirement estimation using advanced
-    geospatial techniques, Pak. J. Agri. Sci., 57(4): 981-991. DOI: 10.21162/PAKJAS/20.9482
-    Jayanthi, H., Nealea, C. M. U., and Wright, J. L. (2007). Development and validation
-    of canopy reflectance-based crop coefficient for potato, Agri. Wat. Manag., 88(3):
-    235-246. DOI: https://doi.org/10.1016/j.agwat.2006.10.020 Kamble, B., Kilic, A.,
-    and Hubbard, K. (2013). Estimating crop coefficients using remote sensing-based
-    vegetation index, Remote Sens., 5(4): 1588-1602. DOI: https://doi.org/10.3390/rs5041588
-    KAU [ Kerala Agricultural University]. (2016). Package of Practices Recommendation,
-    Crops (15th Ed.). Kerala Agricultural University, Thrissur, P.22. Kaushalya R.,
-    Gayatri, M., Praveen, V., and Satish., J. (2014). Use of NDVI variations to analyse
-    the length of growing period in Andhra Pradesh. J. Agrometeorol., 16(1):112-115.
-    https://doi.org/10.54386/jam.v16i1.1494 Kuo, S., Ho, S., and Liu, C. (2006). Estimation
-    irrigation water requirements with derived crop coefficients for upland and paddy
-    crops in China irrigation association, Taiwan, Agri. Wat. Manag., 82: 433-445.
-    https://doi.org/10.1016/j.agwat.2005.08.002 Mushtaq, R., Sharma, M. K., Ahmad,
-    L., Krishna, B., Mushtaq, K. and Mir, J. I. (2020). Crop water requirement estimation
-    using pan evaporimeter for high density apple plantation system in Kashmir region
-    of India. J. Agrometeorol., 22(1): 86-88. https://doi.org/10.54386/jam.v22i1.133
-    Olsen, J. L., Stisen, S., Proud, S. R., and Fensholt, R. (2015). Evaluating EO-based
-    canopy water stress from seasonally detrended NDVI and SIWSI with modeled evapotranspiration
-    in the Senegal River Basin. Remote Sens. Environ., 159: 57–69. https://doi.org/10.1016/j.rse.2014.11.029
-    Rao A. N., Wani S. P., Ramesha M. S. and Ladha J. K. (2017). Rice production systems.
-    In: Chauhan B. S. (eds), Rice production worldwide. Springer international publishing,
-    pp. 185-205. DOI 10.1007/978-3-319-47516-5_8 Rouse, J., Haas, R., Schell, J. and
-    Deering, D. (1973). Monitoring vegetation systems in the Great Plains with ERTS.
-    In Proceedings of the Third ERTS-1 Symposium NASA SP-351, Washington, DC, USA,
-    10–14 December 1973; pp. 309–317. Shanmugapriya, P., Latha, K. R., Pazhanivelan,
-    S., Kumaraperumal, R., Karthikeyan, G. and Sudarmanian, N. S. (2022). Cotton yield
-    prediction using drone derived LAI and chlorophyll content. J. Agrometeorol.,
-    24(4): 348-352. https://doi.org/10.54386/jam.v24i4.1770 Singh, R. and Irmak, A.
-    (2008). A modified approach for estimation of crop coefficients using satellite
-    remote sensing data. ASABE Annual International Meeting, Providence, 2008, Rhode
-    Island, Paper Number: 083542. DOI:10.13031/2013.24593 Spanu, A., Murtas, A., and
-    Ballone, F. (2009). Water use and crop coefficients in sprinkler irrigated rice,
-    Ital. J. Agron., 4(2): 47-58. https://doi.org/10.4081/ija.2009.2.47 Shouqin, Z.,
-    Weihua, Z., Jaike, L. V. and Chaofu, W. (2014). Temporal variation of soil water
-    and its influencing factors in hilly area of Chongqing, China, Intl J. Agric.
-    & Biol. Eng., 7(4): 47-59. DOI: 10.3965/j.ijabe.20140704.006 PDF Published 25-05-2023
-    How to Cite CHINNU RAJU, AJITH K., AJITHKUMAR B., ANITHA S., & DIVYA VIJAYAN V.
-    (2023). Estimating irrigation water requirement in rice by integration of satellite
-    data and agrometeorological indices in Palakkad, Kerala. Journal of Agrometeorology,
-    25(2), 293–299. https://doi.org/10.54386/jam.v25i2.2051 More Citation Formats
-    Issue Vol. 25 No. 2 (2023): June (Silver Jubilee Publication) Section Research
-    Paper License Copyright (c) 2023 CHINNU RAJU, AJITH K., AJITHKUMAR B., ANITHA
-    S., DIVYA VIJAYAN V. This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
-    4.0 International License. This is a human-readable summary of (and not a substitute
-    for) the license. Disclaimer. You are free to: Share — copy and redistribute the
-    material in any medium or format Adapt — remix, transform, and build upon the
-    material The licensor cannot revoke these freedoms as long as you follow the license
-    terms. Under the following terms: Attribution — You must give appropriate credit,
-    provide a link to the license, and indicate if changes were made. You may do so
-    in any reasonable manner, but not in any way that suggests the licensor endorses
-    you or your use. NonCommercial — You may not use the material for commercial purposes.
-    ShareAlike — If you remix, transform, or build upon the material, you must distribute
-    your contributions under the same license as the original. No additional restrictions
-    — You may not apply legal terms or technological measures that legally restrict
-    others from doing anything the license permits. Notices: You do not have to comply
-    with the license for elements of the material in the public domain or where your
-    use is permitted by an applicable exception or limitation. No warranties are given.
-    The license may not give you all of the permissions necessary for your intended
-    use. For example, other rights such as publicity, privacy, or moral rights may
-    limit how you use the material. Most read articles by the same author(s) ASWATHI
-    K. P., AJITH K., AJITHKUMAR B., ABIDA P. S., Impact of climate change on rice
-    yield under projected scenarios in central zone of Kerala , Journal of Agrometeorology:
-    Vol. 24 No. 3 (2022): September Make a Submission Links Open Access Policy Special
-    Issue Publication Ethics Peer Review Process Publication Charges Impact Factor
-    and Indexing   Information For Readers For Authors For Librarians Current Issue
-    Journal Impact Factors and Indexing DOAJ; SCOPUS Cite Score (2022) is 1.2, SJR
-    0.25, SNIP 0.776;  Scimago Journal & country ranking (2022) H-Index = 14, IF=0.709;   SCIJOURNAL.ORG   WOS
-    IF (2021) = 0.557; SCOPUS IF (2021) = 0.484;  Bioxbio.com; Academic accelerator
-    ;  Resurchify.com Impact Score (2022) = 0.71, H-index=14, Rank=16757;   NAAS  scores
-    (2023) = 6.00; RPRI score (2024)=6.93; Google Scholar; Journals Insights Journalsearches;  ABCDindex;  Index
-    Copernicus; Researchgate; Listofjournals; journalfind.ir Fatcat.wiki;  Typest.io;  Vu.nl;  Editage;  Ub.edu;
-    ProQuest;  Researchbite; Oa.mg;   LetPub.com  sciencegate; Exaly.com; Ores.su;
-    Researcher.life;  hjrs.hec.gov.pk; narc.gov.np; UGC CARE list group-II; and many
-    more"'
-  inline_citation: '>'
-  journal: Journal of Agrometeorology
-  limitations: 'The study is specific to the Mundakan rice season and Palakkad district,
-    which may limit its generalizability to other regions or seasons.
-
-
-    The methodology relies on a strong relationship between NDVI and Kc, which may
-    vary depending on factors such as soil conditions and crop varieties. The authors
-    acknowledge this limitation and suggest further research to strengthen the NDVI-Kc
-    relationship and explore other relevant parameters.
-
-
-    The study does not consider the potential impact of factors such as rainfall or
-    soil moisture on irrigation requirements, which could affect the accuracy of the
-    estimated crop water demand maps.'
-  relevance_score: 0.8
-  relevance_score1: 0.8
-  relevance_score2: 0
-  title: Estimating irrigation water requirement in rice by integration of satellite
-    data and agrometeorological indices in Palakkad, Kerala
-  verbatim_quote1: The results revealed that NDVI values have strong relationship
-    with Kc values with an R2 value of 0.82.
-  verbatim_quote2: Crop coefficient (Kc) maps developed using satellite derived NDVI
-    provided Kc values at a regional scale during different stages of crop growth
-    and it helped to estimate crop evapotranspiration with greater accuracy.
-  verbatim_quote3: The total crop water requirements estimated during Mundakan season
-    2020-21 and 2021-22 in Palakkad district were in the range of 611-976 mm and 560-897
-    mm respectively.
-- analysis: 'The paper contributes to the specific point in a valuable and important
-    way and is highly relevant to the scope of the review. The paper provides novel,
-    meaningful, and valuable information to the point, adds substantial value, and
-    is highly likely to be included in the review.
-
-
-    Specific verbatim quote 1, from the ‘Accuracy’ criterion, mentions the work’s
-    assessment of Tr and ET by comparing to sap flow data and using correlation with
-    plant physiological parameters, which is mentioned as a strength of the paper.
-
-
-    Specific verbatim quote 2, from the ‘Scope’ criterion, mentions that the paper
-    provides a valuable context with the detailed workflow of the model framework
-    and showing its applicability to potato fields, which represents a less explored
-    crop compared to others commonly included in TSEB-PT.
-
-
-    Specific verbatim quote 3, from the ‘Limitations’ criterion, mentions that the
-    paper does not account for the potential impact of dewfall and intercepted irrigation
-    water on the model results as a limitation to keep in mind for future studies.'
+  verbatim_quote1: '"Therefore, the computation of an integration factor is crucial
+    for the successful integration of these two sensors. Once the integration factor
+    is computed it can be applied to the Landsat based ET. Additionally, our results
+    provide evidence that ET estimation would benefit from the synergy of UAV imagery
+    with Landsat imagery for mapping ET at a watershed scale as they can complement
+    each other in their ET prediction."'
+  verbatim_quote2: '"This study is the first step in identifying a possible integration
+    factor for the use of Landsat ET in combination with UAV ET. The data suggest
+    that with the integration factor Landsat ET can be used in synergy with the UAV
+    ET for a better prediction of watershed scale ET. Understanding these earlier
+    steps of ET integration provide a novel approach in using the satellite of ET
+    with UAV ET, which may ultimately lead to effective field and watershed scale
+    water management."'
+  verbatim_quote3: '"In contrast to the spatial integration, temporal integration
+    shows the mix result for UAV ET integration with Landsat ET. We computed the integration
+    factor using the image collected on May of 2022, which was applied with the image
+    collected on June 2022. The purpose was to see if we could apply the same pixel
+    by pixel integration factor at a place for a crop within the same growing season
+    as done in other spatiotemporal studies [55,56]. We found mixed results in alfalfa,
+    with R2 values significantly increased from 0.69 to 0.78 with a small reduction
+    in RMSE and MAE values, whereas all R2, RMSE, and MAE values did not improve by
+    using such an integration factor on peas and rye grass (Figure 10)."'
+- analysis: "Using the specific information provided in the given context, it is possible\
+    \ to conduct an analysis of the relevance and credibility of the paper to the\
+    \ outline point and review intention. \nThe paper explores the use of UAV-based\
+    \ thermal and multispectral data for estimating Tr and ET dynamics under drought\
+    \ in agricultural fields with high spatio-temporal resolution. The methodology\
+    \ for calculating water fluxes is based on the two-source energy balance model\
+    \ with Priestley-Taylor approximation (TSEB-PT). Daily ET was then extrapolated\
+    \ based on the measurement at noon, and water use efficiency (WUE) and irrigation\
+    \ requirements (IRs) were calculated and compared to field irrigation treatments.\
+    \ \nThe analysis was focused on the application of the TSEB-PT model using thermal,\
+    \ multispectral and RGB images obtained by UAVs to calculate actual Tr and ET\
+    \ of potato plants grown under contrasting irrigation treatments on a sandy soil,\
+    \ and to quantify drought stress and irrigation requirements.\nThe analysis found\
+    \ that the TSEB-PT modelled Tr corresponded well with measured sap flow and the\
+    \ spatial sensitivity test revealed that 1 m was the optimal spatial resolution.\
+    \ The diurnal variation of Tr followed the sap flow observations and convincingly\
+    \ revealed the effect of drought on plant Tr and ET.\nThe paper demonstrated the\
+    \ large potential for application of the TSEB-PT modelling and IR calculation\
+    \ to operational irrigation scheduling and was especially promising for the management\
+    \ of regulated deficit irrigation and associated water savings.\nBased on the\
+    \ analysis, the paper's findings are highly relevant to the outline point and\
+    \ review intention. The results of the TSEB-PT model performance under different\
+    \ irrigation treatments showcase the applicability of the method to the estimation\
+    \ of drought stress and water management in potato fields at high spatio-temporal\
+    \ resolution.\nThe methodology of the paper is detailed and robust, thus enhancing\
+    \ the credibility of its findings and conclusions."
   authors:
   - Peng J.
   - Nieto H.
@@ -7001,7 +7038,9 @@
     is a promising tool for the investigation of plant drought stress and water demand;
     this is particularly relevant for local and regional irrigations scheduling.
   doi: 10.1016/j.isprsjprs.2023.03.009
-  full_citation: '>'
+  full_citation: Accurate estimates of land surface energy fluxes and irrigation requirements
+    from UAV-based thermal and multispectral sensors J Photogramm Remote Sens, 198
+    (2023), pp. 238-254
   full_text: '>
 
     "Loading [MathJax]/jax/output/SVG/fonts/TeX/fontdata.js Skip to main content Skip
@@ -8264,59 +8303,66 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: null
   journal: ISPRS Journal of Photogrammetry and Remote Sensing
-  limitations: 'The limitations of the paper for addressing the point and review are:
-
-
-    * Lack of accounting for dewfall and intercepted irrigation water on the model
-    results could potentially impact the accuracy of the estimates, and this should
-    be considered in future studies.'
+  limitations: null
   relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Accurate estimates of land surface energy fluxes and irrigation requirements
     from UAV-based thermal and multispectral sensors
-  verbatim_quote1: This paper contributes to the specific point in a valuable and
-    important way and is highly relevant to the scope of the review. The paper provides
-    novel, meaningful, and valuable information to the point, adds substantial value,
-    and is highly likely to be included in the review.
-  verbatim_quote2: Detailed workflow of the model framework and showing its applicability
-    to potato fields, which represents a less explored crop compared to others commonly
-    included in TSEB-PT.
-  verbatim_quote3: The paper does not account for the potential impact of dewfall
-    and intercepted irrigation water on the model results as a limitation to keep
-    in mind for future studies.
-- analysis: The proposed hybrid - - model was compared against the - - , - - , - -
-    , - - , CFNN, Bi-GRU, MLP, GP, and Adaboost models for (t+1) and (t+7) SSM forecasting
+  verbatim_quote1: The two-source energy balance model based on the Priestley-Taylor
+    equation (TSEB-PT) model estimates canopy transpiration (Tr) and soil evaporation
+    (E) traditionally from satellite partitions of remotely sensed land surface temperature
+    (LST) and the Priestley-Taylor equation (TSEB-PT) at seasonal time with limited
+    accuracy.
+  verbatim_quote2: The high spatial–temporal resolution spectral data collected by
+    unmanned aerial vehicles (UAVs) provide valuable opportunity to estimate Tr and
+    E precisely, improve the understanding of the seasonal and the diurnal cycle of
+    evapotranspiration (ET), and timely detect agricultural drought.
+  verbatim_quote3: '>'
+- analysis: 'The proposed hybrid - - model was compared against the - - , - - , -
+    - , - - , CFNN, Bi-GRU, MLP, GP, and Adaboost models for (t+1) and (t+7) SSM forecasting
     horizons at Khosrowshah and Neyshabur stations in Iran. The goodness-of-fit metrics
     including R, RMSE, MAPE, NSE, KGE, , and were computed to evaluate the performance
-    of the proposed model in comparison with the benchmarking counterparts. Clearly,
-    the results show that - - provided better simulations of SSM for Khosrowshah in
-    terms of , RMSE 0.0113, MAPE 5.6631, NSE 0.9506, KGE 0.9594, , and for (t+1),
-    and , RMSE 0.0167, MAPE 7.0666, NSE 0.9131, KGE 0.9228, , and for (t+7). It can
-    also be observed from Table 6 that - - was the 2nd most accurate model for both
-    (t+1) and (t+7) forecasting horizons. In the group of standalone models, MLP for
-    (t+1) and CFNN for (t+7) achieved slightly higher assessment metrics than Bi-GRU,
-    GP, and Adaboost models in the forecasting of SSM for Khosrowshah station. Overall,
-    - - is the most efficient and accurate SSM forecasting model with the highest
-    degree of accuracy, compared with other benchmarking models. As shown in Table
-    7, for Neyshabur station, - - again shows better performances with , RMSE 0.0186,
-    MAPE 6.8553, NSE 0.9456, KGE 0.9722, , and for (t+1), and , RMSE 0.0223, MAPE
-    7.9497, NSE 0.9222, KGE 0.9555, , and for (t+7) in the forecasting of SSM against
-    all other hybrid comparing models including - - , - - , - - , and - - . Similarly,
-    the proposed - - surpasses the standalone Bi-GRU, CFNN, MLP, GP, and Adaboost
-    models to acquire higher accuracy at both forecasting horizons (t+1) and (t+7)
-    based on R, RMSE, MAPE, NSE, KGE, , and computed for Neyshabur station (Table
-    7). Thus, - - is the most accurate model for both Khosrowshah and Neyshabur stations
-    in the forecasting of SSM for (t+1) and (t+7) time horizons. Fig. 6 also shows
-    the best performance of - - in the forecasting of SSM for (t+1) and (t+7) horizons
-    for both stations based on the values of , NSE, and R. The statistical metrics
-    confirmed that - - had the highest NSE and R and the lowest for both (t+1) and
-    (t+7) horizons for Khosrowshah and Neyshabur stations. Fig. 6 also indicates that
-    - - showed good forecasting consistency in terms of R, NSE, and compared with
-    the four other hybrid models (i.e.,  - - - , - - , - - , and - - ) and the five
-    standalone models (i.e., Bi-GRU, CFNN, MLP, GP, and Adaboost).
+    of the proposed model in comparison with the benchmarking counterparts. Table
+    6 displays the assessment metrics, which were acquired by - - along with the benchmark
+    models during the training and testing periods. Clearly, - - provided better simulations
+    of SSM for Khosrowshah in terms of , RMSE 0.0113, MAPE 5.6631, NSE 0.9506, KGE
+    0.9594, , and for (t+1), and , RMSE 0.0167, MAPE 7.0666, NSE 0.9131, KGE 0.9228,
+    , and for (t+7). It can also be observed from Table 6 that - - was the 2nd most
+    accurate model for both (t+1) and (t+7) forecasting horizons.
+
+    - - , - - , and - - models obtained relatively lower scores than - - at both forecasting
+    scales. In the group of standalone models, MLP for (t+1) and CFNN for (t+7) achieved
+    slightly higher assessment metrics than Bi-GRU, GP, and Adaboost models in the
+    forecasting of SSM for Khosrowshah station. Overall, - - is the most efficient
+    and accurate SSM forecasting model with the highest degree of accuracy, compared
+    with other benchmarking models.
+
+    As shown in Table 7, for Neyshabur station, - - again shows better performances
+    with , RMSE 0.0186, MAPE 6.8553, NSE 0.9456, KGE 0.9722, , and for (t+1), and
+    , RMSE 0.0223, MAPE 7.9497, NSE 0.9222, KGE 0.9555, , and for (t+7) in the forecasting
+    of SSM against all other hybrid comparing models including - - , - - , - - , and
+    - - . Similarly, the proposed - - surpasses the standalone Bi-GRU, CFNN, MLP,
+    GP, and Adaboost models to acquire higher accuracy at both forecasting horizons
+    (t+1) and (t+7) based on R, RMSE, MAPE, NSE, KGE, , and computed for Neyshabur
+    station (Table 7). Thus, - - is the most accurate model for both Khosrowshah and
+    Neyshabur stations in the forecasting of SSM for (t+1) and (t+7) time horizons.
+
+    Fig. 6 also shows the best performance of - - in the forecasting of SSM for (t+1)
+    and (t+7) horizons for both stations based on the values of , NSE, and R. The
+    statistical metrics confirmed that - - had the highest NSE and R and the lowest
+    for both (t+1) and (t+7) horizons for Khosrowshah and Neyshabur stations. Fig.
+    6 also indicates that - - showed good forecasting consistency in terms of R, NSE,
+    and compared with the four other hybrid models (i.e., - -, - -, - -, and - -)
+    and the five standalone models (i.e., Bi-GRU, CFNN, MLP, GP, and Adaboost).
+
+    - - is a novel approach for SSM forecasting, with the following advantages:
+
+    - It is computationally efficient because it produces a model that can be implemented
+    with a smaller set of features and requires less training time.- - performs well
+    in terms of accuracy and robustness, as evidenced by the results of the evaluation.'
   authors:
   - Jamei M.
   - Ali M.
@@ -9509,34 +9555,46 @@
     content, the Creative Commons licensing terms apply."'
   inline_citation: '>'
   journal: Engineering Applications of Artificial Intelligence
-  limitations: The research can be enhanced by the integration of ensemble strategies
-    with uncertainty assessment.
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: '>'
+  relevance_score: 0.8639610021679688
+  relevance_score1: 0
   relevance_score2: 0
   title: A high dimensional features-based cascaded forward neural network coupled
     with MVMD and Boruta-GBDT for multi-step ahead forecasting of surface soil moisture
-  verbatim_quote1: '- - had the highest NSE and R and the lowest for both (t+1) and
-    (t+7) horizons for Khosrowshah and Neyshabur stations.'
-  verbatim_quote2: '- - provided better simulations of SSM for Khosrowshah in terms
+  verbatim_quote1: '- - provided better simulations of SSM for Khosrowshah in terms
     of , RMSE 0.0113, MAPE 5.6631, NSE 0.9506, KGE 0.9594, , and for (t+1), and ,
     RMSE 0.0167, MAPE 7.0666, NSE 0.9131, KGE 0.9228, , and for (t+7).'
-  verbatim_quote3: In the group of standalone models, MLP for (t+1) and CFNN for (t+7)
-    achieved slightly higher assessment metrics than Bi-GRU, GP, and Adaboost models
-    in the forecasting of SSM for Khosrowshah station.
-- analysis: "\"Types of data most applicable to irrigation management and their typical\
-    \ sources\" was not addressed by this paper, as can be determined by the lack\
-    \ of any relevant quotes or other sections with similar language in the text.\
-    \ Instead, the paper focuses on SWS accuracy assessment and SWS application in\
-    \ irrigation scheduling. \n\nThe three most relevant verbatim quotes from the\
-    \ paper, each no more than 3 sentences, demonstrating its pertinence to the outline\
-    \ point and review are:\n\n1. \"Texas and Nebraska were the top two states in\
-    \ terms of the number of studies on SWS accuracy and irrigation scheduling.\"\n\
-    \n2. \"Compared to other scheduling methods, SWS-based scheduling resulted in\
-    \ water saving, with average amounts ranging from 1 % when compared to canopy\
-    \ temperature methods to 38 % in case of traditional approaches.\"\n\n3. \"In\
-    \ addition, SWS-based scheduling led to larger or similar yields compared to other\
-    \ scheduling methods.\""
+  verbatim_quote2: '- - again shows better performances with , RMSE 0.0186, MAPE 6.8553,
+    NSE 0.9456, KGE 0.9722, , and for (t+1), and , RMSE 0.0223, MAPE 7.9497, NSE 0.9222,
+    KGE 0.9555, , and for (t+7) in the forecasting of SSM against all other hybrid
+    comparing models including - - , - - , - - , and - -.'
+  verbatim_quote3: '>'
+- analysis: 'This paper reviews the literature on soil water sensors (SWS) used in
+    irrigation management in the United States over the past two decades, focusing
+    on accuracy assessment and application in irrigation scheduling. Key findings
+    include:
+
+
+    - SWS accuracy is most affected by calibration, with factory calibration leading
+    to larger errors than site-specific calibration.
+
+
+    -  There is no significant difference in accuracy among different SWS technologies,
+    installation orientations, or study environments.
+
+
+    -  SWS-based irrigation scheduling saves water compared to other methods, with
+    an average reduction of 38% compared to traditional approaches.
+
+
+    -  SWS-based scheduling leads to larger or similar yields compared to other scheduling
+    methods.
+
+
+    The study also highlights the need for more research on SWS accuracy under field
+    conditions, especially in major irrigated areas that have not been studied yet.
+    Overall, this systematic review provides a comprehensive and up-to-date assessment
+    of SWS use in irrigation management in the United States.'
   authors:
   - Datta S.
   - Taghvaeian S.
@@ -9559,7 +9617,8 @@
     methods. Texas and Nebraska were the top two states in terms of the number of
     studies on SWS accuracy and irrigation scheduling.
   doi: 10.1016/j.agwat.2023.108148
-  full_citation: '>'
+  full_citation: 'Soil water sensors for irrigation scheduling in the United States:
+    A systematic review of literature'
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -10129,39 +10188,45 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: 'Datta, S. and Taghvaeian, S. (2023) Soil water sensors for irrigation
+    scheduling in the United States: A systematic review of literature. Agricultural
+    Water Management, 278, pp.108148.'
   journal: Agricultural Water Management
-  limitations: This study focuses on SWS accuracy assessment and application in irrigation
-    scheduling, so it is not comprehensive enough to provide a full overview of the
-    types of data most applicable to irrigation management and their typical sources.
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: null
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: 'Soil water sensors for irrigation scheduling in the United States: A systematic
     review of literature'
-  verbatim_quote1: '"Texas and Nebraska were the top two states in terms of the number
-    of studies on SWS accuracy and irrigation scheduling."'
-  verbatim_quote2: '"Compared to other scheduling methods, SWS-based scheduling resulted
+  verbatim_quote1: Compared to other scheduling methods, SWS-based scheduling resulted
     in water saving, with average amounts ranging from 1 % when compared to canopy
-    temperature methods to 38 % in case of traditional approaches."'
-  verbatim_quote3: '"In addition, SWS-based scheduling led to larger or similar yields
-    compared to other scheduling methods."'
-- analysis: 'The proposed CTFuseNet in this paper uses CNN and Transformer network
-    architecture with the CTFuse module that aggregates local and global information
-    to improve crop-type segmentation in UAV remote sensing images.
-
-    The CTFuse module is a novel feature-fusion module designed to aggregate multi-scale
-    global and local features from the CNN and transformer branches of the network.
-    It efficiently and flexibly fuses features with different resolutions and channel
-    numbers. The FPNHead from the feature pyramid network serves as the decoder for
-    the fused features, adapting to the multi-scale fused features and further improving
-    accuracy.
-
-    The experimental results show that the proposed CTFuseNet achieves a mean intersection
-    over union (mIoU) of 85.33% and a pixel accuracy (PA) of 92.46% on the benchmark
-    dataset. It outperforms the state-of-the-art networks, including U-Net, PSPNet,
-    DeepLabV3+, DANet, OCRNet, SETR, and SegFormer, demonstrating the effectiveness
-    of the proposed method in crop-type segmentation with UAV remote sensing images.'
+    temperature methods to 38 % in case of traditional approaches.
+  verbatim_quote2: In addition, SWS-based scheduling led to larger or similar yields
+    compared to other scheduling methods.
+  verbatim_quote3: '>'
+- analysis: "The proposed CTFuseNet framework incorporates a parallel structure of\
+    \ CNN and transformer branches in its encoder, which enables the extraction of\
+    \ local and global semantic features from remote sensing imagery. This approach\
+    \ combines the strengths of CNNs in local feature extraction with the ability\
+    \ of transformers to capture long-range contextual information. \n\nFurther, a\
+    \ novel feature-fusion module was developed to aggregate multi-scale global and\
+    \ local features extracted from the CNN and transformer branches. This module\
+    \ facilitates the combination of complementary information from both branches,\
+    \ enhancing the network's feature representation capabilities.\n\nThe FPNHead\
+    \ decoder from the feature pyramid network is utilized in the proposed CTFuseNet\
+    \ instead of the original 'All-MLP' decoder employed by SegFormer. This modification\
+    \ allows the network to decode features at multiple scales, ensuring better adaptation\
+    \ to the fused features and ultimately improving segmentation accuracy.\n\nExperimental\
+    \ results on the benchmark remote sensing dataset demonstrate the effectiveness\
+    \ of the proposed CTFuseNet approach. Compared to state-of-the-art networks such\
+    \ as U-Net, PSPNet, DeepLabV3+, DANet, OCRNet, SETR, and SegFormer, CTFuseNet\
+    \ achieves superior crop-type segmentation accuracy, with a mean intersection\
+    \ over union (mIoU) of 85.33% and a pixel accuracy of 92.46%.\n\nThis improved\
+    \ performance highlights the advantages of fusing local and global features extracted\
+    \ by CNN and transformer architectures, respectively. The proposed CTFuseNet framework\
+    \ offers a valuable tool for accurate crop-type segmentation in UAV remote sensing\
+    \ imagery, with potential applications in precision agriculture and other related\
+    \ fields."
   authors:
   - Xiang J.
   - Liu J.
@@ -10195,7 +10260,8 @@
     by the CNN and the transformer. Further work is needed to promote accuracy and
     efficiency of this approach, as well as to assess the model transferability.
   doi: 10.3390/rs15041151
-  full_citation: '>'
+  full_citation: 'CTFuseNet: A Multi-Scale CNN-Transformer Feature Fused Network for
+    Crop Type Segmentation on UAV Remote Sensing Imagery'
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -11049,59 +11115,77 @@
     to receive issue release notifications and newsletters from MDPI journals Select
     options Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated
     Disclaimer Terms and Conditions Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: Xiang et al. (2023)
   journal: Remote Sensing
-  limitations: "The limitations of the proposed CTFuseNet for fully addressing the\
-    \ point and outline in the context of the overall literature review intention\
-    \ provided are as follows: \n- Limited scope: The study primarily focuses on the\
-    \ application of the CTFuseNet to crop-type segmentation in UAV remote sensing\
-    \ images, and its transferability to other domains or tasks is not thoroughly\
-    \ evaluated.\n\n-  Methodological issues: The study lacks a detailed analysis\
-    \ of the model's computational complexity and efficiency, which is crucial for\
-    \ real-time applications on UAV platforms.\n\n- Dated information: The study does\
-    \ not include recent advancements in CNN-transformer architectures or fusion techniques\
-    \ that may have emerged since its publication.\n\n- Tangential focus: While the\
-    \ study mentions the importance of interoperability and standardization in remote\
-    \ sensing data management, it does not delve into specific solutions or best practices\
-    \ for achieving these goals."
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: "While the proposed CTFuseNet has demonstrated promising results, several\
+    \ limitations should be noted for fully addressing the point and certain aspects\
+    \ of the outline:\n\n1. **Limited Scope:** The study primarily focuses on the\
+    \ fusion of CNN and transformer features for crop-type segmentation in UAV remote\
+    \ sensing imagery. It does not explore the integration of additional data sources\
+    \ or advanced techniques like data augmentation or ensemble learning, which could\
+    \ potentially further enhance the model's performance. \n\n2. **Methodological\
+    \ Issues:** The paper does not provide a detailed description of the hyperparameter\
+    \ tuning process for the proposed CTFuseNet. Optimal hyperparameter selection\
+    \ is crucial for maximizing model performance, and readers may benefit from additional\
+    \ insights into how these parameters were determined. \n\n3. **Dated Information:**\
+    \ It is important to note that the paper was published in January 2023 and may\
+    \ not reflect the latest advancements in the field of crop-type segmentation using\
+    \ UAV remote sensing imagery. More recent research might have introduced novel\
+    \ approaches or achieved superior results, which are not covered in the current\
+    \ analysis.\n\n4. **Tangential Focus:** While the outline point mentions the importance\
+    \ of interoperability and standardization in automated irrigation management systems,\
+    \ this aspect is not explicitly addressed in the proposed CTFuseNet framework.\
+    \ The paper primarily focuses on developing an accurate crop-type segmentation\
+    \ model and does not delve into the broader context of interoperability and standardization\
+    \ within automated irrigation systems.\n\n5. **Model Transferability:** The analysis\
+    \ does not thoroughly assess the model transferability of CTFuseNet across diverse\
+    \ datasets or scenarios. Evaluating the model's ability to generalize and perform\
+    \ well on unseen data is crucial for practical applications in different geographical\
+    \ locations, environmental conditions, or sensor modalities. Further research\
+    \ is needed to investigate the model's transferability and potential limitations\
+    \ in these aspects.\n\nThese limitations should be considered when evaluating\
+    \ the overall relevance of the paper to the specific point and outline. Addressing\
+    \ these limitations in future work could strengthen the proposed approach and\
+    \ enhance its applicability in broader contexts of automated irrigation management\
+    \ systems."
+  relevance_score: 1.0
+  relevance_score1: 0
   relevance_score2: 0
   title: 'CTFuseNet: A Multi-Scale CNN-Transformer Feature Fused Network for Crop
     Type Segmentation on UAV Remote Sensing Imagery'
-  verbatim_quote1: '"The proposed CTFuseNet first provided a parallel structure of
-    CNN and transformer branches in the encoder to extract both local and global semantic
-    features from the imagery. A new feature-fusion module was designed to flexibly
-    aggregate the multi-scale global and local features from the two branches. Finally,
-    the FPNHead of feature pyramid network served as the decoder for the improved
-    adaptation to the multi-scale fused features and output the crop-type segmentation
-    results."'
-  verbatim_quote2: '"Our comprehensive experiments indicated that the proposed CTFuseNet
-    achieved a higher crop-type-segmentation accuracy, with a mean intersection over
-    union of 85.33% and a pixel accuracy of 92.46% on the benchmark remote sensing
-    dataset and outperformed the state-of-the-art networks, including U-Net, PSPNet,
-    DeepLabV3+, DANet, OCRNet, SETR, and SegFormer. Therefore, the proposed CTFuseNet
-    was beneficial for crop-type segmentation, revealing the advantage of fusing the
-    features found by the CNN and the transformer."'
-  verbatim_quote3: '"Further work is needed to promote accuracy and efficiency of
-    this approach, as well as to access the model transferability."'
-- analysis: "The study explores the use of multimodal data collected by unmanned aerial\
-    \ vehicles (UAVs) for estimating field-level soil moisture content (SMC). The\
-    \ primary objective is to assess the effectiveness of three machine learning algorithms\
-    \ in developing SMC prediction models using UAV-derived multispectral, thermal,\
-    \ and RGB data. The impact of irrigation intensity and crop growth stage is investigated.\
-    \ \n\n1. *Machine Learning Algorithms (MLA)*\n   - Three MLAs were tested for\
-    \ SMC estimation: Partial Least Squares Regression (PLSR), K Nearest Neighbor\
-    \ (KNN), and Random Forest Regression (RFR).\n\n2. *UAV Data Acquisition*\n  \
-    \ - UAV-based multispectral, thermal, and RGB data were collected at different\
-    \ growth stages.\n\n3. *Data Augmentation*\n   - Fusion of data from different\
-    \ sensors improved SMC estimation accuracy.\n\n4. *Impact of Irrigation and Growth\
-    \ Stage*\n   - The SMC estimation model based on data from all three sensors (RFR\
-    \ algorithm) performed well under different irrigation intensities and growth\
-    \ stages, with the highest accuracy at the vegetative stage.\n\nThe findings suggest\
-    \ the potential of UAV-based multimodal data and RFR in providing accurate and\
-    \ robust SMC estimation, which can be useful for optimizing irrigation management\
-    \ practices."
+  verbatim_quote1: '"The proposed CTFuseNet achieved a higher crop-type-segmentation
+    accuracy, with a mean intersection over union of 85.33% and a pixel accuracy of
+    92.46% on the benchmark remote sensing dataset and outperformed the state-of-the-art
+    networks, including U-Net, PSPNet, DeepLabV3+, DANet, OCRNet, SETR, and SegFormer."'
+  verbatim_quote2: '"Therefore, the proposed CTFuseNet was beneficial for crop-type
+    segmentation, revealing the advantage of fusing the features found by the CNN
+    and the transformer."'
+  verbatim_quote3: '>'
+- analysis: 'This study uses UAV-based multi-sensor data at different crop growth
+    stages under various irrigation regimes to evaluate SMC estimation accuracy using
+    three machine learning algorithms (MLA): PLSR, KNN, and RFR. The study reveals
+    that the most accurate and robust approach to estimate volumetric SMC at various
+    soil depths and crop growth stages is the RFR model that utilizes data from RGB,
+    MS, and TIR sensors. The study also finds that mild to modest deficit irrigation
+    treatment produces the most accurate SMC estimation. However, the model is not
+    suitable for intense deficit irrigation treatment. Overall, the findings illustrate
+    the potential of multimodal UAV-based data and the RFR machine learning algorithm
+    for precision irrigation scheduling.
+
+
+    Some of the key limitations of the paper include limited scope, methodological
+    issues, dated information, and tangential focus. The paper primarily centers on
+    maize crop and may not be generalizable or applicable for other crops. Furthermore,
+    the study does not evaluate the impact of environmental factors such as temperature,
+    humidity, or precipitation on the accuracy of SMC estimation. It solely considers
+    the effects of irrigation regimes and crop growth stages. Additionally, the information
+    in the paper is based on research conducted in 2018 and 2019, which may not reflect
+    the latest advancements in technology or methodologies.
+
+
+    Despite these limitations, the study contributes to the field of precision irrigation
+    management by demonstrating the efficacy of UAV-based multimodal data and the
+    RFR machine learning algorithm for accurate SMC estimation.'
   authors:
   - Zhang Y.
   - Han W.
@@ -11131,7 +11215,9 @@
     UAV-based multimodal data has promising potential for supporting decision-making
     in irrigation scheduling at the farmland scale.'
   doi: 10.1016/j.jhydrol.2023.129086
-  full_citation: '>'
+  full_citation: Zhang, Y., Han, W., Zhang, H., Niu, X., Shao, G. (2023). Evaluating
+    soil moisture content under maize coverage using UAV multimodal data by machine
+    learning algorithms. Journal of Hydrology, 617, 129086.
   full_text: '>
 
     "Loading [MathJax]/jax/output/SVG/autoload/multiline.js Skip to main content Skip
@@ -11846,39 +11932,56 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: Zhang et al. (2023)
   journal: Journal of Hydrology
-  limitations: null
-  relevance_score: 1.0
-  relevance_score1: 1.0
+  limitations: '- Limited scope (focuses primarily on maize crop and may not be applicable
+    to other crops).
+
+    - Methodological issues (does not consider the impact of environmental factors
+    on SMC estimation accuracy).
+
+    - Dated information (based on research conducted in 2018 and 2019).
+
+    - Tangential focus (does not provide recommendations or guidelines for implementing
+    the proposed method in practical irrigation management).'
+  relevance_score: 0.84
+  relevance_score1: 0
   relevance_score2: 0
   title: Evaluating soil moisture content under maize coverage using UAV multimodal
     data by machine learning algorithms
   verbatim_quote1: Among three SMC regression models, the RFR model produced the most
     accurate SMC estimation for the two growing seasons regardless of sensor combinations.
-  verbatim_quote2: The RFR model using all three types of data generated the most
-    accurate and robust SMC estimation at the vegetative stage with R2 of 0.68 and
-    0.78, and rRMSE of 20.82% and 19.36% for 10- and 20-cm soil depths, respectively;
-    it also produced the best SMC estimation accuracy under well-watered and mild
-    to modest deficit irrigation treatments for both soil depths.
-  verbatim_quote3: The study shows that the high spatial–temporal maps of SMC using
-    UAV-based multimodal data has promising potential for supporting decision-making
-    in irrigation scheduling at the farmland scale.
-- analysis: 'The paper''s approach to addressing the point is to utilize satellite
-    imagery collected from 2003 to 2021 to make up for the deficit in reliable weather
-    information and enable the calculation of daily reference evapotranspiration (ET0).
-    The authors construct a database using this data and divide it into training and
-    testing sets chronologically. Using MODIS sensor data for land surface temperature
-    (LST), normalized difference vegetation index (NDVI), leaf area index (LAI), and
-    fraction of photosynthetically active radiation (FPAR), they create three distinct
-    models to estimate daily ET0. The performance of these models is evaluated using
-    four performance metrics: coefficient of determination (R2), root-mean-square
-    error (RMSE), Willmott''s index of agreement (WI), and Nash-Sutcliffe efficiency
-    (NS). The SGD-MLP-3 model, which incorporates LST, NDVI, LAI, and FPAR as input
-    parameters, is found to be the most accurate, with RMSE and WI values of 0.417
-    mm/day and 0.973 for Tabriz and 0.754 mm/day and 0.922 for Babolsar stations,
-    respectively. The authors conclude that LST is a key parameter for estimating
-    ET0 effectively.'
+    The RFR model using all three types of data generated the most accurate and robust
+    SMC estimation at the vegetative stage with R2 of 0.68 and 0.78, and rRMSE of
+    20.82% and 19.36% for 10- and 20-cm soil depths, respectively; it also produced
+    the best SMC estimation accuracy under well-watered and mild to modest deficit
+    irrigation treatments for both soil depths.
+  verbatim_quote2: Generally, most MLA produced a gradually increasing R2 and a decreasing
+    rRMSE with an increasing number of sensors (Table 5). This is because all the
+    methods can effectively fuse information from multimodal data.
+  verbatim_quote3: '>'
+- analysis: 'The study uses satellite imagery and machine learning to estimate reference
+    evapotranspiration (ET0), a critical parameter for agricultural water management
+    and irrigation scheduling. The authors developed and evaluated two models, SGD-MLP
+    and MLP, using a combination of input variables extracted from satellite images,
+    including land surface temperature (LST), vegetation indices (NDVI, LAI, FPAR),
+    and meteorological data. The models were tested at two stations with different
+    climate conditions (semi-arid and humid) and compared to ET0 values calculated
+    using the FAO-Penman–Monteith equation.
+
+
+    The results showed that the SGD-MLP model, which combines the advantages of stochastic
+    gradient descent (SGD) with multilayer perceptron (MLP), outperformed the MLP
+    model in estimating daily ET0. The SGD-MLP model with a combination of LST, vegetation
+    indices, and meteorological data provided the most accurate results, with a root-mean-square
+    error (RMSE) of 0.417 mm/day and a Willmott''s index of agreement (WI) of 0.973
+    for the semi-arid station and an RMSE of 0.754 mm/day and a WI of 0.922 for the
+    humid station.
+
+
+    The study highlights the potential of using satellite imagery and machine learning
+    techniques for accurate ET0 estimation, which can support more efficient water
+    management practices in agriculture.'
   authors:
   - Talebi H.
   - Samadianfard S.
@@ -11910,7 +12013,8 @@
     Conclusively, LST of daytime, nighttime, and average may be suggested as the most
     influential parameter for ET0 estimation.
   doi: 10.1007/s13201-022-01862-6
-  full_citation: '>'
+  full_citation: Investigating the roles of different extracted parameters from satellite
+    images in improving the accuracy of daily reference evapotranspiration estimation
   full_text: '>
 
     "Your privacy, your choice We use essential cookies to make sure the site can
@@ -12498,47 +12602,63 @@
     rights Accessibility statement Terms and conditions Privacy policy Help and support
     129.93.161.222 Big Ten Academic Alliance (BTAA) (3000133814) - University of Nebraska-Lincoln
     (3000134173) © 2024 Springer Nature"'
-  inline_citation: '>'
+  inline_citation: Talebi, Samadianfard & Kamran   (2023)
   journal: Applied Water Science
-  limitations: None noted.
+  limitations: null
   relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Investigating the roles of different extracted parameters from satellite
     images in improving the accuracy of daily reference evapotranspiration estimation
-  verbatim_quote1: Thus, there are three studied models; first is based on the LST,
-    second on the vegetation indices, and third on the combination of the LST and
-    the vegetation indices.
-  verbatim_quote2: Additionally, four performance indexes, including the coefficient
-    of determination (R2), the root-mean-square error (RMSE), Willmott’s index of
-    agreement (WI), and Nash–Sutcliffe efficiency, were utilized in order to measure
-    the implemented model’s accuracy.
-  verbatim_quote3: Conclusively, LST of daytime, nighttime, and average may be suggested
-    as the most influential parameter for ET0 estimation.
-- analysis: 'The paper presents a smart irrigation system that utilizes IoT sensors,
-    cloud computing, and machine learning to optimize irrigation scheduling and water
-    usage in precision agriculture.
+  verbatim_quote1: '"According to the obtained results, the SGD-MLP-3 with input parameters
+    of LSTday&night, LSTmean, LAI, NDVI, and FPAR gave the most accurate results with
+    RMSE and WI values of as 0.417 mm/day, 0.973, for Tabriz and 0.754 mm/day, 0.922
+    for Babolsar stations, respectively."'
+  verbatim_quote2: '"Conclusively, LST of daytime, nighttime, and average may be suggested
+    as the most influential parameter for ET0 estimation."'
+  verbatim_quote3: '>'
+- analysis: 'The paper titled "Smart irrigation system using IoT and machine learning
+    methods" presents a novel smart irrigation system that leverages the power of
+    IoT, data analysis, and machine learning to address the challenges of water loss
+    and improper scheduling in traditional irrigation techniques. The system utilizes
+    a curated dataset and employs IoT sensors to collect real-time data for analysis
+    by Machine Learning (ML) models. The trained ML models make intelligent irrigation
+    decisions, and their predictions are integrated with control mechanisms to automate
+    the irrigation process. Overall, this paper provides a comprehensive approach
+    to optimizing irrigation management through data-driven insights and automation
+    using IoT and ML.
 
 
-    The system collects real-time data on soil moisture, temperature, and humidity
-    using IoT sensors deployed in the field. This data is then transmitted to the
-    cloud, where it is preprocessed, analyzed, and used to train a machine learning
-    model. The trained model makes intelligent irrigation decisions based on the sensor
-    data, considering factors such as crop type, crop growth stage, and environmental
-    conditions.
+    Specific to the point on "Types of data most applicable to irrigation management
+    and their typical sources" within the broader context of data collection and transmission
+    for automated irrigation management, the paper highlights the following key aspects:
 
 
-    The system uses a decision tree model, which has been shown to have the best balance
-    of accuracy, precision, recall, and F1 score among various machine learning algorithms
-    tested. The decision tree model analyzes the sensor data and makes real-time recommendations
-    for irrigation scheduling. The system also provides an intuitive API for easy
-    access to data and system configuration, allowing agricultural professionals to
-    monitor and adjust irrigation strategies remotely.
+    1. **Data relevance:** The paper emphasizes the importance of collecting data
+    that is directly relevant to irrigation management. This includes data on soil
+    moisture, temperature, humidity, and crop type/stage. These parameters provide
+    valuable insights into the water requirements of crops and can help determine
+    the optimal irrigation schedule.
 
 
-    The paper demonstrates the effectiveness of the smart irrigation system through
-    experimental results. The system has been shown to improve crop yield while reducing
-    water consumption, making it a valuable tool for sustainable agriculture.'
+    2. **Data sources:** The paper highlights the use of IoT sensors as a reliable
+    source of real-time data for irrigation management. These sensors can be deployed
+    in the field to continuously monitor and collect data on soil moisture, temperature,
+    and humidity. This real-time data provides a more accurate and up-to-date picture
+    of the irrigation needs of crops.
+
+
+    3. **Data integration:** The paper discusses the integration of data from multiple
+    sources, including IoT sensors and historical records, to create a comprehensive
+    dataset for irrigation management. This integrated dataset can be used to train
+    ML models that can make more accurate and reliable predictions on irrigation schedules.
+
+
+    Overall, the paper provides a valuable contribution to the field of automated
+    irrigation management by highlighting the importance of data collection, analysis,
+    and integration for optimizing irrigation practices. The use of IoT sensors and
+    ML models enables the development of data-driven irrigation systems that can conserve
+    water resources and improve crop yields.'
   authors:
   - Esmail A.A.
   - Ibrahim M.A.
@@ -12575,7 +12695,8 @@
     F1 score. This system maximizes crop yield and minimizes water waste, contributing
     to a more sustainable and productive agricultural ecosystem.'
   doi: 10.1109/NILES59815.2023.10296736
-  full_citation: '>'
+  full_citation: Ahmed A. Esmail; Manar A. Ibrahim; Sayed M. Abdallah; Ahmed E. Radwan;
+    Haya k. Elsonbaty; Mohamed A. Elsayed; Noure A. Elnakeib; Merit Samir Dawoud
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -12944,69 +13065,88 @@
     | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
     largest technical professional organization dedicated to advancing technology
     for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: Esmail, A. A., Ibrahim, M. A., Abdallah, S. M., Radwan, A. E.,
+    Elsonbaty, H. k., Elsayed, M. A., Elnakeib, N. A., & Dawoud, M. S. (2023, October).
+    Smart irrigation system using IoT and machine learning methods. In 2023 5th Novel
+    Intelligent and Leading Emerging Sciences Conference (NILES) (pp. 10296736). IEEE.
   journal: 5th Novel Intelligent and Leading Emerging Sciences Conference, NILES 2023
     - Proceedings
-  limitations: The paper focuses on the design and implementation of the smart irrigation
-    system but does not provide an in-depth analysis of the machine learning model
-    or its performance under different conditions. It would be valuable to include
-    more details on the model's training and evaluation, as well as its robustness
-    and scalability in different scenarios.
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: "1. The paper mainly discusses the use of IoT sensors for data collection,\
+    \ but it does not delve into other potential sources of data such as satellite\
+    \ imagery or weather stations which can provide valuable insights for irrigation\
+    \ management. \n\n2. The paper briefly mentions the use of a machine learning\
+    \ model for making irrigation decisions but does not provide specific details\
+    \ on the model's development, performance, or limitations"
+  relevance_score: 0.85
+  relevance_score1: 0
   relevance_score2: 0
   title: Smart irrigation system using IoT and machine learning methods
   verbatim_quote1: '"The cornerstone of this innovative system is the utilization
-    of a carefully curated dataset, "Crop Irrigation Scheduling," sourced from Kaggle.
+    of a carefully curated dataset, "Crop Irrigation Scheduling,"sourced from Kaggle.
     This dataset comprises six crucial attributes: Crop Type, Crop Days, Soil Moisture,
-    Temperature, Humidity, and Irrigation"'
-  verbatim_quote2: '"The system uses a decision tree model, which has been shown to
-    have the best balance of accuracy, precision, recall, and F1 score among various
-    machine learning algorithms tested."'
-  verbatim_quote3: '"The paper demonstrates the effectiveness of the smart irrigation
-    system through experimental results. The system has been shown to improve crop
-    yield while reducing water consumption, making it a valuable tool for sustainable
-    agriculture."'
-- analysis: 'This study aimed to analyze the accuracy of estimated crop evapotranspiration
-    (ETc) using data from multi-sensor Unmanned Aerial Vehicle (UAVs) in the context
-    of the FAO-56 dual crop coefficient approach.
+    Temperature, Humidity, and Irrigation. These attributes, described in detail in
+    the dataset''s metadata, provide the foundational information required for precise
+    irrigation management'
+  verbatim_quote2: '"The system operates seamlessly by deploying IoT sensors to collect
+    real-time data from the field. This data is then preprocessed to ensure its quality
+    and consistency. Subsequently, a machine learning model is trained using this
+    dataset to make intelligent irrigation decisions in real time"'
+  verbatim_quote3: '>'
+- analysis: 'The study by Zhang et al. (2022) aimed to assess the potential of low-cost
+    UAV-based imagery for monitoring maize evapotranspiration (ETc) using the FAO-56
+    dual crop coefficient approach. They integrated optical and thermal information
+    obtained from UAVs and evaluated two different forms of the stress coefficient
+    (Ks) derived from canopy temperature and three types of normalized difference
+    vegetation index (NDVI), soil adjusted vegetation index (SAVI), and enhanced vegetation
+    index (EVI) for determining the basal crop coefficient (Kcb). Their key findings
+    were as follows:
 
 
-    To this end, the study used an unmanned aerial vehicle (UAV) to capture optical
-    and thermal data from a maize field. Acquired data was processed and multiple
-    predictive ETc models were developed based on a combination of three vegetation
-    indices (NDVI, SAVI, and EVI) and two types of crop water stress indices (CWSI
-    and DACT). To verify the accuracy of the models, results were compared against
-    observed data collected using  TDR sensors and soil water balance measurements.
+    1. **Suitability of UAV-based imagery for ETc estimation:** UAV-based imagery
+    was found to be suitable for monitoring maize canopy characteristics and estimating
+    Kcb during the entire growing season, despite the saturation of vegetation indices
+    (VIs) under high biomass conditions.
 
 
-    The assessment concluded that the integration of UAV-based optical and thermal
-    data along with linear regression-based ETc models improved ETc estimation, as
-    indicated by satisfactory slope, R2, and RMSE values.  The specific combination
-    of NDVI and CWSI yielded the highest estimation accuracy with R2 of 0.84, and
-    RMSE of 0.50 mm/day. The DACT-based model also delivered comparable results, with
-    R2 ranging from 0.77 to 0.80, and RMSE of 0.53 mm/day. These findings suggest
-    that the combined approach of vegetation index and either CWSI or DACT can offer
-    effective ETc estimation for maize crops under varying irrigation conditions.
+    2. **Performance of Ks and Kcb estimation methods:** The combination of NDVI and
+    the crop water stress index (CWSI) produced the best estimates of maize ETc, with
+    R2 of 0.84 and root mean square error (RMSE) of 0.50 mm/day. The DACT-based model
+    also performed well, with R2 of 0.77–0.80 and RMSE of 0.53 mm/day.
 
 
-    In terms of robustness and adaptability, the models performed consistently over
-    two years of study, demonstrating their potential for practical applications in
-    precision agriculture. The low mean bias error (MBE) of 0.48 mm/day further supports
-    the reliability of ETc predictions for irrigation management purposes.
+    3. **Robustness of ETc estimation models:** The daily mean bias error of ETc predictions
+    over different years indicated acceptable accuracy, with a mean bias error (MBE)
+    of 0.48 mm/day, suggesting the robustness of the proposed models.
 
 
-    Sensitivity analysis revealed that among the model parameters, the slope of the
-    linear regression between Kcb and VIs, soil evaporation constant, and influential
-    factor in Ks_DACT had the most significant impact on ETc estimation accuracy.
-    This information is valuable for optimizing model performance under specific field
-    conditions.
+    4. **Sensitivity of ETc models:** Sensitivity analyses revealed that ETc models
+    were most sensitive to the slope of the linear regression between Kcb and VIs,
+    followed by the soil evaporation constant and influential factor in Ks_DACT.
 
 
-    Overall, the study underscores the potential of UAV-based multi-sensor data in
-    improving the accuracy and spatial resolution of ETc estimation at the farmland
-    scale. This advancement can contribute to more efficient irrigation management,
-    leading to optimized water use and enhanced agricultural productivity.'
+    Overall, the study demonstrated the potential of using low-cost UAV-based multi-sensor
+    data to estimate maize ETc at the farmland scale. The proposed models offer simplicity,
+    easy interpretation, and robustness in ETc estimation under varying irrigation
+    treatments and climatic conditions.
+
+
+    **Here are three specific verbatim quotes from the paper that support the above
+    points:**
+
+
+    **Quote 1:** ''*The results demonstrated that the combination of NDVI and CWSI
+    produced the best estimates of maize ETc, with R2 of 0.84 and RMSE of 0.50 mm/day.*''
+    (page 5)
+
+
+    **Quote 2:** ''*Although the results varied with irrigation levels, the daily
+    mean bias error of ETc predictions over different years indicated acceptable accuracy,
+    with a mean bias error (MBE) of 0.48 mm/day.*'' (page 6)
+
+
+    **Quote 3:** ''*Sensitivity analyses indicated that ETc models were most sensitive
+    to the slope of the linear regression between Kcb and VIs, followed by soil evaporation
+    constant and influential factor in Ks_DACT.*'' (page 6)'
   authors:
   - Zhang Y.
   - Han W.
@@ -13041,7 +13181,10 @@
     simplicity and easy interpretation. These ETc models relying on UAV-based multi-sensor
     data thus show promising potential in farmland-scale applications.
   doi: 10.1016/j.agwat.2022.108004
-  full_citation: '>'
+  full_citation: Zhang, Y., Han, W., Niu, X., Zhang, H., Li, G., Tang, J., & Peng,
+    X. (2022). Evaluating maize evapotranspiration using high-resolution UAV-based
+    imagery and FAO-56 dual crop coefficient approach. Agricultural Water Management,
+    275, 108004.
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -13919,56 +14062,45 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: null
   journal: Agricultural Water Management
-  limitations: 'Some limitations of the study and paper include:
-
-
-    Limited scope: The study focused on evaluating the accuracy of UAV-based ETc estimation
-    specifically for maize crops. The applicability of the developed models to other
-    crop types or different climatic conditions may require further investigation.
-
-
-    Data quality: The accuracy of UAV-based ETc estimation relies on the quality of
-    acquired data. Factors such as atmospheric conditions, sensor calibration, and
-    image processing techniques can influence data accuracy and potentially affect
-    the reliability of ETc estimates.
-
-
-    Model complexity: While the linear regression-based ETc models used in this study
-    demonstrated good performance, more complex models incorporating additional variables
-    or utilizing machine learning algorithms may yield further improvements in estimation
-    accuracy. However, such models may also introduce increased computational complexity
-    and require more extensive data for training and validation.
-
-
-    Although the research acknowledges these limitations, it provides a valuable contribution
-    to the field by demonstrating the potential of UAV-based multi-sensor data for
-    ETc estimation specifically in maize fields. The findings offer promising insights
-    for future research and practical applications in precision agriculture.'
-  relevance_score: 0.9950413223144532
-  relevance_score1: 0.9950413223144532
+  limitations: The study acknowledges some limitations, including the need for further
+    research to investigate the combined use of ancillary models (radar-based models
+    and soil water balance models) to retrieve soil evaporation values to further
+    increase the accuracy of ETc estimation. Additionally, the study was conducted
+    in a specific agro-climatic zone (southwest region of Inner Mongolia, China) and
+    may need to be tested in other locations with different climate and soil conditions
+    to assess the transferability of the developed models.
+  point_content: Types of data most applicable to irrigation management and their
+    typical sources
+  relevance_score: 0.9430291946454376
+  relevance_score1: 0
   relevance_score2: 0
-  section: null
-  subsection_title: null
   title: Evaluating maize evapotranspiration using high-resolution UAV-based imagery
     and FAO-56 dual crop coefficient approach
-  verbatim_quote1: '"The combination of NDVI and CWSI produced the best estimates
-    of maize ETc, with R2 of 0.84 and root mean square error (RMSE) of 0.50 mm/day.
-    The DACT-based model also performed well, with R2 of 0.77–0.80 and RMSE of 0.53
-    mm/day."'
-  verbatim_quote2: '"Although the results varied with irrigation levels, the daily
+  verbatim_quote1: '*The results demonstrated that the combination of NDVI and CWSI
+    produced the best estimates of maize ETc, with R2 of 0.84 and RMSE of 0.50 mm/day.*'
+  verbatim_quote2: '*Although the results varied with irrigation levels, the daily
     mean bias error of ETc predictions over different years indicated acceptable accuracy,
-    with a mean bias error (MBE) of 0.48 mm/day."'
-  verbatim_quote3: '"Sensitivity analyses indicated that ETc models were most sensitive
-    to the slope of the linear regression between Kcb and VIs, followed by soil evaporation
-    constant and influential factor in Ks_DACT."'
-- analysis: '"Hydraulic Evapotranspiration Multisensor" (HΕΜ) irrigation controller,
-    which is an upgrade of the said “Automatic Irrigation Regulator Controlled by
-    Water Evaporation”, is a novel product, because no similar Irrigation controller
-    operating only from the energy obtained from piped water, that takes into account
-    all weather parameters in a holistic way by monitoring water evaporation in an
-    Evaporation Pan has yet been produced.'
+    with a mean bias error (MBE) of 0.48 mm/day.*'
+  verbatim_quote3: '>'
+- analysis: "The paper describes a low-cost, stand-alone, mechanical device called\
+    \ the \"Hydraulic Evapotranspiration Multisensor\" (HEM) for automated irrigation\
+    \ management. The HEM is designed to operate without electricity, using only the\
+    \ energy of piped water. The device consists of an evaporation pan, a floater\
+    \ with a magnet, a hydraulic device, and an adjustable dripper. When the device\
+    \ is installed, the irrigation frequency and time are set based on the weather\
+    \ conditions and the specific crop being grown. The HEM automatically adjusts\
+    \ the irrigation schedule based on changes in weather conditions to optimize water\
+    \ usage and prevent water deficit stress in plants. \n\nThe paper provides a detailed\
+    \ description of the HEM's design and operation, along with preliminary results\
+    \ from field tests. The results indicate that the HEM is accurate and robust,\
+    \ and it can provide optimum irrigation control in field crops. The paper also\
+    \ presents potential advantages of the HEM over programmable irrigation controller\
+    \ devices. \n\nOverall, this paper provides a valuable contribution to the literature\
+    \ on automated irrigation management. The HEM is a novel, cost-effective, and\
+    \ environmentally friendly device that can help farmers to improve water use efficiency\
+    \ and crop yields."
   authors:
   - Kypris D.
   - Nikolaou G.
@@ -13998,7 +14130,8 @@
     irrigation controller devices, HEM provides optimum irrigation control in field
     crops and makes it a powerful “green tool” to be used in Mediterranean greenhouses.
   doi: 10.3390/agriengineering4040072
-  full_citation: '>'
+  full_citation: Kypris, D.; Nikolaou, G.; Evangellides, E.; Neocleous, D. A Hydraulic
+    Evapotranspiration Multisensor. AgriEngineering 2022, 4, 1164–1170. https://doi.org/10.3390/agriengineering4040072
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -14316,23 +14449,22 @@
     to receive issue release notifications and newsletters from MDPI journals Select
     options Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated
     Disclaimer Terms and Conditions Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: Kypris et al. (2022)
   journal: AgriEngineering
-  limitations: The study only tested the HEM under field conditions, so its performance
-    in different environments or under different crop types is not known.
+  limitations: This paper focuses on the design and preliminary testing of the HEM
+    device. It does not provide a detailed analysis of the device's performance under
+    different weather conditions or in different crops. Additionally, the paper does
+    not provide any information on the cost of the device or its availability for
+    commercial use.
   relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: A Hydraulic Evapotranspiration Multisensor
-  verbatim_quote1: “Hydraulic Evapotranspiration Multisensor” (HΕΜ) irrigation controller,
-    which is an upgrade of the said “Automatic Irrigation Regulator Controlled by
-    Water Evaporation”, is a novel product, because no similar Irrigation controller
-    operating only from the energy obtained from piped water, that takes into account
-    all weather parameters in a holistic way by monitoring water evaporation in an
-    Evaporation Pan has yet been produced.
-  verbatim_quote2: Assessing the performance of HEM, by taking the estimations of
+  verbatim_quote1: '"The HEM responding to weather changes modifies the irrigation
+    schedule set, either by shortening, at a high evaporation rate, the time interval
+    between consecutive irrigation cycles to protect plantations from water deficit
+    stress or extending this time interval at a low evaporation rate to save water."'
+  verbatim_quote2: '"Assessing the performance of HEM, by taking the estimations of
     evapotranspiration from the Penman–Monteith method shows high accuracy in the
-    studied site.
-  verbatim_quote3: Considering the advantages of the product against the programmable
-    irrigation controller devices, HEM provides optimum irrigation control in field
-    crops and makes it a powerful “green tool” to be used in Mediterranean greenhouses.
+    studied site."'
+  verbatim_quote3: '>'

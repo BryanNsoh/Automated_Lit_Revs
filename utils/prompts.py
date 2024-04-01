@@ -423,7 +423,7 @@ A relevance score between 0 and 1 representing the overall fit of the paper to t
 
 Be uncompromising in assigning the most appropriate score based on a holistic assessment of the paper's merits and limitations.
 
-List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank.
+List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank. Additionally, provide the in-line and apa citations of the paper in the relevant json field. If these are not provided, construct them based on the information in the paper.
 Provide your analysis and other responses in the following JSON format:
 
 
@@ -431,13 +431,20 @@ Provide your analysis and other responses in the following JSON format:
 "analysis": "",
 "verbatim_quote1": "",
 "verbatim_quote2": "",
-"verbatim_quote3": "",
 "relevance_score": 0.0,
+"full_citation": "",
+"inline_citation": "",
 "limitations": ""
 }}
 
+Use double quotation marks around all field names and values.
+Separate field/value pairs with a comma.
+Do not add any extra characters, line breaks, indentation etc. inside the curly braces.
+If a field is not applicable, set its value to an empty string "".
+Set "relevance_score" to a numerical value between 0.0 and 1.0, following the provided rubric.
+Follow the specified order of fields exactly.
 
-Leave any fields blank if not applicable. It is critical to ensure that your response adheres striclty to the provided JSON format to be processed correctly. Any deviation from the json format may result in an unusable output. Strict adherence to the json format will be rewarded with a generous 50$ bonus.
+Strict adherence to this JSON format is critical. Any deviation, even a small one like a missing quotation mark or extra space, may result in an unusable output that cannot be processed correctly.
 </instructions>
 
 <documents>

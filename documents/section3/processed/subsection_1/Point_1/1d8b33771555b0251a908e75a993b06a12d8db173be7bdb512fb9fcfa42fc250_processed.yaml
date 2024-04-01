@@ -1,14 +1,38 @@
-- analysis: The paper titled "Smart irrigation system using IoT and machine learning
-    methods" outlines an intelligent irrigation system employing the Internet of Things
-    (IoT) and machine learning techniques to enhance water conservation and optimize
-    crop yield. The system leverages various sensors and a decision tree model to
-    gather real-time data, analyze environmental conditions, and determine optimal
-    irrigation schedules. By implementing this system, farmers can minimize water
-    usage, increase crop production, and reduce expenses associated with traditional
-    irrigation practices. The paper's focus on utilizing real-time data and machine
-    learning aligns well with the intention of the literature review, which aims to
-    assess automated, real-time irrigation management systems incorporating IoT and
-    machine learning.
+- analysis: 'The main goal of this paper is to design a smart irrigation system that
+    uses IoT sensors, data analysis, and machine learning to decide how much water
+    to use and when to water. The authors want to solve the problems with how water
+    is used and how irrigation is planned in traditional ways. To do this, they use
+    an existing dataset called "Crop Irrigation Scheduling" that has six important
+    features: Crop Type, Crop Days, Soil Moisture, Temperature, Humidity, and Irrigation.
+    These features give the basic information needed to manage irrigation accurately.
+
+
+    The authors show the proposed system''s design (Figure 1), which has three parts:
+    data collection, ML model building, API integration, and irrigation scheduling.
+    They also talk about how each part of the system works.
+
+
+    The paper compares different types of machine learning models (decision tree,
+    logistic regression, and support vector machine) based on accuracy, precision,
+    recall, and F1 score. The decision tree model is said to have the best overall
+    performance (accuracy of 89.68%).
+
+
+    The paper ends by talking about how the system was put into practice in a small
+    house garden. The system''s usefulness and effectiveness are shown by the fact
+    that it was able to save water and help plants grow.
+
+
+    Overall, the paper makes a good contribution to the field of smart irrigation
+    by showing how IoT, data analysis, and machine learning can be used to make irrigation
+    more efficient and effective. The proposed system is well-designed and has been
+    shown to work in a real-world setting.
+
+
+    However, it is important to note that the system''s performance may vary depending
+    on the specific crops and environmental conditions. To make the system more robust,
+    future work could focus on collecting more data from different sources and developing
+    more advanced machine learning models.'
   authors:
   - Esmail A.A.
   - Ibrahim M.A.
@@ -45,7 +69,7 @@
     F1 score. This system maximizes crop yield and minimizes water waste, contributing
     to a more sustainable and productive agricultural ecosystem.'
   doi: 10.1109/NILES59815.2023.10296736
-  full_citation: '>'
+  full_citation: Smart irrigation system using IoT and machine learning methods
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -414,16 +438,19 @@
     | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
     largest technical professional organization dedicated to advancing technology
     for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: Esmail et al. (2023)
   journal: 5th Novel Intelligent and Leading Emerging Sciences Conference, NILES 2023
     - Proceedings
-  limitations: While the paper presents a robust system for smart irrigation using
-    IoT and machine learning, it lacks a comprehensive analysis of the system's scalability,
-    security, and reliability in managing large-scale irrigation networks. Additionally,
-    the paper does not delve into the potential challenges of data quality and connectivity
-    issues that may arise in real-world implementations.
+  limitations: 'The paper does not discuss the scalability of the proposed system
+    to larger farms or more complex irrigation scenarios.
+
+    The paper does not provide a detailed analysis of the energy consumption of the
+    system.
+
+    The paper does not discuss the security implications of using IoT devices and
+    cloud computing in the proposed system.'
   relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Smart irrigation system using IoT and machine learning methods
   verbatim_quote1: '"To address these challenges, this paper introduces a cutting-edge
@@ -431,1145 +458,47 @@
     data analysis, and machine learning to determine the most efficient way to apply
     and schedule water for irrigation."'
   verbatim_quote2: '"The cornerstone of this innovative system is the utilization
-    of a carefully curated dataset, "Crop Irrigation Scheduling,"sourced from Kaggle.
-    This dataset comprises six crucial attributes: Crop Type, Crop Days, Soil Moisture,
-    Temperature, Humidity, and Irrigation."'
-  verbatim_quote3: '"Experimental findings validate the system''s utility, with particular
-    emphasis on the decision tree model, which demonstrates the best balance of accuracy,
-    precision, recall, and F1 score. This system maximizes crop yield and minimizes
-    water waste, contributing to a more sustainable and productive agricultural ecosystem."'
-- analysis: 'The paper explores the role of real-time data acquisition and energy-efficient
-    data transmission in precision agriculture. The proposed AGRO framework employs
-    a three-phase mechanism that involves optimizing both data sensing and transmission,
-    as well as developing a decision-making model to ensure efficient irrigation management.
-    The evaluation results demonstrate the effectiveness of AGRO in reducing data
-    transmission, saving sensor energy, and enhancing decision-making accuracy compared
-    to other existing techniques.
+    of a carefully curated dataset, "Crop Irrigation Scheduling,"sourced from Kaggle.'
+  verbatim_quote3: '"This system maximizes crop yield and minimizes water waste, contributing
+    to a more sustainable and productive agricultural ecosystem."'
+- analysis: 'The paper presents a "Boltuino Platform Based Cognitive Irrigation System
+    with Weather Adaptability for Efficient Water Use.", addressing specific types
+    of data relevant to irrigation management and their typical sources.
 
 
-    The specific contributions of the paper to the point of interest (types of data
-    most applicable to irrigation management and their typical sources) are as follows:
+    In terms of relevance to the point, the paper significantly contributes to the
+    understanding of the use of various sensors in irrigation management. It provides
+    detailed information on soil moisture sensors, LDR (light-dependent) sensors,
+    rain sensors, water level sensors, DHT11 sensors (for measuring temperature and
+    humidity), and OLED (organic light-emitting diode) displays for displaying sensor
+    data and pump status.
 
 
-    1. **Identification of data types relevant to irrigation management:** The paper
-    acknowledges that soil moisture data is crucial for effective irrigation management.
-    Soil moisture sensors are identified as the primary source of this data, providing
-    real-time monitoring of soil moisture levels.
+    The paper offers valuable insight by highlighting the capabilities of the proposed
+    system, emphasizing its automated operations based on real-time sensor data, the
+    use of the BOLT IoT platform for remote monitoring and control, and the integration
+    of an SMS alert system for critical events. It also discusses the use of an indoor
+    farming setup for data collection and the observed water savings.
 
 
-    2. **Data reduction and energy conservation:** The paper proposes a smart sensing
-    phase that involves optimizing data transmission to reduce the amount of data
-    sent from sensors to the grid leader while maintaining the accuracy of the information
-    conveyed. Additionally, an energy-saving phase is introduced to adapt the sensing
-    frequency of each sensor based on the field dynamicity to conserve sensor energy
-    and extend the sensor''s lifetime.
+    Regarding credibility, the paper seems reliable as it presents a clear methodology,
+    including a block diagram of the system, a circuit and connection diagram, and
+    a description of the hardware components used. However, the research could benefit
+    from mentioning any limitations or uncertainties associated with the data collection
+    or system performance.
 
 
-    3. **Decision-making model:** The paper presents a decision-making phase that
-    involves analyzing the collected data to determine the appropriate irrigation
-    actions. The decision-making model takes into account grid status, soil type,
-    and irrigation index to provide suitable irrigation recommendations to farmers.
+    While the paper comprehensively covers the implementation of the proposed system,
+    it may benefit from providing a more in-depth exploration of the data analysis
+    and interpretation. A discussion of any challenges or lessons learned in integrating
+    and processing the data from multiple sensors would enhance the paper''s value.
 
 
-    4. **Evaluation and validation:** The paper validates the proposed AGRO framework
-    through simulations that demonstrate its effectiveness in reducing data transmission,
-    saving sensor energy, and improving decision-making accuracy compared to other
-    existing techniques.
-
-
-    Overall, the paper provides valuable insights into the optimization of data sensing,
-    transmission, and decision-making for effective irrigation management, which could
-    contribute to sustainable and precision agriculture practices.'
-  authors:
-  - Koteish K.
-  - Harb H.
-  - Dbouk M.
-  - Zaki C.
-  - Abou Jaoude C.
-  citation_count: '9'
-  description: 'Nowadays, the agriculture constitutes one of the leading sources of
-    foods and it contributes to the national income and livelihood of most countries.
-    However, in the last two decades, the agriculture is facing several challenges
-    such as the increasing demand for food, the extreme weather conditions, the rising
-    of climate change, etc. Hence, in order to overcome these challenges, the agriculture
-    needs to be smarter by integrating new technologies with the aim to enhance the
-    productivity and reduce the agriculture cost and waste. Recently, the emergence
-    of Internet of Things (IoT) technology has led to a new revolution in the agriculture
-    called as smart agriculture. Such technology consists of a set of sensors that
-    allow to remotely monitoring the field conditions and sending real-time data about
-    their status to the farmer for a decision-making. However, the smart agriculture
-    suffers from the huge amount of collected data that complicates the decision-making
-    process of the farmer and consumes the limited available energy of the sensors.
-    In this paper, we propose a real-time AGRiculture mOnitoring, called AGRO, mechanism
-    for efficiently sensing the soil moisture of a field and enhancing the irrigation
-    system. AGRO divides the monitored field into small zones, called grids, where
-    each grid assigned a grid leader (GL). Then, AGRO consists of three phases: smart
-    sensing, energy saving and decision-making. The first phase aims to efficiently
-    sense the soil moisture condition and update the farmer about the progress of
-    the field status while reducing the amount of data transmitted to the GL. The
-    second phase studies the variation of the field status during successive period
-    times and allows to adapt the sensing frequency of the sensor in order save its
-    energy and extend its lifetime. The last phase aims to study the data collected
-    by the sensors at the same grid in order to allow the farmer to take a right decision
-    based on a predefined decision table. We conducted a set of simulations in order
-    to show the efficiency of our mechanism in terms of data reduction, energy conservation
-    and accurate decision-making compared to other existing techniques.'
-  doi: 10.1016/j.jksuci.2022.06.017
-  full_citation: '>'
-  full_text: '>
-
-    "Skip to main content Skip to article Journals & Books Search Register Sign in
-    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
-    Outline Abstract Keywords 1. Introduction 2. Related Work 3. Smart agriculture
-    design system 4. Smart sensing phase 5. Energy saving phase 6. Decision-making
-    phase 7. Simulation results 8. Conclusion and future work Declaration of Competing
-    Interest References Show full outline Cited by (9) Figures (9) Show 3 more figures
-    Tables (6) Table 1 Table Table 2 Table Table 3 Table 4 Journal of King Saud University
-    - Computer and Information Sciences Volume 34, Issue 9, October 2022, Pages 7059-7069
-    AGRO: A smart sensing and decision-making mechanism for real-time agriculture
-    monitoring Author links open overlay panel Kamila Koteish a, Hassan Harb a, Mohammad
-    Dbouk a, Chamseddine Zaki b, Chady Abou Jaoude c Show more Add to Mendeley Share
-    Cite https://doi.org/10.1016/j.jksuci.2022.06.017 Get rights and content Under
-    a Creative Commons license open access Abstract Nowadays, the agriculture constitutes
-    one of the leading sources of foods and it contributes to the national income
-    and livelihood of most countries. However, in the last two decades, the agriculture
-    is facing several challenges such as the increasing demand for food, the extreme
-    weather conditions, the rising of climate change, etc. Hence, in order to overcome
-    these challenges, the agriculture needs to be smarter by integrating new technologies
-    with the aim to enhance the productivity and reduce the agriculture cost and waste.
-    Recently, the emergence of Internet of Things (IoT) technology has led to a new
-    revolution in the agriculture called as smart agriculture. Such technology consists
-    of a set of sensors that allow to remotely monitoring the field conditions and
-    sending real-time data about their status to the farmer for a decision-making.
-    However, the smart agriculture suffers from the huge amount of collected data
-    that complicates the decision-making process of the farmer and consumes the limited
-    available energy of the sensors. In this paper, we propose a real-time AGRiculture
-    mOnitoring, called AGRO, mechanism for efficiently sensing the soil moisture of
-    a field and enhancing the irrigation system. AGRO divides the monitored field
-    into small zones, called grids, where each grid assigned a grid leader (GL). Then,
-    AGRO consists of three phases: smart sensing, energy saving and decision-making.
-    The first phase aims to efficiently sense the soil moisture condition and update
-    the farmer about the progress of the field status while reducing the amount of
-    data transmitted to the GL. The second phase studies the variation of the field
-    status during successive period times and allows to adapt the sensing frequency
-    of the sensor in order save its energy and extend its lifetime. The last phase
-    aims to study the data collected by the sensors at the same grid in order to allow
-    the farmer to take a right decision based on a predefined decision table. We conducted
-    a set of simulations in order to show the efficiency of our mechanism in terms
-    of data reduction, energy conservation and accurate decision-making compared to
-    other existing techniques. Previous article in issue Next article in issue Keywords
-    Smart agricultureIoTGrid architectureSmart sensingDecision-makingEnergy conservation
-    1. Introduction In almost countries, the agriculture forms the backbone of the
-    economic system and represents the main source of livelihood to a large number
-    of the population. However, according to a recent report published by the Food
-    and Agriculture Organization (FAO) of the United Nations (Fao, 2020), the world
-    needs to produce more food in 2050 than it did in 2006. This estimation is mainly
-    motivated by two reasons: first, the exponential increasing of the population
-    number, estimated to reach billion by 2050, that requires to proportionally increasing
-    the food production and having high yields in a limited time. Second, the agriculture
-    is not limited to food production but constitutes the raw materials needed in
-    various sectors such as poultry, medicine, industrials, etc. (Farooq et al., 2019,
-    Farooq et al., 2020). Hence, to meet these demands, the integration of technologies
-    in the agriculture operations is accelerating over the last years helping the
-    farmer to decrease their costs, and increase their yields while avoiding unrealistic
-    time and labor requirements. Recently, the emergence of the IoT is set to push
-    the agriculture operations to the next level and it has been a driving force behind
-    the increasing of the agriculture production at a lower cost. With the help of
-    sensors, the IoT allows the farmers to get live data from anywhere about the environmental
-    and field conditions then to make accurate and quick decisions about every operations
-    of their work, from climate change to precision farming. For instance, with underground
-    wireless soil sensors, the farmers can take better control over the process of
-    irrigation and thus, enhance the water use efficiency. Therefore, the agriculture-based
-    IoT solutions have gained a lot of attentions from agricultural companies and,
-    as per recent reports (Farooq et al., 2019, Ummesalma et al., 2020), the market
-    share is expected to reach billion in 2025 with more than 225 millions of connected
-    devices. Indeed, such devices can monitor various kinds of agriculture applications
-    such as water and nutrition, crop health, diseases and bug, machinery, etc. and
-    help in several services such as irrigation, pesticides, fertilization, yield
-    condition and storage, etc. Indeed, the agriculture-based IoT, more known as the
-    smart agriculture, provides several challenges compared to the traditional ways.
-    Particularly, the data management is considered as one of the most complicated
-    tasks for decision makers in smart agriculture. From one hand, the huge number
-    of deployed sensors required to monitor wide areas along with the continuous monitoring
-    of the field conditions lead to a big amount of collected data. Such data are
-    mostly redundant and contain useless information. In addition, the transmission
-    of the whole collected data can quickly consume the energy of the sensors which
-    are mostly equipped with small batteries. On the other hand, the big data collected
-    in such networks will make difficult the data analysis process and decision-making
-    made at the end user. In this paper, we propose an efficient mechanism called
-    AGRO for smart sensing and decision-making dedicated to grid-based smart agriculture
-    networks. AGRO aims to reduce the size of data transmitted in the network, conserve
-    the sensor energy and provide a decision-making model for the end user to optimize
-    the irrigation system. Subsequently, AGRO consists in three phases that represent
-    the contribution of this study as follows: • The smart sensing phase that proposes
-    a transmission model based on the soil type and the redundancy existing among
-    the collected data in order to enhance the data transmission to the GL. • The
-    energy saving phase that introduces a new sampling adaptation model allowing the
-    sensor to adapt its sensing frequency according to the variation of the monitored
-    field condition. • The decision-making phase that presents a decision model allowing
-    the farmers to take a decision for each grid separately based on the aggregated
-    data collected by all sensors in such grid. The rest of the paper is organized
-    as follows. Section 2 summarizes data reduction and decision making techniques
-    proposed in the smart agriculture. In Section 3, we present the network architecture
-    used in our mechanism. Sections 4 Smart sensing phase, 5 Energy saving phase,
-    6 Decision-making phase describes the three phases proposed in AGRO. In Section
-    7, we detail the simulation environment and discuss the obtained results. Finally,
-    Section 8 concludes our paper and gives some perspectives. 2. Related Work Currently,
-    researchers are focusing on data reduction, energy saving and decision-making
-    approaches in order to handle big data generated in smart agriculture (Shamshiri
-    et al., 2020, Khoa et al., 2019, Mekala and Viswanathan, 2019, Khanna and Kaur,
-    2019). Subsequently, the objective of such approaches is to study the similarities
-    among the collected data, eliminate the existing redundancy and deliver an useful
-    information to the end user in order to take a suitable decision. The authors
-    of Ayaz et al. (2019) present a survey about various sensor devices and communications
-    technologies used in smart agriculture while the researchers on Jawad et al. (2017)
-    give an overview about different energy efficient and decision-making techniques
-    proposed in the literature in such domain. The authors of Pandiyaraju et al.,
-    2020, Khelifi et al., 2020, Popescu et al., 2020, Bahi et al., 2012, Liang and
-    Li, 2014, Keswani et al., 2019, Gómez et al., 2019, Haseeb et al., 2020, Keswani
-    et al., 2019 are dedicated to reduce the size of data transmission at sensor level
-    in order to save the energy and ensure a long time monitoring of the field zone.
-    In Pandiyaraju et al. (2020), the authors propose an energy efficient routing
-    protocol in order to provide data to the irrigation system. The proposed protocol
-    works in three phases. The first phase aims to divide the monitored area into
-    terrains. The second one selects a cluster-head for each terrain using the fuzzy
-    rules adapted to the remaining sensor energies and the distance to the sink. The
-    last phase aims to select a set of relay nodes to perform data transmission between
-    nodes and sink. The authors of Khelifi et al. (2020) introduces a new atmospheric
-    sensors for measuring air and soil moisture of an agricultural field. Then, a
-    region-based routing algorithm is proposed that allows an efficient data collection
-    from the sensors according to two metrics: residual energy and distance between
-    nodes. In Popescu et al. (2020), a mechanism based on the collaboration between
-    unmanned aerial vehicles (UAV) and sensor networks for crop monitoring in precision
-    agriculture is proposed. The data collection scheme in the proposed mechanism
-    is performing according to the following steps: first, a cluster-based scheme
-    is proposed to group neighboring sensors into clusters and assign a cluster-head
-    for each cluster. Second, a data aggregation method based on the minimum and maximum
-    values extraction is applied at each sensor to reduce its data transmission to
-    the CH. Third, a path planning strategy is designed to collect data from the CHs.
-    The last step introduces an edge-fog-cloud computing algorithm to process data
-    at the sink node. In Bahi et al. (2012), a two- level node mechanism is proposed
-    that is dedicated to periodic sensor applications. First, the authors propose
-    a local aggregation method to remove redundant data collected by the sensor. Then,
-    an in-network data reduction called prefix frequency filtering (PFF) is introduced
-    at the CH level. PFF allows CHs to find similarities between data collected by
-    neighboring nodes in the same cluster, using Jaccard similarity function. Lastly,
-    the authors of Liang and Li (2014) propose an efficient and robust compression
-    method named Sequential Lossless Entropy Compression (S-LEC). S-LEC uses a differential
-    predictor that arranges the alphabet of integer residues into a number of groups.
-    For each group, two codes are assigned: entropy and binary codes. The first code
-    specifies the group where the second one represents the index inside the group.
-    The authors of Torres et al., 2020, Mekala and Viswanathan, 2020, Sekaran et al.,
-    2020, dos Santos et al., 2019, Lavanya et al., 2020, Bu and Wang, 2019, Dewi and
-    Chen, 2019 propose decision-making strategies to help farmers in the monitoring
-    of their fields. In Campoverde et al. (2021), the authors introduce an IoT-based
-    system that enable farmers to manage the irrigation process of their farms. Through
-    a set of Raspberry PI and Arduino devices, the proposed system monitors the soil
-    moisture and evapotranspiration parameters, and then the water control is performed
-    via a decision model based on a reinforcement learning and Markov Decision Process.
-    The authors of De Rango et al. (2019) propose a bio-inspired coordination protocol
-    that integrates new technologies in the management of agriculture. Such new technologies
-    include the use of unmanned aerial vehicles, flying Ad-Hoc Network as well as
-    the sensors and actuators. The proposed protocol aims to manage and coordinate
-    such new technologies with the goal to support the agriculture human operators.
-    In Torres et al. (2020), the authors propose a multilevel data fusion architecture
-    called Hydra composed of the three layers. The low-level phase that introduces
-    a data fusion method at the sensor node; the medium-level phase that alerts the
-    farmer about a set of predefined events when they occur and the high-level phase
-    that uses a decision fusion technique for multiple data applications. Furthermore,
-    Hydra is developed for two applications: soil moisture monitoring and plant water
-    evaporation. The authors of Mekala and Viswanathan (2020) propose a decision-making
-    system based on a selection sensor mechanism for monitoring soil temperature,
-    humidity and air-and-water quality. First, the system defines the optimal number
-    of sensors needed to monitor the zone then it introduces two methods, e.g. and
-    agronomy function, to assess the plant growth and production yield rates respectively.
-    In Sekaran et al. (2020), the authors propose a framework that integrates both
-    IoT and cloud to increase the productivity of the crops in the agriculture fields.
-    The framework provides a real-time analysis of the collected data placed in crops
-    and helps the farmer to reduce its time and its energy when monitoring the crop
-    growth. Lastly, an AgriPrediction framework, which combines between LoRa IoT technology
-    and ARIMA prediction, is proposed in dos Santos et al. (2019). AgriPrediction
-    builds a prediction engine that aims to avoid potential crop failure proactively
-    and notify the farmer, through short and medium communication, for remedial actions
-    as soon as possible. Indeed, the proposed works dedicated to smart agriculture
-    are in increasing number and they mostly provide efficient solutions for various
-    challenges existing in such domain. However, most of them suffer from several
-    drawbacks: 1) the limitation, where a proposed technique is aiming to optimize
-    one metric in such domain while negligent the other ones, which is not always
-    valid. 2) The non-generalization, where a proposed method or model is dedicated
-    to a specific application in agriculture and cannot be generalized to other ones.
-    3) The complexity, which is not suitable to the limited resources of sensors.
-    In this paper, a new energy-efficient and decision-making mechanism, called AGRO,
-    is proposed. AGRO proposes a complete solution starting from the data collection
-    and arriving to the decision making taken by the farmer. Subsequently, AGRO is
-    a multi-layer mechanism and it relies on a set of algorithms and techniques to
-    overcome the challenges at each layer. 3. Smart agriculture design system In Smart
-    agriculture, the sensor deployment is the first fundamental operation before configuring
-    the network. This can be done in a deterministic way, through human or robot,
-    in case of small zones or in a random way, through aircraft or rocket, for wide
-    agriculture areas (Tzounis et al., 2017). Then, after determining the sensor deployment
-    mode, the network configuration process is starting by selecting the suitable
-    architecture of network for the given application followed by the selection of
-    the data collection model required to monitor the field condition. In the next
-    sections, we detail the grid-based architecture and the periodic collection model
-    adapted in our mechanism. 3.1. Grid-based architecture In our mechanism, we divide
-    the entire agriculture field into small zones called grids where each grid contains
-    a set of sensors to continuously monitoring the soil moisture inside the grid
-    (Fig. 1). Depending on the field requirements, the farmer is responsible to determine
-    each grid dimensions with the required number of deployed sensors. In addition,
-    a grid-leader (GL) is assigned to each grid, which is responsible to collect data
-    from all sensors inside the grid and send them toward the sink. In its turn, the
-    sink forwards the data to a mobile application allowing the farmer to have knowledge
-    about the situation of each grid. In case of a grid needed water, the farmer can
-    operate the pomp to irrigate such grid through its digital valve. Consequently,
-    the farmer can avoid the waste of water by irrigating the entire field. For the
-    sake of simplicity, we assume, in our architecture, a single-hop communication
-    between sensors-GLs and GLs/sink. In this work, ARGO works on several levels on
-    the grid architecture, e.g. sensors, GLs, sink/mobile application. Download :
-    Download high-res image (523KB) Download : Download full-size image Fig. 1. Grid-based
-    architecture for smart agriculture network. 3.2. Periodic sensing model for field
-    monitoring After selecting the network architecture, the sensor devices start
-    to sense the target field and update the farmer about its actual situation. Indeed,
-    we can generally distinguish between three types of data collection by the sensors:
-    on-demand, event-driven and periodic-based (Harb et al., 2014). In this work,
-    we are interested in the last type of data collection as one of the most used
-    model in smart agriculture. In such model, the data are collected and sent to
-    the farmer in periodic basis, which is suitable for most agriculture applications
-    (Ibrahim et al., 2019). Mathematically, in periodic field monitoring, each period
-    p is partitioned into time slots. At each slot t, each sensor node captures a
-    new reading then it forms, at the end of p, a vector of readings as follows: .
-    After that, the sensor will send its vector of data, e.g. , to its appropriate
-    GL. For analysis purposes, we assume, in our mechanism, that the lifetime of each
-    sensor is divided into a set of rounds, , where each round consists of a set of
-    periods. 4. Smart sensing phase Indeed, the periodic sensing model leads to the
-    problem of big data that affects the network in several ways, e.g. increasing
-    the complexity study, consuming the network energy, routing overload, increasing
-    the congestion, etc (Harb et al., 2017). In addition, such data are mostly redundant
-    due to the spatial–temporal correlation existing in the agriculture applications.
-    Therefore, in order to overcome these challenges, the amount of periodic data
-    sent by each sensor to the GL should be locally reduced which can mostly done
-    by eliminating the redundancies existing among the collected readings. The first
-    phase in our mechanism, e.g. smart sensing phase, aims to reduce the size of reading
-    set collected by each sensor before sending toward the GL. First, this phase defines
-    a score table based on the soil types then it proposes an efficient model for
-    data transmission between each sensor and its GL. 4.1. Score table The soil moisture
-    readings collected by a sensor are highly dependent on the type of soil in which
-    the sensor is implementing. In fact, the heavy soil needs more amount of water
-    than light one but it can preserve the irrigated water more than the last second
-    one. Generally, we distinguish between three types of soil types: clay, loam and
-    sandy. Subsequently, the sandy soil is light, harsh, cozy and low in nutrients;
-    clay soil is a heavy soil type, moist and cold in winter, dry out and warm in
-    summer, high in nutrients; loam soil is a mixture of sand, silt and clay. Thus,
-    in order to reduce the size of data sent from each sensor, we define a table,
-    called score table, that is based on the characteristics of each soil type. The
-    score table is a guide used to test the need of a plant to be irrigated depending
-    on the soil type (Table 1). The table takes the soil type along with the soil
-    moisture value then it determines the soil status regarding the level of irrigation
-    (no need for irrigation, irrigation is needed, irrigation is a must). Subsequently,
-    the soil moisture value is always in where more the value is closing to 100 less
-    the soil is needing for water, and vice versa. For instance, if the soil moisture
-    value recorded in a clay soil is between 80 and 100 then the soil is rich in water
-    and does not need an irrigation at this moment. For the sake of simplicity, we
-    replace the soil status by a score ranging in to explain the soil moisture irrigation
-    level. Consequently, for each reading in , we calculate its score according to
-    the score table then, we form a score set for as follows: . Table 1. Score table.
-    Empty Cell Soil status Soil type no need for irrigation irrigation is needed irrigation
-    is a must Clay Loam Sandy  Score 4.2. Data transmission model Based on the score
-    table, we propose an efficient data transmission model that has two folds: first,
-    it reduces the amount of periodic data sent from each sensor and, second, it ensures
-    an updated information about the field status to the farmer. Our idea is to search
-    the similarities among the successive soil moisture readings in then to only send
-    those with different scores with the previous readings. Subsequently, the accuracy
-    of the sent information can be maintained by defining a weight variable that indicates
-    the number of successive readings with the same score. The Algorithm 1 shows the
-    process of our transmission model applied periodically at each sensor. the algorithm
-    takes the set of readings collected during a period and returns a reduced set
-    of readings, e.g. , to send to the GL at the end of the period. The process starts
-    by adding the first reading collected in the period with a weight of 1 to the
-    set of final readings (lines 1- ). Then, the score of this reading is determined
-    and they are both considered as the current reading and score respectively that
-    will be compared to the next readings. After that, each reading in is compared
-    to the current one and it is added to if and only if its score is different from
-    the current one (lines 4- ). Otherwise, the field is considered in a stable status
-    and the collected readings are removed from while adding the weight of the current
-    reading by 1 (lines 10–12). Algorithm 1: Data Transmission Algorithm. Require:
-    Node: , Period: , Set of readings: . Ensure: Set of sent readings: .  1:  // is
-    the current soil moisture reading  2:  3: consider is the score of  4: for each
-    reading where do  5:  assume is the score of  6:  if then  7:     8:     9:     10:  else  11:     12:   end
-    if  13: end for  14: return Fig. 2 shows an illustrative example of the data transmission
-    model at a sensor node. indicates the set of soil moisture readings collected
-    during a period of size 12, e.g. . Then, the score values are calculating for
-    each reading according to the score table while considering a sandy soil type.
-    Lastly, the Algorithm 1 is applied by selecting the first reading every time a
-    change in the soil type is detected while calculating the weight values. Download
-    : Download high-res image (62KB) Download : Download full-size image Fig. 2. Illustrative
-    example of the data transmission model at the sensor. 5. Energy saving phase In
-    smart agriculture, the sensing, processing and transmission are the three main
-    functions of each sensor. Regarding the energy consumption, the data transmission
-    is the most costly operation in terms of consuming the sensor battery power, compared
-    to other ones. Thus, in order to save the sensor energy and prolongs its lifetime,
-    the sensor should reduce its data transmission to the GL. This can be done by
-    minimizing the amount of collected data, e.g. reducing the period size ( ). In
-    this phase, we propose an adaptive sampling model that allows the sensor to adjust
-    its data collection according to the variation of the monitored field condition
-    and the type of soil. Our model is based on the similarities among the readings
-    collected during a round by using the Jaccard coefficient function. 5.1. Field
-    dynamicity using Jaccard coefficient As mentioned before, the lifetime of a sensor
-    is divided into a set of rounds, , where each round u consists of periods, e.g.
-    . Thus, the sensor collects a set of reading sets in each round as follows: .
-    Consequently, the set of scores sets correspond to is defined as , where corresponds
-    to . Then, we search the similarities among the reading sets in each round, e.g.
-    , using the Jaccard coefficient in order to study the dynamicity of the monitored
-    field. Let first define the gravity of a score , where , during a period before
-    calculating the similarity in according to the following equation: (1) where the
-    gravity indicating the number of readings having the same score in a given period.
-    After that, the field dynamicity during the round u is calculated based on the
-    Jaccard coefficient (Jain et al., 2020) as follows: (2) where is the gravity of
-    the score belongs to the set and always gives a value in . Then, we assess the
-    field dynamicity according to the value of where we distinguish between three
-    dynamicity levels. The first level indicates a high field dynamicity where the
-    collected readings change quickly over the round; in such level, the value of
-    can change in . The second level indicates a medium field dynamicity where changes
-    in . The third level indicates a low dynamicity in which the fields changes slowly
-    and resulting a high redundancy level among the collected data in the round; in
-    such level, the value of varies in . 5.2. Adaptive sampling model In this section,
-    we propose an adaptive sampling rate model that allows sensor to adapt its sensing
-    frequency according to two parameters: the field dynamicity and the soil type.
-    Subsequently, our model is based on the following rules: first, when a high similarity
-    level among data is detected, the sensor must reduce its sensing frequency in
-    order to avoid collecting redundant readings. Second, in case of high field dynamicity,
-    the sensor should collect more data in order to avoid missed important information
-    and keep update about the quick variation of the field. Consequently, the sensor
-    maximizes its sampling rate and adapt it to the initial period size, e.g. . Third,
-    the sampling rate of the sensor must take into account the soil type to calculate
-    the new sensing frequency for the next round. Indeed, the type of soil plays a
-    vital role in the soil moisture level and the field dynamicity. For instance,
-    the sandy soil absorbs water at a rate of 2 inches per hour while the clay soil
-    absorbs water at a rate of less than inch per hour and loam at a rate between
-    and 2 inches per hour. Thus, the sandy soil drinks water more than the others
-    while the clay soil maintain water more the other ones. The sampling adaptation
-    table (abbreviated SAT as shown in Table 2) shows the decision made by the sensor
-    to adapt its sampling rate. Subsequently, the new sensing frequency is determined
-    according to three threshold coefficients and , where , related to the soil types,
-    e.g. clay, loam and sandy respectively. The letters l and m indicate low and medium
-    field dynamicity respectively where the coefficients are determined by the experts
-    and take values in ; more the value is close to 0 more the sampling rate is minimized
-    and more it is close to 1 the sampling rate is maximized. As mentioned before,
-    the sensing frequency is adapted to the initial period size when a high field
-    dynamicity is detected. Furthermore, the coefficient thresholds are customized
-    by the experts depending on the application requirements with respecting to the
-    following rules: and . Table 2. Sampling adaptation table (SAT). Empty Cell Field
-    dynamicity Soil type low medium high Clay Loam Sandy 5.3. Energy saving algorithm
-    Algorithm 2 shows the sampling rate adaptation process, in the energy saving phase,
-    applied at each sensor at the end of each round. Mainly, the algorithm takes the
-    sets of readings collected during a round along with the soil type and initial
-    period size then, it calculates the new sampling rate based on the SAT table.
-    The process starts by calculating the gravity of scores in each reading set based
-    on the Eq. 1 and adding to an empty set (lines 2- ). After that, the field dynamicity
-    of the round is calculated based on the Eq. 2 (line 11). Finally, the new sampling
-    rate is determined according to the SAT with giving the soil type and the calculated
-    dynamicity (lines 12–13). Algorithm 2: Energy Saving Algorithm. Require: Node:
-    , Round: , Set of reading sets: , Period size: , Soil type: , SAT coefficients:
-    . Ensure: New sampling rate: .  1: while ( ) do  2:    3:  for each reading set
-    do  4:     5:   for to do  6:    calculate  7:      8:   end for  9:     10:  end
-    for  11:  calculate of  12:   SAT ( , , )  13:  return  14: end while 6. Decision-making
-    phase The last phase in our mechanism allows the farmer to make a periodic decision
-    regarding the irrigation or not of each grid on the field. Indeed, the decision-making
-    phase works at two network sides: GL and sink. After receiving the reading sets
-    from all sensors in each grid, the GL determines the criticality level of readings
-    collected by each sensor then it sends it to the sink. Once the sink receives
-    the criticalities of all sensors in the grid, it combines them in one information
-    and sends, through a mobile application, a global decision for each grid to the
-    farmer. In the next sections, we detail the criticality of each sensor at the
-    GL and the grid decision-making model at the sink. 6.1. Criticality soil moisture
-    level at GL Let assume that the GL receives the following reading sets at a period
-    , where n is the number of sensors in that grid. Our objective is to determine
-    the criticality level of soil moisture according to the readings collected by
-    each sensor then, to send it to the sink for a later global grid decision. Thus,
-    for each reading set collected by the sensor during a period p, the GL calculates
-    the sensor criticality index, , of based on the weighted score average as follows:
-    (3) where is the score of the reading and is its weight. Therefore, the GL classifies
-    the sensor criticality index of a sensor into one of the following categories:
-    • Low sensor criticality or : this indicates that all readings collected by the
-    sensor are in the normal soil moisture range. • Moderate sensor criticality or
-    : in this case, a variation in the monitored field is noticed but there is no
-    need to immediate field irrigation. • High sensor criticality or : this indicates
-    that the field enters in a critical situation and it needs a continuous monitoring
-    from the farmer. • Extreme sensor criticality or : in this case, the field needs
-    to an immediate irrigation or a waste in the plants could happen. Based on the
-    above classification, the GL sends the ids for all sensors with their calculated
-    criticalities to the sink at the end of each period. 6.2. Decision model at sink
-    After receiving all the sensor criticalities at each period, the sink determines
-    the suitable decision for each grid and it sends it to the farmer. Indeed, the
-    decision-making model should take into account the criticalities of the whole
-    soil moisture readings in the grid and not only a subset of them. This is because
-    the sensors in the same grid having mostly different criticality levels thus,
-    considering a subset of sensors may lead to a wrong decision. For instance, assume
-    a grid containing five sensors where two of them indicating extreme criticality
-    and the other ones collect low critical readings. Thus, if an irrigation decision
-    is taken then this may lead to a waste in the water while, if the sink considers
-    only the low critical sensors then a damage in the plants may occur. In our proposed
-    model, we make a trade-off between the whole sensor criticalities in a grid and
-    the water consumption. This is done by defining a new index called grid criticality
-    that indicates the level of the soil moisture readings in the whole grid based
-    on the criticalities of all sensors. Subsequently, the grid criticality can be
-    calculated based on the following three steps: • The sink assigns a coefficient
-    for each sensor criticality sent from the GL as follows: 0 for low, 1 for moderate,
-    2 for high and 3 for extreme sensor criticality. • The weighted average for all
-    sensor criticalities is calculated representing the grid criticality of a grid
-    i, e.g. : (4) where is the number of sensors having low, moderate, high and extreme
-    criticalities respectively. • The sink assigns a grid status based on the calculated
-    grid criticality value as follows: (5) Then, we define a decision table that allows
-    the sink to decide about the needed action regarding the irrigation process then
-    alerts the farmer through a mobile notification. Table 3 presents the decision
-    table proposed in our mechanism that takes into account three inputs: the soil
-    type, the grid status and the irrigation index; the irrigation index is an agriculture
-    indication used to measure the quantity of water, e.g. hour per inch, needed to
-    irrigate a plant depending on the soil type. The irrigation index values shown
-    in the decision table are almost fixed and determined by the agriculture engineers
-    for each soil type. Therefore, based on the three input parameters, our mechanism
-    decides the percentage of time needed to open the digital valve at each grid depending
-    on the irrigation index values. However, in this work, the percentage values are
-    fixed according to the soil characteristics but they can be customized depending
-    on the application requirements. Table 3. Decision table. Empty Cell Soil type
-    Grid status Clay Loam Sandy Normal don’t open don’t open don’t open Signficant
-    Severe  Irrigation index hr/ in hr/ in hr/ in 7. Simulation results In our simulations,
-    we used the real agriculture data collected by Agricultural Research Service (Brown,
-    2017) and Brazilian Semiarid region (Zeri et al., 2020) in order to evaluate the
-    performance of AGRO. Mainly, both data sets contain readings of soil moisture,
-    volumetric water content and bulk electrical conductivity for a period times 2007
-    to 2016 and 2015 to 2019 respectively. In the first dataset, data are collected
-    through 42 sensors implemented in 42 locations at 5 different soil depths (between
-    30 and 150 cm) across Cook Agronomy farm. Whilst, in the second dataset, data
-    are collected via 360 nodes implemented in various locations in the Brazilian
-    state with depths vary between to meter. Furthermore, the soil in the Cook Agronomy
-    farm is mostly of loam type while the Brasilian state contains several soil types,
-    particularly sandy and clay. Unfortunately, due to the missing values and the
-    noisy data existing in both datasets, we tried to filter and clean the data before
-    performing our simulations. Thus, the scenario adapted in the simulations is described
-    as follows: • Data for 20 sensors are taken from the Cook farm, e.g. loam soil,
-    and data collected by 40 sensors are taken from Brazilian state; 15 for sandy
-    soil and 25 for clay soil. • The sensors are distributed into three grids as follows:
-    the first grid contains 20 sensors deployed in a loam soil. The second grid contains
-    15 sensors deployed in sandy soil. The third grid contains 25 sensors deployed
-    in a clay soil. • Each sensor reads the data from its corresponding file then
-    it sends to a base station considered as the grid-leader in our simulation. •
-    The grid leaders are referenced as GLs, GLc and GLl for the soil types sandy,
-    clay and loam respectively. • We compared our results to those obtained with PFF
-    (Bahi et al., 2012) and S-LEC (Liang and Li, 2014). • The parameter values adapted
-    in our simulations are shown in Table 4. Table 4. Simulation environment. Parameter
-    Symbol Values Period size , , Number of periods per rounds , SAT thresholds ,
-    , , 7.1. Field situation study Fig. 3 shows the calculated scores of soil moisture
-    readings collected by three random sensors corresponding to clay, loam and sandy
-    soil respectively for the first 10 periods. The results show that the scores of
-    sandy soil vary more than those obtained in loam and clay; this is due the sandy
-    soil characteristics that absorbs the water faster than the other soil types.
-    We also observe that, in clay and loam, the soil status is mostly varying between
-    score 0 (no need for irrigation) and 1 (irrigation is needed) while few readings
-    having score of 2 (irrigation is a must); this is because the farmers were irrigating
-    the land in a regular periods without taking into account the soil status which
-    leads to a waste in the water consumption. Download : Download high-res image
-    (439KB) Download : Download full-size image Fig. 3. Field situation according
-    to the percentage of reading scores. 7.2. Performance study of smart sensing phase
-    In Fig. 4, we show the average percentage of readings sent from each sensor to
-    the GL at each period in the three soil types. The obtained results are highly
-    dependent on the period size along with the soil type. We show that AGRO outperforms
-    PFF and S-LEC in terms of reducing the data transmission ratio from the sensor
-    in all cases. Subsequently, it reduces up to and of transmitted data in clay,
-    loam and sandy soils compared to PFF and up to and compared to S-LEC. Furthermore,
-    the results of AGRO show the following observations: • The percentage of sent
-    readings decreases with the increasing of the period size. This is because the
-    variation of scores will reduce less than that of the number of collected readings
-    in the long period. • The data transmission ratio in sandy soil is greater than
-    those of clay and loam soils. This is due to the quick variation of soil moisture
-    in sandy land that increases the number of sent readings to the GL, compared to
-    other soil types (see Fig. 3) • AGRO gives better results than other techniques
-    when the monitored condition varies slowly, e.g. the case of clay soil type. Download
-    : Download high-res image (363KB) Download : Download full-size image Fig. 4.
-    Data transmission ratio at each sensor. 7.3. Performance study of energy saving
-    phase In this section, we study the performance of the energy saving phase proposed
-    in our mechanism in terms of reducing the amount of data collection. Fig. 5 shows
-    the data sensing ratio of each sensor in various soil types when varying the period
-    and the round sizes. The obtained results show that the energy saving phase allows
-    each sensor to significantly reduce its amount of data collected at each period;
-    this confirms the behavior of AGRO in terms of removing the redundancy existing
-    among the collected readings and allows to adapt the sampling rate to the variation
-    of the field condition. Furthermore, the following observations are eminent: •
-    The clay sensor collects less data than the others while the sandy sensor collects
-    more data than the others. Subsequently, we observe that the sensor in clay soil
-    collects less than of data compared to sensors in other soils. This is because
-    the clay soil condition is slowly varying and contains a high level of data redundancy
-    thus, the sensors reduces its sampling rate to avoid sending redundant information.
-    Whilst, the sandy soil condition is quickly varying thus the sensor must collect
-    more data in order to track the variation of the field status. • By decreasing
-    the period size, the sensor collects less data in all soil types. This is because
-    the similarities among readings in successive periods increase with the decreasing
-    of the period size. • The data sensing ratio decreases with the increasing of
-    round size. This is due to the similarity of Jaccard coefficient that decreases
-    when increasing the number of compared sets. Download : Download high-res image
-    (225KB) Download : Download full-size image Fig. 5. Data sensing ratio at each
-    sensor. On the other hand, Fig. 6 presents an illustrative example of the sampling
-    rate adaptation for three random sensors in function of the round number progress.
-    The obtained results confirm the observations made in Fig. 5 as follows: first,
-    the sensing frequency of each sensor is dynamically adapted after each round in
-    all soil types. Second, the sampling rate of clay soil (respectively sandy soil)
-    is adapted less (respectively more) than the other ones due the high (respectively
-    low) existing redundancy level. Download : Download high-res image (152KB) Download
-    : Download full-size image Fig. 6. A specific scenario for sampling rate adaptation
-    in function of the round progress, . 7.4. Performance study of decision-making
-    phase In Fig. 7, we study the distribution of sensor criticalities determined
-    by the GL nodes during 10 periods for all soil types. We fixed the period size
-    to 100 readings and the round size to 2 periods. The results show that the soil
-    moisture varies differently from one soil land to another. For instance, at the
-    fifth period, most of the readings collected by the sensors in the sandy soil
-    had high criticality while those in clay and loam had low and medium criticalities
-    respectively. We can also observe that the sensors inside the same soil type may
-    have different criticality levels at the same period. This may happen due to the
-    large size of a grid or the artificial obstacles in some zones of the grid. Furthermore,
-    the results show that a monitored field does not always need to irrigate when
-    few critical readings are detected or a waste of the water consumption will occur.
-    Download : Download high-res image (446KB) Download : Download full-size image
-    Fig. 7. Sensor criticalities, . Based on the results of Fig. 7, Fig. 8 shows the
-    decision made at the sink node and sent to the farmer through a mobile application.
-    The y-axis shows the grid status where and 3 indicate normal, significant and
-    severe respectively (see Eq. 5). The results reveal the efficacy of the decision-making
-    phase proposed in our mechanism in providing a suitable and real-time decision
-    to the farmer. As expected, the figure shows almost similar decisions for clay
-    and loam soils while a bit different is noticed for sandy soil. This is due to
-    the rapid variation of the water absorption in sandy soil compared to other ones.
-    Thus, the decision table proposed in AGRO will allow to reduce the water consumption
-    then, to minimize the farm costs and resources. Download : Download high-res image
-    (153KB) Download : Download full-size image Fig. 8. Decision made at the sink,
-    . 7.5. Data accuracy study In this section, our objective is to study the accuracy
-    of AGRO in terms of preserving the integrity of the information sent to the farmer.
-    Indeed, the data accuracy is an important metric that should be studied in smart
-    agriculture because it sometimes leads to a wrong decision thus, waste in water
-    and resources. Fig. 9 shows the raw data collected by three sensors with the corresponding
-    sent readings after applying the smart sensing phase. First, we observe that the
-    readings are highly redundant where they vary in for clay soil, in for loam soil
-    and in for sandy soil. Then, thanks to smart sensing phase, the sensor selects
-    a few set of readings indicating the change on the reading scores, e.g. field
-    status, in each period to send to the GLs. This can highly preserves the integrity
-    of the sent information while reducing the data transmission at the same time.
-    Download : Download high-res image (190KB) Download : Download full-size image
-    Fig. 9. Raw data vs sent readings, . 8. Conclusion and future work As the need
-    of agriculture tends to increase, the investment in smart agriculture will take
-    more and more attentions from governments, companies and people in the next years.
-    Thus, digitalizing the world of agriculture in a way that farmers will be able
-    to use data in order to increase their production and make better-informed decisions
-    will become one of the main concerns of researchers and industries. In this paper,
-    we proposed a smart sensing and decision-making mechanism, called AGRO, that efficiently
-    monitors the agriculture and helps the farmer in irrigating the field zones. Basically,
-    AGRO divides the monitored field into grids then it presents three-phases mechanism;
-    The smart sensing phase that aims to reduce the periodic amount of data transmitted
-    by each sensor. The energy saving phase that allows to adapt the sensing frequency
-    of each sensor according to the field dynamicity and the soil type. The decision-making
-    phase which helps the farmer to make a decision for each grid according to a defined
-    decision table. Through a set of simulations, we demonstrated the efficiency of
-    our mechanism in terms of reducing the data transmission, saving the sensor energy
-    and providing a suitable decisions compared to other proposed techniques. As future
-    work, we have three main directions to enhance our mechanism. First, we seek to
-    further reduce the data transmission in our mechanism by taking into account the
-    spatio-temporal correlations among neighboring nodes and the remaining energies
-    of the sensors. Second, we plan to add a scheduling strategy in order to switch
-    some sensors in each grid into sleep mode so we can extend the lifetime of the
-    sensors. Third, we seek to add a shift phase between successive transmissions
-    of a sensor in order to reduce the congestion in the network and minimize the
-    packet loss. Declaration of Competing Interest The authors declare that they have
-    no known competing financial interests or personal relationships that could have
-    appeared to influence the work reported in this paper. References Fao, 2020 F.
-    Fao, et al. The future of food and agriculture: Trends and challenges Annual Report
-    (2020), pp. 1-180 Google Scholar Farooq et al., 2019 M.S. Farooq, S. Riaz, A.
-    Abid, K. Abid, M.A. Naeem A survey on the role of iot in agriculture for the implementation
-    of smart farming IEEE Access, 7 (2019), pp. 156237-156271 CrossRefView in ScopusGoogle
-    Scholar Farooq et al., 2020 M.S. Farooq, S. Riaz, A. Abid, T. Umer, Y.B. Zikria
-    Role of iot technology in agriculture: A systematic literature review Electronics,
-    9 (2) (2020), p. 319 CrossRefView in ScopusGoogle Scholar Ummesalma et al., 2020
-    Ummesalma, M., Subbaiah, R., Narasegouda, S., 2020. A decade survey on internet
-    of things in agriculture. In: Internet of Things (IoT), Springer. pp. 351–370.
-    Google Scholar Shamshiri et al., 2020 R.R. Shamshiri, I. Bojic, E. van Henten,
-    S.K. Balasundram, V. Dworak, M. Sultan, C. Weltzien Model-based evaluation of
-    greenhouse microclimate using iot-sensor data fusion for energy efficient crop
-    production J. Clean. Prod., 121303 (2020) Google Scholar Khoa et al., 2019 T.A.
-    Khoa, M.M. Man, T.-Y. Nguyen, V. Nguyen, N.H. Nam Smart agriculture using iot
-    multi-sensors: A novel watering management system J. Sens. Actuator Netw., 8 (3)
-    (2019), p. 45 CrossRefView in ScopusGoogle Scholar Mekala and Viswanathan, 2019
-    M.S. Mekala, P. Viswanathan Clay-mist: Iot-cloud enabled cmm index for smart agriculture
-    monitoring system Measurement, 134 (2019), pp. 236-244 View PDFView articleView
-    in ScopusGoogle Scholar Khanna and Kaur, 2019 A. Khanna, S. Kaur Evolution of
-    internet of things (iot) and its significant impact in the field of precision
-    agriculture Comput. Electron. Agric., 157 (2019), pp. 218-231 View PDFView articleView
-    in ScopusGoogle Scholar Ayaz et al., 2019 M. Ayaz, M. Ammad-Uddin, Z. Sharif,
-    A. Mansour, E.-H.M. Aggoune Internet-of-things (iot)-based smart agriculture:
-    Toward making the fields talk IEEE Access, 7 (2019), pp. 129551-129583 CrossRefView
-    in ScopusGoogle Scholar Jawad et al., 2017 H.M. Jawad, R. Nordin, S.K. Gharghan,
-    A.M. Jawad, M. Ismail Energy-efficient wireless sensor networks for precision
-    agriculture: A review Sensors, 17 (8) (2017), p. 1781 CrossRefView in ScopusGoogle
-    Scholar Pandiyaraju et al., 2020 V. Pandiyaraju, R. Logambigai, S. Ganapathy,
-    A. Kannan An energy efficient routing algorithm for wsns using intelligent fuzzy
-    rules in precision agriculture Wireless Pers. Commun. (2020), pp. 1-17 Google
-    Scholar Khelifi et al., 2020 Khelifi, F., 2020. Monitoring system based in wireless
-    sensor network for precision agriculture. In: Internet of Things (IoT), Springer.
-    pp. 461–472. Google Scholar Popescu et al., 2020 D. Popescu, F. Stoican, G. Stamatescu,
-    L. Ichim, C. Dragana Advanced uav–wsn system for intelligent monitoring in precision
-    agriculture Sensors, 20 (3) (2020), p. 817 CrossRefView in ScopusGoogle Scholar
-    Bahi et al., 2012 J.M. Bahi, A. Makhoul, M. Medlej A two tiers data aggregation
-    scheme for periodic sensor networks Adhoc Sens. Wireless Netw., 21 (1) (2012)
-    Google Scholar Liang and Li, 2014 Y. Liang, Y. Li An efficient and robust data
-    compression algorithm in wireless sensor networks IEEE Commun. Lett., 18 (3) (2014),
-    pp. 439-442 View in ScopusGoogle Scholar Keswani et al., 2019 B. Keswani, A.G.
-    Mohapatra, A. Mohanty, A. Khanna, J.J. Rodrigues, D. Gupta, V.H.C. de Albuquerque
-    Adapting weather conditions based iot enabled smart irrigation technique in precision
-    agriculture mechanisms Neural Comput. Appl., 31 (1) (2019), pp. 277-292 CrossRefView
-    in ScopusGoogle Scholar Gómez et al., 2019 D. Gómez, P. Salvador, J. Sanz, J.L.
-    Casanova Potato yield prediction using machine learning techniques and sentinel
-    2 data Remote Sens., 11 (15) (2019), p. 1745 CrossRefView in ScopusGoogle Scholar
-    Haseeb et al., 2020 K. Haseeb, I. Ud Din, A. Almogren, N. Islam An energy efficient
-    and secure iot-based wsn framework: An application to smart agriculture Sensors,
-    20 (7) (2020) 2081 Google Scholar Keswani et al., 2019 B. Keswani, A.G. Mohapatra,
-    A. Mohanty, A. Khanna, J.J. Rodrigues, D. Gupta, V.H.C. de Albuquerque Adapting
-    weather conditions based iot enabled smart irrigation technique in precision agriculture
-    mechanisms Neural Comput. Appl., 31 (1) (2019), pp. 277-292 CrossRefView in ScopusGoogle
-    Scholar Torres et al., 2020 A.B. Torres, A.R. da Rocha, T.L.C. da Silva, J.N.
-    de Souza, R.S. Gondim Multilevel data fusion for the internet of things in smart
-    agriculture Comput. Electron. Agric., 171 (2020), Article 105309 View PDFView
-    articleView in ScopusGoogle Scholar Mekala and Viswanathan, 2020 M.S. Mekala,
-    P. Viswanathan (t, n): Sensor stipulation with tham index for smart agriculture
-    decision-making iot system Wireless Pers. Commun., 111 (3) (2020), pp. 1909-1940
-    CrossRefView in ScopusGoogle Scholar Sekaran et al., 2020 K. Sekaran, M.N. Meqdad,
-    P. Kumar, S. Rajan, S. Kadry Smart agriculture management system using internet
-    of things Telkomnika, 18 (3) (2020), pp. 1275-1284 CrossRefView in ScopusGoogle
-    Scholar dos Santos et al., 2019 U.J.L. dos Santos, G. Pessin, C.A. da Costa, R.
-    da Rosa Righi Agriprediction: A proactive internet of things model to anticipate
-    problems and improve production in agricultural crops Comput. Electron. Agric.,
-    161 (2019), pp. 202-213 View PDFView articleView in ScopusGoogle Scholar Lavanya
-    et al., 2020 Lavanya, R., Chakkaravarthy, G.V., Alli, P., 2020. An integrated
-    gis and knowledge-based automated decision support system for precision agriculture
-    using iot. In: IoT and WSN Applications for Modern Agricultural Advancements:
-    Emerging Research and Opportunities, IGI Global. pp. 86–98. Google Scholar Bu
-    and Wang, 2019 F. Bu, X. Wang A smart agriculture iot system based on deep reinforcement
-    learning Future Gener. Comput. Syst., 99 (2019), pp. 500-507 View PDFView articleView
-    in ScopusGoogle Scholar Dewi and Chen, 2019 C. Dewi, R.-C. Chen Decision making
-    based on iot data collection for precision agriculture Asian Conference on Intelligent
-    Information and Database Systems, Springer (2019), pp. 31-42 Google Scholar Campoverde
-    et al., 2021 Campoverde, L.M.S., Tropea, M., De Rango, F., 2021. An iot based
-    smart irrigation management system using reinforcement learning modeled through
-    a markov decision process. In: 2021 IEEE/ACM 25th International Symposium on Distributed
-    Simulation and Real Time Applications (DS-RT), IEEE. pp. 1–4. Google Scholar De
-    Rango et al., 2019 F. De Rango, G. Potrino, M. Tropea, A.F. Santamaria, P. Fazio
-    Scalable and ligthway bio-inspired coordination protocol for fanet in precision
-    agriculture applications Comput. Electr. Eng., 74 (2019), pp. 305-318 View PDFView
-    articleView in ScopusGoogle Scholar Tzounis et al., 2017 A. Tzounis, N. Katsoulas,
-    T. Bartzanas, C. Kittas Internet of things in agriculture, recent advances and
-    future challenges Biosyst. Eng., 164 (2017), pp. 31-48 View PDFView articleView
-    in ScopusGoogle Scholar Harb et al., 2014 H. Harb, A. Makhoul, R. Tawil, A. Jaber
-    Energy-efficient data aggregation and transfer in periodic sensor networks IET
-    Wireless Sens. Syst., 4 (4) (2014), pp. 149-158 CrossRefView in ScopusGoogle Scholar
-    Ibrahim et al., 2019 Ibrahim, M., Harb, H., Nasser, A., Mansour, A., Osswald,
-    C., 2019. Adaptive strategy and decision making model for sensing-based network
-    applications. In: 2019 19th International Symposium on Communications and Information
-    Technologies (ISCIT), IEEE. pp. 96–101. Google Scholar Harb et al., 2017 H. Harb,
-    A.K. Idrees, A. Jaber, A. Makhoul, O. Zahwe, M.A. Taam Wireless sensor networks:
-    A big data source in internet of things Int. J. Sens. Wireless Commun. Control,
-    7 (2) (2017), pp. 93-109 View in ScopusGoogle Scholar Jain et al., 2020 Jain,
-    G., Mahara, T., Tripathi, K.N., 2020. A survey of similarity measures for collaborative
-    filtering-based recommender system. In: Soft Computing: Theories and Applications,
-    Springer. pp. 343–352. Google Scholar Brown, 2017 Brown, D. Data from: A field-scale
-    sensor network data set for monitoring and modeling the spatial and temporal variation
-    of soil moisture in a dryland agricultural field.  https://catalog.data.gov/dataset/data-from-a-field-scale-sensor-network-data-set-for-monitoring-and-modeling-the-spatial-an.
-    Google Scholar Zeri et al., 2020 Zeri, M., Costa, J.M., Urbano, D., Cuartas, L.A.,
-    Ivo, A., Marengo, J., Alvala, R. A soil moisture dataset over the brazilian semiarid
-    region.  https://data.mendeley.com/datasets/xrk5rfcpvg/2. Google Scholar Cited
-    by (9) Biotechnological approaches in utilizing agro-waste for biofuel production:
-    An extensive review on techniques and challenges 2023, Bioresource Technology
-    Reports Show abstract Monitoring and Controlling System of Smart Mini Greenhouse
-    Based on Internet of Things (IoT) for Spinach Plant (Amaranthus sp.) 2024, International
-    Journal on Advanced Science, Engineering and Information Technology Iot Based
-    Remote Operated Smart Irrigation Systemfor Enhancing The Crop Yield 2023, 5th
-    IEEE International Conference on Cybernetics, Cognition and Machine Learning Applications,
-    ICCCMLA 2023 Distributed data reduction with decision-making for IoT-based smart
-    farming irrigation systems 2023, 2023 14th International Conference on Computing
-    Communication and Networking Technologies, ICCCNT 2023 Recognition of Weed Detection
-    in Smart Agricultural Farm using Image Processing with IoT 2023, 7th International
-    Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud), I-SMAC 2023
-    - Proceedings A comprehensive review of energy efficient wireless communication
-    and routing protocols in smart agriculture 2023, International Journal of Sensor
-    Networks View all citing articles on Scopus Peer review under responsibility of
-    King Saud University. © 2022 The Author(s). Published by Elsevier B.V. on behalf
-    of King Saud University. Recommended articles What makes sensor devices and microsystems
-    “intelligent” or “smart”? Smart Sensors and MEMs, 2018, pp. 1-22 Roald Taymanov,
-    Kseniia Sapozhnikova View PDF Smart fingertip sensor for food quality control:
-    Fruit maturity assessment with a magnetic device Journal of Magnetism and Magnetic
-    Materials, Volume 536, 2021, Article 168116 Maria Carvalho, …, Susana Cardoso
-    View PDF DLNet: Accurate segmentation of green fruit in obscured environments
-    Journal of King Saud University - Computer and Information Sciences, Volume 34,
-    Issue 9, 2022, pp. 7259-7270 Jie Liu, …, Ze Ji View PDF Show 3 more articles Article
-    Metrics Citations Citation Indexes: 8 Captures Readers: 63 View details About
-    ScienceDirect Remote access Shopping cart Advertise Contact and support Terms
-    and conditions Privacy policy Cookies are used by this site. Cookie settings |
-    Your Privacy Choices All content on this site: Copyright © 2024 Elsevier B.V.,
-    its licensors, and contributors. All rights are reserved, including those for
-    text and data mining, AI training, and similar technologies. For all open access
-    content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
-  journal: Journal of King Saud University - Computer and Information Sciences
-  limitations: null
-  relevance_score: 0.8
-  relevance_score1: 0.8
-  relevance_score2: 0
-  title: 'AGRO: A smart sensing and decision-making mechanism for real-time agriculture
-    monitoring'
-  verbatim_quote1: '"In this paper, we propose a real-time AGRiculture mOnitoring,
-    called AGRO, mechanism for efficiently sensing the soil moisture of a field and
-    enhancing the irrigation system."'
-  verbatim_quote2: '"AGRO divides the monitored field into small zones, called grids,
-    where each grid assigned a grid leader (GL)."'
-  verbatim_quote3: '"Then, AGRO consists of three phases: smart sensing, energy saving
-    and decision-making."'
-- analysis: 'While the paper''s main focus is on designing and implementing AI-based
-    crop recommendation systems, it does delve into the significance of various data
-    types for effective irrigation management, establishing some relevance to the
-    point of interest.
-
-
-    However, the paper''s contribution to addressing this specific point is limited,
-    as it primarily concentrates on data collection and preprocessing techniques within
-    the context of IoT-based smart agriculture rather than providing a comprehensive
-    analysis of data types specifically applicable to irrigation management. Therefore,
-    the relevance of the paper to the larger review intention and the specific point
-    of data types for irrigation management is moderate.
-
-
-    While the paper touches on the use of sensors for collecting environmental data
-    such as temperature, humidity, and soil moisture, it does not delve deeply into
-    the specific types of data most relevant to irrigation management or their typical
-    sources. Consequently, the paper falls short of providing a thorough examination
-    of this aspect, limiting its overall relevance to the topic.
-
-
-    Despite these limitations, the paper does highlight the potential of IoT and AI
-    in revolutionizing irrigation practices by automating data collection, analysis,
-    and decision-making. This aspect aligns well with the review''s intention to explore
-    the role of automation and IoT in irrigation management.
-
-
-    Furthermore, the paper emphasizes the need for real-time data collection and processing
-    to optimize irrigation schedules, which is a crucial aspect of efficient irrigation
-    management. This aligns with the review''s focus on the importance of timely and
-    accurate data in informing irrigation decisions.
-
-
-    Overall, while the paper has some relevance to the specific point of data types
-    and their sources for irrigation management, its coverage of this aspect is limited,
-    and it does not provide a comprehensive analysis of the topic.'
-  authors:
-  - Jagadeeswari M.
-  - Manikandababu C.S.
-  - Kavya S.
-  - Prasanna R.
-  - Madumitha S.
-  citation_count: '0'
-  description: Agriculture is the main source of income for Indians. It plays an important
-    role in the country's economy. But today, due to the migration of people from
-    rural to urban areas, agriculture is hindered. Environmental monitoring isn't
-    a perfect answer for increasing agricultural productivity. A multitude of variables
-    contribute to even lower output. As a result, automation in agriculture must be
-    applied to address these issues. Automated irrigation systems save farmers time,
-    money and energy. Traditional agricultural irrigation techniques require manual
-    intervention. With automatic irrigation technology, human intervention can be
-    minimized Continuous crop sensing and monitoring is accomplished by converging
-    sensors with the Internet of Things (IoT) and periodically informing farmers of
-    crop growth, harvest time, and, increase crop yield and also ensure correct product
-    delivery to consumers. In this project, we proposed a smart agricultural technique
-    using IoT and prediction methodology is done using Artificial Intelligence (AI).
-    The hardware includes many sensors like temperature, humidity, moisture, pH sensor
-    and level sensor. Real time data are collected using sensors from the field and
-    the training data are collected from the publicly available dataset and validation
-    is done using real time dataset based on the condition of soil moisture, environment
-    temperature, humidity and pH The proposed Multi-Layer Perceptron (MLP) algorithm
-    identifies and implements the process to be carried out and predicts what type
-    of crop can be grown in the soil.
-  doi: 10.1109/ICIRCA54612.2022.9985645
-  full_citation: '>'
-  full_text: '>
-
-    "This website utilizes technologies such as cookies to enable essential site functionality,
-    as well as for analytics, personalization, and targeted advertising purposes.
-    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
-    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
-    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
-    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
-    Citations ADVANCED SEARCH Conferences >2022 4th International Confer... Artificial
-    Intelligence based Crop Recommendation System Publisher: IEEE Cite This PDF M.
-    Jagadeeswari; C. S. Manikandababu; Kavya S; Prasanna R; Madumitha S All Authors
-    119 Full Text Views Abstract Document Sections I. Introduction II. Related Works
-    III. Existing Work IV. Proposed System V. Experimental Results Show Full Outline
-    Authors Figures References Keywords Metrics Abstract: Agriculture is the main
-    source of income for Indians. It plays an important role in the country''s economy.
-    But today, due to the migration of people from rural to urban areas, agriculture
-    is hindered. Environmental monitoring isn''t a perfect answer for increasing agricultural
-    productivity. A multitude of variables contribute to even lower output. As a result,
-    automation in agriculture must be applied to address these issues. Automated irrigation
-    systems save farmers time, money and energy. Traditional agricultural irrigation
-    techniques require manual intervention. With automatic irrigation technology,
-    human intervention can be minimized Continuous crop sensing and monitoring is
-    accomplished by converging sensors with the Internet of Things (IoT) and periodically
-    informing farmers of crop growth, harvest time, and, increase crop yield and also
-    ensure correct product delivery to consumers. In this project, we proposed a smart
-    agricultural technique using IoT and prediction methodology is done using Artificial
-    Intelligence (AI). The hardware includes many sensors like temperature, humidity,
-    moisture, pH sensor and level sensor. Real time data are collected using sensors
-    from the field and the training data are collected from the publicly available
-    dataset and validation is done using real time dataset based on the condition
-    of soil moisture, environment temperature, humidity and pH The proposed Multi-Layer
-    Perceptron (MLP) algorithm identifies and implements the process to be carried
-    out and predicts what type of crop can be grown in the soil. Published in: 2022
-    4th International Conference on Inventive Research in Computing Applications (ICIRCA)
-    Date of Conference: 21-23 September 2022 Date Added to IEEE Xplore: 29 December
-    2022 ISBN Information: DOI: 10.1109/ICIRCA54612.2022.9985645 Publisher: IEEE Conference
-    Location: Coimbatore, India SECTION I. Introduction India is the 2nd most irrigated
-    country in the world, with one third of the area is used for agriculture purposes.
-    The main important agricultural input is irrigation, in a country like India which
-    has extremely high monsoon climatic conditions, where rainfall is uncertain, unreliable
-    and erratic. India cannot achieve sustained progress in agriculture unless and
-    until quite half the cropped area is brought under assured irrigation. Irrigation
-    of agricultural crops comprises 70% of world water use. The consequences of inadequate
-    irrigation are affecting farmers'' ability to grow the food we all need. Increasingly
-    volatile weather patterns and more extreme events such as floods and droughts
-    can alter growth seasons, limit water supplies, breed weeds, pests and fungi,
-    and reduce crop yields. I have. Erosion reduces the area available for agriculture,
-    and loss of biodiversity affects crop pollination. At the same time, farmers need
-    to save water and use less agricultural input. Smart Agriculture focuses on leveraging
-    knowledge gained through a variety of sources (historical, geographical and instrumental)
-    for farm management. The Intelligent System features the ability to record and
-    output. Smart farming uses hardware and software to collect data and provide useful
-    insights to manage all farm operations. Use parameters like soil moisture, environmental
-    factors like temperature, humidity, etc. sensors, the system will react to any
-    deviation from the optimal operating parameters and thus work to correct them
-    by activating the pump which can then water the plants. When the desired conditions
-    are achieved, the pumps are visited and switched. Decision making regarding crops
-    also depends largely on soil information. The cloud technology helps in predicting
-    what quiet crops are sown next by taking the stored input factors into consideration.
-    SECTION II. Related Works M.Kalimuthu, P. Vaishnavi and M. Kishore (2020) implemented
-    The proposed supervised system mastering the usage of naïve Bayes Gaussian classifier
-    with boosting set of rules is advanced to expect the crop at excessive accuracy.
-    In Naïve Bayes technique the accuracy of the version is 97%. In order to enhance
-    the accuracy boosting technique is used. In boosting technique, the vulnerable
-    rule has to locate and combine those policies to make it stronger. The vulnerable
-    rule has been observed with the aid of using iterative process. The distribution
-    taken with the aid of using base learner and allot identical weight to all observation.
-    If any mistakes befell with the aid of using prediction of 1st Naïve Bayes base
-    set of rules, then greater interest has to pay. Then subsequent Naïve Bayes base
-    set of rules has to apply. Repeat step 2 till it offers better accuracy Thus,
-    the seed is anticipated as an output for the given input parameter. This painting
-    might also additionally substantially assist the needy farmers who''ve much less
-    information in predicting the plants for growing a sustainable destiny. In destiny,
-    it could also increase to signify the fertilizer, appropriate pointers for cropland,
-    and plants for the given input. In addition, the source of daylight and crop fitness
-    are monitored at regular durations and it''s also taken into the account for achieving
-    a higher crop yield. Rithesh Kumar et.al., (2021) proposed Controlling tools and
-    equipment with minimal time in data processing is critical in agricultural applications
-    such as greenhouse monitoring. A second layer of fog computing provides on-farm
-    data storage, security, and processing for speedier responses, such as smart irrigation
-    and alarm systems. The farm''s big data sets necessitate ongoing study, and Big
-    Data provides an analytical framework for identifying critical information for
-    forecas t and application management. Sensor nodes are the heart of the sensing
-    platform and are generally power-limited. Sensor nodes might have longer battery
-    life and assist the grid by harvesting energy from ambient sources such as the
-    sun, wind, and precipitation. Jing Zhang et.al., (2021) proposed Apart from precision
-    agriculture, automation and AI applications, drones, lo T, robots, and big data
-    are projected to play a major role in a variety of agricultural industries. The
-    application of high-performance data-driven scalable learning methods improves
-    real-time decision making and automates numerous agricultural operations, thereby
-    changing traditional farm management into artificial intelligence systems. The
-    domains of machine learning and sophisticated data mining are combining with readily
-    available data sets and strategic frameworks to solve the difficulties of agricultural
-    production sustainability, efficiency, and sustainability. climate change, and
-    food security are all issues that need to be addressed. SECTION III. Existing
-    Work The Internet of underground Things (IoT) has recently emerged the idea. Monitoring
-    soil characteristics and weather conditions is important for plant growth. Like
-    IoT, stands for Wireless internet sensors and to found underground monitor soil
-    conditions such as moisture of the soil, nutrients content in the soil, acidity
-    of the soil, pH level and electrical conductivity. The protection of important
-    electrical equipment in wireless sensor nodes are challenging issues for IoT technology.
-    Single-hop wireless UG sensor network has evolved into this IOUT technique. Plant
-    Monitor is enabled with exceptional aerial imagery detected by thermal, multi-band,
-    multi-spectral, light-detection and multi-focal ultra-precise (LIDAR) drones.
-    This permits farmers to identify condition of the crop in field and plant diseases
-    over better use of visual data statistics and precise location data using GPS
-    dimensions. The use of drones in modern SAS uses thermal imaging, LIDAR, super-and
-    multi-lens technology combined with advanced image processing software to process
-    a wide variety of agricultural news. LIDAR technology is used to determine the
-    predictability of the expected yield and problem areas of the crop. Since then,
-    LIDAR has remained the most expensive technology, being able to obtain its 4,444
-    homogenization parameters similar to the standard variation of culture index (NDVI)
-    and water pressure index (CWSI). from aerial photographs obtained with super and
-    multi-lens cameras Plant diseases, water stress, malnutrition, and insect infestation
-    may all be predicted with the use of NDVI and CWSI factors. The neural network
-    algorithm is a more advanced version of the machine learning algorithm, which
-    is a training programme that employs structured data regarding sensor values and
-    irrigation requirements. Setting system weights to perform output and total predicted
-    input sensor readings is required during training. The activation function is
-    employed in the system to develop a nonlinear model in order to prevent discovering
-    inaccurate output values and to cope with scenarios that are not covered by the
-    transmission line response alone. The test phase will use these mild loads to
-    determine the system''s weights, which are set in the training phase. Quantity
-    is required for installation depending on high irrigation demands. To get good
-    results, these algorithms need a lot of training data. Particularly as the number
-    of layers in the neural network grows, as does the complexity of the learning,
-    which often necessitates the usage of expensive GPUs. They just created a tool
-    that uploads RGB photos to a pre-trained, forwarded artificial neural network
-    (ANN) network system to determine soil correctness. Figure 3.1 ANN network system
-    Show All SECTION IV. Proposed System The proposed system includes technology IoT
-    and AI. Using the IoT generation we can detect whether the crop has sufficient
-    water and allows for controlling the irrigation machine for the crop with the
-    usage of the Ph, temperature, and level sensors. Here we''ve got the irrigation
-    machine of the crop running in three modes specifically manual, IoT, and sensor
-    modes. In the guide mode, you may operate and control the drift of the water within
-    the pump manually using the switch. In sensor mode, the water robotically begins
-    flowing to the vegetation by the use of the temperature and Ph sensor. While the
-    Ph value is less than 50 and the temperature is greater than 40 the water starts
-    flowing into the field. In the IoT mode, an app is designed in this kind of way
-    that someone can manage and modify the flow of water through a web server. Figure
-    4.1 Block diagram of crop advisory system Show All The collected input parameters
-    are then stored in a server using the cloud technology. The input parameters are
-    then taken into account and the neural network algorithm is performed where the
-    system automatically suggest the type of crop that can be grown in the field.
-    The fig 4.1 is the block diagram for the project. The input parameters from the
-    sensors are given to the microcontroller and then the instruction to on or off
-    is passed in either of the three modes mentioned above accordingly the valve is
-    opened or closed. The inputs are then stored in the cloud through an wi-fi module
-    and then displayed using a LCD display. The same is then used for performing the
-    algorithm in order to predict the type of crop for the suitable environment. The
-    MLP neural network algorithm is performed where the dataset is collected. The
-    outcome of this project can be viewed on the web server. The web server is password
-    protected and one can create their personal login page by means of the signup
-    option. As soon as we login to the web site the house web page presents the statistics
-    like temperature, and the manage button to on and off the pump. One can also view
-    the recorded history of the temperature, humidity, moisture, water stage and pH
-    content along with the date and time. The graphic tablet in the web page shows
-    the crops to be grown. One has to give the login credentials in order to access
-    their webpage. The homepage consists of information like number of login time,
-    weather conditions and so on. The user can monitor the temperature, moisture content
-    (pH value), humidity and can view the suggested crops in the webpage. The webpage
-    also stores the input values recorded each time by the sensors. In addition to
-    that the irrigation is controlled by the webpage. SECTION V. Experimental Results
-    In this proposed system ATMEGA328 is connected to an LCD display in which the
-    output can be viewed. The program for MLP Neural Network algorithm was stimulated
-    using the MATLAB as shown in Figure 6.2. Figure 6.1 Experimental hardware setup
-    Show All The Hardware setup in the field is shown in Figure 6.1 and it represents
-    the interfacing of sensors with the controller connected to various relays and
-    a pump. Figure 6.2 PH and moisture measured in field Show All Figure 6.3 Water
-    level monitoring Show All The above two figures (Figure 6.2 and Figure 6.3) represent
-    the hardware setup of the project in which the level sensor is placed inside the
-    sample water taken to measure the water level and the pH and moisture sensor is
-    placed in the soil in order to measure the pH value and moisture content of the
-    soil respectively. Figure 6.4 LCD display of IOT Show All 1M in the figure 6.4
-    represents that the setup works in IoT Mode which can be controlled using the
-    web server for performing the on and off operation of the pump. Figure 6.5 LCD
-    display of manual mode Show All MM in the figure 6.5 represents the Manual Mode
-    which operates manually for switching on and off. The above modes can be changed
-    using a keypad button connected to the controller A Tmega328. The dataset for
-    the project has been trained over a month in a sample field. Training set: data
-    registered from April and May 2022 by the stations area 1 and area 2 Training
-    mode: 10-fold cross validation using five combinations of the attributes r_inc,
-    latitude, longitude, temperature, humidity, and rainfall; performed with data
-    separate stations and after both Result: prediction error percentage is the average
-    of each cycle for attribute. Training mode (2): full data from April and May 5,
-    2022, all six attributes, two stations. Result (2): Percentage of prediction error
-    for the future value of attribute r_inc on May 15, 2022. The Figure 6.6 and Figure
-    6.7 represents the dataset used as the training model which was taken from the
-    publicly available resources. *reffered from data.gov.in Figure 6.6 Trained dataset
-    Show All * dataset reffered from kaggle Figure 6.7 Dataset for crop suggestion
-    Show All Figure 6.8 Representation of PH Show All Figure 6.9 Representation of
-    temperature Show All Figure 6.10 Representation of humidity Show All The pH value
-    of the soil is monitored and then viewed in a graphical form as represented in
-    Figure 6.8. The Figure 6.9 represents the variations in temperature taken from
-    the hardware components placed in the field (real time data). Figure 6.10 represents
-    the variation in humidity. These variations are taken for calculating the average
-    temperature, humidity and pH for the crop cycle prediction which plotted in particular
-    month of May 2022. Figure 6.11 Training and validation loss Show All Figure 6.12
-    Training and validation accuracy Show All Figure 6.13 Training and validation
-    ratio Show All The Figure 6.12 represents the graph for the accuracy of the training
-    and the validation dataset given. From Figure 6.13 it can be concluded that the
-    highest accuracy obtained for the training and the validation dataset was 98.21
-    and 87.14 (in percentage) respectively for the training and the validation ratio
-    9:1. Figure 6.11 represents the graphical form of comparison for the training
-    and validation loss for the given input dataset. The training and validation loss
-    obtained for the higher accuracy is 4.72 and 8.20 respectively. Figure 6.14 Web
-    server for operating IOT mode Show All The Figure 6.14 illustrates the home page
-    of the web server. The dashboard consists of the information like current environmental
-    temperature, number of login times, control of the valve and pumps to perform
-    on and off. Figure 6.15 Suggesting crops in web server Show All The Figure 6.15
-    represents the graphic tablet in the web server which was achieved using the AI
-    technology (MLP Neural network algorithm is used). This webserver monitors the
-    temperature, humidity, moisture, water level and PH value and suggests the crops
-    to be grown from the values taken. SECTION VI. Summary This chapter deals with
-    the experimental results of the working prototype model. The project deals with
-    both hardware (IoT) and software (AI) technology. The hardware includes the microcontroller
-    connected with various sensors. The values are measured and later used for the
-    irrigation system and for the creation of real time dataset (validation dataset).
-    The MLP Neural Network algorithm is performed on the validation dataset. The accuracy
-    and losses were calculated. The accuracy obtained for the training and validation
-    ratio 9:1 is 98.21 and 97.14. The training loss and validation loss for the ratio
-    9:1 is 4.72 and 8.20. The accuracy obtained for the training and validation ratio
-    8:2 is 93.35 and 82.02. The training loss and validation loss for the ratio 8:2
-    is 5.12 and 10.45. The accuracy obtained for the training and validation ratio
-    7:3 is 85.34 and 88.42. The training loss and validation loss for the ratio 7:3
-    is 5.78 and 16.12. The accuracy obtained for the training and validation ratio
-    2:8 is 47.47 and 87.52. The training loss and validation loss for the ratio 2:8
-    is 6.21 and 20.66. The higher accuracy is obtained for the ratio 9:1. Finally,
-    the results are then viewed in the web server. Authors Figures References Keywords
-    Metrics More Like This Real Time System for Measuring the Pantograph Vertically
-    Position Correlated with Temperature and Air Humidity 2018 3rd International Conference
-    on Smart and Sustainable Technologies (SpliTech) Published: 2018 Detecting of
-    water shortage information in crops with acoustic emission technology and automatic
-    irrigation system 2008 Symposium on Piezoelectricity, Acoustic Waves, and Device
-    Applications Published: 2008 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
-    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
-    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
-    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
-    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
-    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
-    organization, IEEE is the world''s largest technical professional organization
-    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
-    IEEE - All rights reserved."'
-  inline_citation: '>'
-  journal: 4th International Conference on Inventive Research in Computing Applications,
-    ICIRCA 2022 - Proceedings
-  limitations: 'The paper''s scope is primarily centered around the design and implementation
-    of AI-based crop recommendation systems within the context of smart agriculture
-    using IoT, with a focus on data collection and preprocessing techniques.
-
-
-    Consequently, its coverage of the specific topic of data types and their sources
-    in irrigation management is limited, and it does not provide a comprehensive analysis
-    of this aspect.'
-  relevance_score: 0.65
-  relevance_score1: 0.65
-  relevance_score2: 0
-  title: Artificial Intelligence based Crop Recommendation System
-  verbatim_quote1: null
-  verbatim_quote2: null
-  verbatim_quote3: null
-- analysis: 'This paper proposes a cognitive irrigation system based on the Boltuino
-    platform that utilizes various sensors to monitor soil moisture, temperature,
-    humidity, rain, and water level. The system aims to optimize water conservation
-    and enhance agricultural productivity by automating irrigation based on real-time
-    data collected from the sensors. The paper aligns well with the review''s intention
-    of evaluating types of data and sources relevant to irrigation management. It
-    provides insights into the specific data types collected by the proposed system
-    and their significance in irrigation management.
-
-
-    **Relevance Score**: 0.8
-
-
-    **Limitations**: While the paper provides a comprehensive overview of the proposed
-    irrigation system and its data collection capabilities, it lacks a detailed analysis
-    of the data transmission and processing aspects. Additionally, the paper does
-    not discuss the scalability and reliability of the system, which are important
-    considerations for real-time irrigation management.'
+    Overall, the paper offers relevant and valuable information on the types of data
+    and sensors used in irrigation management. It provides practical insights into
+    the implementation of an IoT-based irrigation system with weather adaptability,
+    making it a highly relevant contribution to the broader context of automated irrigation
+    management systems.'
   authors:
   - Mondal A.
   - Dutta P.
@@ -1595,7 +524,9 @@
     is realised by means of an indoor farming setup. The collected data indicates
     significant water savings.
   doi: 10.1109/ICISS55894.2022.9915196
-  full_citation: '>'
+  full_citation: Mondal, A., & Dutta, P. (2022). Boltuino platform based cognitive
+    irrigation system with weather adaptability for efficient water use. 2022 International
+    Conference on ICT for Smart Society (ICISS). https://doi.org/10.1109/ICISS55894.2022.9915196
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -1865,50 +796,47 @@
     A not-for-profit organization, IEEE is the world''s largest technical professional
     organization dedicated to advancing technology for the benefit of humanity. ©
     Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: (Mondal & Dutta, 2022)
   journal: '9th International Conference on ICT for Smart Society: Recover Together,
     Recover Stronger and Smarter Smartization, Governance and Collaboration, ICISS
     2022 - Proceeding'
-  limitations: '* Lack of detailed analysis on data transmission and processing aspects.
-
-    * No discussion on scalability and reliability of the system.'
+  limitations: The paper lacks a detailed discussion of data analysis and interpretation,
+    which could enhance the overall value of the research. Additionally, it does not
+    address any potential limitations or uncertainties associated with the data collection
+    or system performance, which could be addressed in future work.
   relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Boltuino Platform Based Cognitive Irrigation System with Weather Adaptability
     for Efficient Water Use
-  verbatim_quote1: The proposed system is having the capability of monitoring agricultural
-    parameter. Where the user can easily monitor different farming data of the agricultural
-    land through the help of internet. The sensor in the system provides accurate
-    information to the smartphone, computer, and various internet connecting devices
-    based on crop needs.
-  verbatim_quote2: The proposed model will increase agriculture productivity due to
-    the use of a cognitive irrigation process.
-  verbatim_quote3: This system provides a real- time monitoring setup that helps the
-    farmer to monitor various agricultural parameters 24/7 with the help of sensors
-    and takes necessary action according to the environment which lowers the labor
-    cost and effective use of water for irrigation by hassle-free operation.
-- analysis: 'The paper introduces an automated irrigation system that utilizes IoT
-    and machine learning to optimize water usage in agriculture. The system collects
-    data from various sensors, including soil moisture, temperature, and humidity,
-    to determine the appropriate time for irrigation. The data is processed using
-    machine learning algorithms, which predict irrigation requirements based on historical
-    data and current environmental conditions.
+  verbatim_quote1: The proposed model will increase agriculture productivity due to
+    the use of a cognitive irrigation process. This system provides a real- time monitoring
+    setup that helps the farmer to monitor various agricultural parameters 24/7 with
+    the help of sensors and takes necessary action according to the environment which
+    lowers the labor cost and effective use of water for irrigation by hassle-free
+    operation.
+  verbatim_quote2: Here all the data are collected from an indoor farming arrangement
+    through multiple sensors. The sensor provides details of soil moisture, light,
+    humidity, rain, and temperature. Through this proposed framework, farmers might
+    become more aware of current technological advances and perhaps the most straightforward
+    method of agricultural production.
+  verbatim_quote3: null
+- analysis: 'This paper presents an automated irrigation system that incorporates
+    IoT and machine learning to improve irrigation efficiency and crop productivity.
+    While the paper does not directly address the specific point of data types applicable
+    to irrigation management, it provides valuable information on the use of sensors
+    for data collection, which is an integral part of irrigation management. The paper
+    discusses the use of various sensors, including soil moisture sensors and temperature
+    and humidity sensors, to gather real-time data on field conditions. This data
+    is then processed and analyzed using machine learning algorithms to make informed
+    decisions about irrigation scheduling.
 
 
-    **Relevance to Outline Point**: The paper is directly relevant to the outline
-    point on types of data most applicable to irrigation management and their typical
-    sources. The paper highlights the importance of soil moisture data for irrigation
-    management and discusses the use of sensors to collect this data.
-
-
-    **Relevance Score**: 0.7
-
-
-    **Limitations**: The paper does not provide a comprehensive overview of all types
-    of data applicable to irrigation management and their sources. It primarily focuses
-    on soil moisture data and does not discuss other relevant data types such as weather
-    data or crop growth data.'
+    Overall, this paper provides a strong foundation for understanding the role of
+    data collection and analysis in automated irrigation management. While it does
+    not explicitly discuss the types of data most applicable to irrigation management,
+    it does provide insights into the use of sensors and machine learning for data
+    collection and processing, which are essential aspects of irrigation management.'
   authors:
   - Gujar K.A.
   - Jagtap S.
@@ -1929,7 +857,10 @@
     of Thing) helps to implement Wireless Sensor Network and Machine Learning can
     manage optimum water utilization for precious farming by analyzing available data.
   doi: 10.1109/ICACITE53722.2022.9823522
-  full_citation: '>'
+  full_citation: Gujar, K. A., & Jagtap, S. (2022). Intelligent Irrigation System
+    for Agriculture using IoT and Machine Learning. 2022 2nd International Conference
+    on Advance Computing and Innovative Technologies in Engineering (ICACITE), 1–5.
+    https://doi.org/10.1109/ICACITE53722.2022.9823522
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -2169,52 +1100,58 @@
     IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
     technical professional organization dedicated to advancing technology for the
     benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: (Gujar & Jagtap, 2022)
   journal: 2022 2nd International Conference on Advance Computing and Innovative Technologies
     in Engineering, ICACITE 2022
-  limitations: The paper does not provide a comprehensive overview of all types of
-    data applicable to irrigation management and their sources. It primarily focuses
-    on soil moisture data and does not discuss other relevant data types such as weather
-    data or crop growth data.
+  limitations: The paper does not directly address the specific point of data types
+    applicable to irrigation management, limiting its relevance to the review point.
   relevance_score: 0.7
-  relevance_score1: 0.7
+  relevance_score1: 0
   relevance_score2: 0
   title: Intelligent Irrigation System for Agriculture using IoT and Machine Learning
   verbatim_quote1: null
   verbatim_quote2: null
-  verbatim_quote3: null
-- analysis: "This paper proposes a DSS that has a smart irrigation system with smart\
-    \ control and smart decision-making based on data from sensors, past patterns,\
-    \ and climate trends. The system comprises three basic units including an intelligent\
-    \ sensor module, smart irrigation system, and controlled fertilizer module. \n\
-    The intelligent sensor module contains five sensors: temperature and humidity,\
-    \ NPK, soil moisture, soil conductivity, and pH. A LoRa communication method is\
-    \ used to send the data collected by these sensors to the cloud over the internet\
-    \ using the Serial Peripheral Interface (SPI) communication protocol. \nThe data\
-    \ is received by a receiver node, then processed by a decision algorithm to make\
-    \ recommendations for irrigation, fertilization and other crop management practices.\
-    \ These recommendations are sent to the user's smartphone or tablet using an Android\
-    \ application. \nThe authors claim that the proposed system will help farmers\
-    \ to increase crop yields and reduce costs, which will lead to achieving inclusive\
-    \ and sustainable economic goals. \nThey also compare the proposed system to existing\
-    \ systems and find that it is better because it has further transmission range,\
-    \ is open-source, and uses more sensors.\nThe reviewer rates this paper's relevance\
-    \ to the point of types of data most applicable to irrigation management and their\
-    \ typical sources as 7 out of 10, as it provides an overview of what types of\
-    \ data are collected and how they can be used to make irrigation decisions in\
-    \ a smart agriculture system.\nThe reviewer rates the paper's insightfulness as\
-    \ 8 out of 10, as it provides a novel approach to irrigation management that uses\
-    \ a combination of sensors, data processing, and decision-making algorithms to\
-    \ optimize irrigation schedules.\nThe reviewer rates the paper's credibility as\
-    \ 8 out of 10, as it is based on sound research and provides evidence to support\
-    \ its claims.\nThe reviewer rates the paper's scope as 7 out of 10, as it covers\
-    \ a wide range of topics related to irrigation management, including data collection,\
-    \ data processing, decision-making, and system implementation.\nThe reviewer rates\
-    \ the paper's recency as 8 out of 10, as it was published in 2022 and is based\
-    \ on the latest research in the field.\nThe reviewer notes that there are no major\
-    \ limitations to the paper, but suggests that future research could focus on developing\
-    \ more sophisticated decision-making algorithms and testing the system in a variety\
-    \ of field conditions."
+  verbatim_quote3: '>'
+- analysis: 'The paper presents a smart agriculture system based on a LoRaWAN network
+    and an Android application for monitoring and managing crop parameters. The system
+    utilizes various sensors to collect data on temperature, humidity, soil moisture,
+    NPK levels, soil conductivity, and air quality, which is transmitted to the cloud
+    via LoRa. An Android application is used to display real-time data, provide notifications,
+    and control irrigation and fertilizer application. The system also employs a decision
+    support system (DSS) to analyze data and provide recommendations for optimal crop
+    yield.
+
+
+    The paper is relevant to the point of discussing types of data most applicable
+    to irrigation management and their typical sources, as it demonstrates the use
+    of various sensors to collect data on crop parameters relevant to irrigation management.
+    The data is used to monitor crop health, make decisions on irrigation scheduling,
+    and provide recommendations for fertilizer application.
+
+
+    The paper provides valuable information on the specific types of data that are
+    important for irrigation management, such as soil moisture, temperature, and NPK
+    levels. It also discusses the use of sensors for collecting this data, which is
+    a crucial aspect of irrigation management. The paper provides a comprehensive
+    overview of the data collection process and the use of a DSS for making decisions
+    on irrigation scheduling and fertilizer application.
+
+
+    The paper has some limitations, such as the lack of a detailed evaluation of the
+    system''s accuracy and reliability. The paper also does not discuss the cost and
+    scalability of the system, which are important factors for its practical implementation.
+    Additionally, the paper does not provide any information on the security measures
+    implemented to protect the data collected by the system, which is a concern for
+    any IoT system.
+
+
+    Overall, the paper provides a valuable contribution to the field of smart agriculture
+    by demonstrating the use of a LoRaWAN network and an Android application for monitoring
+    and managing crop parameters. The paper highlights the importance of data collection
+    and analysis for irrigation management and provides a comprehensive overview of
+    the system''s architecture and functionality. However, the paper could be improved
+    by providing more details on the system''s accuracy, reliability, cost, scalability,
+    and security.'
   authors:
   - Arshad J.
   - Aziz M.
@@ -2252,7 +1189,9 @@
     up to several kilometres. The sensor nodes helped in advancing the yield of crops,
     which resulted in achieving inclusive and sustainable economic goals.
   doi: 10.3390/su14020827
-  full_citation: '>'
+  full_citation: Arshad, J.; Aziz, M.; Al-Huqail, A.A.; Zaman, M.H.u.; Husnain, M.;
+    Rehman, A.U.; Shafiq, M. Implementation of a LoRaWAN Based Smart Agriculture Decision
+    Support System for Optimum Crop Yield. Sustainability 2022, 14, 827. https://doi.org/10.3390/su14020827
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -2941,33 +1880,34 @@
     Twitter Subscribe to receive issue release notifications and newsletters from
     MDPI journals Select options Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless
     otherwise stated Disclaimer Terms and Conditions Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: null
   journal: Sustainability (Switzerland)
-  limitations: None noted.
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  limitations: The paper lacks a detailed evaluation of the system's accuracy and
+    reliability. The paper also does not discuss the cost and scalability of the system.Additionally,
+    the paper does not provide any information on the security measures implemented
+    to protect the data collected by the system.
+  relevance_score: 0.7
+  relevance_score1: 0
   relevance_score2: 0
   title: Implementation of a LoRaWAN Based Smart Agriculture Decision Support System
     for Optimum Crop Yield
-  verbatim_quote1: A majority of the population of developing countries is associated
+  verbatim_quote1: '"A majority of the population of developing countries is associated
     with agriculture directly or indirectly. The liaison of engineering technology
     and Sustainable Development Goals (SDGs) can build a bridge for farmers to enhance
-    their skills regarding advancements through future generation agriculture trends.
-  verbatim_quote2: The next-generation trends include better soil preparation, intelligent
-    irrigation systems, advanced methods of crop nutrient inspection, smart fertilizers
-    applications, and multi-cropping practices.
-  verbatim_quote3: This work proposes a smart Decision Support System (DSS) that acquires
-    the input parameters based on real-time monitoring to optimize the yield that
-    realizes sustainability by improving per hectare production and lessening water
-    seepage wastage in agribusiness.
-- analysis: The paper touches on the topic of data types most relevant to irrigation
-    management and their typical sources. However, it mostly focuses on the development
-    and deployment of an integrated smart agriculture system that incorporates IoT,
-    cloud computing, and renewable energy to optimize water and energy usage, enhance
-    crop yield, and promote sustainable agriculture practices. While the paper provides
-    valuable insights into the design and implementation of such a system, it does
-    not delve deeply into the specific types of data most applicable to irrigation
-    management or their typical sources.
+    their skills regarding advancements through future generation agriculture trends."'
+  verbatim_quote2: '"This work proposes a smart Decision Support System (DSS) that
+    acquires the input parameters based on real-time monitoring to optimize the yield
+    that realizes sustainability by improving per hectare production and lessening
+    water seepage wastage in agribusiness."'
+  verbatim_quote3: '>'
+- analysis: This paper proposes an integral smart agriculture solution that emphasizes
+    cost-effectiveness, water consumption optimization, and the integration of renewable
+    energy sources. The system leverages IoT devices for data acquisition and control,
+    cloud computing for data processing, storage, and visualization, and fuzzy logic
+    to optimize irrigation schedules. According to the abstract, this approach leads
+    to significant savings in water and energy consumption (up to 71.8%) compared
+    to traditional irrigation methods while providing optimal conditions for plant
+    growth and crop yield.
   authors:
   - Bouali E.T.
   - Abid M.R.
@@ -2997,7 +1937,7 @@
     to promote the setting of a dedicated Cloud-based platform for water-table usage,
     especially in arid and sub-Saharan countries.'
   doi: 10.1109/ACCESS.2021.3138160
-  full_citation: '>'
+  full_citation: Renewable Energy Integration into Cloud IoT-Based Smart Agriculture.
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -3564,33 +2504,49 @@
     organization, IEEE is the world''s largest technical professional organization
     dedicated to advancing technology for the benefit of humanity. © Copyright 2024
     IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: null
   journal: IEEE Access
-  limitations: []
-  relevance_score: 0.6
-  relevance_score1: 0.6
+  limitations: null
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Renewable Energy Integration into Cloud IoT-Based Smart Agriculture
-  verbatim_quote1: null
-  verbatim_quote2: null
-  verbatim_quote3: null
-- analysis: 'The paper presents the implementation of a low-cost and open-source weather
-    station named LOCOS (Low-Cost Open Source weather station) designed to provide
-    on-farm, real-time weather monitoring. The paper evaluates the robustness and
-    reliability of LOCOS in two case study experiments. In the first case study, four
-    LOCOS units were deployed in a vineyard, and the collected weather data was used
-    to inform targeted disease management and cost-effective spray schedules. The
-    second case study involved comparing the evaporative demand of two fields equipped
-    with different center-pivot irrigation systems. The data obtained from LOCOS in
-    both case studies showed variations in weather conditions across spatial and temporal
-    scales, demonstrating LOCOS'' ability to capture site-specific weather phenomena.
-    The paper also includes a calibration procedure to ensure the accuracy of the
-    weather data collected by LOCOS.
+  verbatim_quote1: In this paper, we present an integral SA solution that leverages
+    cost-effectiveness. Commercial solutions are costly and thus become impossible
+    to adopt by small and medium farmers.
+  verbatim_quote2: 'Our solution revolves around three main axes: 1. Smart Water Metering
+    promotes optimal usage and conservation of water-table (a.k.a., groundwater) via
+    real-time data collection and monitoring using a Cloud-based IoT (Internet of
+    Things) system; 2. Renewable-Energy integration promotes energy-efficient agriculture
+    by reducing reliance on fossil fuels in water-table pumping, and 3. Smart Irrigation
+    to promote good crops quality and quantity without harming the soil and the water-table
+    ecosystems.'
+  verbatim_quote3: Our solution has been deployed and tested in a real-world Smart
+    Farm testbed. The results have shown that the adoption of our SA system reduces
+    the amount of water consumption (with a traditional irrigation system) up to 71.8%.
+- analysis: 'The paper proposes a low-cost and open-source weather station platform
+    (LOCOS) designed to inform farm management decisions, particularly for disease
+    management and irrigation efficiency in commercial agriculture operations.
 
 
-    In summary, the paper highlights the benefits of using LOCOS for on-farm weather
-    monitoring and decision support, and provides a methodology for calibrating the
-    sensors to ensure data accuracy.'
+    The authors deployed LOCOS in two field experiments to demonstrate its utility.
+    In a vineyard study, LOCOS data revealed significant spatial variability in microclimates,
+    which could inform targeted disease management and reduce unnecessary spraying.
+    In an irrigation study, LOCOS data helped quantify differences in evaporative
+    demand between two irrigation systems, providing insights for improving water-use
+    efficiency.
+
+
+    The sensors used in LOCOS showed robust performance in calibration, and the system
+    operates with good reliability. However, the authors identify areas for improvement,
+    such as enhancing data collection reliability, power system resilience, and user-friendliness.
+    They emphasize the importance of addressing these challenges to increase the accessibility
+    and adoption of LOCOS or similar systems in on-farm decision-making.
+
+
+    The authors conclude that the LOCOS system provides a promising approach for site-specific
+    environmental monitoring and data collection, enabling farmers to make more informed
+    decisions, optimize resource allocation, and improve agricultural sustainability.'
   authors:
   - McCauley D.M.
   - Nackley L.L.
@@ -3618,7 +2574,8 @@
     This information supports efficient and sustainable crop production, and helps
     minimize consumption of available resources.
   doi: 10.1016/j.compag.2021.106284
-  full_citation: '>'
+  full_citation: Demonstration of a low-cost and open-source platform for on-farm
+    monitoring and decision support
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -4276,42 +3233,412 @@
     its licensors, and contributors. All rights are reserved, including those for
     text and data mining, AI training, and similar technologies. For all open access
     content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: McCauley et al., 2021
   journal: Computers and Electronics in Agriculture
-  limitations: The paper does not provide a comprehensive analysis of the data collected
-    by LOCOS. In particular, it does not evaluate the impact of the weather data collected
-    by LOCOS on the decision-making process of farmers and the resulting economic
-    and environmental outcomes.
+  limitations: null
   relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Demonstration of a low-cost and open-source platform for on-farm monitoring
     and decision support
+  verbatim_quote1: Data from four LOCOS in an Idaho vineyard showed that microclimates
+    varied significantly across spatial scales that are relevant to disease management.
+  verbatim_quote2: In a second field experiment, data from multiple LOCOS showed significant
+    differences in evaporative demand between two fields equipped with different center-pivot
+    irrigation systems.
+  verbatim_quote3: '>'
+- analysis: This paper outlines a prediction model for bok choy growth using data
+    collected from an integrated smart farm system. While it does not directly address
+    the specific point on types of data most applicable to irrigation management,
+    it provides some relevant information on data collection from smart farm systems,
+    which can indirectly relate to irrigation management. However, the paper's focus
+    is primarily on the model's development and performance evaluation rather than
+    specific data types.
+  authors:
+  - Susilo A.S.
+  - Karna N.
+  - Mayasari R.
+  citation_count: '3'
+  description: Indonesia is an agricultural country that has a dependency on the horticulture
+    sub-sector. Bok choy is included in the mustard greens group as one of the strategic
+    products from the horticulture. The needs for mustard greens are getting higher.
+    Based on Indonesia’s Central Statistics Agency data in 2019, the mustard beans
+    production rate increased only 2.63% higher than in 2018. If it does not meet
+    the desired supply, it opens the possibility of a lack of bok choy supply at the
+    market, resulting in high potential price fluctuations. These conditions initiate
+    relevant system research to help the farmer develop a bok choy crop reference
+    guide, especially in the seeding phase. In reducing the limitations caused by
+    the lack of science and knowledge in the farmer environment, the prediction model
+    is the proposed outcome by considering the use of IoT mechanism that has widely
+    developed. The model is based on a system that integrates IoT’s interest in the
+    agriculture field, namely smart farm, for retrieving real-time data based on automatic
+    control, MySQL database for storing data, and machine learning technique to establish
+    the prediction model as the guide for the farmers to find appropriate parameters
+    for planting bok choy. The prediction model performs using Python, a high-level
+    popular programming language due to its ease and open source. Python interprets
+    the bok choy growth dataset based on the irrigation system scenario from the integrated
+    system with the relevant library of data preprocessing interest and the Decision
+    Tree algorithm of the Scikit-learn library to train the model. The system conducts
+    a series of machine learning phases to take the insight analysis needed to create
+    a prediction model. The model performance metrics as the consideration in deciding
+    the outcome model, which are accuracy and precision.
+  doi: 10.1109/ICOIACT53268.2021.9563914
+  full_citation: Aldi Sulthony Susilo, Nyoman Karna, Ratna Mayasari. (2021). Decision
+    Tree-Based Bok Choy Growth Prediction Model for Smart Farm. 2021 4th International
+    Conference on Information and Communications Technology (ICOIACT) [https://doi.org/10.1109/ICOIACT53268.2021.9563914](https://doi.org/10.1109/ICOIACT53268.2021.9563914)
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2021 4th International Confer... Decision
+    Tree-Based Bok Choy Growth Prediction Model for Smart Farm Publisher: IEEE Cite
+    This PDF Aldi Sulthony Susilo; Nyoman Karna; Ratna Mayasari All Authors 3 Cites
+    in Papers 211 Full Text Views Abstract Document Sections I. Introduction II. Literature
+    Review III. Bok Choy Growth Prediction Model IV. The Evaluation of Classification
+    Performance Metrics V. Prediction Model Testing Authors Figures References Citations
+    Keywords Metrics Abstract: Indonesia is an agricultural country that has a dependency
+    on the horticulture sub-sector. Bok choy is included in the mustard greens group
+    as one of the strategic products from the horticulture. The needs for mustard
+    greens are getting higher. Based on Indonesia''s Central Statistics Agency data
+    in 2019, the mustard beans production rate increased only 2.63% higher than in
+    2018. If it does not meet the desired supply, it opens the possibility of a lack
+    of bok choy supply at the market, resulting in high potential price fluctuations.
+    These conditions initiate relevant system research to help the farmer develop
+    a bok choy crop reference guide, especially in the seeding phase. In reducing
+    the limitations caused by the lack of science and knowledge in the farmer environment,
+    the prediction model is the proposed outcome by considering the use of IoT mechanism
+    that has widely developed. The model is based on a system that integrates IoT''s
+    interest in the agriculture field, namely smart farm, for retrieving real-time
+    data based on automatic control, MySQL database for storing data, and machine
+    learning technique to establish the prediction model as the guide for the farmers
+    to find appropriate parameters for planting bok choy. The prediction model performs
+    using Python, a high-level popular programming language due to its ease and open
+    source. Python interprets the bok choy growth dataset based on the irrigation
+    system scenario from the integrated system with the relevant library of data preprocessing
+    interest and the Decision Tree algorithm of the Scikit-learn library to train
+    the model. The system conducts a series of machine learning phases to take the
+    insight analysis needed to create a prediction model. The model performance metrics
+    as the consideration in deciding the outcome model, which are accuracy and precision.
+    Published in: 2021 4th International Conference on Information and Communications
+    Technology (ICOIACT) Date of Conference: 30-31 August 2021 Date Added to IEEE
+    Xplore: 20 October 2021 ISBN Information: DOI: 10.1109/ICOIACT53268.2021.9563914
+    Publisher: IEEE Conference Location: Yogyakarta, Indonesia SECTION I. Introduction
+    Indonesia is a developing country with a broad population segment that depends
+    on their life in agriculture. The horticulture sector produces vegetable products,
+    fruit plants, ornamental plants, and medicinal plants that can be traded. Based
+    on data obtained from the Central Statics Agency in 2018, the number of farmers
+    was around 33.1 million, and there were 10.1 million horticultural farmers [1].
+    As a result of this population, agricultural was still one of the Indonesian economy
+    pilars by contributing 14% of the GDP [2]. Besides helping the national income,
+    the horticultural sector contributed to its export activities and food needs.
+    Again, the farmers received the annual revenues sufficient for their lives. The
+    other parties were involving as the supporting system in food supply distribution
+    applied before being consumed by the communities. One of the leading agricultural
+    commodities in Indonesia is bok choy. This plant is required as a supplementary
+    food material in the household and industrial environment. Bok choy is considering
+    as one of the plants classify in the mustard greens group. Along with the high
+    demand resulting in potential supply and price fluctuations, the mustard greens
+    production rate only increased by 2.63 % in 2019 over 2018 in the Central Statistics
+    Agency of Indonesia data [3]. The public information also reinforced the Ministry
+    of Agriculture data to state that there had been a fluctuation rate in the population
+    of West Java province food consumption by day and year from 2013–2018 [4]. The
+    fluctuation was caused by several factors, including weather sensitivity, limited
+    resources (producers, planting knowledge, infrastructure, and land availability),
+    the influence of fertilizer, and climate change. In maintaining the stability
+    of bok choy commodity prices, an adequate supply of the finest quality of bok
+    choy is needed. The specific observed parameter to analyze is the soil moisture
+    as the growth-related factor to plant the bok choy. The production growth rate
+    of the bok choy as one of the plants classified in mustard greens is still slightly
+    increased. It may lead to a lack of supply if it is not comparable with the market''s
+    availability. One of the issues is caused by the lack of fully-compiled science
+    and knowledge. It is difficult for farmers to determine superior seed that impacts
+    the quality and quantity of the bok choy. However, market demand for bok choy
+    is still outstanding and necessary for household and industrial material cooking.
+    Nowadays, the bok choy optimal seeding model is still unavailable as a reference
+    guide for generating predictions to work in the farmer environment. The The objective
+    is increasing the production, which offers to farmers environment as the main
+    player in producing the best choice of bok choy seeding phases in increasing the
+    possibility of optimal crops and open opportunities to maintain the availability
+    of bok choy quality on the market. One of the facilities used to do suitable planting
+    is the greenhouse. The greenhouse is an architecture to plant the bok choy following
+    the desired optimal condition with a more attentive environment and minimize unwanted
+    environmental factors. A classification approach of supervised machine learning
+    technique applies to develop the model strengthen by the designated output label
+    that manually inputs. The model development is conduct in an open-source Jupyter
+    Notebook as it is interactive to the user to conclude the analysis of each machine
+    learning phase. There are several procedures as references to perform the model
+    testing. The train/test split procedure splits the dataset automatically and implements
+    a decision tree algorithm to train the data. The evaluation of the model performance
+    performs with three classification metrics, such as accuracy score, confusion
+    matrix, and classification table that correlated to each other as the analysis
+    to determine the prediction model''s quality. The model is saved to the local
+    computer model for repeatedly implementing the model testing, which applies to
+    the Pickle library''s given input. The research using the dataset adopted from
+    an integrated system between IoT for retrieving data from research object, MySQL
+    of unpublished undergraduate thesis and executive database dashboard as data storing
+    management for knowldge discovery [5]–[7]. SECTION II. Literature Review The researchers
+    have conducted various researches on the use of greenhouse to utilize the environment
+    independently, including real-time monitoring and controlling greenhouse systems
+    based on smart farm [8]. An IoT device is connected through a networks as an integrated
+    system in retrieving real-time data is necessary. Raspberry Pi is used as an IoT
+    device because it has an embedded wi-fi module and external instrument, such as
+    sensors as supporting system. The soil moisture sensor is defined as calibrating
+    the water dose value of greater than or equal to 15 % as the lower limit and lower
+    than equal to 25 % defined as normal condition [9]. Whereas the optimum temperature
+    is in a range of 20 – 25 degrees celcius [10]. The application of Raspberry Pi
+    in the greenhouse as smart farm system implementation has been widely used by
+    researcher [11] [12]. Users can perform data retrieval results for a prediction
+    model to determine the best composition in producing optimal bok choy seeding
+    crops. This method has been proven by several researchers who made a collection
+    of observation in tomatoes and lettuce growth as it used for quality predictive
+    models [13] [14]. The Raspberry Pi is retrieved data from the respective types
+    of desired sensor monitoring and controlling and is automatically stored in the
+    database. The platform is supported with the additional application of the database
+    management system field, such as MySQL database. The designated raw data is divided
+    into several groups. The group of data combines the dataset as the input for performing
+    the prediction model. The integrated system of IoT and machine learning has also
+    been explored by the scientist [15] [16]. A prediction model is generated using
+    the machine learning technique in processing information from the available datasets.
+    Machine Learning performs with the help of complementary libraries, such as Numpy,
+    Pandas, Matplotlib, Seaborn, and Scikit-learn of Python programming language that
+    has been widely used in the related field to build the learning systems in producing
+    a desired model. SECTION III. Bok Choy Growth Prediction Model A. The Workflow
+    of The Global System The proposed global workflow system is started from retrieving
+    data stage with IoT mechanism, stores data in MySQL database, and develops the
+    prediction model. The data is sensed by the IoT platform with the help of the
+    four respective sensors, which categorized into the value of five attributes given
+    are as follows: Webcam retrieves the picture of bok choy seeding period of the
+    entire pot taken once a day at noon. DHT22 sensor retrieves the room humidity
+    and temperature value. BH-1750 sensor retrieves the room light intensity value.
+    YL-69 sensor retrieves the soil moisture value from each pot. The sensor retrieves
+    real-time information based on the sensor''s ability taken in a greenhouse in
+    the Buah Batu region, as seen in figure 1. The exception for the soil moisture
+    outcome, because it has a different scenario based on the irrigation system, categorized
+    into automatic and manual. The automated system is a process to provide water
+    to the bok choy plant that has been programmed with relay help, which will irrigate
+    automatically if the soil moisture detects the water amount in the observed plant
+    is less than is needed. In contrast, the manual system is a process to deliver
+    water to the bok choy plant by hand-operated, which is self-irrigate the plant
+    based on the range of the time decides, 09.00 A.M. to 11.00 A.M., is the best
+    time to irrigate the plants. The soil moisture value has been converted from a
+    percentage to the categorical attributes at receiving data. The sensed data is
+    sent to the Raspberry Pi 3B. The device gathers and stores the information that
+    it retrieves based on the sensor placement. Fig. 1. The greenhouse is the plant
+    placement Show All The sensed data is then sent through the localhost network
+    automatically every ten minutes to the MySQL database as data management for complete
+    store data. In the database, the sensed data is divided into six groups, which
+    are: Camera''s group contains the picture''s path of the entire pot. Plant A''s
+    group contains date-time and soil moisture value from the observed plant. Plant
+    B''s group contains date-time and soil moisture value from the observed plant.
+    Plant C''s group contains date-time and soil moisture value from the observed
+    plant. Plant D''s group contains date-time and soil moisture value from the observed
+    plant. Room Condition''s group contains date-time and greenhouse humidity, temperature,
+    and light intensity value. These database contents are seen in figure 2. The database
+    has been deployed to website hosting for monitoring purposes. The dataset''s scratch
+    obtains from the MySQL database has been prepared by merge mechanism corresponds
+    to each experimental plant group and the room condition group that performs in
+    the database by using MySQL query. There will be two datasets generated as the
+    input data to develop the prediction model based on the Excel file export mechanisms.
+    The machine learning technique is implemented after the dataset file preparation
+    phase, with a suitable machine learning algorithm, achieving the prediction model
+    is seen in figure 3. B. The Classification Tree Scheme The tree is the process
+    of performing the machine learning technique with a decision tree algorithm. The
+    procedure involves importing the decision tree classifier function from the tree
+    package of the scikit -learn library. The decision tree method is implemented
+    in model training phase is shown in figure 4. The computer conducts the operation
+    corresponds to the user''s applicable preference. The input value is a preferred
+    choice of the parameter that corresponds to the procedure''s function. This application
+    uses three approved parameter subjected to the table. Another parameter defined
+    by none value is not executed. The algorithm is implemented to define the attributes
+    value in each instances outcome corresponds to the designated label. It corresponds
+    to three observed attributes, namely moist level, temperature, and irrigation
+    level started by splitting the moist level by splitting the moist level based
+    on the available categorical attributes. Fig. 2. The database overview as the
+    data storing management. Show All Fig. 3. The proposed workflow of the creation
+    of prediction model. Show All Low and high label does not split further as it
+    defines the node''s final level with classification labelled. The normal value
+    characterizes by a decision node called temperature, split into two other sub-nodes
+    based on the attributes value, such as decision and leaf node. The value of less
+    than equal to twenty-five is detailed by decision node splits into two other leaf
+    nodes. The final level with classification labelled results in optimal and less
+    optimal, respectively. The overview of the classification tree is shown in figure
+    5. C. Dataset Preprocessing It is a procedure to load the dataset from the respective
+    directory, including folder and file name. Two datasets were loaded simultaneously
+    by using the Read Excel function of the Pandas library. The function''s content
+    is possible to characterize each parameter based on the user''s interest corresponds
+    to the variable of the related parameter. The choice of the applicable parameter
+    are: Sheet name Parse dates Index column Three parameters is applied to develop
+    the model as it performs the machine learning algorithm, also data visualization.
+    This procedure also applies the drop not a value function that does not cover
+    any parameter. The function has an objective to remove all the instances in a
+    row that has no value. Fig. 4. The proposed design of the global workflow system.
+    Show All D. Dataset The real-time groups of sensed data taken form the localhost
+    MySQL database based on the previous project are a principal scratch of the dataset.
+    It consists of six fundamental attributes divides into one string, three continuous
+    attributes, one categorical attribute, one time-stamp attribute, and the entire
+    pots picture. The attribute given are as follows: plant''s name serves in the
+    form of string. Moist level from the various observed pot serves in the form of
+    categorical attributes. The time-series serves in the form of time-stamp attributes.
+    Greenhouse temperature serves in the form of continuous attributes. Greenhouse
+    humidity serves in the form of continuous attributes. Fig. 5. The overview of
+    the classification tree design. Show All greenhouse light intensity serves in
+    the form of continuous attributes. The camera''s output retrieves in the form
+    of of picture path destination folder. The raw data is retrieved from the respective
+    sensors that have been previously discussed. One group of sensed data attributes
+    is disabled for prediction model development, namely the camera''s output. The
+    contents leave one string, three continuous attributes, one categorical attribute,
+    and one time-stamp attribute. The groups of sensed data are available in the form
+    of an Excel file extension. Those sensed data groups is processed through Microsoft
+    Excel application added with additional attributes and its corresponding variable
+    over number of observations. This merge data operation produces qualified dataset
+    for the application. The additional attributes is including one continuous and
+    two categorical attributes are as follows: The plant''s height serves in the form
+    of continuous attributes. The irrigation level serves in the form of category
+    attributes. The class serves in the form of categorical attributes. The dataset
+    is separated based on the irrigation system scenario corresponds to the environmental
+    and growth-related factor in the greenhouse, also the manually-input variable.
+    There are two observed plants for each scenario. Plant A and plant B corresponds
+    to Pakcoy 1 and Pakcoy 2, respectively. In contrast, Plant C and plant D corresponds
+    to Pakcoy 3 and Pakcoy 4. Each scenario is also differentiated based on two types
+    of irrigation levels. The clarification of the irrigation system distribution
+    and its corresponding level information is shown in table 1. The dataset attributes
+    are one index, four continuous attributes, three categorical attributes, and one
+    time-stamp attribute. The time-series schedule represents in date-time format,
+    greenhouse temperature represents in degree units, greenhouse humidity represents
+    in percentage, and greenhouse light intensity represents in lux units. The moist
+    level is a categorical condition based on the soil moisture value measurement
+    convert from percentage data, as shown in table 2. The temperature has the stated
+    condition by the range of the degrees is shown in table 3. Table I Distribution
+    of the plants observation based on irrigation system. Manually parameter, plant''s
+    height, represents in centimeter based on the ruler, irrigation level, and class
+    in categorical value. The sensed data is taken in the range of ten minutes from
+    4th of January 2021 to 15th of January 2021 at 08.00 A.M. to 2.20 P.M. The class
+    located at the last column in the dataset corresponds to the label for every instances
+    associated with the moist level. The table provides the corresponding type of
+    the moist level, and the temperature value is shown in table 4. There are two
+    datasets generated based on the irrigation system for developing the prediction
+    model. The automatic irrigation scenario contains 805 instances and nine attributes.
+    Like the automated irrigation scenario, the manual irrigation scenario has the
+    same total of attributes. In contrast, the manual dataset has 789 instances. Then,
+    the concatenating dataset is equalled to 1594 instances. The sample of the dataset
+    is shown in table 5. Pakcoy is an indonesian name of bok choy. Table II Moist
+    level condition of the dataset. SECTION IV. The Evaluation of Classification Performance
+    Metrics The performance metrics evaluation based on the available type for the
+    classification approach. The corresponding value is the label test data and the
+    label predicts data based on the prediction made for the attributes of train data.
+    The variety of classification metrics are: A. Confusion Matrix This metric is
+    necessary to calculate other performance parameters in the classification table,
+    such as accuracy, precision, Etc. The result generated form the Jupyter notebook
+    does not give any remarkable information corresponds to the value. In creating
+    a more straightforward interpretation to understand the outcome, the value is
+    presented in a form of table. The visualization of the confusion matrix with a
+    table is shown in table 6. The noticeable perception is to give attention that
+    the left top of the table corresponds to the true positive value and the left
+    below is related to the negative class. Table III Temperature condition of the
+    dataset. Table IV The data class of the dataset. Table V The automatic irrigation
+    dataset sample. The table means the classifier has correctly classified the total
+    of positive and negative instances. This matrix informs the total instance for
+    two-class in which is stated by the overview of the classifier''s prediction is
+    discussed in the previous section. This type of confusion matrix is correlated
+    with the perfect classifier performance. It is strengthened by the matrix''s pattern
+    with no value correlated with the false positive and false negative. As confirmation,
+    it is suitable to review the parameter correlation. The true positive rate expressed
+    by the total of true positive instances divides by the total of positive instances
+    equals one is to meet the criterion as a result is equal to one. False positive
+    rate equals zero as there are no available false positive instances classified.
+    Also, the precision equals one as the positive value has only the true positive
+    value. B. Classification Report These metrics perform as the final analysis as
+    the value derived from the confusion matrix is present is in figure 6. The performance
+    parameter as the consideration in depending on the ideal prediction model is the
+    accuracy and precision. Before reviewing the parameter based on the value derived
+    from the confusion matrix, these metrics clarify that the noticed label is only
+    two, namely optimal and less optimal, as it not clearly stated in the confusion
+    matrix discussion section. The absence of not optimal is because there are not
+    enough instances available in the dataset. The analysis of the corresponding parameter
+    present in table 7. On the table''s content, each of the parameter calculation
+    is derived. The accuracy outcome meets the perfect classifier case prerequisite
+    requirement al it also clarifies the accuracy score that has been converted into
+    the percentage. Either precision score or recall is also completing the qualification.
+    Table VI The visualization of the confusion matrix table. Fig. 6. The overview
+    of the classification report result. Show All SECTION V. Prediction Model Testing
+    This stage is conducted to represent the model testing phase. The model testing
+    is differentiated from the model testing phase because it is based on unseen instances.
+    In completing the analysis, it defines by the number of attributes value. The
+    defined Test Model function is used as it more comfortable to change the attribute
+    value. As the introductory to use the function, the variable''s value corresponds
+    to the attributes shown in table 8. The outcome generated by the variables is
+    shown in figure 7. It shows that the result is less optimal class. When we differentiated
+    each defined value, such as the moist level is high, Temperature is greater than
+    twenty-seven, and the irrigation level is sufficient. The result is satisfied.
+    However, in this project, the humidity, height, and light intensity are dismissed.
+    In comparison with other labels, another unseen instances is observed, as seen
+    in figure 8. The attributes value is started from the moist level with normal
+    value, the temperature is less than twenty-five, and the irrigation level is sufficient.
+    These unseen instance are not satisfied. The appropriate class, optimal is not
+    shown. Although the classification report able to classify the optimal label,
+    it concludes that the data used is insufficient to predict unseen instances. It
+    is shown by the number of test data in a total of three-hundred and thirteen for
+    the less optimal and inversely proportional to six for optimal label. Table VII
+    The parameter calculation table. Table VIII An overview of the attributes value
+    definition. Fig. 7. An overview of unseen instances prediction. Show All Fig.
+    8. An overview of the second unseen instances prediction. Show All Authors Figures
+    References Citations Keywords Metrics More Like This Design of Real-Time System
+    Based on Machine Learning for Snoring and OSA Detection ICASSP 2022 - 2022 IEEE
+    International Conference on Acoustics, Speech and Signal Processing (ICASSP) Published:
+    2022 An integrated approach of Genetic Algorithm and Machine Learning for generation
+    of Worst-Case Data for Real-Time Systems 2022 IEEE/ACM 26th International Symposium
+    on Distributed Simulation and Real Time Applications (DS-RT) Published: 2022 Show
+    More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: (Susilo, Karna, & Mayasari, 2021)
+  journal: 'ICOIACT 2021 - 4th International Conference on Information and Communications
+    Technology: The Role of AI in Health and Social Revolution in Turbulence Era'
+  limitations: The paper focuses primarily on the development and evaluation of a
+    prediction model for bok choy growth rather than on the specific types of data
+    used in irrigation management. The paper does not provide a comprehensive analysis
+    of data types applicable to irrigation management or their sources. The paper's
+    findings and implications are mainly related to the proposed prediction model
+    and its accuracy and precision.
+  relevance_score: 0.6
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Decision Tree-Based Bok Choy Growth Prediction Model for Smart Farm
   verbatim_quote1: null
   verbatim_quote2: null
-  verbatim_quote3: null
-- analysis: 'The paper titled "IoT Framework for Smart Irrigation using Machine Learning
-    Technique" focuses on developing a ML-based ensemble method to predict the irrigation
-    requirement of a field using real-time environmental and weather data. While the
-    paper primarily aims to enhance water conservation and optimize irrigation decision-making,
-    it briefly mentions the types of data relevant to irrigation management in the
-    context of its proposed smart irrigation system.
+  verbatim_quote3: '>'
+- analysis: 'The paper provides a solid foundation for understanding the types of
+    data most applicable to irrigation management and their typical sources. It offers
+    a comprehensive overview of the data collection process, focusing on environmental
+    parameters and weather forecasting, which are critical factors in determining
+    irrigation requirements. The paper also highlights the importance of using real-time
+    data to train ensemble methods in machine learning, which can lead to optimized
+    decision-making for irrigation management. Overall, the paper aligns well with
+    the review intention of investigating the use of real-time data and machine learning
+    in automated irrigation systems.
 
+    Furthermore, the paper emphasizes the significance of considering crop growth
+    and water conservation in irrigation management. It suggests using environmental
+    parameters to predict irrigation requirements, which aligns with the review''s
+    intention of exploring the use of data in automated systems for real-time irrigation
+    management. By optimizing irrigation based on real-time data, farmers can conserve
+    water, reduce labor costs, and improve crop yield, potentially contributing to
+    the efficient use of water resources and agricultural productivity.
 
-    Specifically, the paper highlights the role of collecting and integrating data
-    on soil moisture, temperature, humidity, rainfall, and weather conditions. These
-    data are considered essential for accurately predicting the water needs of crops
-    and making informed irrigation decisions. The paper acknowledges that these data
-    can be sourced from various sensors, weather stations, and forecasting services,
-    emphasizing the need for real-time data collection and transmission for effective
-    irrigation management.
-
-
-    Overall, the paper provides a valuable insight into the types of data most applicable
-    to irrigation management and their typical sources in the context of its proposed
-    smart irrigation system. However, it does not delve deeply into the broader implications
-    of data types and sources for irrigation management beyond the scope of its proposed
-    system.'
+    The paper acknowledges the need for a low-cost prototype model, recognizing the
+    importance of accessibility and affordability in real-world applications. This
+    consideration aligns with the review''s intention of examining practical solutions
+    and identifying challenges in implementing automated irrigation systems, ensuring
+    that the findings are applicable and relevant to the agricultural industry.'
   authors:
   - Ramya S.
   - Swetha A.M.
@@ -4332,7 +3659,9 @@
     advanced technological features with a fully functional system and the observed
     results are optimal with 90% accuracy.
   doi: 10.3844/JCSSP.2020.355.363
-  full_citation: '>'
+  full_citation: Ramya, S., Swetha, A. & Doraipandian, M. (2020). IoT Framework for
+    Smart Irrigation using Machine Learning Technique. Journal of Computer Science,
+    16(3), 355-363. https://doi.org/10.3844/jcssp.2020.355.363
   full_text: '>
 
     "Science Publications JOURNALS RESOURCES ABOUT CONTACT LOGIN Frequency: Monthly
@@ -4368,22 +3697,23 @@
     CONNECT Facebook Twitter LinkedIn Copyright © 2003 - 2024 Science Publication
     PTY LTD Our site uses cookies. By continuing to browse the site you are agreeing
     to our use of cookies. Learn more I Understand"'
-  inline_citation: '>'
+  inline_citation: (Ramya, Swetha, & Doraipandian, 2020)
   journal: Journal of Computer Science
-  limitations: The paper's focus is narrow, primarily discussing data types and sources
-    within the context of its proposed smart irrigation system. It does not provide
-    a comprehensive analysis of the broader range of data types and sources relevant
-    to irrigation management or explore the implications of data quality, interoperability,
-    and standardization for real-time irrigation management systems.
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: While the paper provides a good overview of the types of data and data
+    collection methods used in smart irrigation systems, it does not go into much
+    detail about the specific data sources or the quality and reliability of the data.
+    Additionally, the paper does not discuss the challenges and limitations associated
+    with collecting and using real-time data in irrigation management systems, such
+    as data accuracy, data security, and data transmission issues.
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: IoT framework for smart irrigation using machine learning technique
-  verbatim_quote1: The Internet of Things (IoT) and Machine Learning (ML) based smart
-    irrigation system is employed in the field of agriculture to overcome the problem
-    of water resource management.
-  verbatim_quote2: In this work, a smart irrigation system is proposed to predict
+  verbatim_quote1: '"The Internet of Things (IoT) and Machine Learning (ML) based
+    smart irrigation system is employed in the field of agriculture to overcome the
+    problem of water resource management."'
+  verbatim_quote2: '"In this work, a smart irrigation system is proposed to predict
     the irrigation requirement of the field using several environmental parameters
-    along with weather forecasting that assists the growth of the crop.
-  verbatim_quote3: This system proposes the idea of training the ensemble method in
-    ML using the collected real-time data to make an optimized decision.
+    along with weather forecasting that assists the growth of the crop."'
+  verbatim_quote3: '"This system proposes the idea of training the ensemble method
+    in ML using the collected real-time data to make an optimized decision."'

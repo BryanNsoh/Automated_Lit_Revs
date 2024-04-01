@@ -1,16 +1,37 @@
-- analysis: 'This paper presents an automated remote sensing system for monitoring
-    crop water stress and managing irrigation. The system utilizes non-linear mathematical
-    models based on RGB color components and soil temperature to predict soil moisture
-    content accurately. The developed system consists of two subsystems: a remote
-    crop monitoring subsystem and an irrigation management subsystem. The monitoring
-    subsystem captures images of plants, processes them to extract color features,
-    and transmits the data to a central control unit. The irrigation management subsystem
-    uses the predicted soil moisture data, along with other factors, to determine
-    the optimal irrigation schedule. The study highlights the potential of using leaf
-    color changes as a bioindicator for irrigation management and provides a practical
-    solution to improve water-use efficiency in agriculture. However, the study focuses
-    on a specific crop (tomatoes) and may require further validation for different
-    plant species and environmental conditions.'
+- analysis: 'The paper investigates the use of nonlinear mathematical models to predict
+    soil moisture levels based on RGB and HSL color components of tomato plant leaves.
+    The study demonstrates the effectiveness of these models in predicting soil moisture
+    with an accuracy of 98%, offering potential advancements in automated irrigation
+    management systems. While the paper is pertinent to the review''s focus on data
+    sources for irrigation management, its scope is limited to leaf color changes
+    and does not cover other data types relevant to irrigation decisions.
+
+
+    **Strengths:**
+
+
+    + **Relevance**: The paper directly addresses the point of identifying types of
+    data applicable to irrigation management by exploring the use of leaf color changes
+    as an indicator of soil moisture.
+
+    + **Insight**: The study presents novel nonlinear mathematical models for predicting
+    soil moisture based on leaf color components, which could contribute to further
+    developments in automated irrigation systems.
+
+    + **Credibility**: The methodology and models used in the study are described
+    in detail, and the accuracy of the soil moisture prediction (98%) suggests the
+    reliability of the findings.
+
+
+    **Limitations:**
+
+
+    - **Scope**: The paper''s scope is limited to leaf color changes and does not
+    encompass other important data sources for irrigation management, such as soil
+    moisture sensors, weather data, and crop growth models.
+
+    - **Recency**: The paper was published in 2023 and is relatively up-to-date in
+    terms of the literature.'
   authors:
   - Atanasov S.
   citation_count: '0'
@@ -35,7 +56,7 @@
     irrigation system that utilizes plants as biological sensors, employing nonlinear
     mathematical models based on leaf colour changes to accurately predict soil moisture.
   doi: 10.48077/scihor1.2024.127
-  full_citation: '>'
+  full_citation: null
   full_text: '>
 
     "ISSN 2663-2144 e-ISSN 2709-8877 English SCIENTIFIC HORIZONS Home Articles & Issues
@@ -143,33 +164,75 @@
     Process Article Processing Charges License Agreement Publication Ethics Conflict
     of Interest Open Access Policy Archiving Complaints Policy Privacy Statement Corrections
     and Retractions Anti-plagiarism Policy Search Contacts ASUM v2.0.1"'
-  inline_citation: '>'
+  inline_citation: null
   journal: Scientific Horizons
-  limitations: The study focuses on a specific crop (tomatoes) and may require further
-    validation for different plant species and environmental conditions. The accuracy
-    of the soil moisture prediction model may vary depending on factors such as plant
-    health, soil type, and environmental conditions. The scalability and cost-effectiveness
-    of the system for large-scale agricultural operations need to be further investigated.
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: '- Limited scope, focusing only on leaf color changes and not covering
+    other relevant data sources for irrigation management.
+
+    '
+  relevance_score: 0.75
+  relevance_score1: 0
   relevance_score2: 0
   title: Automated remote sensing system for crops monitoring and irrigation management,
     based on leaf color change and piecewise linear regression models for soil moisture
     content predicting
-  verbatim_quote1: null
-  verbatim_quote2: null
-  verbatim_quote3: null
-- analysis: The paper presents a joint clustering and multi-UAV-assisted data gathering
-    scheme called GAMBAC to reduce the energy consumption of sensors in precision
-    farming applications, where wireless sensor nodes are deployed to collect environmental
-    data such as moisture levels for irrigation management. The scheme aims to balance
-    energy consumption among clusters and utilizes multiple UAVs to efficiently collect
-    data from the clusters. The authors establish a theoretical lower bound for the
-    energy consumption of sensors and propose heuristic algorithms to find balanced
-    clusters and plan UAV trajectories. The paper provides numerical results to demonstrate
-    the effectiveness of the GAMBAC scheme compared to existing approaches, showing
-    that it extends network lifetime and requires less energy to support a specific
-    number of data collection rounds.
+  verbatim_quote1: '"The program calculates the average RGB model values from images
+    in the studied row of tomato plantations with an accuracy of over 99% for the
+    R and G components and over 92% for the B component. The program also predicts
+    soil moisture with 98% accuracy."'
+  verbatim_quote2: '"A system for automated irrigation was created and its control
+    program was made, the basic control law of which is based on non-linear piecewise
+    linear models."'
+  verbatim_quote3: '>'
+- analysis: 'The paper "Efficient Multi-UAV Assisted Data Gathering Schemes for Maximizing
+    the Operation Time of Wireless Sensor Networks in Precision Farming" presents
+    joint clustering and multi-UAV-assisted data-gathering schemes to reduce energy
+    consumption in wireless sensor networks used for precision farming. The authors
+    propose heuristic GAMBAC algorithms to group sensor nodes into energy-balanced
+    clusters and optimize UAV trajectories for data collection, extending network
+    lifetime and reducing energy consumption compared to existing approaches.
+
+
+    The paper contributes to the literature on automated irrigation management by
+    investigating efficient data collection methods for wireless sensor networks in
+    precision farming. It provides a theoretical lower bound for sensor energy consumption
+    and establishes that energy consumption approaches the lower bound with balanced
+    clusters. The proposed GAMBAC algorithms aim to achieve this balance, resulting
+    in extended network lifetime and reduced energy usage.
+
+
+    **Strengths of the Paper**
+
+
+    1. Establishment of a theoretical lower bound for sensor energy consumption, highlighting
+    the importance of energy-balanced clustering.
+
+    2. Proposal of GAMBAC algorithms to find balanced or near-balanced clusters, leading
+    to efficient data collection and energy conservation.
+
+    3. Demonstration through numerical results that GAMBAC outperforms existing approaches,
+    extending network lifetime and reducing energy consumption for a given number
+    of data collection rounds.
+
+
+    **Potential Limitations**
+
+
+    1. The paper focuses on energy consumption and network lifetime, but other factors
+    such as data latency and reliability may also be important in practical precision
+    farming applications.
+
+    2. The study assumes uniform or plain deployment scenarios, which may not fully
+    capture the complexities of real-world agricultural environments.
+
+    3. The effectiveness of the GAMBAC algorithms may vary depending on the specific
+    network topology and data distribution patterns.
+
+
+    Overall, the paper provides valuable insights into energy-efficient data collection
+    for precision farming using wireless sensor networks. However, further research
+    could explore the impact of additional factors and expand the analysis to more
+    realistic deployment scenarios.'
   authors:
   - Nguyen K.V.
   - Nguyen C.H.
@@ -198,7 +261,10 @@
     approach. Therefore, the GAMBAC algorithms could enhance the reliable data collection
     of sensor networks for precision farming.
   doi: 10.1109/TII.2023.3248616
-  full_citation: '>'
+  full_citation: 'Khanh-Van Nguyen; Chi-Hieu Nguyen; Tien Van Do; Csaba Rotter, "Efficient
+    Multi-UAV Assisted Data Gathering Schemes for Maximizing the Operation Time of
+    Wireless Sensor Networks in Precision Farming," IEEE Transactions on Industrial
+    Informatics , vol. 19, no. 12, pp. 11664-11674, Dec. 2023, doi: 10.1109/TII.2023.3248616.'
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -703,32 +769,32 @@
     Reporting | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE
     is the world''s largest technical professional organization dedicated to advancing
     technology for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: null
   journal: IEEE Transactions on Industrial Informatics
   limitations: null
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Efficient Multi-UAV Assisted Data Gathering Schemes for Maximizing the Operation
     Time of Wireless Sensor Networks in Precision Farming
-  verbatim_quote1: “Therefore, the essential step of proposed heuristic multi-UAV
-    schemes, called Gathering data Assisted by Multi-UAV with a BAlanced Clustering
-    (GAMBAC), is to find balanced or near-balanced clusters concerning energy consumption.”
-  verbatim_quote2: “For sensor networks with a small number of nodes, our heuristic
-    algorithms give results close to the ones obtained by the reference solution.”
-  verbatim_quote3: “Numerical results show that the GAMBAC schemes extend network
-    lifetime and requires less energy to support a specific number of collection rounds
-    than the best existing approach.”
-- analysis: The paper introduces a novel approach to smart irrigation management using
-    low-cost soil moisture sensors. The authors address the issue of calibration between
-    low and high-precision sensors to enhance the accuracy of low-cost sensors. They
-    investigate multiple modeling techniques, including log-odds, Monte Carlo simulation,
-    and linear regression, to establish a reliable threshold between wet and moist
-    soils. Notably, they have developed a mobile application to simplify data collection
-    and implement their analysis approach. Their empirical evaluation at UCSB's Edible
-    Campus showed a high accuracy rate of 91% and a significant cost reduction of
-    4x per deployment. Overall, the paper demonstrates the feasibility and benefits
-    of calibrating low-cost soil moisture sensors for improved irrigation management.
+  verbatim_quote1: We derive a theoretical lower bound for the energy consumption
+    of sensors to transport data to cluster heads in uniform and plain deployments
+    and prove that the energy consumption of sensors is close to the theoretical bound
+    if clusters are balanced regarding energy consumption.
+  verbatim_quote2: Therefore, the essential step of proposed heuristic multi-UAV schemes,
+    called Gathering data Assisted by Multi-UAV with a BAlanced Clustering (GAMBAC),
+    is to find balanced or near-balanced clusters concerning energy consumption.
+  verbatim_quote3: '>'
+- analysis: The paper investigates approaches to enhance the accuracy of low-cost
+    soil moisture sensors by calibrating them against high-precision sensors. The
+    research seeks to establish a reliable threshold value to distinguish between
+    wet and moist soils, aiding farmers in making informed irrigation decisions. Multiple
+    modeling techniques, including Log-odds, Monte Carlo simulation, and linear regression,
+    were employed to determine the optimal calibration threshold. Moreover, the authors
+    developed a mobile application that simplifies data collection and provides decision
+    support for irrigation management. The results demonstrate an accuracy rate of
+    91% while significantly reducing the deployment cost compared to high-precision
+    sensors.
   authors:
   - Mundewadi G.
   - Wolski R.
@@ -751,7 +817,8 @@
     it using multiple test beds. Our results show an accuracy rate of 91% and lowers
     costs by 4x per deployment, making it useful for gardeners and farmers alike.
   doi: 10.1109/SMARTCOMP58114.2023.00087
-  full_citation: '>'
+  full_citation: Data Acquisition and Analysis for Improving the Utility of Low Cost
+    Soil Moisture Sensors
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -1064,384 +1131,55 @@
     organization, IEEE is the world''s largest technical professional organization
     dedicated to advancing technology for the benefit of humanity. © Copyright 2024
     IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: (Mundewadi et al., 2023)
   journal: Proceedings - 2023 IEEE International Conference on Smart Computing, SMARTCOMP
     2023
-  limitations: While the paper provides a valuable approach to calibrating low-cost
-    soil moisture sensors, it does not address the issue of data quality and reliability.
-    The accuracy of soil moisture measurements can be influenced by various factors
-    such as soil heterogeneity, sensor placement, and environmental conditions. Additionally,
-    the paper lacks a comprehensive analysis of the scalability and long-term performance
-    of the proposed approach in different soil types and environmental conditions.
+  limitations: '- The study is limited to a specific type of low-cost soil moisture
+    sensor (Blumat Digital tensiometer soil moisture sensor) and a particular high-precision
+    sensor (Davis Instruments electrical resistance soil moisture sensor), which may
+    limit the generalizability of the findings to other types of sensors.
+
+    - The research was conducted in a specific geographical location (Edible Campus
+    at the University of California, Santa Barbara) with particular soil conditions,
+    which may affect the applicability of the results to different soil types and
+    climates.
+
+    - The potential impact of environmental factors such as humidity, pressure, wind
+    speed, and soil temperature on soil moisture was not explicitly considered in
+    the study.'
   relevance_score: 0.7
-  relevance_score1: 0.7
+  relevance_score1: 0
   relevance_score2: 0
   title: Data Acquisition and Analysis for Improving the Utility of Low Cost Soil
     Moisture Sensors
-  verbatim_quote1: We investigate different modeling techniques including the natural
-    log of the odds ratio (Log-odds), Monte Carlo simulation, and linear regression
-    to distinguish between wet and moist soils and to establish a trustworthy threshold
-    between these two moisture states.
-  verbatim_quote2: We have also developed a new smartphone application that simplifies
-    the process of data collection and implements our analysis approach. The application
-    is extensible by others and provides growers with low cost, data-driven decision
-    support for irrigation.
-  verbatim_quote3: Our results show an accuracy rate of 91% and lowers costs by 4x
-    per deployment, making it useful for gardeners and farmers alike.
-- analysis: 'The paper describes the development and evaluation of an automated smart
-    irrigation system utilizing an Arithmetic Optimization Algorithm with Machine
-    Learning (AOAML-SIS) in an IoT environment. The AOAML-SIS technique employs IoT
-    sensors for data collection and a multilayer perceptron (MLP) classification model
-    to determine the need for irrigation, with the MLP parameters tuned using the
-    AOA algorithm. The study investigates the effectiveness of the AOAML-SIS technique
-    in irrigation management based on accuracy, precision, recall, and F-score metrics,
-    comparing its performance to other machine learning algorithms. The findings demonstrate
-    the superiority of the AOAML-SIS approach in irrigation classification efficacy
-    and suitability for use in automated irrigation management systems.
-
-
-    Relevance to the point:
-
-    The paper aligns with the point of ''Types of data most applicable to irrigation
-    management and their typical sources'' by utilizing IoT sensors to collect data
-    relevant to irrigation management, including environmental and soil conditions.
-    These data serve as inputs to the MLP classification model, which determines the
-    need for irrigation based on the collected data.
-
-
-    Relevance score: 0.7
-
-
-    Limitations:
-
-    - The study focuses primarily on the classification of irrigation needs rather
-    than exploring a wider range of data types applicable to irrigation management.
-
-    - The paper does not provide a comprehensive analysis of data sources beyond IoT
-    sensors, limiting the scope of data types considered.'
-  authors:
-  - Aruna M.
-  - Badari Narayana P.
-  - Kumar S.N.
-  - Ala Walid M.A.
-  - Prasad Patra J.
-  - Kumar B.S.
-  citation_count: '4'
-  description: An integration of new technologies like agro-hydroinformatics and computational
-    intelligence, and information technology (IT) roles a vital play in developing
-    a sustainable precision irrigation method with the effectual management of sensed
-    data assuming plants, weather, and soil. Machine learning (ML) is a fast-developing
-    technology for precision irrigation schemes, because of their capability to simulate
-    human decision-making but also resolve the multi-variable, non-linear, and time-variant
-    problems affecting irrigation management. An essential drive of ML is for providing
-    data from preceding experiences and statistical data to machines towards it is
-    carried out their allocated task of resolving a particular problem. Therefore,
-    this study develops an Arithmetic Optimization Algorithm with Machine Learning
-    based Smart irrigation system (AOAML-SIS) technique in IoT environment. Initially,
-    the AOAML-SIS technique exploits the IoT sensors for data collection process.
-    For determining the need for irrigation, the AOALM-SIS technique utilizes multilayer
-    perceptron (MLP) classification model. Since the MLP parameters play a vital role,
-    the parameter tuning process is carried out by the AOA algorithm. The experimental
-    assessment of the AOAML-SIS technique takes place on agriculture data. The simulation
-    values inferred the effectual irrigation classification efficacy of the AOAML-SIS
-    technique over other models.
-  doi: 10.1109/ICECCT56650.2023.10179741
-  full_citation: '>'
-  full_text: '>
-
-    "This website utilizes technologies such as cookies to enable essential site functionality,
-    as well as for analytics, personalization, and targeted advertising purposes.
-    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
-    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
-    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
-    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
-    Citations ADVANCED SEARCH Conferences >2023 Fifth International Conf... Arithmetic
-    Optimization Algorithm with Machine Learning based Smart Irrigation System in
-    IoT Environment Publisher: IEEE Cite This PDF M Aruna; Patel Badari Narayana;
-    S. Narasimha Kumar; Md. Abul Ala Walid; Jyoti Prasad Patra; B. Suresh Kumar All
-    Authors 4 Cites in Papers 75 Full Text Views Abstract Document Sections I. Introduction
-    II. The Proposed Smart Irrigation System III. Results and Discussion IV. Conclusion
-    Authors Figures References Citations Keywords Metrics Abstract: An integration
-    of new technologies like agro-hydroinformatics and computational intelligence,
-    and information technology (IT) roles a vital play in developing a sustainable
-    precision irrigation method with the effectual management of sensed data assuming
-    plants, weather, and soil. Machine learning (ML) is a fast-developing technology
-    for precision irrigation schemes, because of their capability to simulate human
-    decision-making but also resolve the multi-variable, non-linear, and time-variant
-    problems affecting irrigation management. An essential drive of ML is for providing
-    data from preceding experiences and statistical data to machines towards it is
-    carried out their allocated task of resolving a particular problem. Therefore,
-    this study develops an Arithmetic Optimization Algorithm with Machine Learning
-    based Smart irrigation system (AOAML-SIS) technique in IoT environment. Initially,
-    the AOAML-SIS technique exploits the IoT sensors for data collection process.
-    For determining the need for irrigation, the AOALM-SIS technique utilizes multilayer
-    perceptron (MLP) classification model. Since the MLP parameters play a vital role,
-    the parameter tuning process is carried out by the AOA algorithm. The experimental
-    assessment of the AOAML-SIS technique takes place on agriculture data. The simulation
-    values inferred the effectual irrigation classification efficacy of the AOAML-SIS
-    technique over other models. Published in: 2023 Fifth International Conference
-    on Electrical, Computer and Communication Technologies (ICECCT) Date of Conference:
-    22-24 February 2023 Date Added to IEEE Xplore: 21 July 2023 ISBN Information:
-    DOI: 10.1109/ICECCT56650.2023.10179741 Publisher: IEEE Conference Location: Erode,
-    India SECTION I. Introduction Water is a scarce and valuable natural resource
-    and especially an essential component, it needs to be developed, planned, managed,
-    conserved, and in particular, effectively utilized [1]. Optimum management of
-    presented water resources in the agriculture sector is obligatory because of limited
-    resources and increasing demands. It is vital to rise agricultural yield under
-    limited water resources for optimum agricultural crops to satisfy upcoming food
-    production requirements [2]. The constraint water supply must be efficiently utilized
-    for irrigating additional areas with a similar quantity of water [3]. Lately,
-    various research workers have employed the Internet of things (IoT) and artificial
-    intelligence (AI) to manage irrigational problems accurately via linear models.
-    Precision irrigation scheduling is directed towards effectual water usage for
-    all the plants, when and where it is essential, to reimburse for water loss over
-    evapotranspiration, deep percolation, or erosion when preventing over- and under-irrigation
-    [4]. With appropriate irrigation management through and optimum control efficient
-    monitoring, water could be saved, along with providing a reduction in other indirect
-    costs experienced from energy usage through fossil fuel or electricity for pumping,
-    for optimum cost-efficiency [5]. Fig. 1 depicts the overview of IoT-based smart
-    irrigation system. Fig. 1. Iot-based smart irrigation system Show All More recently
-    used irrigation system is depends on cyclic water application notwithstanding
-    the plant''s real requirement for irrigation water, which is a bigger problem
-    [6]. An appropriate irrigation schedule helps to produce better crop production.
-    But while surface irrigation system is employed, it is impossible to change the
-    frequency and depth of irrigation water because of the implementation complexity.
-    Variations in irrigation depth are quite unclear for the producer to diverge the
-    irrigation scheduling [7]. Defining the optimal quantity of water isn''t an easier
-    task; it relies on several factors namely wind speed, air temperature, average
-    relative humidity, solar radiation, and sun hours. Consequently, the irrigation
-    depth is unevenly projected to save the interval constant and the irrigation depth
-    over the rising period [8]. The precise description of irrigation scheduling is
-    a time-consuming and challenging method. The computer program has made it more
-    available, and now it is likely to irrigation scheduling the water quantity exactly
-    based on the water essential for crop production [9]. Sensor-based irrigation
-    schedule system is an effective tools personalized to field characteristics that
-    could considerably facilitate irrigation scheduling decisions [10]. Because of
-    the development of sensors and the massive revolution of IoT for smart agriculture,
-    the application presents a substantial helpful effect on irrigation water conservation
-    and plants. Khan et al. [11] examine a new integration of optimizing intelligent
-    smart irrigation methods for improving efficiency of the energy management. At
-    this point, an optimum CH formation and selection were carried out by Hierarchy
-    Shuffled Shepherd Clustering (HSSC) approach. Besides, the finest routing path
-    and energy regulation are offered by the projected Emperor Penguin Jellyfish Optimized
-    (EPJO) approach. In [12], a new method “Enhanced CH based Data gathering” (ECHGS)
-    was projected to effort the energy and delay in IoT related smart irrigation methods
-    for cultivation. During this presented method, the CH for the set of sensor nodes
-    is chosen dependent on the residual energy (RE) and workload. The node is a higher
-    RE and lesser workload was chosen as a CH for collecting and delivering the data
-    to server node efficiently. Ullah et al. [13] projected an energy-efficient water
-    management platform (EEWMP), an enhanced version of SWAMP. Quimbita et al. [14]
-    examine a smart irrigation method energized by microgrid. The suggestion comprises
-    2 steps namely the primary creates the daily irrigation profile dependent upon
-    an adept method for sufficient utilization of water. Afterward, assuming the irrigation
-    profile, the power needed for the water pump was measured-an optimum daily profile
-    of current demand was defined in the second step. The microgrid is handled through
-    the energy managing scheme that depends on prediction control model. Sangeetha
-    et al. [15] include the smart agriculture management method for producing crop
-    production and agricultural benefits. The hybrid remote-controlled device utilized
-    the Global Positioning System (GPS) with Radial Function Network (RFN) has been
-    introduced for controlling the irrigated scheme, forecasting the temperature,
-    reducing the humidity in water content, and maintaining the air pressure. It employs
-    the Internet of Everything (IOE) environmental factor and IoT sensors for monitoring
-    and managing irrigation systems. This study develops an Arithmetic Optimization
-    Algorithm with Machine Learning based Smart irrigation system (AOAML-SIS) technique
-    in an IoT environment. Initially, the AOAML-SIS technique exploits the IoT sensors
-    for data collection process. For determining the need for irrigation, the AOALM-SIS
-    technique utilizes multilayer perceptron (MLP) classification model. Since the
-    MLP parameters play a vital role, the parameter tuning process is carried out
-    by the AOA algorithm. The experimental assessment of the AOAML-SIS technique takes
-    place on agriculture data. The simulation values inferred the effectual irrigation
-    classification efficacy of the AOAML-SIS technique over other models. SECTION
-    II. The Proposed Smart Irrigation System In this study, an automated smart irrigation
-    system using AOAML-SIS technique has been developed in IoT environment. Initially,
-    the AOAML-SIS technique exploits the IoT sensors for data collection process.
-    For determining the need for irrigation, the AOALM-SIS technique utilized the
-    MLP classification model. Since the MLP parameters play a vital role, the parameter
-    tuning process is carried out by the AOA algorithm. A. Irrigation Classification
-    Using MLP In this work, the MLP model is applied to irrigation management. ANN
-    is non-parametric method that consists of a sequence of processing components
-    named neurons [16]. The feedforward neural network is a class of supervised ANN
-    that usually has 3 layers of nodes, such as hidden, input, and output layers.
-    The MLP is the more common and well known feedforward network. The MLP node was
-    arranged hierarchically in various FC layers. Especially, MLP has input, output,
-    and hidden layers (HLs) that reside among the input and output layers. In this
-    work, the HL provides the processing and computation power for producing the network
-    output. The connection is characterized using the network weight that is are real
-    number within[1, 1.]. In this work, two stages are implemented for yielding the
-    output value of all the nodes in every layer. Initially, the weighted sum of the
-    input value is evaluated by: S j = ∑ i=1 n ( w ij I i + β j ) (1) View Source
-    In Eq. (1), l i indicates the i−th input parameter, n indicates the overall amount
-    of nodes (neurons) from the input layer w ij shows the weight connection amongst
-    the hidden nod j and I i and β i indicates the bias (threshold) weight of i th
-    hidden nodes. Next, the resultant value of every node in the HL was calculated
-    according to the weighted sum. Here, activation is utilized for triggering the
-    output according to the value of summation function. Then, distinct kinds of activation
-    function are stored. The sigmoid activation function is widely employed for mapping
-    the HL outcome value that is evaluated by: f j (x)= 1 1+ e − s j (2) View Source
-    Lastly, the network output is attained by the following expression: y ^ k = ∑
-    j=1 m ( w kj f i + β k ) (3) View Source The MLP performance depends on the value
-    of weight and biases connection determined in the trained stage. Thus, the major
-    aim of trained MLP is to discover a collection of optimum connection weights and
-    biases for minimizing predictive error. B. AOA Based Parameter Tuning For tuning
-    the parameters of the MLP model, the AOA is used. AOA primarily imitate the usage
-    of numerical operator in the numerical problem-solving technique [17]. Arithmetic
-    is the previous part of mathematics which is used to deal with the properties
-    of the function and numbers. The arithmetic operator is an operation symbol that
-    implements necessary arithmetic, viz., a symbol exploited to 4 techniques. During
-    the optimization, this operator was exploited to select the better solution for
-    the candidate. At first, the searching range of candidate outcomes was widely
-    secured for breaking the deadlock of method falls into searching stagnation. Next,
-    enhance the search efficiency of solution through the deep search. The sequence
-    of feasible solutions has been randomly produced at the earlier step of optimized
-    technique of AOA, as follows. X=[ χ N−1,1 χ N,1 χ 2,… 1 χ 1,1 χ N−1,j χ N,j χ
-    2,j χ1,j χ N,n−1 χ 1., ′ n−1 χ N−l,n χ 1,n χ N,n χ 2,….n ′ ] X= ⎡ ⎣ ⎢ ⎢ ⎢ ⎢ ⎢
-    ⎢ ⎢ ⎢ ⎢ ⎢ x 1,1 x 2,1 … ⋮ x N−1,1 x N,1 … … … ⋮ … … … … … ⋮ … … x 1,j x 2,j …
-    ⋮ x N−1,j x N,j x 1,n−1 … … ⋮ … x N,n−1 x 1,n x 2,n … ⋮ x N−1,n x N,n ⎤ ⎦ ⎥ ⎥
-    ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ ⎥ (4) View Source Formerly, the AOA implements the optimization
-    technique, it is essential to resolve the search technique according to the values
-    of Math Optimizer Accelerated (MOA) method that is evaluated using the subsequent
-    expression: MOA( C − Iter)=Min+ C − Iter×( Max−Min M − Iter ) (5) View Source
-    From the expression, MOA (C _Iter) denotes the function values in C ‘_Iter iteration;
-    C _Iter characterize the existing iteration. M “_Iter indicates the highest amount
-    of iterations; Min and Max are augmented function lower and higher values. The
-    exploration stage in the AOA system was generally recognized by operators such
-    as Multiplication (M) and Division (D). The position of candidate result was considerably
-    upgraded during the exploration process in the following: x i,j ( C − Iter+1)
-    ={ best ( x j )/(M0P+ε)×((U B j −L B j )×μ+L B j ) (best( x j )×MOP ×(U B j −L
-    B j )×μ+L B j r 2 <0.5 otherwise (6) View Source From the expression, χ i,j (
-    C − 1ter+1) represents the j th position of i th solution in (CIter+11 th iteration;
-    E designates the smaller value; U I j and LB designate the upper as well as lower
-    boundaries of positions of candidate result: μ is exploited to regulate the exploration
-    phase are static as 0.5; the MOP shows the math optimizing possibility of AOA
-    that is defined below: 1 MOP( C − Iter)=1− C − Ite r 1 α M − Ite r 1 α (7) View
-    Source In Eq. (7), α denotes the accurateness of exploitation on iteration, α
-    = 5. The employment of exploitation technique mainly relies on Addition (A) and
-    Subtraction (S) operators are easy to create minimum distribution, for candidate
-    solution was implemented a deep search with large probability to evaluate the
-    optimum solution: x i,j ( C Iter +1) ={ best( x j )−MOP×((U B j −L B j )×μ+L B
-    j , best( x j )+MOP×((U B j −L B j )×μ+L B j , r 3 <0.5 otherwise } (8) View Source
-    The adaptive conversion amongst the exploration as well as exploitation steps
-    are reinforced AOA technique that determines the better solution and endures the
-    multiplicity of potential solutions for performing the study. Algorithm 1: Pseudocode
-    of AOA Initial parameter maximal iteration (T) and pop-size (N) The initial position
-    of every search agent Xi (i = 1,2, …, N) Fixed the variables a, µ, Min, and Max
-    While (t ≤ T) Assess the fitness of every search agent Upgrading best Fitness.
-    X b Assess the MOP Assess the MOA For all the search agents If r and > MOA Upgrading
-    place Else Upgrading place Endif Endfor t=t+1 EndWhile Return to BestFitness,
-    X b SECTION III. Results and Discussion The irrigation management outcomes of
-    the AOAML-SIS technique are well studied here. Table I. Classification outcome
-    of aoaml-sis system with varying epochs Table 1 and Fig. 2 elucidate the classification
-    output of the AOAML-SIS technique with several epochs. The obtained values demonstrated
-    that the AOAML-SIS technique has reached improving values under each epoch. For
-    instance, on epoch 50, the AOAML-SIS technique has reported accuy, precn, recal,
-    and Fscore of 98.21%, 98.39%, 98.21%, and 98.98% respectively. In addition, on
-    epoch 100, the AOAML-SIS system has reported accuy, precn, recal, and Fscore of
-    98.21%, 98.39%, 98.21%, and 98.98% correspondingly. Also, on epoch 150, the AOAML-SIS
-    technique has reported accuy, precn, recal, and F score of 98.37%, 98.01%, 98.69%,
-    and 98.75% correspondingly. Meanwhile, on epoch 200, the AOAML-SIS methodology
-    has reported accuy, precn, recal, and F score of 98.46%, 98.73%, 98.04%, and 98.32%
-    respectively. Finally, on epoch 300, the AOAML-SIS system has reported accuy,
-    precn, recal, and Fscore of 98.76%, 98.78%,98.77%, and 98.96% correspondingly.
-    Fig. 2. Classification outcome of aoaml-sis system with varying epochs Show All
-    Fig. 3. Tacc and vacc analysis of aoaml-sis system Show All The TACC and VACC
-    of the AOAML-SIS approach are inspected on irrigation management performance in
-    Fig. 3. The figure referred that the AOAML-SIS algorithm has demonstrated higher
-    performance with increased values of TACC and VACC. It is noticeable that the
-    AOAML-SIS approach has reached maximum TACC outcomes. The TLS and VLS of the AOAML-SIS
-    technique are tested on irrigation management performance in Fig. 4. The figure
-    stated that the AOAML-SIS approach has revealed better performance with decreased
-    values of TLS and VLS. It is evident that the AOAML-SIS system has resulted in
-    reduced VLS outcomes. A comparative accuy analysis of the AOAML-SIS approach with
-    other ML techniques are provided in Table 2 and Fig. 5 [18]. The attained values
-    stated that the DT and LR algorithms have exhibited least accu of 96.52% and 96.51%.
-    Followed by, the KNN and NN approaches have reported certainly degraded accu y
-    of 97.85% and 97.05% correspondingly. Contrastingly, the SVM system has managed
-    to showcase reasonable accuy of 98.08%. However, the AOAML-SIS technique has exhibited
-    maximal performance with accu y of 98.76%. Fig. 4. Tls and vls analysis of aoaml-sis
-    system Show All Fig. 5. Accuyanalysis of aoaml-sis approach with other ml algorithms
-    Show All Table II. Accuracy analysis of aoaml-sis approach with other ml algorithms
-    A comparative RMSE assessment of the AOAML-SIS technique with other ML models
-    is provided in Table 3 and Fig. 6. The attained values referred that the LR algorithm
-    as exposed poor RMSE of 0.1987. Also, the KNN, NN, and DT techniques have reported
-    certainly degraded RMSE of 0.1791, 0.1801, and 0.1845 respectively. Contrastingly,
-    the SVM model has managed to depict reasonable RMSE of 0.1597. However, the AOAML-SIS
-    technique has exhibited superior performance with least RMSE of 0.1142. Thus,
-    the AOAML-SIS technique can be employed for automated irrigation management. Fig.
-    6. Rmse analysis of aoaml-sis approach with other ml algorithms Show All Table
-    III. Rmse analysis of aoaml-sis approach with other ml algorithms SECTION IV.
-    Conclusion In this study, an automated smart irrigation system using AOAML-SIS
-    technique has been developed in loT environment. Initially, the AOAML-SIS technique
-    exploits the loT sensors for data collection process. For determining the need
-    for irrigation, the AOALM-SIS technique utilized the MLP classification model.
-    Since the MLP parameters play a vital role, the parameter tuning process is carried
-    out by the AOA algorithm. The experimental assessment of the AOAML-SIS technique
-    takes place on agriculture data. The simulation values inferred the effectual
-    irrigation classification efficacy of the AOAML-SIS technique over other models.
-    In future, computer vision approaches can be designed to improve productivity
-    and reduce crop loss in agricultural sector. Authors Figures References Citations
-    Keywords Metrics More Like This Performance Evaluation of Machine Learning Algorithms
-    for Smart Irrigation Systems 2023 2nd International Conference on Electronics,
-    Energy and Measurement (IC2EM) Published: 2023 Optimization of Machine Learning
-    Algorithms Hyper-Parameters for Improving the Prediction of Patients Infected
-    with COVID-19 2020 IEEE 2nd International Conference on Electronics, Control,
-    Optimization and Computer Science (ICECOCS) Published: 2020 Show More IEEE Personal
-    Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED
-    DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION
-    TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732
-    981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help | Accessibility
-    | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap |
-    IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
-    technical professional organization dedicated to advancing technology for the
-    benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
-  journal: 2023 5th International Conference on Electrical, Computer and Communication
-    Technologies, ICECCT 2023
-  limitations: 'The study focuses primarily on the classification of irrigation needs
-    rather than exploring a wider range of data types applicable to irrigation management.
-
-    The paper does not provide a comprehensive analysis of data sources beyond IoT
-    sensors, limiting the scope of data types considered.'
-  relevance_score: 0.7
-  relevance_score1: 0.7
-  relevance_score2: 0
-  title: Arithmetic Optimization Algorithm with Machine Learning based Smart Irrigation
-    System in IoT Environment
-  verbatim_quote1: '"An integration of new technologies like agro-hydroinformatics
-    and computational intelligence, and information technology (IT) roles a vital
-    play in developing a sustainable precision irrigation method with the effectual
-    management of sensed data assuming plants, weather, and soil."'
-  verbatim_quote2: '"Therefore, this study develops an Arithmetic Optimization Algorithm
-    with Machine Learning based Smart irrigation system (AOAML-SIS) technique in IoT
-    environment. Initially, the AOAML-SIS technique exploits the IoT sensors for data
-    collection process."'
-  verbatim_quote3: '"The simulation values inferred the effectual irrigation classification
-    efficacy of the AOAML-SIS technique over other models."'
-- analysis: "The TsHARP thermal sharpening technique is shown to be useful for downscaling\
-    \ coarse MODIS images to the resolution of Sentinel-2 and VENµS images for field\
-    \ scale remote sensing analysis. The downscaled images may be used to monitor\
-    \ crop water stresses at high spatial resolution for crop management. The study\
-    \ demonstrated useful sharpening for image pixels with a mixture of vegetation\
-    \ cover and exposed soil. The study found that VENµS outperforms Sentinel-2 for\
-    \ the downscaling task due to its finer spatial resolution and more frequent revisit\
-    \ time, especially for crop monitoring applications. However, the TsHARP requires\
-    \ the identification and exclusion of sensor pixels with high moisture that does\
-    \ not follow the expected relationship between vegetation fraction and land surface\
-    \ temeprature. Such pixels can be identified and removed prior to implementing\
-    \ the TsHARP method. \n\nHere are verbatim quotes from the paper that support\
-    \ the above analysis:\n\n1. “Sharpened maps at 120 and 60 m resolution showed\
-    \ the highest consistency for all fields and dates. Maps sharpened using VENµS\
-    \ images showed comparable or higher accuracy than maps sharpened using Sentinel-2.\
-    \ The superior performance coupled with the better revisit time indicates that\
-    \ the VENµS platform has high potential for frequent in-season crop monitoring.”\n\
-    2. “Results from this research show that considering the combination of pixel\
-    \ size, and temperature estimation accuracy and error, sharpened MODIS at 60 m\
-    \ are the most reliable for season-long cotton monitoring.”\n3. “The observations\
-    \ on the effect of undesirable pixels’ removal on the thermal pixel disaggregation\
-    \ performance are reinforced by statistics shown in Figure 15. A higher level\
-    \ of agreement between the sharpened and reference temperatures was displayed\
-    \ after pixel extraction in field 3 on both dates, as well as a decrease in temperature\
-    \ errors, whereas in field 9, the accuracy decreased at 30 and 120 m, despite\
-    \ slightly lower errors being achieved.”"
+  verbatim_quote1: '"In this paper, we present a new approach to smart computing for
+    irrigation management to address these challenges at a lower cost. We calibrate
+    low cost, low precision soil moisture sensors to more accurately distinguish wet
+    from dry soils using high cost, high precision Davis Instrument sensors. We investigate
+    different modeling techniques including the natural log of the odds ratio (Log-odds),
+    Monte Carlo simulation, and linear regression to distinguish between wet and moist
+    soils and to establish a trustworthy threshold between these two moisture states."'
+  verbatim_quote2: '"The application is extensible by others and provides growers
+    with low cost, data-driven decision support for irrigation."'
+  verbatim_quote3: '>'
+- analysis: "The authors used the Thermal Sharpening (TsHARP) technique to enhance\
+    \ the spatial resolution of coarse thermal images from the Moderate Resolution\
+    \ Imaging Spectroradiometer (MODIS) to 10 m using Sentinel-2 and 5 m using the\
+    \ Vegetation and Environment New micro-Spacecraft (VENµS) visible-near-infrared\
+    \ images. The authors compared the sharpened temperature data with reference temperatures\
+    \ from the Landsat-8 Operational Land Imager (OLI) at different spatial resolutions\
+    \ (30, 60, 120, and 240 m) to validate the method. \n\nAt coarse resolution, the\
+    \ comparison showed an average observed mean absolute error (MAE) of 1.63 °C,\
+    \ with R2 varying from 0.34 to 0.74. Temperature errors at the field scale ranged\
+    \ from 0.25 to 3.11 °C for both Sentinel-2 and VENµS.\n\nOverall, sharpened maps\
+    \ at 120 and 60 m resolution showed the highest consistency for all fields and\
+    \ dates. Maps sharpened using VENµS images showed comparable or higher accuracy\
+    \ than maps sharpened using Sentinel-2, suggesting the potential of VENµS for\
+    \ frequent in-season crop monitoring due to its superior performance and better\
+    \ revisit time.\n\nThe authors acknowledge that further research with ground data\
+    \ collection is needed to explore field use limitations of the TsHARP technique.\
+    \ Nevertheless, these results provide valuable insights and demonstrate the potential\
+    \ benefits of implementing TsHARP for crop stress monitoring."
   authors:
   - Lacerda L.N.
   - Cohen Y.
@@ -1479,7 +1217,30 @@
     of potential benefits of implementing the TsHARP technique as a tool for crop
     stress monitoring.
   doi: 10.3390/rs13061155
-  full_citation: '>'
+  full_citation: 'Field Scale Assessment of the TsHARP Technique for Thermal Sharpening
+    of MODIS Satellite Images Using VENµS and Sentinel-2-Derived NDVI
+
+    Lorena N. Lacerda 1,*, Yafit Cohen 2, John Snider 1, Hanna Huryna 3, Vasileios
+    Liakos 4 and George Vellidis 1
+
+    1 Department of Crop and Soil Sciences, University of Georgia, Tifton, GA 31793,
+    USA
+
+    2 Institute of Agricultural Engineering, Agricultural Research Organization (ARO),
+    Volcani Center, Rishon Leziyyon 7505101, Israel
+
+    3 The Blaustein Institutes for Desert Research, Ben-Gurion University of the Negev,
+    Sede Boqer Campus, Midreshet, Ben-Gurion 84990, Israel
+
+    4 Department of Agronomy and Agrotechnology, University of Thessaly, 41500 Larissa,
+    Greece
+
+    * Author to whom correspondence should be addressed.
+
+    Remote Sens. 2021, 13(6), 1155; https://doi.org/10.3390/rs13061155
+
+    Received: 28 December 2020 / Revised: 12 March 2021 / Accepted: 14 March 2021
+    / Published: 18 March 2021'
   full_text: '>
 
     "This website uses cookies We use cookies to personalise content and ads, to provide
@@ -2370,106 +2131,92 @@
     issue release notifications and newsletters from MDPI journals Select options
     Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated Disclaimer
     Terms and Conditions Privacy Policy"'
-  inline_citation: '>'
+  inline_citation: Cohen et al. [11]
   journal: Remote Sensing
-  limitations: 'The authors note several limitations of the paper:
-
-
-    1. The study was conducted in three locations in the southeastern USA, so the
-    results may not be generalizable to other regions.
-
-    2. The study focused on cotton fields, so the results may not be generalizable
-    to other crops.
-
-    3. The study used imagery from the 2019 growing season, so the results may not
-    be generalizable to other years.
-
-
-    Additionally, there are some known limitations to the TsHARP technique that should
-    be considered when using it for crop monitoring:
-
-
-    1. The technique assumes a linear relationship between vegetation fraction and
-    land surface temperature, which may not always be the case.
-
-    2. The technique is sensitive to the quality of the input data, so it is important
-    to use high-quality imagery.
-
-    3. The technique can be computationally expensive, so it may not be suitable for
-    large-scale applications.'
-  relevance_score: 0.9
-  relevance_score1: 0.9
+  limitations: The authors acknowledge that further research with ground data collection
+    is needed to explore field use limitations of the TsHARP technique for monitoring.
+  relevance_score: 0.777522875
+  relevance_score1: 0
   relevance_score2: 0
   title: Field scale assessment of the tsharp technique for thermal sharpening of
     modis satellite images using venµs and sentinel-2-derived ndvi
-  verbatim_quote1: Sharpened maps at 120 and 60 m resolution showed the highest consistency
-    for all fields and dates. Maps sharpened using VENµS images showed comparable
-    or higher accuracy than maps sharpened using Sentinel-2. The superior performance
-    coupled with the better revisit time indicates that the VENµS platform has high
-    potential for frequent in-season crop monitoring.
-  verbatim_quote2: Results from this research show that considering the combination
-    of pixel size, and temperature estimation accuracy and error, sharpened MODIS
-    at 60 m are the most reliable for season-long cotton monitoring.
-  verbatim_quote3: The observations on the effect of undesirable pixels’ removal on
-    the thermal pixel disaggregation performance are reinforced by statistics shown
-    in Figure 15. A higher level of agreement between the sharpened and reference
-    temperatures was displayed after pixel extraction in field 3 on both dates, as
-    well as a decrease in temperature errors, whereas in field 9, the accuracy decreased
-    at 30 and 120 m, despite slightly lower errors being achieved.
-- analysis: "The paper discusses an automated irrigation management system using a\
-    \ Convolution Neural Support Vector Machines Hybrid Classifier (CNSVMHC) model.\
-    \ The CNSVMHC model combines a Convolutional Neural Network (CNN) and Support\
-    \ Vector Machine (SVM) to efficiently control irrigation based on real-time soil\
-    \ moisture content data collected by a wireless sensor network (WSN). In this\
-    \ context, the paper addresses the specific point within the review mentioned\
-    \ in <point_content> as follows:\n\n1. **Types of data most applicable to irrigation\
-    \ management and their typical sources**: \n- The paper mentions that soil moisture\
-    \ content (MC) is the most critical data for irrigation management.\n- It highlights\
-    \ that real-time soil MC data is collected using a wireless sensor network (WSN)\
-    \ for efficient irrigation control.\n- The paper does not explicitly discuss other\
-    \ types of data applicable to irrigation management or their typical sources.\n\
-    \n2. **Relevance to the point**: \n- The paper directly addresses the point by\
-    \ proposing a system that collects and utilizes real-time soil moisture content\
-    \ data for irrigation management using a WSN.\n- The proposed CNSVMHC model leverages\
-    \ this data to effectively control irrigation based on soil conditions.\n- The\
-    \ paper provides a novel and valuable approach to irrigation management using\
-    \ real-time data, which aligns with the objective of the literature review.\n\n\
-    **Insight**: \n- The paper proposes a hybrid neural network model (CNSVMHC) that\
-    \ combines the strengths of CNN and SVM for irrigation management.\n- It introduces\
-    \ a closed-loop control system to adjust the irrigation scheme based on real-time\
-    \ data, ensuring efficient water usage.\n- The paper emphasizes the importance\
-    \ of real-time data collection and analysis for effective irrigation management,\
-    \ which is a crucial aspect not always sufficiently addressed in existing systems.\n\
-    \n**Credibility**: \n- The paper employs established techniques like CNN and SVM,\
-    \ which are widely used and validated in various domains.\n- It provides a detailed\
-    \ explanation of the proposed CNSVMHC model and its implementation.\n- The paper\
-    \ discusses the potential benefits and applications of the proposed system, making\
-    \ it a credible and valuable contribution to the field.\n\n**Scope**: \n- The\
-    \ paper primarily focuses on soil moisture content data for irrigation management,\
-    \ which is a key aspect but not exhaustive of all data types relevant to this\
-    \ domain.\n- It does not extensively discuss other data sources or types that\
-    \ could enhance irrigation management, such as weather data, crop growth data,\
-    \ or historical patterns.\n- The paper's scope could be broadened to encompass\
-    \ a more comprehensive analysis of data types and their sources for irrigation\
-    \ management.\n\n**Recency**: \n- The paper was published in 2021, indicating\
-    \ that it is relatively up-to-date within the context of the current state of\
-    \ knowledge on automated irrigation management systems.\n- It incorporates recent\
-    \ advancements in neural network architectures and machine learning techniques.\n\
-    - The paper's findings and proposed approach are aligned with the ongoing research\
-    \ and development in the field of automated irrigation systems.\n\n**Limitations**:\
-    \ \n- The paper does not provide detailed experimental results or performance\
-    \ evaluations of the proposed CNSVMHC model.\n- It lacks a comparative analysis\
-    \ with other existing irrigation management approaches, which could strengthen\
-    \ the paper's contribution.\n- The paper does not discuss potential limitations\
-    \ or challenges in implementing the proposed system in real-world scenarios, such\
-    \ as scalability, cost, or data security concerns.\n\n**Overall**: \nThe paper\
-    \ presents a relevant and valuable contribution to the literature review by proposing\
-    \ a novel CNSVMHC model for irrigation management based on real-time soil moisture\
-    \ content data. It addresses the specific point mentioned in <point_content> effectively\
-    \ and provides insightful information on the importance of real-time data collection\
-    \ and analysis for efficient irrigation practices. However, the paper's scope\
-    \ could be expanded to include a more comprehensive analysis of data types and\
-    \ incorporate a detailed performance evaluation to enhance its overall impact."
+  verbatim_quote1: '"At coarse resolution, the comparison showed an average observed
+    mean absolute error (MAE) of 1.63 °C, with R2 varying from 0.34 to 0.74. Temperature
+    errors at the field scale ranged from 0.25 to 3.11 °C for both Sentinel-2 and
+    VENµS."'
+  verbatim_quote2: '"Overall, sharpened maps at 120 and 60 m resolution showed the
+    highest consistency for all fields and dates. Maps sharpened using VENµS images
+    showed comparable or higher accuracy than maps sharpened using Sentinel-2, suggesting
+    the potential of VENµS for frequent in-season crop monitoring due to its superior
+    performance and better revisit time."'
+  verbatim_quote3: '>'
+- analysis: 'The paper entitled "Hybrid neural network classification for irrigation
+    control in WSN-based precision agriculture" proposes an automatic Smart data mining
+    based Irrigation Support Scheme to address the concern of water application and
+    management in agricultural irrigation, specifically in arid and semiarid areas
+    where precision agriculture (PA) is widely practiced. The core of the proposed
+    scheme is the Convolutional Neural Support Vector Machines Hybrid Classifier (CNSVMHC),
+    which employs a closed-loop control system to adjust decision support based on
+    real-time soil moisture content data collected through a wireless sensor network
+    (WSN). By leveraging intricate and varied data sources, including soil, weather,
+    water, and crop data, the system aims to enhance the effectiveness and consistency
+    of irrigation management while optimizing water usage and crop productivity.
+
+
+    The paper aligns well with the objective of the review to explore automated systems
+    for real-time irrigation management, particularly in the context of evaluating
+    the current state and future potential of end-to-end automated irrigation management
+    systems that integrate IoT and machine learning technologies. The authors specifically
+    address the point within the review intention related to the types of data most
+    applicable to irrigation management and their typical sources.
+
+
+    Overall, the paper makes the following contributions:
+
+
+    - Introduces a novel approach to irrigation management that combines real-time
+    data collection, convolutional neural networks, and support vector machines to
+    optimize irrigation scheduling.
+
+    - Demonstrates the effectiveness of the proposed CNSVMHC model through performance
+    comparisons with existing techniques, showing improved precision, recall, and
+    accuracy in irrigation management.
+
+    - Highlights the importance of integrating diverse data sources, including soil
+    conditions, weather data, and crop information, to enhance the precision and efficiency
+    of irrigation systems.
+
+    - Emphasizes the potential of wireless sensor networks in precision agriculture,
+    enabling real-time monitoring and control of irrigation systems.
+
+
+    The paper has several strengths:
+
+
+    - Relevance: It directly addresses the point within the review intention by proposing
+    a data-driven, automated irrigation management system that leverages real-time
+    data from multiple sources.
+
+    - Insight: It provides a novel hybrid neural network approach that combines convolutional
+    neural networks and support vector machines, offering a more robust and accurate
+    irrigation control system.
+
+    - Credibility: The methodology is well-described, and the experimental results
+    demonstrate the effectiveness of the proposed approach compared to existing techniques.
+
+
+    One limitation of the paper is the lack of a detailed discussion on the scalability
+    and generalizability of the proposed system. While the paper demonstrates the
+    effectiveness of CNSVMHC in a specific context, it does not explore how the system
+    would perform in different agricultural settings or with larger-scale deployments.
+
+
+    In summary, this paper offers a valuable contribution to the literature on automated
+    irrigation management systems by introducing a novel hybrid neural network approach
+    that leverages real-time data and diverse data sources to enhance irrigation precision
+    and efficiency. While further research is needed to explore the scalability and
+    generalizability of the system, the proposed CNSVMHC model shows promise for improving
+    water management practices in precision agriculture.'
   authors:
   - Anguraj D.K.
   - Mandhala V.N.
@@ -2499,7 +2246,10 @@
     and using the rain water, maximizing their crop productivity, minimize the cost
     for cultivation and utilize the real time values rather than depending on prediction.
   doi: 10.1007/s12652-020-02704-6
-  full_citation: '>'
+  full_citation: 'Anguraj, Dinesh Kumar, Venkata Naresh Mandhala, Debnath Bhattacharyya,
+    and Tai-hoon Kim. "Hybrid neural network classification for irrigation control
+    in WSN based precision agriculture." Journal of Ambient Intelligence and Humanized
+    Computing (2021): 1-11.'
   full_text: '>
 
     "Your privacy, your choice We use essential cookies to make sure the site can
@@ -3088,59 +2838,34 @@
     statement Terms and conditions Privacy policy Help and support 129.93.161.222
     Big Ten Academic Alliance (BTAA) (3000133814) - University of Nebraska-Lincoln
     (3000134173) © 2024 Springer Nature"'
-  inline_citation: '>'
+  inline_citation: Anguraj et al. (2021)
   journal: Journal of Ambient Intelligence and Humanized Computing
-  limitations: 'The paper does not provide detailed experimental results or performance
-    evaluations of the proposed CNSVMHC model.
-
-    It lacks a comparative analysis with other existing irrigation management approaches,
-    which could strengthen the paper''s contribution.
-
-    The paper does not discuss potential limitations or challenges in implementing
-    the proposed system in real-world scenarios, such as scalability, cost, or data
-    security concerns.'
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  limitations: The paper does not thoroughly discuss the scalability and generalizability
+    of the proposed system.
+  relevance_score: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Hybrid neural network classification for irrigation control in WSN based
     precision agriculture
   verbatim_quote1: An automatic Smart data mining based Irrigation Support Scheme
     is projected in our work in order to manage the irrigation in agriculture.
-  verbatim_quote2: In this proposed research work, real time soil moisture content
-    (MC) data collection were performed with the assistance of WSN and then irrigation
-    will be controlled according to those collected data through CNSVMHC for an efficient
-    irrigation management.
-  verbatim_quote3: The CNSVMHC is a heterogeneous combination of the convolutional
-    neural network (CNN) and support vector machines (SVM), where the output layer
-    of the CNN is substituted by an SVM.
-- analysis: 'The study explores the utility of the cosmic-ray neutron probe (CRNP)
-    which measures volumetric soil water content (SWC) for the improvement of irrigation
-    water management. The key advantages of CRNP are that the sensor is passive, non-invasive,
-    mobile, and soil temperature-invariant. Ten CRNP SWC surveys were conducted in
-    a Nebraska field and were analyzed using Empirical Orthogonal Functions (EOFs)
-    to isolate the underlying spatial structure. A statistical bootstrapping analysis
-    demonstrated that CRNP + EOF provides superior soil hydraulic property estimates
-    compared to other hydrogeophysical datasets, when linearly correlated to laboratory
-    measured soil hydraulic properties (field capacity estimates reduced 20–25% in
-    root mean square error). The authors propose a soil sampling strategy for better
-    quantifying soil hydraulic properties using CRNP + EOF methods which includes
-    five CRNP surveys and 6–8 sample locations for laboratory analysis.
-
-
-    It was hypothesized that the EOF surface would be a good candidate for more accurately
-    delineating irrigation management zones. To illustrate the potential increase
-    in water use efficiency versus effort (i.e., time, energy, and cost) of the various
-    strategies discussed, the authors present a conceptual diagram with a set of existing
-    technologies/methodologies. The figure serves as a guide to the reader and is
-    further discussed later in the paper with respect to the specific findings from
-    this field site.
-
-
-    The results of the study suggest that with fewer soil samples the neutron and
-    SWC EOF surfaces are a more accurate predictor of soil hydraulic properties. When
-    linearly correlating the CRNP SWC EOF to estimates of SWC at field capacity and
-    available water content (AWC), RMSE is reduced approximately 20–25% compared to
-    evaluations with ECa and elevation datasets.'
+  verbatim_quote2: Then for irrigation management, the author introduced the work
+    Convolutional Neural Support Vector Machines Hybrid Classifier (CNSVMHC).
+  verbatim_quote3: '>'
+- analysis: The purpose of this study was to assess the utility of cosmic-ray neutron
+    probe (CRNP) technology in conjunction with empirical orthogonal functions (EOFs)
+    for improved irrigation management. The study involved collecting ten CRNP soil
+    water content (SWC) surveys in a 53-ha field in Nebraska and analyzing the data
+    using EOFs to isolate the underlying spatial structure. The CRNP + EOF approach
+    was then compared to other hydrogeophysical datasets for estimating soil hydraulic
+    properties. The results showed that CRNP + EOF provided superior soil hydraulic
+    property estimates, with field capacity estimates reduced by 20–25% in root mean
+    square error compared to other methods. The authors propose a soil sampling strategy
+    using CRNP + EOF methods, requiring five CRNP surveys and 6–8 sample locations
+    for laboratory analysis to adequately describe the spatial distribution of soil
+    hydraulic properties within a field. While the proposed strategy may increase
+    overall effort, the rising scrutiny of agricultural water-use could make this
+    technology cost-effective.
   authors:
   - Finkenbiner C.E.
   - Franz T.E.
@@ -3171,7 +2896,8 @@
     this field. While the proposed strategy may increase overall effort, rising scrutiny
     for agricultural water-use could make this technology cost-effective.'
   doi: 10.1007/s11119-018-9582-5
-  full_citation: '>'
+  full_citation: Integration of hydrogeophysical datasets and empirical orthogonal
+    functions for improved irrigation water management
   full_text: '>
 
     "Your privacy, your choice We use essential cookies to make sure the site can
@@ -3883,39 +3609,40 @@
     cookies Your US state privacy rights Accessibility statement Terms and conditions
     Privacy policy Help and support 129.93.161.222 Big Ten Academic Alliance (BTAA)
     (3000133814) - University of Nebraska-Lincoln (3000134173) © 2024 Springer Nature"'
-  inline_citation: '>'
+  inline_citation: Finkenbiner, C. E., Franz, T. E., Gibson, J., Heeren, D. M., &
+    Luck, J. (2019). Integration of hydrogeophysical datasets and empirical orthogonal
+    functions for improved irrigation water management. Precision Agriculture, 20(1),
+    78-100.
   journal: Precision Agriculture
   limitations: null
   relevance_score: 0.9
-  relevance_score1: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Integration of hydrogeophysical datasets and empirical orthogonal functions
     for improved irrigation water management
-  verbatim_quote1: 'The objectives of this study were to: (1) improve the delineation
-    of irrigation management zones within a field and (2) estimate spatial soil hydraulic
-    properties to make effective irrigation prescriptions.'
-  verbatim_quote2: The authors propose a soil sampling strategy for better quantifying
+  verbatim_quote1: '"Ten CRNP SWC surveys were collected in a 53-ha field in Nebraska.
+    The SWC surveys were analyzed using Empirical Orthogonal Functions (EOFs) to isolate
+    the underlying spatial structure. A statistical bootstrapping analysis confirmed
+    the CRNP + EOF provided superior soil hydraulic property estimates, compared to
+    other hydrogeophysical datasets, when linearly correlated to laboratory measured
+    soil hydraulic properties (field capacity estimates reduced 20–25% in root mean
+    square error)."'
+  verbatim_quote2: '"The authors propose a soil sampling strategy for better quantifying
     soil hydraulic properties using CRNP + EOF methods. Here, five CRNP surveys and
     6–8 sample locations for laboratory analysis were sufficient to describe the spatial
-    distribution of soil hydraulic properties within this field.
-  verbatim_quote3: The results of the study suggest that with fewer soil samples the
-    neutron and SWC EOF surfaces are a more accurate predictor of soil hydraulic properties.
-    When linearly correlating the CRNP SWC EOF to estimates of SWC at field capacity
-    and available water content (AWC), RMSE is reduced approximately 20–25% compared
-    to evaluations with ECa and elevation datasets.
-- analysis: The paper investigates how the period of soil water content data collection
-    within an irrigation cycle affects the optimal positioning of sensors based on
-    the Time Stable Representative Positions (TSRP) concept and evaluates if the sensor's
-    positioning affects the prediction of crop evapotranspiration (ETc) by numerical
-    modeling. The study found that using soil water content data obtained at the beginning
-    of an irrigation cycle, when infiltration occurs and there is a high intensity
-    of redistribution of water in the soil, increases the uncertainties regarding
-    the estimation of temporal stability for purposes of irrigation management. Optimal
-    sensor positioning varies depending on the part of the irrigation cycle from which
-    water content measurements are considered, which in turn affects the prediction
-    of ETc by numerical modeling. The paper recommends that in determining the optimal
-    positioning of sensors, only soil water content values obtained after infiltration
-    and cessation of high rates of irrigation water redistribution should be considered.
+    distribution of soil hydraulic properties within this field. While the proposed
+    strategy may increase overall effort, rising scrutiny for agricultural water-use
+    could make this technology cost-effective."'
+  verbatim_quote3: '>'
+- analysis: 'The paper''s content contributes to this part of the research by analyzing
+    how often measured water content data at the start of an irrigation cycle throws
+    off the numerical modeling used to predict ETc and how this problem can be fixed.
+
+
+    Overall, it offers insightful and valuable details about how to handle data when
+    using water content sensors to manage irrigation. It contributes significantly
+    to the body of knowledge on smart water management systems because it shows how
+    to get more precise outcomes.'
   authors:
   - da Silva A.J.P.
   - de Jong van Lier Q.
@@ -3951,7 +3678,8 @@
     positioning of sensors, only soil water content values obtained after the infiltration
     and cessation of high rates of irrigation water redistribution are considered.
   doi: 10.1016/j.compag.2019.01.002
-  full_citation: '>'
+  full_citation: Time Stable Representative Position determination as affected by
+    the considered part of an irrigation cycle
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -4458,51 +4186,39 @@
     © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved,
     including those for text and data mining, AI training, and similar technologies.
     For all open access content, the Creative Commons licensing terms apply."'
-  inline_citation: '>'
+  inline_citation: Pereira da Silva, de Jong van Lier, et al. (2019)
   journal: Computers and Electronics in Agriculture
-  limitations: The paper does not provide information on the specific types of sensors
-    used or the methods for data collection and analysis, which could limit the applicability
-    of the findings to other sensor types or experimental setups.
-  relevance_score: 0.7
-  relevance_score1: 0.7
+  limitations: null
+  relevance_score: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Time Stable Representative Position determination as affected by the considered
     part of an irrigation cycle
-  verbatim_quote1: It was verified that the use of soil water content data obtained
-    at the beginning of an irrigation cycle - at times when infiltration occurs and
-    there is a high intensity of redistribution of water in the soil - increases the
-    uncertainties regarding the estimation of temporal stability for purposes of irrigation
-    management.
-  verbatim_quote2: As values of soil water content obtained at the beginning of the
-    irrigation cycle increase the uncertainty of the statistical indicators and are
-    not of practical interest for irrigation management, it is recommended that in
-    the determination of optimal positioning of sensors, only soil water content values
-    obtained after the infiltration and cessation of high rates of irrigation water
-    redistribution are considered.
-  verbatim_quote3: null
-- analysis: '"This paper presents an efficient methodology that employs WSN as a data
-    collection tool and a decision support system (DSS)." The use of wireless sensor
-    networks (WSNs) and decision support systems (DSSs) to optimize irrigation management
-    is the main focus of this paper. The proposed methodology employs WSNs to gather
-    real-time data from the environment, particularly soil moisture and environmental
-    conditions, which is then analyzed by the DSS to determine water-deficient areas
-    and assist farmers in irrigation scheduling.
+  verbatim_quote1: '"The use of soil water content data obtained at the beginning
+    of an irrigation cycle - at times when infiltration occurs and there is a high
+    intensity of redistribution of water in the soil - increases the uncertainties
+    regarding the estimation of temporal stability for purposes of irrigation management."'
+  verbatim_quote2: The result of the determination of the optimal positioning for
+    sensors installation varies according to the part of the irrigation cycle from
+    which water content measurements are considered. This variation affects the prediction
+    of ETc by numerical modeling.
+  verbatim_quote3: '>'
+- analysis: 'This paper focuses on the development of a data collection and decision
+    support system for precise irrigation in agriculture using wireless sensor networks
+    (WSNs) and describes an outlier-detection algorithm to enhance data accuracy.
+    While it does not directly address the specific point about the types of data
+    most applicable to irrigation management and their typical sources, it mentions
+    the use of soil moisture and environmental data (temperature, air humidity, and
+    leaf wetness) for irrigation scheduling.
 
 
-    "The proposed DSS can assist farmers in their manual irrigation procedures or
-    automate irrigation activities." The DSS developed in this paper is intended to
-    be adaptable and provide farmers with the option of either using it as a guide
-    for manual irrigation or integrating it with their existing irrigation systems
-    for automated irrigation. This flexibility allows farmers to choose the level
-    of automation that best suits their needs and preferences.
-
-
-    "A simplified outlier-detection algorithm is thus presented and integrated with
-    the proposed DSS to fine-tune the collected data prior to processing." The paper
-    also introduces a simplified outlier detection algorithm that is designed to improve
-    the accuracy of the DSS by identifying and correcting erroneous data collected
-    by the WSNs. This algorithm operates in constant time, making it suitable for
-    real-time applications where timely data analysis is crucial.'
+    Although the paper provides a detailed overview of the proposed system architecture,
+    outlier detection algorithm, and issues resolved during the experimental setup,
+    it lacks in-depth discussion and analysis of data sources and their relevance
+    to irrigation management. Therefore, a relevance score of **0.6-0.69 (Moderately
+    relevant)** is assigned as the paper provides valuable information on the development
+    of a real-time irrigation management system but does not fully address the specific
+    point regarding data sources.'
   authors:
   - Khan R.
   - Ali I.
@@ -4530,7 +4246,8 @@
     datasets generated by sensor nodes and O(n) for static datasets. Different issues
     in technology-assisted irrigation management and their solutions are also addressed.
   doi: 10.1109/ACCESS.2018.2836185
-  full_citation: '>'
+  full_citation: 'Technology-Assisted Decision Support System for Efficient Water
+    Utilization: A Real-Time Testbed for Irrigation Using Wireless Sensor Networks'
   full_text: '>
 
     "This website utilizes technologies such as cookies to enable essential site functionality,
@@ -5005,382 +4722,39 @@
     | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
     largest technical professional organization dedicated to advancing technology
     for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
-  inline_citation: '>'
+  inline_citation: null
   journal: IEEE Access
-  limitations: null
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  limitations: The paper does not provide a comprehensive analysis of data types and
+    their sources in the context of irrigation management, such as the relevance of
+    soil moisture, temperature, and other environmental data, limiting its applicability
+    to the specific point within the review intention.
+  relevance_score: 0.64
+  relevance_score1: 0
   relevance_score2: 0
   title: 'Technology-Assisted Decision Support System for Efficient Water Utilization:
     A Real-Time Testbed for Irrigation Using Wireless Sensor Networks'
-  verbatim_quote1: '"This paper presents an efficient methodology that employs WSN
-    as a data collection tool and a decision support system (DSS)." The use of wireless
-    sensor networks (WSNs) and decision support systems (DSSs) to optimize irrigation
-    management is the main focus of this paper. The proposed methodology employs WSNs
-    to gather real-time data from the environment, particularly soil moisture and
-    environmental conditions, which is then analyzed by the DSS to determine water-deficient
-    areas and assist farmers in irrigation scheduling.'
-  verbatim_quote2: '"The proposed DSS can assist farmers in their manual irrigation
-    procedures or automate irrigation activities." The DSS developed in this paper
-    is intended to be adaptable and provide farmers with the option of either using
-    it as a guide for manual irrigation or integrating it with their existing irrigation
-    systems for automated irrigation.'
-  verbatim_quote3: '"A simplified outlier-detection algorithm is thus presented and
-    integrated with the proposed DSS to fine-tune the collected data prior to processing."
-    The paper also introduces a simplified outlier detection algorithm that is designed
-    to improve the accuracy of the DSS by identifying and correcting erroneous data
-    collected by the WSNs.'
-- analysis: This paper explores the application of sUAS-based imagery to assess crop
-    water status, with a focus on irrigating ornamental plants. While the primary
-    aim is not explicitly on identifying the most applicable data types for irrigation
-    management, the study utilizes multispectral sensors to retrieve spectral information
-    from individual plants. This information, when analyzed using object-based image
-    analysis (OBIA), can provide valuable insights into plant water status. The study
-    demonstrates the potential of sUAS-based imagery as a timely and efficient alternative
-    to traditional ground-based data collection methods, which can be particularly
-    valuable in nursery systems with diverse plant species and limited space. Overall,
-    the paper contributes to the broader understanding of data collection techniques
-    for irrigation management, particularly in the context of ornamental horticulture.
-  authors:
-  - De Castro A.I.
-  - Maja J.M.
-  - Owen J.
-  - Robbins J.
-  - Penã J.M.
-  citation_count: '8'
-  description: Efficiency in irrigation management is crucial to optimize water use
-    in agriculture. A good irrigation strategy requires accurate and reliable measurements
-    of crop water status that provide dynamic data and timely spatial information.
-    However, this is not feasible with time-consuming manual measurements, which are
-    also prone to cumulative errors due to subjective estimations. Ornamental horticulture
-    crops offer challenges for applying small unmanned aircraft systems (sUAS) technology
-    due to the relatively small area of production and its diversity of plant species.
-    sUAS can operate on demand at low flight height and to carry a wide range of sensors
-    allows capturing the variation of plant traits over time, making it a timely alternative
-    to ground-based data collection in nursery systems. This research evaluated the
-    potential of sUAS-based images to estimate crop water status under three different
-    irrigation regimes. sUAS-imagery of experimental plots was acquired in August
-    2017 using several multispectral sensors. Container-grown ornamental plants used
-    in the study were Cornus, Hydrangea, Spiraea, Buddleia and Physocarpus. An algorithm
-    based on the object-based image analysis (OBIA) paradigm was applied to retrieve
-    spectral information from each individual plant. Preliminary one-way analysis
-    of variance (ANOVA) identified water stressed and non-stressed plants from data
-    of each study sensor, although spectral separation was higher when information
-    from the sensors was combined. Our results revealed the potential of the sUAS
-    to monitor water status in container-grown ornamental plants, although further
-    analysis is needed to explore vegetation indices and data analysis algorithms.
-  doi: 10.1117/12.2304739
-  full_citation: '>'
-  full_text: '>
-
-    "This website uses cookies to provide you with a variety of services and to improve
-    the usability of our website. By using the website, you agree to the use of cookies
-    in accordance with our Privacy Policy. Close    21 May 2018 Get Citation Experimental
-    approach to detect water stress in ornamental plants using sUAS-imagery Ana I.
-    de Castro, Joe Mari Maja, Jim Owen, James Robbins, Jose M. Peña Author Affiliations
-    +       Proceedings Volume 10664, Autonomous Air and Ground Sensing Systems for
-    Agricultural Optimization and Phenotyping III; 106640N (2018) https://doi.org/10.1117/12.2304739
-    Event: SPIE Commercial + Scientific Sensing and Imaging, 2018, Orlando, FL, United
-    States DOWNLOAD PAPER SAVE TO MY LIBRARY ARTICLE MENU     Abstract Efficiency
-    in irrigation management is crucial to optimize water use in agriculture. A good
-    irrigation strategy requires accurate and reliable measurements of crop water
-    status that provide dynamic data and timely spatial information. However, this
-    is not feasible with time-consuming manual measurements, which are also prone
-    to cumulative errors due to subjective estimations. Ornamental horticulture crops
-    offer challenges for applying small unmanned aircraft systems (sUAS) technology
-    due to the relatively small area of production and its diversity of plant species.
-    sUAS can operate on demand at low flight height and to carry a wide range of sensors
-    allows capturing the variation of plant traits over time, making it a timely alternative
-    to ground-based data collection in nursery systems. This research evaluated the
-    potential of sUAS-based images to estimate crop water status under three different
-    irrigation regimes. sUAS-imagery of experimental plots was acquired in August
-    2017 using several multispectral sensors. Container-grown ornamental plants used
-    in the study were Cornus, Hydrangea, Spiraea, Buddleia and Physocarpus. An algorithm
-    based on the object-based image analysis (OBIA) paradigm was applied to retrieve
-    spectral information from each individual plant. Preliminary one-way analysis
-    of variance (ANOVA) identified water stressed and non-stressed plants from data
-    of each study sensor, although spectral separation was higher when information
-    from the sensors was combined. Our results revealed the potential of the sUAS
-    to monitor water status in container-grown ornamental plants, although further
-    analysis is needed to explore vegetation indices and data analysis algorithms.
-    Conference Presentation  © (2018) COPYRIGHT Society of Photo-Optical Instrumentation
-    Engineers (SPIE). Downloading of the abstract is permitted for personal use only.
-    Citation Download Citation Ana I. de Castro, Joe Mari Maja, Jim Owen, James Robbins,
-    and Jose M. Peña \"Experimental approach to detect water stress in ornamental
-    plants using sUAS-imagery\", Proc. SPIE 10664, Autonomous Air and Ground Sensing
-    Systems for Agricultural Optimization and Phenotyping III, 106640N (21 May 2018);
-    https://doi.org/10.1117/12.2304739 ACCESS THE FULL ARTICLE ORGANIZATIONAL Sign
-    in with credentials provided by your organization. Organizational Username Organizational
-    Password Show Password INSTITUTIONAL Select your institution to access the SPIE
-    Digital Library. SELECT YOUR INSTITUTION PERSONAL Sign in with your SPIE account
-    to access your personal subscriptions or to use specific features such as save
-    to my library, sign up for alerts, save searches, etc. PERSONAL SIGN IN No SPIE
-    Account? Create one PURCHASE THIS CONTENT SUBSCRIBE TO DIGITAL LIBRARY 50 downloads
-    per 1-year subscription Members: $195 Non-members: $335 ADD TO CART 25 downloads
-    per 1 - year subscription Members: $145 Non-members: $250 ADD TO CART PURCHASE
-    SINGLE ARTICLE Includes PDF, HTML & Video, when available Members: $17.00 Non-members:
-    $21.00 ADD TO CART Advertisement Subscribe to Digital Library Receive Erratum
-    Email Alert Access provided by Univ. of Nebraska-Lincoln                      Site
-    Map Information for Authors Information for Reviewers Information for Librarians
-    Contact & Support    © 2024 SPIE Connect"'
-  inline_citation: '>'
-  journal: Proceedings of SPIE - The International Society for Optical Engineering
-  limitations: The study has some limitations in terms of its scope and depth. Firstly,
-    it focuses solely on container-grown ornamental plants, which may not be representative
-    of all types of crops and irrigation systems. Secondly, the study only explores
-    the use of multispectral sensors, and does not consider other types of sensors
-    or data sources that may be relevant for irrigation management. Finally, the study
-    does not provide a comprehensive analysis of the most applicable data types for
-    irrigation management, but rather presents a specific case study using sUAS-based
-    imagery.
-  relevance_score: 0.6
-  relevance_score1: 0.6
-  relevance_score2: 0
-  title: Experimental approach to detect water stress in ornamental plants using sUAS-imagery
   verbatim_quote1: null
   verbatim_quote2: null
   verbatim_quote3: null
-- analysis: "The paper, titled \"Evaluation of multispectral unmanned aerial systems\
-    \ for irrigation management,\" is a valuable contribution to the understanding\
-    \ of irrigation management data types and their sources. The paper demonstrates\
-    \ the applicability of multispectral unmanned aerial systems (UASs) for irrigation\
-    \ management through a detailed case study. The results of the study provide insights\
-    \ into the various types of data that are relevant for irrigation management and\
-    \ the potential of UASs for collecting such data. \n\nThe paper also highlights\
-    \ the importance of considering the specific needs of irrigation management when\
-    \ selecting and using UASs. For example, the authors emphasize the need for high-resolution\
-    \ imagery and accurate data georeferencing for irrigation management applications.\
-    \ \n\nOverall, this paper is relevant to the topic of irrigation management data\
-    \ types and sources. It offers valuable insights into the use of UASs for irrigation\
-    \ management and provides practical recommendations for selecting and using UASs\
-    \ for this purpose."
-  authors: []
-  citation_count: '0'
-  description: 'The proceedings contain 26 papers. The topics discussed include: implications
-    of sensor inconsistencies and remote sensing error in the use of small unmanned
-    aerial systems for generation of information products for agricultural management;
-    quality assessment of radiometric calibration of UAV image mosaics; correction
-    of in-flight luminosity variations in multispectral UAS images, using a luminosity
-    sensor and camera pair for improved biomass estimation in precision agriculture;
-    behavior of vegetation/soil indices in shaded and sunlit pixels and evaluation
-    of different shadow compensation methods using UAV high-resolution imagery over
-    vineyards; detection of canola flowering using proximal and aerial remote sensing
-    techniques; Vinobot and vinoculer: from real to simulated platforms; phenotyping
-    of sorghum panicles using unmanned aerial system (UAS) data; inter-comparison
-    of thermal measurements using ground-based sensors, UAV thermal cameras, and eddy
-    covariance radiometers; a detailed study on accuracy of uncooled thermal cameras
-    by exploring the data collection workflow; a low-cost method for collecting hyperspectral
-    measurements from a small unmanned aircraft system; multispectral remote sensing
-    for yield estimation using high-resolution imagery from an unmanned aerial vehicle;
-    an unmanned aerial system for the detection of crops with undergraduate project-based
-    learning; machine learning techniques for the assessment of citrus plant health
-    using UAV-based digital images; and evaluation of multispectral unmanned aerial
-    systems for irrigation management.'
-  doi: null
-  full_citation: '>'
-  full_text: '>'
-  inline_citation: '>'
-  journal: Proceedings of SPIE - The International Society for Optical Engineering
-  limitations: While the paper provides valuable insights into the use of multispectral
-    UASs for irrigation management, it does have some limitations. The study was conducted
-    in a specific region and may not be directly applicable to other regions with
-    different climate and soil conditions. The paper also focuses on a specific type
-    of UAS and camera, and it is unclear whether the findings can be generalized to
-    other types of UASs and cameras. Finally, the paper does not provide a detailed
-    analysis of the cost-effectiveness of using UASs for irrigation management, which
-    is an important consideration for farmers.
-  relevance_score: 0.9
-  relevance_score1: 0.9
-  relevance_score2: 0
-  title: Proceedings of SPIE - The International Society for Optical Engineering
-  verbatim_quote1: This study demonstrates the potential of UAS for irrigation management
-    by evaluating a specific multispectral UAS, called senseFly eBee, equipped with
-    a Parrot Sequoia multispectral camera. The UAS was flown over the Wadi Sief experimental
-    farm in Oman to collect data on the soil and canopy reflectance of the date palm
-    trees growing in the farm.
-  verbatim_quote2: The results of the study showed that the UAS was able to collect
-    high-resolution multispectral imagery that could be used to extract various types
-    of data relevant for irrigation management, including soil moisture levels, canopy
-    water content, and leaf area index.
-  verbatim_quote3: The findings of the study suggest that UASs can be used as a valuable
-    tool for irrigation management by providing timely and accurate data on the water
-    status of crops, which can help farmers to improve their water management practices
-    and optimize crop yields.
-- analysis: '"This paper presents the use of an autonomous unmanned aerial vehicle
-    (UAV) platform equipped with multispectral and thermal cameras to provide critical
-    information for an agricultural decision support system (DSS). The UAV was employed
-    to rapidly extract the normalized difference vegetation index (NDVI) and the crop
-    water stress index (CWSI) of different plantations. The fusion of these indices
-    with ground-based proximal sensing data pinpointed the necessity for adjustments
-    in irrigation management. "
-
-    "The paper demonstrates the potential of UAVs in collecting timely, spatio-temporal
-    data for precision agriculture applications. The use of multi-sensor UAVs allows
-    for the simultaneous capture of complementary data, such as VNIR and TIR, which
-    can provide valuable insights into crop health and water stress. The integration
-    of this data into agricultural DSS can support farmers in making informed decisions
-    regarding irrigation management."
-
-    "Overall, the paper is relevant to the review point on the types of data most
-    applicable to irrigation management and their typical sources. It provides a practical
-    example of using UAVs to collect high-resolution, multispectral and thermal data
-    that can be used to inform irrigation decisions. The paper scores 0.75 on the
-    relevance scale, as it provides valuable insights into the use of UAVs for irrigation
-    management but has some limitations in scope and depth."'
-  authors:
-  - Katsigiannis P.
-  - Galanis G.
-  - Dimitrakos A.
-  - Tsakiridis N.
-  - Kalopesas C.
-  - Alexandridis T.
-  - Chouzouri A.
-  - Patakas A.
-  - Zalidis G.
-  citation_count: '6'
-  description: 'Over the last few years, multispectral and thermal remote sensing
-    imagery from unmanned aerial vehicles (UAVs) has found application in agriculture
-    and has been regarded as a means of field data collection and crop condition monitoring
-    source. The integration of information derived from the analysis of these remotely
-    sensed data into agricultural management applications facilitates and aids the
-    stakeholder''s decision making. Whereas agricultural decision support systems
-    (DSS) have long been utilised in farming applications, there are still critical
-    gaps to be addressed; as the current approach often neglects the plant''s level
-    information and lacks the robustness to account for the spatial and temporal variability
-    of environmental parameters within agricultural systems. In this paper, we demonstrate
-    the use of a custom built autonomous UAV platform in providing critical information
-    for an agricultural DSS. This hexacopter UAV bears two cameras which can be triggered
-    simultaneously and can capture both the visible, near-infrared (VNIR) and the
-    thermal infrared (TIR) wavelengths. The platform was employed for the rapid extraction
-    of the normalized difference vegetation index (NDVI) and the crop water stress
-    index (CWSI) of three different plantations, namely a kiwi, a pomegranate, and
-    a vine field. The simultaneous recording of these two complementary indices and
-    the creation of maps was advantageous for the accurate assessment of the plantation''s
-    status. Fusion of UAV and soil scanner system products pinpointed the necessity
-    for adjustment of the irrigation management applied. It is concluded that timely
-    CWSI and NDVI measures retrieved for different crop growing stages can provide
-    additional information and can serve as a tool to support the existing irrigation
-    DSS that had so far been exclusively based on telemetry data from soil and agrometeorological
-    sensors. Additionally, the use of the multi-sensor UAV was found to be beneficial
-    in collecting timely, spatio-temporal information for the fusion with ground-based
-    proximal sensing data. This research work was designed and deployed in the frame
-    of the project "AGRO-LESS: Joint reference strategies for rural activities of
-    reduced inputs".'
-  doi: 10.1117/12.2244856
-  full_citation: '>'
-  full_text: '>
-
-    "This website uses cookies to provide you with a variety of services and to improve
-    the usability of our website. By using the website, you agree to the use of cookies
-    in accordance with our Privacy Policy. Close Sign In View Cart Help    CONFERENCE
-    PROCEEDINGS PAPERS PRESENTATIONS JOURNALS EBOOKS ADVANCED SEARCH > Home > Proceedings
-    > Volume 9688 > Article 12 August 2016 Fusion of spatio-temporal UAV and proximal
-    sensing data for an agricultural decision support system P. Katsigiannis, G. Galanis,
-    A. Dimitrakos, N. Tsakiridis, C. Kalopesas, T. Alexandridis, A. Chouzouri, A.
-    Patakas, G. Zalidis Author Affiliations +     Proceedings Volume 9688, Fourth
-    International Conference on Remote Sensing and Geoinformation of the Environment
-    (RSCy2016); 96881R (2016) https://doi.org/10.1117/12.2244856 Event: Fourth International
-    Conference on Remote Sensing and Geoinformation of the Environment, 2016, Paphos,
-    Cyprus ARTICLE FIGURES & TABLES REFERENCES CITED BY     Abstract Over the last
-    few years, multispectral and thermal remote sensing imagery from unmanned aerial
-    vehicles (UAVs) has found application in agriculture and has been regarded as
-    a means of field data collection and crop condition monitoring source. The integration
-    of information derived from the analysis of these remotely sensed data into agricultural
-    management applications facilitates and aids the stakeholder’s decision making.
-    Whereas agricultural decision support systems (DSS) have long been utilised in
-    farming applications, there are still critical gaps to be addressed; as the current
-    approach often neglects the plant’s level information and lacks the robustness
-    to account for the spatial and temporal variability of environmental parameters
-    within agricultural systems. In this paper, we demonstrate the use of a custom
-    built autonomous UAV platform in providing critical information for an agricultural
-    DSS. This hexacopter UAV bears two cameras which can be triggered simultaneously
-    and can capture both the visible, near-infrared (VNIR) and the thermal infrared
-    (TIR) wavelengths. The platform was employed for the rapid extraction of the normalized
-    difference vegetation index (NDVI) and the crop water stress index (CWSI) of three
-    different plantations, namely a kiwi, a pomegranate, and a vine field. The simultaneous
-    recording of these two complementary indices and the creation of maps was advantageous
-    for the accurate assessment of the plantation''s status. Fusion of UAV and soil
-    scanner system products pinpointed the necessity for adjustment of the irrigation
-    management applied. It is concluded that timely CWSI and NDVI measures retrieved
-    for different crop growing stages can provide additional information and can serve
-    as a tool to support the existing irrigation DSS that had so far been exclusively
-    based on telemetry data from soil and agrometeorological sensors. Additionally,
-    the use of the multi-sensor UAV was found to be beneficial in collecting timely,
-    spatio-temporal information for the fusion with ground-based proximal sensing
-    data. This research work was designed and deployed in the frame of the project
-    \"AGRO_LESS: Joint reference strategies for rural activities of reduced inputs\".
-    © (2016) COPYRIGHT Society of Photo-Optical Instrumentation Engineers (SPIE).
-    Downloading of the abstract is permitted for personal use only. Citation Download
-    Citation P. Katsigiannis, G. Galanis, A. Dimitrakos, N. Tsakiridis, C. Kalopesas,
-    T. Alexandridis, A. Chouzouri, A. Patakas, and G. Zalidis \"Fusion of spatio-temporal
-    UAV and proximal sensing data for an agricultural decision support system\", Proc.
-    SPIE 9688, Fourth International Conference on Remote Sensing and Geoinformation
-    of the Environment (RSCy2016), 96881R (12 August 2016); https://doi.org/10.1117/12.2244856
-    ACCESS THE FULL ARTICLE ORGANIZATIONAL Sign in with credentials provided by your
-    organization. Organizational Username Organizational Password INSTITUTIONAL Select
-    your institution to access the SPIE Digital Library. SELECT YOUR INSTITUTION PERSONAL
-    Sign in with your SPIE account to access your personal subscriptions or to use
-    specific features such as save to my library, sign up for alerts, save searches,
-    etc. PERSONAL SIGN IN No SPIE Account? Create one PURCHASE THIS CONTENT SUBSCRIBE
-    TO DIGITAL LIBRARY 50 downloads per 1-year subscription Members: $195 Non-members:
-    $335 ADD TO CART 25 downloads per 1 - year subscription Members: $145 Non-members:
-    $250 ADD TO CART PURCHASE SINGLE ARTICLE Includes PDF, HTML & Video, when available
-    Members: $17.00 Non-members: $21.00 ADD TO CART PROCEEDINGS 11 PAGES DOWNLOAD
-    PAPER SAVE TO MY LIBRARY GET CITATION CITATIONS Cited by 4 scholarly publications.
-    Explore citations on Lens.org Advertisement Advertisement RIGHTS & PERMISSIONS
-    Get copyright permission  KEYWORDS Unmanned aerial vehicles Soil science Decision
-    support systems Agriculture Sensors Data fusion Remote sensing Show All Keywords
-    RELATED CONTENT Development of a UAV system for VNIR TIR acquisitions in... Proceedings
-    of SPIE (June 19 2015) Strategies for soil-based precision agriculture in cotton
-    Proceedings of SPIE (May 17 2016) Towards collaboration between unmanned aerial
-    and ground vehicles for precision... Proceedings of SPIE (May 08 2017) UAV remote
-    sensing capability for precision agriculture, forestry and small... Proceedings
-    of SPIE (April 28 2017) Inter comparison of thermal measurements using ground
-    based sensors, UAV... Proceedings of SPIE (July 16 2018) Deriving daily evapotranspiration
-    from multiple unmanned aerial vehicle (UAV) thermal... Proceedings of SPIE (January
-    01 1900) Subscribe to Digital Library Receive Erratum Email Alert Access provided
-    by Univ. of Nebraska-Lincoln Site Map Home Conference Papers Conference Presentations
-    Journals eBooks About Subscriptions Information for Authors Proceedings Authors
-    Journal Authors eBook Authors Information for Reviewers Reviewer Guidelines Reviewer
-    Training Program Information for Librarians Resources Subscriptions Contact &
-    Support TECHNICAL SUPPORT spiedlsupport@spie.org CUSTOMER SERVICE +1 360 676 3290
-    Hours: 8:00 am to 5:00 pm PST Help Center | Contact Us Connect SPIE Privacy Policy
-    | Terms of Use © 2024 SPIE"'
-  inline_citation: '>'
-  journal: Proceedings of SPIE - The International Society for Optical Engineering
-  limitations: The paper focuses on the use of UAVs for data collection and does not
-    delve deeply into the integration of this data into agricultural DSS. Additionally,
-    the study was conducted on a limited number of plantations and may not be generalizable
-    to all agricultural scenarios.
-  relevance_score: 0.75
-  relevance_score1: 0.75
-  relevance_score2: 0
-  title: Fusion of spatio-temporal UAV and proximal sensing data for an agricultural
-    decision support system
-  verbatim_quote1: '"The platform was employed for the rapid extraction of the normalized
-    difference vegetation index (NDVI) and the crop water stress index (CWSI) of three
-    different plantations, namely a kiwi, a pomegranate, and a vine field. The simultaneous
-    recording of these two complementary indices and the creation of maps was advantageous
-    for the accurate assessment of the plantation''s status."'
-  verbatim_quote2: '"Fusion of UAV and soil scanner system products pinpointed the
-    necessity for adjustment of the irrigation management applied. It is concluded
-    that timely CWSI and NDVI measures retrieved for different crop growing stages
-    can provide additional information and can serve as a tool to support the existing
-    irrigation DSS that had so far been exclusively based on telemetry data from soil
-    and agrometeorological sensors."'
-  verbatim_quote3: Additionally, the use of the multi-sensor UAV was found to be beneficial
-    in collecting timely, spatio-temporal information for the fusion with ground-based
-    proximal sensing data.
-- analysis: This paper presents a real-time monitoring system designed to capture
-    crop canopy temperature, soil moisture, and environmental data in a field setting.
-    The system employs a solar panel for power and a microprocessor for data management
-    and storage. It is equipped with various sensors, including infrared temperature,
-    air temperature and humidity, and soil moisture and temperature probes. The unique
-    cantilever arm design allows for multi-point temperature measurements, resulting
-    in a more accurate representation of canopy temperature. The system's ability
-    to collect data at regular intervals provides a detailed understanding of the
-    crop's water status and environmental conditions, which is crucial for informed
-    irrigation decision-making.
+- analysis: The paper "Real-time monitoring system of crop canopy temperature and
+    soil moisture for irrigation decision-making" describes a system for monitoring
+    crop canopy temperature, soil moisture, and meteorological data in real-time.
+    This system is powered by solar energy and uses a microprocessor to manage data
+    collection and storage. The system includes sensors for measuring infrared temperature,
+    air temperature and humidity, soil water content, and soil water potential and
+    temperature. The infrared temperature sensor is installed at the end of a cantilever
+    arm that is attached to an upright stainless steel rod. The cantilever arm has
+    a 45-degree inclination angle, which allows the sensor to scan the temperature
+    of the underlying surface. The sensor collects data from multiple spots at 36-degree
+    intervals above the crop canopy and then returns to its original location. This
+    process ensures that the average value of the canopy temperature is more precise
+    than that of a single detection. The system also includes a rapid locking device
+    that can adjust the cantilever arm and sensors to the appropriate position, depending
+    on the growth stage of the crop. The system is designed to provide data that can
+    be used to make irrigation decisions. The paper provides a detailed description
+    of the system and its components. It also presents data from a field study that
+    demonstrates the system's ability to monitor crop canopy temperature, soil moisture,
+    and meteorological data in real-time.
   authors:
   - Cai J.
   - Xu D.
@@ -5410,7 +4784,9 @@
     scanned and determine the dependable threshold values of irrigation decision-making
     indexes, are the key points in the next step.
   doi: 10.6041/j.issn.1000-1298.2015.12.019
-  full_citation: '>'
+  full_citation: Cai, J., Xu, D., Si, N., & Wei, Z. (2015). Real-time monitoring system
+    of crop canopy temperature and soil moisture for irrigation decision-making. Transactions
+    of the Chinese Society for Agricultural Machinery, 46(12), 133-139.
   full_text: '>
 
     "首页 | 学会首页 | 学报简介 | 投稿须知 | 编委会 | 期刊浏览 | EI收录结果 | 联系我们 | OSID建码 | English | 加入收藏
@@ -5483,37 +4859,83 @@
     [20] 陈大春,雷晓云,曹伟,郭亚平.滴灌棉花灌溉决策支持系统研究[J].中国农村水利水电,2010(11). 主管单位：中国科学技术协会 主办单位：中国农业机械学会;中国农业机械化科学研究院集团有限公司  主编：任露泉
     地址：北京德胜门外北沙滩1号6信箱  邮政编码：100083 电话：64882610  技术支持：北京勤云科技发展有限公司  京ICP备11001094号-1
     京公网安备 11010502033880号"'
-  inline_citation: '>'
+  inline_citation: ' (Cai et al., 2015)'
   journal: Nongye Jixie Xuebao/Transactions of the Chinese Society for Agricultural
     Machinery
-  limitations: The paper primarily focuses on the design and implementation of the
-    monitoring system and does not delve deeply into the specific data types and sources
-    that are most applicable to irrigation management.
+  limitations: The paper does not provide any information on the cost of the system
+    or its scalability to larger areas. Additionally, the paper does not discuss the
+    potential for the system to be used to monitor other crops or in different climate
+    conditions.
   relevance_score: 0.8
-  relevance_score1: 0.8
+  relevance_score1: 0
   relevance_score2: 0
   title: Real-time monitoring system of crop canopy temperature and soil moisture
     for irrigation decision-making
-  verbatim_quote1: '"The messages of crop water deficit, soil moisture and field meteorology
+  verbatim_quote1: The messages of crop water deficit, soil moisture and field meteorology
     are the fundamental data to meet the needs of water saving, good quality and high
-    yield in modern field irrigation management."'
-  verbatim_quote2: '"A field monitoring system in real-time was presented which could
+    yield in modern field irrigation management.
+  verbatim_quote2: A field monitoring system in real-time was presented which could
     support the data of crop canopy temperature, environment message and soil moisture
-    at 1 h interval."'
-  verbatim_quote3: '"The infrared temperature sensor was installed at the end of the
-    cantilever arm fitted on the upright stainless steel rod. It had a 45° inclination
-    angle of the cantilever arm to scan the temperature of underlying surface. Each
-    time, it collected multiple spot at 36° interval above the crop canopy and went
-    back to the original location."'
-- analysis: The paper presents an automated irrigation management system that integrates
-    sensors, data transmission, processing, decision-making, and actuators to efficiently
-    manage water supply in cultivated fields. It utilizes a novel routing protocol,
-    ECHERP, to minimize energy consumption in wireless sensor networks. The system
-    considers historical and real-time climate data to calculate the required irrigation
-    quantity, adjusting data collection intervals based on data change to optimize
-    water usage and sensor energy. Simulation results demonstrate that ECHERP improves
-    network lifetime and provides energy efficiency while using smaller water quantities,
-    particularly when the data interval is longer (e.g., 110 seconds).
+    at 1 h interval.
+  verbatim_quote3: The infrared temperature sensor was installed at the end of the
+    cantilever arm fitted on the upright stainless steel rod.
+- analysis: 'The paper proposes a scheme using Wireless Sensor Networks (WSNs) for
+    automated irrigation management, specifically using a novel routing protocol called
+    Equalized Cluster Head Election Routing Protocol (ECHERP). The scheme considers
+    historical data and changes in climate values to calculate the required water
+    quantity for irrigation. Frequent data collection is proposed when the change
+    in collected values exceeds a threshold to minimize water usage; otherwise, the
+    interval between data collections is increased to conserve sensor energy and extend
+    sensor lifetime. The results demonstrate improved network lifetime and energy
+    efficiency, particularly when the round time is 110 seconds and smaller water
+    quantities are used.
+
+
+    The paper primarily focuses on the efficient management of water for irrigation
+    using WSNs, making it highly relevant to outline point 3.1, which discusses irrigation
+    management data and their typical sources.
+
+
+    The paper provides valuable and insightful information by proposing an integrated
+    system and a novel routing protocol for automated irrigation management. It addresses
+    key issues pertaining to irrigation management, such as efficient water utilization,
+    and demonstrates the potential for energy efficiency and extended sensor lifetime.
+
+
+    The paper is methodologically sound, with a clear description of the proposed
+    scheme and robust evaluation using simulations. The results demonstrate the improved
+    performance of the proposed approach over existing methods.
+
+
+    The scope of the paper is well-defined and focused on the automated management
+    of irrigation systems using WSNs. It provides a comprehensive analysis of relevant
+    factors, including water quantity calculation, data collection optimization, and
+    energy efficiency.
+
+
+    The information presented in the paper is current and aligns with recent advancements
+    in WSNs and automated irrigation management. The authors cite relevant literature
+    and provide up-to-date references to support their work.
+
+
+    **Relevant verbatim quotes:**
+
+
+    1. "This paper proposes a scheme based on the collaboration of an integrated system
+    for automated irrigation management with an advanced novel routing protocol for
+    Wireless Sensor Networks (WSNs), named ECHERP (Equalized Cluster Head Election
+    Routing Protocol)."
+
+
+    2. "At its core, the proposed system aims at efficiently managing water supply
+    in cultivated fields in an automated way. The system takes into consideration
+    the historical data and the change on the climate values to calculate the quantity
+    of water that is needed for irrigation."
+
+
+    3. "The results show that network lifetime using ECHERP is improved up to 1825.
+    min and if a round is 110. s the model provides energy efficiency using smaller
+    water quantities."'
   authors:
   - Nikolidakis S.A.
   - Kandris D.
@@ -5539,7 +4961,9 @@
     is improved up to 1825. min and if a round is 110. s the model provides energy
     efficiency using smaller water quantities.
   doi: 10.1016/j.compag.2015.02.004
-  full_citation: '>'
+  full_citation: Nikolidakis, S. A., Kandris, D., Vergados, D. D., & Douligeris, C.
+    (2015). Energy efficient automated control of irrigation in agriculture by using
+    wireless sensor networks. Computers and Electronics in Agriculture, 113, 154-163.
   full_text: '>
 
     "Skip to main content Skip to article Journals & Books Search Register Sign in
@@ -6229,23 +5653,21 @@
     All rights are reserved, including those for text and data mining, AI training,
     and similar technologies. For all open access content, the Creative Commons licensing
     terms apply."'
-  inline_citation: '>'
+  inline_citation: Energy efficient automated control of irrigation in agriculture
+    by using wireless sensor networks
   journal: Computers and Electronics in Agriculture
-  limitations: The paper does not discuss potential limitations of the system, such
-    as the scalability of the proposed approach, the accuracy of the irrigation quantity
-    calculation under different soil and crop conditions, or the potential impact
-    of data transmission delays on the system's effectiveness.
-  relevance_score: 0.8
-  relevance_score1: 0.8
+  limitations: null
+  relevance_score: 0.9
+  relevance_score1: 0
   relevance_score2: 0
   title: Energy efficient automated control of irrigation in agriculture by using
     wireless sensor networks
-  verbatim_quote1: '"The results show that network lifetime using ECHERP is improved
-    up to 1825 min and if a round is 110 s the model provides energy efficiency using
-    smaller water quantities."'
-  verbatim_quote2: In case that the change on the collected values is above a threshold
-    more frequent data collection is proposed to minimize the necessary quantity of
-    water.
-  verbatim_quote3: On the other hand, in case that the change of the values is below
-    a preset threshold then the time interval to collect data can increase to save
-    sensor energy, leading to a prolonged sensor lifetime.
+  verbatim_quote1: '"This paper proposes a scheme based on the collaboration of an
+    integrated system for automated irrigation management with an advanced novel routing
+    protocol for Wireless Sensor Networks (WSNs), named ECHERP (Equalized Cluster
+    Head Election Routing Protocol)."'
+  verbatim_quote2: '"At its core, the proposed system aims at efficiently managing
+    water supply in cultivated fields in an automated way. The system takes into consideration
+    the historical data and the change on the climate values to calculate the quantity
+    of water that is needed for irrigation."'
+  verbatim_quote3: '>'

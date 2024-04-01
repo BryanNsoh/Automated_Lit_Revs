@@ -1,23 +1,23 @@
-import json
 import asyncio
 import aiohttp
 import logging
 import google.generativeai as genai
+import google.api_core
 import anthropic
 import backoff
 import requests
 import tiktoken
 import time
+from collections import deque
+import json
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
-
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 console_handler.setFormatter(formatter)
-
 logger.addHandler(console_handler)
 
 file_handler = logging.FileHandler("llm_handler.log")
@@ -43,29 +43,23 @@ def clip_prompt(prompt, max_tokens, encoding_name="cl100k_base"):
 
 
 class RateLimiter:
-    def __init__(self, rps=5, rpm=60):
+    def __init__(self, rps=4, window_size=60):
         self.rps = rps
-        self.rpm = rpm
-        self.semaphore = asyncio.Semaphore(rps)
+        self.window_size = window_size
+        self.window_start = time.monotonic()
         self.request_count = 0
-        self.last_minute = time.monotonic() // 60
-
-    async def __aenter__(self):
-        await self.acquire()
-
-    async def __aexit__(self, exc_type, exc_value, traceback):
-        self.release()
+        self.semaphore = asyncio.Semaphore(rps)
 
     async def acquire(self):
-        current_minute = time.monotonic() // 60
-        if current_minute != self.last_minute:
-            self.last_minute = current_minute
+        current_time = time.monotonic()
+        elapsed_time = current_time - self.window_start
+        if elapsed_time > self.window_size:
+            self.window_start = current_time
             self.request_count = 0
-
-        if self.request_count >= self.rpm:
-            await asyncio.sleep(60 - time.monotonic() % 60)
+        if self.request_count >= self.rps:
+            await asyncio.sleep(self.window_size - elapsed_time)
+            self.window_start = time.monotonic()
             self.request_count = 0
-
         self.request_count += 1
         await self.semaphore.acquire()
 
@@ -73,13 +67,43 @@ class RateLimiter:
         self.semaphore.release()
 
 
-class LLM_APIHandler:
-    def __init__(self, key_path, rps=1, rpm=60):
-        self.load_api_keys(key_path)
-        self.rate_limiter = RateLimiter(rps, rpm)
-        genai.configure(api_key=self.gemini_api_key)
-        self.claude_client = anthropic.Anthropic(api_key=self.claude_api_key)
+class RequestTracker:
+    def __init__(self):
+        self.active_requests = 0
+        self.total_requests = 0
+        self.total_response_time = 0
+        self.request_times = []
+        self.throughputs = []
 
+    def start_request(self):
+        self.active_requests += 1
+        self.total_requests += 1
+        self.request_times.append(time.time())
+
+    def end_request(self, response_time):
+        self.active_requests -= 1
+        self.total_response_time += response_time
+
+    def calculate_metrics(self):
+        elapsed_time = time.time() - self.request_times[0]
+        throughput = self.total_requests / elapsed_time
+        self.throughputs.append(throughput)
+        avg_response_time = self.total_response_time / self.total_requests
+        return {
+            "active_requests": self.active_requests,
+            "total_requests": self.total_requests,
+            "throughput": throughput,
+            "avg_response_time": avg_response_time,
+        }
+
+
+class LLM_APIHandler:
+    def __init__(self, key_path, rps=1, window_size=55):
+        self.load_api_keys(key_path)
+        self.rate_limiters = [
+            RateLimiter(rps, window_size) for _ in range(len(self.gemini_api_keys))
+        ]
+        self.request_tracker = RequestTracker()
         self.safety_settings = [
             {
                 "category": "HARM_CATEGORY_HARASSMENT",
@@ -98,48 +122,108 @@ class LLM_APIHandler:
                 "threshold": "BLOCK_NONE",
             },
         ]
+        self.gemini_clients = []
+        for api_key in self.gemini_api_keys:
+            genai.configure(api_key=api_key)
+            client = genai.GenerativeModel(
+                "gemini-pro", safety_settings=self.safety_settings
+            )
+            self.gemini_clients.append(client)
+        self.claude_client = anthropic.Anthropic(api_key=self.claude_api_key)
+        self.session = aiohttp.ClientSession()  # Create a single session
+        self.client_queue = deque(range(len(self.gemini_api_keys)))  # Round-robin queue
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.session.close()  # Close the session when done
 
     def load_api_keys(self, key_path):
         with open(key_path, "r") as file:
             api_keys = json.load(file)
-        self.gemini_api_key = api_keys["GEMINI_API_KEY"]
+        self.gemini_api_keys = [
+            api_keys[key] for key in api_keys if key.startswith("GEMINI_API_KEY")
+        ]
         self.claude_api_key = api_keys["CLAUDE_API_KEY"]
         self.together_api_key = api_keys["TOGETHER_API_KEY"]
 
     @backoff.on_exception(
-        backoff.expo, (aiohttp.ClientError, ValueError), max_tries=10, max_time=60
+        backoff.expo,
+        (
+            aiohttp.ClientError,
+            ValueError,
+            google.api_core.exceptions.InternalServerError,
+            google.api_core.exceptions.ServiceUnavailable,
+            google.api_core.exceptions.Unknown,
+        ),
+        max_tries=5,
+        max_time=60,
     )
     async def generate_gemini_content(self, prompt):
-        async with self.rate_limiter:
+        client_index = self.client_queue.popleft()
+        self.client_queue.append(
+            client_index
+        )  # Move the client to the end of the queue
+        rate_limiter = self.rate_limiters[client_index]
+        await rate_limiter.acquire()
+        try:
             retry_count = 0
             while retry_count < 5:
                 try:
-                    async with aiohttp.ClientSession() as session:
-                        model = genai.GenerativeModel(
-                            "gemini-pro", safety_settings=self.safety_settings
-                        )
-                        clipped_prompt = clip_prompt(prompt, max_tokens=25000)
-                        logging.info(
-                            f"Generating content with Gemini API. Prompt: {clipped_prompt}"
-                        )
-                        response = await model.generate_content_async(clipped_prompt)
-                        if response.text:
-                            return response.text
-                        else:
-                            raise ValueError("Invalid response format from Gemini API.")
+                    clipped_prompt = clip_prompt(prompt, max_tokens=25000)
+                    logging.info(
+                        f"Generating content with Gemini API (client {client_index}). Prompt: {clipped_prompt}"
+                    )
+                    self.request_tracker.start_request()
+                    start_time = time.time()
+                    response = await self.gemini_clients[
+                        client_index
+                    ].generate_content_async(clipped_prompt)
+                    end_time = time.time()
+                    response_time = end_time - start_time
+                    self.request_tracker.end_request(response_time)
+                    if response.text:
+                        metrics = self.request_tracker.calculate_metrics()
+                        logger.info(f"Gemini API Metrics: {metrics}")
+                        return response.text
+                    else:
+                        raise ValueError("Invalid response format from Gemini API.")
                 except (IndexError, AttributeError, ValueError) as e:
                     retry_count += 1
                     logger.warning(
-                        f"Error from Gemini API. Retry count: {retry_count}. Error: {e}"
+                        f"Error from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
                     )
-                    logger.warning(f"Here is the response: {response.prompt_feedback}")
-                    await asyncio.sleep(
-                        min(2**retry_count, 30)
-                    )  # Exponential backoff capped at 60 seconds
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.InternalServerError as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"InternalServerError from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.ServiceUnavailable as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"ServiceUnavailable from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.Unknown as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"Unknown error from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
             logger.error(
-                "Max retries reached. Unable to generate content with Gemini API. Moving on."
+                f"Max retries reached. Unable to generate content with Gemini API (client {client_index}). Moving on."
             )
             return None
+        except Exception as e:
+            logger.error(
+                f"Unexpected error from Gemini API (client {client_index}). Error: {e}"
+            )
+            raise
+        finally:
+            rate_limiter.release()
 
     @backoff.on_exception(
         backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
@@ -237,8 +321,8 @@ class LLM_APIHandler:
 async def main():
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     rps = 5  # Requests per second
-    rpm = 60  # Requests per minute
-    api_handler = LLM_APIHandler(api_key_path, rps, rpm)
+    window_size = 60  # Window size in seconds
+    api_handler = LLM_APIHandler(api_key_path, rps, window_size)
 
     # Test Gemini API
     gemini_prompt = "What is the meaning of life?"
