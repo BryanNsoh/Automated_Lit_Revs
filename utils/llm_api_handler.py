@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 import logging
 import google.generativeai as genai
-import google.api_core
+import google.api_core.exceptions
 import anthropic
 import backoff
 import requests
@@ -43,7 +43,7 @@ def clip_prompt(prompt, max_tokens, encoding_name="cl100k_base"):
 
 
 class RateLimiter:
-    def __init__(self, rps=4, window_size=60):
+    def __init__(self, rps, window_size):
         self.rps = rps
         self.window_size = window_size
         self.window_start = time.monotonic()
@@ -103,6 +103,8 @@ class LLM_APIHandler:
         self.rate_limiters = [
             RateLimiter(rps, window_size) for _ in range(len(self.gemini_api_keys))
         ]
+        self.claude_rate_limiter = RateLimiter(rps, window_size)
+        self.together_rate_limiter = RateLimiter(rps, window_size)
         self.request_tracker = RequestTracker()
         self.safety_settings = [
             {
@@ -235,7 +237,8 @@ class LLM_APIHandler:
         model="claude-3-haiku-20240307",
         max_tokens=3000,
     ):
-        async with self.rate_limiter:
+        await self.claude_rate_limiter.acquire()
+        try:
             if model not in ["claude-3-haiku-20240307"]:
                 raise ValueError(f"Invalid model: {model}")
             clipped_prompt = clip_prompt(prompt, max_tokens=180000)
@@ -257,6 +260,8 @@ class LLM_APIHandler:
                     f"Max retries reached. Unable to generate content with Claude API. Error: {e}. Moving on."
                 )
                 return None
+        finally:
+            self.claude_rate_limiter.release()
 
     @backoff.on_exception(
         backoff.expo,
@@ -276,7 +281,8 @@ class LLM_APIHandler:
         stop=None,
         messages=None,
     ):
-        async with self.rate_limiter:
+        await self.together_rate_limiter.acquire()
+        try:
             endpoint = "https://api.together.xyz/v1/chat/completions"
             if stop is None:
                 stop = ["<|im_end|>", "<|im_start|>"]
@@ -316,34 +322,35 @@ class LLM_APIHandler:
                 "Max retries reached. Unable to generate content with Together API. Moving on."
             )
             return None
+        finally:
+            self.together_rate_limiter.release()
 
 
 async def main():
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     rps = 5  # Requests per second
     window_size = 60  # Window size in seconds
-    api_handler = LLM_APIHandler(api_key_path, rps, window_size)
+    async with LLM_APIHandler(api_key_path, rps, window_size) as api_handler:
+        # Test Gemini API
+        gemini_prompt = "What is the meaning of life?"
+        gemini_response = await api_handler.generate_gemini_content(gemini_prompt)
+        print("Gemini Response:")
+        print(gemini_response)
+        print()
 
-    # Test Gemini API
-    gemini_prompt = "What is the meaning of life?"
-    gemini_response = await api_handler.generate_gemini_content(gemini_prompt)
-    print("Gemini Response:")
-    print(gemini_response)
-    print()
+        # Test Claude API
+        claude_prompt = "What is the meaning of life?"
+        claude_response = await api_handler.generate_claude_content(claude_prompt)
+        print("Claude Response:")
+        print(claude_response)
+        print()
 
-    # Test Claude API
-    claude_prompt = "What is the meaning of life?"
-    claude_response = await api_handler.generate_claude_content(claude_prompt)
-    print("Claude Response:")
-    print(claude_response)
-    print()
-
-    # Test Together API
-    together_prompt = "What is the meaning of life?"
-    together_response = await api_handler.generate_together_content(together_prompt)
-    print("Together Response:")
-    print(together_response)
-    print()
+        # Test Together API
+        together_prompt = "What is the meaning of life?"
+        together_response = await api_handler.generate_together_content(together_prompt)
+        print("Together Response:")
+        print(together_response)
+        print()
 
 
 if __name__ == "__main__":

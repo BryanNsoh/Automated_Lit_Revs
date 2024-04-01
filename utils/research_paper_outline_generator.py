@@ -48,7 +48,7 @@ class ResearchPaperOutlineGenerator:
         query_data = []
         for i, query in enumerate(queries, start=1):
             query_result = []
-            for j in range(1, 6):
+            for j in range(1, 3):
                 query_result.append(
                     {
                         f"Paper {j}": {

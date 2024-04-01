@@ -1,0 +1,570 @@
+- DOI: https://doi.org/10.12928/telkomnika.v21i1.24234
+  analysis: '>'
+  authors:
+  - Wid Badee Abdulaziz
+  - Muayad Sadik Croock
+  citation_count: 0
+  full_citation: '>'
+  full_text: ">\nTELKOMNIKA Telecommunication Computing Electronics and Control \n\
+    Vol. 21, No. 1, February 2023, pp. 133~141 \nISSN: 1693-6930, DOI: 10.12928/TELKOMNIKA.v21i1.24234\
+    \ \n \n     133 \n \n \nJournal homepage: http://telkomnika.uad.ac.id \nReview\
+    \ on cyber-security for optimized and smart irrigation \nsystems \n \n \nWid Badee\
+    \ Abdulaziz1, Muayad Sadik Croock2 \n1Computer Engineering Department, University\
+    \ of Technology-Iraq, Baghdad, Iraq \n2Control and Systems Engineering Department,\
+    \ University of Technology-Iraq, Baghdad, Iraq \n \n \nArticle Info \n \nABSTRACT\
+    \ \nArticle history: \nReceived May 17, 2021 \nRevised Aug 18, 2022 \nAccepted\
+    \ Sep 05, 2022 \n \n \nIt is well known that the resources in agriculture are\
+    \ considered the most \nimportant factors for success. Therefore, numerous researchers\
+    \ are involved \nin the field of managing these resources, particularly water\
+    \ and consumed \npower. Moreover, the security side of these resources is considered,\
+    \ \nparticularly the cyber-attacks. In this project, an optimized resource \n\
+    management method is proposed for allocating the available resources in \na smart\
+    \ on-demand way. The proposed method is applied for dripped and \nsprinkler irrigation\
+    \ systems for managing the available water and generated \npower. In addition,\
+    \ an optimization method is utilized to obtain reliable \nsolutions for managing\
+    \ the adopted resources. This method adopts a cyber \nsecurity algorithm for preventing\
+    \ any possible attack. Wireless sensor \nnetwork (WSN) is used as a reading source,\
+    \ in which the underlying area is \ncovered well, since using sensors in irrigation\
+    \ systems is cost-effective that \nensures on-demand irrigation process to save\
+    \ water and power resources. \nThis network is supported by the fault tolerance\
+    \ method to increase \navailability. \nKeywords: \nIrrigation systems  \nOptimization\
+    \ \nSmart techniques \nWSN \n \nThis is an open access article under the CC BY-SA\
+    \ license. \n \nCorresponding Author: \nWid Badee Abdulaziz \nComputer Engineering\
+    \ Department, University of Technology-Iraq \nBaghdad, Iraq \nEmail: ce.19.16@grad.uotechnology.edu.iq\
+    \ \n \n \n1. \nINTRODUCTION \nCurrently, different techniques are used in irrigation\
+    \ systems around the world as shown in Figure 1. \nMoreover, Table 1 illustrates\
+    \ the benefits and limitations associated with these methods. Therefore, \ndeveloping\
+    \ an optimal irrigation system is necessary to reduce cost, power, and water consumption\
+    \ \ndepending on real physical information instead of predicted one [1]. Nowadays,\
+    \ wireless sensor networks \n(WSN) have a significant role in many applications,\
+    \ such as environmental monitoring, medical, agricultural, \nand others due to\
+    \ their flexibility and ability of processing data in different environments with\
+    \ easy \nprogramming [2]-[4]. The use of sensors in recent applications is not\
+    \ limited to environmental sensing, \ncollecting data from the field, and sending\
+    \ information to users depending on some situations [5], [6]. Power \nresources\
+    \ in sensor nodes are batteries that have a limited lifetime and difficulty in\
+    \ replacing or recharging \nthem. Thus, it is important to design an optimal power\
+    \ consumption network to increase WSN life [7]-[10]. \nMoreover, irrigation in\
+    \ agriculture consumes about 85% of the total consumed water in the world and\
+    \ this \nwill increase rapidly with the increase in population, therefore it is\
+    \ important to design an irrigation system \nwith optimized use of water resources\
+    \ [11]-[13].  \nAt the other hand, security and cyber-security are important aspects\
+    \ to be considered in developing \nsmart systems with WSN [14], [15], because\
+    \ sensor nodes are used to collect specific and critical information \nto be sent\
+    \ to an appropriate destination to take a decision. Therefore, the existence of\
+    \ a malicious node in \n      \n  \n \n       ISSN: 1693-6930 \nTELKOMNIKA Telecommun\
+    \ Comput El Control, Vol. 21, No. 1, February 2023: 133-141 \n134 \nthe network\
+    \ of irrigation system can lead to send a fault decision to the actuators resulting\
+    \ in wasting water \nand harming crops [16]. Obviously, denial of service (DoS)\
+    \ attacks are the most notable attacks in the field of \navailability that prohibit\
+    \ clients from receiving the specific data with the right time [17]-[19]. In addition,\
+    \ the \nuse of WSN for systems decision making requires the reliability, availability\
+    \ and confidentiality which can be \nachieved using fault tolerance methods in\
+    \ software engineering [20]. In this paper, an optimal, secured and \nreliable\
+    \ smart irrigation system based on WSN is produced in the literature to manage\
+    \ the resources in \nirrigation in optimal way. \n \n \n \n \nFigure 1. Agricultural\
+    \ irrigation methods [1] \n \n \nTable 1. Advantages and limitations of irrigation\
+    \ methods [1] \nIrrigation kinds \nAdvantages \nLimitations \nImplement \nManual\
+    \ \nirrigation \n− \nLess resource \n− \nLower cost \n− \nWastage of water, \n\
+    − \nDependency on resources, \n− \nNot recommended due to lack of \nresources\
+    \ \nCurrently is used \nSmart irrigation \n− \nLess resource \n− \nEffective \n\
+    − \nEnvironmentally \n− \nFriendly \nCostlier one (depends on the \nparticular\
+    \ functionality) \nNot widely used due to lack of \ntechnical exposure \n \nSensor\
+    \ \ndependent \n− \nUnique concept \n− \nFor irrigation \n− \nLong life \n− \n\
+    No harmful effects \n− \nPortable \n− \nEasy to deploy \n− \nCost-effective \n\
+    No as of now \nCan be used in any location \nSensor \nindependent \n− \nNot efficient\
+    \ as compared to \nsensor-based repellent \n− \nNot highly effective \nAll the\
+    \ drawbacks of manual \nirrigation come under this \n \n \n \n2. \nSYSTEMATIC\
+    \ LITERATURE REVIEW \nIn order to cover the recent research work regarding the\
+    \ subject of smart irrigation systems, a systematic \nliterature review protocol\
+    \ is considered to produce this paper with different manuscripts. The preferred\
+    \ reporting \nitems for systematic reviews (PRISMA) methodology is used in this\
+    \ search , which is a framework developed \nto depict the flow of information\
+    \ through the different phases of a systematic review [21]. Figure 2 explains\
+    \ \nthe adopted resource and the PRISMA for this paper. This section can be classified\
+    \ depending on the function \nof the included manuscripts in literature as: \n\
+    \ \n \nTELKOMNIKA Telecommun Comput El Control \n \n \n \nReview on cyber-security\
+    \ for optimized and smart irrigation systems (Wid Badee Abdulaziz) \n135 \n \n\
+    \ \nFigure 2. PRISMA flowchart of the adopted systematic review \n \n \n2.1. \
+    \ Smart irrigation system based on WSN \nAs mentioned earlier, depending on the\
+    \ functionality of the reviewed papers, 30 articles proposed a smart \nirrigation\
+    \ system based on WSN to monitor and control irrigation process. In [22], an internet\
+    \ of things (IoT) \nbased smart agrotech system was proposed to improve farm production\
+    \ using efficient monitoring and \nscheduling irrigation process. The collected\
+    \ data from sensors (soil moisture, temperature, and humidity) \ncompared with\
+    \ real data using comparative analysis and results showed an acceptable error\
+    \ on the charge of \nlacking in coverage area. While in Liao et al. [23] developed\
+    \ a smart drip irrigation system depending on \nreal-time soil moisture data in\
+    \ a greenhouse tomato’s crop. A comparative study between the proposed system\
+    \ \nand other irrigation systems was done with results approved that the giving\
+    \ system is efficient to deal with food \nsecurity and water scarcity issues.\
+    \ Abioye et al. [24] presented an efficient monitoring and data-driven \nmodelling\
+    \ of the information influencing the irrigation of mustard leaf plant. At the\
+    \ other hand, Torres et al. [25] \nsubmitted a multilevel data fusion architecture\
+    \ to get an accurate sensor readings that lead to accurate decision \nmaking.\
+    \ Three categories were involved in the proposed architecture: sensor data fusion,\
+    \ event and decision \nmaking, and decision fusion based on multiple applications.\
+    \ In [26], a smart agriculture system was developed \nwith an open source and\
+    \ not expensive hardware components like built a WSN using Arduino and Raspberry\
+    \ Pi \nto get a cost-effective system. The fuzzy logic control was used as a decision\
+    \ method for the amount and \nduration of irrigation. An automated irrigation\
+    \ system based on IoT was presented in [27]. This was done by \ndistributing different\
+    \ sensors in the farm (soil moisture, temperature and humidity) and the reads\
+    \ are entered \nto a machine learning algorithm. Sodhi and Saxena [1] proposed\
+    \ a smart irrigation system based on \nmicrocontroller and used Bayesian analysis\
+    \ hosted on IBM Waston platform to monitor the health of the crop, \nthe required\
+    \ water to irrigation and every detected intrusion. The water pumps are activated\
+    \ automatically when \nthe soil moisture level (measured by sensor nodes in WSN)\
+    \ is less than a threshold value. Intelligent agent \nconcept was used in [28]\
+    \ to design and implement a cyber-physical irrigation system. The physical data\
+    \ \ncollected using WSN and a weather station while processing of these data is\
+    \ done in a central station to \ndecide the irrigation status based on these data.\
+    \ At last, a control signal is sent to the actuator system by the \nintelligent\
+    \ agent to power on the solenoid valves for starting irrigation. Ali et al. [29]\
+    \ and Tiglao et al. [30] \nconsidered the use of IoT and mesh WSN in designing\
+    \ an irrigation system. Jaiswal and Ballal [31] proposed \nan automated drip irrigation\
+    \ system using real-time fuzzy inference method and WSN implemented in \nLabVIEW.\
+    \ In [32], a monitoring and control irrigation system was proposed based on multi\
+    \ agent system. \nThe WSN gathered data from environment to evaluate the actual\
+    \ need of water every five minutes and weather \nmap used to calculate the potential\
+    \ evapotranspiration precisely. Karunanithy and Velusamy [33] presented an \n\
+    automated drip irrigation with fertigation system based on WSN. The proposed system\
+    \ utilizes soil moisture \ndata and evapotranspiration for prediction of required\
+    \ water to irrigate the area. This system proposed also a \ntransmission method\
+    \ between cluster head and a base station based on travelling salesman protocol\
+    \ (TSP) to \nreduce power consumption in data transmission. results approved that\
+    \ the proposed system used water efficiently. \n      \n  \n \n       ISSN: 1693-6930\
+    \ \nTELKOMNIKA Telecommun Comput El Control, Vol. 21, No. 1, February 2023: 133-141\
+    \ \n136 \nThe irrigation system proposed in [34] used dynamic sensor data and\
+    \ real time weather information and static data \nlike plant and soil type to\
+    \ decide the irrigation process. artificial intelligent (AI) algorithms have been\
+    \ used for \ntraining and testing data. Barkunan et al. [35] suggested an automated\
+    \ irrigation system based on sensing rain fall \nin a farm. The information is\
+    \ transmitted using global systems for mobile/general packet radio service GSM/GPRS\
+    \ \ntechnology to the farmers at anytime and anywhere to check the status of the\
+    \ farm. In [36], a developed real-time \nagriculture application was presented\
+    \ using multi-layered architecture containing three technologies (internet of\
+    \ \nthings, cloud computing and context awareness). In [37], a smart irrigation\
+    \ system based on WSN and fuzzy \nlogic was suggested. A comparison was made between\
+    \ a crop irrigated with traditional irrigation and with \nproposed system showed\
+    \ that the proposed system used quantity of water equals to half the required\
+    \ quantity \nusing traditional method. Nawandar and Satpute [38] proposed a smart\
+    \ irrigation system with low-cost target \nusing IoT platform to collect data,\
+    \ neural network to make decisions for scheduling irrigation depending on \nthe\
+    \ collected data and the user viewed the data remotely using message queuing telemetry\
+    \ transport (MQTT) \nand hypertext transfer protocol (HTTP) protocols. This system\
+    \ is intelligent, cost effective and portable. \nAt the other hand, the smart\
+    \ drip irrigation system proposed in [39] used smartphone to capture soil \nimage.\
+    \ Calculations were made on the image to know the level of wetness and send the\
+    \ data to a microcontroller \nto take an irrigation decision depending on the\
+    \ captured image in smartphone and sensors output. \nMuangprathub et al. [40]\
+    \ proposed a control system to control environmental parameters that affect the\
+    \ crop \nproduction. Three parts included in the control system: hardware component,\
+    \ web application and mobile \napplication. In [41], a low cost smart irrigation\
+    \ system based on IoT and weather was developed to control \nirrigation process\
+    \ automatically depending on moisture level value. While in [42], agricultural\
+    \ physical \nsystem (ACPS) with solar irrigation facility was proposed to manage\
+    \ irrigation process remotely. \nPhotovoltaic energy was used as a power source\
+    \ in the proposed system and client-server architecture used to \nensure communication\
+    \ in two directions between the executional level in the field WSN and managerial\
+    \ level \nin the cloud.  \nSelmani et al. [43] presented a solar photovoltaic\
+    \ watering system (SPVWS) with multithreading \ndesign and virtual timers. Raspberry\
+    \ pi was used due to its efficient performance with real time applications. \n\
+    By multithreading programming used in the system, controlling the system and HTTP\
+    \ server job working \nconcurrently to give remote control of the irrigation system\
+    \ and online monitoring of data. The proposed \nsystem in [44] used IoT to automate\
+    \ controlling and monitoring of irrigation process. Sensor devices \ncollected\
+    \ environmental data from the field and regression algorithm used this data to\
+    \ determine water \nrequirements in a day. Mohapatra and Lenka [45] proposed a\
+    \ watering system with future prediction of soil \nmoisture content using neural\
+    \ network. The expectation strategy utilized the collected data from sensors such\
+    \ \nas soil and weather parameters. In [46], an irrigation management system based\
+    \ on WSN was developed to \nautomate irrigation process. Sensors gathered data\
+    \ from field and sent it to the controller for irrigation \ndecision and to the\
+    \ server for monitoring purpose. Khelifa et al. [13] proposed an automated irrigation\
+    \ system \nbased on WSN to gather data for irrigation process decision. A web\
+    \ application in smartphones also used to \ngive notifications when the soil is\
+    \ dry or the level of the water in the tank is low. The WSN connected with \n\
+    the server using 4G-LTE technology due to its flexibility. In [47], a smart irrigation\
+    \ system is proposed to \ncontrol and monitor irrigation process using WSN and\
+    \ fuzzy logic as a decision tool. Sensor nodes collected \ndata from a field,\
+    \ decision support system used this data to schedule irrigation using fuzzy logic\
+    \ methods and \nactuators to execute commands. Abdullah et al. [48] presented\
+    \ a simulation model to a smart irrigation \nsystem based on WSN. In the proposed\
+    \ model, WSN used cluster topology to ensure a scalable network and \nincrease\
+    \ sensors life time. The proposed system used fuzzy inference system to irrigation\
+    \ control. Simulation \nresults showed that the system performance is accurate\
+    \ with economical use of water and power. In [49] a wireless \nsensor/actuator\
+    \ network (WSAN) with an adaptable decision support system was integrated to get\
+    \ an automatic \nirrigation system. To analyze data, a machine learning process\
+    \ had been used to get new knowledge. To ensure \nthat the developed system is\
+    \ effective, the performance of the system was compared with classical \nagricultural\
+    \ exercises.  \n \n2.2.  Optimization with smart irrigation system  \nThe systematic\
+    \ literature review protocol includes seven research articles that deal with optimization\
+    \ \nproblem in irrigation system based on WSN. In [50], a reliable low-cost information\
+    \ gathering protocol \n(RLCIG) was proposed for irrigation system with WSN. Clustering\
+    \ techniques were used for data aggregation \nwith optimized power to increase\
+    \ network life. For balanced clustering, conditional spider optimization (CSO)\
+    \ \nalgorithm was used, while for optimal path selection, the system proposed\
+    \ using flower-bee search (FBS) \nalgorithm. The proposed method was tested using\
+    \ simulation and the results show an improvement in transmission \nrange, cost\
+    \ and system lifetime. Briones et al. [51] suggested a new multi-agent system\
+    \ (MAS) to get an automated \nmonitoring and controlled irrigation system for\
+    \ potato crops. MAS was developed using a cloud computing \nplatform which can\
+    \ collect information from WSNs to define factors and determine irrigation requirements.\
+    \ \nTELKOMNIKA Telecommun Comput El Control \n \n \n \nReview on cyber-security\
+    \ for optimized and smart irrigation systems (Wid Badee Abdulaziz) \n137 \nThis\
+    \ smart system has the potential to keep resources and upgrade the efficiency\
+    \ of crop production systems, \nspecially in rustic areas. The intelligent irrigation\
+    \ system presented in [52] was developed to decrease water \nconsumption by combining\
+    \ IoT, cloud computing, and optimization techniques. The used optimization model\
+    \ \nminimizes the consumed water efficiently. The efficiency of the suggested\
+    \ approach, which minimizes \nirrigation water use, was proven by a comparison\
+    \ of the recommended optimization-based control model \nwith the flow-based control\
+    \ model \nOcampo and Dadios [53], a multi-objective optimization method using\
+    \ an intelligent irrigation \nsystem was introduced to reduce the energy cost\
+    \ of operating two water pumps that maintain the water \nrequired for farm’s irrigation.\
+    \ It was significant to obsereve that the genetic algorithm was used to get the\
+    \ \noptimal solution. To achieve optimal water consumption, the authors of [54]\
+    \ suggested integrating the \nautomated irrigation system with an accumulative\
+    \ neural network (ANN). The suggested system was \nsimulated using the MATLAB\
+    \ Toolbox of neural network with feed-forward backpropagation ANN model. \nIn\
+    \ addition, in Maurya and Jain [55], suggested an approach for designing WSN-based\
+    \ automated irrigation \nsystems. All sensor nodes collect data on an ongoing\
+    \ basis. However, just data with a recurrent timer is sent \nto the base station\
+    \ or data that exceeds the threshold. To reduce the node’s power consumption for\
+    \ each \ntransmission, fuzzy logic was utilized to locate the entire cluster head\
+    \ in the existing round. Comparisons \nwith other routing protocols have shown\
+    \ that it effectively minimizes power consumption at each \ntransmission and extends\
+    \ the life of the entire network. In [56], a WSN-based intelligent irrigation\
+    \ system \nwith optimal consumed power using the Lagrange multiplier method was\
+    \ suggested. The aim was to partition \npower optimally and efficiently, while\
+    \ optimally minimizing power and watering, depending on the plant’s \nwatering\
+    \ needs and watering time. \n \n2.3.  Cyber-security with smart irrigation system\
+    \ \nAs the security is important aspect in the field of information systems including\
+    \ irrigation, different \nresearchers tackled this issue. While in cyber-security\
+    \ side, there is a smaller number of research work due to \nnew entrance of irrigation\
+    \ field. In [57], a smart irrigation system was proposed with the assistance of\
+    \ an \nandroid application. Variety of sensors, soil moisture, air humidity, and\
+    \ air temperature were used to collect \nphysical information. Once the data reached\
+    \ the server, a fuzzy logic control was used for take decisions \ndepending on\
+    \ the required irrigation. The block chains were used to provide the required\
+    \ reliability in the smart \nsystem by limiting the access and control of the\
+    \ suggested system to only authorized devises. The system was \nefficient for\
+    \ handling the irrigation process securely. Saleem et al. [16] proposed a data\
+    \ encryption method to \nensure the accuracy of collected information by WSN to\
+    \ get an effective irrigation decision. The encryption \nmechanism had been inspired\
+    \ by blood brain barrier (BBB) system to ensure efficient data transmission in\
+    \ \nWSNs. The system was simulated using network simulator two (NS2) and the results\
+    \ approved the efficiency \nof the proposed encryption method in protecting data\
+    \ communication from various attacks. \n \n2.4.  Fault tolerance with smart irrigation\
+    \ system \nAs the irrigation systems are considered as important parts of feeding\
+    \ security around the world, it is \nnecessary to ensure the reliability and availability\
+    \ of them through using fault tolerance techniques. Some \nresearchers adopted\
+    \ the presenting of solutions to this aspect in the literature. Ramli et al. [58]\
+    \ suggested an \nadaptive technique to achieve reliability in a smart farm using\
+    \ two network protocols: LoRaWAN and IEEE \n802.11ac in a smart monitoring system.\
+    \ The sensor data has a small data size with low energy, so LoRaWAN \nprotocol\
+    \ is suitable for transmitting it. Moreover, transmitting video data was done\
+    \ using IEEE 802.11ac that \nhad a higher data rate. Using two network protocols\
+    \ helped in getting a reliable monitoring system in \ncomparison of using a single\
+    \ protocol technique. In [59], a novel approach for the recovery from \nsimultaneous\
+    \ failures was proposed for a large-scale multi-channel WSNs called simultaneous\
+    \ failure \nrecovery based on relay node relocation (SFR-RNR). As a case study,\
+    \ the authors chose precision agriculture \napplication because it had thousands\
+    \ of thousands of sensors. The proposed approach aim was to rebuilt the \nconnection\
+    \ and the network coverage after failures.  \n \n \n3. \nPROSPECTIVE SOLUTION\
+    \ METHODOLOGY  \nAs mentioned in the reviewed papers of [1]-[59], the problem\
+    \ of managing the resources (water and \npower) in the irrigation systems has\
+    \ been tackled in different directions that dealt with security, optimization,\
+    \ \nWSN management, or fault tolerance individually. Therefore, there is a real\
+    \ need for finding a solution \nmethodology for finding a comprehensive scheme\
+    \ that manages the irrigation systems. This scheme aims to \npropose a smart irrigation\
+    \ system (dripped and sprinkler) that adopts a developed optimization, cyber-security,\
+    \ \nfault tolerance methods. This is to present a comprehensive irrigation system\
+    \ that can manage the available \nresource of water and power to achieve the aspects\
+    \ of reliability, availability and confidentially. A diagram in \nFigure 3 shows\
+    \ the structure of the proposed project based on the results of the systematic\
+    \ review. \n      \n  \n \n       ISSN: 1693-6930 \nTELKOMNIKA Telecommun Comput\
+    \ El Control, Vol. 21, No. 1, February 2023: 133-141 \n138 \n \n \nFigure 3. Structure\
+    \ diagram of the presented solution methodology \n \n \nThe highlighted boxes\
+    \ in Figure 3 shows the suggestion solution methodology, considered as \ncontributions.\
+    \ These contributions are the results of the systematic review that sorts the\
+    \ problems as a \nheretical from bottom to top. Ideas can be summarized as:  \n\
+    1) \nDesigning and implementing of smart dripped and sprinkler irrigation system\
+    \ based on clustered WSN. \nThe designed WSN is based on:  \n− Nodes of sensors\
+    \ and a base-station for each cluster. \n− Irrigation systems that include water\
+    \ pumps and actuators.  \n− The MQTT protocol is adopted in managing the data\
+    \ transmission in the WSN as well as part of \nsecurity in terms of authentication.\
+    \  \n2) \nProducing an optimized method for managing the consumed water and power\
+    \ to be reduced efficiently. \nThis method can take care from availability of\
+    \ the proposed system. The possible optimization methods \nthat can be adopted\
+    \ include but not limited to swarm intelligent, ANN, gentic, fuzzy logic and Lagrange\
+    \ \nmultiplier. These methods are multi-objective methods and based on finding-out\
+    \ the optimal balancing \nfactors in the mathematical model of the proposed system.\
+    \  \n3) \nIntroducing a cyber-security algorithm for detecting and tracking the\
+    \ DoS attacks that can be occurred \nin the proposed management method and the\
+    \ whole irrigation system. This algorithm guarantees the \nconfidentiality and\
+    \ availability of the presented system. It includes two phases: \n− Physical phase:\
+    \ it implemented in the WSN level to protect the data transmission between the\
+    \ nodes, \nirrigation bumps and base-stations.  \nTELKOMNIKA Telecommun Comput\
+    \ El Control \n \n \n \nReview on cyber-security for optimized and smart irrigation\
+    \ systems (Wid Badee Abdulaziz) \n139 \n− Server phase: it is used to protect\
+    \ the server itself and the data transmission between the server and \nbase-stations.\
+    \  \n4) \nAdopting a fault tolerance-based monitoring method for the proposed\
+    \ system to solve the problems of \noccurred faults in terms of hardware and software.\
+    \ This method can guarantee the availability and \nreliability of the proposed\
+    \ system. \nFigure 4 shows the suggested system block diagram that explains the\
+    \ levels of hardware and \nsoftware that are considered for solving the mentioned\
+    \ problems in managing power and water resources of \nirrigation systems. This\
+    \ system can be briefly explained as: 1) sensor nodes and water bumps are connected\
+    \ \nto a base-station to build a cluster in WSN. The base-station is responsible\
+    \ of controlling irrigation process by \nsending power on and off commands to\
+    \ water pumps with proper irrigation time depending on sensor’s \nreadings and\
+    \ climatic conditions. Moreover, the base-station and related nodes as well as\
+    \ bumps apply \nthe introduced cyber-security, water and power optimization, fault\
+    \ tolerance and normal data transmission \nmethods; and 2) clusters of the WSN\
+    \ are connected to the server throughout their base-stations with authentication\
+    \ \nprotocols to monitor irrigation process as well as building data bases to\
+    \ the proposed irrigation system. The server \napplies cyber-security, data saving\
+    \ in the built database, fault tolerance, and normal data transmission. \n \n\
+    \ \n \n \nFigure 4. Suggested system block diagram \n \n \n4. \nCONCLUSION  \n\
+    A systematic literature reviews on the previous researches about smart irrigation\
+    \ systems was \npresented in this paper to stand on their limitations and propose\
+    \ solution methodology in terms of reliability, \noptimization and cyber-secured\
+    \ smart irrigation system based on WSNs. The systematic literature review \nshowed\
+    \ that the research work considered each side of problems in individual way. Therefore,\
+    \ the need for \nproducing a comprehensive management system for smart irrigation\
+    \ based on WSN. The solution \nmethodology for covering the drawbacks of the research\
+    \ work in literature was introduced a block diagram with \ndescription about its\
+    \ contributions to enhance the current irrigation systems have been produced.\
+    \ The results of \nthe suggested system are expected to show a high performance\
+    \ in terms of reliability, availability, and security.  \n \n \nREFERENCES \n\
+    [1] \nH. K. Sodhi and U. Saxena, “Low-Cost Water and Energy Efficient Futuristic\
+    \ Irrigation System Using IBM Watson with \nBayesian Analysis,” in 2020 8th International\
+    \ Conference on Reliability, Infocom Technologies and Optimization (Trends and\
+    \ \nFuture Directions) (ICRITO), 2020, pp. 243-246, doi: 10.1109/ICRITO48877.2020.9197921.\
+    \ \n[2] \nN. A. Hassan and A. K. Farhan, “Security Improve in ZigBee Protocol\
+    \ Based on RSA Public Algorithm in WSN,” Engineering \nand Technology Journal,\
+    \ vol. 37, no. 3B, pp. 67–73, 2019, doi: 10.30684/etj.37.3B.1. \n[3] \nM. F. Mosleh\
+    \ and D. SH. Talib, “Hardware Implementation of Wireless Sensor Network Using\
+    \ Arduino and Zigbee Protocol,” \nvol. 34, no. 5, pp. 816–829, 2016. [Online].\
+    \ Available: https://www.iasj.net/iasj/download/786e1367292561eb \n[4] \nH. A.\
+    \ H. Alobaidy, H. N. Abdullah, and T. S. Mohamed, “Implementation and Performance\
+    \ Evaluation of WSN for Energy \nMonitoring Application,” Engineering and Technology\
+    \ Journal, vol. 33, no. 7, pp. 1555–1568, 2015. [Online]. Available: \nhttps://www.researchgate.net/publication/281464908_Implementation_and_performance_evaluation_of_WSN_for_energy_monit\n\
+    oring_application \n      \n  \n \n       ISSN: 1693-6930 \nTELKOMNIKA Telecommun\
+    \ Comput El Control, Vol. 21, No. 1, February 2023: 133-141 \n140 \n[5] \nA. D.\
+    \ Salman, O. I. Khalaf, and G. M. Abdulsaheb, “An adaptive intelligent alarm system\
+    \ for wireless sensor network,” Indonesian \nJournal of Electrical Engineering\
+    \ and Computer Science, vol. 15, no. 1, pp. 142–147, 2019, doi: 10.11591/ijeecs.v15.i1.pp142-147.\
+    \ \n[6] \nA. D. Salman, U. Khudheer, and G. M. Abdulsaheb, “An adaptive smart\
+    \ street light system for smart city,” Journal of \nComputational and Theoretical\
+    \ Nanoscience, vol. 16, no. 1, pp. 262–268, 2019, doi: 10.1166/jctn.2019.7944.\
+    \ \n[7] \nS. M. Raafat and A. M. Mahmood, “Robust energy efficient control for\
+    \ wireless sensor networks via unity sliding mode,” Journal \nof \nEngineering\
+    \ \nScience \nand \nTechnology, \nvol. \n16, \nno. \n1, \npp. \n65–84, \n2021.\
+    \ \n[Online]. \nAvailable: \nhttp://jestec.taylors.edu.my/Vol%2016%20issue%201%20February%202021/16_1_5.pdf\
+    \ \n[8] \nO. I. Khalaf, G. M. Abdulsahib, and B. M. Sabbar, “Optimization of wireless\
+    \ sensor network coverage using the bee algorithm,” \nJournal of Information Science\
+    \ and Engineering, vol. 36, no. 2, pp. 377–386, 2020, doi: 10.6688/JISE.202003_36(2).0015.\
+    \ \n[9] \nO. I. Khalaf and G. M. Abdulsahib, “Energy efficient routing and reliable\
+    \ data transmission protocol in WSN,” International \nJournal of Advances in Soft\
+    \ Computing and its Applications, vol. 12, no. 3, pp. 45–53, 2020. [Online]. Available:\
+    \ \nhttp://188.247.81.52/PapersUploaded/2020.3.4.pdf \n[10] W. A. H. Hadi and\
+    \ S. A. A. Abass, “BER, Throughput, Energy Efficiency Performance Analysis of\
+    \ Proposed Different Systems \nin Wireless Sensor Network,” Engineering and Technology\
+    \ Journal, vol. 34, no. 11, pp. 1970-1978, 2016. [Online]. Available: \nhttps://www.iasj.net/iasj/download/42fa1d34e9ad1aee\
+    \ \n[11] O. Abrishambaf, P. Faria, L. Gomes, and Z. Vale, “Agricultural irrigation\
+    \ scheduling for a crop management system considering \nwater and energy use optimization,”\
+    \ Energy Reports, vol. 6, no. 1, pp. 133–139, 2020, doi: 10.1016/j.egyr.2019.08.031.\
+    \ \n[12] A. Nasiakou, M. Vavalis, and D. Zimeris, “Smart energy for smart irrigation,”\
+    \ Computers and Electronics in Agriculture, \nvol. 129, pp. 74–83, 2016, doi:\
+    \ 10.1016/j.compag.2016.09.008. \n[13] B. Khelifa, D. Amel, B. Amel, C. Mohamed,\
+    \ and B. Tarek, “Smart irrigation using internet of things,” in 2015 Fourth \n\
+    International \nConference \non \nFuture \nGeneration \nCommunication \nTechnology\
+    \ \n(FGCT), \n2015, \npp. \n1-6, \ndoi: 10.1109/FGCT.2015.7300252. \n[14] D. D.\
+    \ Khudhur and M. S. Croock, “Developed security and privacy algorithms for cyber\
+    \ physical system,” International Journal \nof Electrical and Computer Engineering(IJECE),\
+    \ vol. 11, no. 6, pp. 5379–5389, 2021, doi: 10.11591/ijece.v11i6.pp5379-5389.\
+    \ \n[15] M. Azhar and A. H. Seno,“A Group Authentication Protocol on Multilayer\
+    \ Structure for Privacy-Preserving IoT Environment,” \nEngineering and Technology\
+    \ Journal, vol. 37, no. 5, pp. 172-180, 2019, doi: 10.30684/etj.37.5A.4. \n[16]\
+    \ K. Saleem, A. Derhab, J. Al-Muhtadi, B. Shahzad, and M. A. Orgun, “Secure transfer\
+    \ of environmental data to enhance human \ndecision accuracy,” Computers in Human\
+    \ Behavior, vol. 51, pp. 632–639, 2015, doi: 10.1016/j.chb.2015.01.023. \n[17]\
+    \ M. N. Yasir and M. S. Croock, “Cyber DoS attack-based security simulator for\
+    \ VANET,” International Journal of Electrical and \nComputer Engineering (IJECE),\
+    \ vol. 10, no. 6, pp. 5832–5843, 2020, doi: 10.11591/ijece.v10i6.pp5832-5843.\
+    \ \n[18] M. N. Yasir and M. S. Croock, “Multi-level cyber security system for\
+    \ VANET,” Indonesian Journal of Electrical Engineering \nand Computer Science,\
+    \ vol. 19, no. 2, pp. 940–948, 2020, doi: 10.11591/ijeecs.v19.i2.pp940-948. \n\
+    [19] Ž. Gavrić and D. Simić, “Overview of DOS attacks on wireless sensor networks\
+    \ and experimental results for simulation of \ninterference attacks,” Ingeniería\
+    \ e Investigación, vol. 38, no. 1, pp. 130–138, 2018, doi: 10.15446/ing.investig.v38n1.65453.\
+    \ \n[20] S. Acharya and C. R. Tripathy, “A reliable fault-tolerant ANFIS model\
+    \ based data aggregation scheme for Wireless Sensor \nNetworks,” Journal of King\
+    \ Saud University - Computer and Information Sciences, vol. 32, no. 6, pp. 741–753,\
+    \ 2020, \ndoi: 10.1016/j.jksuci.2017.11.001. \n[21] E. Navarro, N. Costa, and\
+    \ A. Pereira, “A systematic review of iot solutions for smart farming,” Sensors,\
+    \ vol. 20, no. 15, 2020, \ndoi: 10.3390/s20154231. \n[22] A. K. Podder et al.,\
+    \ “IoT based smart agrotech system for verification of Urban farming parameters,”\
+    \ Microprocessors and \nMicrosystems, vol. 82, 2021, doi: 10.1016/j.micpro.2021.104025.\
+    \ \n[23] R. Liao, S. Zhang, X. Zhang, M. Wang, H. Wu, and L. Zhangzhong, “Developement\
+    \ of smart irrigation systems based on real-\ntime soil moisture data in a greenhouse:\
+    \ Proof of concept,” Agricultural Water Management, vol. 245, 2021, \ndoi: 10.1016/j.agwat.2020.106632.\
+    \ \n[24] E. A. Abioye et al., “IoT-based monitoring and data-driven modelling\
+    \ of drip irrigation system for mustard leaf cultivation \nexperiment,” Information\
+    \ Processing in Agriculture, vol. 8, no. 2, pp. 270-283, 2021, doi: 10.1016/j.inpa.2020.05.004.\
+    \ \n[25] A. B. B. Torres, A. R. da Rocha, T. L. C. da Silva, J. N. de Souza, and\
+    \ R. S. Gondim, “Multilevel data fusion for the internet of \nthings in smart\
+    \ agriculture,” Computers and Electronics in Agriculture, vol. 171, 2020, doi:\
+    \ 10.1016/j.compag.2020.105309. \n[26] B. Et-taibi, M. R. Abid, I. Boumhidi, and\
+    \ D. Benhaddou, “Smart Agriculture as a Cyber Physical System: A Real-World \n\
+    Deployment,” in 2020 Fourth International Conference On Intelligent Computing\
+    \ in Data Sciences (ICDS), 2020, pp. 1-7, \ndoi: 10.1109/ICDS50568.2020.9268734.\
+    \ \n[27] A. Vij, S. Vijendra, A. Jain, S. Bajaj, A. Bassi, and A. Sharma, “IoT\
+    \ and Machine Learning Approaches for Automation of Farm \nIrrigation System,”\
+    \ Procedia Computer Science, vol. 167, pp. 1250–1257, 2020, doi: 10.1016/j.procs.2020.03.440.\
+    \ \n[28] A. -F. Jimenez, P. -F. Cardenas, F. Jimenez, A. R. -Canales, and A. López,\
+    \ “A cyber-physical intelligent agent for irrigation \nscheduling in horticultural\
+    \ crops,” Computers and Electronics in Agriculture, vol. 178, 2020, doi: 10.1016/j.compag.2020.105777.\
+    \ \n[29] A. R. A. -Ali, A. Al Nabulsi, S. Mukhopadhyay, M. S. Awal, S. Fernandes,\
+    \ and K. Ailabouni, “IoT-solar energy powered smart farm \nirrigation system,”\
+    \ Journal of Electronic Science and Technology, vol. 17, no. 4, 2019, doi: 10.1016/J.JNLEST.2020.100017.\
+    \ \n[30] N. M. Tiglao, M. Alipio, J. V. Balanay, E. Saldivar, and J. L. Tiston,\
+    \ “Agrinex: A low-cost wireless mesh-based smart irrigation \nsystem,” Measurement,\
+    \ vol. 161, 2020, doi: 10.1016/j.measurement.2020.107874. \n[31] S. Jaiswal and\
+    \ M. S. Ballal, “Fuzzy inference based irrigation controller for agricultural\
+    \ demand side management,” Computers \nand Electronics in Agriculture, vol. 175,\
+    \ 2020, doi: 10.1016/j.compag.2020.105537. \n[32] O. Debauche, S. Mahmoudi, M.\
+    \ Elmoulat, S. A. Mahmoudi, P. Manneback, and F. Lebeau, “Edge AI-IoT Pivot Irrigation,\
+    \ Plant \nDiseases, and Pests Identification,” Procedia Computer Science, vol.\
+    \ 177, pp. 40–48, 2020, doi: 10.1016/j.procs.2020.10.009. \n[33] K. Karunanithy\
+    \ and B. Velusamy, “Energy efficient cluster and travelling salesman problem based\
+    \ data collection using WSNs \nfor Intelligent water irrigation and fertigation,”\
+    \ Measurement, vol. 161, 2020, doi: 10.1016/j.measurement.2020.107835. \n[34]\
+    \ M. Nargotra and M. J. Khurjekar, “Green house based on IoT and AI for societal\
+    \ benefit,” in 2020 International Conference on \nEmerging Smart Computing and\
+    \ Informatics (ESCI), 2020, pp. 109-112, doi: 10.1109/ESCI48226.2020.9167637.\
+    \ \n[35] S. R. Barkunan, V. Bhanumathi, and V. Balakrishnan, “Automatic irrigation\
+    \ system with rain fall detection in agricultural field,” \nMeasurement, vol.\
+    \ 156, 2020, doi: 10.1016/j.measurement.2020.107552. \n[36] R. Dobrescu, D. Merezeanu,\
+    \ and S. Mocanu, “Context-aware control and monitoring system with IoT and cloud\
+    \ support,” \nComputers and Electronics in Agriculture, vol. 160, pp. 91–99, 2019,\
+    \ doi: 10.1016/j.compag.2019.03.005. \n[37] N. Sudharshan, A. V. S. K. Karthik,\
+    \ J. S. S. Kiran, and S. Geetha, “Renewable Energy Based Smart Irrigation System,”\
+    \ Procedia \nComputer Science, vol. 165, pp. 615–623, 2019, doi: 10.1016/j.procs.2020.01.055.\
+    \ \n[38] N. K. Nawandar and V. R. Satpute, “IoT based low cost and intelligent\
+    \ module for smart irrigation system,” Computers and \nTELKOMNIKA Telecommun Comput\
+    \ El Control \n \n \n \nReview on cyber-security for optimized and smart irrigation\
+    \ systems (Wid Badee Abdulaziz) \n141 \nElectronics in Agriculture, vol. 162,\
+    \ pp. 979–990, 2019, doi: 10.1016/j.compag.2019.05.027. \n[39] S. R. Barkunan,\
+    \ V. Bhanumathi, and J. Sethuram, “Smart sensor for automatic drip irrigation\
+    \ system for paddy cultivation,” \nComputers and Electrical Engineering, vol.\
+    \ 73, pp. 180–193, 2019, doi: 10.1016/j.compeleceng.2018.11.013. \n[40] J. Muangprathub,\
+    \ N. Boonnam, S. Kajornkasirat, N. Lekbangpong, A. Wanichsombat, and P. Nillaor,\
+    \ “IoT and agriculture data analysis \nfor smart farm,” Computers and Electronics\
+    \ in Agriculture, vol. 156, pp. 467–474, 2019, doi: 10.1016/j.compag.2018.12.011.\
+    \ \n[41] H. G. C. R. Laksiri, H. A. C. Dharmagunawardhana, and J. V Wijayakulasooriya,\
+    \ “Design and Optimization of IoT Based Smart \nIrrigation System in Sri Lanka,”\
+    \ in 2019 14th Conference on Industrial and Information Systems (ICIIS), 2019,\
+    \ pp. 198-202, \ndoi: 10.1109/ICIIS47346.2019.9063272. \n[42] A. Selmani et al.,\
+    \ “Agricultural cyber-physical system enabled for remote management of solar-powered\
+    \ precision irrigation,” \nBiosystems Engineering, vol. 177, pp. 18–30, 2019,\
+    \ doi: 10.1016/j.biosystemseng.2018.06.007. \n[43] A. Selmani et al., “Multithreading\
+    \ design for an embedded irrigation system running on solar power,” in 2018 4th\
+    \ International \nConference on Optimization and Applications (ICOA), 2018, pp.\
+    \ 1-5, doi: 10.1109/ICOA.2018.8370519. \n[44] A. Kumar, A. Surendra, H. Mohan,\
+    \ K. M. Valliappan, and N. Kirthika, “Internet of things based smart irrigation\
+    \ using regression \nalgorithm,” in 2017 International Conference on Intelligent\
+    \ Computing, Instrumentation and Control Technologies (ICICICT), \n2017, pp. 1652-1657,\
+    \ doi: 10.1109/ICICICT1.2017.8342819. \n[45] A. G. Mohapatra and S. K. Lenka,\
+    \ “Neural Network Pattern Classification and Weather Dependent Fuzzy Logic Model\
+    \ for Irrigation \nControl in WSN Based Precision Agriculture,” Procedia Computer\
+    \ Science, vol. 78, pp. 499–506, 2016, doi: 10.1016/j.procs.2016.02.094. \n[46]\
+    \ A. N. Harun, M. R. M. Kassim, I. Mat, and S. S. Ramli, “Precision irrigation\
+    \ using Wireless Sensor Network,” in 2015 \nInternational Conference on Smart\
+    \ Sensors and Application (ICSSA), 2015, pp. 71-75, doi: 10.1109/ICSSA.2015.7322513.\
+    \ \n[47] L. G. Paucar, A. R. Diaz, F. Viani, F. Robol, A. Polo, and A. Massa,\
+    \ “Decision support for smart irrigation by means of wireless \ndistributed sensors,”\
+    \ in 2015 IEEE 15th Mediterranean Microwave Symposium (MMS), 2015, pp. 1-4, doi:\
+    \ 10.1109/MMS.2015.7375469. \n[48] M. N. Abdullah, M. S. Croock, and A. K. Mousa,\
+    \ “Automation of smart irrigation system based on wireless sensor network,” \n\
+    Sensor Letters, vol. 13, no. 1, pp. 92–97, 2015, doi: 10.1166/sl.2015.3416. \n\
+    [49] C. Goumopoulos, B. O’Flynn, and A. Kameas, “Automated zone-specific irrigation\
+    \ with wireless sensor/actuator network and adaptable \ndecision support,” Computers\
+    \ and Electronics in Agriculture, vol. 105, pp. 20–33, 2014, doi: 10.1016/j.compag.2014.03.012.\
+    \ \n[50] H. Manoharan, A. R. Basha, Y. Teekaraman, and A. Manoharan, “Smart home\
+    \ autonomous water management system for \nagricultural applications,” World Journal\
+    \ of Engineering, vol. 17, no. 3, pp. 445–455, 2020, doi: 10.1108/WJE-07-2019-0194.\
+    \ \n[51] A. G. -Briones, Y. Mezquita, J. A. C. -Garzón, J. Prieto, and J. M. Corchado,\
+    \ “Intelligent multi-agent system for water reduction \nin automotive irrigation\
+    \ processes,” Procedia Computer Science, vol. 151, pp. 971–976, 2019, doi: 10.1016/j.procs.2019.04.136.\
+    \ \n[52] V. Ramachandran, R. Ramalakshmi, and S. Srinivasan, “An Automated Irrigation\
+    \ System for Smart Agriculture Using the \nInternet of Things,” in 2018 15th International\
+    \ Conference on Control, Automation, Robotics and Vision (ICARCV), 2018, \npp.\
+    \ 210-215, doi: 10.1109/ICARCV.2018.8581221. \n[53] A. L. P. de Ocampo and E.\
+    \ P. Dadios, “Energy cost optimization in irrigation system of smart farm by using\
+    \ genetic algorithm,” \nin 2017 IEEE 9th International Conference on Humanoid,\
+    \ Nanotechnology, Information Technology, Communication and \nControl, Environment\
+    \ and Management (HNICEM), 2017, pp. 1-7, doi: 10.1109/HNICEM.2017.8269497. \n\
+    [54] J. R. D. Cruz, R. G. Baldovino, A. A. Bandala, and E. P. Dadios, “Water usage\
+    \ optimization of Smart Farm Automated Irrigation \nSystem using artificial neural\
+    \ network,” in 2017 5th International Conference on Information and Communication\
+    \ Technology \n(ICoIC7), 2017, pp. 1-5, doi: 10.1109/ICoICT.2017.8074668. \n[55]\
+    \ S. Maurya and V. K. Jain, “Fuzzy based energy efficient sensor network protocol\
+    \ for precision agriculture,” Computers and \nElectronics in Agriculture, vol.\
+    \ 130, pp. 20–37, 2016, doi: 10.1016/j.compag.2016.09.016. \n[56] M. S. Croock,\
+    \ M. N. Abdullah, and A. K. Mousa, “Optimal power consumption strategy for smart\
+    \ irrigation system using \nLagrange multiplier,” Sensor Letters, vol. 13, no.\
+    \ 12, pp. 1044–1049, 2015, doi: 10.1166/sl.2015.3587. \n[57] M. S. Munir, I. S.\
+    \ Bajwa, and S. M. Cheema, “An intelligent and secure smart watering system using\
+    \ fuzzy logic and blockchain,” \nComputers and Electrical Engineering, vol. 77,\
+    \ pp. 109–119, 2019, doi: 10.1016/j.compeleceng.2019.05.006. \n[58] M. R. Ramli,\
+    \ P. T. Daely, D. -S. Kim, and J. M. Lee, “IoT-based adaptive network mechanism\
+    \ for reliable smart farm system,” \nComputers and Electronics in Agriculture,\
+    \ vol. 170, 2020, doi: 10.1016/j.compag.2020.105287. \n[59] S. Chouikhi, I. El\
+    \ Korbi, Y. G. -Doudane, and L. A. Saidane, “Recovery from simultaneous failures\
+    \ in a large scale wireless \nsensor network,” Ad Hoc Networks, vol. 67, pp. 68–76,\
+    \ 2017, doi: 10.1016/j.adhoc.2017.10.008. \n \n \nBIOGRAPHIES OF AUTHORS  \n \n\
+    \ \nWid Badee Abdulaziz \n \n \n \n is assistant lecturer in University of Information\
+    \ Technology \nand Communications, Baghdad, Iraq. She obtained her B.Sc., M.Sc.\
+    \ in computer engineering from \nControl and Systems Engineering department at\
+    \ University of Technology, Iraq in 2002, 2008 \nrespectively. Currently, she\
+    \ is working toward the PhD in computer engineering at the same \nuniversity.\
+    \ She can be contacted at email: widbadee@uoitc.edu.iq. \n \n \n \nMuayad Sadik\
+    \ Croock \n \n \n \n is a professor in Control and Systems Engineering department\
+    \ \nat University of Technology, Baghdad, Iraq. He obtained his B.Sc., M.Sc. from\
+    \ University of \nTechnology in 1998 and 2003 respectively. He got his PhD from\
+    \ Newcastle University in UK at \n2012. His research field includes Computer Engineering,\
+    \ Sensor Networks and Embedded Systems. \nHe can be contacted at email: muayad.s.croock@uotechnology.edu.iq.\
+    \  \n \n"
+  inline_citation: '>'
+  journal: TELKOMNIKA Telecommunication Computing Electronics and Control
+  limitations: '>'
+  pdf_link: http://telkomnika.uad.ac.id/index.php/TELKOMNIKA/article/download/24234/11558
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Review on cyber-security for optimized and smart irrigation systems
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.22266/ijies2022.1031.42
+  analysis: '>'
+  authors: []
+  citation_count: 0
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: '>'
+  journal: International Journal of Intelligent Engineering and Systems
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Cross-Layer based Energy Efficient Wireless Sensor Network for Large Farms
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

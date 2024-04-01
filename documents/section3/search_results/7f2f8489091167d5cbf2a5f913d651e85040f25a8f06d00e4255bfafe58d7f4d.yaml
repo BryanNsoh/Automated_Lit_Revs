@@ -1,0 +1,3239 @@
+- DOI: https://doi.org/10.1515/jisys-2022-0046
+  analysis: '>'
+  authors:
+  - S. Premkumar
+  - A. N. Sigappi
+  citation_count: 5
+  full_citation: '>'
+  full_text: '>
+
+    Research Article
+
+    S. Premkumar* and AN. Sigappi
+
+    IoT-enabled edge computing model for smart
+
+    irrigation system
+
+    https://doi.org/10.1515/jisys-2022-0046
+
+    received January 10, 2022; accepted March 16, 2022
+
+    Abstract: Precision agriculture is a breakthrough in digital farming technology,
+    which facilitates the appli-
+
+    cation of precise and exact amount of input level of water and fertilizer to the
+    crop at the required time for
+
+    increasing the yield. Since agriculture relies on direct rainfall than irrigation
+    and the prediction of rainfall
+
+    date is easily available from web source, the integration of rainfall prediction
+    with precision agriculture
+
+    helps to regulate the water consumption in farms. In this work, an edge computing
+    model is developed for
+
+    predicting soil moisture in real time and managing the water usage in accordance
+    with rain prediction. A
+
+    soil moisture prediction hybrid algorithm (SMPHA) has been developed that revolves
+    around the decision-
+
+    making techniques with live environmental parameters including weather parameters
+    for the prediction of
+
+    soil moisture through the impact of precipitation. Numerous algorithms with the
+    combination of regression
+
+    + clustering are estimated, and it is inferred that XGBoost + k-means outperforms
+    other algorithmic com-
+
+    binations that is deployed in edge model. This model is used as an intermediary
+    between the end IoT
+
+    devices and cloud that results in the saving of computationally intensive processing
+    performed on cloud
+
+    servers. The servers located on a local edge network perform the developed algorithmic
+    computations.
+
+    Avoiding transmission over the cloud results in signiﬁcant latency, response time,
+    and computation power
+
+    savings and therefore increases the eﬃciency of data transfer. The proposed edge
+    computing model is
+
+    implemented in Raspberry Pi as an edge, Heroku as cloud, and edge nodes as the
+    combination of Pi with
+
+    actuators and sensors. The monitored data from Pi are stored in MongoDB webserver
+    that is controlled by
+
+    Web dashboard. Finally, the developed model is implemented in cloud and edge where
+    the edge server
+
+    implementation performs better in terms of latency, bandwidth, throughput, response
+    time, and CPU
+
+    memory usage.
+
+    Keywords: smart irrigation, edge-based irrigation, edge computing, precision agriculture,
+    soil moisture
+
+    prediction, irrigation management system, IoT, oﬄoading mechanism
+
+    1 Introduction
+
+    It is evident that agriculture always has a specialized role in the anthrophonic
+    evolution and has been
+
+    serving as an important economic factor for the growth of a country [1]. Around
+    58% of the population
+
+    depend on agriculture as the chief source of livelihood in India. The quality
+    and productivity of agricultural
+
+    products have declined over these years as several factors have inﬂuenced the
+    crop productivity both
+
+    directly and indirectly. Some major factors that aﬀect the crop production are
+    climatic changes, global
+
+    warming, and water scarcity [2]. The agricultural land’s productivity is aﬀected
+    by the direct and indirect
+
+    
+
+    * Corresponding author: S. Premkumar, Department of Computer Science and Engineering,
+    Faculty of Engineering and
+
+    Technology, Annamalai University, Chidambaram - 608002, Tamilnadu, India, e-mail:
+    premambal@gmail.com
+
+    AN. Sigappi: Department of Computer Science and Engineering, Faculty of Engineering
+    and Technology, Annamalai University,
+
+    Chidambaram - 608002, Tamilnadu, India, e-mail: an.sigappi@gmail.com
+
+    Journal of Intelligent Systems 2022; 31: 632–650
+
+    Open Access. © 2022 S. Premkumar and AN. Sigappi, published by De Gruyter.
+
+    This work is licensed under the Creative
+
+    Commons Attribution 4.0 International License.
+
+    changes in climate [3,4]. The crop growth has been already aﬀected by the changes
+    in climate incurred by
+
+    global warming. The nutrition quality of soil, ground water level, sea, and ocean
+    are aﬀected by the
+
+    modiﬁcations in average temperature, rainfall, and extreme weather conditions
+    such as hail storms, dust
+
+    storms, heatwaves, etc. due to global warming [5,6]. Degradation of soil is primarily
+    created by various
+
+    methods including 93.7% by water erosion, 9.5% by wind erosion, 5.9% by salinity
+    and alkalinity, etc.
+
+    Further changes in climate would inﬂuence adversely the crop production [7]. Since
+    water is an indispen-
+
+    sable requirement for plants and cultivation, the high level of soil is eroded
+    and thereby the fertility is also
+
+    declined. Due to the ever-changing climate, water scarcity has become a huge problem.
+    Drought-like
+
+    conditions is already formed in several areas and thereby the present and conventional
+    farming practices
+
+    are not suitable. New and unique environment preserving techniques are the need
+    of the hour [8].
+
+    The conventional approaches in agriculture are enhanced by the advent of several
+    advancements in
+
+    technology [9]. These new improved methodologies ensure optimized utilization
+    of resources, accurate
+
+    forecast of water needs and environmental parameters, reduction of human intervention,
+    etc. [10]. Conse-
+
+    quently, the outcomes of crops in terms of yield and quality are higher with cost-eﬀective
+    methods. One
+
+    such booming technology is the Internet of things (IoT) [11].
+
+    IoT is the collection of components embedded in the sensor for measuring and transferring
+    data via
+
+    network devices as sensed from pumps and tractors to weather stations. Primarily,
+    IoT deals with the
+
+    transmission and reception of data related to farms through devices using the
+    Internet for prediction
+
+    and providing decisions to the farmers. IoT-based methodologies has brought a
+    changeover in agricultural
+
+    patterns and farming approaches [12]. IoT devices can gather information about
+    soil moisture, chemical
+
+    properties, dam levels, livestock health, and weather details in real time. The
+    information acquired from IoT
+
+    devices facilitates the farmers in tracking farms periodically. Farmers can save
+    time and money by
+
+    responding faster to farm conditions. Cloud computing models integrated with on-ﬁeld
+    agricultural sensors
+
+    need to be incorporated for tackling the issue of processing huge voluminous data.
+
+    One of the major challenges of IoT is the processing of huge datasets in a sequential
+    way. Some of the
+
+    key factors that need to be focused on this process are as follows: information
+    about the type and nature of
+
+    data, the way of acquiring the data, etc. The preliminary stage comprises acquiring
+    the data and ingesting
+
+    the data to the system. Substantial cognizance of data are achieved as the data
+    pass through all the
+
+    gateways where it is cleansed and transformed before entering into the system.
+    In the near future, dynamic
+
+    prediction of soil moisture and precipitation techniques are to be developed for
+    smart irrigation systems.
+
+    Therefore, a system is developed for eﬃcient and optimal utilization of fresh
+    water in irrigation along with
+
+    drip irrigation system. It aids in ﬁnding which one of the plants fails to get
+    suﬃcient water. When the water
+
+    supply is provided the next day, this delay should not disturb the system. It
+    becomes important for the
+
+    farmers to understand the optimal usage of water and fertilizers to bring out
+    sustenance in the agricultural
+
+    industry. Therefore, processing must be done for analyzing the data, so that patterns
+    can be analyzed and
+
+    planning can be done for the long term, accordingly. Hence, it gives a broad vision
+    in deciding where the
+
+    processing is to be done exactly. Therefore, it is obvious that not all data are
+    crucial, and it provides a clear
+
+    view of which data need to be stored, discarded, and retained for both long-term
+    and short-term purposes.
+
+    Thus, all these challenging issues require to be addressed and that is where storage
+    technologies are
+
+    actually highlighted. The poor quality of Internet access in developing nations
+    makes the implementation
+
+    quite challenging. An applicable solution to solve this problem is through edge
+    computing where the
+
+    essential data could be oﬄoaded from the cloud over the edge of the cloud, and
+    this is the exact point
+
+    where the approach of smart sensing with edge computing gets in.
+
+    With the purpose of broadening the potential of edge computing and using it in
+    the agriculture domain,
+
+    a novel approach using machine learning (ML) methods is proposed for analyzing
+    the data acquired by the
+
+    IoT devices deployed at the farm. Here, the data acquired from IoT components
+    undergo preprocessing and
+
+    ML models on the edge nodes to analyze and assess the appropriate results for
+    providing the best instruc-
+
+    tions for controlling the actuators (e.g., light, pumps at diﬀerent locations)
+    in the farms.
+
+    This article presents an automated system, as shown in Figure 1, to predict the
+    soil moisture using the
+
+    ﬁeld information acquired from the self-designed sensor node deployed at the ﬁeld
+    and the forecast
+
+    information of weather via Internet. A unique algorithm has been developed that
+    revolves around the
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    633
+
+    machine learning techniques for the prediction of soil moisture. Here, many algorithms
+    with the combina-
+
+    tion of regression + clustering was estimated, and it is inferred that XGBoost
+    + k-means outperforms other
+
+    algorithmic combinations, and therefore, it is deployed for the prediction of
+    soil moisture in the proposed
+
+    work. The proposed algorithm makes eﬀective irrigation decisions with optimized
+    usage of water in a more
+
+    accurate and reliable manner. The eﬀective decision-making refers to the process
+    of predicting the rainfall,
+
+    thereby reducing the water usage in advance by the proposed algorithm in accordance
+    with the predicted
+
+    rainy days. Through this automatic decision-making, over watering is avoided by
+    saving the soil. The
+
+    server-side software is developed with node-side connectivity using the information
+    for visualization and
+
+    decision support features. This proposed algorithm is implemented in edge to prove
+    the eﬃciency of the
+
+    edge server handling the automated system better than the cloud control. The performance
+    of the decen-
+
+    tralized edge-based architecture has been evaluated for downloading the hybrid
+    algorithm from cloud in
+
+    real time execution. The performance can be enhanced by adopting edge computing
+    architecture and
+
+    measured with the help of network parameters like latency, bandwidth, and response
+    time. Edge computing
+
+    capacity is also estimated using the CPU processor and memory consumption while
+    executing the proposed
+
+    algorithm with irrigation scheduling.
+
+    2 Related work
+
+    In ref. [13], a smart irrigation system not aﬀected by communication disconnection
+    and delay is developed
+
+    using edge nodes deployed at the farms. Environmental parameters have an intricate
+    impact on the plant
+
+    growth. It becomes necessary for evaluating multiple AI models simultaneously
+    in an actual cultivation
+
+    environment for comparing AI models under the same conditions. Due to the working
+    of existing irrigation
+
+    systems on the cloud, communication is instable in the concurrent evaluation of
+    AI models. However, the
+
+    instability does not induce an edge node in its performance.
+
+    The factors such as type of plant, soil, climate, humidity, temperature, and soil
+    moisture need to be
+
+    considered for the irrigation system packed with potential smart decisions. The
+    nature and type of plant,
+
+    soil, and climate are queried by ontology (branch of metaphysics dealing with
+    the nature of being), whereas
+
+    other factors such as temperature, humidity, and soil moisture are sensed by the
+    sensor network. The
+
+    trained ML model predicts the watering decisions based on ontology and other factors
+    as mentioned earlier.
+
+    Figure 1: Architecture of the proposed system.
+
+    634
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    Smart irrigation has three modules: (i) sensor network modules that sense the
+    parameters impacting the water
+
+    requirement by using sensors DHT22, light sensor BH1750, and HL-69 hygrometer
+    for sensing the temperature,
+
+    soil moisture, light, and humidity in air. (ii) Edge and IoT server’s module to
+    send and receive data through
+
+    HTTP requests. (iii) Training module in which KNN is applied on the sample dataset
+    for training and decision-
+
+    making regarding the water needs. Based on the input values, the trained model
+    categorizes the input into ﬁve
+
+    possible classes: highly not needed, not needed, average, needed, and highly needed
+    [14].
+
+    A decentralized smart irrigation approach is proposed for strawberry greenhouses
+    in contrast to con-
+
+    ventional cloud-based solutions for keeping the agricultural data at the edge
+    of the network. A full-scale
+
+    smart irrigation system in an actual strawberry greenhouse environment is developed
+    after a small-scale
+
+    smart irrigation networking prototype system and a reference architecture targeting
+    edge data distribution
+
+    for strawberry greenhouse applications are framed. A three-step industrial approach
+    is formed for
+
+    designing, implementing, and validating a solution for smart strawberry irrigation
+    in greenhouses and
+
+    keeping the corresponding data at the edge of the network at the same time: (i)
+    A small-scale smart
+
+    irrigation prototype solution with oﬀ-the-shelf hardware and software equipment
+    is tested and evaluated
+
+    on various types of plants for gaining useful insights for deployments on a large
+    scale. (ii) A reference
+
+    network architecture is designed for targeting smart irrigation and edge data
+    distribution speciﬁcally for
+
+    strawberry greenhouses. (iii) A large-scale system in an actual strawberry greenhouse
+    environment is
+
+    developed in Greece, incorporating the proposed reference architecture [15].
+
+    Edge computing is proposed for addressing the issues by taking advantage of computing
+    resources in
+
+    the edge of the network. The issues such as an edge mobile device make it easier
+    to achieve low end-to-end
+
+    latency, high bandwidth, and low jitter to services located on the edge network.
+    An edge can enforce the
+
+    privacy policies of its owner prior to the release of the data to the cloud through
+    edge analytics. If a cloud
+
+    service becomes unavailable due to network failure, cloud failure, or a denial-of-service
+    attack, a fallback
+
+    service on a nearby edge can temporarily mask the failure. Cloud services, partial
+    analysis, and control
+
+    functions are extended to the edge nodes from the cloud data center. Edge nodes
+    facilitate the timely
+
+    monitoring of sensors in smart farming by the reduced latency and enhanced data
+    transmission. Due to
+
+    these factors, edge computing is applied through farming [16,17]. A three-tier
+    open-source software plat-
+
+    form we proposed by authors, and the platform enhanced the precision agriculture
+    by introducing edge
+
+    computing and fog computing. An network functions virtualization (NFV)-based approach
+    is deployed for
+
+    performing the local operational decisions at the edge level for mitigating the
+    inﬂuence of network failures
+
+    while using cloud data centers [18]. For control processing in smart farming,
+    a platform enabling cost-
+
+    eﬀective sensor/actuator network based on IoT, utilizes edge computing [19,20].
+
+    The authors in ref. [21] predicted the soil moisture using a mathematical model
+    that measures the
+
+    values given by a sensor matrix on the ground. Due to the huge interval in measurements
+    (10 minutes), the
+
+    model presented estimated error by more than 10%. This methodology has incorporated
+    the online
+
+    approach by making the sensors to send data every minute to edge devices without
+    time-based interruption.
+
+    The authors of ref. [22] applied a combinative approach of using ﬁeld sensor network’s
+    data along with
+
+    weather forecast station’s data for the management of optimality in water conditions
+    for the enhanced
+
+    growth of grapes. The generated data are forwarded to a web server, which displays
+    graphics without
+
+    statistical analysis of such data. The analysis must be performed a posteriori
+    by the user.
+
+    The watering mechanism for a plant via IoT methodology is devised by the proposed
+    smart irrigation
+
+    model without acquiring any pre-processed data. A prototype application is developed,
+    which gets adapted
+
+    to the parameters needed in irrigation after a couple of human-made irrigations.
+    With the usage of various
+
+    ML algorithms, several tests are devised for manual and automated irrigations
+    for the performance evalua-
+
+    tion. After the evaluation using four diﬀerent ML algorithms such as logistic
+    regression (LR), K-nearest
+
+    neighbors (KNN), Gaussian naive Bayes (GNB), and gradient boosting regression
+    trees (GBRT), it is found
+
+    that GBRT outperforms other algorithms. To analyze the overall performance, a
+    test bed for the sensor edge,
+
+    mobile client, and the decision service on the cloud is established. Two diﬀerent
+    indoor species are selected
+
+    as test items for the prototype, namely, Peace lily and Sardinia. The outcomes
+    were quite good, and it is
+
+    inferred that the prototype has learned the patterns of irrigation and making
+    decisions automatically with a
+
+    high rate of accuracy [23].
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    635
+
+    The authors from ref. [24] adopted the deep learning methodology for detecting
+    the type and the
+
+    category of the plant using an automated plant irrigation system. The water necessity
+    of the plant is
+
+    determined using the recognition of predeﬁned set of plant images and data set
+    acquired from farm. It
+
+    utilizes the database for fetching the irrigation information after the recognition
+    process is completed.
+
+    Modeling the training processes are time consuming as voluminous set of images
+    needs to be stored.
+
+    The authors in refs [25,26] incorporated ML methods in the irrigation decision
+    support model using a
+
+    pre-processed irrigation data set. A model is developed for learning the irrigation
+    needs of any plants
+
+    progressively rather than using a readily available dataset. Several ML algorithms
+    are evaluated with their
+
+    precision for concluding the irrigation decisions. Manual irrigations are performed
+    two times before making
+
+    precise decisions. Due to the dynamicity in model, data processing is done progressively,
+    and it can be
+
+    applied to several plants having varying irrigation conditions. There is a need
+    for the learning model that
+
+    can be trained by itself using a comparatively lighter learning process using
+    environmental parameters that
+
+    do not need larger storage in the system but need higher computation. From the
+    aforementioned survey for
+
+    making a precise decision with instant computation locally, edge computing needs
+    to be integrated into the
+
+    irrigation system. This article is directed towards presenting a platform that
+    implies IoTs and edge com-
+
+    puting in monitoring soil moisture via sensors, data communication between sensors
+    and edge devices, and
+
+    an Analytics-as-a-Service cloud. It analyzes the collected data in the form of
+    a density map of soil moisture
+
+    for denoting the areas in need of greater or lesser frequency of irrigation. Here,
+    density map does not refer to
+
+    the geographical point data by satellite mapping, and it actually denotes the
+    point of dry area and watery
+
+    area through soil moisture detection point. This point is averaged among areas
+    of irrigation to be done and
+
+    the irrigation process is controlled with prediction of rainfall using the proposed
+    system.
+
+    3 The proposed system
+
+    The proposed learning model for irrigation is implemented in a prototype IoT system
+    that has four compo-
+
+    nents: (i) Edge node layer – This layer consists of sensors, actuator, and two
+    microcontrollers. In this layer,
+
+    edge node acquires the sensor data from the surroundings and controls the actuator
+    for actuating water
+
+    pumps to start irrigation. (ii) Edge server layer – This layer consists of Raspberry
+    Pi that act as edge server
+
+    and capable of multitask processing. Here, edge server controls the edge nodes
+    for sending signal and
+
+    receiving data at regular interval of time. It is also connected to the cloud
+    server for receiving developed and
+
+    trained machine learning model to be deployed and make irrigation decision for
+    controlling edge nodes.
+
+    (iii) Edge service layer – This layer is deployed in the edge server and it is
+    responsible for controlling the
+
+    whole system through a developed web dashboard. The dashboard has live feed data,
+    control of edge
+
+    nodes, and cloud services access. This service layer also has the control access
+    of the proposed machine
+
+    learning model. (iv) Cloud server layer – This layer composed of cloud services
+    and cloud storage where its
+
+    role is to train the machine learning model and store the data in database. It
+    sends the trained proposed
+
+    model to the edge server for decision-making regarding irrigation scheduling.
+    The comprehensive inter-
+
+    connections in the system are shown in Figure 2. The proposed IoT-based smart
+    irrigation system includes
+
+    ﬁve major components: ﬁeld deployed module, Web-based interface, Web API weather
+    input, soil moisture
+
+    prediction mechanism, and edge communication model.
+
+    3.1 Field deployed module
+
+    In the ﬁeld requirements, a wireless sensor network of the sensor nodes needs
+    to be deployed as shown in
+
+    Figure 3. Here, ﬁeld data collection device accommodates four diﬀerent sensors:
+    Capacitive Soil Moisture
+
+    Sensor V2.0, DS18B20 Water Proof Temperature Sensor Probe for soil temperature,
+    ultraviolet (UV) Light
+
+    Radiation, DHT11 – Temperature and Humidity Sensor Module, and GYML8511 Analog
+    Output Ultra-Violet
+
+    636
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    Light Sensor Module. An Arduino Mega connected to Raspberry Pi 4 Model-B read,
+    the output of these
+
+    sensors where the program is developed in Python for the Pi model to fetch the
+    hourly data from sensors
+
+    and store the data in MongoDB [27] database. It is then synchronized with the
+    server database using the
+
+    developed web service. A Wi-Fi-enabled Arduino controls the water pump connected
+    to a relay switch.
+
+    Figure 2: Components of the proposed system.
+
+    Figure 3: Real-time prototype of the proposed edge model.
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    637
+
+    For the real time monitoring, a trigger is made for controlling the web service
+    from the responsive web-
+
+    based interface. The irrigation decisions are checked periodically by the proposed
+    model performed in the
+
+    server. The water pump is actuated, and irrigation process is started only if
+    the server makes any irrigation
+
+    decision. A wireless sensor network (WSN) [28] scenario with ZigBee [29] technology
+    can be implemented
+
+    for a large farming area in which several sensor nodes can be aﬃxed in the speciﬁed
+    area and every sensor
+
+    node possesses sensors similar to a standalone device. Then, the Arduino Mega
+    reads the sensor output
+
+    connected to ZigBee for transferring data to Gateway Node for aggregating the
+    received data and storing it
+
+    in MongoDB locally and also for transferring the data via web service to the edge
+    server.
+
+    3.2 Web-based interface
+
+    The proposed framework consists of a web-based application to allow farmers visualize
+    the growing data
+
+    and interacting with the garden in real time. In addition, users can also be able
+    to examine and analyze the
+
+    historical growing data, if needed, through functionalities such as irrigation
+    control, motor control predic-
+
+    tion model deployment, and manual data entry implemented in this web application.
+    Here, Node.js was
+
+    chosen for developing the web application [30,31], while MongoDB [27] was utilized
+    as the database system.
+
+    Data stored in the database, which is deployed in the cloud, will be used for
+    further data analysis in the
+
+    future. The web application’s functions are designed following a software design
+    pattern called model-
+
+    view-controller (MVC) as shown in Figure 4. In the frontend, ChartJS is used to
+    represent data through
+
+    dynamic charts. The web application is also used as an interface to manage all
+    the physical devices/
+
+    actuators in the garden. To deploy the web-server to the cloud, a cloud platform
+    as a service (PaaS), namely,
+
+    Heroku, had been utilized. Heroku is a cloud platform that provides platform as
+    a service (PaaS), facilitates
+
+    the creation of applications and deploying these online rapidly [32,33]. It also
+    enhances scalability and
+
+    functionality by integrating several add-on services. The ﬁeld data are sent to
+    the server by Raspberry Pi
+
+    using this web service. This web service manages the network outage/ﬂuctuation
+    during data synchroniza-
+
+    tion from the ﬁeld device to the server by taking the help of ﬂag settings at
+    the database level. The interface
+
+    facilitates the scheduling of irrigation along with visualizing real time sensors
+    and predicted soil moisture
+
+    for upcoming days and precipitation information. By using the denoted threshold
+    value of soil moisture
+
+    suggested by agronomists, the irrigation can be scheduled by the user. The system
+    maintains the threshold
+
+    value depending on the predicted pattern of soil moisture and precipitation information.
+    The process of
+
+    irrigation is initiated automatically and stopped after the speciﬁed threshold
+    value generated from the
+
+    proposed algorithm of soil moisture when it is reached.
+
+    Figure 4: Web interface for the irrigation system.
+
+    638
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    3.3 Web API weather input
+
+    The weather prediction data are collected by a web service developed in Python.
+    The forecast data such as
+
+    humidity, temperature, ultra violet index, precipitation, and cloudiness of web
+    forecasting portals like
+
+    Open Weather API are aggregated by the developed web service [34]. These portals
+    provide the forecasted
+
+    information in HTML, XML, or JSON format. The predicted data with JSON format
+    are read by the developed
+
+    web and stored in database at the edge server, which is concerned in the prediction
+    algorithm. Also, these
+
+    data are utilized as testing dataset in the ML model for predicting the soil moisture.
+
+    3.4 Soil moisture prediction mechanism
+
+    An algorithm for predicting the soil moisture based on data derived from ﬁeld
+    sensors and weather fore-
+
+    casting using the combination of supervised and unsupervised machine learning
+    techniques has been
+
+    developed underpinned by regression algorithms and k-means clustering for estimating
+    the diﬀerence/
+
+    change in soil moisture owing to weather conditions. Many regression algorithms
+    are compared against
+
+    each other and infusing each of them with k-means to check the preciseness in
+    mean square error (MSE),
+
+    R2, accuracy and mean absolute percentage error (MAPE) for prediction of soil
+    moisture of upcoming days
+
+    with the help of sensor data and weather forecasting days. The information about
+    soil moisture for the
+
+    upcoming days and suggestions for irrigation in accordance with the prescribed
+    levels of soil moisture and
+
+    predicted precipitation values, thereby saving energy and water, is presented
+    by the algorithm. The infor-
+
+    mation generated from the device and the predicted values from the algorithm soil
+    moisture prediction
+
+    hybrid algorithm (SMPHA) are stored in the server.
+
+    3.5 Edge communication model
+
+    The communication protocols in the proposed framework are ﬂexible and transparent
+    in nature for
+
+    accepting both wired and wireless methodologies. For the maximum utilization of
+    potentiality in edge
+
+    computing components, the communication among various components in the edge-IoT
+    system requires
+
+    intense probing by using the versatility among the devices in network edges. For
+    transferring the data
+
+    gathered from pivot sensors, a communication technology such as Zigbee [35] is
+    needed for the irrigation
+
+    systems. Therefore, the communication component in the proposed work is classiﬁed
+    into three main areas
+
+    as shown in Figure 5. The Message Query Telemetry Transport (MQTT) protocol is
+    used for the
+
+    Figure 5: Proposed edge communication model.
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    639
+
+    communication in the proposed system. The analysis in ref. [36] presented seven
+    IoT messaging protocols
+
+    (MQTT, CoAP, XMPP, AMQP, DDS, REST-HTTP, and WebSocket) as communication protocols
+    that play a
+
+    major role in smart farming. The authors have concluded that MQTT proved to be
+    the most secure protocol
+
+    after probing all the protocols with respect to latency, energy and bandwidth
+    requirements, throughput,
+
+    reliability, and security. Moreover, MQTT is secure in both end-to-end architecture
+    and gateway server
+
+    architecture. In an MQTT setup, a MQTT server termed as MQTT broker executes on
+    the IoT solution [37].
+
+    Under a common identiﬁer, a “publisher” and a “subscriber” link among themselves
+    to this broker. In the
+
+    IoT solution, publishers and subscribers are the IoT devices and IoT hubs or control
+    devices, respectively.
+
+    When the publishers have new data for recording, the data are published to the
+    broker. The broker then
+
+    ﬂags that it has new publisher data, and the corresponding data are read by the
+    subscriber. Then, the
+
+    subscriber analyzes the data and reacts accordingly.
+
+    The ﬁrst level accomplishes with connecting the end users to system with the help
+    of mobile or web-
+
+    based applications through the Internet. The next level (cloud computing server)
+    deals with the connection
+
+    of web server and MQTT broker for directing the user requests and other components
+    at the edge landscape
+
+    or from the farms to the right cloud-based services like displaying the real time
+    status of the farm for the
+
+    users, triggering a new deployment of the updated ML model to the corresponding
+    edge node. The third
+
+    level (farming area) is directed toward the deployment of sensors and IoT devices
+    (actuators) for commu-
+
+    nicating with other components in the entire system.
+
+    4 Deployment of soil moisture prediction hybrid algorithm
+
+    The watering mechanism of the plant has diﬀerent approaches in the proposed model.
+    Primarily, the system
+
+    is trained with manual irrigations datasets during the process of learning with
+    respect to suggestions
+
+    deﬁned by agronomists. The model is trained to learn the needs of irrigation in
+    the ﬁrst level of deployment
+
+    in cloud without the inclusion of pre-processed data. After acquiring the required
+    data and training, the
+
+    proposed system is initiated to grasp the plant’s watering needs by undergoing
+    plenty of manual irrigations.
+
+    Thereafter, manual irrigation is not required and the system makes automated decisions
+    in watering using
+
+    the gathered data and the application of ML methods. The proposed model then decides
+    the irrigation
+
+    strategies automatically using ML methods without the need including collected
+    datasets in the automatic
+
+    irrigation process. The proposed model can be improved through the learning process
+    when the number of
+
+    precise irrigation inputs is provided to the model at each stage of training.
+
+    The decision-making procedure is developed with two modules for irrigation strategies
+    according to the
+
+    soil moisture prediction for upcoming days. The ﬁrst module deals with training
+    the model in cloud with
+
+    manual irrigation datasets through steps such as data collection, data preprocessing,
+    training, and model
+
+    development. The system acquires values of air temperature (TH), soil temperature
+    (SMT), soil moisture
+
+    (SM), humidity (HU), and ultraviolet rays (UV) periodically from the physical
+    environment in the data
+
+    collection stage, which is essentially required for arriving at the watering decisions.
+    Also, the time of
+
+    performing the manual irrigation is recorded in the database. These data are timestamped
+    and stored in
+
+    as datasets to aid in making decisions for knowing the time of irrigation. In
+    the next step of pre-processing,
+
+    inconsistencies are eliminated and outliers caused by sensor errors are detected
+    from the irrigation dataset,
+
+    thereby helping in the removal of broken data. The training stage involves the
+    application of supervised
+
+    machine learning (ML) algorithms. Here the regression algorithms such as support
+    vector regression (SVR),
+
+    multiple linear regression (MLR), lasso regression (LR), decision tree regressor
+    (DTR), random forest
+
+    regressor (RF), and XG-boost regressor (XB) techniques are used for the deployment.
+    The regression algo-
+
+    rithms are trained using the collected datasets. Finally, through training, regression
+    models are created,
+
+    namely, SVR model, MLR model, LR model, DTR model, RF model, and XB model that
+    are been combined
+
+    with the second module for decision-making.
+
+    The second module caters to the prediction of irrigation for upcoming days by
+    infusing the weather data
+
+    as an input to the regression trained models. The live datasets from the weather
+    API for future prediction of
+
+    640
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    soil moisture variable are used. The dependent variables from weather forecast
+    data like temperature (TH),
+
+    humidity (HU), ultraviolet (UV), and precipitation (PC) are tested in the aforementioned
+    model for soil
+
+    moisture prediction. Then, the regression trained model is evaluated and deployed
+    using the weather
+
+    testing data for the prediction of soil moisture in accordance with the precipitation.
+    After the prediction
+
+    of data for the upcoming days, these developed regression models are combined
+    with unsupervised ML
+
+    algorithm named k-means clustering for estimating the changes incurred in soil
+    moisture prediction due to
+
+    the impact of weather conditions. Further, each regression models with k-means
+    algorithm are evaluated
+
+    for performances in terms of irrigation decision-making process as shown in Table
+    1. The combined algo-
+
+    rithms are estimated through MAPE, MSE, R2, execution speed, power consumption,
+    and accuracy. The
+
+    estimation and computation of these parameters are detailed by the authors in
+    ref. [38].
+
+    XGBoost + k-means (XB+k-means) approach provides more accuracy with less MSE comparatively
+    and
+
+    also the R2 with 98% in soil moisture prediction using combined approach is given
+    in Table 1. It is evident
+
+    that the proposed combination performs better when compared to other regression
+    + k-means-based
+
+    approaches. XB + k-means-based hybrid machine learning algorithm is applied in
+    irrigation planning
+
+    module on account of aforementioned performance metrices of ML. Although it performs
+    moderately in
+
+    terms of execution time and power usage, it is selected for the deployment in
+    edge computing as it has
+
+    better performed in terms of accuracy, R2, MSE, and MAPE metrices. It is observed
+    that the prediction of soil
+
+    moisture for the upcoming days from the proposed algorithm (XB+k-means) is nearer
+    to the actual value as
+
+    shown in Table 2, and hence, XB+k-means is selected for the implementation of
+    SMPHA in edge-based
+
+    irrigation scheduling.
+
+    4.1 Hardware setup
+
+    IoT system is crucial to handle, collect, and transfer the data to the computing
+    nodes at the edge or in the
+
+    cloud. These devices are connected to the edge nodes through wireless communication
+    protocols like
+
+    ZigBee. It is used in reducing the latency and loss of data. An Arduino micro-control
+    unit controls the
+
+    combined IoT sensors and actuators at the same part of a ﬁeld into a cluster,
+    each connected to a Raspberry
+
+    Table 2: Comparison of predicted SM value with actual SM value
+
+    Date
+
+    Average SM value
+
+    from sensor
+
+    Average predicted SM
+
+    value (XB+k-means)
+
+    28-09-2021
+
+    35.23
+
+    34.04
+
+    29-09-2021
+
+    36.41
+
+    37.20
+
+    30-09-2021
+
+    31.57
+
+    30.46
+
+    01-10-2021
+
+    34.66
+
+    33.15
+
+    02-10-2021
+
+    36.73
+
+    37.12
+
+    03-10-2021
+
+    32.88
+
+    33.01
+
+    Table 1: Comparison of performance metrices obtained from various ML algorithms
+
+    Algorithms used
+
+    Accuracy
+
+    R2
+
+    MSE
+
+    MAPE (%)
+
+    Execution time
+
+    Power (J)
+
+    SVR + k-means
+
+    0.96
+
+    0.96
+
+    0.25
+
+    1.98
+
+    0.06078
+
+    1164.85
+
+    MLR + k-means
+
+    0.94
+
+    0.88
+
+    0.31
+
+    2.15
+
+    0.02075
+
+    429.30
+
+    LR + k-means
+
+    0.95
+
+    0.94
+
+    0.32
+
+    2.23
+
+    0.02482
+
+    351.35
+
+    DTR + k-means
+
+    0.93
+
+    0.95
+
+    0.29
+
+    1.62
+
+    0.15687
+
+    914.70
+
+    RF + k-means
+
+    0.95
+
+    0.91
+
+    0.27
+
+    1.57
+
+    0.16745
+
+    1475.13
+
+    XB + k-means
+
+    0.97
+
+    0.98
+
+    0.20
+
+    1.08
+
+    0.03547
+
+    537.87
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    641
+
+    Pi that acts as an edge node in processing the gathered data and controlling the
+    actuators. For example,
+
+    Figure 2 shows an edge architecture with a Raspberry Pi connected to two components:
+    Arduino Uno and
+
+    Arduino Mega units via ZigBee connection. The ﬁrst Arduino Mega node is responsible
+    for collecting data
+
+    from sensors and the second one is for controlling the actuators in the ﬁeld.
+    Depending on the sensor type
+
+    with collecting Arduino unit, the sensors are connected via analog or digital
+    PWM pins while controlling
+
+    Arduino uno joins with actuators in the ﬁeld and controls (turn on/oﬀ) them in
+    accordance with upper
+
+    layers (from the edge web server). The trained (cloud) and deployed ML model in
+    edge nodes provides the
+
+    necessary instructions to the edge nodes.
+
+    4.2 Web layer setup
+
+    The deployment of web server assists the user in planning and managing the irrigation
+    system. It visualizes
+
+    the crucial information of factors like temperature of air and soil, UV, humidity,
+    and soil moisture in live
+
+    irrigation with real time updates in the form of various charts. In accordance
+    with the selected ﬁeld, the web
+
+    application redirects the user to the ﬁeld’s dashboard as shown in Figure 4. The
+    dashboard consists of ﬁeld
+
+    parameters as well as control signals for activating all the physical devices/actuators
+    at the garden layer.
+
+    These signals are denoted as switch buttons, and each switch controls (turn on/oﬀ)
+    a particular kind of
+
+    actuator (for instance, water pump to start and stop the irrigation). The user
+    interface facilitates remote
+
+    controlling of the ﬁeld by just clicking on the buttons as shown in Figure 4.
+
+    4.3 Edge layer setup
+
+    The edge node acts as a computing center where incoming data are analyzed and
+    fed as the input vector to
+
+    the ML model for processing and to return the control signals for activating or
+    deactivating the actuators
+
+    placed at the farm. Edge node processes the physical data (real time) at every
+    end device such as the
+
+    collected and processed data via the Raspberry Pi nodes presented in the proposed
+    scheme. The prediction
+
+    model is designed using TensorFlow API and trained, tested on Google Colab in
+    this work. Amazon Web
+
+    Service (AWS) oﬀers a library named Boto3 having many APIs to upload and download
+    objects. After the
+
+    development of model, it is transferred to Amazon S3, a service provided by AWS.
+    The edge node utilizes the
+
+    trained model from S3 for analyzing the sensed data acquired from garden’s sensors.
+    The decision is
+
+    delivered based on real time data analysis at the edge node and transmitted to
+    Arduino nodes in the ﬁelds
+
+    landscape immediately for controlling the actuators. In another ﬂow, the data
+    collected from sensors are
+
+    ﬁltered so as to keep only the modiﬁed data at the edge node before being sent
+    back for mitigating the
+
+    communication cost to the database in the cloud. These data are used in the updation
+    of the ML model to
+
+    enhance its eﬃciency.
+
+    4.4 Analytics setup
+
+    The main goal of this experiment lies in gathering the various physical parameters
+    of a farming land via
+
+    sensors and utilizing the fetched data along with weather forecast information
+    for developing an algorithm
+
+    using hybrid machine learning approach to infuse higher accuracy in predicting
+    the soil moisture for the
+
+    upcoming days. As discussed in Section 4, for the proper planning and provisioning
+    of optimal irrigation,
+
+    the algorithm provides a predictable estimate of soil moisture with the assistance
+    of various statistical
+
+    measures as shown in Table 1. The measures are adopted for estimating the appropriateness
+    and error rate
+
+    of the proposed algorithm. It is inferred from the experiment that, optimal irrigation
+    is feasible using a good
+
+    642
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    estimation (close to the actual value) of the soil moisture (Table 2), with the
+    support of ﬁeld data and
+
+    forecast information, thereby utilizing the natural rain eﬃciently.
+
+    The SMPHA ML model is interdependent on dynamic changes in weather environment
+    where the
+
+    models deployed on edge nodes need to change the controls accordingly after model
+    gets trained con-
+
+    tinuously. For the process of retraining, the trained model needs to be updated.
+    The parameters such as TM,
+
+    HU, ST, UV, SM about grown plants are logged for the training purpose, and these
+    generated datasets are
+
+    recorded from the already developed manual mode system [39]. The growth of the
+    Indian Mundu Chilli [40]
+
+    is taken for the observation from the ﬁrst stage to the last grown stage for 95
+    days. While retraining the
+
+    model, the training is carried in cloud without causing eﬀect to the functionalities
+    at edge nodes. A signal is
+
+    transferred to the corresponding edge server for triggering the task of updating
+    the SMPHA model from the
+
+    web server. At that time, the newly trained model is downloaded to replace the
+    existing one at the con-
+
+    sidering edge server. From then, the ML model at the edge server is called to
+    be updated with the real-world
+
+    knowledge and is ready for its garden controlling tasks (to apply in the next
+    farming season).
+
+    4.5 Work ﬂow
+
+    The ﬂowchart in Figure 6 depicts the working of the proposed system based on the
+    decision support system
+
+    that is beneﬁcial for irrigation needed for the growth of vegetables. The chilli
+    plant is grown in a growbag
+
+    attached with sensors and Pi as shown in Figure 3 and monitored for 95 days of
+    data collection. To bring out
+
+    optimality in the irrigation system, features relating to climate, soil, crop,
+    and ﬁeld infrastructure are to be
+
+    considered. To provide several recommendations in the production of vegetables,
+    decision support systems
+
+    (DSSs) are designed, which process voluminous information [39]. This proposed
+    work is the extension of
+
+    soil moisture diﬀerences (SMD) model [41] developed for soil moisture prediction.
+    The threshold values of
+
+    soil moisture are used in the SMD model where the system schedules the irrigation
+    date based on the
+
+    predicted soil moisture and weather forecast (precipitation) information automatically
+    using SVR+ k-means
+
+    modeling. Therefore, in the extension of the aforementioned work, further more
+    number of sensors are used
+
+    to log soil moisture value, which is averaged in the proposed model. This model
+    is developed in two
+
+    divisions of ﬂowchart as shown in Figure 7, where both are interconnected. It
+    is observed that the prediction
+
+    of XB + k-mean approach provides better results as presented in Table 2.
+
+    The ﬁrst phase of the ﬂowchart describes the hybrid algorithm for the soil moisture
+    prediction (SMPHA)
+
+    using the combination of XB + k-means algorithm. During the data collection step,
+    the sensor data for the
+
+    parameters, namely, TM, HU, ST, UV, and SM, are collected. During preprocessing,
+    null values and outliers
+
+    are removed and the preprocessed data are used to train the XG-Boost model. The
+    developed model is then
+
+    trained with variables of live weather features (TM, HU, UV, PC) obtained from
+    Weather API for the
+
+    prediction of SM data. These data are given as input to k-means clustering algorithm
+    to predict the soil
+
+    moisture, which is deﬁned as SMPHA value to be infused in the next phase of the
+    ﬂowchart. The second
+
+    phase of the ﬂowchart deﬁnes the automatic irrigation planning setup. The setup
+    starts obtaining the soil
+
+    moisture maximum (SMMax) and soil moisture minimum (SMMin) values in the dashboard
+    for setting the
+
+    maximum and minimum level of soil moisture. Then, the current soil moisture (CuSM)
+    is sensed and
+
+    compared against the threshold SMMin. If the resulting value is less than SMMin,
+    the process proceeds
+
+    with SMPHA. On the contrary, it stops the irrigation process by sending 0 to the
+    relay. In SMPHA, the
+
+    nearest precipitation date is selected and it is assigned to the predicted soil
+    moisture (PSM). The SMMax is
+
+    decided by ﬁnding the minimum of (PSM + SMMin, SMMax), and the predicted SMMax
+    is further checked
+
+    against CuSM with a condition if SMMax is greater the CuSM then it sends 1 to
+    the relay as a signal to start
+
+    irrigation. If the condition fails, then it sends 0 to stop irrigation. The process
+    of automatic irrigation ends
+
+    by forecasting the irrigation schedule in accordance with the live weather parameters.
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    643
+
+    5 Experimental setup and evaluation
+
+    The test bed is developed and deployed, and the data are collected for the analysis
+    in irrigation manage-
+
+    ment. Here, Heroku cloud platform is used to deploy the cloud web server. The
+    same cloud is also installed
+
+    at a local edge that is at two Raspberry Pi units equipped with Wi-Fi 802.11n
+    connections to denote the edge
+
+    nodes. JMeter application is used to get sequential accesses to the web page from
+    various users for eval-
+
+    uating the network parameters. The speciﬁcation of these servers is given in Tables
+    3 and 4.
+
+    We evaluated the performance of the proposed IoT-based smart farm on two diﬀerent
+    platforms,
+
+    namely, in the cloud and on the local computer to show the feasibility and the
+    beneﬁt of the edge com-
+
+    puting scheme. Further many parameters are considered for evaluation and discussed
+    in the next section to
+
+    show that edge deployment is better than cloud.
+
+    Figure 6: Flow chart of the proposed edge model.
+
+    644
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    5.1 Evaluation
+
+    A hybrid machine learning methodology is used in evaluating the ﬁrst stage of
+    the proposed model. The
+
+    predicted value of the soil moisture is better in terms of their accuracy and
+    error rate. From the comparison
+
+    of the other ML algorithms as shown in Table 2, XB + k-means performs better and
+    taken further to be
+
+    deployed in edge and cloud to check its eﬃciency with each other. Therefore, for
+    analyzing the eﬃciency of
+
+    the edge server in accordance with the proposed hybrid algorithm SMPHA is evaluated
+    in terms of the time
+
+    taken to train the ML model in edge and cloud. In this experiment Raspberry Pi
+    is used to train the SMPHA
+
+    model with 196,400 rows, that is, input data sample size and takes around 1,710,000
+    ms (approximately
+
+    28.5 min). The same model when it is trained in Google Colab cloud environment,
+    it takes 204,000 ms
+
+    (approximately 3.4 min) as depicted in Table 5. The main purpose is to run the
+    trained model on edge not to
+
+    train the model at edge. So due to the lack of computing capability at the edge,
+    it takes more time to train
+
+    the model, but it can be ignored as it does not aﬀect the purpose of the proposed
+    model. Here, edge is
+
+    introduced to obtain the task of computing from the cloud (i.e., oﬄoading the
+    task) by making the system
+
+    more edge-oriented deployment. It can be accomplished rapidly as it requires only
+    14 s to download a
+
+    trained SMPHA model from the cloud to the edge node with a size of 3,101 kb as
+    given in Table 5. The time to
+
+    Figure 7: Average response time with 10 test scenarios.
+
+    Table 3: Conﬁguration of raspberry Pi
+
+    CPU
+
+    Broadcom BCM2711, Quad core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5 GHz
+
+    RAM
+
+    8 GB LPDDR4-3200 SDRAM
+
+    Network
+
+    2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0, BLE, Gigabit Ethernet
+
+    Pinboard
+
+    8 GB LPDDR4-3200 SDRAM
+
+    Operating system, language
+
+    Raspbian , Python 3
+
+    Table 4: Conﬁguration of Heroku cloud
+
+    Country
+
+    United states
+
+    Service
+
+    Amazon web service S3
+
+    Processor
+
+    2.4 GHz Intel Xeon E5-2676 v3 Processor
+
+    CPU Power
+
+    8 GB
+
+    Virtual CPUs
+
+    3–5
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    645
+
+    download varies according to the size of the trained model. So, from this process
+    it can be inferred that
+
+    downloading the trained model saves time when compared to training the model at
+    the edge. Through this
+
+    in real time, deployment of the trained SMPHA model in edge is better compared
+    to deployment in cloud
+
+    services. Furthermore, network parameters like latency, throughput, bandwidth,
+    and response time are
+
+    adopted to measure the performance improvements in edge computing.
+
+    The performance metrices taken into account are latency, bandwidth, and response
+    time [42]. The
+
+    latency of an application is the product of two factors: computing latency and
+    transmission latency. The
+
+    time spent on data processing and transmission between end devices to cloud servers
+    is termed as com-
+
+    puting latency and transmission latency, respectively. The computational capacity
+    of the system decides
+
+    the computing latency as the network servers possess a considerable amount of
+    capacity to make the data
+
+    processing faster, whereas the sensors come with limited computing capacity. The
+    latency in transmission
+
+    is increased by the end devices and cloud servers. Bandwidth: As large number
+    of sensors are deployed in
+
+    IoT, data generated would be huge that consumes an intense range of bandwidth
+    and leads to several
+
+    problems such as delay in transmission and loss of packets. It becomes unacceptable
+    for the data to be
+
+    transferred directly to cloud servers without applying compression. Therefore,
+    data preprocessing and
+
+    aggregation are needed for IoT gateways before redirecting them to remote cloud
+    servers. Then, the issue
+
+    to be confronted is to control the traﬃc ﬂow by migrating data processing and
+    aggregation tasks optimally
+
+    to decrease the bandwidth needs of the end users while maintaining the data quality.
+    Response time: The
+
+    total response time is calculated by adding up transmission and processing time.
+    The local deployment of
+
+    the proposed model for controlling IoT-based irrigation are deployed on two modes:
+    (i) Cloud mode: The
+
+    developed SMPHA model is implemented in the cloud communicating with IoT sensors
+    nodes directly to
+
+    manage the irrigation process. The data are stored and processed at the cloud
+    server itself where it uses
+
+    Heroku platform. (ii) Edge mode – Raspberry Pi is deployed as an edge server that
+    involves in processing of
+
+    the SMPHA model controlling the IoT sensor nodes. Here, the data are stored and
+    processed locally within
+
+    the edge servers. This SMPHA model from both the edge and cloud does the job of
+    controlling the actuators
+
+    to initiate and quit the working of water ﬂow motors. Through this deployment
+    in both the environments,
+
+    performance of edge server and cloud server can be checked in terms of latency,
+    throughput, bandwidth,
+
+    and response time is shown in aforementioned graphs in Figures 6, 8, and 9. This
+    performance metrices is
+
+    not feasible to calculate while deploying in real time, so the aforementioned
+    scenarios of two modes are
+
+    virtually created by generating many request and response threads between the
+    servers. This sampling,
+
+    load test, and distributed testing are conducted through JMeter application [43]
+    and also veriﬁed with
+
+    Wireshark [44] in cloud servers. The test scenario is created here by data of
+    sending and receiving sampling
+
+    data between cloud to IoT sensors and between Edge to IoT sensors. The sampling
+    data considered in this
+
+    work refer to the approximate number of requests generated by Arduino to cloud
+    and Arduino to Raspberry
+
+    Pi that are calculated in real time. The test scenario is divided into 10 days
+    of sampling data collected for
+
+    each day. The evaluation results are depicted for latency and response times in
+    10 days perspective. In
+
+    latency parameter, edge service has decreased by an average of 77.85% time compared
+    to the with cloud. In
+
+    the same manner, the response time of edge service is also decreased by 74.09%
+    time compared to cloud
+
+    service. In throughput calculation, sampling data are calculated for an hourly
+    basis for the 10 hours data in
+
+    a day. From the hourly comparisons of throughput value, edge outperforms with
+    67.17% high Mbps usage.
+
+    Through this analysis as shown in Table 6, it is evident that the proposed edge
+    computing methodology
+
+    deployed in Raspberry Pi or in local computers outperforms the cloud-oriented
+    approach.
+
+    Table 5: Comparison of model training time
+
+    Edge
+
+    Cloud
+
+    Model training time
+
+    28.4 min
+
+    3.4 min
+
+    Downloading time
+
+    Not applicable
+
+    14 s
+
+    646
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    Finally, to illustrate the eﬃciency of resource management in edge computing,
+    CPU and memory
+
+    utilization are considered for the analysis as both factors rely on the service
+    execution model and the
+
+    computational needs of the services being ﬁred from oﬀ-loaders. Figure 10 depicts
+    the utilization of CPU
+
+    and RAM on the Raspberry Pi acting as an edge node in two cases: with and without
+    the deployment of
+
+    SMPHA model on it. As shown in Figure 10, the SMPHA model aﬀects the CPU of the
+    Raspberry Pi node
+
+    signiﬁcantly as it consumed around 41.2% of the CPU compared to only 3.5% when
+    it does not host the
+
+    Figure 8: Average latency with 10 test scenarios.
+
+    Figure 9: Average throughput value with 10 h test scenarios.
+
+    Table 6: Performance metrices for cloud and edge services
+
+    Performance metrices
+
+    Cloud service
+
+    Edge service
+
+    Throughput (Mbps)
+
+    0.04944
+
+    0.08265
+
+    Latency (ms)
+
+    1415.8
+
+    313.6
+
+    Response time (ms)
+
+    1519.6
+
+    393.8
+
+    Bandwidth (bps)
+
+    86
+
+    1,365
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    647
+
+    SMPHA model. However, the memory (RAM) utilization in both the cases (with and
+    without deployment of
+
+    an SMPHA model) is nearly the same which is around 31%. Comparatively RAM utilization
+    does not have
+
+    much diﬀerence in with and without SMPHA. It is worthwhile to note that, the CPU
+    utilization is still much
+
+    lower than the 50% of total CPU capacity in Raspberry Pi. Therefore, it becomes
+    feasible for adopting edge
+
+    server implementation in the proposed irrigation system.
+
+    6 Conclusion
+
+    This article proposed a novel approach to edge-based irrigation system to facilitate
+    decision-making on
+
+    watering the plants on scheduled time. The proposed approach applying IoT with
+    an edge computing
+
+    framework enables the farming system to adapt to the changes in environmental
+    conditions automatically
+
+    and eﬃciently. The process of automatic irrigation regulates irrigation according
+    to the live weather para-
+
+    meters for forecasting the irrigation process. Soil moisture prediction was performed
+    using major regression
+
+    algorithms that are again combined with k-means clustering for estimating the
+    changes incurred in soil
+
+    moisture prediction. These techniques were compared through metrics such as MAPE,
+    MSE, speed, and
+
+    power consumption from which XB + k-means was found to perform better. The XB
+    + k-means algorithm
+
+    was further used for the implementation of decision mechanism on the developed
+    edge computing model.
+
+    The proposed edge model saves the data communication cost and reduces the response
+    time of IoT services.
+
+    It can be deployed on existing devices on the network edges serving as edge nodes,
+    thereby reducing the
+
+    overall implementation cost of a large-scale IoT system. The edge-based approach
+    was found to perform
+
+    better than the cloud-based approach in terms of response time, latency, throughput,
+    and bandwidth
+
+    usage. Finally, the edge model was analyzed through CPU and memory usage while
+    running with and
+
+    without the algorithm. In both cases, the memory utilization is almost lower to
+    total available resource of
+
+    the edge device. From this, edge device can allocate its remaining resource for
+    other computing services,
+
+    which increases the eﬃciency of edge computing device. The number of end edge
+    nodes can be increased
+
+    according to the ﬁeld area and then to check the potency of the system.
+
+    Conﬂict of interest: The authors declare no conﬂict of interest.
+
+    Data availability statement: All data that support the ﬁndings of this study are
+    included within the article.
+
+    Figure 10: CPU and memory utilization with and without SMPHA.
+
+    648
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    References
+
+    [1]
+
+    India: Issues and Priorities for Agriculture, The World Bank, May 17, 2012. https://www.worldbank.org/en/news/feature/
+
+    2012/05/17/india-agriculture-issues-priorities.
+
+    [2]
+
+    India at a glance in Agriculture, FAO in India. https://www.fao.org/india/fao-in-india/india-at-a-glance/en/.
+
+    [3]
+
+    Cavicchioli R, Ripple WJ, Timmis KN, Azam F, Bakken LR, Baylis M, et al. Scientists’
+    warning to humanity: Microorganisms
+
+    and climate change. Nature Rev Microbiol. 2019;17(9):569–86. doi: 10.1038/s41579-019-0222-5.
+
+    [4]
+
+    Huong NTL, Bo YS, Fahad S. Economic impact of climate change on agriculture using
+    Ricardian approach: A case of
+
+    Northwest Vietnam. J Saudi Society Agricult Sci. 2019;18(4):449–457. doi: 10.1016/j.jssas.2018.02.006.
+
+    [5]
+
+    Fagodiya RK, Pathak H, Bhatia A, Jain N, Kumar A, Malyan SK. Global warming impacts
+    of nitrogen use in agriculture: An
+
+    assessment for India since 1960. Carbon Management. 2020;11(3):291–301. doi: 10.1080/17583004.2020.1752061.
+
+    [6]
+
+    Sarkar S, Chatterjee S, Misra S. Assessment of the suitability of fog computing
+    in the context of internet of things. IEEE
+
+    Trans Cloud Comput. 2018;6(1):46–59. doi: 10.1109/TCC.2015.2485206.
+
+    [7]
+
+    Porter JR, Xie L, Challinor AJ, Cochrane K, Howden SM, Iqbal MM, et al. Food security
+    and food production systems. In: Field
+
+    CB, Barros VR, Dokken DJ, Mach KJ, Mastrandrea MD, Bilir TE, et al., editors.
+    Climate Change 2014: Impacts, Adaptation,
+
+    and Vulnerability. Part A: Global and Sectoral Aspects. Contribution of Working
+    Group II to the Fifth Assessment Report of
+
+    the Intergovernmental Panel on Climate Change Cambridge, United Kingdom: Cambridge
+    University Press and New York,
+
+    NY, USA; 2014. p. 485–533.
+
+    [8]
+
+    Lal R. Adaptation and mitigation of climate change by improving agriculture in
+    India. In: S. SherazMahdi (Ed.), Climate
+
+    Change and Agriculture in India: Impact and Adaptation. Cham: Springer International
+    Publishing; 2019. p. 217–27.
+
+    [9]
+
+    Saravanan K, Julie G, Robinson H. (Eds.), Handbook of research on implementation
+    and deployment of IoT projects in
+
+    smart cities. Hershey: IGI global, 2019.
+
+    [10] Baylis A. Advances in precision farming technologies for crop protection.
+    Outlooks Pest Manag. 2017;28(4):158–61.
+
+    [11]
+
+    Mulla D, Khosla R. Historical evolution and recent advances in precision farming.
+    Soil-Speciﬁc Farming Precision
+
+    Agriculture. Boca Raton: CRC Press; 2015.
+
+    [12] Dutta L, and Basu TK. Extraction and optimization of leaves images of mango
+    tree and classiﬁcation using ANN. IJRAET
+
+    2013;1(3):46–51.
+
+    [13] Kawai T, Mineno H. Evaluation environment using edge computing for artiﬁcial
+    intelligence-based irrigation system. 2020
+
+    16th International Conference on Mobility, Sensing and Networking (MSN). Tokyo,
+    Japan: IEEE; 2020. p. 214–9.
+
+    [14] Munir MS, Bajwa IS, Ashraf A, Anwar W, Rashid R. Intelligent and smart irrigation
+    system using edge computing and IoT.
+
+    Complexity. 2021;2021:1–16.
+
+    [15] Angelopoulos CM, Filios G, Nikoletseas S, Raptis TP. Keeping data at the
+    edge of smart irrigation networks: A case study in
+
+    strawberry greenhouses. Comput Netw. 2020;167:107039.
+
+    [16] Satyanarayanan M. The emergence of edge computing. Computer. 2017;50(1):30–9.
+
+    [17] Shi W, Dustdar S. The promise of edge computing. Computer. 2016;49(5):78–81.
+
+    [18] Ramirez Izolan PL, Diniz Rossi F, Hohemberger R, Konzen MP, da Cunha Rodrigues
+    G, Saquette LR, et al. Low-cost fog
+
+    computing platform for soil moisture management. In: 2020 International Conference
+    on Information Networking (ICOIN).
+
+    Barcelona, Spain: IEEE; 2020. p. 499–504.
+
+    [19] Ferrandez-Pastor F, Garcia-Chamizo, J, Nieto-Hidalgo, M, Mora-Pascual, J,
+    Mora-Martínez, J. Developing ubiquitous sensor
+
+    network platform using internet of things: application in precision agriculture.
+    Sensors. 2016;16(7):1141.
+
+    [20] Xu X, Liu X, Xu Z, Dai F, Zhang X, Qi L. Trust-oriented IoT service placement
+    for smart cities in edge computing. IEEE Internet
+
+    Things J. 2020;7(5):4084–91.
+
+    [21] Wu X, Liu M. In-situ soil moisture sensing: Measurement scheduling and estimation
+    using compressive sensing. In: 2012
+
+    ACM/IEEE 11th International Conference on Information Processing in Sensor Networks
+    (IPSN). Beijing, China: IEEE; 2012.
+
+    p. 1–11.
+
+    [22] Kameoka T, Nishioka K, Motonaga Y, Kimura Y, Hashimoto A, Watanabe N. Smart
+    sensing in a Vineyard for advanced
+
+    viticultural management. In: Proceedings of the 2014 International Workshop on
+    Web Intelligence and Smart Sensing.
+
+    Saint Etienne France; 2014. p. 1–4.
+
+    [23] Cagri Serdaroglu K, Onel C, Baydere S. IoT-based smart plant irrigation system
+    with enhanced learning. In: 2020 IEEE
+
+    Computing, Communications and IoT Applications (ComComAp.) Beijing, China: IEEE;
+    2020. p. 1–6.
+
+    [24] Kwok J, Sun Y. A smart IoT-based irrigation system with automated plant recognition
+    using deep learning. In: Proceedings
+
+    of the 10th International Conference on Computer Modeling and Simulation - ICCMS2018.
+    Sydney, Australia: ACM Press;
+
+    2018. p. 87–91.
+
+    [25] Goldstein A, Fink L, Meitin A, Bohadana S, Lutenberg O, Ravid G. Applying
+    machine learning on sensor data for irrigation
+
+    recommendations: Revealing the agronomist’s tacit knowledge. Precision Agricult.
+    2018;19(3):421–44.
+
+    [26] Vij A, Vijendra S, Jain A, Bajaj S, Bassi A, Sharma A. IoT and machine learning
+    approaches for automation of farm irrigation
+
+    system. Proc Comput Sci. 2020;167:1250–7.
+
+    [27] Krishnan H, Scholar R. MongoDB – a comparison with NoSQL databases. Int J
+    Scientiﬁc Eng Res. 2016;7(5):1035–7.
+
+    IoT-enabled edge computing model for smart irrigation system
+
+    
+
+    649
+
+    [28] Ojha T, Misra S, Raghuwanshi NS. Wireless sensor networks for agriculture:
+    The state-of-the-art in practice and future
+
+    challenges. Comput Electr Agricult. 2015;118:66–84.
+
+    [29] Gutierrez J, Villa-Medina JF, Nieto-Garibay A, Porta-Gandara MA. Automated
+    irrigation system using a wireless sensor
+
+    network and GPRS module. IEEE Trans Instrument Measurement. 2014;63(1):166–76.
+
+    [30] Chanthakit S, Keeratiwintakorn P, Rattanapoka C. An IoT system design with
+    real time stream processing and data ﬂow
+
+    integration. In: 2019 Research, Invention, and Innovation Congress (RI2C.) Bangkok,
+    Thailand: IEEE; 2019. p. 1–5.
+
+    [31] Lv H, Wang S. Design and application of IoT microservices based on Seneca.
+    USA: DEStech Transactions on Computer
+
+    Science and Engineering, (icte.). 2016.
+
+    [32] Lee B-H, Dewi EK, Wajdi MF. Data security in cloud computing using AES under
+    HEROKU cloud. In: 2018 27th Wireless and
+
+    Optical Communication Conference (WOCC). Hualien: IEEE; 2018. p. 1–5.
+
+    [33] Lopez Pena MA, Munoz Fernandez I. SAT-IoT: An architectural model for a high-performance
+    fog/edge/cloud IoT platform.
+
+    In: 2019 IEEE 5th world forum on internet of things (WF-IoT.) Limerick, Ireland:
+    IEEE; 2019. p. 633–8.
+
+    [34] Weather API. Retrieved from https://openweathermap.org/api.
+
+    [35] Drew Gislason. Zigbee wireless networking, 1st ed. Newnes, London: Elsevier
+    Publisher; 2008.
+
+    [36] Tanabe K, Tanabe Y, Hagiya M. Model-based testing for MQTT applications.
+    In: Virvou M, Nakagawa H, Jain LC. (Eds.),
+
+    Knowledge-Based Software Engineering: 2020. Cham: Springer International Publishing;
+    2020. p. 47–59.
+
+    [37] Babun L, Denney K, Celik ZB, McDaniel P, Uluagac AS. A survey on IoT platforms:
+    Communication, security, and privacy
+
+    perspectives. Comput Netw. 2021;192:108040.
+
+    [38] Rastogi K, Lohani D. Edge computing-based internet of things framework for
+    indoor occupancy estimation. Int J Ambient
+
+    Comput Intell. 2020;11(4):16–37.
+
+    [39] Premkumar S, Sigappi AN. Functional framework for edge-based agricultural
+    system. In: AI, Edge and IoT-based Smart
+
+    Agriculture, 1st ed. USA: Academic Press, Elsevier; 2021. p. 71–100.
+
+    [40] Phani Kumar J, Paramaguru P, Arumugam T, Manikanda Boopathi N, Venkatesan
+    K. Genetic divergence among Ramnad
+
+    mundu chilli (Capsicum annuum L.) genotypes for yield and quality. Electr J Plant
+    Breeding. 2021;12(1):228–34.
+
+    [41] Goap A, Sharma D, Shukla AK, Rama Krishna C. An IoT-based smart irrigation
+    management system using Machine learning
+
+    and open source technologies. Comput Electronic Agricult. 2018;155:41–9.
+
+    [42] Aslanpour MS, Gill SS, Toosi AN. Performance evaluation metrics for cloud,
+    fog and edge computing: A review, taxonomy,
+
+    benchmarks and standards for future research. Internet Things. 2020;12:100273.
+
+    [43] Sunardi A, Suharjito MVC architecture: a comparative study between Laravel
+    framework and slim framework in freelancer
+
+    project monitoring system web based. Proc Comput Sci. 2019;157:134–41.
+
+    [44] Robert Shimonski. The wireshark ﬁeld guide, 1st ed. New York: Syngress Press,
+    Elsevier; 2013.
+
+    650
+
+    
+
+    S. Premkumar and AN. Sigappi
+
+    '
+  inline_citation: '>'
+  journal: Journal of intelligent systems
+  limitations: '>'
+  pdf_link: https://www.degruyter.com/document/doi/10.1515/jisys-2022-0046/pdf
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: IoT-enabled edge computing model for smart irrigation system
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.1145/3356250.3360023
+  analysis: '>'
+  authors:
+  - Daniel A. Winkler
+  - Alberto E. Cerpa
+  citation_count: 4
+  full_citation: '>'
+  full_text: ">\nWISDOM: Watering Intelligently at Scale with\nDistributed Optimization\
+    \ and Modeling\nDaniel A. Winkler\nUniversity of California, Merced\ndwinkler2@andes.ucmerced.edu\n\
+    Alberto E. Cerpa\nUniversity of California, Merced\nacerpa@andes.ucmerced.edu\n\
+    ABSTRACT\nAs lawn irrigation is estimated to consume 7 billion gallons of\nscarce\
+    \ fresh water each day in North America alone, lawn irriga-\ntion systems are\
+    \ a high priority for improvements in eﬃciency. To\nthis end, recent work has\
+    \ introduced several key advancements in\nirrigation control. Distributed actuation\
+    \ systems allow the irriga-\ntion system to apply water completely independently\
+    \ across the\nﬁeld allowing ﬂexibility of control, and the use of ﬂuid ﬂow mod-\n\
+    eling and optimization allows more eﬃcient schedules to be com-\nputed automatically,\
+    \ signiﬁcantly improving the irrigation quality\nof service as well. However,\
+    \ the proposed systems are designed\nwith centralized architectures that introduce\
+    \ single points of fail-\nure, computational bottlenecks in data processing, and\
+    \ signiﬁcant\nnetwork energy for data forwarding used by the centralized data-\n\
+    driven modeling strategies. In response to these challenges, we pro-\npose and\
+    \ demonstrate WISDOM, whose novel and ﬂexible hard-\nware and processing pipelines\
+    \ enable the use of a distributed sys-\ntem for the management of irrigation systems\
+    \ of any scale, with\nenergy independence by way of energy harvesting. Across\
+    \ 4 weeks\nof live system deployment, we ﬁnd that the WISDOM system can\nsave\
+    \ up to 32.9% of water in comparison to industry-best, while\nmaintaining a perfect\
+    \ quality of service to the plant. Furthermore,\nwith substantial analysis in\
+    \ simulation we ﬁnd that in addition to\npractical system improvements, the use\
+    \ of the proposed distributed\nsystem within typical operating conditions will\
+    \ provide all of the\neﬃciency and quality-of-service beneﬁts of the globally-modeled,\n\
+    centrally controlled systems, while allowing the robust control of\nirrigation\
+    \ systems of any size.\nACM Reference Format:\nDaniel A. Winkler and Alberto E.\
+    \ Cerpa. 2019. WISDOM: Watering Intel-\nligently at Scale with Distributed Optimization\
+    \ and Modeling. In The 17th\nACM Conference on Embedded Networked Sensor Systems\
+    \ (SenSys ’19), No-\nvember 10–13, 2019, New York, NY, USA. ACM, New York, NY,\
+    \ USA, 13 pages.\nhttps://doi.org/10.1145/3356250.3360023\n1\nINTRODUCTION\nThe\
+    \ United States Environmental Protection Agency (EPA) esti-\nmates that 30% of\
+    \ all fresh water consumed in the residential do-\nmain goes to the irrigation\
+    \ of residential landscaping [14], and the\nPermission to make digital or hard\
+    \ copies of all or part of this work for personal or\nclassroom use is granted\
+    \ without fee provided that copies are not made or distributed\nfor proﬁt or commercial\
+    \ advantage and that copies bear this notice and the full cita-\ntion on the ﬁrst\
+    \ page. Copyrights for components of this work owned by others than\nthe author(s)\
+    \ must be honored. Abstracting with credit is permitted. To copy other-\nwise,\
+    \ or republish, to post on servers or to redistribute to lists, requires prior\
+    \ speciﬁc\npermission and/or a fee. Request permissions from permissions@acm.org.\n\
+    SenSys ’19, November 10–13, 2019, New York, NY, USA\n© 2019 Copyright held by\
+    \ the owner/author(s). Publication rights licensed to ACM.\nACM ISBN 978-1-4503-6950-3/19/11...$15.00\n\
+    https://doi.org/10.1145/3356250.3360023\nUnited States Geological Survey estimates\
+    \ that lawn irrigation sys-\ntems consume 7 billion gallons of fresh water each\
+    \ day in North\nAmerica alone [33]. A land survey performed using aerial imag-\n\
+    ing by the National Aeronautics and Space Administration (NASA)\nconcludes that\
+    \ lawns represent the largest irrigated crop by sur-\nface area, covering approximately\
+    \ 128,000km2 of land in North\nAmerica [11]. At the same time, it is estimated\
+    \ that only about\n1% of Earth’s surface water is fresh AND available for our\
+    \ use [4].\nWith residential lawn irrigation restrictions becoming more com-\n\
+    mon [12], and the University of California’s goals to reduce overall\nwater consumption\
+    \ by 20% by 2020 and 36% by 2025 [19], it is clear\nthat there is increasing political,\
+    \ environmental, and economic mo-\ntivation to reduce the impact of such a large\
+    \ consumer.\nAlthough we wish to minimize the water consumption of lawn\nirrigation\
+    \ systems, the responsibility of these systems is to apply\nthe correct amount\
+    \ of moisture to the area. Soil moisture levels\nthat are too low will cause the\
+    \ plant to wilt and die, and levels that\nare too high can cause the plant roots\
+    \ to rot, soil erosion, and in\nextreme cases transport fertilizer chemicals into\
+    \ nearby drinking\nwater supplies, as has occurred in California’s Salinas Valley\
+    \ [27].\nTo prevent these issues, previous work has introduced systems for\ndistributed\
+    \ actuation and model-based schedule optimization [40,\n41], allowing ﬂuid to\
+    \ be placed eﬃciently where it is required. Al-\nthough they were found to substantially\
+    \ improve the quality of\nservice provided to the plant and the irrigation system\
+    \ eﬃciency,\nthe proposed systems require a centralized controller to process\
+    \ all\ndata and make control decisions. This introduces signiﬁcant com-\nputational\
+    \ bottlenecks in optimization due to the growth of the\nglobal models used at\
+    \ scale, a single point of failure that can crip-\nple the system, potentially\
+    \ causing massive water waste as expe-\nrienced in [40], and increases the overall\
+    \ energy consumption of\nthe sensor network as all data must be forwarded across\
+    \ the net-\nwork for processing. With the additional requirement of periodic\n\
+    battery changes in these systems, it is unlikely these systems could\nbe adopted\
+    \ for control of irrigation systems at scale.\nRecognizing that nearly all of\
+    \ the aforementioned system limi-\ntations are due to centralized architectures,\
+    \ we develop WISDOM,\na distributed system for the control of truly large-scale\
+    \ irrigation\nsystems whose primary intellectual contributions are as follows:\n\
+    (1) Evaluating the mechanics of water movement in the space,\nwe modify existing\
+    \ modeling and optimization techniques for use\nin localized neighborhoods, and\
+    \ introduce a processing pipeline for\ndistributed irrigation decision making\
+    \ on the edge devices them-\nselves. By operating within local neighborhoods,\
+    \ we remove the\npoint of failure, computational bottleneck, and energy penalties\n\
+    caused by centralized control, making the system truly scalable.\n(2) As no existing\
+    \ system architecture provides the low-power\noperation of the traditional embedded\
+    \ device and the processing\n219\nSenSys ’19, November 10–13, 2019, New York,\
+    \ NY, USA\nDaniel A. Winkler and Alberto E. Cerpa\ncapabilities required for model\
+    \ training and optimization on the\nedge devices, we provide a low-power embedded\
+    \ device with a rel-\natively high-performance co-processor to meet these requirements.\n\
+    With power duty-cycling by the low-power “master” device, the co-\nprocessor vastly\
+    \ improves storage, memory, and processing power,\nwhile incurring a relatively\
+    \ small energy penalty during operation.\nWISDOM is the ﬁrst system to utilize\
+    \ a co-processor architecture\nfor distributed computation in data-driven modeling\
+    \ and control.\n(3) Finally, recognizing that our devices are collocated with\
+    \ sprin-\nklers throughout the space, we take advantage of the available ﬂuid\n\
+    energy ﬂowing through them with small water turbines1 installed\nunderground that\
+    \ allow us to harvest energy for battery recharge\nduring irrigation. We show\
+    \ that even with the additional energy re-\nquirements of our co-processor, the\
+    \ energy harvesting capabilities\nallow the WISDOM system to operate indeﬁnitely\
+    \ with true energy\nindependence. In the wireless sensor network domain, WISDOM\n\
+    is the ﬁrst to utilize sprinkler water source for energy harvesting.\nAcross 4\
+    \ weeks of deployment and extensive analysis in sim-\nulation, we demonstrate\
+    \ that the WISDOM system is capable of\nachieving all of the quality of service\
+    \ and eﬃciency beneﬁts of ex-\nisting systems while maintaining true energy independence\
+    \ while\ncontrolling irrigation systems at any scale.\n2\nRELATED WORK\nThe best\
+    \ irrigation controllers available in the industry make use of\nsensed weather\
+    \ events to make irrigation decisions. The simplest\nof these controllers are\
+    \ standard timer-based control equipped with\na rain sensor [9], which disables\
+    \ irrigation when rain is sensed.\nThe more advanced systems use the Evapotranspiration\
+    \ metric [21,\n29], which takes recent measurements of temperature, humidity,\n\
+    wind, and solar exposure to estimate the amount of water that has\nbeen lost to\
+    \ the environment. The controller, which retrieves an\nET loss estimate from a\
+    \ local weather station, will then re-apply\nthis amount of lost water to the\
+    \ surface of the lawn space. These\nsystems have no way to take advantage of distributed\
+    \ actuation as\nthey have no understanding of local conditions.\nMore recently,\
+    \ irrigation controllers have been developed that\nreact to the output of one\
+    \ or more soil moisture sensors installed\nin the irrigated space to decide valve\
+    \ scheduling [20, 31]. These\nsystems are designed for use with a centralized\
+    \ valve architecture,\nand are not conﬁgured to take advantage of distributed\
+    \ actuation.\nStandard irrigation system architectures require a single water\n\
+    valve to control the ﬂow of water to many sprinkler heads located\nthroughout\
+    \ the space. However, in practice the environmental con-\nditions such as soil\
+    \ type and depth, solar exposure, surface slope,\nand others are heterogeneous\
+    \ across an irrigated space. Under this\nsimple centralized actuation, to maintain\
+    \ healthy levels of mois-\nture everywhere, the system is required to irrigate\
+    \ the whole area\nfor as long as the area that requires the most water. To address\
+    \ this\nfundamental limitation of all turf irrigation systems, [41] devel-\noped\
+    \ a distributed wireless sensor/actuator device, which allows\nfor each sprinkler\
+    \ head to be actuated independently to allow for\nmore ﬂexibility of control.\
+    \ A PDE model of moisture movement\nwas developed and used in optimization to\
+    \ compute valve sched-\nules that minimize system water consumption while maintaining\n\
+    1We use COTS water turbines, we did not develop new water turbine technology.\n\
+    a satisfactory level of moisture to maintain plant health across\nthe space. Schedules\
+    \ produced were found to improve system ef-\nﬁciency and quality of irrigation\
+    \ service, but slow system perfor-\nmance, manual model conﬁguration, and lack\
+    \ of model correction\nover time made the system impractical for use at large\
+    \ scale.\nTo address the practical limitations of [41], [40] introduces a\ndata-driven\
+    \ modeling strategy to be used for irrigation schedule\noptimization. Trained\
+    \ on soil moisture data collected by the dis-\ntributed sensor/actuator nodes,\
+    \ the use of a data-driven strategy\noﬀers several signiﬁcant advantages. Data\
+    \ driven models do not\nrequire manual conﬁguration and will retrain automatically\
+    \ over\ntime to learn changes to the environment, will be more accurate\nthan\
+    \ a mechanistic model based on ﬁxed assumptions of spatial\nhomogeneity, and do\
+    \ not require heavy computational resources\nallowing the system to control larger\
+    \ irrigation systems. The pro-\nposed system further improved both system eﬃciency\
+    \ and qual-\nity of service in addition to the aforementioned practical improve-\n\
+    ments. Although [40] is capable of controlling larger irrigation sys-\ntems than\
+    \ [41], scalability of control is limited due to the central-\nized nature of\
+    \ the control strategy. The data driven model used in\noptimization maintains\
+    \ global information about each sprinkler’s\neﬀects on soil moisture across the\
+    \ entire irrigation system, which is\ncomputationally wasteful and limits the\
+    \ scale, as optimization pro-\ncessing time becomes the bottleneck. In addition,\
+    \ this architecture\nbecomes a single point of failure in the system as discussed\
+    \ in [40],\nwhere failure of the communication channel has led to data loss\n\
+    and substantial unplanned over-irrigation. Finally, the system still\nrelies on\
+    \ periodic battery changes in long-term operation, which\nhas the potential to\
+    \ aﬀect system adoptability due to the recurring\ncosts and manpower required\
+    \ to perform this maintenance at scale.\nAs the devices used in wireless sensor\
+    \ networks are generally\nincapable of performing heavy computation, several approaches\n\
+    have been used to overcome these limitations. Firstly, it has be-\ncome common\
+    \ for distributed applications to be conﬁgured for use\non mobile [26, 30, 34]\
+    \ or embedded [10] devices with on the or-\nder of GBs of memory and storage,\
+    \ but they are both very energy-\nhungry and expensive at the scale of our application.\
+    \ Another ap-\nproach is to reduce the required memory and computation by sim-\n\
+    plifying the models used, for instance in deep neural nets [24, 42,\n43]. However,\
+    \ in cases like ours where mobile phones are too ex-\npensive and power hungry\
+    \ and the problem can’t be adequately\nsimpliﬁed, the use of a co-processor comes\
+    \ to mind. Used in oﬀ-\nthe-shelf devices like the iPhone [1] and Samsung Galaxy\
+    \ [5], a\nco-processor can handle background tasks such as motion sensor\nquerying\
+    \ with low power, or highly speciﬁc tasks such as neu-\nral net computation for\
+    \ image processing and facial recognition\nwithout burdening the primary processor\
+    \ on the device. While co-\nprocessor architectures have been used in the WSN\
+    \ domain for\nchip reprogramming [28] and security-speciﬁc applications [32, 37,\n\
+    39], no standard co-processor architecture has been developed al-\nlowing for\
+    \ low-power operation AND computational capabilities\nfor model training and optimization\
+    \ as required in our application,\nso we design our own.\n3\nSYSTEM OVERVIEW\n\
+    WISDOM is a distributed control system for lawn irrigation at scale,\nmade up\
+    \ of a wireless network of sensor/actuator devices that sit\n220\nWISDOM: Watering\
+    \ Intelligently at Scale with\nDistributed Optimization and Modeling\nSenSys ’19,\
+    \ November 10–13, 2019, New York, NY, USA\n(a) Centralized architecture\n(b) Distributed\
+    \ architecture\nFigure 1: Comparison of PICS (left) and WISDOM (right) system\
+    \ architectures\nbelow each sprinkler in the irrigation system. Each device is\
+    \ man-\naged by a low-power master device in the form of an SAM R21 [13]\nSoC,\
+    \ which can perform simple computational tasks, speak wire-\nlessly with sister\
+    \ nodes in the space with its 802.15.4 compliant ra-\ndio, and maintain device\
+    \ peripherals. These peripherals include a\nsoil moisture sensor to monitor the\
+    \ local soil moisture status near\nthe device, a solenoid allowing the master\
+    \ device to control the\nﬂow of water to the sprinkler independently of the rest\
+    \ of the net-\nwork, and an onboard co-processor (Raspberry Pi Zero [16]), pro-\n\
+    viding signiﬁcant storage and computational capabilities directly\non the edge\
+    \ devices. With the inclusion of the co-processor, the\nend devices have the ability\
+    \ to make intelligent decisions for ir-\nrigation without the need for cross-network\
+    \ data communication\nfor centralized decision-making. To ameliorate energy costs\
+    \ associ-\nated with co-processor operation, each device is equipped with its\n\
+    own energy harvesting capability using a water turbine that acti-\nvates when\
+    \ the attached sprinkler is activated, recharging the bat-\nteries. In sum, each\
+    \ device in the system has the ability to monitor\nlocal conditions, communicate\
+    \ with the network to make sprinkler\nactuation decisions, and put those actuations\
+    \ into eﬀect.\nFor a plant to remain healthy, three conditions must be met.\n\
+    There must be adequate solar exposure, the soil must have the cor-\nrect nutrients\
+    \ in appropriate amounts, and suﬃcient water in the\nsoil must be available near\
+    \ the roots for uptake. Although an ir-\nrigation system has no control over solar\
+    \ exposure and soil nutri-\nent availability, its primary purpose is to distribute\
+    \ water where\nit is required to maintain adequate moisture levels at all locations\n\
+    in the space. In plant physiology literature, the level of soil mois-\nture below\
+    \ which the plant can no longer extract ﬂuid through\nits roots is known as the\
+    \ Permanent Wilting Point (θpwp), and as\nsuch serves as the lower bound of acceptable\
+    \ moisture levels in\nour irrigation system. While more conservative moisture\
+    \ thresh-\nolds exist such as the crop fraction for no stress [21] that may be\n\
+    more appropriate for system installation on decorative turfgrass,\nwe choose the\
+    \ more restrictive θpwp as it serves as the most re-\nstrictive and diﬃcult goal\
+    \ for the irrigation system, and thus helps\ndemonstrate the WISDOM system’s ability\
+    \ to meet even the most\nstrict requirements. For diﬀerent turf plants, the θpwp\
+    \ remains sim-\nilar so our experiments are valid for a wide range of turf irrigation\n\
+    applications. Although the θpwp threshold may be constant across\nthe space, previous\
+    \ work [40, 41] has found across several irriga-\ntion system deployments that\
+    \ uniform water application will not\nresult in uniform soil water levels, due\
+    \ to diﬀerences in the way wa-\nter will move in diﬀerent areas. To learn these\
+    \ local variations, we\nlearn models of water movement over time, trained by data\
+    \ traces\ncollected at each location, to be used to compute optimal irrigation\n\
+    customized to the space.\nAs shown in Figure 1a, each device in the PICS [40]\
+    \ system trans-\nmits its data to a centralized controller for processing. The\
+    \ con-\ntroller trains a global water movement model, which is then used to\n\
+    optimize valve schedules. These schedules are then re-distributed\nto the devices\
+    \ for actuation. With a large irrigation system, the\nglobal water movement model\
+    \ makes schedule optimization time\ntoo slow as later discussed in Section 7,\
+    \ increasing network traﬃc\ncauses forwarding nodes to consume more energy, and\
+    \ any lapse\nin communication with the controller can cripple the system.\nAlthough\
+    \ we could break a very large centralized system into\nsmaller centralized systems\
+    \ to help overcome the computational\nlimitation, such a solution does nothing\
+    \ to improve the other fun-\ndamental limitations, single point of failure and\
+    \ cross-network data\ncommunication. For these reasons, we design the WISDOM system\n\
+    to be fully distributed as shown in Figure 1b to overcome all of these\nissues.\
+    \ As the WISDOM system runs, its installed devices periodi-\ncally measure and\
+    \ log the state of moisture in the space, as well as\nthe on/oﬀ status of the\
+    \ solenoids. Each device shares this informa-\ntion with all devices in its local\
+    \ neighborhood, which in practice is\ndeﬁned to include all nearby devices that\
+    \ are within radio range.\nOver time, using these collected data traces, each\
+    \ device learns lo-\ncalized models that describe the eﬀect of actuation by all\
+    \ nodes\nwithin the neighborhood on the soil moisture distribution across\nthe\
+    \ neighborhood. Likewise each device learns how its own local\nsoil moisture will\
+    \ degrade over time after irrigation has ended, in\na two-model technique inspired\
+    \ by [40]. These models, trained by\nthe co-processor, are then used by the co-processor\
+    \ in optimization\nto ﬁnd schedules that minimize system water consumption while\n\
+    maintaining adequate moisture levels everywhere in the system,\nour two primary\
+    \ goals. By performing these tasks in a distributed\nway, we enable a system that\
+    \ can robustly scale to control an irri-\ngation system of any size, without sacriﬁcing\
+    \ system eﬃciency or\nquality of service, as later discussed in Sections 6 and\
+    \ 7.\nTo maintain a long system lifetime even during seasons when\nenergy harvesting\
+    \ is unavailable, we must be cautious with our en-\nergy budget to prevent unnecessarily\
+    \ burning stored power with\nour co-processor when it isn’t required. Each day,\
+    \ all master de-\nvices in the network wake up and distribute all buﬀered data\
+    \ to the\nsurrounding nodes within the local neighborhood. Once all data is\n\
+    221\nSenSys ’19, November 10–13, 2019, New York, NY, USA\nDaniel A. Winkler and\
+    \ Alberto E. Cerpa\nFigure 2: Minimum local neighborhood deﬁnition (square\ndotted\
+    \ box) for modeling and control\nreceived, the master device will use the current\
+    \ moisture distribu-\ntion in the neighborhood to make a decision whether or not\
+    \ irri-\ngation is necessary on this day, returning to low power if it is not\n\
+    necessary. If irrigation is likely to be required, the co-processor is\nactivated\
+    \ and all recently-collected data from the neighborhood is\ntransmitted by wire\
+    \ to the co-processor to be integrated into the\ndata-driven models, and an on-board\
+    \ optimization problem is ini-\ntiated that computes valve scheduling within the\
+    \ local neighbor-\nhood to guide the moisture levels in the soil towards adequate\
+    \ lev-\nels. Adequate levels are deﬁned as the daily Goal State of moisture\n\
+    as deﬁned in [40], the soil moisture level to be achieved by the end\nof irrigation\
+    \ that considers the minimum moisture level θpwp we\nwish to maintain at all times,\
+    \ the local losses we have learned to ex-\npect from historical data, and the\
+    \ forecasted weather. As internet\naccess is required to retrieve weather forecasts,\
+    \ weather prediction\nis the single parameter that must be provided by a central\
+    \ source.\nGoal State = θpwp + Expected Losses + ETforecasted\n(1)\nOnce optimization\
+    \ is complete, the schedules are sent from the co-\nprocessor to the low-power\
+    \ master device to be actuated by the\nattached solenoid. As irrigation continues,\
+    \ this optimization may\nbe performed several times using the freshest data from\
+    \ the neigh-\nborhood to correct for any deviation due to error in the data-driven\n\
+    models used. When the daily operations are complete, the master\ndevices deactivates\
+    \ the co-processor and returns the device to a\nlow-power state until the next\
+    \ scheduled wakeup.\n4\nSYSTEM DESIGN\n4.1\nSystem Modeling\nIn an irrigation\
+    \ system, each sprinkler has a relatively limited area\nof ﬂuid inﬂuence on the\
+    \ soil. Standard sprinkler installations use\nsprinklers that reach 75%-100% of\
+    \ the distance to the next adjacent\nsprinkler in the grid, to ensure that water\
+    \ can also reach the di-\nagonal region between the elements of the grid installation.\
+    \ Once\nthe ﬂuid is distributed onto the surface of the soil, the ﬂuid will\n\
+    ﬂow through the grass layer due to diﬀusion or runoﬀ eﬀects, if\nthe system is\
+    \ installed on sloped land. The ﬂuid will ﬂow until it is\nabsorbed by the soil,\
+    \ after which it will move very slowly, on the\norder of 10−2 − 10−3 cm/s [22].\
+    \ Due to ﬂuid’s very slow movement\nthrough the space, the global modeling proposed\
+    \ by [40] is compu-\ntationally very wasteful, as it tracks each sprinkler’s eﬀect\
+    \ on the\nsoil moisture at every location throughout the space. In a very large\n\
+    system, a sprinkler will have no eﬀect on soil moisture at a vast ma-\njority\
+    \ of locations, so modeling these interactions are very wasteful\nand causes optimization\
+    \ to take more time. To improve on this tech-\nnique and allow distributed operation\
+    \ of the system, each device\nin the space instead maintains information of only\
+    \ its surrounding\nVariable\nDescription\nt\nTemporal index ∈ {0, . . . , T }\n\
+    NK\nNumber of nodes in local neighborhood\nst\nVector of moisture levels at time\
+    \ t, size NK\nft\nVector of sprinkler actuation at time t, size NK\nTable 1: Model\
+    \ Variables\nVariable\nDescription\nt\nTemporal index ∈ {0, . . . , T }\nk\nSprinkler\
+    \ location index ∈ {1, . . . , NK }\nst\nVector of moisture levels at time t,\
+    \ size NK\nft\nVector of binary sprinkler actuation at time t, size NK\nfk,t\n\
+    Sprinkler k actuation at time t, ∈ {0, 1}\nsk,t\nVolumetric water content (VWC)\
+    \ of location k at time t\nck\nFlow rate of sprinkler k (Constant, known beforehand)\n\
+    θk\nMeasured VWC of sensor k (Constant, known beforehand)\nTable 2: Optimization\
+    \ Variables\nneighborhood of embedded devices. In practice this neighborhood\n\
+    includes all devices within radio range; as radio range can be on\nthe order of\
+    \ 100m and sprinklers are at most 30m apart, each node\nwill maintain information\
+    \ about its second or even third neighbor,\nwith a neighborhood of tens of devices.\
+    \ However, in this work we\nposit that even a minimum neighborhood including only\
+    \ directly\nadjacent neighbors will provide suﬃcient information for the dis-\n\
+    tributed system to have equivalent performance to the centralized\nsystem using\
+    \ global modeling, while making the system truly scal-\nable and improving robustness\
+    \ of operation. To test this hypothe-\nsis, the minimum neighborhood containing\
+    \ only direct neighbors\nas shown as the square box in Figure 2 is used in both\
+    \ our live\ndeployment and evaluation in simulation.\nTo train the ﬂuid movement\
+    \ model later used to optimize sched-\nules, we collect a training dataset in\
+    \ which each sprinkler is actu-\nated one at a time. As the sprinkler runs, all\
+    \ devices in the neighbor-\nhood record their sensor data along with the neighborhood\
+    \ actua-\ntions. This data is then shared across all NK devices in the neigh-\n\
+    borhood and used to train a linear regressor that takes as input\ncurrent moisture\
+    \ levels at all NK locations as vector st and current\nsprinkler actuations at\
+    \ all NK locations as vector ft , with values\nas deﬁned in Table 1. This regressor\
+    \ then provides as output the\npredicted moisture levels at all NK locations at\
+    \ ∆t seconds in the\nfuture as vector st+∆t , where ∆t is the control timestep,\
+    \ 60 seconds\nin our system. The linear function g is deﬁned as follows:\ng(st\
+    \ ,ft ) = st+∆t\n(2)\nThe model, trained on local historical data within the node’s\
+    \ local\nneighborhood, can then be used to predict future moisture changes\nas\
+    \ a function of sprinkler actuation.\n4.2\nOptimization Over the Schedule\nEach\
+    \ day during irrigation time, each active irrigation device in\nthe system will\
+    \ use its locally-gathered information to ﬁnd the best\nsprinkler scheduling to\
+    \ satisfy the needs of the space; in using lo-\ncal models only in a distributed\
+    \ fashion, we are solving relatively\nsmall optimization problems in parallel\
+    \ making the system truly\nscalable. Using our model of neighborhood ﬂuid movement\
+    \ dur-\ning irrigation as described in Section 4.1 and the goal state of mois-\n\
+    ture deﬁned in Section 3, we set up an optimization problem that\n222\nWISDOM:\
+    \ Watering Intelligently at Scale with\nDistributed Optimization and Modeling\n\
+    SenSys ’19, November 10–13, 2019, New York, NY, USA\nwill minimize water consumption\
+    \ in the system subject to qual-\nity of service constraints. We deﬁne the binary\
+    \ sprinkler actuation\nas fk,t for each sprinkler in local neighborhood k ∈ {1,.\
+    \ . . ,NK }\nand time index t ∈ {0,. . . ,T }, soil moisture values as sk,t for\
+    \ each\nsprinkler in local neighborhood k ∈ {1,. . . ,NK } and time index\nt ∈\
+    \ {0,. . . ,T }, and other optimization variables as shown in Ta-\nble 2. The\
+    \ optimization problem is deﬁned as follows:\nmin\n{fk,t,sk,t }NK ,T\nk=1,t=0\n\
+    NK\nX\nk=1\nT\nX\nt=0\nck fk,t\ns.t.\n(3a)\n0 ≤fk,t ≤ 1\nk = 1,. . . ,NK\nt =\
+    \ 0,. . . ,T\n(3b)\nsk,t ≥ θpwp\nk = 1,. . . ,NK\nt = 0,. . . ,T − 1\n(3c)\nsk,T\
+    \ ≥ θgoal,k\nk = 1,. . . ,NK\n(3d)\nsk,t=0 = θk\nk = 1,. . . ,NK\n(3e)\nst = g(st−1,ft−1)\n\
+    t = 1,. . . ,T\n(3f)\nAs we wish to minimize the amount of water consumed by the\
+    \ ir-\nrigation system, the objective function is deﬁned by the sum of all\nfk,t\
+    \ , weighted by the water ﬂow rate of each sprinkler ck, which\nrepresents the\
+    \ total water consumed under schedule F. The quality\nof service is constrained\
+    \ in two discrete time horizons; ﬂuid lev-\nels during irrigation are constrained\
+    \ to remain above satisfactory\nlevels, but ﬂuid levels are held in suﬃcient levels\
+    \ between irriga-\ntion cycles by constraining that each device reach its Goal\
+    \ State of\nmoisture by the end of irrigation, which oﬀsets for predicted losses\n\
+    to maintain adequate soil moisture at all times. The soil moisture\nstate at time\
+    \ t = 0 is deﬁned to be the most recently measured state\nof moisture by the WISDOM\
+    \ system sensors in the neighborhood,\ndeﬁned as θk, and future moisture levels\
+    \ will evolve with respect\nto sprinkler actuations as deﬁned by our linear function\
+    \ trained\nin Section 4.1. As the sprinkler actuation values fk,t are binary in\n\
+    the physical irrigation system, the deﬁned problem is an Integer\nLinear Program\
+    \ (ILP), making the problem NP-Complete. Solving\nthis original problem can take\
+    \ as long as several minutes, which\ncan interfere with our control cycle, as\
+    \ we may want to optimize\nschedules as often as our control timestep, deﬁned\
+    \ to be 1 minute.\nTo instead ﬁnd an approximate solution, we allow the fk,t values\n\
+    to be real within [0,1] and then round the resulting actuations to\nbe binary,\
+    \ a simpliﬁcation that has been found to have minimal ef-\nfect on the resulting\
+    \ schedules [40] while making the optimization\na Linear Program (LP), which is\
+    \ much easier to solve.\nAs written, this LP has 2NK (T + 1) variables and 4NK\
+    \ (T + 1)\nconstraints. Although solving this optimization results in sched-\n\
+    ules for each device within our local neighborhood, the device will\nonly extract\
+    \ the schedule optimized for itself to be actuated by the\nattached solenoid.\
+    \ By considering the initial conditions and solv-\ning for optimal scheduling\
+    \ on our neighbors, we ensure our local\nschedules take into account the likely\
+    \ actions of our neighbors to\nprepare for or take advantage of any shared conditions\
+    \ such as\nsprinkler overlap or runoﬀ eﬀects that aﬀect neighbors. We solve\n\
+    this problem using the Julia programming language [23] to inter-\nface with the\
+    \ GNU Linear Programming Kit (GLPK) [6] solver, and\nlater discuss the performance\
+    \ and scalability in Section 7.\n4.3\nNode design\nIn order to handle the computation\
+    \ required of the modeling and\noptimization of Sections 4.1 and 4.2, we need\
+    \ signiﬁcant improve-\nments in system performance. The simplest LP solvers such\
+    \ as Sim-\nplex [35] have a a storage complexity for the problem matrix that\n\
+    is O(mn), wherem is the number of constraints andn is the number\nof optimization\
+    \ variables. Assuming a small neighborhood NK = 9\nand 2 hours of irrigation T\
+    \ = 120, even our small LP introduced in\nSection 4.2 requires a matrix with 9M\
+    \ entries to store the problem,\nnot feasible on embedded devices with 32-48KB\
+    \ of system memory,\nlet alone space to perform matrix operations. Training our\
+    \ linear\nmodel from Section 4.1 using ordinary least squares requires the\nentire\
+    \ dataset be able to ﬁt into system memory, and although gra-\ndient descent has\
+    \ signiﬁcantly less memory requirements, the data\npoints must still be stored\
+    \ and retrieved, and both techniques re-\nquire signiﬁcant processing power. In\
+    \ addition to system memory\nlimitations, the standard embedded devices run at\
+    \ relatively slow\nprocessor speeds on the order of 48MHz and typically do not\
+    \ have a\nhardware ﬂoating point unit, requiring ﬂoating point to be approx-\n\
+    imated using integer math which is much slower. Finally, these de-\nvices have\
+    \ very little support for standard libraries, likely requir-\ning us to port standard\
+    \ libraries ourselves. Rather than trying to\nreinvent the wheel, we decide to\
+    \ export these tasks to a separate\nco-processor that is capable of handling these\
+    \ tasks with ease.\nTo make this happen, we design our own system management\n\
+    chip to meet the requirements of our application. The low-power\ndevices designed\
+    \ for use in embedded systems are unbeatable in\ntheir very low power consumption\
+    \ for long system lifetime on a\nlimited energy budget. For this reason, we use\
+    \ the SAM R21 [13]\nSoC, which combines the powerful cortex m0+ microcontroller\
+    \ with\nthe ATRF233 radio, as our system’s low-power master device. While\ninsuﬃcient\
+    \ to perform our heavy computation, its 802.15.4 wire-\nless capabilities and\
+    \ basic computational performance makes it per-\nfect for performing regular background\
+    \ tasks such as data syncing\nand peripheral management while maintaining a low\
+    \ power pro-\nﬁle. Its 256KB of onboard ﬂash storage allows it to buﬀer data in\
+    \ the\nshort-term until it can be transferred to the co-processor for pro-\ncessing.\
+    \ The master device is wired to our latching solenoid via an\nH-Bridge, which\
+    \ allows us to send of pulse with positive and neg-\native voltage to open or\
+    \ close the valve according to any schedule\nwe choose. The master device is also\
+    \ wired directly to an attached\nDecagon EC-5 sensor [3], allowing the device\
+    \ to monitor the lo-\ncal soil moisture conditions. Finally, the device is equipped\
+    \ with a\nheader that allows it to be directly connected to the co-processor,\n\
+    a Raspberry Pi Zero [17], a $5 device that provides the ﬂexibility\nof storage\
+    \ and computation that far exceeds the low-power mas-\nter device. The Zero has\
+    \ a single core 1GHz Arm processor, 512MB\nof system memory, and microsd external\
+    \ storage. Furthermore, the\nZero runs a ﬂavor of Debian Linux with signiﬁcant\
+    \ support for lan-\nguages, platforms, and standard tools. The co-processor and\
+    \ mas-\nter device are connected via a bi-directional UART communication\nchannel,\
+    \ allowing data and commands to be sent between the two\ndevices as required.\
+    \ Finally, the master device has direct control\nover the power source to the\
+    \ co-processor, allowing the master\ndevice to completely disable the co-processor’s\
+    \ power to prevent\nunnecessary power draw when the co-processor is not required.\n\
+    223\nSenSys ’19, November 10–13, 2019, New York, NY, USA\nDaniel A. Winkler and\
+    \ Alberto E. Cerpa\nUse of our co-processor signiﬁcantly increases peak power\
+    \ con-\nsumption. To put its requirements into perspective, analysis later\nperformed\
+    \ in Section 4.5 ﬁnds that our co-processor consumes an\naverage of 165mA power\
+    \ to complete its daily tasks, a draw about\n12× higher than our master device\
+    \ with the radio in a transmitting\nstate at full power (13.8mA), its most energy-hungry\
+    \ activity. To\nameliorate this increased power draw, we recognize that as each\n\
+    device is collocated with a periodically-active water source, there\nis substantial\
+    \ ﬂuid energy that can be harvested. In researching po-\ntential harvesting equipment,\
+    \ we found that small water turbines\nthat are capable of providing a steady 5\
+    \ volt output at up to 2 amps\nare available oﬀ the shelf. Furthermore, we found\
+    \ that charge cir-\ncuits such as the MCP73831[2] are readily available that can\
+    \ charge\na LiPo battery at a rate up to 500mA. With the use of a 1Ah LiPo bat-\n\
+    tery, this means we can fully charge the battery from empty with\n2 hours of irrigation.\
+    \ While 2 hours of irrigation is not typical in\na single day of irrigation, we\
+    \ will later show in Section 4.5 that by\nbeing cautious with our energy budget,\
+    \ this harvested energy is\nmore than suﬃcient to keep our system operating indeﬁnitely.\n\
+    4.4\nDaily system operation\nEach day, the low-power master devices in each WISDOM\
+    \ node\nwill wake up at a time scheduled by the installer or system admin-\nistrator,\
+    \ likely to be either early morning or evening. Once awake,\nthe following actions\
+    \ are performed:\n(1) At wake-time, each master device goes into a low-power lis-\n\
+    tening state [36] while the neighborhood wakes up. During this\ntime, the basestation\
+    \ will use the DRIP [38] dissemination proto-\ncol to distribute the single value\
+    \ that requires internet from a cen-\ntralized source, future weather prediction.\
+    \ This value is dissemi-\nnated during network wake-up, giving it plenty of time\
+    \ to cross\nthe largest networks without disrupting the processing pipeline.\n\
+    (2) Once a device receives a status ping from all listed neighbors\nindicating\
+    \ the neighborhood is awake, it will turn the radio into\nan all-on state and\
+    \ broadcast all data single-hop from the previous\nday to their neighbors. In\
+    \ its current conﬁguration, the WISDOM\nsystem samples its sensor at a maximum\
+    \ granularity of 1 minute\nduring irrigation, as this data is used to perform\
+    \ re-training of the\ndata-driven models, and reduces the sampling rate to 10\
+    \ minutes\nfor the rest of the day. Considering that the maximum irrigation\n\
+    period is set as 3 hours, the maximum period allowed with our cam-\npus water\
+    \ pressure requirements and regulation, each device will\nhave at most 306 data\
+    \ samples stored as 16-bit unsigned integers,\nor 612 bytes each day. We additionally\
+    \ package the node’s locally-\nactuated schedules for model training; 3 hours\
+    \ of irrigation has at\nmost 180 binary actuations at a minute granularity, which\
+    \ can be\nencoded 8-per-byte in just 23 bytes. With a radio packet payload\nof\
+    \ 100 bytes, supported by our hardware and software platforms,\nthis daily data\
+    \ is sent to all neighbors in at most 7 data packets.\n(3) Once all data is received\
+    \ by the master device on each node,\nit will be buﬀered in onboard ﬂash storage.\
+    \ The master device will\nsample the most current long-term model and use the\
+    \ weather fore-\ncast we have received to compute the Goal State of moisture at\
+    \ its\nlocation, the amount of moisture we must reach by the end of irri-\ngation\
+    \ to maintain adequate moisture across the full 24-hour cycle.\nIf the most recent\
+    \ moisture level measured by the sensor tells us\nthat our current moisture is\
+    \ already higher than our Goal State plus\na safety margin that we deﬁne to be\
+    \ 5% volumetric water content\nto account for any water losses that may occur\
+    \ during irrigation,\nthen the master device decides that irrigation is not required\
+    \ today,\nand will put the device back into sleep mode, to wake up on the\nfollowing\
+    \ day. The ability for the master device to terminate the\nprocessing pipeline\
+    \ is crucial for long system lifetime during the\nwinter months, as there will\
+    \ be no energy harvesting to recuperate\nthe energy losses incurred by the co-processor.\n\
+    (4) If the master device decides that irrigation is required, the co-\nprocessor\
+    \ will be powered on by ﬂipping a transistor activating the\nco-processor’s power\
+    \ source. Once the co-processor boots, a wired\nserial communication channel allows\
+    \ the master device to transfer\nall buﬀered soil moisture data and actuations\
+    \ from the neighbor-\nhood and weather forecasts to the co-processor. Automatic\
+    \ pro-\ncesses running on the co-processor receive these new data streams\nto\
+    \ re-build the long-term and short-term models as discussed in\nSection 4.1, and\
+    \ then the models and current data state are used to\noptimize schedules for all\
+    \ nodes in the neighborhood. In this way,\nwe will use all knowledge from our\
+    \ local neighborhood to ﬁnd op-\ntimal valve scheduling for our device, while\
+    \ respecting the likely\nactions of our neighbors as well. The optimized valve\
+    \ schedule for\nour device is then communicated back to the master device along\n\
+    with the updated long-term model for use in Step 3 above, and the\nschedule is\
+    \ applied using the attached solenoid. If further irrigation\nis required today,\
+    \ the co-processor will remain active to perform\nany additional optimization,\
+    \ as later discussed in Section 4.5.\nTo use as little energy consumption as possible,\
+    \ our co-processor\nhas a discrete set of tasks to perform to minimize on-time.\
+    \ These\nfunctions are enumerated in Figure 3 along with their eﬀect on the\n\
+    co-processor’s power consumpion. This current data is measured\nby tracking the\
+    \ voltage drop across a high accuracy shunt resistor\nwith an oscilloscope, and\
+    \ post-processing with a moving average\nﬁlter to reduce signal noise. Once power\
+    \ is provided by the master\ndevice, the co-processor boots its “Raspbian” [18]\
+    \ operating system\nas shown in the ﬁgure as (a). Once the operating system ﬁnishes\
+    \ its\nboot cycle, a local Julia HTTP server is launched, which will han-\ndle\
+    \ all requests for schedule optimization until the co-processor\nis powered down.\
+    \ The Julia initialization period is shown in the\nﬁgure at (b), taking approximately\
+    \ 25 seconds. During this initial-\nization time, all buﬀered data is transferred\
+    \ from the master device\nto the co-processor via a wired connection and used\
+    \ to retrain the\ndata driven models, operations that are complete in seconds\
+    \ and\ndo not seem to impact power consumption considerably.\nOnce Julia initialization\
+    \ is complete, a python process is launched\nthat gathers the freshest models\
+    \ and soil moisture readings from\nthe neighborhood and connects to the Julia\
+    \ server to initialize sched-\nule optimization. Figure 3 shows that schedule\
+    \ optimization, enu-\nmerated with (c), takes just over a minute to complete.\
+    \ When ﬁn-\nished, the optimized schedules are transfered back to the master\n\
+    device to be actuated by the attached solenoid. At point (d) when\nthe optimization\
+    \ has completed, the co-processor will do one of\ntwo things; if the optimized\
+    \ schedules show that no further irriga-\ntion is required on this day, the co-processor\
+    \ will perform a grace-\nful shutdown and the master device will cut oﬀ its power\
+    \ entirely\nto return to low-power operation, and schedule wakeup for the fol-\n\
+    lowing day. If further irrigation is required and optimization is to\nbe repeated,\
+    \ the co-processor will return to an idle power level as\n224\nWISDOM: Watering\
+    \ Intelligently at Scale with\nDistributed Optimization and Modeling\nSenSys ’19,\
+    \ November 10–13, 2019, New York, NY, USA\na\nb\nc\nd\ne\nFigure 3: Node energy\
+    \ proﬁle across (a) boot, (b) Julia ini-\ntialization, (c) ﬁrst optimization solve,\
+    \ (d) completion and\nreturn to idle, and (e) subsequent optimization\nshown in\
+    \ the ﬁgure, and the Julia server will remain running to be\nre-used, amortizing\
+    \ its startup costs. In our experience, although\nthe initialization of the Julia\
+    \ server and ﬁrst optimization take on\nthe order of 100 seconds, subsequent optimization\
+    \ problems are\nsolved in a fraction of a second. The power proﬁle of subsequent\n\
+    optimization can be seen as a small blip in energy at (e) in the ﬁg-\nure, 60\
+    \ seconds after the ﬁrst problem is solved.\nIf the optimized schedule activates\
+    \ the attached sprinkler, the\nwater turbine will immediately begin charging the\
+    \ LiPo battery\nto recuperate the energy consumed in steps (a)-(d), along with\
+    \ all\ncommunication, sensing, and actuation costs incurred by the mas-\nter device\
+    \ since the last battery recharge. As it is diﬃcult to mon-\nitor energy harvested\
+    \ by a turbine in our live system deployment,\nwe perform a table-top test of\
+    \ the turbine’s power output, attached\nto a standard hose spigot providing approximately\
+    \ 40psi of water\npressure. The power output of the turbine, nearly 700mA at 5v,\n\
+    is then plotted as the green dashed line in Figure 3. As our bat-\ntery charge\
+    \ circuit [2] features a maximum charge rate of 500mA,\nthe thin blue line in\
+    \ the ﬁgure shows the eﬀective system charge\nrate. Although any power harvested\
+    \ above this rate is not used,\nthe charge rate far surpasses the consumption\
+    \ of our device, even\nat peak power load. In a long irrigation cycle, the power\
+    \ consump-\ntion across repeated optimizations will be similar to that shown be-\n\
+    tween points (d) and (e) consuming around 100mA for the majority\nof on-time,\
+    \ allowing a rapid battery recharge during irrigation.\n4.5\nCo-processor energy\
+    \ proﬁle\nIn terms of energy, the worst-case scenario is for soil moisture val-\n\
+    ues at irrigation time to be just above the goal state so that optimiza-\ntion\
+    \ will still occur to be cautious, but the optimized schedules do\nnot require\
+    \ the attached sprinkler to be activated. This is possible\nif the small amount\
+    \ of water required can be received by an adja-\ncent sprinkler, or if the learned\
+    \ daily losses are small enough, such\nthat no irrigation is required to stay\
+    \ above the goal state. In this\ncase, the energy costs to start the co-processor\
+    \ and optimize sched-\nules will not be recovered as water will not be ﬂowing\
+    \ through the\nturbine. The energy that would be unrecovered in this worst-case\n\
+    is shaded in blue in Figure 3, which we compute to be an average\ncurrent draw\
+    \ of 165mA at 5v for 110 seconds, a total power draw\nof 25.2mWh per day. As our\
+    \ 1Ah, 3.7v LiPo battery has a capac-\nity of 3700mWh, our system can handle this\
+    \ worst-case scenario\neach day for nearly 5 straight months before the battery\
+    \ will be\ndrained. In practice, this occurrence would be next to impossible,\n\
+    as even a very minor change in weather (temperature, humidity,\nor precipitation)\
+    \ can slightly raise soil moisture adequately such\nthat the master device can\
+    \ safely skip co-processor activation for\noptimization, or slightly lower soil\
+    \ moisture such that irrigation is\nrequired, allowing the battery to be recharged.\
+    \ To guarantee en-\nergy neutrality, WISDOM is conﬁgured to run a short irrigation\n\
+    cycle (10 minutes) to force a battery recharge if the battery is de-\ntected to\
+    \ be critically low. This would come at the expense of some\nwater waste, but\
+    \ such a condition is expected to never occur.\n5\nCASE STUDIES\n5.1\nLive Deployment\n\
+    To test the WISDOM control strategy against existing systems, we\nlaunch two side-by-side\
+    \ irrigation systems on our campus, cover-\ning a total of just under 10,000 ft2,\
+    \ purpose-built for irrigation sys-\ntem analysis. As closely identical as possible,\
+    \ the two irrigation sys-\ntems each cover an area of 60’ by 60’ along a gently-sloping\
+    \ hillside\nthat drops approximately 3 feet from the highest to lowest end, and\n\
+    are each installed with a 3x3 grid of Hunter Pro-Spray [8] sprin-\nklers, providing\
+    \ irrigation coverage to the area. By constructing\nthese systems to be as identical\
+    \ as possible, it allows us to compare\ntwo irrigation control strategies simultaneously,\
+    \ such that they are\nboth experiencing weather conditions, runoﬀ eﬀects, sprinkler\
+    \ cov-\nerage, and soil conditions as similar as possible to allow a true side-\n\
+    by-side comparison of their operation. In this way, we compare the\nWISDOM system\
+    \ to the state-of-the-art evapotranspiration control\nstrategy for 2 weeks, and\
+    \ to the PICS control strategy for 2 weeks.\nThe experiments were done on a shoulder\
+    \ season, with both rainy\nand sunny days to cover a wide range of weather conditions.\n\
+    As two systems run side-by-side, we monitor the soil moisture\nlevels across the\
+    \ space, as well as the schedules that are being run\nby the actuators. Using\
+    \ this information, we compute and com-\npare several metrics that indicate how\
+    \ well the two systems are\nperforming relative to one another. The ﬁrst primary\
+    \ metric is the\nquality of service provided to the plant, as indicated by the\
+    \ amount\nof time the sensed locations spend in unhealthy levels of soil mois-\n\
+    ture. The second is the amount of water consumed by the irrigation\nsystem, which\
+    \ can be easily computed by considering the sprinkler\nﬂow rates as noted by the\
+    \ manufacturer and the amount of on-time\neach sprinkler spends, as indicated\
+    \ by the schedules that are run.\nFinally, a secondary metric we consider is the\
+    \ spatial uniformity of\nmoisture across the irrigation system; a highly uniform\
+    \ moisture\ncoverage will prevent the occurrence of “hotspots”, where local ar-\n\
+    eas of high or low moisture can cause discoloration of the plant or\nthe growth\
+    \ of fungus in the soil. By minimizing water consump-\ntion, minimizing exposure\
+    \ to inadequate moisture levels in the soil,\nand maximizing the spatial uniformity\
+    \ of soil moisture, we will be\nproviding the best irrigation possible.\n5.2\n\
+    Simulation\nAlthough it is best to compare irrigation control strategies side-\n\
+    by-side in a live deployment, our test deployment gives no indi-\ncation of how\
+    \ well a control strategy will perform on edge-case\nsystems, such as those located\
+    \ on steep hillsides, with unusual\nsprinkler system architectures, or at very\
+    \ large scale. Due to the\nconﬁguration of our local models to maintain information\
+    \ about\nthe adjacent devices, any environment or irrigation system archi-\ntecture\
+    \ in which water is able to move beyond the reach of this\n225\nSenSys ’19, November\
+    \ 10–13, 2019, New York, NY, USA\nDaniel A. Winkler and Alberto E. Cerpa\n1\n\
+    2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\nTime (days)\n0.18\n0.20\n0.22\n0.24\n\
+    0.26\nSoil moisture (%)\nFigure 4: Example 14-day simulation of WISDOM control\n\
+    local neighborhood will be unknown to our system, making these\nedge-case systems\
+    \ more challenging for the WISDOM system to\ncontrol. In such systems, WISDOM\
+    \ may ﬁnd schedules that are\nless eﬃcient as those produced using all information\
+    \ contained in\na global model, such as in the PICS system. Speciﬁcally, to con-\n\
+    ﬁrm that the localized techniques of the WISDOM system do not\nbreak down due\
+    \ to these eﬀects, we wish to compare WISDOM\nto the globally-modeled PICS system\
+    \ in conditions with challeng-\ning soil conditions, steep surface slope, and\
+    \ sprinkler installations\nwith unusual amounts of overlap, as these have the\
+    \ potential of\ncausing water to move beyond a device’s local neighborhood in\n\
+    the WISDOM system.\nTo allow us the ﬂexibility to test the eﬀect of these changing\
+    \ en-\nvironmental and architectural features in an irrigated space, we de-\n\
+    velop an hybrid water movement model using the nonlinear PDE\nmodel developed\
+    \ in MAGIC [41] to model water movement dur-\ning irrigation actuation, and the\
+    \ long-term loss models developed\nin PICS [40] to model ﬂuid loss between irrigation\
+    \ cycles. In doing\nso, we can track water movement during irrigation subject\
+    \ to sur-\nface runoﬀ, sprinkler overlap, diﬀusion, and inﬁltration into the\n\
+    soil at any desired level of spatial and temporal resolution. Then,\nonce water\
+    \ enters the soil where it moves very slowly, we model\nﬂuid ﬂow as spatially-independent\
+    \ loss models, represented by ex-\nponential decay functions. These loss functions\
+    \ are randomly gen-\nerated at each measuring location throughout the space to\
+    \ be sim-\nilar in magnitude to those experienced in reality, and then random\n\
+    noise is added to losses on each day of simulation, providing losses\nthat are\
+    \ noisy but consistent at each location, similar to what we ex-\npect in reality.\
+    \ This hybrid simulator allows us to construct sample\nirrigation systems from\
+    \ scratch under a wide variety of conditions\nand closely monitor how the water\
+    \ is moving through it with re-\nspect schedules chosen by any control strategy.\
+    \ Not only does a\nsimulator’s use allow us to compare WISDOM’s operation to an-\n\
+    other system across many environments, but it also allows us to\nquantify the\
+    \ beneﬁts of the WISDOM system at signiﬁcantly larger\nscale than our test irrigation\
+    \ system allows. A sample simulation\nof the WISDOM system across a 14-day period\
+    \ can be seen in Fig-\nure 4, where the control strategy can be seen to react\
+    \ to initially\ndry soil conditions across the ﬁrst 4 days to surpass a minimum\n\
+    level of moisture at all locations in the space.\nIn our side-by-side comparison\
+    \ with PICS in simulation, we con-\nsider three primary metrics. The ﬁrst is the\
+    \ water consumption of\nthe irrigation system, as this will be directly related\
+    \ to the opti-\nmized models used by the two control strategies, and the second\n\
+    is the quality of service provided, as computed by the amount of\ntime our sensed\
+    \ points remain below θpwp, in unhealthy levels of\nmoisture. If the local models\
+    \ contain suﬃcient information about\nthe environment, we expect these metrics\
+    \ to be identical between\nthe WISDOM and the PICS systems, with any deviation\
+    \ indicating\nthat the local models of WISDOM lack information present in the\n\
+    global model of PICS. The third metric of comparison is the time re-\nquired by\
+    \ the two systems to optimize their schedules as the scale\nof the irrigation\
+    \ system is increased.\n6\nEXPERIMENTAL RESULTS\nTo test the operation of the\
+    \ WISDOM system, we perform two side-\nby-side system deployments for two weeks\
+    \ each against the Evap-\notranspiration and PICS control strategies. Although\
+    \ it is not nec-\nessary for the operation of the WISDOM system at scale, to moni-\n\
+    tor the system we had all experimental devices forward a copy of\nits operational\
+    \ data (soil moisture and schedules) to a centralized\nlocation for visualization\
+    \ and analysis. The soil moisture data col-\nlected during the ﬁrst deployment\
+    \ comparing Evapotranspiration\nand WISDOM systems can be seen in Figure 5, and\
+    \ the soil mois-\nture data collected during the second deployment comparing PICS\n\
+    and WISDOM systems can be seen in Figure 6. Also shown in these\nﬁgures is the\
+    \ horizontal line indicating the soil moisture level θpwp,\nwhich acts as the\
+    \ lower limit the system should allow at all times.\nAs previous results presented\
+    \ by [40] saw the data-driven model-\ning technique occasionally drop below the\
+    \ threshold due to model\nerror, in this system we included a 5% safety band on\
+    \ the value of\nθpwp; in other words, although we want to maintain a 20% volu-\n\
+    metric water content (VWC) as shown, both data-driven systems\nare actually trying\
+    \ to maintain a 21% VWC due to this safety band.\nEach day on the ET controlled\
+    \ system, we can see that irrigation\ncauses a sharp increase in soil moisture\
+    \ at all measuring location-\nsas the irrigated ﬂuid reaches the system. On both\
+    \ the WISDOM\nand PICS systems, which are utilizing sensed water distribution\
+    \ to\noptimize schedules, we can see this spike in moisture levels only\non the\
+    \ sensor values that are reaching near our minimum allowed\nmoisture level, as\
+    \ the data-driven systems feel that without irri-\ngation moisture levels will\
+    \ drop into dangerously low levels. In-\nterestingly, in the WISDOM and PICS systems,\
+    \ locations that are\nwell above this level and require no irrigation still see\
+    \ a steady rise\nand fall in sensor values each day. This is an eﬀect of the metric\n\
+    measured by our EC-5 sensors [3]; the soil moisture rise is due to\nincreasing\
+    \ soil temperature, which has inﬂuence on the dielectic\npermittivity [25] which\
+    \ is being measured. With more expensive\nsensors that also measure temperature,\
+    \ these deviations could be\ncorrected for, but as our installed sensors do not\
+    \ have this feature,\nwe experience a daily soil moisture cycle even when no irrigation\n\
+    is applied. Another interesting artifact was the occurrence of rain\non day 1\
+    \ of the second deployment, leading to a great increase in\nsoil moisture levels.\
+    \ It can be seen that one region within the WIS-\nDOM system retained a very large\
+    \ amount of water, with water\nlevels staying high for the remainder of the experiment\
+    \ preventing\nthe requirement of irrigation in that area for the entire deployment.\n\
+    Between days 4 and 7 in the ﬁrst deployment we can see one sen-\nsor exhibiting\
+    \ strange behavior. An animal had chewed a sensor\ncable, and on these days irrigation\
+    \ was entering the damaged area\nand causing strange sensor values until day 7,\
+    \ when the problem\nwas diagnosed and corrected.\n226\nWISDOM: Watering Intelligently\
+    \ at Scale with\nDistributed Optimization and Modeling\nSenSys ’19, November 10–13,\
+    \ 2019, New York, NY, USA\n0.20\n0.24\n0.28\n0.32\nMoisture                \n\
+    1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\nDay\n0.00\n0.02\n0.20\n0.24\n0.28\n\
+    0.32\nMoisture                \n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\
+    Day\n0.00\n0.02\nFigure 5: Collected VWC data across deployment for all Evapotranspiration\
+    \ (left) and WISDOM (right) nodes\n0.20\n0.24\n0.28\n0.32\nMoisture          \
+    \      \n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\nDay\n0.00\n0.02\n0.20\n\
+    0.24\n0.28\n0.32\nMoisture                \n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n\
+    12\n13\n14\nDay\n0.00\n0.02\nFigure 6: Collected VWC data across deployment for\
+    \ all PICS (left) and WISDOM (right) nodes\nThe primary goal of an irrigation\
+    \ system is to maintain healthy\nlevels of moisture everywhere, and previous work\
+    \ [40, 41] has de-\nﬁned the quality of service metric as the amount of time the\
+    \ sys-\ntem spends in unhealthy levels of moisture. In our experiments,\nshown\
+    \ in Figures 5 and 6, it is clear that all systems tested main-\ntained a healthy\
+    \ level of moisture (above our minimum level θpwp)\nat all times. However, there\
+    \ is a clear tradeoﬀ between quality of\nservice provided and system eﬃciency.\
+    \ While the evapotranspira-\ntion control strategy was able to maintain healthy\
+    \ levels at all time,\npartially due to the very high initial moisture conditions\
+    \ shown on\nday 1, we can see in Figure 7 that the ET system consumed a very\n\
+    high amount of water in comparison to the WISDOM system for\nthe entire experiment.\
+    \ Whereas the ET system responds only to re-\ncent weather conditions, the WISDOM\
+    \ system also has knowledge\nof the changing soil moisture levels, irrigating\
+    \ only when more wa-\nter is required. For this reason, we can see over the data\
+    \ in Figure 5\nthat the WISDOM system is able to avoid irrigating areas with suf-\n\
+    ﬁcient moisture already, saving an average of 61.4% of water. Look-\ning at the\
+    \ last 4 days of the ﬁrst deployment, as all of the WISDOM\ndevices enter the\
+    \ moisture region where irrigation is required, we\nﬁnd that the system is saving\
+    \ an average of 32.9%, which is more\nindicative of the potential savings of WISDOM\
+    \ in steady state.\nAs shown in Figure 6, the WISDOM system has considerably\n\
+    higher soil moisture values after the rain on the ﬁrst day, prevent-\ning one\
+    \ device from requiring irrigation for the entire deployment.\nFigure 8 shows\
+    \ that in the ﬁrst several days the PICS system con-\nsumes considerably more\
+    \ water than WISDOM, with WISDOM\nsaving an average of 46% of water across the\
+    \ two weeks of deploy-\nment. However, we can see that as the deployment progresses\
+    \ and\nWISDOM nodes drop into the range requiring irrigation, the con-\nsumption\
+    \ of the two systems become more and more similar, until\nthe last 7 days of deployment\
+    \ ﬁnd an average savings of 19.7%. Al-\nthough the WISDOM systems found savings\
+    \ in this deployment,\nwe are conﬁdent that this is a result of the initial conditions\
+    \ of the\nexperiment, with WISDOM nodes having higher initial moisture\nlevels,\
+    \ and expect that a longer deployment would ﬁnd these two\nsystems approaching\
+    \ equivalent performance in eﬃciency once all\nthe devices fall into a steady\
+    \ state. Their equivalence is expected as\nthey are both maintaining data-driven\
+    \ modeling techniques, and\nthe sprinkler system architecture and environment\
+    \ do not facili-\ntate enough water movement to make the local models a limiting\n\
+    factor, as later veriﬁed in simulation in Section 7.\nFinally, as a metric of\
+    \ moisture uniformity, we plot the spatial\nvariance of moisture in all systems\
+    \ as a function of time in Fig-\nures 10 and 11. Even though the ET controller\
+    \ is applying water\nuniformly onto the surface, diﬀerences in environment cause\
+    \ the\nwater to settle in a non-uniform way, as seen by a large spread\nof moisture\
+    \ levels in Figure 5 and high levels of variance in Fig-\nure 10. In comparison,\
+    \ as the data-driven PICS and WISDOM sys-\ntems learn the needs of the space over\
+    \ time, the variance can be\nseen to quickly decrease to very low values across\
+    \ the system de-\nployment, indicating that the system is learning the needs of\
+    \ the\nspace and distributing water exactly as required.\n6.1\nLocal model disagreement\n\
+    When local optimization occurs on each device, it computes the\noptimal valve\
+    \ scheduling for itself and all other devices within its\nlocal neighborhood.\
+    \ On the boundary of the local neighborhood,\nhowever, the local moisture movement\
+    \ information may be miss-\ning boundary eﬀects that will inﬂuence moisture levels\
+    \ at nodes\non the edge of our neighborhood, resulting in a disagreement be-\n\
+    tween the edge node’s schedule we’ve computed and the schedule\nthat edge node\
+    \ computed for itself. To determine the magnitude\n227\nSenSys ’19, November 10–13,\
+    \ 2019, New York, NY, USA\nDaniel A. Winkler and Alberto E. Cerpa\n1\n2\n3\n4\n\
+    5\n6\n7\n8\n9\n10 11 12 13 14\nAverage\nDay\n0\n50\n100\n150\n200\n250\nConsumption\
+    \ (gallons)\n-61.42%\nEvapotranspiration\nWISDOM\nFigure 7: Water consumption\
+    \ of ET vs WISDOM\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10 11 12 13 14\nAverage\nDay\n0\n\
+    20\n40\n60\n80\n100\n120\n140\nConsumption (gallons)\n-46.02%\nPICS\nWISDOM\n\
+    Figure 8: Water consumption of PICS vs WISDOM\n1\n2\n3\n4\n5\n6\n7\n8\n9\nFigure\
+    \ 9: Scope of local models within system topology\nof this error due to edge eﬀects,\
+    \ we compare the optimized sched-\nule of each node for itself to the optimized\
+    \ schedule by the node’s\nneighbors for the node, and collect the average error\
+    \ made by the\nneighbors. If the error is very high, we will know that schedules\
+    \ are\nhighly dependent on the inﬂuence of neighbors’ irrigation in our\ntest\
+    \ irrigation system, as this could indicate that localized models\nwill introduce\
+    \ signiﬁcant error in the schedules computed locally.\nOn each day, we compare\
+    \ the on-time of the optimized schedule as\ncomputed on a node to those computed\
+    \ by the node’s neighbors,\nand report the average error in sprinkler on-time\
+    \ for each node’s\nneighbors in Figure 12. In this plot, the bar for node 5, for\
+    \ instance,\nis the average error in sprinkler on-time of all of node 5’s neighbors\n\
+    in estimating node 5’s schedule.\nWe see in the ﬁgure that at worst, the average\
+    \ schedule devi-\nation is less than 5 seconds, indicating that the localized\
+    \ models\nmake very good estimates of neighboring actions. Interestingly,\nthe\
+    \ resulting errors agree with intuition. The neighborhoods of\nnodes 2, 5, and\
+    \ 4 as shown in Figure 9 will contain the entire neigh-\nborhood of node 1 shown\
+    \ as the red dotted box, so their predictions\nwill have zero error, and similar\
+    \ for all corner nodes 3, 7. and 9.\nNeighbors of edge nodes 2, 4, 6, and 8 will\
+    \ be missing at most two\nnodes; for instance nodes 1 and 2 will be missing node\
+    \ 4’s neigh-\nbors 7 and 8, so these edge nodes will have some error. Central\n\
+    node 5 should have the most error; if node 1 estimates node 5’s\nschedule, it\
+    \ is missing nodes 3, 6, 9, 7, and 8, resulting in high error.\n1\n2\n3\n4\n5\n\
+    6\n7\n8\n9\n10\n11\n12\n13\n14\nDay\n0\n5000\n10000\n15000\n20000\nMoisture variance\n\
+    Evapotranspiration\nWISDOM\nFigure 10: Moving variance of ET vs WISDOM\n1\n2\n\
+    3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\nDay\n0\n5000\n10000\n15000\n20000\nMoisture\
+    \ variance\nPICS\nWISDOM\nFigure 11: Moving variance of PICS vs WISDOM\n1\n2\n\
+    3\n4\n5\n6\n7\n8\n9\nNode ID\n0\n1\n2\n3\n4\nError (s)\nAverage schedule disagreement\
+    \ due to localized knowledge\nFigure 12: Average schedule error caused by local\
+    \ models\nThese expectations match the results of Figure 12 with the excep-\n\
+    tion of node 8, which shows zero error in its neighbors’ predictions.\nThe cause\
+    \ for this is the fact that node 8 is the node shown in Fig-\nure 6 that remains\
+    \ well above irrigation levels. For this reason, re-\ngardless of neighbor inﬂuence,\
+    \ the optimal schedule is to disable\nthe sprinkler, which all neighbors correctly\
+    \ predict.\n7\nRESULTS IN SIMULATION\nTo challenge the local models used in the\
+    \ WISDOM system, we use\nour simulator introduced in Section 5.2 in 4 environmental\
+    \ and ar-\nchitectural scenarios. Each experiment tracked water movement\nacross\
+    \ a space of 65m × 65m, just over 1 acre, irrigated by a 7 ×\n7 grid of sprinklers,\
+    \ and run for a continuous period of 100 days.\nThe ﬁrst was a typical environment\
+    \ across ﬂat land with a typi-\ncal “loam” soil commonly found in standard irrigated\
+    \ spaces, with\neach sprinkler radius 75% of the inter-sprinkler distance. The\
+    \ sec-\nond introduces a soil with a higher clay content, which reduces\nthe water\
+    \ inﬁltration rate into the soil, increasing the amount of\nﬂuid diﬀusion that\
+    \ occurs on the surface. The third uses the same\nsoil type as the second experiment,\
+    \ but sits on a hillside with a\n15◦ angle, which will lead to a higher amount\
+    \ of runoﬀ, particu-\nlarly with the lower inﬁltration rate of the clay soil.\
+    \ A 15◦ slope\nwas chosen, as it is the maximum slope supported by most ride-on\n\
+    228\nWISDOM: Watering Intelligently at Scale with\nDistributed Optimization and\
+    \ Modeling\nSenSys ’19, November 10–13, 2019, New York, NY, USA\n1\n2\n3\n4\n\
+    1\n.5\n0\n.5\n1\n+0%\n+0%\n+18%\n+0%\n+23%\n+7%\n+103%\n+94%\n-75%\n-51%\nWater\
+    \ consumption\n(gallons)\nTime spent\nbeneath θpwp\n(minutes)\nx106\nx105\nGlobal\
+    \ modeling (PICS)\nLocal modeling (WISDOM)\nFigure 13: Resulting system consumption\
+    \ and quality of ser-\nvice penalty for 4 environmental setups: (1) Flat land\
+    \ (2) Flat\nland with clay soil (3) 15◦ slope with clay soil (4) Installed\nsprinklers\
+    \ reaching beyond second adjacent neighbor\nlawnmowers, making it the steepest\
+    \ slope likely on a large expanse\nof lawn installation. Finally, to ensure an\
+    \ example where the ﬂuid\ninﬂuence of a sprinkler reachs beyond the neighborhood\
+    \ of the\nWISDOM local models, we conﬁgure a system architecture simi-\nlar to\
+    \ the ﬁrst experiment, but with each sprinkler reaching 2.5×\nthe inter-sprinkler\
+    \ distance, which can be visualized as the arching\ncircle centered on the leftmost\
+    \ node in Figure 2. We strongly note\nthat standard irrigation system installation\
+    \ practices use sprinklers\nthat reach no more than 1× the inter-sprinkler distance,\
+    \ and that\nthis is purely an exercise to ﬁnd the breaking point of the localized\n\
+    modeling techniques; such a system would be prohibitively costly,\nand would likely\
+    \ consume signiﬁcantly more water than the source\ncould provide. The results\
+    \ of these four independent experiments\nare shown in Figure 13, with the positive\
+    \ y axis showing the over-\nall system consumption across the period, and the\
+    \ negative y axis\nshowing the total amount of time spent below our desired moisture\n\
+    threshold at our sensing points in the space.\nWe ﬁnd that across the 100 days\
+    \ of simulation for the ﬁrst exper-\niment (bar 1 in the ﬁgure), both control\
+    \ strategies consume 520,000\ngallons of water, spending a total of 103,000 minutes\
+    \ beneath the\ndesired level of moisture. Averaged across the 49 nodes in the\
+    \ sys-\ntem, each node spends 35 hours beneath this level, but we can see\nin\
+    \ Figure 4 that this time stems from the ﬁrst days after system\ninstallation,\
+    \ when each node is learning its loss models. In the sec-\nond experiment (bar\
+    \ 2), we ﬁnd that the installation of soil with\na higher clay content increases\
+    \ the system consumption by 18%\nacross the experiment. This increased consumption\
+    \ is caused by a\nhigher loss to the boundaries of the space, as the ﬂuid will\
+    \ sit on\nthe surface for a longer period where it has the tendency to leave\n\
+    the space more quickly than if it were moving through the soil. The\nthird experiment\
+    \ (bar 3) found an increased water consumption of\n23% in comparison to experiment\
+    \ 1, and 7% increase in exposure\nto unhealthy levels of moisture. The additional\
+    \ consumption is in-\ntuitive, as the slope will cause an additional amount of\
+    \ water to\nﬂow out of the space on the boundaries over time, exacerbated by\n\
+    the clay soil preventing inﬁltration of the ﬂuid into the soil. The in-\ncreased\
+    \ penalty to quality of service is caused during the ﬁrst days\nof experimentation,\
+    \ when the uphill region in the space will lie in\nunhealthy levels of moisture\
+    \ during the ﬁrst few days to a greater\nextent, due to the slope carrying ﬂuid\
+    \ away.\nFinally, the fourth experiment shows a diﬀerence in result be-\ntween\
+    \ the PICS and WISDOM systems with a sprinkler layout that\n20\n40\n60\n80\n100\n\
+    120\n140\nNumber of Sprinklers\n0\n20\n40\n60\n80\nSeconds\nOptimization time\
+    \ vs number of sprinklers\nDistributed optimization solve time\nCentralized optimization\
+    \ solve time\nFigure 14: Time required to optimize schedules using cen-\ntralized\
+    \ (PICS) and distributed (WISDOM) systems\nreaches beyond the neighborhood of\
+    \ the local modeling technique.\nThis sprinkler coverage allows the system to\
+    \ apply a signiﬁcant\namount of water on the ﬁrst days to substantially reduce\
+    \ the qual-\nity of service penalty that would otherwise occur, while this in-\n\
+    creased coverage eﬀectively doubles the water usage in compari-\nson to the system\
+    \ in experiment 1. However, we see that the sched-\nules optimized with the global\
+    \ model are able to ﬁnd schedules\nthat are roughly twice as good as the locally-computed\
+    \ ones with\nrespect to the quality of service metric, but also led to an increase\n\
+    in system water consumption of 9%. The takeaway of these sim-\nulated results\
+    \ is that the control systems using global and local\nmodels tend to be identical\
+    \ due to the limited rate of water move-\nment in these irrigated spaces. While\
+    \ it is possible for schedules\noptimized using local models to ﬁnd inferior solutions\
+    \ to schedules\noptimized with global ones, it will not occur in even very challeng-\n\
+    ing scenarios (experiments 1-3), but require unrealistic irrigation\nsystem architectures\
+    \ to occur (experiment 4).\nIn addition, to quantify the performance of the PICS\
+    \ and WIS-\nDOM systems side-by-side, we use our simulator to train local and\n\
+    global models on irrigation systems of increasing sizes, and opti-\nmize schedules\
+    \ from a ﬁxed initial moisture state to a ﬁxed goal\nmoisture state, both interpolated\
+    \ to the size of the irrigated space.\nThe goal is to make the optimization problems\
+    \ as identical as pos-\nsible, with the only variable being the size of the irrigation\
+    \ system.\nThe resulting optimization time required of the two systems as a\n\
+    function of system size can be seen in Figure 14. The WISDOM\nsystem is solving\
+    \ K optimization problems, each using a model of\na relatively small local neighborhood,\
+    \ in a distributed way. While\nthis makes the computation required of the WISDOM\
+    \ system lin-\near on K, it is solved in parallel across K devices, making the\
+    \ opti-\nmization solve time constant at all system scales. In contrast, the\n\
+    PICS system is solving a centralized optimization problem using\na single global\
+    \ model that grows quadratically on K, as shown in\nthe ﬁgure. We ﬁnd that with\
+    \ a system with more than 145 sprin-\nklers, the centralized control strategy\
+    \ is unable to solve the opti-\nmization within our control timestep.In practice,\
+    \ as irrigation sys-\ntems found in the largest sports ﬁelds can contain anywhere\
+    \ from\n500-5000 sprinklers [7], the scalability of the centralized system is\n\
+    inadequate. While we could increase the control timestep to allow\na larger optimization\
+    \ problem to be solved, the quadratic growth\nof the optimization solve-time will\
+    \ quickly overcome this time cap,\nand an increased control timestep would cause\
+    \ less eﬃcient sched-\nules to be found by making the temporal granularity of\
+    \ the model\n229\nSenSys ’19, November 10–13, 2019, New York, NY, USA\nDaniel\
+    \ A. Winkler and Alberto E. Cerpa\nComponent\nWISDOM\nPICS [40]\nMote (includes\
+    \ M & A costs for WISDOM)\n$25.00\n$37.57\nRaspberry pi zero\n$5.00\n–\nBattery\
+    \ and charge circuit\n$21.00\n$4.00\nHarvesting turbine\n$12.00\n–\nSealed enclosure\n\
+    $13.00\n$10.00\nMoisture sensor\n$99.00\n$110.00\nLatching solenoid\n$14.00\n\
+    $15.00\nManufacture and Assembly (only for PICS)\n–\n$10.00\n$189.00\n$186.57\n\
+    Table 3: Sprinkler Node Manufacture Cost Comparison\nmore coarse. Regardless,\
+    \ no such sacriﬁce is required with the WIS-\nDOM distributed system, allowing\
+    \ it to operate at any scale.\n8\nRETURN ON INVESTMENT\nTo ensure system adoptability,\
+    \ we must be sure it is aﬀordable as\na system replacement. We consider the unit\
+    \ cost of each device\nas shown in Table 3 and compare them with the prototype\
+    \ cost\nproposed in [40]. We list unit prices of our components but esti-\nmate\
+    \ manufacture and assembly at the scale of 1000 units based\non a quote from PCBWay\
+    \ [15]. We note that even with the addi-\ntion of the co-processor and energy\
+    \ harvesting, removing unnec-\nessary hardware through custom design increases\
+    \ the unit cost by\njust 1.3% in comparison to the prototype proposed in [40].\
+    \ On our\ncampus, water for irrigation is billed at a price of $5.60 per 1000\
+    \ gal-\nlons of water. Using the water savings from the last 4 days of our\nﬁrst\
+    \ deployment against the ET control strategy, we extrapolate a\n32.9% water savings\
+    \ onto the larger-scale irrigation systems used\nto irrigate our sports ﬁelds\
+    \ at our university, which are equipped\nwith Hunter I-40 rotor sprinkler heads.\
+    \ Figure 15 shows the evolu-\ntion of the investment over time, and we ﬁnd that\
+    \ based on water\nsavings alone, the WISDOM devices will pay for themselves in\
+    \ ap-\nproximately 5-7 months, considering market variation of 10%. We\ndo note,\
+    \ however, that previous work [40] found that optimized\nscheduling using data-driven\
+    \ modeling saved a more conservative\n12%, due to seasonal and environmental diﬀerences\
+    \ in the exper-\niments run. Even in such an environment where these more con-\n\
+    servative savings occur, our system is still estimated to return its\ninvestment\
+    \ in 15-18 months.\n9\nDISCUSSION AND FUTURE WORK\nDistributed solutions are more\
+    \ resilient than centralized ones due\nto the lack of a single point of failure\
+    \ and performance bottleneck.\nThere are multiple aspects of resilience, including\
+    \ (a) controller,\n(b) computation, and (c) communicaiton resilience. Of those,\
+    \ the\nmost important in our opinion is (a). In WISDOM each node cal-\nculates\
+    \ its schedule. A failure of node only aﬀects its local area. In\ncontrast, in\
+    \ a centralized system like PICS [40], a failure of the cen-\ntralized controller\
+    \ aﬀects the entire irrigation system. Even if the\ncontroller works ﬁne, sometimes\
+    \ failure of the controller commu-\nnication channel can lead to substantial data\
+    \ loss and unplanned\nover-irrigation, as it happened in [40]. The failures experienced\n\
+    occur when environmental conditions (humidity/temperature) dis-\nrupt the wired\
+    \ connection between the controller and the RF trans-\nmitter, causing the channel\
+    \ to fail for hours at a time; in our ex-\nperience collocated redundant centralized\
+    \ base stations experience\ncorrelated failures (motivating this work).\n0\n2\n\
+    4\n6\n8\nMonth\n−200\n−150\n−100\n−50\n0\n50\nInvestment ($)\nUnit Investment\
+    \ Over Time\nMarket Water Price\nMarket +- 10%\nFigure 15: Device return on investment\
+    \ over time\nIn WISDOM, every node calculates its schedule using only infor-\n\
+    mation from its neighbors. This reduces computational complex-\nity and increases\
+    \ the resilience of the optimization process as we\nscale since each node uses\
+    \ only local information to perform the\noptimization, which does not increase\
+    \ with the size of the ﬁeld,\nas opposed to PICS [40]. Finally, in WISDOM, all\
+    \ communication\nduring the day (except for the weather forecast once a day) is\
+    \ be-\ntween neighbors, so it is single-hop only. In PICS, all data collected\n\
+    at the sensing devices must travel across the multi-network to a\ncentralized\
+    \ irrigation controller, and the resulting schedules must\ntravel to the end devices.\
+    \ This cross-network communication has\nthe potential to signiﬁcantly increase\
+    \ both routing errors and en-\nergy consumption of the network. Detailed analysis\
+    \ and experi-\nments exploring communication and computational resilience are\n\
+    left for future work.\n10\nCONCLUSIONS\nAs the largest irrigated crop in North\
+    \ America by surface area,\nlawns are one of the heaviest consumers of freshwater,\
+    \ motivating\nimprovement in irrigation system eﬃciency. Although previous\nwork\
+    \ have realized substantial eﬃciency improvements with the\nuse of distributed\
+    \ actuation and model-based schedule optimiza-\ntion, the proposed centralized\
+    \ processing architectures introduce\nsingle points of failure, computational\
+    \ bottlenecks in data process-\ning, and increase network energy usage for cross-network\
+    \ data\nforwarding, which all prevent the technologies from being adopt-\nable\
+    \ for control at large scale. In this work we introduce WISDOM,\na distributed\
+    \ system for control of irrigation systems at any scale\nthat utilizes energy\
+    \ harvesting to allow a perpetual system lifetime.\nAcross 4 weeks of live system\
+    \ deployment, we ﬁnd that up to 32.9%\nwater savings is possible in comparison\
+    \ to industry-standard con-\ntrollers, and demonstrate through extensive comparison\
+    \ in simula-\ntion that the proposed distributed system can provide all of the\
+    \ eﬃ-\nciency and quality of service beneﬁts of the centralized one, while\nallowing\
+    \ energy independence and the robust control of irrigation\nsystems of any size.\n\
+    11\nACKNOWLEDGEMENTS\nWe would like to thank our anonymous referees and our shep-\n\
+    herd for their feedback and assistance. This material is based upon\nwork partially\
+    \ supported by the National Science Foundation un-\nder grants #1254192 and #1430351\
+    \ and the Center of Information\nTechnology in the Interest of Society (CITRIS).\n\
+    230\nWISDOM: Watering Intelligently at Scale with\nDistributed Optimization and\
+    \ Modeling\nSenSys ’19, November 10–13, 2019, New York, NY, USA\nREFERENCES\n\
+    [1] [n. d.]. A12 Bionic. https://www.apple.com/iphone-xs/a12-bionic/.\n[2] [n.\
+    \ d.]. Adjustable LiPo Charger. https://www.sparkfun.com/products/14380.\n[3]\
+    \ [n. d.]. Decagon Devices. http://www.decagon.com/products/soils/.\n[4] [n. d.].\
+    \ Freshwater Crisis.\nhttp://environment.nationalgeographic.com/environment/\n\
+    freshwater/freshwater-crisis/.\n[5] [n. d.]. Galaxy S10 Intelligence.\nhttps://www.samsung.com/global/galaxy/galaxy-s10/intelligence/.\n\
+    [6] [n. d.]. GNU Linear Programming Kit. https://www.gnu.org/software/glpk/.\n\
+    [7] [n. d.]. Golf Course Irrigation Systems - Water Eﬃciency.\nhttp://www.liaquifercommission.com/images/Golf_Course_Irrigation_Systems-\n\
+    _march_april_2015.pdf.\n[8] [n. d.]. Hunter Pro-spray sprinklers.\nhttps://www.hunterindustries.com/irrigation-product/spray-bodies/pro-sprayr.\n\
+    [9] [n. d.]. Hunter Rain-Clik Rain Detection.\nhunterindustries.com/irrigation-product/sensors/rain-clikr.\n\
+    [10] [n. d.]. Intel Edison Development Platform.\nhttps://software.intel.com/en-us/iot/hardware/discontinued.\n\
+    [11] [n. d.]. Looking for Lawns.\nhttp://earthobservatory.nasa.gov/Features/Lawn/printall.php.\n\
+    [12] [n. d.]. Mercury News - California Drought Restrictions.\nhttps://www.mercurynews.com/2018/02/13/californias-drought-restrictions-\n\
+    on-wasteful-water-habits-could-be-coming-back-this-time-theyll-be-\npermanent/.\n\
+    [13] [n. d.]. Microcontrollers and Processors - SAM R21.\nhttps://www.microchip.com/wwwproducts/en/ATSAMR21G18A.\n\
+    [14] [n. d.]. Outdoor Water Use Fact Sheet.\nhttps://www.epa.gov/sites/production/ﬁles/2017-03/documents/ws-factsheet-\n\
+    outdoor-water-use-in-the-us.pdf.\n[15] [n. d.]. PCBWay Manufacturing and Assembly.\
+    \ https://www.pcbway.com/.\n[16] [n. d.]. Raspberry Pi. https://www.raspberrypi.org/.\n\
+    [17] [n. d.]. Raspberry Pi Zero.\nhttps://www.raspberrypi.org/products/raspberry-pi-zero/.\n\
+    [18] [n. d.]. Raspbian Operating System. https://www.raspbian.org/.\n[19] [n.\
+    \ d.]. UC Oﬃce of the President - Sustainability.\nhttps://www.ucop.edu/sustainability/policy-areas/water/index.html.\n\
+    [20] [n. d.]. UGMO Irrigation. http://www.ugmo.com/.\n[21] Richard G Allen, Luis\
+    \ S Pereira, Dirk Raes, Martin Smith, et al. 1998. Crop\nevapotranspiration-Guidelines\
+    \ for computing crop water requirements-FAO\nIrrigation and drainage paper 56.\
+    \ FAO, Rome 300, 9 (1998), D05109.\n[22] J. Bear. 1972. Dynamics of Fluids in\
+    \ Porous Media. Dover.\nhttps://books.google.com/books?id=-XEaxd3hGzoC\n[23] Jeﬀ\
+    \ Bezanson, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2014. Julia:\n\
+    A Fresh Approach to Numerical Computing. CoRR (2014).\nhttp://arxiv.org/abs/1411.1607\n\
+    [24] Sourav Bhattacharya and Nicholas D. Lane. 2016. Sparsiﬁcation and Separation\n\
+    of Deep Learning Layers for Constrained Resource Inference on Wearables. In\n\
+    Proceedings of the 14th ACM Conference on Embedded Network Sensor Systems\nCD-ROM\
+    \ (SenSys ’16). ACM, New York, NY, USA, 176–189.\nhttps://doi.org/10.1145/2994551.2994564\n\
+    [25] André Chanzy, Jean-Claude Gaudu, and Olivier Marloie. 2012. Correcting the\n\
+    temperature inﬂuence on soil capacitance sensors using diurnal temperature\nand\
+    \ water content cycles. Sensors 12, 7 (2012), 9773–9790.\n[26] Petko Georgiev,\
+    \ Nicholas D Lane, Kiran K Rachuri, and Cecilia Mascolo. 2014.\nDsp. ear: Leveraging\
+    \ co-processor support for continuous audio sensing on\nsmartphones. In Proceedings\
+    \ of the 12th ACM Conference on Embedded Network\nSensor Systems. ACM, 295–309.\n\
+    [27] Thomas Harter and Jay R. Lund. 2012. Addressing Nitrate in California’s\n\
+    Drinking Water. Technical Report. University of California, Davis.\n[28] Jason\
+    \ L Hill and David E Culler. 2002. Mica: A wireless platform for deeply\nembedded\
+    \ networks. IEEE micro 22, 6 (2002), 12–24.\n[29] Marvin Eli Jensen, Robert D\
+    \ Burman, and Rick G Allen. 1990.\nEvapotranspiration and irrigation water requirements.\
+    \ ASCE.\n[30] Z. Jia, M. Alaziz, X. Chi, R. E. Howard, Y. Zhang, P. Zhang, W.\
+    \ Trappe, A.\nSivasubramaniam, and N. An. 2016. HB-Phone: A Bed-Mounted\nGeophone-Based\
+    \ Heartbeat Monitoring System. In 2016 15th ACM/IEEE\nInternational Conference\
+    \ on Information Processing in Sensor Networks (IPSN).\n1–12. https://doi.org/10.1109/IPSN.2016.7460676\n\
+    [31] Yunseop Kim, R. G. Evans, and W. M. Iversen. 2008. Remote Sensing and\nControl\
+    \ of an Irrigation System Using a Distributed Wireless Sensor Network.\nIEEE Transactions\
+    \ on Instrumentation and Measurement 57, 7 (July 2008),\n1379–1387. https://doi.org/10.1109/TIM.2008.917198\n\
+    [32] Jongdeog Lee, Krasimira Kapitanova, and Sang H Son. 2010. The price of\n\
+    security in wireless sensor networks. Computer Networks 54, 17 (2010),\n2967–2978.\n\
+    [33] M. A. Maupin, J. F. Kenny, S. S. Hutson, J. K. Lovelace, N. L. Barber, and\
+    \ K. S.\nLinsey. 2014. Estimated use of water in the United States in 2010. U.S.\
+    \ Geological\nSurvey Circular 1405. 56 pages. https://doi.org/10.3133/cir1405\n\
+    [34] M. Moazzami, D. E. Phillips, R. Tan, and G. Xing. 2017. ORBIT: A Platform\
+    \ for\nSmartphone-Based Data-Intensive Sensing Applications. IEEE Transactions\
+    \ on\nMobile Computing 16, 3 (March 2017), 801–815.\nhttps://doi.org/10.1109/TMC.2016.2573825\n\
+    [35] John A Nelder and Roger Mead. 1965. A simplex method for function\nminimization.\
+    \ The computer journal 7, 4 (1965), 308–313.\n[36] Joseph Polastre, Jason Hill,\
+    \ and David Culler. 2004. Versatile low power media\naccess for wireless sensor\
+    \ networks. In Proceedings of the 2nd international\nconference on Embedded networked\
+    \ sensor systems. ACM, 95–107.\n[37] Jorge Portilla, Andrés Otero, Eduardo de\
+    \ la Torre, Teresa Riesgo, Oliver\nStecklina, Steﬀen Peter, and Peter Langendörfer.\
+    \ 2010. Adaptable security in\nwireless sensor networks by using reconﬁgurable\
+    \ ECC hardware coprocessors.\nInternational Journal of Distributed Sensor Networks\
+    \ 6, 1 (2010), 740823.\n[38] Gilman Tolle and David Culler. 2005. Design of an\
+    \ application-cooperative\nmanagement system for wireless sensor networks. In\
+    \ Wireless Sensor Networks,\n2005. Proceeedings of the Second European Workshop\
+    \ on. IEEE, 121–132.\n[39] Yi Wang, Hailong Shi, and Li Cui. 2013. EasiSec: a\
+    \ SoC security coprocessor\nbased on ﬁngerprint–based key management for WSN.\
+    \ International Journal of\nSensor Networks 13, 2 (2013), 85–93.\n[40] Daniel\
+    \ A Winkler, Miguel Á Carreira-Perpiñán, and Alberto E Cerpa. 2018.\nPlug-and-play\
+    \ irrigation control at scale. In Proceedings of the 17th ACM/IEEE\nInternational\
+    \ Conference on Information Processing in Sensor Networks. IEEE\nPress, 1–12.\n\
+    [41] D. A. Winkler, R. Wang, F. Blanchette, M. Carreira-Perpinan, and A. E. Cerpa.\n\
+    2016. MAGIC: Model-Based Actuation for Ground Irrigation Control. In 2016\n15th\
+    \ ACM/IEEE International Conference on Information Processing in Sensor\nNetworks\
+    \ (IPSN). https://doi.org/10.1109/IPSN.2016.7460680\n[42] Shuochao Yao, Yiran\
+    \ Zhao, Huajie Shao, ShengZhong Liu, Dongxin Liu, Lu Su,\nand Tarek Abdelzaher.\
+    \ 2018. FastDeepIoT: Towards Understanding and\nOptimizing Neural Network Execution\
+    \ Time on Mobile and Embedded Devices.\nIn Proceedings of the 16th ACM Conference\
+    \ on Embedded Networked Sensor\nSystems (SenSys ’18). ACM, New York, NY, USA,\
+    \ 278–291.\nhttps://doi.org/10.1145/3274783.3274840\n[43] Shuochao Yao, Yiran\
+    \ Zhao, Aston Zhang, Lu Su, and Tarek Abdelzaher. 2017.\nDeepIoT: Compressing\
+    \ Deep Neural Network Structures for Sensing Systems\nwith a Compressor-Critic\
+    \ Framework. In Proceedings of the 15th ACM\nConference on Embedded Network Sensor\
+    \ Systems (SenSys ’17). ACM, New York,\nNY, USA, Article 4, 14 pages. https://doi.org/10.1145/3131672.3131675\n\
+    231\n"
+  inline_citation: '>'
+  journal: ''
+  limitations: '>'
+  pdf_link: https://dl.acm.org/doi/pdf/10.1145/3356250.3360023
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: WISDOM
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
