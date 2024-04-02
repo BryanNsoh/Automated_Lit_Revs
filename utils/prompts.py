@@ -177,7 +177,7 @@ Use field codes to focus the search on the most relevant parts of documents
 Combine related concepts using AND and OR
 Exclude irrelevant terms with AND NOT at the end
 Employ quotation marks and braces appropriately for phrase searching
-Include wildcards to capture variations of key terms
+Include wildcards to capture variations of key terms (while avoiding mixing them with other operators)
 Follow the proper order of precedence for operators
 Complex searches should be built up systematically, with parentheses to group related expressions as needed. The information from the provided documents on syntax rules and operators should be applied rigorously.
 
@@ -187,15 +187,15 @@ Example Advanced Searches
 
 {{
 "scopus_queries": [
-"TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND ("machine learning" OR "artificial intelligence") AND "water management")",
-"TITLE-ABS-KEY(("internet of things" OR iot) AND ("irrigation" OR "watering") AND sensor*)",
-"TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural networks") AND "water conservation")",
-"TITLE-ABS-KEY((crop* PRE/5 monitor*) AND "remote sensing" AND (irrigation OR water*))",
-"TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")"
+"TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND ("machine learning" OR "AI") AND "water")",
+"TITLE-ABS-KEY((iot OR "internet of things") AND (irrigation OR watering) AND sensor*)",
+"TITLE-ABS-Key(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural networks") AND "water")",
+"TITLE-ABS-KEY((crop W/5 monitor*) AND "remote sensing" AND (irrigation OR water*))",
+"TITLE("precision irrigation" OR "variable rate irrigation" AND "machine learning")"
 ]
 }}
 
-** Critical: all double quotes other than the outermost ones should be preceded by a backslash (") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **. 
 
 These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.
 """
@@ -231,12 +231,12 @@ Searches should be concise yet precise, following the syntax rules carefully.
 
 Example Searches
 {{ "alex_queries": [
-"https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%22soil+moisture+sensors%22+%2B%22irrigation+scheduling%22&sort=relevance\_score:desc&per\_page=30",
-"https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+%2B%22crop+water+demand+prediction%22&sort=relevance\_score:desc&per\_page=30",
-"https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%28%22soil+moisture+monitoring%22%7C%22crop+water+stress%22%29&sort=relevance\_score:desc&per\_page=30",
-"https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22&sort=relevance\_score:desc&per\_page=30",
-"https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22precision+agriculture%22+%2B%28%22variable+rate+irrigation%22%7C%22irrigation+automation%22%29&sort=relevance\_score:desc&per\_page=30"
-] }}
+"https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%22soil+moisture+sensors%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+%2B%22crop+water+demand+prediction%22&sort=relevance_score:desc&per-page=30",
+"https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%22soil+moisture+monitoring%22+%2B%22crop+water+stress%22&sort=relevance_score:desc&per-page=30",
+"https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22precision+agriculture%22+%2B%22variable+rate+irrigation%22+%2B%22irrigation+automation%22&sort=relevance_score:desc&per-page=30"
+]}}
 
 These example searches demonstrate how to create targeted, effective alex searches. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed. The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive.  By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
 """

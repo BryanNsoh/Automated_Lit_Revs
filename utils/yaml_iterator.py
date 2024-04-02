@@ -157,10 +157,13 @@ class IrrigationData:
                             response_id = response["response_id"]
                             yield subsection, point_title, query_type, query_id, response_id, response, query
 
-    async def update_response(self, query_id, response_id, field, value):
-        for subsection in self.data["subsections"]:
-            for point in subsection["points"]:
-                point_data = next(iter(point.values()))
+    async def update_response(
+        self, subsection_index, point_title, query_id, response_id, field, value
+    ):
+        subsection = self.data["subsections"][subsection_index]
+        for point in subsection["points"]:
+            if point_title in point:
+                point_data = point[point_title]
                 query_types = [
                     key for key in point_data.keys() if key.endswith("_queries")
                 ]

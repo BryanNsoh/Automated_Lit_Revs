@@ -50,7 +50,12 @@ class PaperRanker:
         self.metrics_tracker = MetricsTracker()
 
     async def process_yaml_entry(
-        self, entry, subsection_title, point_content, section_intention
+        self,
+        entry,
+        subsection_title,
+        point_content,
+        section_intention,
+        output_folder_path,
     ):
         self.metrics_tracker.increment_total_entries_processed()
         retry_count = 0
@@ -88,6 +93,10 @@ class PaperRanker:
                                 )
                             entry.update(json_data)
                             logger.debug(f"Successfully processed entry.")
+                            if relevance_score > 0.5:
+                                await self.save_relevant_entry(
+                                    output_folder_path, entry
+                                )
                             return entry
                         except (ValueError, TypeError):
                             logger.warning(
@@ -111,15 +120,16 @@ class PaperRanker:
         logger.error(f"Max retries reached for current entry. Skipping entry.")
         return None
 
-    async def save_relevant_entries(self, relevant_entries):
+    async def save_relevant_entry(self, output_folder_path, entry):
         output_file_name = "relevant_entries.yaml"
-        output_file_path = os.path.join(self.output_folder_path, output_file_name)
+        output_file_path = os.path.join(output_folder_path, output_file_name)
         try:
-            async with aiofiles.open(output_file_path, "w", encoding="utf-8") as file:
-                await file.write(yaml.safe_dump(relevant_entries, allow_unicode=True))
-            logger.info(f"Successfully processed and saved file: {output_file_path}")
+            async with aiofiles.open(output_file_path, "a", encoding="utf-8") as file:
+                yaml_data = yaml.safe_dump([entry], allow_unicode=True)
+                await file.write(yaml_data)
+            logger.info(f"Successfully saved relevant entry to: {output_file_path}")
         except Exception as e:
-            logger.exception(f"Error saving relevant entries: {str(e)}")
+            logger.exception(f"Error saving relevant entry: {str(e)}")
 
     async def process_yaml_files(
         self,
@@ -129,7 +139,6 @@ class PaperRanker:
         point_content,
         section_intention,
     ):
-        self.output_folder_path = output_folder_path
         tasks = []
         for yaml_file_path in yaml_file_paths:
             logger.info(f"Processing file: {yaml_file_path}")
@@ -145,7 +154,11 @@ class PaperRanker:
             for entry in data:
                 task = asyncio.create_task(
                     self.process_yaml_entry(
-                        entry, subsection_title, point_content, section_intention
+                        entry,
+                        subsection_title,
+                        point_content,
+                        section_intention,
+                        output_folder_path,
                     )
                 )
                 tasks.append(task)
@@ -157,12 +170,8 @@ class PaperRanker:
             and isinstance(entry, dict)
             and float(entry.get("relevance_score", 0)) > 0.5
         ]
-        if relevant_entries:
-            await self.save_relevant_entries(relevant_entries)
-            logger.info(f"Successfully processed files.")
-            self.metrics_tracker.increment_relevant_entries(len(relevant_entries))
-        else:
-            logger.info(f"No relevant entries found in the given files.")
+        self.metrics_tracker.increment_relevant_entries(len(relevant_entries))
+        logger.info(f"Successfully processed files.")
 
 
 class FileSystemHandler:
@@ -193,29 +202,32 @@ class FileSystemHandler:
         for subsection in outline_data["subsections"]:
             subsection_index = subsection["index"]
             subsection_title = subsection["subsection_title"]
-            subsection_folder = os.path.join(
-                output_folder_path, f"subsection_{subsection_index}"
-            )
-            os.makedirs(subsection_folder, exist_ok=True)
-            yaml_file_paths = []
             for point_dict in subsection["points"]:
                 for point_key, point in point_dict.items():
                     point_content = point["point_content"]
+                    point_folder_name = point_key.replace(" ", "_")
+                    point_folder = os.path.join(
+                        output_folder_path,
+                        f"subsection_{subsection_index}",
+                        point_folder_name,
+                    )
+                    os.makedirs(point_folder, exist_ok=True)
+                    yaml_file_paths = []
                     for response in point["scopus_queries"] + point["alex_queries"]:
                         for response_data in response["responses"]:
                             yaml_file_path = response_data.get("yaml_path", "")
                             if yaml_file_path:
                                 yaml_file_paths.append(yaml_file_path)
-            task = asyncio.create_task(
-                ranker.process_yaml_files(
-                    yaml_file_paths,
-                    subsection_folder,
-                    subsection_title,
-                    point_content,
-                    section_intention,
-                )
-            )
-            tasks.append(task)
+                    task = asyncio.create_task(
+                        ranker.process_yaml_files(
+                            yaml_file_paths,
+                            point_folder,
+                            subsection_title,
+                            point_content,
+                            section_intention,
+                        )
+                    )
+                    tasks.append(task)
         await asyncio.gather(*tasks)
 
 

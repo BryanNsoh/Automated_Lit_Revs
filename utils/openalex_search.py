@@ -1,7 +1,6 @@
 import aiohttp
 import asyncio
 import json
-import fitz
 import urllib.parse
 import yaml
 from hashlib import sha256
@@ -38,7 +37,9 @@ class OpenAlexPaperSearch:
         self.output_folder = output_folder
         self.semaphore = asyncio.Semaphore(5)  # Limit to 5 concurrent requests
 
-    async def search_papers(self, query, query_id, response_id, max_results=30):
+    async def search_papers(
+        self, query, query_id, response_id, content, max_results=30
+    ):
         async with aiohttp.ClientSession(
             timeout=aiohttp.ClientTimeout(total=600)
         ) as session:
@@ -124,16 +125,6 @@ class OpenAlexPaperSearch:
                                                     ]
                                                     else ""
                                                 ),
-                                                "pdf_link": (
-                                                    work["primary_location"]["pdf_url"]
-                                                    if "primary_location" in work
-                                                    and isinstance(
-                                                        work["primary_location"], dict
-                                                    )
-                                                    and "pdf_url"
-                                                    in work["primary_location"]
-                                                    else ""
-                                                ),
                                                 "publication_year": (
                                                     work["publication_year"]
                                                     if "publication_year" in work
@@ -149,30 +140,11 @@ class OpenAlexPaperSearch:
                                             full_text = ""  # Initialize full_text with an empty string
 
                                             try:
-                                                if paper["pdf_link"]:
-                                                    logger.info(
-                                                        f"Extracting full text from PDF URL: {paper['pdf_link']}"
-                                                    )
-                                                    full_text = (
-                                                        await self.extract_fulltext(
-                                                            paper["pdf_link"]
-                                                        )
-                                                    )
-                                                    if not full_text:
-                                                        logger.info(
-                                                            f"Extracting full text from URL: {paper['pdf_link']}"
-                                                        )
-                                                        full_text = await self.extract_fulltext_from_url(
-                                                            paper["pdf_link"]
-                                                        )
-
-                                                if not full_text and paper["DOI"]:
+                                                if paper["DOI"]:
                                                     logger.info(
                                                         f"Extracting full text from DOI: {paper['DOI']}"
                                                     )
-                                                    full_text = await self.extract_fulltext_from_doi(
-                                                        paper["DOI"]
-                                                    )
+                                                    full_text = content
 
                                                 if full_text:
                                                     logger.info(
@@ -187,7 +159,7 @@ class OpenAlexPaperSearch:
                                                     )
                                             except Exception as e:
                                                 logger.error(
-                                                    f"Error occurred while extracting full text: {str(e)}"
+                                                    f"Error occurred whileextracting full text: {str(e)}"
                                                 )
 
                                             paper_data.append(paper)
@@ -248,54 +220,6 @@ class OpenAlexPaperSearch:
                             return ""
 
             logger.error(f"Max retries exceeded for URL: {search_url}")
-            return ""
-
-    async def extract_fulltext(self, pdf_url):
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.get(pdf_url) as resp:
-                    pdf_bytes = await resp.read()
-                    try:
-                        with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
-                            fulltext = ""
-                            for page in doc:
-                                fulltext += page.get_text()
-                            logger.info(f"Full text extracted from PDF: {pdf_url}")
-                            return fulltext
-                    except fitz.FileDataError:
-                        logger.error(f"Error: Cannot open PDF file from {pdf_url}")
-                        return ""
-            except aiohttp.ClientError as e:
-                logger.error(f"Error occurred while retrieving PDF from {pdf_url}")
-                logger.error(f"Error details: {str(e)}")
-                return ""
-            except Exception as e:
-                logger.error(
-                    f"Unexpected error occurred while extracting full text from {pdf_url}"
-                )
-                logger.error(f"Error details: {str(e)}")
-                return ""
-
-    async def extract_fulltext_from_url(self, pdf_url):
-        try:
-            logger.info(f"Extracting full text from URL: {pdf_url}")
-            content = await self.web_scraper.get_url_content(pdf_url)
-            logger.info(f"Full text extracted from URL: {pdf_url}")
-            return content
-        except Exception as e:
-            logger.error(
-                f"Error: Failed to scrape full text from PDF URL {pdf_url}. {str(e)}"
-            )
-            return ""
-
-    async def extract_fulltext_from_doi(self, doi):
-        try:
-            logger.info(f"Extracting full text from DOI: {doi}")
-            content = await self.web_scraper.get_url_content(doi)
-            logger.info(f"Full text extracted from DOI: {doi}")
-            return content
-        except Exception as e:
-            logger.error(f"Error: Failed to scrape full text from DOI {doi}. {str(e)}")
             return ""
 
     def get_hashed_filename(self, query, query_id, response_id):

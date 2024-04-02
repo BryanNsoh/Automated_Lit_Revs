@@ -1,5 +1,6 @@
 import yaml
 import asyncio
+import aiofiles
 import re
 import os
 from pathlib import Path
@@ -20,14 +21,15 @@ class QueryGenerator:
         self.max_retries = max_retries
 
     async def process_yaml(self, yaml_path, section_title, section_number):
-        with open(yaml_path) as file:
-            self.yaml_data = yaml.safe_load(file)
+        async with aiofiles.open(yaml_path) as file:
+            self.yaml_data = yaml.safe_load(await file.read())
 
         # Determine the temporary output file path
         yaml_dir = Path(yaml_path).parent
         temp_output_file = yaml_dir / "temp_outline_queries.yaml"
 
         subsections = self.yaml_data["subsections"]
+        tasks = []
         for subsection in subsections:
             subsection_title = subsection["subsection_title"]
             print(f"Processing subsection: {subsection_title}")
@@ -41,38 +43,63 @@ class QueryGenerator:
                         key for key in point_data if key.endswith("_queries")
                     ]
                     for query_type in query_types:
-                        queries = await self.get_queries(
-                            section_title,
-                            subsection_title,
-                            point_content,
-                            eval(query_type.replace("_queries", "_search_guide")),
-                            section_number,
+                        task = asyncio.create_task(
+                            self.process_query_type(
+                                section_title,
+                                subsection_title,
+                                point_content,
+                                eval(query_type.replace("_queries", "_search_guide")),
+                                section_number,
+                                query_type,
+                                point_data,
+                            )
                         )
-                        print(f"{query_type}: ", queries)
-                        point_data[query_type] = queries
+                        tasks.append(task)
 
-                        # Create 1 empty responses for each query
-                        for i, query in enumerate(queries):
-                            query_id = f"{query_type}_{i}"
-                            query_data = {
-                                "query_id": query_id,
-                                "query": query,
-                                "responses": [
-                                    {
-                                        "response_id": f"{query_id}_response_{j}",
-                                    }
-                                    for j in range(1)
-                                ],
-                            }
-                            point_data[query_type][i] = query_data
+        await asyncio.gather(*tasks)
 
-                    # Write the updated yaml_data to the temporary output file
-                    with open(temp_output_file, "w") as file:
-                        yaml.dump(self.yaml_data, file)
+        # Write the updated yaml_data to the temporary output file
+        async with aiofiles.open(temp_output_file, "w") as file:
+            await file.write(yaml.dump(self.yaml_data))
 
         # Rename the temporary output file to the final output file
         output_file = yaml_dir / "outline_queries.yaml"
         os.rename(temp_output_file, output_file)
+
+    async def process_query_type(
+        self,
+        section_title,
+        subsection_title,
+        point_content,
+        search_guidance,
+        section_number,
+        query_type,
+        point_data,
+    ):
+        queries = await self.get_queries(
+            section_title,
+            subsection_title,
+            point_content,
+            search_guidance,
+            section_number,
+        )
+        print(f"{query_type}: ", queries)
+        point_data[query_type] = queries
+
+        # Create 1 empty response for each query
+        for i, query in enumerate(queries):
+            query_id = f"{query_type}_{i}"
+            query_data = {
+                "query_id": query_id,
+                "query": query,
+                "responses": [
+                    {
+                        "response_id": f"{query_id}_response_{j}",
+                    }
+                    for j in range(1)
+                ],
+            }
+            point_data[query_type][i] = query_data
 
     async def get_queries(
         self,
