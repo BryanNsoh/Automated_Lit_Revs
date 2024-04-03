@@ -1,0 +1,1194 @@
+- DOI: https://doi.org/10.3390/agriculture8060073
+  analysis: '>'
+  authors:
+  - C. Leroux
+  - Hazaël Jones
+  - L. Pichon
+  - Serge Guillaume
+  - Julien Lamour
+  - James A. Taylor
+  - Olivier Naud
+  - Thomas Crestey
+  - Jean-Luc Lablée
+  - Bruno Tisseyre
+  citation_count: 32
+  full_citation: '>'
+  full_text: ">\nagriculture\nArticle\nGeoFIS: An Open Source, Decision-Support Tool\
+    \ for\nPrecision Agriculture Data\nCorentin Leroux 1,2,*, Hazaël Jones 1, Léo\
+    \ Pichon 1, Serge Guillaume 1, Julien Lamour 1,3,\nJames Taylor 1, Olivier Naud\
+    \ 1, Thomas Crestey 1, Jean-Luc Lablee 1 and Bruno Tisseyre 1\n1\nITAP (Information–Technologies-Environmental\
+    \ Analysis-Agricultural Processes, French Denomination),\nMontpellier SupAgro,\
+    \ Irstea, University of Montpellier, 34000 Montpellier, France;\nhazael.jones@supagro.fr\
+    \ (H.J.); leo.pichon@supagro.fr (L.P.); serge.guillaume@irstea.fr (S.G.);\nj.lamour@fruitiere.fr\
+    \ (J.L.); James.Taylor6@newcastle.ac.uk (J.T.); olivier.naud@irstea.fr (O.N.);\n\
+    thomas.crestey@supagro.fr (T.C.); jean-luc.lablee@irstea.fr (J.-L.L.); bruno.tisseyre@gmail.com\
+    \ (B.T.)\n2\nSMAG, 34960 Montpellier, France\n3\nCompagnie Fruitière, 13000 Marseille,\
+    \ France\n*\nCorrespondence: cleroux@smag-group.com; Tel.: +33-(0)3-2621-8420\n\
+    Received: 25 April 2018; Accepted: 28 May 2018; Published: 30 May 2018\n\x01\x02\
+    \x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\x06\a\nAbstract: The world\
+    \ we live in is an increasingly spatial and temporal data-rich environment,\n\
+    and agriculture is no exception. However, data needs to be processed in order\
+    \ to ﬁrst get information\nand then make informed management decisions. The concepts\
+    \ of ‘Precision Agriculture’ and\n‘Smart Agriculture’ are and will be fully effective\
+    \ when methods and tools are available to practitioners\nto support this transformation.\
+    \ An open-source software called GeoFIS has been designed with\nthis objective.\
+    \ It was designed to cover the whole process from spatial data to spatial information\n\
+    and decision support. The purpose of this paper is to evaluate the abilities of\
+    \ GeoFIS along with\nits embedded algorithms to address the main features required\
+    \ by farmers, advisors, or spatial\nanalysts when dealing with precision agriculture\
+    \ data. Three case studies are investigated in the\npaper: (i) mapping of the\
+    \ spatial variability in the data; (ii) evaluation and cross-comparison of the\n\
+    opportunity for site-speciﬁc management in multiple ﬁelds; and (iii) delineation\
+    \ of within-ﬁeld zones\nfor variable-rate applications when these latter are considered\
+    \ opportune. These case studies were\napplied to three contrasting crop types,\
+    \ banana, wheat and vineyards. These were chosen to highlight\nthe diversity of\
+    \ applications and data characteristics that might be handled with GeoFIS. For\
+    \ each\ncase-study, up-to-date algorithms arising from research studies and implemented\
+    \ in GeoFIS were\nused to process these precision agriculture data. Areas for\
+    \ future development and possible relations\nwith existing geographic information\
+    \ systems (GIS) software is also discussed.\nKeywords: decision-making; GeoFIS;\
+    \ geostatistics; open source software; precision agriculture;\nspatial analysis\n\
+    1. Introduction\nWithin-ﬁeld variability is now a widely accepted and reported\
+    \ phenomenon by the precision\nagriculture community [1,2]. Geolocalized data\
+    \ are effectively collected intensively within the ﬁelds\nby sensors embedded\
+    \ on agricultural machinery, satellites, ﬂying platforms, static stations, or\
+    \ humans\namong others, to make sure that this variability is considered and accounted\
+    \ for [3–5]. Spatial data have\nparticular characteristics that are worth careful\
+    \ consideration during analysis. First of all, their spatial\nresolution (density)\
+    \ is of interest as it deﬁnes the capacity to identify short- and long-scale spatial\n\
+    variability [6,7]. Spatial records are often associated with a high-level of noise\
+    \ that originates from\nmultiple reasons, such as the plant to plant variability,\
+    \ the accuracy of the sensor or the conditions\nAgriculture 2018, 8, 73; doi:10.3390/agriculture8060073\n\
+    www.mdpi.com/journal/agriculture\nAgriculture 2018, 8, 73\n2 of 21\nof data acquisition\
+    \ [8]. Except for images in which data are regularly distributed on a grid of\
+    \ pixels,\nmany spatial observations collected in agriculture are irregular and\
+    \ do not follow a ﬁxed pattern\nwithin the ﬁelds [9]. This feature is of great\
+    \ concern because many image-processing based algorithms\ncannot be directly used\
+    \ on these irregular data.\nTo beneﬁt from this increasing ﬂow of data, users\
+    \ should be provided with software or tools that\nallow them to:\n(i)\nvisualize\
+    \ the data they have collected (simple or low-level functions),\n(ii)\nprocess\
+    \ these data (advanced or high-level functions), and\n(iii) incorporate the knowledge\
+    \ they have on these data into the data processing.\nIt is acknowledged that basic\
+    \ visualization tools, e.g., data import, georeferencing, data display,\nare available\
+    \ in many general (e.g., Quantum geographic information systems (QGIS), gvSIG,\n\
+    Google Earth, Whitebow Geospatial Analysis Tools) and more speciﬁc [10,11] open-source\
+    \ platforms,\nincluding those not speciﬁc to agricultural applications. It is\
+    \ clear that such functionalities are of major\nimportance to start handling spatial\
+    \ data. However, when it comes to making informed management\ndecisions, these\
+    \ visualization functions are not sufﬁcient. It is necessary to provide users\
+    \ with more\nadvanced or high-level functions so that they can turn this raw spatial\
+    \ data into information and\ndecision layers. Most commonly required procedures\
+    \ in the precision agriculture domain are functions\nsuch as:\n(i)\nﬁltering,\
+    \ to ensure the quality of the datasets [12,13],\n(ii)\ninterpolation, to provide\
+    \ a continuous mapping of the property of interest [14–16],\n(iii) zoning, to\
+    \ deﬁne within-ﬁeld zones for site-speciﬁc management [17,18], or\n(iv) aggregation\
+    \ so that multiple layers of information can be combined [19,20].\nTo foster the\
+    \ adoption of such tools, all the aforementioned functions have to be speciﬁcally\n\
+    dedicated to the processing of agricultural data from potentially very differing\
+    \ productions systems.\nThis is an important consideration as these data come\
+    \ with a lot of associated knowledge that has\nto be considered when processing\
+    \ these data. More speciﬁcally, a lot of local expertise to support\ndecision-making\
+    \ might be available as users, e.g., farmers, advisors and/or technicians, have\
+    \ normally\nbeen scouting the ﬁelds during all the growing season [21–23]. Site-speciﬁc\
+    \ management also requires\nthe use of agricultural machinery with speciﬁc characteristics\
+    \ that have to be considered in these\nprocessing functions. This is to ensure\
+    \ that planned differential management is in accordance with\nthe practical and\
+    \ operational limitations of machinery e.g., working width, lag time and application\n\
+    speed [24,25].\nFrom a general perspective, there are only a few dedicated software\
+    \ programs available to\nexplicitly process precision agriculture data and incorporate\
+    \ expert knowledge into the process.\nMoreover, very few of them are open-source.\
+    \ Some free- or share-ware tools have been developed and\nproposed by the precision\
+    \ agriculture community, but these generally focus on speciﬁc processing tasks\n\
+    or on a particular type of data. For example, the Vesper program [26], developed\
+    \ by the University\nof Sydney, provides users with a graphical interface to spatially\
+    \ interpolate their data. Despite the\nquite advanced functions that are available,\
+    \ e.g., local punctual and block kriging, users only end\nup with a continuous\
+    \ map of their data without much more practical information. The Yield Editor\n\
+    software from the United States Department of Agriculture [13,27] deals effectively\
+    \ with the ﬁltering\nof within-ﬁeld yield datasets that are known to contain a\
+    \ lot of defective observations [28], but it does\nnot perform interpolation or\
+    \ other high-level functions. Another interesting example is a QGIS plugin\nthat\
+    \ was put into place to process spatial data of vine shoot diameter arising from\
+    \ the mounted sensor\nPhysiocap® (E.RE.C.A, Vaulx-en-Velin, France). This tool\
+    \ mainly incorporates functions to ﬁlter these\nhighly noisy datasets. Other platforms\
+    \ have been proposed by agronomist to give farmers access to\ncrop models but\
+    \ are very speciﬁc in terms of crop, data and use [29]. An open source platform\
+    \ that\ntakes raw data through to a decision point is not available to the precision\
+    \ agriculture community yet.\nAgriculture 2018, 8, 73\n3 of 21\nThe aim of the\
+    \ paper is to present the GeoFIS software (https://www.geoﬁs.org/) that was\n\
+    developed by a joined team from IRSTEA, INRA and Montpellier SupAgro in France\
+    \ [30]. The goal\nof this platform is to provide users with up-to-date and reliable\
+    \ algorithms to process their precision\nagriculture data and incorporate expert\
+    \ knowledge from the ﬁelds. GeoFIS has been mainly developed\nfor academic and\
+    \ research purposes, i.e., investigators and students willing to process their\
+    \ data,\nbut also to a lesser extent for agronomists and advisors with a sufﬁcient\
+    \ background in spatial\nanalysis. The objective of this interface-based platform\
+    \ is to support users that do not necessarily\nhave programming skills and to\
+    \ show that high level functions can be introduced in a GIS and could\nbe integrated\
+    \ within precision agriculture programs. The ﬁrst section introduces this open-source\n\
+    tool along with its architecture, design, interface, and main processing functions.\
+    \ Three different\ncase studies on various crops are then considered to evaluate\
+    \ the ability of this software to answer\nmost of the issues that are faced by\
+    \ the agricultural sector for processing their spatial data. The last\nsection\
+    \ highlights the needs for future developments to promote precision agriculture\
+    \ adoption and\nthe possibility to create connections with existing GIS software\
+    \ programs.\n2. The GeoFIS Software\n2.1. Aim of the GeoFIS Project\nGeoFIS has\
+    \ been designed to facilitate the movement from spatial data to spatial information,\n\
+    and to spatial decision-making. It is an open-source program that proposes a simple\
+    \ and easy to\nuse interface to build decision support systems (DSS) from spatial\
+    \ data [30]. While its development\nhas been inspired by agri-environmental applications,\
+    \ the framework itself is open and accessible\nto applications in other domains.\
+    \ It is designed to be adaptable to different usages and for different\nend-users,\
+    \ mostly for academic and research applications, for student and teaching applications\
+    \ and,\nto a lesser extent, for GIS-skilled agronomists and advisors.\nGeoFIS\
+    \ deviates from other GIS software, e.g., QGIS, in the sense that speciﬁc tools\
+    \ have been\nimplemented to answer the main expectations of agricultural professionals\
+    \ when it comes to processing\nprecision agriculture data. These will be presented\
+    \ later on. It is acknowledged that multiple other\nopen-sources spatial programs\
+    \ (e.g., QGIS) or languages (e.g., R and Python) are available to process\nspatial\
+    \ and temporal data. However, these open-source tools do not have speciﬁc functions\
+    \ dedicated\nto the processing of precision agriculture data (as listed in the\
+    \ introduction section) and usually\nrequire users to have skills in programming.\
+    \ This is a major limiting factor for the practical use\nof spatial modelling\
+    \ in agriculture. Another strength of GeoFIS is that attention has been paid to\n\
+    the incorporation of expert knowledge into the data analysis. This is not available\
+    \ in other related\nspatial processing tools. Agricultural professionals have\
+    \ a lot of local expert knowledge on their\nproduction system that needs to be\
+    \ taken into account. By incorporating this qualitative expert\nknowledge, the\
+    \ quality of the processing should be improved and the adoption of precision agriculture\n\
+    technologies should be enhanced.\n2.2. Architecture and Design of GeoFIS\nIn the\
+    \ proposed GeoFIS architecture, all the open-source toolboxes and libraries have\
+    \ been selected\nfor their ability to handle spatial data and to incorporate expert\
+    \ knowledge (Figure 1). Statistical and\ngeostatistical functions dedicated to\
+    \ precision agriculture data (see Section 2.3) are implemented in R\n(https://www.r-project.org).\
+    \ Outside these speciﬁc functions, spatial data are handled through two\nopen-source\
+    \ libraries, i.e., Geotools (http://www.geotools.org) and CGAL (Computational\
+    \ Geometry\nAlgorithms Library, https://www.cgal.org). Geotools is used because\
+    \ its java implementation allows\nthe design of user-friendly interfaces. CGAL\
+    \ was chosen for its ability to provide very efﬁcient and\nreliable geometric\
+    \ algorithms, as its functions are developed in C++. Finally, the incorporation\
+    \ of\nexpert knowledge is made possible with FisPro (https://www.ﬁspro.org), a\
+    \ system that uses fuzzy\nsets for conceptual modeling [30].\nAgriculture 2018,\
+    \ 8, 73\n4 of 21\nGeoFIS is available in four languages (French, English, Spanish\
+    \ and Portuguese). The interface\nis designed with a man-machine cooperation objective.\
+    \ The goal is to facilitate the relationships\nbetween data, learning algorithms\
+    \ and expert knowledge. Documentation, scientiﬁc papers, and video\ntutorials\
+    \ are available to better understand the implemented function and to facilitate\
+    \ the adoption of\nthe GeoFIS software (https://www.geoﬁs.org/). Notiﬁcations\
+    \ are made when a new version of the\nsoftware is available.\nAgriculture 2018,\
+    \ 8, x FOR PEER REVIEW  \n4 of 21 \n \nvideo tutorials are available to better\
+    \ understand the implemented function and to facilitate the \nadoption of the\
+    \ GeoFIS software (https://www.geofis.org/). Notifications are made when a new\
+    \ \nversion of the software is available. \n \nFigure 1. The GeoFIS architecture\
+    \ [30]. CGAL, Computational Geometry Algorithms Library; DSS, \nDecision Support\
+    \ Systems; GIS, Geographic Information System; 1D, One dimension. \n2.3. Functionalities\
+    \ Implemented in GeoFIS \nGeoFIS contains a series of low and high-level non-spatial\
+    \ and spatial functionalities to \ninterrogate spatial data. The general functionalities\
+    \ are introduced here and then expanded in several \ncase studies in the following\
+    \ section. Figure 2 shows the generic flow required in precision \nagriculture,\
+    \ from raw data processing to decision-making, with the functionalities within\
+    \ GeoFIS at \neach stage indicated. In agricultural systems, data are available\
+    \ in different formats (points, polygons, \nrasters) and at different scales.\
+    \ The quality of the data is also variable, with some sensors being \ninherently\
+    \ noisy and others less so. Different data need potentially different approaches\
+    \ to (i) data \nvalidation and clean-up (quality control), (ii) data display (visualization)\
+    \ and when necessary for (iii) \ninterpolation. These steps transform data into\
+    \ information layers. Within GeoFIS, data can be easily \nimported (Step 0) and\
+    \ displayed as a map (in its geographical space) and as a histogram (in its \n\
+    attribute space). This allows the user to ‘expertly’ identify global outliers\
+    \ in both the geographical \nand attribute space and remove any erroneous data\
+    \ (Step 1). Interpolation is possible using inverse \ndistance weighting (for\
+    \ small data sets) and via punctual kriging with a global variogram for larger\
+    \ \ndata sets (>100 points). The kriging method includes the ability to plot the\
+    \ experimental variogram \nand specify a theoretical variogram, which is then\
+    \ passed to the kriging function. Interpolated \noutputs can be directly displayed\
+    \ as rasters within the display (Step 2). \n‘Precision Agriculture’ or ‘Smart\
+    \ Agriculture’ is only effective when effective decisions are \nmade. End-users\
+    \ can transform these information layers into decision layers to improve the \n\
+    management of their fields. Three main functionalities for management (practical)\
+    \ applications have \nbeen incorporated within GeoFIS to address this. Firstly,\
+    \ practitioners are provided with a method to \ndelineate within-field homogeneous\
+    \ zones (Step 3.1). Zoning is of importance for precision \nagriculture data as\
+    \ the identified zones will (i) facilitate spatial data visualization and interpretation,\
+    \ \nand (ii) provide a spatial resolution that is practical and effective for\
+    \ many differential field \noperations. GeoFIS uses a segmentation algorithm to\
+    \ ‘zone’ data layers [18]. The segmentation \nFigure 1.\nThe GeoFIS architecture\
+    \ [30].\nCGAL, Computational Geometry Algorithms Library;\nDSS, Decision Support\
+    \ Systems; GIS, Geographic Information System; 1D, One dimension.\n2.3. Functionalities\
+    \ Implemented in GeoFIS\nGeoFIS contains a series of low and high-level non-spatial\
+    \ and spatial functionalities to interrogate\nspatial data. The general functionalities\
+    \ are introduced here and then expanded in several case studies\nin the following\
+    \ section. Figure 2 shows the generic ﬂow required in precision agriculture, from\
+    \ raw\ndata processing to decision-making, with the functionalities within GeoFIS\
+    \ at each stage indicated.\nIn agricultural systems, data are available in different\
+    \ formats (points, polygons, rasters) and at\ndifferent scales. The quality of\
+    \ the data is also variable, with some sensors being inherently noisy and\nothers\
+    \ less so. Different data need potentially different approaches to (i) data validation\
+    \ and clean-up\n(quality control); (ii) data display (visualization) and when\
+    \ necessary for (iii) interpolation. These steps\ntransform data into information\
+    \ layers. Within GeoFIS, data can be easily imported (Step 0) and\ndisplayed as\
+    \ a map (in its geographical space) and as a histogram (in its attribute space).\
+    \ This allows\nthe user to ‘expertly’ identify global outliers in both the geographical\
+    \ and attribute space and remove\nany erroneous data (Step 1). Interpolation is\
+    \ possible using inverse distance weighting (for small data\nsets) and via punctual\
+    \ kriging with a global variogram for larger data sets (>100 points). The kriging\n\
+    method includes the ability to plot the experimental variogram and specify a theoretical\
+    \ variogram,\nwhich is then passed to the kriging function. Interpolated outputs\
+    \ can be directly displayed as rasters\nwithin the display (Step 2).\n‘Precision\
+    \ Agriculture’ or ‘Smart Agriculture’ is only effective when effective decisions\
+    \ are made.\nEnd-users can transform these information layers into decision layers\
+    \ to improve the management of\ntheir ﬁelds. Three main functionalities for management\
+    \ (practical) applications have been incorporated\nwithin GeoFIS to address this.\
+    \ Firstly, practitioners are provided with a method to delineate within-ﬁeld\n\
+    homogeneous zones (Step 3.1). Zoning is of importance for precision agriculture\
+    \ data as the identiﬁed\nzones will (i) facilitate spatial data visualization\
+    \ and interpretation; and (ii) provide a spatial resolution\nAgriculture 2018,\
+    \ 8, 73\n5 of 21\nthat is practical and effective for many differential ﬁeld operations.\
+    \ GeoFIS uses a segmentation\nalgorithm to ‘zone’ data layers [18]. The segmentation\
+    \ algorithm operates either on irregular or\ngridded (interpolated) data to generate\
+    \ potential management zones.\nSecondly, while data/information collection tends\
+    \ to be focused around production issues, there is\nno restriction on its use.\
+    \ It can equally be used for strategic as well as tactical decision making.\n\
+    The example of the technical opportunity index (TOI) [31], which is implemented\
+    \ in GeoFIS, is a case\nin point. The TOI uses the production data to assess a\
+    \ ﬁeld’s suitability for site-speciﬁc management\ngiven machinery constraints\
+    \ and the observed production variation (Step 3.2). The algorithm processes\n\
+    the within ﬁeld data with a mathematical morphological ﬁlter based on erosions\
+    \ and dilations [31].\nThis ﬁlter allows end-users to account for the passes of\
+    \ the agricultural machinery in the ﬁeld and\nespecially the minimum area (kernel)\
+    \ within which it can operate reliably. As the algorithm requires\nthe data to\
+    \ be organized regularly on a grid, interpolating the data might therefore be\
+    \ required as a\npre-processing step (Step 2).\nAgriculture 2018, 8, x FOR PEER\
+    \ REVIEW  \n5 of 21 \n \nalgorithm operates either on irregular or gridded (interpolated)\
+    \ data to generate potential \nmanagement zones. \nSecondly, while data/information\
+    \ collection tends to be focused around production issues, there \nis no restriction\
+    \ on its use. It can equally be used for strategic as well as tactical decision\
+    \ making. The \nexample of the technical opportunity index (TOI) [31], which is\
+    \ implemented in GeoFIS, is a case in \npoint. The TOI uses the production data\
+    \ to assess a field’s suitability for site-specific management \ngiven machinery\
+    \ constraints and the observed production variation (Step 3.2). The algorithm\
+    \ \nprocesses the within field data with a mathematical morphological filter based\
+    \ on erosions and \ndilations [31]. This filter allows end-users to account for\
+    \ the passes of the agricultural machinery in \nthe field and especially the minimum\
+    \ area (kernel) within which it can operate reliably. As the \nalgorithm requires\
+    \ the data to be organized regularly on a grid, interpolating the data might therefore\
+    \ \nbe required as a pre-processing step (Step 2). \n \nFigure 2. Generic flow\
+    \ of data in precision agriculture with main processing steps from raw data \n\
+    processing to decision-making. \nFinally, in the majority of cases, practical\
+    \ agronomic decisions are multi-variate in nature. \nDecision support therefore\
+    \ requires dedicated data fusion methods to merge multiple information \nlayers\
+    \ into a single decision layer (Step 3.3). For instance, when available, historical\
+    \ yield data (high \nspatial resolution point information), as-applied historical\
+    \ fertilizer maps (polygon data), recent point \nsoil testing (low spatial resolution\
+    \ point data) and early season satellite imagery (high resolution \nraster) should\
+    \ collectively feed into a decision on mid-season spatial fertilizer inputs, i.e.,\
+    \ a \nprescription fertilizer map (normally a polygon layer). In the previous\
+    \ example, the prescription \nfertilization map (the decision layer) is based\
+    \ on a set of inputs (information layers) that are all related \nthrough expert\
+    \ rules. An example of a possible expert rule could be that if, on a given location\
+    \ in \nspace, the observed yield is high and the soil fertilizer level is low,\
+    \ then it might be relevant to apply \nmore fertilizer inputs. Within GeoFIS,\
+    \ the goal of the data aggregation process is to implement the \nexpert rules\
+    \ so that the final spatial decision layer (that answers the question: how much\
+    \ fertilizer \ninput should be applied at this particular place at this particular\
+    \ time?) can be obtained. Expert rules \nare implemented one at a time as each\
+    \ rule leads to a practical agronomic decision.  \nData aggregation in GeoFIS\
+    \ is a two-step process. First, each information layer is transformed \ninto an\
+    \ expert layer, i.e., the numerical agronomic values in each information layer\
+    \ are transformed \ninto degree values (from 0 to 1) according to the expert rule\
+    \ to be implemented. The transformation \nfrom an information layer to an expert\
+    \ layer is done using a fuzzy set-based function [32]. Secondly, \nFigure 2. Generic\
+    \ ﬂow of data in precision agriculture with main processing steps from raw data\n\
+    processing to decision-making.\nFinally, in the majority of cases, practical agronomic\
+    \ decisions are multi-variate in nature.\nDecision support therefore requires\
+    \ dedicated data fusion methods to merge multiple information\nlayers into a single\
+    \ decision layer (Step 3.3). For instance, when available, historical yield data\n\
+    (high spatial resolution point information), as-applied historical fertilizer\
+    \ maps (polygon data),\nrecent point soil testing (low spatial resolution point\
+    \ data) and early season satellite imagery\n(high resolution raster) should collectively\
+    \ feed into a decision on mid-season spatial fertilizer inputs,\ni.e., a prescription\
+    \ fertilizer map (normally a polygon layer). In the previous example, the prescription\n\
+    fertilization map (the decision layer) is based on a set of inputs (information\
+    \ layers) that are all related\nthrough expert rules. An example of a possible\
+    \ expert rule could be that if, on a given location in\nspace, the observed yield\
+    \ is high and the soil fertilizer level is low, then it might be relevant to apply\n\
+    more fertilizer inputs. Within GeoFIS, the goal of the data aggregation process\
+    \ is to implement the\nexpert rules so that the ﬁnal spatial decision layer (that\
+    \ answers the question: how much fertilizer\ninput should be applied at this particular\
+    \ place at this particular time?) can be obtained. Expert rules\nare implemented\
+    \ one at a time as each rule leads to a practical agronomic decision.\nData aggregation\
+    \ in GeoFIS is a two-step process. First, each information layer is transformed\
+    \ into\nan expert layer, i.e., the numerical agronomic values in each information\
+    \ layer are transformed into\nAgriculture 2018, 8, 73\n6 of 21\ndegree values\
+    \ (from 0 to 1) according to the expert rule to be implemented. The transformation\
+    \ from\nan information layer to an expert layer is done using a fuzzy set-based\
+    \ function [32]. Secondly, all the\nexpert layers are combined using an aggregation\
+    \ operator to respect the expert rules. Two aggregation\noperators are currently\
+    \ implemented in GeoFIS. The ﬁrst operator is the Weighted Arithmetic Mean\n(WAM),\
+    \ which attributes a weight to each information source, e.g., the yield information\
+    \ layer may\nbe given twice as much weight as the soil fertilizer level layer.\
+    \ The second operator is the Ordered\nWeighted Average (OWA) [33], where the weighing\
+    \ is slightly more complex. For a given location\nin space, the degree values\
+    \ associated with each layer involved in the expert rule are ordered and\nthe\
+    \ weights assigned to each layer will depend on their position in this ordering.\
+    \ This operator is of\ninterest as it enables the implementation of logical operations,\
+    \ such as:\n-\n“OR”, where the expert rule applies as soon as the highest degree\
+    \ associated with the layers is\nhigh, and\n-\n“AND”, where the expert rule applies\
+    \ as soon as one of the degrees associated with the layers\nis high.\nThe result\
+    \ of the aggregation process is a single decision layer. The uniqueness of the\
+    \ GeoFIS\napproach is in its ability to incorporate the expert knowledge developed\
+    \ by farmers and advisors\non the data and their ﬁelds directly into the data\
+    \ fusion process. The implemented data aggregation\nmethods require the data to\
+    \ be collocated, either on irregular or regular grids.\n3. Case Studies\nThe previous\
+    \ section introduced the GeoFIS framework, introducing the functionalities\nimplemented\
+    \ and how they could be adapted to the individual needs of each end-user (who\
+    \ will\nhave their own unique constraints on management). The following sections\
+    \ provide more detailed\nillustrations on the main processing steps in the context\
+    \ of precision agriculture applications.\nMore speciﬁcally, the three cases deal\
+    \ with the typical tasks that advisors and farmers may face\nin their daily job:\n\
+    (i)\nthe mapping of spatial data (Steps 0, 1 and 2),\n(ii)\nthe evaluation and\
+    \ cross-comparison of the opportunity for site-speciﬁc management in their\nﬁelds\
+    \ (Step 3.2), and\n(iii) the delineation of within-ﬁeld zones for variable-rate\
+    \ applications where zoning is considered\nopportune (Steps 3.1 and 3.3).\nSteps\
+    \ 0 to 2 will be exempliﬁed through medium spatial resolution manual measurements\n\
+    performed over a banana ﬁeld to map the plant vigor. High resolution yield data\
+    \ across several\nwheat ﬁelds will be used to illustrate the value of Step 3.2\
+    \ to rank the ﬁelds from the most to the\nless suitable for site-speciﬁc management.\
+    \ Step 3.1 and 3.3 will be applied on a precision viticulture\nexample aimed at\
+    \ deﬁning zones for differential irrigation management. The overall objective\
+    \ is to\ndemonstrate how GeoFIS has the ability to address the main issues of\
+    \ data processing in precision\nagriculture. As the three case studies are performed\
+    \ on different crops (banana, wheat and grapevines),\neach exhibiting unique characteristics,\
+    \ the applicability and genericity of this open-source software\nwill also be\
+    \ demonstrated. The three case studies are detailed in the next three sections.\n\
+    3.1. Case Study 1: Mapping the Spatial Organization in the Data—An Example of\
+    \ the Vegetative Response of\nan Asynchronous Plant, the Banana\n3.1.1. Rationale\
+    \ and Description\nVariography and mapping are two very important processing steps\
+    \ in the precision agriculture\ndomain. The former helps evaluate the spatial\
+    \ structure in the data by quantifying the proportions of\n(i) spatially-structured\
+    \ variability or large-scale variations and (ii) spatially unstructured variability\
+    \ or\nAgriculture 2018, 8, 73\n7 of 21\nsmall-scale variations within the ﬁeld.\
+    \ The latter is mainly used to the correct display of the observed\nspatial variability\
+    \ and facilitate the process of decision-making.\nIn this case study, GeoFIS was\
+    \ used to investigate and map the spatial variability in the\npseudostem (trunk)\
+    \ circumference of banana crops. The proposed analysis was carried out on\nthis\
+    \ crop for two major reasons. First of all, the spatial variability in the agronomic\
+    \ properties of\nbanana crops has been poorly reported in the literature [34].\
+    \ Secondly, this crop is known to be\nasynchronous in its production cycle, which\
+    \ means that spatial analyses are to be handled differently\nfrom what is commonly\
+    \ done in annual crops, e.g., wheat, canola, or perennial ones, e.g., vineyards\
+    \ [34].\nThe proposed analysis (i) estimates the proportion of spatially-structured\
+    \ variability in pseudostem\ncircumferences, i.e., the proportion of variance\
+    \ that is mainly due to spatially-structured environmental\nproperties [15]; (ii)\
+    \ determines the proportion of spatially unstructured variability that is due\
+    \ to\nnon-spatially structured phenomena e.g., the inter-plant variability, plant\
+    \ competition, replanting,\nand measurement accuracy among others; and (iii) maps\
+    \ the overall within-ﬁeld variability of trunk\ncircumference in the plantation.\n\
+    The plot under study is situated in a commercial banana plantation in Njombe,\
+    \ Cameroon (WGS84:\nE: 4.612, N: 9.639) in its 15th ﬂowering cycle. The pseudostem\
+    \ circumference measurements were only\ntaken on plants where vegetative growth\
+    \ had ceased, i.e., plants that were either ﬂowering or at a\nlater phenological\
+    \ stage. There were 551 measurements taken using a tape measure at 1-m height\
+    \ and\ngeoreferenced with a trail type hand-held GPS (Table 1). The proposed analysis\
+    \ in GeoFIS consisted of\nthe following steps: (i) the dataset was imported within\
+    \ GeoFIS (Step 0); (ii) pseudostem circumference\nvalues were filtered to ensure\
+    \ the quality of the dataset (Step 1); (iii) variograms were fitted to the filtered\n\
+    datasets and interpolation was performed using kriging with a local neighborhood\
+    \ onto a 1 × 1 m grid.\nTable 1. Description of the plot under investigation.\n\
+    Surface (ha)\nTotal Number of Plants\nObservations\nNumber of Plants that Have\
+    \ Reached at\nLeast the Flowering Stage\nTrunk Circumference (cm)\nMean\nVariance\n\
+    0.85\n1287\n551\n74.7\n69.7\n3.1.2. Application in GeoFIS\nThe global distribution\
+    \ of the data was ﬁltered within GeoFIS (Figure 3). Users can select the\nattribute\
+    \ to be ﬁltered at the top of the window. Below the histogram, two threshold values\
+    \ that\nrepresent the two tails of the distribution can be changed, by either\
+    \ typing speciﬁc values or moving a\nslide bar. Observations outside these thresholds\
+    \ are then removed from the dataset. Note that there\nwere two low values in this\
+    \ data set that were considered outside the normal distribution by the user\n\
+    (Figure 3). The lower threshold allowed the user to eliminate these non-compliant\
+    \ values.\nThe spatial structure of the data can then be evaluated by plotting\
+    \ an experimental variogram,\nhere using the within-ﬁeld pseudostem circumferences.\
+    \ The number of lags and the maximum\nlag distance can be set in the left-hand\
+    \ corner of the window to make sure that the variogram is\nrelevant. The interface\
+    \ (Figure 4) enables the user to specify and ﬁt a theoretical variogram model\n\
+    to the experimental variogram. A theoretical variogram is automatically ﬁtted\
+    \ after which users can\ninteractively change the values of the variogram parameters,\
+    \ i.e., nugget, partial sill and range to\nimprove the ﬁt. The quality of the\
+    \ ﬁt can be assessed with the root mean square error (RMSE) value\nthat is detailed\
+    \ in the top right-hand corner of the interface. The theoretical model can then\
+    \ be saved\nand used later to perform interpolation by kriging.\nAgriculture 2018,\
+    \ 8, 73\n8 of 21\nAgriculture 2018, 8, x FOR PEER REVIEW  \n8 of 21 \n \n \nFigure\
+    \ 3. Filtering of the pseudostem circumference values based on distribution of\
+    \ response in the \nattribute space. \nThe spatial structure of the data can then\
+    \ be evaluated by plotting an experimental variogram, \nhere using the within-field\
+    \ pseudostem circumferences. The number of lags and the maximum lag \ndistance\
+    \ can be set in the left-hand corner of the window to make sure that the variogram\
+    \ is relevant. \nThe interface (Figure 4) enables the user to specify and fit\
+    \ a theoretical variogram model to the \nexperimental variogram. A theoretical\
+    \ variogram is automatically fitted after which users can \ninteractively change\
+    \ the values of the variogram parameters, i.e., nugget, partial sill and range\
+    \ to \nimprove the fit. The quality of the fit can be assessed with the root mean\
+    \ square error (RMSE) value \nthat is detailed in the top right-hand corner of\
+    \ the interface. The theoretical model can then be saved \nand used later to perform\
+    \ interpolation by kriging. \n \nFigure 4. Screenshot from GeoFIS illustrating\
+    \ the calculation of the experimental variogram and the \nfitting of a theoretical\
+    \ variogram model to the within-field pseudostem circumference spatial data. \n\
+    Figure 3. Filtering of the pseudostem circumference values based on distribution\
+    \ of response in the\nattribute space.\n \n \nFigure 3. Filtering of the pseudostem\
+    \ circumference values based on distribution of response in the \nattribute space.\
+    \ \nThe spatial structure of the data can then be evaluated by plotting an experimental\
+    \ variogram, \nhere using the within-field pseudostem circumferences. The number\
+    \ of lags and the maximum lag \ndistance can be set in the left-hand corner of\
+    \ the window to make sure that the variogram is relevant. \nThe interface (Figure\
+    \ 4) enables the user to specify and fit a theoretical variogram model to the\
+    \ \nexperimental variogram. A theoretical variogram is automatically fitted after\
+    \ which users can \ninteractively change the values of the variogram parameters,\
+    \ i.e., nugget, partial sill and range to \nimprove the fit. The quality of the\
+    \ fit can be assessed with the root mean square error (RMSE) value \nthat is detailed\
+    \ in the top right-hand corner of the interface. The theoretical model can then\
+    \ be saved \nand used later to perform interpolation by kriging. \n \nFigure 4.\
+    \ Screenshot from GeoFIS illustrating the calculation of the experimental variogram\
+    \ and the \nfitting of a theoretical variogram model to the within-field pseudostem\
+    \ circumference spatial data. \nFigure 4. Screenshot from GeoFIS illustrating\
+    \ the calculation of the experimental variogram and the\nﬁtting of a theoretical\
+    \ variogram model to the within-ﬁeld pseudostem circumference spatial data.\n\
+    3.1.3. Results and Discussion\nThe spatial locations of the measurements are displayed\
+    \ in Figure 5. It clearly shows that the\nspatial observations are irregularly-spaced\
+    \ within the plot. This aspect can be simply explained by\nthe fact that not all\
+    \ the banana plants had reached the ﬂowering phenological stage (only 551 out\n\
+    of the 1287 plants had). In the plot under study, the pseudostem circumference\
+    \ exhibits a quite\nstrong spatial autocorrelation, the ratio of autocorrelated\
+    \ variance being close to 55% (Table 2).\nAgriculture 2018, 8, 73\n9 of 21\nThis\
+    \ ﬁnding demonstrates that spatially-structured environmental properties, e.g.,\
+    \ soil physical and\nchemical characteristics, are likely in this case to exert\
+    \ a relatively strong inﬂuence on the pseudostem\ncircumference of the banana\
+    \ plants. The determination of the factors affecting the pseudostem\ncircumference\
+    \ is beyond the scope of this study. Further analyses, e.g., soil and plant records,\
+    \ might help\nto answer this question.\n \n3.1.3. Results and Discussion \nThe\
+    \ spatial locations of the measurements are displayed in Figure 5. It clearly\
+    \ shows that the \nspatial observations are irregularly-spaced within the plot.\
+    \ This aspect can be simply explained by \nthe fact that not all the banana plants\
+    \ had reached the flowering phenological stage (only 551 out of \nthe 1287 plants\
+    \ had). In the plot under study, the pseudostem circumference exhibits a quite\
+    \ strong \nspatial autocorrelation, the ratio of autocorrelated variance being\
+    \ close to 55% (Table 2). This finding \ndemonstrates that spatially-structured\
+    \ environmental properties, e.g., soil physical and chemical \ncharacteristics,\
+    \ are likely in this case to exert a relatively strong influence on the pseudostem\
+    \ \ncircumference of the banana plants. The determination of the factors affecting\
+    \ the pseudostem \ncircumference is beyond the scope of this study. Further analyses,\
+    \ e.g., soil and plant records, might \nhelp to answer this question. \n \nFigure\
+    \ 5. Spatial measurements of pseudostem circumference divided in 5 quantiles within\
+    \ the plot \nunder study. \nTable 2 also shows that the proportion of spatially\
+    \ unstructured variability (C0) is not negligible. \nIn this case study, it can\
+    \ be mainly explained by (i) the inherent within-plant variability that might\
+    \ \nbe exacerbated by competition amongst neighbors, and (ii) the accuracy of\
+    \ the measurements which \nmight be affected by Global Navigation Satellite Systems\
+    \ (GNSS) accuracy issues or operator errors. \nTable 2. Spatial statistics of\
+    \ pseudostem circumference in the plot under investigation. \nNugget Variance\
+    \ \n(C0) \nPartial-Sill \nVariance (C1) \nSill Variance (C0 + C1) \nRatio of Autocorrelated\
+    \ Variance \n(C1/C0 + C1) \n35.2 \n43.4 \n78.6 \n55.2% \nFigure 6 provides a surface\
+    \ (map) of the within-field pseudostem circumference after \ninterpolation (ordinary\
+    \ kriging). This smooths the data in Figure 5 using information on spatial \n\
+    variability contained in the same data. The circumferences appear to be much lower\
+    \ (less than 70 cm) \nin the northern-eastern and in the southern portions of\
+    \ the plots. The larger pseudostems, those for \nwhich the circumference exceeded\
+    \ 87 cm, can be mainly found in the northern-part of the field. Some \nlocal effects,\
+    \ e.g., small sites of low circumference surrounded by high pseudostem circumferences,\
+    \ \nare also visible on the maps. Those might be explained by several phenomena\
+    \ having a localized \neffect on plants, such as pest damage or replanting. It\
+    \ is worth recalling that this final map is not a \nFigure 5. Spatial measurements\
+    \ of pseudostem circumference divided in 5 quantiles within the plot\nunder study.\n\
+    Table 2 also shows that the proportion of spatially unstructured variability (C0)\
+    \ is not negligible.\nIn this case study, it can be mainly explained by (i) the\
+    \ inherent within-plant variability that might\nbe exacerbated by competition\
+    \ amongst neighbors, and (ii) the accuracy of the measurements which\nmight be\
+    \ affected by Global Navigation Satellite Systems (GNSS) accuracy issues or operator\
+    \ errors.\nTable 2. Spatial statistics of pseudostem circumference in the plot\
+    \ under investigation.\nNugget Variance (C0)\nPartial-Sill Variance (C1)\nSill\
+    \ Variance (C0 + C1)\nRatio of Autocorrelated Variance\n(C1/C0 + C1)\n35.2\n43.4\n\
+    78.6\n55.2%\nFigure 6 provides a surface (map) of the within-ﬁeld pseudostem circumference\
+    \ after interpolation\n(ordinary kriging). This smooths the data in Figure 5 using\
+    \ information on spatial variability contained\nin the same data. The circumferences\
+    \ appear to be much lower (less than 70 cm) in the northern-eastern\nand in the\
+    \ southern portions of the plots. The larger pseudostems, those for which the\
+    \ circumference\nexceeded 87 cm, can be mainly found in the northern-part of the\
+    \ ﬁeld. Some local effects, e.g., small sites\nof low circumference surrounded\
+    \ by high pseudostem circumferences, are also visible on the maps.\nThose might\
+    \ be explained by several phenomena having a localized effect on plants, such\
+    \ as pest\ndamage or replanting. It is worth recalling that this ﬁnal map is not\
+    \ a map of circumferences of all\npseudostems, but rather a map of potential circumference\
+    \ at ﬂowering as not all the banana plants have\nreached the ﬂowering stage. This\
+    \ map is an alternative representation of the information displayed\nin Figure\
+    \ 5 and provides predictions for plants that were not measured in the original\
+    \ survey. As for\nFigure 6, this map may be very useful in locating sampling sites\
+    \ to perform further soil and or plant\nanalyses and to better characterize the\
+    \ within-ﬁeld pseudostem circumference variability. It has the\nAgriculture 2018,\
+    \ 8, 73\n10 of 21\nadvantage over the raw data plot (Figure 5) of being easier\
+    \ for the human eye to interpret the main\npatterns in the ﬁeld.\n \nmap of circumferences\
+    \ of all pseudostems, but rather a map of potential circumference at flowering\
+    \ \nas not all the banana plants have reached the flowering stage. This map is\
+    \ an alternative \nrepresentation of the information displayed in Figure 5 and\
+    \ provides predictions for plants that were \nnot measured in the original survey.\
+    \ As for Figure 6, this map may be very useful in locating sampling \nsites to\
+    \ perform further soil and or plant analyses and to better characterize the within-field\
+    \ \npseudostem circumference variability. It has the advantage over the raw data\
+    \ plot (Figure 5) of being \neasier for the human eye to interpret the main patterns\
+    \ in the field.  \n \nFigure 6. Kriged map of the potential pseudostem circumference\
+    \ within the field under study. The \nmap represents a potential rather than an\
+    \ exhaustive analysis of plants because not all the plants have \nreached the\
+    \ flowering stage. \nGeoFIS proved to be a relevant tool to model the spatial\
+    \ variability in the banana pseudostem \ncircumference data and for continuous\
+    \ mapping of this property of interest. However, a couple of \nlimitations are\
+    \ worth discussing. Firstly, even if the filtering interface is user-friendly,\
+    \ it only provides \na global filtering of the data. Only the tails of the distribution\
+    \ can be trimmed. It may have been that \nspatial data not only exhibit global\
+    \ but also local outliers. This was not a problem here but removing \nlocal outliers\
+    \ would be a useful function in the software program. When present, local outliers\
+    \ \n(inliers) will affect the quality of interpolation procedures. Secondly, GeoFIS\
+    \ does not yet allow the \nfitting of nested variogram models. This was a potential\
+    \ issue in this case study. In Figure 4, it could \nbe argued that there is a\
+    \ short-range spatial structure within the first 10 m and a second spatial \n\
+    structure from 10 to 30 m (with a longer range). Nested spatial structures are\
+    \ not common but do \noccur in agricultural data. Thirdly, regarding the continuous\
+    \ mapping of the data, GeoFIS only \nprovides a kriged map of the property of\
+    \ interest. The mean estimates are given but the error (kriging \nvariance) associated\
+    \ with these estimates is not provided. This is a potential limitation for assessing\
+    \ \nthe mapping accuracy and for interpreting uncertainty in future analyses with\
+    \ the interpolated data. \n3.2. Case Study 2: Evaluating and Comparing the Opportunity\
+    \ for Site-Specific Management within Fields \n3.2.1. Rationale and Description\
+    \ \nSite-specific management requires a strong investment in time, money and technical\
+    \ skills for \ngrowers. This investment requires certain conditions to be met.\
+    \ Firstly, the within-field variability \nhas to be strong enough to justify differentiate\
+    \ management. Secondly, this variability has to be \nspatially structured or organized\
+    \ enough within the field to be able to be managed by agricultural \nFigure 6.\
+    \ Kriged map of the potential pseudostem circumference within the ﬁeld under study.\
+    \ The map\nrepresents a potential rather than an exhaustive analysis of plants\
+    \ because not all the plants have\nreached the ﬂowering stage.\nGeoFIS proved\
+    \ to be a relevant tool to model the spatial variability in the banana pseudostem\n\
+    circumference data and for continuous mapping of this property of interest. However,\
+    \ a couple of\nlimitations are worth discussing. Firstly, even if the ﬁltering\
+    \ interface is user-friendly, it only provides\na global ﬁltering of the data.\
+    \ Only the tails of the distribution can be trimmed. It may have been that\nspatial\
+    \ data not only exhibit global but also local outliers. This was not a problem\
+    \ here but removing\nlocal outliers would be a useful function in the software\
+    \ program. When present, local outliers (inliers)\nwill affect the quality of\
+    \ interpolation procedures. Secondly, GeoFIS does not yet allow the ﬁtting of\n\
+    nested variogram models. This was a potential issue in this case study. In Figure\
+    \ 4, it could be argued\nthat there is a short-range spatial structure within\
+    \ the ﬁrst 10 m and a second spatial structure from 10\nto 30 m (with a longer\
+    \ range). Nested spatial structures are not common but do occur in agricultural\n\
+    data. Thirdly, regarding the continuous mapping of the data, GeoFIS only provides\
+    \ a kriged map of\nthe property of interest. The mean estimates are given but\
+    \ the error (kriging variance) associated with\nthese estimates is not provided.\
+    \ This is a potential limitation for assessing the mapping accuracy and\nfor interpreting\
+    \ uncertainty in future analyses with the interpolated data.\n3.2. Case Study\
+    \ 2: Evaluating and Comparing the Opportunity for Site-Speciﬁc Management within\
+    \ Fields\n3.2.1. Rationale and Description\nSite-speciﬁc management requires a\
+    \ strong investment in time, money and technical skills for\ngrowers. This investment\
+    \ requires certain conditions to be met. Firstly, the within-ﬁeld variability\n\
+    has to be strong enough to justify differentiate management. Secondly, this variability\
+    \ has to be\nspatially structured or organized enough within the ﬁeld to be able\
+    \ to be managed by agricultural\nmachinery [2]. Farmers, therefore, are in need\
+    \ of tools that will help them to evaluate this opportunity\nfor site-speciﬁc\
+    \ management. To make decisions at a larger level than the ﬁeld, i.e., the whole\
+    \ farm,\nthis opportunity also has to be cross-compared between ﬁelds. Farmers\
+    \ should preferentially commit\ntheir efforts towards the ﬁelds that are the most\
+    \ opportune for site-speciﬁc management. These are\nAgriculture 2018, 8, 73\n\
+    11 of 21\nmost likely to have the largest returns on investment in agri-technology,\
+    \ which should minimize the\nrisk of investment for the farmer.\nIn this case\
+    \ study,\nGeoFIS was used to evaluate and compare the opportunity for\nadopting\
+    \ site-speciﬁc management across multiple ﬁelds using a deﬁned opportunity index\
+    \ [31].\nOpportunity indices are a way of assessing if the amount and structure\
+    \ of variation in a ﬁeld makes\nsite-speciﬁc management a potentially feasible\
+    \ option [2,25]. Seven yield datasets arising from two\ndifferent farms located\
+    \ near Evreux, in the north-western part of France (Farm 1—WGS84: E: 0.779, N:\n\
+    48.955; Farm 2—WGS84: E: 1.032, N: 48.828) were used. Fields were cropped in wheat\
+    \ and harvested\nwith various combines, primarily New Holland (Turin, Italy) and\
+    \ Claas (Harsewinkel, Germany)\ncombines. Yield datasets are considered particularly\
+    \ relevant for this case study because the yield\nis directly related to the ﬁeld\
+    \ economic returns. Quantifying the amount and structure of yield\nvariance should\
+    \ therefore be a valuable indicator of whether site-speciﬁc management is opportune.\n\
+    Structured spatial variation in yield would indicate a potential for structured\
+    \ spatial crop management,\nparticularly fertilizer and agri-chemicals.\nThis\
+    \ case study also demonstrates the use of GeoFIS with dense sensor-derived spatial\n\
+    observations in contrast to the spatial manual measurements presented in Case\
+    \ Study 1. Yield data\nare collected with on-board sensors at 1 Hz as the combine\
+    \ traverses the ﬁeld. These observations are\ntherefore irregularly-distributed\
+    \ in space because (i) the intra-row and inter-row distances are different\nand\
+    \ (ii) the acquisition conditions, such as the GNSS accuracy or variable combine\
+    \ speed, can impact\nthe spatial distribution of the observations. The yield information\
+    \ is very dense (thousands of points\nper hectare) and very noisy because of stochastic\
+    \ error in sensor operation, the intrinsic local variability\nin production and\
+    \ errors associated with the combine harvester passing through the ﬁeld [13,28].\n\
+    These seven ﬁelds were selected as they exhibit various degrees of yield autocorrelation\
+    \ within\nthe same systems (farms) and, as such, should represent a different\
+    \ opportunity for variable-rate\napplications. Within this case-study, several\
+    \ functions of GeoFIS were used to arrive at a solution that\nranks and compares\
+    \ the seven ﬁelds in terms of a technical opportunity for site-speciﬁc management.\n\
+    More speciﬁcally, (i) global outliers were ﬁltered out (Step 1); (ii) variograms\
+    \ were ﬁtted to the\npreviously ﬁltered yield datasets and ordinary kriging with\
+    \ a global variogram and local neighborhood\nwas performed onto a 3 × 3 m grid\
+    \ (Step 2); and (iii) the TOI was computed (see Section 2.3\nFunctionalities implemented\
+    \ in GeoFIS) (Step 3.2). To account for technical and operational constraints\n\
+    during the TOI computation, the following operational characteristics were assumed:\
+    \ a working width\nof 20 m, a mean speed of 3 m s−1 and a delay rate of change\
+    \ between two different treatments of 2 s.\nThis could be for instance the characteristics\
+    \ of a fertilizer spreader performing variate-rate application.\nThe major yield\
+    \ statistics of the seven ﬁelds under consideration after data clean-up are reported\
+    \ in\nTable 3.\nTable 3. Principal descriptive and spatial statistics of the seven\
+    \ yield datasets under consideration.\nThe nugget to sill ratio can be calculated\
+    \ after variograms are ﬁtted to the cleaned data in GeoFIS.\nField\nSize (ha)\n\
+    Mean (t ha−1)\nCV (%)\nNugget to Sill Ratio (%)\n1\n8.9\n8.3\n8.7\n53.8\n2\n12.9\n\
+    7.0\n24.6\n46.3\n3\n8.9\n7.8\n11.6\n36.0\n4\n11.2\n6.1\n9.1\n37.5\n5\n18.1\n7.1\n\
+    14.5\n22.4\n6\n24.1\n9.6\n15.9\n19.9\n7\n32.5\n9.5\n15.4\n15.1\n3.2.2. Application\
+    \ in GeoFIS\nThe ﬁltering and interpolation procedures have already been detailed\
+    \ in Case Study 1 and will\nnot be discussed here. The technical opportunity index\
+    \ (TOI) can be computed in the Opportunity\nAgriculture 2018, 8, 73\n12 of 21\n\
+    Index toolbar of the GeoFIS software. Figure 7 displays the window that appears\
+    \ when this menu\nis selected. The window is composed of three main sections.\
+    \ In the top drop-down menu (Border),\nusers are asked to select the attribute\
+    \ on which the metric should be computed, e.g., yield, and to\nprovide the ﬁeld\
+    \ boundaries to make sure that the calculation of the TOI is restricted to the\
+    \ ﬁeld of\ninterest. Note that the boundary can be automatically derived with\
+    \ a convex hull, however this may\nnot be a good option for ﬁelds with an irregular\
+    \ geometric shape. In the second drop-down menu\n(Machine Footprint) the technical\
+    \ and operational constraints of future site-speciﬁc management can\nbe speciﬁed.\
+    \ More speciﬁcally, users can provide the working width of machinery, its speed,\
+    \ the delay\nin the rate of change between two levels of outputs (management strategies),\
+    \ and the uncertainty in\nthe GNSS positioning of the machine. The third drop-down\
+    \ menu (Interpolation) ensures that all\nobservations are reported on a ﬁxed grid\
+    \ and the TOI is calculated using the grid data. Users can select\nthe size of\
+    \ the interpolation grid along with the interpolation procedure, i.e., inverse\
+    \ distance weighing\nor kriging. Note that both interpolation approaches need\
+    \ to be parametrized and some user input.\nWhen all this information has been\
+    \ speciﬁed by a user, the TOI can be calculated. The window\ndisplays two major\
+    \ outputs: (i) the TOI value associated with the data along with the corresponding\n\
+    error rate of application; and (ii) the potential management zone map with the\
+    \ different strategies that\nshould be applied (in the case of Figure 7 there\
+    \ are two strategies presented). This latter map can be\nexported and used in\
+    \ other GIS software if needed.\nAgriculture 2018, 8, x FOR PEER REVIEW  \n13\
+    \ of 21 \n \nFigure 7. Screenshot of output from the computation of the Technical\
+    \ Opportunity Index (TOI) in \nGeoFIS for Field 7. \nFigure 7. Screenshot of output\
+    \ from the computation of the Technical Opportunity Index (TOI) in\nGeoFIS for\
+    \ Field 7.\n3.2.3. Results and Discussion\nFigure 8 shows the seven ﬁelds in the\
+    \ study ranked by their respective TOI values along with the\ncorresponding variable-rate\
+    \ application map for a two-management strategy. It clearly shows that\nthe ﬁelds\
+    \ have different levels of yield spatial structure, from the lowest for Field\
+    \ 1 to the strongest\nAgriculture 2018, 8, 73\n13 of 21\nfor Field 7. Note that,\
+    \ in this case study, the order of the TOI values is consistent with the order\
+    \ of\nnugget to sill ratios (Table 3). The TOI values are however very close in\
+    \ absolute terms (Figure 8)\nwith a range from 0.888 to 0.965. As the TOI value\
+    \ can theoretically range from 0 to 1, all the ﬁelds\nhere are exhibiting high\
+    \ TOI values, indicating that a site-speciﬁc management is opportune for all\n\
+    of these ﬁelds. All the maps have spatially-structured patterns, in accordance\
+    \ with the technical and\noperational constraints of a future possible machine\
+    \ pass (Figure 8). These maps could be directly\nincorporated into a machinery\
+    \ system to perform site-speciﬁc management.\n \n \nFigure 7. Screenshot of output\
+    \ from the computation of the Technical Opportunity Index (TOI) in \nGeoFIS for\
+    \ Field 7. \n \nAgriculture 2018, 8, x FOR PEER REVIEW  \n14 of 21 \n \nFigure\
+    \ 8. Ranking of the seven yield datasets in terms of the associated TOI value:\
+    \ (a) Field 1; (b) Field 2; \n(c) Field 3; (d) Field 4; (e) Field 5; (f) Field\
+    \ 6; (g) Field 7. Cleaned yield values and corresponding \npotential variable\
+    \ application maps are also displayed for each field. TOI: technical opportunity\
+    \ index. \nThe TOI is a valuable metric to evaluate and rank fields with respect\
+    \ to the opportunity for site-\nspecific management. GeoFIS is an interesting\
+    \ tool to perform this case study as all the steps required \nto compute the TOI\
+    \ can be performed within the program. Note that potential management zone \n\
+    maps are also provided and can be simply exported through the easy-to-use interface\
+    \ (however the \ntarget rates are not yet determined at this point—see case study\
+    \ 3). This should foster the adoption \nof precision agriculture technologies.\
+    \ Users must however be cautious when computing and \ninterpreting the TOI as\
+    \ this metric is particularly sensitive to the interpolation of the cleaned data\
+    \ and \nthe setting of the technical and operation constraints for site-specific\
+    \ management. Users should be \nable to perform a series of tests within GeoFIS\
+    \ to evaluate the impact of their parametrization on the \nTOI\nl\nd\nT\nhi\n\
+    i\nf\ni l\nFigure 8. Ranking of the seven yield datasets in terms of the associated\
+    \ TOI value: (a) Field 1; (b) Field 2;\n(c) Field 3; (d) Field 4; (e) Field 5;\
+    \ (f) Field 6; (g) Field 7. Cleaned yield values and corresponding\npotential\
+    \ variable application maps are also displayed for each ﬁeld. TOI: technical opportunity\
+    \ index.\nThe high TOI values for these ﬁelds is due to two principal reasons:\
+    \ (i) the data interpolation\nand (ii) the operational constraints that were set.\
+    \ The computation of the TOI requires the data\nto be regularly distributed over\
+    \ the ﬁeld, which is why a prior interpolation procedure is put into\nAgriculture\
+    \ 2018, 8, 73\n14 of 21\nplace. In this case study, the interpolation by kriging\
+    \ generated a relatively strong data smoothing\nthat artiﬁcially increased the\
+    \ TOI values as it is calculated on the interpolated data. Indeed, as the\nsmall-scale\
+    \ variations are smoothed, the yield patterns appear much more organized in space\
+    \ and the\nsite-speciﬁc management is consequently considered more opportune.\
+    \ The settings of the operational\ncharacteristics in these ﬁelds also facilitated\
+    \ high TOI values. As the minimal size of ﬁeld management\n(working width of the\
+    \ machinery) decreases, the opportunity for variable-rate application will increase.\n\
+    Smaller machinery means that smaller areas of spatial variation become potentially\
+    \ manageable.\nIn contrast, if ﬁeld management was done at a coarser level, e.g.,\
+    \ the working width of the machinery\nwas set to 40 m, then the opportunity for\
+    \ site-speciﬁc management would decrease and there would\nlikely be larger differences\
+    \ amongst the seven ﬁelds under study (data not shown). As can be seen\nin Figure\
+    \ 8, only two management strategies are proposed for each ﬁeld. Even if this two-class\n\
+    categorization appears sufﬁcient in some case studies, the actual computation\
+    \ of the TOI at the moment\ndoes not allow for alternative management strategies\
+    \ (three, four, . . . , etc. classes) to be simultaneously\nconsidered. This aspect\
+    \ will be investigated in further studies.\nThe TOI is a valuable metric to evaluate\
+    \ and rank ﬁelds with respect to the opportunity for\nsite-speciﬁc management.\
+    \ GeoFIS is an interesting tool to perform this case study as all the steps\n\
+    required to compute the TOI can be performed within the program. Note that potential\
+    \ management\nzone maps are also provided and can be simply exported through the\
+    \ easy-to-use interface (however the\ntarget rates are not yet determined at this\
+    \ point—see case study 3). This should foster the adoption of\nprecision agriculture\
+    \ technologies. Users must however be cautious when computing and interpreting\n\
+    the TOI as this metric is particularly sensitive to the interpolation of the cleaned\
+    \ data and the setting of\nthe technical and operation constraints for site-speciﬁc\
+    \ management. Users should be able to perform\na series of tests within GeoFIS\
+    \ to evaluate the impact of their parametrization on the TOI values and\nmanagement\
+    \ zone maps. To cross-compare this opportunity for potential differentiate application\n\
+    amongst ﬁelds, authors strongly advocate the application of the exact same process\
+    \ with similar\nsettings for the calculation of the ﬁnal TOI metric.\n3.3. Case\
+    \ Study 3: Delineating within-Field Zones for Variable-Rate Applications Using\
+    \ Expert Knowledge\n3.3.1. Rationale and Description\nThe delineation of within-ﬁeld\
+    \ zones is an important procedure in precision agriculture studies\nbecause it\
+    \ enables, or at least facilitates, growers to perform variable-rate applications.\
+    \ The creation\nof these zones is a complex process for multiple reasons: (i)\
+    \ there is a need to account for spatial\nrelationships in the data; (ii) very\
+    \ often multiple layers of spatial information must be combined;\nand (iii) the\
+    \ decision rules associated with agronomic applications are complex and require\
+    \ the\ngrower’s knowledge to be involved in the processing. In this case study,\
+    \ GeoFIS will be used to\ndelineate within-ﬁeld zones prior to the management\
+    \ of irrigation and fertilization in a Spanish\nvineyard using several layers\
+    \ of information and incorporating expert knowledge. This case study is an\nextension\
+    \ of previous work [35]. Interested readers are referred to this document for\
+    \ more information.\nThe study was carried out on a 90-ha commercial vineyard\
+    \ containing 27 contiguous ﬁelds\n(Figure 9) located in Southern Navarre, Spain\
+    \ (WGS84: E: 1.405, N: 42.254). The vine vigor, soil,\nand water availability\
+    \ in the ﬁeld were considered to be of major interest by the vine manager to\n\
+    manage irrigation and fertilization practices.\nVine vigor was estimated using\
+    \ the normalized difference vegetation index (NDVI) on a 3 × 3 m\nraster layer\
+    \ derived from a Multi-spectral Airborne image acquired in August 2007 and provided\n\
+    and processed by the Geosys-Spain Company (Leica ADS40 sensor). Measurements of\
+    \ soil apparent\nelectrical conductivity (ECa) on a 30 × 30 m grid (256 sampling\
+    \ points) were performed using a\nhandheld ground conductivity meter (EM38, Geonics\
+    \ Ltd., Mississauga, ON, Canada) to map soil\nspatial variability. The same sample\
+    \ sites were used to create a digital terrain model from elevation data\nobtained\
+    \ with a laser Tachymeter (TPS 1001, Leica, Heerbrugg, Switzerland). Both ECa\
+    \ and elevation\nAgriculture 2018, 8, 73\n15 of 21\ndata were kriged onto a 3\
+    \ m grid. Additional monitoring was performed to provide more information\non\
+    \ the vine vigor, soil and water variation [35]. As these additional observations\
+    \ were more expensive\nand/or cumbersome to collect, only 64 out of the 256 sampling\
+    \ sites were monitored. These monitoring\nsites were selected using the high-resolution\
+    \ data layers. Additional observations were related to the\n(i) soil, e.g., observation\
+    \ of soil pits; (ii) plant, e.g., plant water status, pruning weight of wood and\n\
+    yield; and (iii) production, e.g., berry size, berry composition, yield characteristics.\
+    \ The analysis of all\nthese data layers led to an explanatory reasoning summarized\
+    \ as [35]:\n•\nHydromorphic soils and wetlands are well deﬁned by the ECa information.\
+    \ Their presence is\nmainly explained by variations in elevation,\n•\nVine vegetative\
+    \ expression is too high (and harvest quality too low) on the zones at the highest\n\
+    elevations, characterized by light and deep soils (low ECa values),\n•\nVine vegetative\
+    \ expression is too weak on the zones at the lowest elevations, characterized\
+    \ by\nclay soils, which suffer from waterlogging after rainfall events (high ECa\
+    \ values).\nAgriculture 2018, 8, x FOR PEER REVIEW  \n15 of 21 \n \nFigure 9.\
+    \ Maps of the whole-vineyard showing the spatial variability in (a) elevation;\
+    \ (b) soil apparent \nconductivity (ECa); and (c) vegetative expression (normalized\
+    \ difference vegetation index (NDVI)). \nPoints in (a,b) indicate sampling locations\
+    \ (n = 256) (reproduced with permission from Reference 35) \n[35]. \nVine vigor\
+    \ was estimated using the normalized difference vegetation index (NDVI) on a 3\
+    \ × 3 m \nraster layer derived from a Multi-spectral Airborne image acquired in\
+    \ August 2007 and provided and \nprocessed by the Geosys-Spain Company (Leica\
+    \ ADS40 sensor). Measurements of soil apparent \nelectrical conductivity (ECa)\
+    \ on a 30 × 30 m grid (256 sampling points) were performed using a \nhandheld\
+    \ ground conductivity meter (EM38, Geonics Ltd., Mississauga, ON, Canada) to map\
+    \ soil \nspatial variability. The same sample sites were used to create a digital\
+    \ terrain model from elevation \ndata obtained with a laser Tachymeter (TPS 1001,\
+    \ Leica, Heerbrugg, Switzerland). Both ECa and \nelevation data were kriged onto\
+    \ a 3 m grid. Additional monitoring was performed to provide more \ninformation\
+    \ on the vine vigor, soil and water variation [35]. As these additional observations\
+    \ were \nmore expensive and/or cumbersome to collect, only 64 out of the 256 sampling\
+    \ sites were monitored. \nThese monitoring sites were selected using the high-resolution\
+    \ data layers. Additional observations \nwere related to the (i) soil, e.g., observation\
+    \ of soil pits, (ii) plant, e.g., plant water status, pruning \nFigure 9. Maps\
+    \ of the whole-vineyard showing the spatial variability in (a) elevation; (b)\
+    \ soil apparent\nconductivity (ECa); and (c) vegetative expression (normalized\
+    \ difference vegetation index (NDVI)).\nPoints in (a,b) indicate sampling locations\
+    \ (n = 256) (reproduced with permission from Reference 35) [35].\nBased on this\
+    \ explanatory reasoning, the vineyard manager deﬁned several decision rules to\n\
+    identify the situations in which the current management practices were sub-optimal\
+    \ regarding grape\nquality and quantity at harvest. An example of one of these\
+    \ rules was:\nIf NDVI is high (>70) and ECa is low (<180 mS · m−1) and elevation\
+    \ is high (>360 m), then the\nrisk of having sub-optimal management practices\
+    \ is high.\nThis latter rule was modelled in GeoFIS to provide a map showing the\
+    \ risk of having sub-optimal\nmanagement practices within the vineyard. First,\
+    \ the three data layers involved in the expert rule\nAgriculture 2018, 8, 73\n\
+    16 of 21\nwere transformed into risk maps using risk functions (Step 3.3). The\
+    \ parametrization of these risk\nfunctions was done with the vineyard manager.\
+    \ All the univariate risk maps were then combined into\na ﬁnal risk map using\
+    \ the OWA aggregator, which was again parametrized with the vineyard manager\n\
+    (see Section 2.3 Functionalities implemented in GeoFIS) (Step 3.3). Finally, a\
+    \ segmentation algorithm\nwas applied to this last risk map to provide within-ﬁeld\
+    \ risk zones (Step 3.1).\n3.3.2. Application in GeoFIS\nThis section will focus\
+    \ on the computation of the risk functions and on the zoning of the resulting\n\
+    risk map. For each layer of information (ECa, NDVI, Elevation), risk functions\
+    \ can be deﬁned within\nGeoFIS by implementing fuzzy rules as displayed in Figure\
+    \ 10. Here, a semi trapezoidal function\nwas used to model the risk of having\
+    \ sub-optimal practices by solely relying on the ECa layer. In this\ninterface,\
+    \ the form of the risk function can be changed along with the associated fuzzy\
+    \ parameters, i.e.,\nthe kernel and support. Once the risk functions have been\
+    \ set for all the layers of interest, all the risks\ncan be aggregated with respect\
+    \ to the aforementioned expert rule(s). This aggregation procedure can\nbe performed\
+    \ through the interfaces displayed in Figure 11 where (i) the layers can be selected\
+    \ and the\naggregation operator can be chosen (OWA aggregator here) and; (ii)\
+    \ the parameters associated to the\nOWA aggregator can be stated.\n \nidentify\
+    \ the situations in which the current management practices were sub-optimal regarding\
+    \ grape \nquality and quantity at harvest. An example of one of these rules was:\
+    \  \nIf NDVI is high (>70) and ECa is low (<180 mS m−1) and elevation is high\
+    \ (>360 m), then the risk \nof having sub-optimal management practices is high.\
+    \  \nThis latter rule was modelled in GeoFIS to provide a map showing the risk\
+    \ of having sub-optimal \nmanagement practices within the vineyard. First, the\
+    \ three data layers involved in the expert rule \nwere transformed into risk maps\
+    \ using risk functions (Step 3.3). The parametrization of these risk \nfunctions\
+    \ was done with the vineyard manager. All the univariate risk maps were then combined\
+    \ \ninto a final risk map using the OWA aggregator, which was again parametrized\
+    \ with the vineyard \nmanager (see Section 2.3 Functionalities implemented in\
+    \ GeoFIS) (Step 3.3). Finally, a segmentation \nalgorithm was applied to this\
+    \ last risk map to provide within-field risk zones (Step 3.1). \n3.3.2. Application\
+    \ in GeoFIS \nThis section will focus on the computation of the risk functions\
+    \ and on the zoning of the resulting \nrisk map. For each layer of information\
+    \ (ECa, NDVI, Elevation), risk functions can be defined within \nGeoFIS by implementing\
+    \ fuzzy rules as displayed in Figure 10. Here, a semi trapezoidal function was\
+    \ \nused to model the risk of having sub-optimal practices by solely relying on\
+    \ the ECa layer. In this \ninterface, the form of the risk function can be changed\
+    \ along with the associated fuzzy parameters, \ni.e., the kernel and support.\
+    \ Once the risk functions have been set for all the layers of interest, all the\
+    \ \nrisks can be aggregated with respect to the aforementioned expert rule(s).\
+    \ This aggregation procedure \ncan be performed through the interfaces displayed\
+    \ in Figure 11 where (i) the layers can be selected \nand the aggregation operator\
+    \ can be chosen (OWA aggregator here) and, (ii) the parameters \nassociated to\
+    \ the OWA aggregator can be stated. \n \nFigure 10. Implementation of the risk\
+    \ function associated with the ECa information layer. \n \nFigure 10. Implementation\
+    \ of the risk function associated with the ECa information layer.\n \nquality\
+    \ and quantity at harvest. An example of one of these rules was:  \nIf NDVI is\
+    \ high (>70) and ECa is low (<180 mS m−1) and elevation is high (>360 m), then\
+    \ the risk \nof having sub-optimal management practices is high.  \nThis latter\
+    \ rule was modelled in GeoFIS to provide a map showing the risk of having sub-optimal\
+    \ \nmanagement practices within the vineyard. First, the three data layers involved\
+    \ in the expert rule \nwere transformed into risk maps using risk functions (Step\
+    \ 3.3). The parametrization of these risk \nfunctions was done with the vineyard\
+    \ manager. All the univariate risk maps were then combined \ninto a final risk\
+    \ map using the OWA aggregator, which was again parametrized with the vineyard\
+    \ \nmanager (see Section 2.3 Functionalities implemented in GeoFIS) (Step 3.3).\
+    \ Finally, a segmentation \nalgorithm was applied to this last risk map to provide\
+    \ within-field risk zones (Step 3.1). \n3.3.2. Application in GeoFIS \nThis section\
+    \ will focus on the computation of the risk functions and on the zoning of the\
+    \ resulting \nrisk map. For each layer of information (ECa, NDVI, Elevation),\
+    \ risk functions can be defined within \nGeoFIS by implementing fuzzy rules as\
+    \ displayed in Figure 10. Here, a semi trapezoidal function was \nused to model\
+    \ the risk of having sub-optimal practices by solely relying on the ECa layer.\
+    \ In this \ninterface, the form of the risk function can be changed along with\
+    \ the associated fuzzy parameters, \ni.e., the kernel and support. Once the risk\
+    \ functions have been set for all the layers of interest, all the \nrisks can\
+    \ be aggregated with respect to the aforementioned expert rule(s). This aggregation\
+    \ procedure \ncan be performed through the interfaces displayed in Figure 11 where\
+    \ (i) the layers can be selected \nand the aggregation operator can be chosen\
+    \ (OWA aggregator here) and, (ii) the parameters \nassociated to the OWA aggregator\
+    \ can be stated. \n \nFigure 10. Implementation of the risk function associated\
+    \ with the ECa information layer. \n \nFigure 11. Parametrization of the Ordered\
+    \ Weighted Average (OWA) aggregator: (a) Selection of the\nlayers to be aggregated;\
+    \ (b) setting of the OWA aggregator parameters. The weights for the minimum,\n\
+    medium and maximum values of univariate risk are respectively 0.7, 0.2 and 0.1.\n\
+    Agriculture 2018, 8, 73\n17 of 21\nAfter the aggregation procedure has been run,\
+    \ practitioners end up with a continuous map of\nthe global risk of having sub-optimal\
+    \ practices within the vineyard. To facilitate the interpretation of\nthe map\
+    \ and the process of decision-making, the risk map can be zoned using the interface\
+    \ displayed\nin Figure 12. Before zoning, users must (i) deﬁne the boundary of\
+    \ the map, either by importing a\npredeﬁned boundary or by using a default convex\
+    \ hull algorithm (that is proposed in GeoFIS) to\ngenerate a boundary and (ii)\
+    \ set the neighborhood associated to each spatial observation so that zones\n\
+    can be expanded using spatial neighbors. The zoning procedure can then be applied\
+    \ to the OWA risk\nmap using the zoning algorithm implemented in GeoFIS [18].\
+    \ Users can then display a risk map with\na number of zones that they consider\
+    \ relevant.\nAgriculture 2018, 8, x FOR PEER REVIEW  \n17 of 21 \n \nFigure 11.\
+    \ Parametrization of the Ordered Weighted Average (OWA) aggregator: (a) Selection\
+    \ of the \nlayers to be aggregated; (b) setting of the OWA aggregator parameters.\
+    \ The weights for the minimum, \nmedium and maximum values of univariate risk\
+    \ are respectively 0.7, 0.2 and 0.1. \nAfter the aggregation procedure has been\
+    \ run, practitioners end up with a continuous map of \nthe global risk of having\
+    \ sub-optimal practices within the vineyard. To facilitate the interpretation\
+    \ of \nthe map and the process of decision-making, the risk map can be zoned using\
+    \ the interface displayed \nin Figure 12. Before zoning, users must (i) define\
+    \ the boundary of the map, either by importing a \npredefined boundary or by using\
+    \ a default convex hull algorithm (that is proposed in GeoFIS) to \ngenerate a\
+    \ boundary and (ii) set the neighborhood associated to each spatial observation\
+    \ so that zones \ncan be expanded using spatial neighbors. The zoning procedure\
+    \ can then be applied to the OWA risk \nmap using the zoning algorithm implemented\
+    \ in GeoFIS [18]. Users can then display a risk map with \na number of zones that\
+    \ they consider relevant. \n \nFigure 12. Delimitation of within-field yield zones\
+    \ of the risk of having sub-optimal management \npractices. (Map details described\
+    \ in Figure 13). \n3.3.3. Results and Discussion \nThe map of the risk of arriving\
+    \ at sub-optimal management practices using a combination of (i) \navailable information\
+    \ and (ii) expert rules derived from local knowledge is displayed in Figure 13.\
+    \ \nThis map shows five zones, three of which are relatively large, with specific\
+    \ risk levels. The highest-\nrisk area (dark red) is located on the western part\
+    \ of the vineyard and characterized by low ECa, high \nNDVI and high elevation\
+    \ (Figure 13). In this part of the vineyard, it is likely that current management\
+    \ \npractices are not well adapted as grape quality and quantity at harvest are\
+    \ not optimized in this area \nand “nitrogen applications should be avoided; water\
+    \ availability should be reduced by the \nintroduction of a cover crop; and Regulated\
+    \ Deficit Irrigation strategies should held in order to \nmoderate shoot growth\
+    \ and fertility” [35]. In order to simplify the presentation of this example,\
+    \ only \nFigure 12. Delimitation of within-ﬁeld yield zones of the risk of having\
+    \ sub-optimal management\npractices. (Map details described in Figure 13).\n3.3.3.\
+    \ Results and Discussion\nThe map of the risk of arriving at sub-optimal management\
+    \ practices using a combination of\n(i) available information and (ii) expert\
+    \ rules derived from local knowledge is displayed in Figure 13.\nThis map shows\
+    \ ﬁve zones, three of which are relatively large, with speciﬁc risk levels. The\
+    \ highest-risk\narea (dark red) is located on the western part of the vineyard\
+    \ and characterized by low ECa, high NDVI\nand high elevation (Figure 13). In\
+    \ this part of the vineyard, it is likely that current management\npractices are\
+    \ not well adapted as grape quality and quantity at harvest are not optimized\
+    \ in this area\nand “nitrogen applications should be avoided; water availability\
+    \ should be reduced by the introduction\nof a cover crop; and Regulated Deﬁcit\
+    \ Irrigation strategies should held in order to moderate shoot\ngrowth and fertility”\
+    \ [35]. In order to simplify the presentation of this example, only one rule has\n\
+    been taken into account. It would have been possible to introduce additional rules\
+    \ based on the work\npresented in [35].\nAgriculture 2018, 8, 73\n18 of 21\nIt\
+    \ is interesting to note that the aggregation procedure though the OWA operator\
+    \ using the NDVI,\nECa, and elevation layers (Figure 13) has resulted in a risk\
+    \ map that is different from that which would\nhave been obtained by interpreting\
+    \ each layer of information independently (Figure 14). For instance,\nif the ECa\
+    \ layer had only been used to generate the risk map, the highest-risk area would\
+    \ have covered\na much larger area of the vineyard.\nAgriculture 2018, 8, x FOR\
+    \ PEER REVIEW  \n18 of 21 \n \none rule has been taken into account. It would\
+    \ have been possible to introduce additional rules based \non the work presented\
+    \ in [35].  \nIt is interesting to note that the aggregation procedure though\
+    \ the OWA operator using the \nNDVI, ECa, and elevation layers (Figure 13) has\
+    \ resulted in a risk map that is different from that which \nwould have been obtained\
+    \ by interpreting each layer of information independently (Figure 14). For \n\
+    instance, if the ECa layer had only been used to generate the risk map, the highest-risk\
+    \ area would \nhave covered a much larger area of the vineyard.  \n \nFigure 13.\
+    \ Aggregated risk zones of sub-optimal management practices derived using the\
+    \ NDVI, ECa, \nand elevation layers together with local expert knowledge. \nThis\
+    \ case study illustrates that the expertise of farm managers and advisors can\
+    \ be incorporated \ninto a data-fusing algorithm to generate decision layers.\
+    \ Indeed, GeoFIS enables users to incorporate \ntheir own expertise, i.e., though\
+    \ the use of univariate risk functions/fuzzy rules, into the generation \nof risk\
+    \ maps. The use of fuzzy rules to account for this expertise is of interest as\
+    \ it makes it possible \nto avoid abrupt changes in risk and generates a more\
+    \ gradual variation in potential risk (Figure 10). \nThe GeoFIS interface enables\
+    \ users to calibrate the risk and aggregation functions empirically by \noffering\
+    \ users the ability to test a calibration, visualize the resulting risk maps,\
+    \ and possibly adjust it \nto their convenience. However, it must be stated that\
+    \ this will require farmers and advisors to be \nsupported so that their expertise\
+    \ can be translated correctly into the data aggregation algorithms.  \nThe calibration\
+    \ of the OWA index presented in this case study (weight of 0.7 for the minimum\
+    \ \nvalue of univariate risk, 0.2 for the median value, and 0.1 for the maximum\
+    \ value) resulted from an \niterative calibration process lead by the vineyard\
+    \ manager. This aggregation setting has strong \nsimilarities with the logical\
+    \ operation “AND”, i.e., the resulting risk is high if the minimum value of \n\
+    univariate risk is also high because it has the strongest weight. In other words,\
+    \ all the univariate risks \nare high because the median and maximum values for\
+    \ a univariate risk are necessarily higher than \nthe minimum value of the univariate\
+    \ risk. Note that the real logical operation “AND” would be \nreproduced by using\
+    \ the following set of weights (1;0;0). By changing these weights, practitioners\
+    \ \nmight also be able to reproduce the logical operation “OR” (0;0;1) for which\
+    \ the resulting risk is high \nas soon as the maximum value of a univariate risk\
+    \ is high. It would also be possible to perform a \nsimple average of the different\
+    \ univariate risks by using the same weights for each layer. \nFigure 13. Aggregated\
+    \ risk zones of sub-optimal management practices derived using the NDVI, ECa,\n\
+    and elevation layers together with local expert knowledge.\nAgriculture 2018,\
+    \ 8, x FOR PEER REVIEW  \n19 of 21 \n \nFigure 14. Maps of risk zones of sub-optimal\
+    \ management practices derived in the univariate space \nwith variate specific\
+    \ local expert rules. ECa (left); NDVI (middle); and Elevation (right). \nFrom\
+    \ a more general perspective, GeoFIS simplifies the processing of the three layers\
+    \ of \ninformation as the entire process was done within a single software platform.\
+    \ It can be compared to \nthe data processing in [35] in which data where cleaned\
+    \ with Excel, interpolated with Vesper, \nanalyzed with Matlab and represented\
+    \ with ArcGIS.  \n4. Conclusions \nThe increasing flow of precision agriculture\
+    \ data requires the development of free and open \nsource processing software\
+    \ to manage and make use of these data and promote precision agriculture \nadoption.\
+    \ As such, GeoFIS has been specifically designed to facilitate the movement from\
+    \ spatial data \nto spatial information and to spatial decision-making. The application\
+    \ of GeoFIS on some example \ncase studies that agricultural professionals may\
+    \ face when dealing with spatial data has \ndemonstrated the potential of this\
+    \ software. GeoFIS is a released product however it is important to \nstate that\
+    \ all the functionality currently introduced and implemented in GeoFIS are still\
+    \ areas of active \ninvestigation by the scientific community. GeoFIS will be\
+    \ updated when, and if, improved \nmethodologies become available. It is one of\
+    \ the strengths of the GeoFIS platform that it is able to \nintegrate the latest\
+    \ research developments to make sure that users are provided with the most up-to-\n\
+    date, reliable and powerful processing algorithms.  \nFigure 14. Maps of risk\
+    \ zones of sub-optimal management practices derived in the univariate space\n\
+    with variate speciﬁc local expert rules. ECa (left); NDVI (middle); and Elevation\
+    \ (right).\nThis case study illustrates that the expertise of farm managers and\
+    \ advisors can be incorporated\ninto a data-fusing algorithm to generate decision\
+    \ layers. Indeed, GeoFIS enables users to incorporate\ntheir own expertise, i.e.,\
+    \ though the use of univariate risk functions/fuzzy rules, into the generation\n\
+    of risk maps. The use of fuzzy rules to account for this expertise is of interest\
+    \ as it makes it possible\nto avoid abrupt changes in risk and generates a more\
+    \ gradual variation in potential risk (Figure 10).\nThe GeoFIS interface enables\
+    \ users to calibrate the risk and aggregation functions empirically by\noffering\
+    \ users the ability to test a calibration, visualize the resulting risk maps,\
+    \ and possibly adjust\nit to their convenience. However, it must be stated that\
+    \ this will require farmers and advisors to be\nsupported so that their expertise\
+    \ can be translated correctly into the data aggregation algorithms.\nThe calibration\
+    \ of the OWA index presented in this case study (weight of 0.7 for the minimum\n\
+    value of univariate risk, 0.2 for the median value, and 0.1 for the maximum value)\
+    \ resulted from\nAgriculture 2018, 8, 73\n19 of 21\nan iterative calibration process\
+    \ lead by the vineyard manager. This aggregation setting has strong\nsimilarities\
+    \ with the logical operation “AND”, i.e., the resulting risk is high if the minimum\
+    \ value of\nunivariate risk is also high because it has the strongest weight.\
+    \ In other words, all the univariate risks\nare high because the median and maximum\
+    \ values for a univariate risk are necessarily higher than the\nminimum value\
+    \ of the univariate risk. Note that the real logical operation “AND” would be\
+    \ reproduced\nby using the following set of weights (1;0;0). By changing these\
+    \ weights, practitioners might also be\nable to reproduce the logical operation\
+    \ “OR” (0;0;1) for which the resulting risk is high as soon as the\nmaximum value\
+    \ of a univariate risk is high. It would also be possible to perform a simple\
+    \ average of\nthe different univariate risks by using the same weights for each\
+    \ layer.\nFrom a more general perspective, GeoFIS simpliﬁes the processing of\
+    \ the three layers of\ninformation as the entire process was done within a single\
+    \ software platform. It can be compared\nto the data processing in [35] in which\
+    \ data where cleaned with Excel, interpolated with Vesper,\nanalyzed with Matlab\
+    \ and represented with ArcGIS.\n4. Conclusions\nThe increasing ﬂow of precision\
+    \ agriculture data requires the development of free and open\nsource processing\
+    \ software to manage and make use of these data and promote precision agriculture\n\
+    adoption. As such, GeoFIS has been speciﬁcally designed to facilitate the movement\
+    \ from spatial data\nto spatial information and to spatial decision-making. The\
+    \ application of GeoFIS on some example\ncase studies that agricultural professionals\
+    \ may face when dealing with spatial data has demonstrated\nthe potential of this\
+    \ software. GeoFIS is a released product however it is important to state that\
+    \ all the\nfunctionality currently introduced and implemented in GeoFIS are still\
+    \ areas of active investigation\nby the scientiﬁc community. GeoFIS will be updated\
+    \ when, and if, improved methodologies become\navailable. It is one of the strengths\
+    \ of the GeoFIS platform that it is able to integrate the latest research\ndevelopments\
+    \ to make sure that users are provided with the most up-to-date, reliable and\
+    \ powerful\nprocessing algorithms.\nAs it is, GeoFIS is an excellent tool to promote\
+    \ teaching in precision agriculture. Indeed, GeoFIS has\nalready been used within\
+    \ many higher education institutions in France to teach researchers and\nprofessionals\
+    \ how to process spatial data.\nThe user-friendly interface effectively facilitates\
+    \ the\nunderstanding of some major precision agriculture concepts.\nThe analysis\
+    \ of the three case studies has been an opportunity to also evaluate the limits\
+    \ of the\ncurrent algorithms and to propose areas for future developments within\
+    \ the software. For instance,\nthe data ﬁltering procedure focuses solely on global\
+    \ outliers while spatial datasets may contain outliers\nmore deeply rooted within\
+    \ the data and sometimes referred to as spatial outliers. A second example is\n\
+    that the variography analysis is limited to single data layers while cross-variography\
+    \ studies might\nbe relevant to evaluate the spatial relationships between multiple\
+    \ layers of information. To foster the\nadoption of GeoFIS, the authors are more\
+    \ than open to collaboration and are ready to integrate relevant\nalgorithms for\
+    \ processing precision agriculture data.\nAnother possibility to promote the processing\
+    \ of precision agriculture data could be to create\nlinks between GeoFIS and existing\
+    \ GIS programs, such as QGIS that is an open-source GIS already\nwidely used by\
+    \ many communities working on spatial data. There is a possibility to integrate\
+    \ all the\nalgorithms of GeoFIS directly within this open-source GIS software\
+    \ to beneﬁt from the display and\nprocessing algorithms already implemented in\
+    \ QGIS. This would however require users to process their\nprecision agriculture\
+    \ data in a more complex environment for which speciﬁc GIS skills are necessary.\n\
+    Another option is to transform GeoFIS into a web-based service, rather than its\
+    \ current download\nand desktop application structure, so that users would not\
+    \ have to care about the R installation,\nJava updates and compatibility between\
+    \ different operating systems.\nAgriculture 2018, 8, 73\n20 of 21\nAuthor Contributions:\
+    \ J.-L.L. and S.G. developed the GeoFIS software; B.T., J.T., O.N., H.J. and S.G.\
+    \ conceived\nand designed the experiments; J.L., C.L., and L.P. performed the\
+    \ experiments and analyzed the data; all the\nauthors contributed to reagents/materials/analysis\
+    \ tools; C.L. organized the writing of the paper.\nFunding: This research received\
+    \ no external funding.\nConﬂicts of Interest: The authors declare no conﬂict of\
+    \ interest.\nReferences\n1.\nOliver, M.A. Geostatistical Applications for Precision\
+    \ Agriculture; Springer: London, UK, 2010; p. 295.\n2.\nPringle, M.J.; McBratney,\
+    \ A.B.; Whelan, B.M.; Taylor, J.A. A preliminary approach to assessing the opportunity\n\
+    for site-speciﬁc crop management in a ﬁeld, using a yield monitor. Agric. Syst.\
+    \ 2003, 76, 273–292. [CrossRef]\n3.\nAcevedo-Opazo, C.; Tisseyre, B.; Guillaume,\
+    \ S.; Ojeda, H. The potential of high resolution information to\ndeﬁne withinvineyard\
+    \ zones related to vine water status. Precis. Agric. 2008, 9, 285–302. [CrossRef]\n\
+    4.\nBramley, R.G.V. Understanding variability in winegrape production systems\
+    \ 2. Within vineyard variation in\nquality over several vintages. Aust. J. Grape\
+    \ Wine Res. 2005, 11, 33–45. [CrossRef]\n5.\nVerdugo-Vásquez, N.;\nAcevedo-Opazo,\
+    \ C.;\nValdés-Gómez, H.;\nAraya-Alman, M.;\nIngram, B.;\nGarcía de Cortázar-Atauri,\
+    \ I.; Tisseyre, B. Spatial variability of phenology in two irrigated grapevine\n\
+    cultivar growing under semi-arid conditions. Precis. Agric. 2015, 17, 218–245.\
+    \ [CrossRef]\n6.\nBaluja, J.; Diago, M.; Goovaerts, P.; Tardaguila, J. Assessment\
+    \ of the spatial variability of anthocyanins in\ngrapes using a ﬂuorescence sensor:\
+    \ Relationships with vine vigour and yield. Precis. Agric. 2012, 13, 457–472.\n\
+    [CrossRef]\n7.\nDebuisson, S.; Germain, C.; Garcia, O.; Panigai, L.; Moncomble,\
+    \ D.; Le Moigne, M.; Fadaili, E.M.; Evain, S.;\nCerovic, Z.G. Using Multiplex®\
+    \ and Greenseeker™ to manage spatial variation of vine vigor in Champagne.\nIn\
+    \ Proceedings of the 10th International Conference on Precision Agriculture, Denver,\
+    \ Colorado, 18–21 July 2010.\n8.\nTaylor, J.; Acevedo-Opazo, C.; Ojeda, H.; Tisseyre,\
+    \ B. Identiﬁcation and signiﬁcance of sources of spatial\nvariation in grapevine\
+    \ water status. Aust. J. Vine Wine Res. 2010, 16, 218–226. [CrossRef]\n9.\nTaylor,\
+    \ J.; McBratney, A.B.; Whelan, B. Establishing management classes for broadacre\
+    \ agricultural\nproduction. Agron. J. 2007, 99, 1366–1376. [CrossRef]\n10.\nJeong,\
+    \ J.S.; García-Moruno, L.; Hernández-Blanco, J. Integrating buildings into a rural\
+    \ landscape using a\nmulti-criteria spatial decision analysis in GIS-enabled web\
+    \ environment. Biosyst. Eng. 2012, 112, 82–92.\n[CrossRef]\n11.\nYalew, S.G.;\
+    \ van Griensven, A.; van der Zaag, P. AgriSuit: A web-based GIS-MCDA framework\
+    \ for\nagricultural land suitability assessment. Comput. Electron. Agric. 2016,\
+    \ 128, 1–8. [CrossRef]\n12.\nLeroux, C.; Jones, H.; Clenet, A.; Dreux, B.; Becu,\
+    \ M.; Tisseyre, B. A general method to ﬁlter out defective\nspatial observations\
+    \ from yield mapping datasets. Precis. Agric. 2018. [CrossRef]\n13.\nSudduth,\
+    \ K.; Drummond, S.T. Yield editor: Software for removing errors from crop yield\
+    \ maps. Agron. J.\n2007, 99, 1471–1482. [CrossRef]\n14.\nHengl, T.; Heuvelink,\
+    \ G.; Stein, A. A generic framework for spatial prediction of soil variables based\
+    \ on\nregressionkriging. Geoderma 2004, 122, 75–93. [CrossRef]\n15.\nOliver, M.A.;\
+    \ Webster, R. A tutorial guide to geostatistics: Computing and modelling variograms\
+    \ and kriging.\nCatena 2014, 113, 56–69. [CrossRef]\n16.\nRobinson, T.P.; Metternicht,\
+    \ G. Testing the performance of spatial interpolation techniques for mapping soil\n\
+    properties. Comput. Electron. Agric. 2006, 50, 97–108. [CrossRef]\n17.\nCid-Garcia,\
+    \ N.M.; Albornoz, V.; Rios-Solis, Y.A.; Ortega, R. Rectangular shape management\
+    \ zone delineation\nusing integer linear programming. Comput. Electron. Agric.\
+    \ 2013, 93, 1–9. [CrossRef]\n18.\nPedroso, M.; Taylor, J.; Tisseyre, B.; Charnomordic,\
+    \ B.; Guillaume, S. A segmentation algorithm for the\ndelineation of management\
+    \ zones. Comput. Electron. Agric. 2010, 70, 199–208. [CrossRef]\n19.\nBlackmore,\
+    \ S.; Godwin, R.J.; Fountas, S. The analysis of spatial and temporal trends in\
+    \ yield map data over\nsix years. Byosyst. Eng. 2003, 84, 455–466. [CrossRef]\n\
+    20.\nLi, Y.; Shin, Z.; Li, F.; Li, H.-Y. Delineation of site-speciﬁc management\
+    \ zones using fuzzy clustering analysis\nin a coastal saline land. Comput. Electron.\
+    \ Agric. 2007, 56, 174–186. [CrossRef]\nAgriculture 2018, 8, 73\n21 of 21\n21.\n\
+    Oliver, Y.M.; Robertson, M.J.; Wong, M.T.F. Integrating farmer knowledge, precision\
+    \ agriculture tools, and\ncrop simulation modelling to evaluate management options\
+    \ for poor-performing patches in cropping ﬁelds.\nEur. J. Agron. 2010, 32, 40–50.\
+    \ [CrossRef]\n22.\nPichon, L.; Leroux, C.; Tisseyre, B. A systemic approach to\
+    \ identify relevant information provided by UAV in\nprecision viticulture. Adv.\
+    \ Anim. Biosci. 2017, 8, 823–827. [CrossRef]\n23.\nSchenatto, K.; de Souza, E.G.;\
+    \ Bazzi, C.L.; Betzek, N.M.; Gavioli, A.; Beneduzzi, H.M. Use of the farmer’s\n\
+    experience variable in the generation of management zones. Semina 2017, 38, 2305–2322.\n\
+    24.\nLeroux, C.; Jones, H.; Clenet, A.; Tisseyre, B. A new approach for zoning\
+    \ irregularly-spaced, within-ﬁeld\ndata. Comput. Electron. Agric. 2017, 141, 196–206.\
+    \ [CrossRef]\n25.\nRoudier, P.; Tisseyre, B.; Poilvé, H.; Roger, J. Management\
+    \ zone delineation using a modiﬁed watershed\nalgorithm. Precis. Agric. 2008,\
+    \ 9, 233–250. [CrossRef]\n26.\nWhelan, B.M.; McBratney, A.B.; Minasny, B. Vesper—Spatial\
+    \ prediction software for precision agriculture.\nIn ECPA 2001, Proceedings of\
+    \ the 3rd European Conference on Precision Agriculture, Montpellier, France, 2001;\n\
+    Grenier, G., Blackmore, S., Eds.; agro-Montpellier: Montpellier, France, 2001;\
+    \ pp. 139–144.\n27.\nSudduth, K.A.; Drummond, S.T.; Myers, D.B. Yield Editor 2.0:\
+    \ Software for Automated Removal of Yield\nMap Errors. In Proceedings of the 2012\
+    \ ASABE Annual International Meeting, Dallas, TX, USA, 29 July–\n1 August 2012.\n\
+    28.\nSimbahan, G.C.; Dobermann, A.; Ping, J.L. Screening yield monitor data improves\
+    \ grain yield maps. Agron. J.\n2004, 96, 1091–1102. [CrossRef]\n29.\nKrishnan,\
+    \ P.; Sharma, R.K.; Dass, A.; Kukreja, A.; Srivastav, R.; Singhal, R.J.; Bandyopadhyay,\
+    \ K.K.; Lal, K.;\nManjaiah, K.M.; Chhokar, R.S.; et al. Web-based crop model:\
+    \ Web InfoCrop—Wheat to simulate the growth\nand yield of wheat. Comput. Electron.\
+    \ Agric. 2016, 127, 324–335. [CrossRef]\n30.\nGuillaume, S.; Charnomordic, B.;\
+    \ Tisseyre, B.; Taylor, J. Soft computing-based decision support tools for\nspatial\
+    \ data. Int. J. Comput. Intell. Syst. 2013, 6, 18–33. [CrossRef]\n31.\nTisseyre,\
+    \ B.; McBratney, A. A technical opportunity index based on mathematical morphology\
+    \ for site-speciﬁc\nmanagement: An application to viticulture. Precis. Agric.\
+    \ 2008, 9, 101–113. [CrossRef]\n32.\nGuillaume, S.; Charnomordic, B.; Loisel,\
+    \ P. Fuzzy partitions: A way to integrate expert knowledge into\ndistance calculations.\
+    \ Inf. Sci. 2013, 245, 76–95. [CrossRef]\n33.\nYager, R.R. On ordered weighted\
+    \ averaging aggregation operators in multicriteria decision-making.\nIEEE Trans.\
+    \ Syst. Man Cybern. 1988, 18, 183–190. [CrossRef]\n34.\nLamour, J.; Naud, O.;\
+    \ Lechaudel, M.; Tisseyre, B. Mapping properties of an asynchronous crop: The\
+    \ example\nof time interval between ﬂowering and maturity of banana. Adv. Anim.\
+    \ Biosci. 2017, 8, 481–486. [CrossRef]\n35.\nSantesteban, L.G.; Guillaume, S.;\
+    \ Royo, J.B.; Tisseyre, B. Are precision agriculture tools and methods relevant\n\
+    at the whole-vineyard scale? Precis. Agric. 2013, 14, 2–17. [CrossRef]\n© 2018\
+    \ by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access\n\
+    article distributed under the terms and conditions of the Creative Commons Attribution\n\
+    (CC BY) license (http://creativecommons.org/licenses/by/4.0/).\n"
+  inline_citation: '>'
+  journal: Agriculture (Basel)
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/2077-0472/8/6/73/pdf?version=1527659079
+  publication_year: 2018
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'GeoFIS: An Open Source, Decision-Support Tool for Precision Agriculture
+    Data'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

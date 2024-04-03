@@ -1,0 +1,301 @@
+- DOI: https://doi.org/10.1109/sas.2018.8336764
+  analysis: '>'
+  authors:
+  - Daeun Yim
+  - Jiwon Chung
+  - Yulim Cho
+  - Hyunji Song
+  - Daehan Jin
+  - Sojeong Kim
+  - Sungwook Ko
+  - Anthony Smith
+  - Austin Riegsecker
+  citation_count: 48
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2018 IEEE Sensors Application... An experimental
+    LoRa performance evaluation in tree farm Publisher: IEEE Cite This PDF Daeun Yim;
+    Jiwon Chung; Yulim Cho; Hyunji Song; Daehan Jin; Sojeong Kim; Sungwook Ko; Anthony
+    Smith; Austin Riegsecker All Authors 47 Cites in Papers 2068 Full Text Views Abstract
+    Document Sections I. Introduction II. Background III. Related Work IV. Experiments
+    Method and Results V. Conclusion Authors Figures References Citations Keywords
+    Metrics Abstract: Deployment of internet of things (IoT) devices, wireless sensors,
+    and sensor networks, in agriculture can be a great help in monitoring environment
+    and growing crops; and having a network to support those devices is necessary
+    to successfully utilize those resources. Recently, low-power wide area network
+    (LPWAN) have been recognized as an appropriate technology for agriculture use.
+    LoRa is a representative network of low-power wide area network (LPWAN). It can
+    be applied to IoT for agriculture due to its long range and low power capabilities.
+    LoRa network performance is highly affected by physical layer parameters and the
+    environment. While LPWANs have been around for a number of years, they are still
+    considered an emerging technology and have had few scientific studies performed.
+    Currently, most studies have shown LoRa communication capabilities in urban, mountainous,
+    and maritime areas, with little focus on agriculture use cases. Tree farming is
+    a long-term investment, requiring careful monitoring to mitigate loss; therefore,
+    this paper provides an analysis about the impact of variant physical layer parameters
+    on performance of LoRa networks in a tree farm. Overall, the LoRa communication
+    range was smaller than the theoretically expected range. Some PHY factors, spreading
+    factor and coding rate, showed a clear impact on LoRa performance. Actual data
+    reliability was inconsistent at varying distances and PHY configurations, unlike
+    the consistency found in the RSSI reported by the radios. Additional experiments
+    show the Fresnel Zone still affects LoRa networks. All experiments were performed
+    in an Indiana rural tree plantation in the United States. Each node was set differently
+    by modulating spreading factor, bandwidth and coding rate using 915MHz and 13
+    dBm transmit power at variant distance. Published in: 2018 IEEE Sensors Applications
+    Symposium (SAS) Date of Conference: 12-14 March 2018 Date Added to IEEE Xplore:
+    12 April 2018 ISBN Information: DOI: 10.1109/SAS.2018.8336764 Publisher: IEEE
+    Conference Location: Seoul, Korea (South) SECTION I. Introduction There is obvious
+    benefit to agricultural IoT. Data collected from wirelessly connected sensors
+    and agricultural equipment can ease the difficulty of monitoring farmland and
+    livestock, and assist farmers'' decision making. To apply IoT technology in an
+    agricultural environment, one must consider how these devices are connected. The
+    network system for agricultural IoT has to cover a wide area of farmland without
+    relying on costly cellular networks. A low-power wide area network (LPWAN) is
+    a well-suited solution for this purpose. LPWAN is a type of wireless network designed
+    to allow long range communications at a low bit-rate. End devices can communicate
+    with base stations from longer distances than other wireless network systems while
+    consuming very less energy. Some LPWANs available include Sigfox, Weightless-N,
+    NB-IoT and LoRa. Each network has its advantages and disadvantages. Though it
+    is a fairly new technology, LoRa has attracted a lot of attention, especially
+    in terms of low costs and excellent battery performance. LoRa''s modulation developed
+    traditional spread-spectrum communications more robust by generating chirp signal
+    that changes frequency continuously [14]. Much of the research on LoRa is relevant
+    to its potential for covering large areas. Unfortunately, most of the studies
+    have been conducted in open or urban environments with only a few were related
+    to agriculture [5], [7]. To provide consistent and efficient management of large
+    farmlands, measurements need to be taken of LoRa network potential for those areas.
+    Especially in a tree farm, it takes at least 6 years and up to several decades
+    to harvest timber. Even minor failures can result in wasting long-term efforts
+    and large investments. Therefore, to verify its potential for agriculture, we
+    focused on experimenting changes in LoRa network performance, range, reliability,
+    and RSSI, according to different physical layer parameters and how each affects
+    it. In addition, by examining traditional Fresnel zone limitations, the LoRa performance
+    affected could be measured. SECTION II. Background LPWANs supplements short range
+    wireless networks such as Wi-Fi and Bluetooth with their large-scale coverage
+    at decent cost. Instead of narrowing bandwidth to increase signal-to-noise ratio
+    (SNR) like other LPWANs, LoRa uses a special chirp spread spectrum modulation
+    to cover large areas. Below are some details of LoRaWAn and physical factors consisting
+    of LoRaWAn physical layer. A. LORAWAN LoRa is a chirp spread spectrum modulation
+    scheme using wideband linear frequency which improves receiver sensitivity and
+    tolerance to miscommunication between receiver and transmitter [9]. LoRaWAn technology
+    mainly uses star network topology. The gateways receive messages from multiple
+    end-devices and end-devices are connected to one or more gateways. End-devices
+    can transmit data to gateways with own time interval and data rate complying rules.
+    These base stations are connected to other network servers via standard IP connections
+    [4]. The base station and end-devices can communicate bidirectionally with good
+    coverage. LoRaWAn networks have three classes based on basic features and additional
+    features. Class A end-devices (basic LoRaWan) provide bi-directional communications.
+    Those communications consume the lowest power. Their downlink communication occurs
+    from the server following uplink transmission. Class B additionally provides a
+    scheduled receive slot trough opening extra receive windows. The servers know
+    if end-devices are listening. Class C provides bi-directional communication with
+    maximal receive slots for minimum latency [9]. LoRa Technology has some key features.
+    LoRa has scalability in bandwidth. Additionally, LoRa can be used with both narrowband
+    and wideband service with a few configuration changes. LoRa has great reliability
+    as it resists the Doppler Effect, multipath, fading mechanisms, and other interference
+    mechanisms [14]. Its protocol is designed specifically for low power consumption
+    extending battery lifetime up to 20 years. A single base station can penetrate
+    into dense urban/indoor regions, and can connect rural areas up to 30 miles away.
+    The last feature is low cost. LoRa reduces costs in three ways: infrastructure
+    investment, operating expenses and end-node sensors. LoRa uses license-free sub
+    Gigahertz radio frequency bands like 169 MHz, 433 MHz, 868 MHz (Europe) and 915
+    MHz (North America). Since LoRa uses license-free frequency bands, network costs
+    can be minimized [11]. B. PHY Factors PHY factors underlie all of three classes
+    of LoRaWan. The configuration of LoRa can be tuned by controlling physical layer
+    (PHY) settings, which results in performance changes. In this research, physical
+    settings include spreading factor(SF), bandwidth(BW), and error correction rate(CR).
+    1) Spreading factor (SF) The basic premise of spread spectrum is that each bit
+    of information is encoded as multiple chips. Spreading factor(SF) is the relationship
+    between the bit and chip [9]. A higher SF increases the Signal to Noise Ratio(SNR),
+    and thus sensitivity and range, but also increases the air time of the packet
+    [4]. Available SF''s are from 6 to 12 which change LoRaWAn data rates from 0.3
+    kbps to 27 kbps. 2) Bandwidth (BW) Bandwidth (BW) is the range of frequencies
+    in the transmission band. LoRa can have 125 to 500 KHz of bandwidth, typically
+    set to 125, 250, or 500KHz. Changing BW can influence message time on air which
+    results in inverse influence on radio sensitivity. Larger BW gives a higher data
+    rate (thus shorter time on air), but a lower sensitivity (due to integration of
+    additional noise). A smaller BW gives a higher sensitivity, but a lower data rate.
+    3) Coding Rate (CR) Coding Rate(CR) is a form of Forward Error Correction (FEC)
+    that permits the recovery of bits of information due to corruption by interference.
+    This requires a small overhead of additional encoding of the data in the transmitted
+    packet [9]. CR can range from 4/5 to 4/8. A larger CR offers more reliability
+    by improving resilience to corrupted bits, but increases time on air and energy
+    consumption [4]. 4) Transmission Power LoRa transmission power ranges from −4
+    to 20 dBm. Higher transmission power causes an increase in energy consumption
+    and signal-to-noise ratio. C. Fresnel Zone The concept of Fresnel zone clearance
+    is used to account for interference by obstacles within the beam width of a radio
+    signal. The first zone must be kept largely free from obstructions to avoid interfering
+    with the radio reception. However, some obstruction of the Fresnel zones can often
+    be tolerated. As a rule of thumb the maximum obstruction allowable is 40%, but
+    the recommended obstruction is 20% or less [8]. SECTION III. Related Work Before
+    LPWAN became a popular network infrastructure for agricultural IoT, mesh topology
+    networks using smaller range network devices such as Zigbee dominated wireless
+    sensor networks (WSN). However, this kind of implementation had a serious problem
+    with limited link budget due to high data rates and a low link budget [15]. In
+    contrast, LPWAN, using a star network topology, has a distinct advantage with
+    longer range and battery life. There has been a significant amount of research
+    on outdoor LoRa coverage and performance. Most were performed in urban and maritime
+    environments. Urban experiments showed more than half of packets were successfully
+    delivered from 5-10km range [1], and a maximum 80% of packet delivery at a distance
+    of 2800 meters [11]. In maritime applications, performance of 15-30km distance
+    was observed. However, unlike the prior mentioned research other research showed
+    only a few hundred meter LoRa network coverage [5], [7]. Also, from these experiments
+    LoRa showed distinct performance differences within various environments such
+    as indoor, outdoor, underground or with large amounts of vegetation. Even meteorological
+    conditions such as temperature and humidity affect network performance [11], and
+    their impact on LoRa performance was observed in [5]. Research also showed variant
+    hardware physical settings can have a great influence on LoRa network performance.
+    With increasing spreading factor LoRa had longer range with higher reliability
+    [11]. According to [7], BW was the largest factor in communication success. However,
+    research by Cattani et al. [5] showed that spreading factor, coding rate and then
+    bandwidth was the order that had the most effect on network reliability. It is
+    important the transmitter and receiver use the same spreading factor and bandwidth
+    combination for successful packet delivery [13], which means that to experiment
+    on various PHY settings, each device has to have the same settings. LoRa radios
+    with different coding rates can still communicate [5]. Although prior research
+    showed expected performance of LoRa network in many areas, little work has been
+    done on agricultural environments to evaluate LoRa performance. Since LoRa is
+    an appropriate technology to apply in this environment, this paper focused on
+    how PHY settings affect reliability and coverage on an actual tree farm. Vegetation
+    can also be an obstacle to network performance, so it is expected that LoRa will
+    have lower performance than in other previously researched environments. SECTION
+    IV. Experiments Method and Results A. Hardware Setup We used the LoRa IoT Development
+    Kit from ‘Dragino’ which is a company in China offering LoRa shield based on Semtech
+    SX1276 chip as can be seen in Figure 1. It also offers the ‘LG01-P’ LoRa Gateway
+    which is an open source single channel LoRa Gateway. The kit offers two portable
+    devices equipped with an SX1276 radio module that works in the 915 MHz band, and
+    a 1/2 wave omni-directional antenna. To find temperature and humidity data, a
+    DHT11 sensor package was used; this is a composite sensor that contains a calibrated
+    digital signal output to measure temperature and humidity. Fig. 1. Dragino IoT
+    kit [6] Show All B. Experimental Setup 1) Sites Our experiments were performed
+    three times at the same tree farm. The farm is located at 13455 S 525 W, Romney,
+    IN 47981, USA. It is primarily a flat meadow, with small hills in the middle of
+    the property. Mid-life maple, oak, and pine trees are planted in 8-foot separate
+    rows on the property. 2) PHY Settings and Data Packet Table I Arduino node ID
+    according to PHY settings The experiment was carried out by assigning an Arduino
+    ID according to each PHY Setting. Table 1 shows these variant settings. Each three
+    components of Arduino ID is spreading factor, bandwidth and coding rate. SF can
+    be set from 6 to 12. The SF is set to 7 (default), 9, and 11. The CR is set to
+    a minimum value of 5 and a maximum value of 8. BW is set to 125kHz, aside from
+    7-250-5 and 7-250-8. Only SF7 can be set to the maximum setting of 250kHz, so
+    SF7 was set in two cases of 125kHz and 250kHz. The value of TX power was fixed
+    at 13(default). To account for the 60% clear 1st Fresnel Zone at 200m, the devices
+    and antennas were fixed 2.5m above the ground. In accordance with necessary settings,
+    4 gateways were used to match both the LoRaWAn spreading factor and bandwidth.
+    However, prior research showed LoRa shields with different coding rates can communicate
+    with the same gateway. Therefore, both settings using same spreading factor and
+    bandwidth but a different coding rate, sent data packets to one gateway. Table
+    2 Data packet composition The data structures of the payload used in transmitted
+    data packets is character type and were 9 bytes in size. The first three bytes
+    make it possible to distinguish which device is sending data. We sent data at
+    3 second intervals with a 0.5 second of delay between sensing. Each time, a gateway
+    collected 150 data packets at once. The transceivers were set to not to retransmit
+    lost data and thus accurately checked packet delivery rate. If the data packet
+    wasn''t correct, this was considered a data loss and skipped. The next data packet
+    was then examined. Every end-device was tested at 100m, 150m, and 200m. The first
+    experiment was conducted on a day with a temperature of 25°C, and humidity of
+    80%. The second day had a temperature 24°C, humidity of 62%. The third experiment
+    was done with a temperature of 27°C, and humidity of 70%. Shields were put in
+    a box to minimize meteorological factors affecting experiment results. Every experiment
+    was carried out for about three hours. Additionally, all the experiments were
+    performed at a height of 2.5m, considering Fresnel zone of LoRa network frequency
+    and overall tree farm area. The result data was found through the average of the
+    experiment results. Fig. 2. Experiment site (tree farm land). Star shows the position
+    of AP and each flag shows the position of lora shields. Show All In addition,
+    Fresnel zone tests were not done with different settings. LoRa Shield''s PHY setting
+    conditions are set to default values. SF was set to 7, BW was set to 125, and
+    CR was set to 5. The experiment was conducted under the same conditions with the
+    change of height only at Om, 1m, 2m, and 3m at 200m. One hundred packets were
+    used to determine tendency of performance improvement accordance with height.
+    C. Metrics Upon this experiment''s completion, researchers calculated reliability
+    and received signal strength indication (RSSI). The RSSI was used to analyze data
+    of different settings at different distances. Reliability was calculated as the
+    ratio of valid received packets to the number of packets transmitted to the Packet
+    Delivery Ratio (PDR). The PDR provided information about the communication reliability
+    [7]. RSSI is a measurement of the power present in a received radio signal [10].
+    PDR= D T (1) View Source D: Packets delivered successfully T: Total packets transmitted
+    D. Experiment Results 1) Experiments with Different Phy Settings Table 3 Results
+    of each setting at different distance Through Table 3 one can see that all settings
+    but 7-125-5 and 7-250-5 showed more than 90% reliability at 150m. Only 9-125-8
+    and 11-125-8 showed good reliability at 200m. Compared to related research, distances
+    measured were much smaller than expected, and at least setting spreading factor
+    to 9 and coding rate to 8 ensures 200m communication range with good reliability.
+    As expected, PHY settings followed predictions. In most cases, settings with increased
+    spreading factor and coding rate showed higher reliability at larger distances.
+    Spreading factor clearly affected the readings. With higher spreading factor,
+    LoRa communicated with higher reliability at larger distance. However, by combining
+    spreading factor, PDR didn''t appear to linearly increase. Coding rate was impacted
+    when the distance grew further away. With a smaller distance and reliable PDR
+    (higher than 90%), changing coding rate increased PDR. Bandwidth had lowest impact
+    on LoRa performance. As shown from bandwidth 125 KHz (7-125-5 and 7-125-8) and
+    250 KHz (7-250-5 and 7-250-8) it was impossible to discover relation from configuring
+    bandwidth. However, as seen in Figure 3, higher bandwidth impacted on RSSI as
+    augmenting bandwidth has a negative connection between data rates and receiver
+    sensitivity. Fig. 3. Average RSSI(dbm) according to distance(m). RSSI values are
+    averaged by three experiments. Show All As Figure 4 shows, RSSI consistently decreased
+    in every setting as distance grew further, unlike PDR. Even when PDR had erratic
+    increase from 100m to 150m at spreading factor 7, RSSI showed a decrease. However,
+    an obvious relation was not determined between RSSI and spreading factor. This
+    correlates with other research [12]. Unlike Semtech''s claims, RSSI seems to be
+    affected by distance, not spreading factor. 2) Fresnel Zone Experiment Fig. 5.
+    PDR according to antenna height Show All Table 4 Results of fresnel zone experiment
+    Using Figure 5 as reference, height impacted LoRa network. Performance in reliability
+    surges along with antenna height from 0m to 2m. Considering that the Fresnel zone
+    experiment only received 100 packets, the PDR data is different from the PHY setting
+    experiment results. This shows the tendency of LoRa performance improvement with
+    higher antenna placement. However, this experiment alone does not reveal the difference
+    between 2m and 3m. Thus, it cannot be verified if the height increase beyond the
+    Fresnel Zone ensures better communication. Further study needs to be done for
+    clear explanation. SECTION V. Conclusion This paper provides a basis on deploying
+    LoRa within a tree farm. To complement research on applying LoRa to agricultural
+    IoT, this research has shown how PHY factors configurations and different distances
+    impact reliability of LoRa on tree farm. Overall, LoRa communication range in
+    tree farm is below expected values as specified commercially and in research.
+    However, to secure high reliability in large distances, maintaining high spreading
+    factor and coding rate is important. Spreading factor and coding rate affected
+    LoRa performance in an expected way, but bandwidth did not conspicuously changed
+    performance. RSSI showed a consistent pattern from different PHY factors configurations.
+    Unlike inconsistent PDR changes in different PHY configurations and distances,
+    RSSI decreased along with distances in every configuration. However, we cannot
+    determine what effect, if any, the tree plantation had on LoRa network communication.
+    In addition, this experiment not determine what effect complying with the calculated
+    Fresnel Zone had on LoRa communication in regards to antenna height and distance
+    between nodes. In the next paper, we plan to compare LoRa performance in open
+    area and tree farm with the same PHY configurations to measure how the tree plantation
+    affect the network performance. In future work, we will study other factors influencing
+    LoRa performance such as antenna height and environmental factors. ACKNOWLEDGEMENT
+    This research was supported by the MIST(Ministry of Science, ICT & Future Planning),
+    Korea, under the National Program for Excellence in SW)(20 15-0-00910) supervised
+    by the IITP(Institute for Information & communications Technology Promotion) Authors
+    Figures References Citations Keywords Metrics More Like This Optimal Network Size
+    and Encoding Rate for Wireless Sensor Network-Based Decentralized Estimation under
+    Power and Bandwidth Constraints IEEE Transactions on Wireless Communications Published:
+    2011 Consensus-Based Distributed State Estimation Over Sensor Networks With Encoding-Decoding
+    Scheme: Accommodating Bandwidth Constraints IEEE Transactions on Network Science
+    and Engineering Published: 2022 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: ''
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2018
+  relevance_score1: 0
+  relevance_score2: 0
+  title: An experimental LoRa performance evaluation in tree farm
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

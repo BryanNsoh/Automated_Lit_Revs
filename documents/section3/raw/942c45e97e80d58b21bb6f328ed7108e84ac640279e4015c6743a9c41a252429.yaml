@@ -1,0 +1,1814 @@
+- analysis: '>'
+  authors:
+  - King B.A.
+  - Shellie K.C.
+  citation_count: '1'
+  description: 'The goal of irrigation for wine grape grown in arid or semiarid regions
+    is to sustain vine survival and to optimize berry attributes for quality wine
+    production. Precision irrigation of wine grape is impeded by the lack of a smart,
+    decision support system (DSS) to remotely monitor vine water status. The objectives
+    of this study were to: develop and field test an Internet of Things (IoT) DSS
+    system for precision irrigation of wine grape. The IoT system was comprised of
+    a suite of in situ sensors used to monitor real-time weather conditions, grapevine
+    canopy temperature, soil moisture, and irrigation amount. Sensor data were collected
+    and stored on a field deployed data logger that calculated a daily thermal Crop
+    Water Stress Index (CWSI) for grapevine using a neural network model with real-time
+    sensor data model inputs. The data logger also hosted, via a cellular modem, webpages
+    showing a running, 12-day history of daily CWSI, fraction of available soil moisture
+    (fASW), irrigation amount, and other sensor data. The webpages were accessible
+    to vineyard managers via cell phone or computer. The CWSI based IoT DDS system
+    was installed at two small acreage, commercial estate vineyards in southwestern
+    Idaho USA over four growing seasons. At each vineyard site, the DSS was used daily
+    by the vineyard irrigation manager to schedule irrigation events. Neither vineyard
+    manager used any other quantitative vine water status monitoring tool for irrigation
+    management decisions. The midday leaf water potential (LWP) of grapevines was
+    routinely measured by research project personnel. Data collected over the study
+    period at each vineyard showed a significant (p < 0.001) correlation with LWP
+    and fASW, providing evidence that, under the conditions of this study, the daily
+    CWSI based IoT provided automated, remote monitoring of vine water status. Both
+    vineyard managers reported daily use of the DSS for irrigation scheduling decisions.
+    Over the four-year study, each vineyard manager was able to maintain consistent
+    seasonal average CWSI daily values and irrigation application amounts, despite
+    yearly differences in climatic conditions. The results of this study demonstrate
+    that a CWSI based IoT DSS can be used for precision irrigation of wine grape in
+    a commercial vineyard under semiarid growing conditions. The CWSI based IoT DSS
+    used a unique combination of neural network modeling, edge computing, and IoT
+    for real-time vine water stress monitoring for precision irrigation.'
+  doi: 10.1016/j.atech.2023.100202
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    View Open Manuscript Outline Highlights Abstract Keywords 1. Introduction 2. Methods
+    and materials 3. Results 4. Discussion 5. Conclusions Funding Declaration of Competing
+    Interest Acknowledgment Data availability References Show full outline Cited by
+    (3) Figures (8) Show 2 more figures Tables (2) Table 1 Table 2 Smart Agricultural
+    Technology Volume 4, August 2023, 100202 A crop water stress index based internet
+    of things decision support system for precision irrigation of wine grape☆ Author
+    links open overlay panel Bradley A. King a, Krista C. Shellie b Show more Add
+    to Mendeley Share Cite https://doi.org/10.1016/j.atech.2023.100202 Get rights
+    and content Under a Creative Commons license open access Highlights • A suite
+    of field sensors was used to remotely monitor vineyard environmental conditions,
+    grapevine canopy temperature, soil moisture, and irrigation amount. • An Artificial
+    intelligence (AI), neural network model was used to calculate a daily thermal
+    Crop Water Stress Index (CWSI) for grapevine using real-time sensor data inputs.
+    • Edge computing on a field data logger was used to host, via a cellular modem,
+    an irrigation decision support system (DSS) as webpages showing a running 12-day
+    history of daily CWSI, fraction of available soil water (fASW), irrigation-related
+    information and sensor data. • Over a four-year period, vineyard managers maintained
+    consistent seasonal irrigation amounts and CWSI levels. • The daily CWSI was correlated
+    with fASW and midday leaf water potential. Abstract The goal of irrigation for
+    wine grape grown in arid or semiarid regions is to sustain vine survival and to
+    optimize berry attributes for quality wine production. Precision irrigation of
+    wine grape is impeded by the lack of a smart, decision support system (DSS) to
+    remotely monitor vine water status. The objectives of this study were to: develop
+    and field test an Internet of Things (IoT) DSS system for precision irrigation
+    of wine grape. The IoT system was comprised of a suite of in situ sensors used
+    to monitor real-time weather conditions, grapevine canopy temperature, soil moisture,
+    and irrigation amount. Sensor data were collected and stored on a field deployed
+    data logger that calculated a daily thermal Crop Water Stress Index (CWSI) for
+    grapevine using a neural network model with real-time sensor data model inputs.
+    The data logger also hosted, via a cellular modem, webpages showing a running,
+    12-day history of daily CWSI, fraction of available soil moisture (fASW), irrigation
+    amount, and other sensor data. The webpages were accessible to vineyard managers
+    via cell phone or computer. The CWSI based IoT DDS system was installed at two
+    small acreage, commercial estate vineyards in southwestern Idaho USA over four
+    growing seasons. At each vineyard site, the DSS was used daily by the vineyard
+    irrigation manager to schedule irrigation events. Neither vineyard manager used
+    any other quantitative vine water status monitoring tool for irrigation management
+    decisions. The midday leaf water potential (LWP) of grapevines was routinely measured
+    by research project personnel. Data collected over the study period at each vineyard
+    showed a significant (p < 0.001) correlation with LWP and fASW, providing evidence
+    that, under the conditions of this study, the daily CWSI based IoT provided automated,
+    remote monitoring of vine water status. Both vineyard managers reported daily
+    use of the DSS for irrigation scheduling decisions. Over the four-year study,
+    each vineyard manager was able to maintain consistent seasonal average CWSI daily
+    values and irrigation application amounts, despite yearly differences in climatic
+    conditions. The results of this study demonstrate that a CWSI based IoT DSS can
+    be used for precision irrigation of wine grape in a commercial vineyard under
+    semiarid growing conditions. The CWSI based IoT DSS used a unique combination
+    of neural network modeling, edge computing, and IoT for real-time vine water stress
+    monitoring for precision irrigation. Previous article in issue Next article in
+    issue Keywords IrrigationWine grapeCrop water stress indexEdge computingDecision
+    support systemInternet of Things 1. Introduction Irrigation management of most
+    field crops aims to avoid plant water stress and maximize yield by supplying water
+    to fully meet crop evapotranspiration (ETc). However, in wine grape (Vitis vinifera
+    L.), fruit quality attributes are prioritized over yield as a production goal,
+    and development of the berry and vine canopy are related to vine water status
+    throughout the growing season [1,2]. For example, mild vine water stress between
+    veraison (berry softening) and harvest is desirable to prevent berry splitting
+    or dilution of flavors or sugars and to slow canopy growth in preparation for
+    winter dormancy. Inducing vine water stress through deficit irrigation has also
+    been shown to increase vine water use efficiency [3], [4], [5]. Water resources
+    in the western U.S. are experiencing unprecedented competitive demand from irrigated
+    agriculture, growing urban populations, and environmental and ecosystem restoration.
+    Groundwater levels in many areas have steadily decreased from historic levels
+    and ground water use is approaching an unsustainable level. In addition, the western
+    US is experiencing the worst megadrought since 800 CE [6] leading to historically
+    low water levels in many of the regions water reservoirs. Warmer winter temperatures
+    due to climate change are predicted to reduce future mountain snowpack, which
+    is the source of early irrigation developments in much of the western U.S. The
+    growing demand on surface and groundwater resources combined with climate change
+    necessitates increased water resource stewardship and crop water productivity
+    to meet food and fiber needs of a growing population. Wine grape production in
+    semiarid regions of the pacific northwestern U.S. is well established but relies
+    on irrigation during the growing season for vine growth, survival, and economically
+    viable yield. Optimum management of irrigation requires routine direct or indirect
+    monitoring of vine water status [7]. Indirect methods for accessing plant water
+    status include soil water content or soil water potential measurement and atmospheric-based
+    methods [7,8]. Soil water monitoring is a widely accepted tool for estimating
+    crop water needs for field crops but in the case of vineyards there are several
+    disadvantages. These include spatial variability in soil characteristics and 3-dimensional
+    soil wetting patterns from drip irrigation leading to the need to install several
+    sensors, which complicates information management and increases cost. Additionally,
+    there is a lack of established thresholds for determining vine water status and
+    severity [7]. Atmospheric based methods include Bowen ratio energy balance and
+    eddy covariance to determine ETc and infer plant water status by comparing measured
+    ETc to estimated non-water stressed ETc. These techniques require expensive sensors,
+    skilled technical knowledge, and large uniform upwind fetch, especially for eddy
+    covariance, which make them unsuited for small commercial vineyard water management
+    purposes [7]. A more detailed discussion of indirect methods is provided by Rienth
+    and Scholasch [8]. Direct (plant-based) methods for determining plant water status
+    rely on measurements of physical plant variables. Unlike indirect methods, plant-based
+    methods use the plant as a biosensor in a soil-plant-atmosphere continuum. Conventional
+    direct methods include leaf or stem water potential, visual observation, stomatal
+    conductance or photosynthesis, sap flow, trunk diameter and leaf turgor pressure
+    [7,9]. Midday stem or leaf water potential (LWP) is the most commonly accepted
+    direct measurement of vine water status [10] and critical upper and lower water
+    stress thresholds have been established [7], making it an effective tool for deficit
+    irrigation management. The primary disadvantages of LWP are the limited time of
+    day for measurement, the need for repeated measurements due to plant variability,
+    and a need for several equipped and trained personnel to cover a vineyard. Visual
+    observation is based on the visual growth characteristics of the apical meristem
+    or apex of vines, tendrils, and leaf orientation of numerous vines [1,8]. The
+    drawbacks of this method include low sensitivity to moderate water stress, time
+    lag between water stress and visual observation, and the cost of trained personnel
+    to cover a vineyard. Stomatal conductance measures the ease of passage of CO2
+    or water vapor through the stomata and is a good indicator of plant response to
+    water stress because it changes with atmospheric demand and soil water status.
+    It has been shown to indicate the degree of vine water stress but varies with
+    timing of measurement and leaf canopy location [7]. The primary disadvantages
+    are the cost of the equipment, constant need for calibration, technical skill
+    to operate. Sap flow, trunk diameter and leaf turgor are direct measures that
+    have been shown to be indictors of plant water stress. However, they have not
+    been widely adopted in regional commercial vineyards but have the advantage of
+    being automated, which facilitates integration into a deficit irrigation management
+    program. Detailed descriptions of other direct methods and their respective advantages
+    and disadvantages are provided by [7], [8], [9]. Plant canopy temperature increases
+    when solar radiation is absorbed and cools when water is evaporated (transpiration)
+    within the leaf structure. A water-stressed plant canopy will reduce transpiration
+    and have a higher temperature than a non-stressed canopy [11,12]. This physical
+    plant response to water stress makes canopy temperature measurement a viable direct
+    method for assessing plant water status. Infrared radiometers have been used to
+    measure plant canopy temperature under research field conditions to estimate evapotranspiration
+    and drought stress in many crops [13], [14], [15], including grape [16], [17],
+    [18], [19], [20], [21]. Infrared thermometry is nondestructive, can be measured
+    continuously, can be stationary or mounted on mobile platforms for spatial and
+    temporal monitoring [9,[20], [21], [22]], and can be less expensive [23] than
+    soil water sensing. Canopy temperature is related to plant water status, but it
+    also depends upon solar radiation (Rs), air temperature (Ta), humidity (RH), and
+    wind speed (WS) among other things. A method of using canopy temperature to calculate
+    a CWSI for irrigation scheduling was proposed over 40 years ago by Idso et al.
+    [15] and Jackson et al. [14]. The CWSI normalizes measured canopy temperature
+    relative to reference threshold canopy temperatures for a well-watered vine (TLL)
+    and a water stressed, non-transpiring vine (TUL) under identical weather conditions,
+    resulting in an empirical CWSI value between, 0 (no water stress) and 1 (maximum
+    water stress). Unfortunately, the need for TLL and TUL reference temperatures
+    under identical weather conditions has limited the use of a CWSI to research scale
+    studies and precluded its adoption on a commercial scale [9]. Alternatives to
+    actual measurement of crop reference temperatures have been investigated, such
+    as artificial wet and dry surfaces [16,[24], [25], [26], [27], [28], [29]] and
+    physical and empirical models [14,26,[30], [31], [32], [33]] to predict reference
+    temperatures. The required maintenance of an artificial surface has limited use
+    on a commercial scale, leaving physical or empirical models as the most logical
+    choice. King et al. [33] used measured temperatures of non-water stressed wine
+    grape canopies to develop data driven models (neural network, regression) to estimate
+    TLL. The models were used to calculate CWSI values for research plots of Malbec
+    grapes vines that were differentially irrigated to induce differing severities
+    of vine water stress [19] and validated by comparing, over a 5-year period, CWSI
+    values with LWP and fASW. The CWSI calculated using model predicted reference
+    temperatures was well correlated with LWP (R2 = 0.54) and fASW (R2 = 0.71). When
+    CWSI values were used to trigger 28 mm irrigation events, CWSI values increased,
+    LWP became more negative, seasonal water application decreased, and grape cluster
+    weight decreased. These results demonstrated that a CWSI could be used as an effective
+    irrigation scheduling tool for wine grape. Irrigation scheduling based on canopy
+    temperature has not been adopted on a commercial scale by vineyard irrigation
+    mangers in semiarid regions of northwestern U.S. as evident by the lack of commercial
+    systems supporting the application. The objectives of this study were to: develop
+    a CWSI based IoT DSS for precision irrigation of wine grape under semiarid conditions;
+    field test the CWSI based IoT DSS in two, small acreage commercial estate vineyards
+    over four growing seasons; validate the IoT derived CWSI values by statistical
+    correlation with LWP and fASW at each vineyard site; and evaluate vineyard manager
+    annual consistency in irrigation scheduling. Vineyard irrigation managers were
+    allowed to freely decide if they wanted to use the CWSI based IoS DSS for irrigation
+    scheduling. Consistency of plant water stress and irrigation application across
+    multiple years was used to gage success of the CWSI based IoT DDS system for irrigation
+    scheduling as implemented by the vineyard manager. 2. Methods and materials 2.1.
+    Field study site characteristics This study was conducted on two small (< 7 ha)
+    family owned and operated commercial vineyards in southwestern Idaho USA over
+    a four-year period (2017–2020). Both operations were estate vineyards in that
+    they have associated wineries that produce branded commercial wines. The vineyard
+    sites were located within 30 km of each other but differed in their soil characteristics
+    and soil water holding capacities. The soil at vineyard-A (V-A) was a Greenleaf-Owyhee
+    silt loam (fine-silty, mixed, superactive, mesic Xeric Calciargids) characterized
+    as very deep well drained with moderately slow permeability and an available water
+    capacity of 0.2 cm−1 (USDA Web Soil Survey). Vineyard-B (V-B) was located adjacent
+    to an ancient volcanic vent that had been subjected to limited volcanic rock mining.
+    The vineyard site was reclaimed using surrounding soil and original overburden
+    to cover exposed rock resulting in a highly disturbed soil profile. The natural
+    soils at the site were Turbyfill fine sandy loam (coarse-loamy, mixed, superactive,
+    calcareous, mesic Xeric Torriorthents) and Jacquith loamy fine sand (Sandy, mixed,
+    mesic Xereptic Haplodurids), both of which are moderately deep and well drained
+    in their natural state with moderately rapid permeability. Available water capacity
+    of the Turbyfill fine sandy loam and Jacquith loamy fine sand were 0.12 and 0.07
+    cm−1, respectively (USDA Web Soil Survey). Vines in both vineyards were grown
+    with double trunks on a vertically shoot positioned, two-wire trellis system with
+    moveable catch wires. The vines were trained to bilateral cordons and spur-pruned
+    annually to approximately 16 buds m−1 of cordon. Row by vine spacing was 2.7 m
+    x 1.8 m at V-A and 2.7 m x 1.5 m at V-B. Irrigation at both sites was applied
+    using drip irrigation tubing suspended about 30 cm above ground in the vine row.
+    Drip emitter spacing was 76 cm with a flow rate of 3.8 L hr−1 at V-A and 61 cm
+    with a flow rate of 1.9 L hr−1 at V-B. The wine grape cultivar evaluated at V-A
+    was Chardonnay (2017–2020) and the cultivars at V-B were Malbec (2017–2019) and
+    Cabernet Sauvignon (2020). 2.2. Field measurements and instrumentation hardware
+    and software Canopy temperature was measured using wired infrared radiometers
+    (SI-121, Apogee Instruments, Logan, Utah) with a 36° field of view. The radiometers
+    were placed along a single vine row to prevent potential damage to sensor cables
+    from vineyard equipment. In each vineyard, two (2017, 2018, 2019) or four (2020)
+    radiometers were installed per cultivar. Radiometer cable lengths were 30 m allowing
+    a maximum distance of 60 m between radiometers within a vine row. The radiometers
+    were installed on vines with representative canopy size and positioned approximately
+    15 to 30 cm above fully expanded leaves located at the top of the vine canopy.
+    Radiometers were pointed northeasterly at approximately 45° from nadir, with the
+    sensor view aimed at the center of solar noon sunlit leaves. The temperature sensing
+    area of vine canopy was approximately 10 to 20 cm in diameter and received full
+    sunlight exposure during midday. The possibility of background bare soil visibility
+    was limited by multiple leaf layers within the canopy below the measured canopy
+    location. The infrared radiometer sensor view was periodically adjusted as necessary
+    to ensure that the field of view concentrated on sunlit leaves near the top of
+    the canopy. The infrared radiometers were installed after fruit set, usually mid
+    to late June. Solar radiation (Rs) (SP-110 pyranometer, Apogee Instruments, Logan,
+    UT), air temperature (Ta), relative humidity (RH) (HMP50 temperature and humidity
+    probe, Campbell Scientific, Logan, UT), and wind speed (WS) (034B, Met One Instruments,
+    Grants Pass, Ore.) were measured in each vineyard at a height of 2.5 m. Canopy
+    temperature and weather parameters were measured every minute and recorded as
+    15 min averages on a datalogger (CR6, Campbell Scientific, Logan, UT). The weather
+    sensors and data logger were installed in the same vine row and located midway
+    between the infrared temperature sensors. The equipment was removed at harvest,
+    usually mid to late September. A 1.2 m soil moisture sensor (Drill and Drop, SenTek
+    Sensor Technologies, Stepney, SA) was installed in the vine row within 3 m of
+    the data logger and within 20 cm of an irrigation drip line emitter. Soil moisture
+    was recorded every 30 min measured at 10 cm depth increments to a depth of 1.2
+    m. In 2017 and 2018, a tipping bucket rain gage (RainWise, Boothwyn, PA) was placed
+    under an drip line irrigation emitter to record cumulative irrigation application
+    amount. The rain gage was connected to the data logger and total emitter water
+    application was recorded in 15 min and 24 hr increments. In 2019 and 2020 a flow
+    meter (36MP.75RG.1, Netafim Irrigation, Inc., Fresno, CA) was installed in the
+    irrigation drip line and connected to the data logger. Flow rate was recorded
+    in 15 min increments. The field data logger was equipped with a machine-to-machine
+    cellular modem (RavenXTA CDMA or RV50 Sierra wireless AirLink, Campbell Scientific
+    Inc., Logan, UT) to provide real-time access to the sensor data using commercial
+    software. Study personnel accessed sensor data using datalogger management software
+    (LoggerNet 4.5, Campbell Scientific Inc., Logan, UT). Vineyard managers were provided
+    real-time sensor data access through a website. The website was hosted on the
+    field data logger. Data logger webpage publishing software (RTCM Pro Development
+    4.3.3.6, Campbell Scientific Inc., Logan, UT) was used to design and publish the
+    webpage on the data logger. The website was accessible using either a personal
+    computer or a smart phone. The website provided graphical pages with running 12-day
+    histories of daily CWSI, soil water content at each depth increment, fASW, daily
+    irrigation depth, and latest 15-min averaged weather data, each on a separate
+    webpage. The website was available between the hours of 6:00 to 22:00 MDT. The
+    cell phone modem was powered down overnight to conserve battery power and to reset
+    the modem in case of intruder hacking and malware. The data logger battery was
+    charged using a 20 W solar panel. Midday LWP was measured at 7-to-10-day intervals
+    in both vineyards in each year of the study to verify vine water status and to
+    investigate its correlation with daily CWSI. LWP was measured between 13:00 and
+    15:00 MDT on two fully expanded, sunlit leaves from vines adjacent to each installed
+    infrared radiometer using a pressure chamber (model 610, PMS Instrument Co., Albany,
+    OR) as described by Levin et al. [10,34]. 2.3. Calculated webpage values Information
+    shown on webpages hosted by the field data logger was based on several calculations
+    performed by datalogger software using measured sensor values. The calculated
+    values included daily CWSI, fASW, and daily irrigation depth. Daily CWSI was calculated
+    as the average 15-min CWSI between 13:00 and 15:00 MST, which corresponded to
+    −1 to +1.5 hr of solar noon. The 15-min CWSI was calculated using the empirical
+    equation developed by Idso et al. [15] as: (1) where Tc is measured canopy temperature
+    of fully sunlit leaves ( °C). The TLL reference temperature ( °C) was estimated
+    using cultivar specific neural network models [32]. Inputs to the neural network
+    models were 15-minute averaged values of measured Rs, Ta, RH and WS. The TUL reference
+    temperature ( °C) was estimated using the energy balance-based equation of [14]
+    as: (2) where ra is aerodynamic resistance (s m−1), Rn is net radiation (W m−2),
+    cp is heat capacity of air (J kg-1 °C-1), and ρ is density of air (kg m−3). Aerodynamic
+    resistance was estimated using the approach of [30] as described by [33] using
+    the same cultivar specific data sets for well-watered wine grapes in southwestern
+    Idaho. Values used for ra were 16.8 s m−1 for Malbec and 21 s m−1 for Chardonnay
+    and Cabernet Sauvignon. Net radiation was estimated as Rn = 0.9Rs – 60 [33]. The
+    fASW for a given soil profile depth was calculated as: (3) where θi is measured
+    volumetric soil water content for depth i, θpwpi is estimated volumetric soil
+    water content at permanent wilting point for depth i, θfci is estimated volumetric
+    soil water content at field capacity at depth i, and n is the number of 10 cm
+    soil water content measurement depths considered. Field capacity for each soil
+    depth was estimated as the maximum soil water content measured 24 h after an irrigation
+    event or soil water content at the beginning of the season for depths below the
+    irrigation wetting front. Permanent wilting point (PWP) for each soil depth was
+    estimated as 50% of field capacity (FC) or minimum soil water content measured.
+    Values for θfci and θpwpi were continually adjusted during the beginning of the
+    season as soil water content measurements were collected. Three values of fASW
+    were presented in the webpage: 0 to 60 cm, 0 to 90 cm, and 0 to 120 cm. Values
+    shown in the webpages were expressed in English units as they were designed for
+    use by vineyard managers located in the U.S. Daily irrigation depth was calculated
+    as the volume of water applied between 0:00 and 24:00 MDT divided by the drip
+    irrigation lateral length represented and vine row spacing. In the case of rain
+    gauges, the volume of water measured by the rain gage was divided by the emitter
+    spacing and vine row spacing. In the case of flow meters, the daily volume of
+    water applied was calculated by summing the flow rate in each 15 min interval
+    multiplied by the time interval. The volume of water was divided by lateral length
+    downstream of the flow meter and vine row spacing. The calculated irrigation depth
+    was presented in the English unit of inches. 2.4. Irrigation DSS vineyard manager
+    accessible webpages The irrigation DSS was comprised of six separate webpages
+    that displayed daily CWSI values (Fig. 1), soil moisture at depth of 0 to 60 cm
+    (0 - 24 in) (Fig. 2), soil moisture at a depth of 70 to 120 cm (28 - 48 in) (Fig.
+    3), fASW at three soil depths (Fig. 4), irrigation amount (Fig. 5), and weather
+    (Fig. 6). The webpages showing CWSI, soil water content (%) and fASW displayed
+    data as a running 12-day history. Each webpage had a top menu showing all available
+    webpages. CWSI values were graphed independently for each infrared radiometer
+    and as the average value of all radiometers. An example of the main webpage at
+    site V-B for 13 August through 25 August 2020 is shown in Fig. 1. Soil volumetric
+    water content (%) was graphed independently at depth increments of 10 cm (4 inches)
+    (Figs. 2,3). fASW (Fig. 4) was graphed independently for soil depths 0 to 60 cm
+    (0 - 24 in), 0 to 90 cm (1 – 36 in), and 0 - 120 cm (0 – 48 in). Daily irrigation
+    amounts (Fig. 5) represent water applied between 0:00 and 24:00 MDT. Fig. 1, Fig.
+    2, Fig. 3, Fig. 4, Fig. 5 show data for V-B from 13 August through 23 August 2020.
+    Weather conditions in each vineyard (Fig. 6) were displayed as the most current
+    15-min average value for Ta, RH, WS, and wind direction. For ease of use, the
+    values for Ta and RH were displayed graphically as well as numerically. Download
+    : Download high-res image (291KB) Download : Download full-size image Fig. 1.
+    Example main webpage showing daily crop water stress index (CWSI) for a 12-day
+    period during 2020 at V-B. Download : Download high-res image (321KB) Download
+    : Download full-size image Fig. 2. Example webpage showing volumetric soil water
+    content for 10 to 60 cm (4 to 24 inch) depths for a 12-day period during 2020
+    at V-B. Download : Download high-res image (284KB) Download : Download full-size
+    image Fig. 3. Example webpage showing volumetric soil water content for 70 to
+    120 cm (28 to 48 inch) depths for a 12-day period during 2020 at V-B. Download
+    : Download high-res image (261KB) Download : Download full-size image Fig. 4.
+    Example webpage showing estimated fraction of available soil water for three soil
+    profile depths for a 12-day period during 2020 at V-B; 0 to 60 cm (0 to 14 inch),
+    0 to 90 cm (0 to 36 inch), and 0 to 120 cm (0 to 48 inch). Download : Download
+    high-res image (206KB) Download : Download full-size image Fig. 5. Example webpage
+    showing daily irrigation applied over a 12-day period during 2020 at V-B. Download
+    : Download high-res image (185KB) Download : Download full-size image Fig. 6.
+    Example of webpage displaying the latest 15-minute average measured values of
+    air temperature, relative humidity, and windspeed and direction. 2.5. Data analysis
+    Linear and multiple regression were conducted using Microsoft Excel data analysis
+    tools. Graphical, linear, and multiple linear regression and variance analysis
+    were used to quantify and evaluate relationships between variables. Regression
+    line significance was evaluated using ANOVA (p < 0.05). Neural network model development
+    was performed using the MATLAB Neural Network Toolbox (MathWorks, Natick, Mass.)
+    [33]. Graphs were generated using Sigmaplot 14 (Systat Software, San Jose, CA).
+    3. Results 3.1. Climatic conditions Climatic conditions during the four-year study
+    relative to 20-yr (1996–2016) averages are summarized in Table 1. The climatic
+    conditions during the four study years were generally within one standard deviation
+    of the 20-yr mean with a few exceptions. Alfalfa-based reference evapotranspiration
+    was greatest in 2018 and exceeded the 20-yr mean by more than one standard deviation.
+    The combination of high mean air temperature and daily solar radiation, and low
+    mean relative humidity and April through September precipitation resulted in the
+    high reference evapotranspiration in 2018. October through March precipitation
+    was greatest in 2017 and exceeded one standard deviation of the 20-yr mean. April
+    through September precipitation in 2019 and 2020 exceeded one standard deviation
+    of the 20-yr mean. Growing-degree days was greatest in 2018, coinciding with highest
+    mean daily air temperature and high reference evapotranspiration. Table 1. Climatic
+    conditions at weather station (PMAI, www.usbr.gov/pn/agrimet/) nearest (within
+    30 km) to study sites. Mean daily air temperature, relative humidity, and solar
+    radiation, cumulative precipitation, alfalfa-based reference evapotranspiration,
+    days air temperature > 35 °C, and growing degree days between 1 April through
+    30 September, and cumulative precipitation between 1 October and 31 March and
+    1 April to 30 September in each study year. The 20-yr averages (1996–2016) and
+    standard deviations are also shown. Parameters 2017 2018 2019 2020 1996–2016 Mean
+    ± Std Dev Mean air temperature ( °C) 18.9 19.0 18.3 18.1 18.4 ± 0.8 Days air temperature
+    > 35 °C 39 33 27 23 29 ± 11 Mean relative humidity (%) 52.1 47.8 55.3 52.5 50.5
+    ± 3.3 Mean daily solar radiation (MJ m−2 d−1) 23.2 24.3 23.5 23.7 23.9 ± 0.8 Alfalfa-based
+    reference evapotranspiration (mm) 1192 1264 1164 1172 1158 ± 67 Precipitation
+    Oct – Mar (mm) 239 102 168 121 128 ± 40 Precipitation Apr – Sept (mm) 77 50 142
+    201 80 ± 30 Growing-degree days ( °C)a 1639 1683 1584 1601 1595 ± 99 aGrowing-degree
+    days were calculated from daily maximum and minimum temperature with no upper
+    limit and a base temperature of 10 °C. 3.2. Relationship between measures of vine
+    water stress Linear relationships between plant water stress measures fASW, LWP,
+    and CWSI at each vineyard for the four study years combined are summarized in
+    Fig. 7. All the linear relationships between the water stress measures were statistically
+    significant (p < 0.001). The linear relationships between fASW versus LWP and
+    daily CWSI versus LWP had similar R2 values for both vineyards. The linear relationship
+    between fASW and CWSI at V-B had a much greater R2 than for V-A (0.58vs 0.32).
+    Variability in the fASW vs CWSI data was similar between the vineyards, but daily
+    CWSI spanned a greater range at V-B resulting in a greater R2. The greatest data
+    variability occurred between daily CWSI and LWP for both vineyards. The greater
+    variability is likely due to CWSI and LWP responding differently to Ta, RS, RH
+    and WS. Download : Download high-res image (968KB) Download : Download full-size
+    image Fig. 7. Relationships between average daily CWSI, fraction of available
+    soil water (fASW) in 0 to 120 cm soil profile, and midday leaf water potential
+    (LWP) for the four study years at V-A (left graphs) and V-B (right graphs). 3.3.
+    Relationship between seasonal CWSI and seasonal irrigation amounts The seasonal
+    average values for daily CWSI and the cumulative amount of irrigation applied
+    between 1 July and 15 September in each study year at each vineyard are shown
+    in Table 2. The seasonal average daily CWSI values for each vineyard were largely
+    consistent over the four-year study. Seasonal daily CWSI values were higher for
+    V-B as the vineyard manager preferred higher plant water stress than the manager
+    of V-A. The higher daily CWSI value at V-B was also higher because it would rapidly
+    increase a couple days after an irrigation event due to the low water holding
+    capacity of the sandy soil. Table 2. Average daily crop water stress index (CWSI)
+    and cumulative irrigation application between 1 July and 15 September at each
+    study site and study year. Study Site Parameter Year 2017 2018 2019 2020 Vineyard-A
+    Daily CWSI 0.25 0.23 0.31 0.28 Irrigation (mm) 66 130 117 122 Vineyard-B Daily
+    CWSI 0.38 0.44 0.41 0.36 Irrigation (mm) 143 115 134 128 4. Discussion 4.1. Irrigation
+    DSS vineyard manager accessible webpages An example of the irrigation DSS running
+    12-day history and weather webpage is presented for V-B for 13 to 23 August 2020
+    (Fig. 1, Fig. 2, Fig. 3, Fig. 4, Fig. 5, Fig. 6). An irrigation event, starting
+    the evening of 18 August 2020, increased soil water content to a depth of 60 cm
+    (24 inches) (Fig. 2) and decreased the daily CWSI to near zero (Fig. 1). An irrigation
+    event starting on the evening of 23 August increased soil water content to a depth
+    70 cm (28 inches) (Fig. 3) and decreased the daily CWSI to near zero (Fig. 1).
+    The estimated fASW increased on 18 August and 23 August (Fig. 4) as soil water
+    contents increased (Fig 2) due to irrigation events. Prior to irrigation on 18
+    Aug, daily CWSI was greater than 0.6 (Fig. 1), while fASW for the 0 to 120 cm
+    soil profile was about 0.3 and increased to greater than 0.8 following irrigation
+    on 23 Aug. Midday on 25 August daily CWSI was near zero while fASW was about 0.78.
+    An overnight irrigation event started on 18 August is depicted as two irrigations
+    since it spanned two days (Fig. 5). The first irrigation event applied about 10
+    mm (0.4 inch) and the second irrigation event applied about 21 mm (0.8 inch),
+    which collectively decreased daily CWSI from 0.6 to near zero (Fig. 1) and increased
+    fASW from 0.3 to 0.8 (Fig. 4). The observed variability among radiometers on the
+    irrigation DSS webpage for daily CWSI values (Fig. 1), was likely attributed to
+    high spatial variability in soil profile characteristics. Limiting historical
+    data on the irrigation DSS webpage to a running 12-day period was to optimize
+    time efficiency of the user web browsing experience. The infield data logger that
+    hosted the irrigation DSS webpages had limited computing capacity, so limiting
+    the historical data time frame to a running 12-days offered a reasonable compromise
+    between data viewability on a cell phone and time to transfer the data to the
+    user webpage interface device. A running 12-day historical record was sufficient
+    to establish trends in CWSI or soil water availability useful in making irrigation
+    management decisions. The vineyard managers in this study only wanted to know
+    if they need to irrigation today and were largely uninterested in historical CWSI
+    values. The 12-day historical length can be increased if deemed necessary by uploading
+    the data to the cloud and using cloud based graphical software to display the
+    same information for the full growing season. 4.2. Relationship between measures
+    of vine water status and irrigation A seasonal graph of the irrigation DSS data
+    for V-B in 2020 shows an interconnected response among the measured and estimated
+    DSS parameters (Fig. 8). Values for daily CWSI and midday leaf water potential
+    shown in Fig. 8 are averages of the measured values and fASW is for the 0 to 120
+    soil profile. Prior to initiation of measurements on 13 June, there was above
+    average precipitation in 2020 (Table 1). The prior precipitation is evident by
+    the status of well-watered vines on 13 June (Fig. 8). Daily CWSI was low, fASW
+    was > 0.55 and LWP was less negative. A rainfall event on 29 June was associated
+    with a decrease in the daily CWSI, an increase in fASW and a less negative LWP.
+    Prior to the irrigation event on 20 July, the daily CWSI steadily increased coincident
+    with a more negative LWP. The small irrigation event on 8 July had minimal influence
+    on daily CWSI or LWP potential as fASW remained below 0.55. Irrigation events
+    prior to 17 August reduced CWSI and made LWP less negative for only a few days
+    and fASW remained 〈 0.55 for most of the duration. The seasonally highest CWSI
+    values and most negative LWP values occurred between 28 July and 24 August. The
+    irrigation event on 23 August and precipitation events on 17 and 24 August decreased
+    CWSI to near zero, increased fASW to 〉 0.55 and LWP became less negative, all
+    of which indicated a short period of increase in vine water status. Between 24
+    August and the next irrigation event on 1 September, the CWSI increased, fASW
+    decreased, and LWP became more negative. The relatively large (> 25 mm) irrigation
+    event on 3 September decreased daily CWSI to 〈 0.2, increased fASW to 〉 0.8, and
+    LWP became less negative. The last irrigation on 11 September reduced daily CWSI
+    to near zero, increased fASW to nearly 0.9 and increased LWP to > −0.9 MPa. Download
+    : Download high-res image (396KB) Download : Download full-size image Fig. 8.
+    Average daily CWSI, fraction of available soil water (fASW) in 0 to 120 cm soil
+    profile, midday leaf water potential (LWP), precipitation, and irrigation during
+    the 2020 growing season at V-B. The fASW is a common method used to express crop
+    water stress for field crops. Wine grape is well-watered when fASW is greater
+    than 0.55 [35]. The corresponding seasonal responses of fASW, midday LWP, and
+    the daily CWSI to irrigation and precipitation events (Fig. 8) supports the usefulness
+    and accuracy of daily CWSI for real-time irrigation management of wine grape irrespective
+    of soil characteristics that may influence these values. 4.3. Comparison of vine
+    water stress measures between vineyards The slopes of linear relationships between
+    the fASW versus LWP or daily CWSI differed between vineyards (Fig. 7). This may
+    be partially due to differences in soil textures and permeability between the
+    vineyards. V-A had a silt loam soil with low to moderate permeability while V-B
+    had a sandy soil with high permeability. Water applied by the drip irrigation
+    emitter likely resulted in different wetting patterns between vineyards with a
+    deeper wetting pattern and less lateral spreading at V-B. There was likely limited
+    soil water availability outside the immediate area of the emitter wetting pattern
+    at V-B due to the low water holding capacity of the sandy soil. The soil water
+    sensor was installed within 20 cm of an emitter and may have provided a better
+    measurement of total soil water at V-B than V-A. The greater water holding capacity
+    of the silt loam soil at V-A likely resulted in much more stored soil water from
+    non-growing season precipitation, limiting the range in fASW over the growing
+    season. However, the range in LWP were similar between vineyards. The low permeability
+    of the soil at V-A may have restricted movement of soil water to the roots. Lastly
+    the soil at V-A exhibited silica cementation ranging from 45 to 60 cm deep during
+    soil sensor installation that may have restricted root growth. Ample soil water
+    was measured below 60 cm in the root zone (data not shown) but very little extraction
+    occurred during the growing season supporting the suspicion of limited root presence
+    below 60 cm. The presence of ample soil water below 60 cm limited the range in
+    fASW over the growing season and if it was largely unavailable to the vines would
+    result in high daily CWSI and low LWP values despite fASW > 0.55. Despite a significant
+    linear relationship between daily CWSI and midday LWP for both vineyards (Fig.
+    7), there is considerable variability in the relationships, which precludes use
+    of CWSI as a direct surrogate for LWP. A quadratic relationship between CWSI and
+    LWP averaged over four wine grape cultivars was reported by [21], which depicted
+    a similar degree of variability. [36] reported LWP ranging from −0.51 to −1.15
+    MPa for well-watered grapevines in California with LWP linearly related to vapor
+    pressure deficit (VPD) and Ta. They also reported a linear relationship between
+    LWP and VPD for water stressed vines, but with reduced dependence on VPD compared
+    to well-watered vines. The results of this study are consistent with the findings
+    of [36] as the relationship between CWSI and LWP (Fig. 7) could be represented
+    by a piece-wise linear relationship with CWSI ≈ 0 for LWP > −1.15 MPa. Solar radiation
+    also influences LWP and LWP measurements should be collected on cloudless days
+    [36]. The LWP values reported in this study were made over a wide range of VPD
+    and on days with variable clouds. Additionally, some LWP values reported in this
+    study were not collected on the same vine used for canopy temperature measurement,
+    another source of variability in the relationship between CWSI and LWP. Overall,
+    the presence of water stress detected by LWP measurement was also indicted by
+    daily CWSI as calculated in this study, demonstrating that CWSI can be effectively
+    used as an irrigation management tool for wine grape. The vineyard managers in
+    this study were successful in using daily CWSI to achieve similar levels of plant
+    water stress over multiple years, despite yearly differences in evaporative demand
+    and growing season precipitation. The primary advantage of using CWSI as an irrigation
+    management tool is the ability to automate data collection for daily monitoring
+    of water stress with minimal labor. The linear relationship between fASW and daily
+    CWSI exhibited less variability than the linear relationship between fASW and
+    midday LWP (Fig. 7), especially for V-B. Thus, CWSI was a more direct indicator
+    of available soil water than LWP. For V-B, when fASW was > 0.55, indicating well-watered
+    vines, CWSI was 〈 0.1 supporting the rational than CWSI should approach zero for
+    well-watered vines and approach one for severely watered stressed vines as the
+    linear relationship depicts. However, for V-A a fASW value of 0.55 corresponds
+    to a CWSI value 〉 0.5, which clearly does not follow the rational of CWSI, indicating
+    an error in estimating fASW. As forementioned, this discrepancy is likely due
+    to the effective root zone of the vines less than the 120 cm depth used to compute
+    fASW. The estimates of FC and PWP of the soil at V-A could also be in error, which
+    could lead to overestimation of fASW. If estimates of the fASW at V-A were reduced
+    by 25%, a fASW value of 0.55 would correspond to a CWSI value < 0.1, like V-B
+    and a CWSI value of 0.6 would correspond to a fASW of 0.37. The unrealistic over
+    estimation of fAWC at V-A based on measured midday LWP and calculated daily CWSI
+    highlights the difficulty in accurately quantifying the fASW using a single soil
+    moisture profile measurement with drip irrigated crops. Drip irrigation results
+    in a 3-dimensional wetting pattern that makes reliable estimation of root zone
+    available soil water difficult at best. As an example, [37] reported that nine
+    neutron probe measurements in one quadrant of a vine root zone, to a depth of
+    3 m, was necessary to quantify soil water content of drip-irrigated grape vines.
+    The difficulty in quantifying fASW in drip irrigated vineyards highlights the
+    advantage of using plant-based methods for assessing vine water status such as
+    CWSI provided the reference temperatures TLL and TUL can be reliably estimated.
+    4.4. Seasonal CWSI and seasonal irrigation amounts between vineyard managers Neither
+    vineyard manager in this study used any type of quantitative plant or soil water
+    monitoring techniques to aid in irrigation management decisions prior to the installation
+    of the CWSI based IoT irrigation DSS. Prior to this study, the irrigation managers
+    at both vineyards made irrigation decisions based upon intuition, previous experience,
+    and crop appearance [1]; so, there was a reasonable expectation that the vineyard
+    managers would actively use the CWSI based IoT irrigation DSS. At the beginning
+    of the first study year, the vineyard managers were briefed on the concept of
+    CWSI for monitoring plant water status and were given the guideline that a daily
+    CWSI value of 0.3 corresponded to approximately a 70% ET rate relative to a well-watered,
+    100% ET. Beyond that initial guidance on how to interpret the daily CWSI value,
+    the vineyard managers independently accessed the irrigation DSS webpages and made
+    irrigation management decisions without input from research project personnel.
+    At the end of the first study year both vineyard managers reported that they routinely
+    accessed the irrigation DSS webpages for daily CWSI and fASW and used the information
+    to support irrigation management decisions. In each of the remaining three years
+    of the study, both vineyard managers, at their discretion, continued to access
+    the irrigation DSS webpages and use the daily CWSI to facilitate irrigation management
+    decisions. Seasonal average daily CWSI values (Table 2) were higher for V-B as
+    the vineyard manager preferred higher plant water stress than the manager of V-A.
+    The higher daily CWSI value at V-B was also higher because it would rapidly increase
+    a couple days after an irrigation event due to the low water holding capacity
+    of the sandy soil. Cumulative irrigation water application was surprisingly similar
+    across vineyards, particularly for years 2018 through 2020, despite differences
+    in soil water holding capacity and vineyard managers. Cumulative irrigation was
+    low in the first year of the study at V-A due to above average non-growing season
+    precipitation and higher water holding capacity of the silt loam soil. The narrow
+    range in seasonal average daily CWSI (0.23 to 0.31 for V-A, and 0.36 to 0.44 for
+    V-B) and cumulative irrigation (1.14 to 134 mm) in 2018 through 2020 suggests
+    that vineyard managers effectively used the CWSI based IoT irrigation DSS to develop
+    and maintain a consistent deficit irrigation management program. 4.5. Irrigation
+    decision support system limitations The data-driven models used in this study
+    provided reliable estimates of TLL and TUL in real-time for the semiarid climatic
+    conditions of the study site, which was representative of the irrigated wine producing
+    locations in the pacific northwestern U.S. The climatic conditions under which
+    these data-driven models were developed were representative of the conditions
+    in this study. However, the models may not perform as well in other regions with
+    weather conditions outside the database range for model development. For example,
+    in areas where daily windspeeds exceed 5 m sec−1. Wind speeds higher than 5 m
+    sec−1 were not included in the database used for model development and grapevines
+    are known to reduce stomatal conductance under high winds [38,39]. A wind induced
+    reduction in stomatal conductance would result in an increase in canopy temperature
+    independent of plant water stress and, since the data-driven model estimate of
+    TLL would be too low, the calculated CWSI value would be elevated. Canopy temperature
+    data for well-watered vines under high wind conditions would need to be included
+    in the data set used to calibrate the neural network model for estimating TLL
+    in windy semiarid regions. There are climatic conditions that can result in a
+    calculated CWSI value of less than zero or greater than one. Wet canopy conditions
+    typically result in measured canopy temperature that is less than the TLL predicted
+    by the data driven model. This results in a negative CWSI value regardless of
+    soil water availability. The original development of the CWSI concept by [15]
+    was limited to clear sunny conditions. However, the data driven model for predicting
+    TLL that was used in this study uses a database of well-watered vine canopy temperatures
+    that were measured under variable cloudy conditions. The data driven model can
+    therefore predict TLL for variably cloudy conditions. While the data-driven model
+    used for predicting TLL is valid for solar radiation < 100 W m−2, TUL predicted
+    using Eq. (2) for low levels of solar radiation can be approximately equal to
+    TLL resulting in CWSI values less than zero or greater than 1. In this study,
+    solar radiation less than 200 W m−2 often resulted in CWSI values less than zero.
+    [40] also found solar radiation greater than 200 W m−2 was necessary to reliably
+    use canopy temperature measurement for irrigation scheduling. In this study, daily
+    CWSI was limited to a maximum of one and a minimum of zero in software to avert
+    illogical values. The effect of wet canopy and low solar radiation on calculation
+    of daily CWSI is evident in Fig. 8 on 18 and 24 August when a value of zero was
+    assigned to daily CWSI during rainfall events. Limiting daily CWSI value to zero
+    due to low solar radiation or wet canopy has little practical impact on use of
+    CWSI for irrigation management as vine water stress is low under these circumstances
+    due to low evaporative demand. When calculated CWSI is greater than one due to
+    low solar radiation, limiting the value of one is more problematic as this results
+    in a very erroneous representation of vine water stress that could lead to an
+    unnecessary irrigation event. The climatic conditions leading to errors in calculating
+    CWSI (rainfall, low solar radiation) are limited to 1-to-3-days in duration in
+    the semiarid regions of the pacific northwestern U.S. and do not prevent application
+    of the CWSI based IoT irrigation DSS system in the region. Software used to compute
+    CWSI can be modified to detect these events and indicate to the user that the
+    daily CWSI is unavailable. The daily CWSI value for the day preceding the rainfall
+    or low solar radiation event can be used to guide irrigation decisions as plant
+    water stress will decrease with rainfall or increase minimally as ET will be small
+    under low solar radiation conditions. The CWSI based IoT irrigation DSS system
+    developed and implemented in this study focused on two small acreage, commercial
+    estate vineyards in semiarid southwestern Idaho USA. The climatic conditions at
+    the study sites were representative of vineyards in the semiarid irrigated regions
+    of the Pacific Northwest U.S. Small acreage vineyards can be found throughout
+    the region and most do not have staff with irrigation science training, nor can
+    they afford to hire trained vineyard irrigation management professionals or services.
+    They need affordable irrigation scheduling tools that are easy to maintain and
+    indicate when to irrigate to maintain a desired level of vine water stress. The
+    vineyard managers at the study sites were pleased the system reliably and timely
+    indication of vine water stress without having to spend time collecting soil water
+    content measurements needed to estimate fASW or measure leaf water potential.
+    While this study focused on small commercial estate vineyards, the IoT irrigation
+    DSS concept is applicable to larger commercial vineyards where it could be used
+    to provide plant water stress information needed to ground truth remote sensing
+    based estimates of the ratio of actual-to-reference ET such as those provided
+    by GRAPEX [41] or OPENET (https://openetdata.org). These remote sensing-based
+    estimates have a minimum spatial resolution of 30 m, which is larger than the
+    minimum dimension of irrigation management blocks in many commercial estate vineyards,
+    hence they are not necessarily applicable to small commercial estate vineyards
+    in the region. The CWSI based IoT irrigation DSS system implemented in this study
+    used expensive scientific grade equipment, which proved invaluable to investigate
+    the validity and adoptability of the system for irrigation management in wine
+    grapes. The infrared temperature sensors cost $700 each, the multifunctional precision
+    data logger was $2000, and the cellular modem with accessories was $700 totaling
+    over $6100 excluding web page publishing software and climatic sensors. The soil
+    moisture sensor cost is not included as it is unnecessary for calculation of the
+    CWSI. The cost of the equipment used in this study is prohibitive for small vineyards
+    to monitor just a single location. Vineyard manager acceptance and adoption of
+    the CWSI based IoT irrigation DSS system implemented in this study justifies continued
+    development and enhancement of the system. Future work will focus on incorporating
+    less expensive infrared temperature sensors coupled with low-power, low-cost radio
+    communications to allow wireless transfer of data to a base station. The base
+    station will be connected to the internet using a cell phone modem and used to
+    upload canopy temperature measurements across a vineyard to a cloud computing
+    platform. The cloud computing platform software will be used to host webpages
+    like those used in this project to allow real-time monitoring of canopy temperature
+    at sensor locations across a vineyard and display daily CWSI for each canopy temperature
+    monitoring location. These system enhancements would increase size of the vineyard
+    area represented by daily CWSI measurements, encompassing multiple cultivars and
+    irrigation blocks or irrigation management zones in larger vineyards. 5. Conclusions
+    A CWSI based IoT irrigation DSS was developed, and field tested at two small acreage
+    commercial wine grape estate vineyards in southwestern Idaho. Irrigation DSS webpages,
+    accessible to vineyard managers via cell phone or computer, provided a running
+    12-day history of CWSI daily values, soil moisture and current weather conditions.
+    Data-driven models were used to estimate reference temperatures needed to calculate
+    the CWSI using real-time environmental inputs for Rs, Ta, RH, and WS. Edge computing
+    on a solar powered, field-deployed data logger was used to calculate the CWSI
+    and fASW, and the data logger was used to host webpages of the irrigation DSS.
+    The data logger was connected to a cellular modem located in the vineyard. The
+    vineyard managers routinely used the irrigation DSS webpage for the CWSI and soil
+    moisture to make irrigation management decisions. The average daily CWSI and irrigation
+    amounts between 1 July and 15 September were similar between years over the four-year
+    study for each study vineyard suggesting that the CWSI based IoT irrigation DSS
+    was effective in assisting irrigation management decisions. Linear relationships
+    between daily CWSI, midday LWP, and fraction of available soil water were significant
+    (p < 0.001) at both study sites. The coefficient of determination (R2 = 0.58)
+    for the linear relationship between daily CWSI and fraction of available soil
+    water for V-B was better than that for midday LWP (R2 = 0.38) indicating daily
+    CWSI was the most reliable indicator (less variable) of vine water status. The
+    data-driven models used to estimate TLL and TUL can result in CWSI values outside
+    the theoretical range of 0 to 1 when the canopy is wet from precipitation or solar
+    radiation is <200 W m−2. These climatic conditions are limited to 1-to-3-days
+    in duration in the semiarid regions of the pacific northwestern U.S. and do not
+    prevent application of the CWSI based IoT irrigation DSS system in the region.
+    These climatic instances can be detected by IoT irrigation DSS system software
+    and indicate to the user that the daily CWSI is unavailable. The daily CWSI value
+    for the day preceding the rainfall or low solar radiation event can be used to
+    indicate plant water stress since it will decrease with rainfall or increase minimally
+    as ET will be small under low solar radiation conditions. The hardware and software
+    used to implement the CWSI based IoT irrigation DSS in this study was very reliable
+    but too expensive for practical commercial application. Future work will focus
+    on incorporating less expensive infrared temperature sensors coupled with low-power,
+    low-cost radio communications to allow wireless transfer of data to a base station.
+    The base station will be connected to the internet using a cell phone modem and
+    upload canopy temperature measurements across a vineyard to a cloud computing
+    platform. The cloud computing platform software will be used to host webpages
+    like those used in this project to allow real-time monitoring of canopy temperature
+    at sensor locations across a vineyard and display daily CWSI for each canopy temperature
+    monitoring location. Funding The work reported in this paper was partially funded
+    by the Idaho Department of Agriculture 2014 Idaho Specialty Crop Block Grant #2014-14-SCBG-ID-0016
+    and the Idaho Department of Agriculture 2016 Idaho Specialty Crop Block Grant
+    #2016-16SCBGPID0034. Declaration of Competing Interest The authors declare that
+    they have no known competing financial interests or personal relationships that
+    could have appeared to influence the work reported in this manuscript. Acknowledgment
+    The authors thank Alan Muir, USDA-ARS Horticultural Crops Research Unit, for providing
+    technical support for field management, sensor installation, sample collection
+    and analysis. The authors also thank the cooperating vineyard owners for their
+    active participation in the reported research. Data availability Data will be
+    made available on request. References [1] M. Moyer, R.T. Peters, R. Hamman Irrigation
+    Basics for Eastern Washington vineyards Washington State University Extension,
+    Pullman, WA (2013), p. 12 CrossRefGoogle Scholar [2] M.M. Chaves, et al. Grapevine
+    under deficit irrigation: hints from physiological and molecular data Ann. Bot.,
+    105 (2010), pp. 661-676, 10.1093/aob/mcq030 View in ScopusGoogle Scholar [3] M.M.
+    Chaves, et al. Deficit irrigation in grapevine improves water-use efficiency while
+    controlling vigour and production quality Ann. Appl. Biol., 150 (2007), pp. 237-252,
+    10.1111/j.1744-7348.2006.00123.x View in ScopusGoogle Scholar [4] E. Fereres,
+    M.A. Soriano Deficit irrigation for reducing agricultural water use J. Exp. Bot.,
+    58 (2006), pp. 147-159, 10.1093/jxb/erl165 Google Scholar [5] K.C. Shellie Water
+    productivity, yield, and berry composition in sustained versus regulated deficit
+    irrigation of Merlot grapevines Am. J. Enol. Vitic., 65 (2014), pp. 197-205, 10.5344/ajev.2014.13112
+    View in ScopusGoogle Scholar [6] A.P. Williams, B.I. Cook, J.E. Smerdon Rapid
+    intensification of the emerging southwestern North American megadrought in 2020–2021
+    Nat. Clim. Chang. (2022), 10.1038/s41558-022-01290-z Google Scholar [7] J.M. Mirás-Avalos,
+    E.S. Araujo Optimization of vineyard water management: challenges, strategies,
+    and perspectives Water, 13 (2021), p. 746, 10.3390/w13060746 View in ScopusGoogle
+    Scholar [8] M. Rienth, T. Scholasch State-of-the-art of tools and methods to assess
+    vine water status OENO One, 53 (2019), 10.20870/oeno-one.2019.53.4.2403 Google
+    Scholar [9] J.E. Fernández Plant-based methods for irrigation scheduling of woody
+    crops Horticulturae, 3 (2017), p. 35, 10.3390/horticulturae3020035 View in ScopusGoogle
+    Scholar [10] A.D. Levin Re-evaluating pressure chamber methods of water status
+    determination in field-grown grapevine (Vitis spp.) Agric. Water Manag., 221 (2019),
+    pp. 422-429, 10.1016/j.agwat.2019.03.026 View PDFView articleView in ScopusGoogle
+    Scholar [11] K. Raschke Heat transfer between the plant and the environment Annu.
+    Rev. Plant Physiol., 11 (1960), pp. 111-126, 10.1146/annurev.pp.11.060160.000551
+    Google Scholar [12] C.B. Tanner Plant temperatures Agron. J., 55 (1963), pp. 210-211,
+    10.2134/agronj1963.00021962005500020043x Google Scholar [13] J.L. Hatfield The
+    utilization of thermal infrared radiation measurements from grain sorghum crops
+    as a method of assessing their irrigation requirements Irrig. Sci., 3 (1983),
+    pp. 259-268, 10.1007/BF00272841 View in ScopusGoogle Scholar [14] R.D. Jackson,
+    et al. Canopy temperature as a crop water stress indicator Water Resour. Res.,
+    17 (1981), pp. 1133-1138, 10.1029/WR017i004p01133 View in ScopusGoogle Scholar
+    [15] S.B. Idso, et al. Normalizing the stress-degree-day parameter for environmental
+    variability Agric. Meteorol., 24 (1981), pp. 45-55, 10.1016/0002-1571(81)90032-7
+    View PDFView articleView in ScopusGoogle Scholar [16] Y. Cohen, et al. Estimation
+    of leaf water potential by thermal imagery and spatial analysis J. Exp. Bot.,
+    56 (2005), pp. 1843-1852, 10.1093/jxb/eri174 View in ScopusGoogle Scholar [17]
+    D.M. Glenn, et al. Impact of kaolin particle film and water deficit on wine grape
+    water use efficiency and plant water relations HortScience, 45 (2010), pp. 1178-1187,
+    10.21273/hortsci.45.8.1178 Google Scholar [18] K.C. Shellie, B.A. King Kaolin
+    particle film and water deficit influence malbec Leaf and berry temperature, pigments,
+    and photosynthesis Am. J. Enol. Vitic., 64 (2013), pp. 223-230, 10.5344/ajev.2012.12115
+    View in ScopusGoogle Scholar [19] K.C. Shellie, B.A. King Application of a daily
+    crop water stress index to deficit irrigate malbec grapevine under semi-arid conditions
+    Agriculture, 10 (2020), p. 492, 10.3390/agriculture10110492 Google Scholar [20]
+    J. Bellvert, et al. Mapping crop water stress index in a ‘Pinot-noir’ vineyard:
+    comparing ground measurements with thermal remote sensing imagery from an unmanned
+    aerial vehicle Precis. Agric., 15 (2014), pp. 361-376, 10.1007/s11119-013-9334-5
+    View in ScopusGoogle Scholar [21] J. Bellvert, et al. Seasonal evolution of crop
+    water stress index in grapevine varieties determined with high-resolution remote
+    sensing thermal imagery Irrig. Sci., 33 (2015), pp. 81-93, 10.1007/s00271-014-0456-y
+    View in ScopusGoogle Scholar [22] E.J. Sadler, et al. Corn canopy temperatures
+    measured with a moving infrared thermometer array Trans. ASAE, 45 (2002), p. 581,
+    10.13031/2013.8855 View in ScopusGoogle Scholar [23] J.R. Mahan, K.M. Yeater Agricultural
+    applications of a low-cost infrared thermometer Comput. Electron. Agric., 64 (2008),
+    pp. 262-267, 10.1016/j.compag.2008.05.017 View PDFView articleView in ScopusGoogle
+    Scholar [24] V. Alchanatis, et al. Evaluation of different approaches for estimating
+    and mapping crop water status in cotton with thermal imaging Precis. Agric., 11
+    (2010), pp. 27-41, 10.1007/s11119-009-9111-7 View in ScopusGoogle Scholar [25]
+    H.G. Jones Use of infrared thermometry for estimation of stomatal conductance
+    as a possible aid to irrigation scheduling Agric. For. Meteorol., 95 (1999), pp.
+    139-149, 10.1016/S0168-1923(99)00030-1 View PDFView articleView in ScopusGoogle
+    Scholar [26] H.G. Jones Plants and Microclimate: a Quantitative Approach to Environmental
+    Plant Physiology Cambridge University Press, Cambridge (2013) 3 ed. Google Scholar
+    [27] I. Leinonen, H.G. Jones Combining thermal and visible imagery for estimating
+    canopy temperature and identifying plant stress J. Exp. Bot., 55 (2004), pp. 1423-1431,
+    10.1093/jxb/erh146 View in ScopusGoogle Scholar [28] S.A. O''Shaughnessy, et al.
+    Using radiation thermography and thermometry to evaluate crop water stress in
+    soybean and cotton Agric. Water Manag., 98 (2011), pp. 1523-1535, 10.1016/j.agwat.2011.05.005
+    View PDFView articleView in ScopusGoogle Scholar [29] A. Pou, et al. Validation
+    of thermal indices for water status identification in grapevine Agric. Water Manag.,
+    134 (2014), pp. 60-72, 10.1016/j.agwat.2013.11.010 View PDFView articleView in
+    ScopusGoogle Scholar [30] J.C. O''Toole, J.G. Real Estimation of aerodynamic and
+    crop resistances from canopy temperature Agron. J., 78 (1986), pp. 305-310, 10.2134/agronj1986.00021962007800020019x
+    Google Scholar [31] J.O. Payero, S. Irmak Variable upper and lower crop water
+    stress index baselines for corn and soybean Irrig. Sci., 25 (2006), pp. 21-32,
+    10.1007/s00271-006-0031-2 View in ScopusGoogle Scholar [32] B.A. King, K.C. Shellie
+    Evaluation of neural network modeling to predict non-water-stressed leaf temperature
+    in wine grape for calculation of crop water stress index Agric. Water Manag.,
+    167 (2016), pp. 38-52, 10.1016/j.agwat.2015.12.009 View PDFView articleView in
+    ScopusGoogle Scholar [33] B.A. King, et al. Data-driven models for canopy temperature-based
+    irrigation scheduling Trans. ASABE, 63 (2020), pp. 1579-1592, 10.13031/trans.13901
+    View in ScopusGoogle Scholar [34] K.C. Shellie Vine and berry response of Merlot
+    (Vitis vinifera L.) to differential water stress Am. J. Enol. Vitic., 57 (2006),
+    pp. 514-518 CrossRefView in ScopusGoogle Scholar [35] Allen, R.G., et al., Crop
+    evapotranspiration: guidelines for computing crop water requirements. FAO Irrigation
+    and Drainage Paper #56. 1998, Rome, Italy: FAO. Google Scholar [36] L.E. Williams,
+    P. Baeza Relationships among ambient temperature and vapor pressure deficit and
+    leaf and stem water potentials of fully irrigated, field-grown grapevines Am.
+    J. Enol. Vitic., 58 (2007), pp. 173-181 CrossRefView in ScopusGoogle Scholar [37]
+    L.E. Williams, T.J. Trout Relationships among vine- and soil-based measures of
+    water status in a thompson seedless vineyard in response to high-frequency drip
+    irrigation Am. J. Enol. Vitic., 56 (2005), pp. 357-366 CrossRefView in ScopusGoogle
+    Scholar [38] J.M. Kobriger, W.M. Kliewer, S.T. Lagier Effects of wind on water
+    relations of several grapevine cultivars Am. J. Enol. Vitic., 35 (1984), pp. 164-169
+    CrossRefGoogle Scholar [39] J.M. Campbell-Clause Stomatal response of grapevines
+    to wind Aust. J. Exp. Agric., 38 (1998), pp. 77-82, 10.1071/EA91220 View in ScopusGoogle
+    Scholar [40] D.L. Bockhold, et al. Irrigation scheduling based on crop canopy
+    temperature for humid environments Trans. ASABE, 54 (2011), pp. 2021-2028, 10.13031/2013.40654
+    View in ScopusGoogle Scholar [41] K.R. Knipper, et al. Evapotranspiration estimates
+    derived using thermal-based satellite remote sensing and data fusion for irrigation
+    management in California vineyards Irrig. Sci., 37 (2019), pp. 431-449, 10.1007/s00271-018-0591-y
+    View in ScopusGoogle Scholar Cited by (3) A data-driven bibliometric review on
+    precision irrigation 2023, Smart Agricultural Technology Show abstract Latest
+    Trends and Challenges in Digital Agriculture for Crop Production 2023, SSRN Evaluation
+    of Thermal-Based Physiological Indicators for Determining Water Stress Thresholds
+    in Drip- Irrigated ''Regina'' Cherry Trees 2023, Research Square ☆ Mention of
+    company or trade names is for description only and does not imply endorsement
+    by the USDA. The USDA is an equal opportunity provider and employer. Published
+    by Elsevier B.V. Part of special issue Smart Irrigation Techniques Edited by Dr.
+    Vasileios Liakos vliakos@uth.gr View special issue Recommended articles Design
+    and development of smart cover system for vineyards Smart Agricultural Technology,
+    Volume 3, 2023, Article 100064 Bilal Karaman, …, Aykut Kurtoglu View PDF Late
+    pruning modifies leaf to fruit ratio and shifts maturity period, affecting berry
+    and wine composition in L. cv. ‘Malbec’ in Mendoza, Argentina Scientia Horticulturae,
+    Volume 313, 2023, Article 111861 Marianela Bustos Morgani, …, Jorge A. Prieto
+    View PDF Neural computing modelling of the crop water stress index Agricultural
+    Water Management, Volume 239, 2020, Article 106259 Navsal Kumar, …, Rabee Rustum
+    View PDF Show 3 more articles Article Metrics Citations Citation Indexes: 1 Captures
+    Readers: 33 View details About ScienceDirect Remote access Shopping cart Advertise
+    Contact and support Terms and conditions Privacy policy Cookies are used by this
+    site. Cookie settings | Your Privacy Choices All content on this site: Copyright
+    © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved,
+    including those for text and data mining, AI training, and similar technologies.
+    For all open access content, the Creative Commons licensing terms apply."'
+  inline_citation: '>'
+  journal: Smart Agricultural Technology
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: A crop water stress index based internet of things decision support system
+    for precision irrigation of wine grape
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Premkumar S.
+  - Sigappi A.N.
+  citation_count: '9'
+  description: Precision agriculture is a breakthrough in digital farming technology,
+    which facilitates the application of precise and exact amount of input level of
+    water and fertilizer to the crop at the required time for increasing the yield.
+    Since agriculture relies on direct rainfall than irrigation and the prediction
+    of rainfall date is easily available from web source, the integration of rainfall
+    prediction with precision agriculture helps to regulate the water consumption
+    in farms. In this work, an edge computing model is developed for predicting soil
+    moisture in real time and managing the water usage in accordance with rain prediction.
+    A soil moisture prediction hybrid algorithm (SMPHA) has been developed that revolves
+    around the decision-making techniques with live environmental parameters including
+    weather parameters for the prediction of soil moisture through the impact of precipitation.
+    Numerous algorithms with the combination of regression + clustering are estimated,
+    and it is inferred that XGBoost + k-means outperforms other algorithmic combinations
+    that is deployed in edge model. This model is used as an intermediary between
+    the end IoT devices and cloud that results in the saving of computationally intensive
+    processing performed on cloud servers. The servers located on a local edge network
+    perform the developed algorithmic computations. Avoiding transmission over the
+    cloud results in significant latency, response time, and computation power savings
+    and therefore increases the efficiency of data transfer. The proposed edge computing
+    model is implemented in Raspberry Pi as an edge, Heroku as cloud, and edge nodes
+    as the combination of Pi with actuators and sensors. The monitored data from Pi
+    are stored in MongoDB webserver that is controlled by Web dashboard. Finally,
+    the developed model is implemented in cloud and edge where the edge server implementation
+    performs better in terms of latency, bandwidth, throughput, response time, and
+    CPU memory usage.
+  doi: 10.1515/jisys-2022-0046
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to content Authenticated with University of Nebraska - Lincoln What does
+    this mean? $ USD € EUR - Euro £ GBP - Pound $ USD - Dollar EN 0 University of
+    Nebras... SUBJECTS FOR AUTHORS SERVICES PUBLICATIONS ABOUT Open Access Published
+    by De Gruyter May 27, 2022 IoT-enabled edge computing model for smart irrigation
+    system S. Premkumar and AN. Sigappi From the journal Journal of Intelligent Systems
+    https://doi.org/10.1515/jisys-2022-0046 Cite this Share this 11 Abstract Precision
+    agriculture is a breakthrough in digital farming technology, which facilitates
+    the application of precise and exact amount of input level of water and fertilizer
+    to the crop at the required time for increasing the yield. Since agriculture relies
+    on direct rainfall than irrigation and the prediction of rainfall date is easily
+    available from web source, the integration of rainfall prediction with precision
+    agriculture helps to regulate the water consumption in farms. In this work, an
+    edge computing model is developed for predicting soil moisture in real time and
+    managing the water usage in accordance with rain prediction. A soil moisture prediction
+    hybrid algorithm (SMPHA) has been developed that revolves around the decision-making
+    techniques with live environmental parameters including weather parameters for
+    the prediction of soil moisture through the impact of precipitation. Numerous
+    algorithms with the combination of regression + clustering are estimated, and
+    it is inferred that XGBoost + k-means outperforms other algorithmic combinations
+    that is deployed in edge model. This model is used as an intermediary between
+    the end IoT devices and cloud that results in the saving of computationally intensive
+    processing performed on cloud servers. The servers located on a local edge network
+    perform the developed algorithmic computations. Avoiding transmission over the
+    cloud results in significant latency, response time, and computation power savings
+    and therefore increases the efficiency of data transfer. The proposed edge computing
+    model is implemented in Raspberry Pi as an edge, Heroku as cloud, and edge nodes
+    as the combination of Pi with actuators and sensors. The monitored data from Pi
+    are stored in MongoDB webserver that is controlled by Web dashboard. Finally,
+    the developed model is implemented in cloud and edge where the edge server implementation
+    performs better in terms of latency, bandwidth, throughput, response time, and
+    CPU memory usage. Keywords: smart irrigation; edge-based irrigation; edge computing;
+    precision agriculture; soil moisture prediction; irrigation management system;
+    IoT; offloading mechanism 1 Introduction It is evident that agriculture always
+    has a specialized role in the anthrophonic evolution and has been serving as an
+    important economic factor for the growth of a country [1]. Around 58% of the population
+    depend on agriculture as the chief source of livelihood in India. The quality
+    and productivity of agricultural products have declined over these years as several
+    factors have influenced the crop productivity both directly and indirectly. Some
+    major factors that affect the crop production are climatic changes, global warming,
+    and water scarcity [2]. The agricultural land’s productivity is affected by the
+    direct and indirect changes in climate [3,4]. The crop growth has been already
+    affected by the changes in climate incurred by global warming. The nutrition quality
+    of soil, ground water level, sea, and ocean are affected by the modifications
+    in average temperature, rainfall, and extreme weather conditions such as hail
+    storms, dust storms, heatwaves, etc. due to global warming [5,6]. Degradation
+    of soil is primarily created by various methods including 93.7% by water erosion,
+    9.5% by wind erosion, 5.9% by salinity and alkalinity, etc. Further changes in
+    climate would influence adversely the crop production [7]. Since water is an indispensable
+    requirement for plants and cultivation, the high level of soil is eroded and thereby
+    the fertility is also declined. Due to the ever-changing climate, water scarcity
+    has become a huge problem. Drought-like conditions is already formed in several
+    areas and thereby the present and conventional farming practices are not suitable.
+    New and unique environment preserving techniques are the need of the hour [8].
+    The conventional approaches in agriculture are enhanced by the advent of several
+    advancements in technology [9]. These new improved methodologies ensure optimized
+    utilization of resources, accurate forecast of water needs and environmental parameters,
+    reduction of human intervention, etc. [10]. Consequently, the outcomes of crops
+    in terms of yield and quality are higher with cost-effective methods. One such
+    booming technology is the Internet of things (IoT) [11]. IoT is the collection
+    of components embedded in the sensor for measuring and transferring data via network
+    devices as sensed from pumps and tractors to weather stations. Primarily, IoT
+    deals with the transmission and reception of data related to farms through devices
+    using the Internet for prediction and providing decisions to the farmers. IoT-based
+    methodologies has brought a changeover in agricultural patterns and farming approaches
+    [12]. IoT devices can gather information about soil moisture, chemical properties,
+    dam levels, livestock health, and weather details in real time. The information
+    acquired from IoT devices facilitates the farmers in tracking farms periodically.
+    Farmers can save time and money by responding faster to farm conditions. Cloud
+    computing models integrated with on-field agricultural sensors need to be incorporated
+    for tackling the issue of processing huge voluminous data. One of the major challenges
+    of IoT is the processing of huge datasets in a sequential way. Some of the key
+    factors that need to be focused on this process are as follows: information about
+    the type and nature of data, the way of acquiring the data, etc. The preliminary
+    stage comprises acquiring the data and ingesting the data to the system. Substantial
+    cognizance of data are achieved as the data pass through all the gateways where
+    it is cleansed and transformed before entering into the system. In the near future,
+    dynamic prediction of soil moisture and precipitation techniques are to be developed
+    for smart irrigation systems. Therefore, a system is developed for efficient and
+    optimal utilization of fresh water in irrigation along with drip irrigation system.
+    It aids in finding which one of the plants fails to get sufficient water. When
+    the water supply is provided the next day, this delay should not disturb the system.
+    It becomes important for the farmers to understand the optimal usage of water
+    and fertilizers to bring out sustenance in the agricultural industry. Therefore,
+    processing must be done for analyzing the data, so that patterns can be analyzed
+    and planning can be done for the long term, accordingly. Hence, it gives a broad
+    vision in deciding where the processing is to be done exactly. Therefore, it is
+    obvious that not all data are crucial, and it provides a clear view of which data
+    need to be stored, discarded, and retained for both long-term and short-term purposes.
+    Thus, all these challenging issues require to be addressed and that is where storage
+    technologies are actually highlighted. The poor quality of Internet access in
+    developing nations makes the implementation quite challenging. An applicable solution
+    to solve this problem is through edge computing where the essential data could
+    be offloaded from the cloud over the edge of the cloud, and this is the exact
+    point where the approach of smart sensing with edge computing gets in. With the
+    purpose of broadening the potential of edge computing and using it in the agriculture
+    domain, a novel approach using machine learning (ML) methods is proposed for analyzing
+    the data acquired by the IoT devices deployed at the farm. Here, the data acquired
+    from IoT components undergo preprocessing and ML models on the edge nodes to analyze
+    and assess the appropriate results for providing the best instructions for controlling
+    the actuators (e.g., light, pumps at different locations) in the farms. This article
+    presents an automated system, as shown in Figure 1, to predict the soil moisture
+    using the field information acquired from the self-designed sensor node deployed
+    at the field and the forecast information of weather via Internet. A unique algorithm
+    has been developed that revolves around the machine learning techniques for the
+    prediction of soil moisture. Here, many algorithms with the combination of regression
+    + clustering was estimated, and it is inferred that XGBoost + k-means outperforms
+    other algorithmic combinations, and therefore, it is deployed for the prediction
+    of soil moisture in the proposed work. The proposed algorithm makes effective
+    irrigation decisions with optimized usage of water in a more accurate and reliable
+    manner. The effective decision-making refers to the process of predicting the
+    rainfall, thereby reducing the water usage in advance by the proposed algorithm
+    in accordance with the predicted rainy days. Through this automatic decision-making,
+    over watering is avoided by saving the soil. The server-side software is developed
+    with node-side connectivity using the information for visualization and decision
+    support features. This proposed algorithm is implemented in edge to prove the
+    efficiency of the edge server handling the automated system better than the cloud
+    control. The performance of the decentralized edge-based architecture has been
+    evaluated for downloading the hybrid algorithm from cloud in real time execution.
+    The performance can be enhanced by adopting edge computing architecture and measured
+    with the help of network parameters like latency, bandwidth, and response time.
+    Edge computing capacity is also estimated using the CPU processor and memory consumption
+    while executing the proposed algorithm with irrigation scheduling. Figure 1 Architecture
+    of the proposed system. 2 Related work In ref. [13], a smart irrigation system
+    not affected by communication disconnection and delay is developed using edge
+    nodes deployed at the farms. Environmental parameters have an intricate impact
+    on the plant growth. It becomes necessary for evaluating multiple AI models simultaneously
+    in an actual cultivation environment for comparing AI models under the same conditions.
+    Due to the working of existing irrigation systems on the cloud, communication
+    is instable in the concurrent evaluation of AI models. However, the instability
+    does not induce an edge node in its performance. The factors such as type of plant,
+    soil, climate, humidity, temperature, and soil moisture need to be considered
+    for the irrigation system packed with potential smart decisions. The nature and
+    type of plant, soil, and climate are queried by ontology (branch of metaphysics
+    dealing with the nature of being), whereas other factors such as temperature,
+    humidity, and soil moisture are sensed by the sensor network. The trained ML model
+    predicts the watering decisions based on ontology and other factors as mentioned
+    earlier. Smart irrigation has three modules: (i) sensor network modules that sense
+    the parameters impacting the water requirement by using sensors DHT22, light sensor
+    BH1750, and HL-69 hygrometer for sensing the temperature, soil moisture, light,
+    and humidity in air. (ii) Edge and IoT server’s module to send and receive data
+    through HTTP requests. (iii) Training module in which KNN is applied on the sample
+    dataset for training and decision-making regarding the water needs. Based on the
+    input values, the trained model categorizes the input into five possible classes:
+    highly not needed, not needed, average, needed, and highly needed [14]. A decentralized
+    smart irrigation approach is proposed for strawberry greenhouses in contrast to
+    conventional cloud-based solutions for keeping the agricultural data at the edge
+    of the network. A full-scale smart irrigation system in an actual strawberry greenhouse
+    environment is developed after a small-scale smart irrigation networking prototype
+    system and a reference architecture targeting edge data distribution for strawberry
+    greenhouse applications are framed. A three-step industrial approach is formed
+    for designing, implementing, and validating a solution for smart strawberry irrigation
+    in greenhouses and keeping the corresponding data at the edge of the network at
+    the same time: (i) A small-scale smart irrigation prototype solution with off-the-shelf
+    hardware and software equipment is tested and evaluated on various types of plants
+    for gaining useful insights for deployments on a large scale. (ii) A reference
+    network architecture is designed for targeting smart irrigation and edge data
+    distribution specifically for strawberry greenhouses. (iii) A large-scale system
+    in an actual strawberry greenhouse environment is developed in Greece, incorporating
+    the proposed reference architecture [15]. Edge computing is proposed for addressing
+    the issues by taking advantage of computing resources in the edge of the network.
+    The issues such as an edge mobile device make it easier to achieve low end-to-end
+    latency, high bandwidth, and low jitter to services located on the edge network.
+    An edge can enforce the privacy policies of its owner prior to the release of
+    the data to the cloud through edge analytics. If a cloud service becomes unavailable
+    due to network failure, cloud failure, or a denial-of-service attack, a fallback
+    service on a nearby edge can temporarily mask the failure. Cloud services, partial
+    analysis, and control functions are extended to the edge nodes from the cloud
+    data center. Edge nodes facilitate the timely monitoring of sensors in smart farming
+    by the reduced latency and enhanced data transmission. Due to these factors, edge
+    computing is applied through farming [16,17]. A three-tier open-source software
+    platform we proposed by authors, and the platform enhanced the precision agriculture
+    by introducing edge computing and fog computing. An network functions virtualization
+    (NFV)-based approach is deployed for performing the local operational decisions
+    at the edge level for mitigating the influence of network failures while using
+    cloud data centers [18]. For control processing in smart farming, a platform enabling
+    cost-effective sensor/actuator network based on IoT, utilizes edge computing [19,20].
+    The authors in ref. [21] predicted the soil moisture using a mathematical model
+    that measures the values given by a sensor matrix on the ground. Due to the huge
+    interval in measurements (10 minutes), the model presented estimated error by
+    more than 10%. This methodology has incorporated the online approach by making
+    the sensors to send data every minute to edge devices without time-based interruption.
+    The authors of ref. [22] applied a combinative approach of using field sensor
+    network’s data along with weather forecast station’s data for the management of
+    optimality in water conditions for the enhanced growth of grapes. The generated
+    data are forwarded to a web server, which displays graphics without statistical
+    analysis of such data. The analysis must be performed a posteriori by the user.
+    The watering mechanism for a plant via IoT methodology is devised by the proposed
+    smart irrigation model without acquiring any pre-processed data. A prototype application
+    is developed, which gets adapted to the parameters needed in irrigation after
+    a couple of human-made irrigations. With the usage of various ML algorithms, several
+    tests are devised for manual and automated irrigations for the performance evaluation.
+    After the evaluation using four different ML algorithms such as logistic regression
+    (LR), K-nearest neighbors (KNN), Gaussian naive Bayes (GNB), and gradient boosting
+    regression trees (GBRT), it is found that GBRT outperforms other algorithms. To
+    analyze the overall performance, a test bed for the sensor edge, mobile client,
+    and the decision service on the cloud is established. Two different indoor species
+    are selected as test items for the prototype, namely, Peace lily and Sardinia.
+    The outcomes were quite good, and it is inferred that the prototype has learned
+    the patterns of irrigation and making decisions automatically with a high rate
+    of accuracy [23]. The authors from ref. [24] adopted the deep learning methodology
+    for detecting the type and the category of the plant using an automated plant
+    irrigation system. The water necessity of the plant is determined using the recognition
+    of predefined set of plant images and data set acquired from farm. It utilizes
+    the database for fetching the irrigation information after the recognition process
+    is completed. Modeling the training processes are time consuming as voluminous
+    set of images needs to be stored. The authors in refs [25,26] incorporated ML
+    methods in the irrigation decision support model using a pre-processed irrigation
+    data set. A model is developed for learning the irrigation needs of any plants
+    progressively rather than using a readily available dataset. Several ML algorithms
+    are evaluated with their precision for concluding the irrigation decisions. Manual
+    irrigations are performed two times before making precise decisions. Due to the
+    dynamicity in model, data processing is done progressively, and it can be applied
+    to several plants having varying irrigation conditions. There is a need for the
+    learning model that can be trained by itself using a comparatively lighter learning
+    process using environmental parameters that do not need larger storage in the
+    system but need higher computation. From the aforementioned survey for making
+    a precise decision with instant computation locally, edge computing needs to be
+    integrated into the irrigation system. This article is directed towards presenting
+    a platform that implies IoTs and edge computing in monitoring soil moisture via
+    sensors, data communication between sensors and edge devices, and an Analytics-as-a-Service
+    cloud. It analyzes the collected data in the form of a density map of soil moisture
+    for denoting the areas in need of greater or lesser frequency of irrigation. Here,
+    density map does not refer to the geographical point data by satellite mapping,
+    and it actually denotes the point of dry area and watery area through soil moisture
+    detection point. This point is averaged among areas of irrigation to be done and
+    the irrigation process is controlled with prediction of rainfall using the proposed
+    system. 3 The proposed system The proposed learning model for irrigation is implemented
+    in a prototype IoT system that has four components: (i) Edge node layer – This
+    layer consists of sensors, actuator, and two microcontrollers. In this layer,
+    edge node acquires the sensor data from the surroundings and controls the actuator
+    for actuating water pumps to start irrigation. (ii) Edge server layer – This layer
+    consists of Raspberry Pi that act as edge server and capable of multitask processing.
+    Here, edge server controls the edge nodes for sending signal and receiving data
+    at regular interval of time. It is also connected to the cloud server for receiving
+    developed and trained machine learning model to be deployed and make irrigation
+    decision for controlling edge nodes. (iii) Edge service layer – This layer is
+    deployed in the edge server and it is responsible for controlling the whole system
+    through a developed web dashboard. The dashboard has live feed data, control of
+    edge nodes, and cloud services access. This service layer also has the control
+    access of the proposed machine learning model. (iv) Cloud server layer – This
+    layer composed of cloud services and cloud storage where its role is to train
+    the machine learning model and store the data in database. It sends the trained
+    proposed model to the edge server for decision-making regarding irrigation scheduling.
+    The comprehensive interconnections in the system are shown in Figure 2. The proposed
+    IoT-based smart irrigation system includes five major components: field deployed
+    module, Web-based interface, Web API weather input, soil moisture prediction mechanism,
+    and edge communication model. Figure 2 Components of the proposed system. 3.1
+    Field deployed module In the field requirements, a wireless sensor network of
+    the sensor nodes needs to be deployed as shown in Figure 3. Here, field data collection
+    device accommodates four different sensors: Capacitive Soil Moisture Sensor V2.0,
+    DS18B20 Water Proof Temperature Sensor Probe for soil temperature, ultraviolet
+    (UV) Light Radiation, DHT11 – Temperature and Humidity Sensor Module, and GYML8511
+    Analog Output Ultra-Violet Light Sensor Module. An Arduino Mega connected to Raspberry
+    Pi 4 Model-B read, the output of these sensors where the program is developed
+    in Python for the Pi model to fetch the hourly data from sensors and store the
+    data in MongoDB [27] database. It is then synchronized with the server database
+    using the developed web service. A Wi-Fi-enabled Arduino controls the water pump
+    connected to a relay switch. Figure 3 Real-time prototype of the proposed edge
+    model. For the real time monitoring, a trigger is made for controlling the web
+    service from the responsive web-based interface. The irrigation decisions are
+    checked periodically by the proposed model performed in the server. The water
+    pump is actuated, and irrigation process is started only if the server makes any
+    irrigation decision. A wireless sensor network (WSN) [28] scenario with ZigBee
+    [29] technology can be implemented for a large farming area in which several sensor
+    nodes can be affixed in the specified area and every sensor node possesses sensors
+    similar to a standalone device. Then, the Arduino Mega reads the sensor output
+    connected to ZigBee for transferring data to Gateway Node for aggregating the
+    received data and storing it in MongoDB locally and also for transferring the
+    data via web service to the edge server. 3.2 Web-based interface The proposed
+    framework consists of a web-based application to allow farmers visualize the growing
+    data and interacting with the garden in real time. In addition, users can also
+    be able to examine and analyze the historical growing data, if needed, through
+    functionalities such as irrigation control, motor control prediction model deployment,
+    and manual data entry implemented in this web application. Here, Node.js was chosen
+    for developing the web application [30,31], while MongoDB [27] was utilized as
+    the database system. Data stored in the database, which is deployed in the cloud,
+    will be used for further data analysis in the future. The web application’s functions
+    are designed following a software design pattern called model-view-controller
+    (MVC) as shown in Figure 4. In the frontend, ChartJS is used to represent data
+    through dynamic charts. The web application is also used as an interface to manage
+    all the physical devices/actuators in the garden. To deploy the web-server to
+    the cloud, a cloud platform as a service (PaaS), namely, Heroku, had been utilized.
+    Heroku is a cloud platform that provides platform as a service (PaaS), facilitates
+    the creation of applications and deploying these online rapidly [32,33]. It also
+    enhances scalability and functionality by integrating several add-on services.
+    The field data are sent to the server by Raspberry Pi using this web service.
+    This web service manages the network outage/fluctuation during data synchronization
+    from the field device to the server by taking the help of flag settings at the
+    database level. The interface facilitates the scheduling of irrigation along with
+    visualizing real time sensors and predicted soil moisture for upcoming days and
+    precipitation information. By using the denoted threshold value of soil moisture
+    suggested by agronomists, the irrigation can be scheduled by the user. The system
+    maintains the threshold value depending on the predicted pattern of soil moisture
+    and precipitation information. The process of irrigation is initiated automatically
+    and stopped after the specified threshold value generated from the proposed algorithm
+    of soil moisture when it is reached. Figure 4 Web interface for the irrigation
+    system. 3.3 Web API weather input The weather prediction data are collected by
+    a web service developed in Python. The forecast data such as humidity, temperature,
+    ultra violet index, precipitation, and cloudiness of web forecasting portals like
+    Open Weather API are aggregated by the developed web service [34]. These portals
+    provide the forecasted information in HTML, XML, or JSON format. The predicted
+    data with JSON format are read by the developed web and stored in database at
+    the edge server, which is concerned in the prediction algorithm. Also, these data
+    are utilized as testing dataset in the ML model for predicting the soil moisture.
+    3.4 Soil moisture prediction mechanism An algorithm for predicting the soil moisture
+    based on data derived from field sensors and weather forecasting using the combination
+    of supervised and unsupervised machine learning techniques has been developed
+    underpinned by regression algorithms and k-means clustering for estimating the
+    difference/change in soil moisture owing to weather conditions. Many regression
+    algorithms are compared against each other and infusing each of them with k-means
+    to check the preciseness in mean square error (MSE), R2, accuracy and mean absolute
+    percentage error (MAPE) for prediction of soil moisture of upcoming days with
+    the help of sensor data and weather forecasting days. The information about soil
+    moisture for the upcoming days and suggestions for irrigation in accordance with
+    the prescribed levels of soil moisture and predicted precipitation values, thereby
+    saving energy and water, is presented by the algorithm. The information generated
+    from the device and the predicted values from the algorithm soil moisture prediction
+    hybrid algorithm (SMPHA) are stored in the server. 3.5 Edge communication model
+    The communication protocols in the proposed framework are flexible and transparent
+    in nature for accepting both wired and wireless methodologies. For the maximum
+    utilization of potentiality in edge computing components, the communication among
+    various components in the edge-IoT system requires intense probing by using the
+    versatility among the devices in network edges. For transferring the data gathered
+    from pivot sensors, a communication technology such as Zigbee [35] is needed for
+    the irrigation systems. Therefore, the communication component in the proposed
+    work is classified into three main areas as shown in Figure 5. The Message Query
+    Telemetry Transport (MQTT) protocol is used for the communication in the proposed
+    system. The analysis in ref. [36] presented seven IoT messaging protocols (MQTT,
+    CoAP, XMPP, AMQP, DDS, REST-HTTP, and WebSocket) as communication protocols that
+    play a major role in smart farming. The authors have concluded that MQTT proved
+    to be the most secure protocol after probing all the protocols with respect to
+    latency, energy and bandwidth requirements, throughput, reliability, and security.
+    Moreover, MQTT is secure in both end-to-end architecture and gateway server architecture.
+    In an MQTT setup, a MQTT server termed as MQTT broker executes on the IoT solution
+    [37]. Under a common identifier, a “publisher” and a “subscriber” link among themselves
+    to this broker. In the IoT solution, publishers and subscribers are the IoT devices
+    and IoT hubs or control devices, respectively. When the publishers have new data
+    for recording, the data are published to the broker. The broker then flags that
+    it has new publisher data, and the corresponding data are read by the subscriber.
+    Then, the subscriber analyzes the data and reacts accordingly. Figure 5 Proposed
+    edge communication model. The first level accomplishes with connecting the end
+    users to system with the help of mobile or web-based applications through the
+    Internet. The next level (cloud computing server) deals with the connection of
+    web server and MQTT broker for directing the user requests and other components
+    at the edge landscape or from the farms to the right cloud-based services like
+    displaying the real time status of the farm for the users, triggering a new deployment
+    of the updated ML model to the corresponding edge node. The third level (farming
+    area) is directed toward the deployment of sensors and IoT devices (actuators)
+    for communicating with other components in the entire system. 4 Deployment of
+    soil moisture prediction hybrid algorithm The watering mechanism of the plant
+    has different approaches in the proposed model. Primarily, the system is trained
+    with manual irrigations datasets during the process of learning with respect to
+    suggestions defined by agronomists. The model is trained to learn the needs of
+    irrigation in the first level of deployment in cloud without the inclusion of
+    pre-processed data. After acquiring the required data and training, the proposed
+    system is initiated to grasp the plant’s watering needs by undergoing plenty of
+    manual irrigations. Thereafter, manual irrigation is not required and the system
+    makes automated decisions in watering using the gathered data and the application
+    of ML methods. The proposed model then decides the irrigation strategies automatically
+    using ML methods without the need including collected datasets in the automatic
+    irrigation process. The proposed model can be improved through the learning process
+    when the number of precise irrigation inputs is provided to the model at each
+    stage of training. The decision-making procedure is developed with two modules
+    for irrigation strategies according to the soil moisture prediction for upcoming
+    days. The first module deals with training the model in cloud with manual irrigation
+    datasets through steps such as data collection, data preprocessing, training,
+    and model development. The system acquires values of air temperature (TH), soil
+    temperature (SMT), soil moisture (SM), humidity (HU), and ultraviolet rays (UV)
+    periodically from the physical environment in the data collection stage, which
+    is essentially required for arriving at the watering decisions. Also, the time
+    of performing the manual irrigation is recorded in the database. These data are
+    timestamped and stored in as datasets to aid in making decisions for knowing the
+    time of irrigation. In the next step of pre-processing, inconsistencies are eliminated
+    and outliers caused by sensor errors are detected from the irrigation dataset,
+    thereby helping in the removal of broken data. The training stage involves the
+    application of supervised machine learning (ML) algorithms. Here the regression
+    algorithms such as support vector regression (SVR), multiple linear regression
+    (MLR), lasso regression (LR), decision tree regressor (DTR), random forest regressor
+    (RF), and XG-boost regressor (XB) techniques are used for the deployment. The
+    regression algorithms are trained using the collected datasets. Finally, through
+    training, regression models are created, namely, SVR model, MLR model, LR model,
+    DTR model, RF model, and XB model that are been combined with the second module
+    for decision-making. The second module caters to the prediction of irrigation
+    for upcoming days by infusing the weather data as an input to the regression trained
+    models. The live datasets from the weather API for future prediction of soil moisture
+    variable are used. The dependent variables from weather forecast data like temperature
+    (TH), humidity (HU), ultraviolet (UV), and precipitation (PC) are tested in the
+    aforementioned model for soil moisture prediction. Then, the regression trained
+    model is evaluated and deployed using the weather testing data for the prediction
+    of soil moisture in accordance with the precipitation. After the prediction of
+    data for the upcoming days, these developed regression models are combined with
+    unsupervised ML algorithm named k-means clustering for estimating the changes
+    incurred in soil moisture prediction due to the impact of weather conditions.
+    Further, each regression models with k-means algorithm are evaluated for performances
+    in terms of irrigation decision-making process as shown in Table 1. The combined
+    algorithms are estimated through MAPE, MSE, R2, execution speed, power consumption,
+    and accuracy. The estimation and computation of these parameters are detailed
+    by the authors in ref. [38]. Table 1 Comparison of performance metrices obtained
+    from various ML algorithms Algorithms used Accuracy R 2 MSE MAPE (%) Execution
+    time Power (J) SVR + k-means 0.96 0.96 0.25 1.98 0.06078 1164.85 MLR + k-means
+    0.94 0.88 0.31 2.15 0.02075 429.30 LR + k-means 0.95 0.94 0.32 2.23 0.02482 351.35
+    DTR + k-means 0.93 0.95 0.29 1.62 0.15687 914.70 RF + k-means 0.95 0.91 0.27 1.57
+    0.16745 1475.13 XB + k-means 0.97 0.98 0.20 1.08 0.03547 537.87 XGBoost + k-means
+    (XB+k-means) approach provides more accuracy with less MSE comparatively and also
+    the R2 with 98% in soil moisture prediction using combined approach is given in
+    Table 1. It is evident that the proposed combination performs better when compared
+    to other regression + k-means-based approaches. XB + k-means-based hybrid machine
+    learning algorithm is applied in irrigation planning module on account of aforementioned
+    performance metrices of ML. Although it performs moderately in terms of execution
+    time and power usage, it is selected for the deployment in edge computing as it
+    has better performed in terms of accuracy, R2, MSE, and MAPE metrices. It is observed
+    that the prediction of soil moisture for the upcoming days from the proposed algorithm
+    (XB+k-means) is nearer to the actual value as shown in Table 2, and hence, XB+k-means
+    is selected for the implementation of SMPHA in edge-based irrigation scheduling.
+    Table 2 Comparison of predicted SM value with actual SM value Date Average SM
+    value from sensor Average predicted SM value (XB+k-means) 28-09-2021 35.23 34.04
+    29-09-2021 36.41 37.20 30-09-2021 31.57 30.46 01-10-2021 34.66 33.15 02-10-2021
+    36.73 37.12 03-10-2021 32.88 33.01 4.1 Hardware setup IoT system is crucial to
+    handle, collect, and transfer the data to the computing nodes at the edge or in
+    the cloud. These devices are connected to the edge nodes through wireless communication
+    protocols like ZigBee. It is used in reducing the latency and loss of data. An
+    Arduino micro-control unit controls the combined IoT sensors and actuators at
+    the same part of a field into a cluster, each connected to a Raspberry Pi that
+    acts as an edge node in processing the gathered data and controlling the actuators.
+    For example, Figure 2 shows an edge architecture with a Raspberry Pi connected
+    to two components: Arduino Uno and Arduino Mega units via ZigBee connection. The
+    first Arduino Mega node is responsible for collecting data from sensors and the
+    second one is for controlling the actuators in the field. Depending on the sensor
+    type with collecting Arduino unit, the sensors are connected via analog or digital
+    PWM pins while controlling Arduino uno joins with actuators in the field and controls
+    (turn on/off) them in accordance with upper layers (from the edge web server).
+    The trained (cloud) and deployed ML model in edge nodes provides the necessary
+    instructions to the edge nodes. 4.2 Web layer setup The deployment of web server
+    assists the user in planning and managing the irrigation system. It visualizes
+    the crucial information of factors like temperature of air and soil, UV, humidity,
+    and soil moisture in live irrigation with real time updates in the form of various
+    charts. In accordance with the selected field, the web application redirects the
+    user to the field’s dashboard as shown in Figure 4. The dashboard consists of
+    field parameters as well as control signals for activating all the physical devices/actuators
+    at the garden layer. These signals are denoted as switch buttons, and each switch
+    controls (turn on/off) a particular kind of actuator (for instance, water pump
+    to start and stop the irrigation). The user interface facilitates remote controlling
+    of the field by just clicking on the buttons as shown in Figure 4. 4.3 Edge layer
+    setup The edge node acts as a computing center where incoming data are analyzed
+    and fed as the input vector to the ML model for processing and to return the control
+    signals for activating or deactivating the actuators placed at the farm. Edge
+    node processes the physical data (real time) at every end device such as the collected
+    and processed data via the Raspberry Pi nodes presented in the proposed scheme.
+    The prediction model is designed using TensorFlow API and trained, tested on Google
+    Colab in this work. Amazon Web Service (AWS) offers a library named Boto3 having
+    many APIs to upload and download objects. After the development of model, it is
+    transferred to Amazon S3, a service provided by AWS. The edge node utilizes the
+    trained model from S3 for analyzing the sensed data acquired from garden’s sensors.
+    The decision is delivered based on real time data analysis at the edge node and
+    transmitted to Arduino nodes in the fields landscape immediately for controlling
+    the actuators. In another flow, the data collected from sensors are filtered so
+    as to keep only the modified data at the edge node before being sent back for
+    mitigating the communication cost to the database in the cloud. These data are
+    used in the updation of the ML model to enhance its efficiency. 4.4 Analytics
+    setup The main goal of this experiment lies in gathering the various physical
+    parameters of a farming land via sensors and utilizing the fetched data along
+    with weather forecast information for developing an algorithm using hybrid machine
+    learning approach to infuse higher accuracy in predicting the soil moisture for
+    the upcoming days. As discussed in Section 4, for the proper planning and provisioning
+    of optimal irrigation, the algorithm provides a predictable estimate of soil moisture
+    with the assistance of various statistical measures as shown in Table 1. The measures
+    are adopted for estimating the appropriateness and error rate of the proposed
+    algorithm. It is inferred from the experiment that, optimal irrigation is feasible
+    using a good estimation (close to the actual value) of the soil moisture (Table
+    2), with the support of field data and forecast information, thereby utilizing
+    the natural rain efficiently. The SMPHA ML model is interdependent on dynamic
+    changes in weather environment where the models deployed on edge nodes need to
+    change the controls accordingly after model gets trained continuously. For the
+    process of retraining, the trained model needs to be updated. The parameters such
+    as TM, HU, ST, UV, SM about grown plants are logged for the training purpose,
+    and these generated datasets are recorded from the already developed manual mode
+    system [39]. The growth of the Indian Mundu Chilli [40] is taken for the observation
+    from the first stage to the last grown stage for 95 days. While retraining the
+    model, the training is carried in cloud without causing effect to the functionalities
+    at edge nodes. A signal is transferred to the corresponding edge server for triggering
+    the task of updating the SMPHA model from the web server. At that time, the newly
+    trained model is downloaded to replace the existing one at the considering edge
+    server. From then, the ML model at the edge server is called to be updated with
+    the real-world knowledge and is ready for its garden controlling tasks (to apply
+    in the next farming season). 4.5 Work flow The flowchart in Figure 6 depicts the
+    working of the proposed system based on the decision support system that is beneficial
+    for irrigation needed for the growth of vegetables. The chilli plant is grown
+    in a growbag attached with sensors and Pi as shown in Figure 3 and monitored for
+    95 days of data collection. To bring out optimality in the irrigation system,
+    features relating to climate, soil, crop, and field infrastructure are to be considered.
+    To provide several recommendations in the production of vegetables, decision support
+    systems (DSSs) are designed, which process voluminous information [39]. This proposed
+    work is the extension of soil moisture differences (SMD) model [41] developed
+    for soil moisture prediction. The threshold values of soil moisture are used in
+    the SMD model where the system schedules the irrigation date based on the predicted
+    soil moisture and weather forecast (precipitation) information automatically using
+    SVR+ k-means modeling. Therefore, in the extension of the aforementioned work,
+    further more number of sensors are used to log soil moisture value, which is averaged
+    in the proposed model. This model is developed in two divisions of flowchart as
+    shown in Figure 7, where both are interconnected. It is observed that the prediction
+    of XB + k-mean approach provides better results as presented in Table 2. Figure
+    6 Flow chart of the proposed edge model. Figure 7 Average response time with 10
+    test scenarios. The first phase of the flowchart describes the hybrid algorithm
+    for the soil moisture prediction (SMPHA) using the combination of XB + k-means
+    algorithm. During the data collection step, the sensor data for the parameters,
+    namely, TM, HU, ST, UV, and SM, are collected. During preprocessing, null values
+    and outliers are removed and the preprocessed data are used to train the XG-Boost
+    model. The developed model is then trained with variables of live weather features
+    (TM, HU, UV, PC) obtained from Weather API for the prediction of SM data. These
+    data are given as input to k-means clustering algorithm to predict the soil moisture,
+    which is defined as SMPHA value to be infused in the next phase of the flowchart.
+    The second phase of the flowchart defines the automatic irrigation planning setup.
+    The setup starts obtaining the soil moisture maximum (SMMax) and soil moisture
+    minimum (SMMin) values in the dashboard for setting the maximum and minimum level
+    of soil moisture. Then, the current soil moisture (CuSM) is sensed and compared
+    against the threshold SMMin. If the resulting value is less than SMMin, the process
+    proceeds with SMPHA. On the contrary, it stops the irrigation process by sending
+    0 to the relay. In SMPHA, the nearest precipitation date is selected and it is
+    assigned to the predicted soil moisture (PSM). The SMMax is decided by finding
+    the minimum of (PSM + SMMin, SMMax), and the predicted SMMax is further checked
+    against CuSM with a condition if SMMax is greater the CuSM then it sends 1 to
+    the relay as a signal to start irrigation. If the condition fails, then it sends
+    0 to stop irrigation. The process of automatic irrigation ends by forecasting
+    the irrigation schedule in accordance with the live weather parameters. 5 Experimental
+    setup and evaluation The test bed is developed and deployed, and the data are
+    collected for the analysis in irrigation management. Here, Heroku cloud platform
+    is used to deploy the cloud web server. The same cloud is also installed at a
+    local edge that is at two Raspberry Pi units equipped with Wi-Fi 802.11n connections
+    to denote the edge nodes. JMeter application is used to get sequential accesses
+    to the web page from various users for evaluating the network parameters. The
+    specification of these servers is given in Tables 3 and 4. Table 3 Configuration
+    of raspberry Pi CPU Broadcom BCM2711, Quad core Cortex-A72 (ARM v8) 64-bit SoC
+    @ 1.5 GHz RAM 8 GB LPDDR4-3200 SDRAM Network 2.4 GHz and 5.0 GHz IEEE 802.11ac
+    wireless, Bluetooth 5.0, BLE, Gigabit Ethernet Pinboard 8 GB LPDDR4-3200 SDRAM
+    Operating system, language Raspbian , Python 3 Table 4 Configuration of Heroku
+    cloud Country United states Service Amazon web service S3 Processor 2.4 GHz Intel
+    Xeon E5-2676 v3 Processor CPU Power 8 GB Virtual CPUs 3–5 We evaluated the performance
+    of the proposed IoT-based smart farm on two different platforms, namely, in the
+    cloud and on the local computer to show the feasibility and the benefit of the
+    edge computing scheme. Further many parameters are considered for evaluation and
+    discussed in the next section to show that edge deployment is better than cloud.
+    5.1 Evaluation A hybrid machine learning methodology is used in evaluating the
+    first stage of the proposed model. The predicted value of the soil moisture is
+    better in terms of their accuracy and error rate. From the comparison of the other
+    ML algorithms as shown in Table 2, XB + k-means performs better and taken further
+    to be deployed in edge and cloud to check its efficiency with each other. Therefore,
+    for analyzing the efficiency of the edge server in accordance with the proposed
+    hybrid algorithm SMPHA is evaluated in terms of the time taken to train the ML
+    model in edge and cloud. In this experiment Raspberry Pi is used to train the
+    SMPHA model with 196,400 rows, that is, input data sample size and takes around
+    1,710,000 ms (approximately 28.5 min). The same model when it is trained in Google
+    Colab cloud environment, it takes 204,000 ms (approximately 3.4 min) as depicted
+    in Table 5. The main purpose is to run the trained model on edge not to train
+    the model at edge. So due to the lack of computing capability at the edge, it
+    takes more time to train the model, but it can be ignored as it does not affect
+    the purpose of the proposed model. Here, edge is introduced to obtain the task
+    of computing from the cloud (i.e., offloading the task) by making the system more
+    edge-oriented deployment. It can be accomplished rapidly as it requires only 14
+    s to download a trained SMPHA model from the cloud to the edge node with a size
+    of 3,101 kb as given in Table 5. The time to download varies according to the
+    size of the trained model. So, from this process it can be inferred that downloading
+    the trained model saves time when compared to training the model at the edge.
+    Through this in real time, deployment of the trained SMPHA model in edge is better
+    compared to deployment in cloud services. Furthermore, network parameters like
+    latency, throughput, bandwidth, and response time are adopted to measure the performance
+    improvements in edge computing. Table 5 Comparison of model training time Edge
+    Cloud Model training time 28.4 min 3.4 min Downloading time Not applicable 14
+    s The performance metrices taken into account are latency, bandwidth, and response
+    time [42]. The latency of an application is the product of two factors: computing
+    latency and transmission latency. The time spent on data processing and transmission
+    between end devices to cloud servers is termed as computing latency and transmission
+    latency, respectively. The computational capacity of the system decides the computing
+    latency as the network servers possess a considerable amount of capacity to make
+    the data processing faster, whereas the sensors come with limited computing capacity.
+    The latency in transmission is increased by the end devices and cloud servers.
+    Bandwidth: As large number of sensors are deployed in IoT, data generated would
+    be huge that consumes an intense range of bandwidth and leads to several problems
+    such as delay in transmission and loss of packets. It becomes unacceptable for
+    the data to be transferred directly to cloud servers without applying compression.
+    Therefore, data preprocessing and aggregation are needed for IoT gateways before
+    redirecting them to remote cloud servers. Then, the issue to be confronted is
+    to control the traffic flow by migrating data processing and aggregation tasks
+    optimally to decrease the bandwidth needs of the end users while maintaining the
+    data quality. Response time: The total response time is calculated by adding up
+    transmission and processing time. The local deployment of the proposed model for
+    controlling IoT-based irrigation are deployed on two modes: (i) Cloud mode: The
+    developed SMPHA model is implemented in the cloud communicating with IoT sensors
+    nodes directly to manage the irrigation process. The data are stored and processed
+    at the cloud server itself where it uses Heroku platform. (ii) Edge mode – Raspberry
+    Pi is deployed as an edge server that involves in processing of the SMPHA model
+    controlling the IoT sensor nodes. Here, the data are stored and processed locally
+    within the edge servers. This SMPHA model from both the edge and cloud does the
+    job of controlling the actuators to initiate and quit the working of water flow
+    motors. Through this deployment in both the environments, performance of edge
+    server and cloud server can be checked in terms of latency, throughput, bandwidth,
+    and response time is shown in aforementioned graphs in Figures 6, 8, and 9. This
+    performance metrices is not feasible to calculate while deploying in real time,
+    so the aforementioned scenarios of two modes are virtually created by generating
+    many request and response threads between the servers. This sampling, load test,
+    and distributed testing are conducted through JMeter application [43] and also
+    verified with Wireshark [44] in cloud servers. The test scenario is created here
+    by data of sending and receiving sampling data between cloud to IoT sensors and
+    between Edge to IoT sensors. The sampling data considered in this work refer to
+    the approximate number of requests generated by Arduino to cloud and Arduino to
+    Raspberry Pi that are calculated in real time. The test scenario is divided into
+    10 days of sampling data collected for each day. The evaluation results are depicted
+    for latency and response times in 10 days perspective. In latency parameter, edge
+    service has decreased by an average of 77.85% time compared to the with cloud.
+    In the same manner, the response time of edge service is also decreased by 74.09%
+    time compared to cloud service. In throughput calculation, sampling data are calculated
+    for an hourly basis for the 10 hours data in a day. From the hourly comparisons
+    of throughput value, edge outperforms with 67.17% high Mbps usage. Through this
+    analysis as shown in Table 6, it is evident that the proposed edge computing methodology
+    deployed in Raspberry Pi or in local computers outperforms the cloud-oriented
+    approach. Figure 8 Average latency with 10 test scenarios. Figure 9 Average throughput
+    value with 10 h test scenarios. Table 6 Performance metrices for cloud and edge
+    services Performance metrices Cloud service Edge service Throughput (Mbps) 0.04944
+    0.08265 Latency (ms) 1415.8 313.6 Response time (ms) 1519.6 393.8 Bandwidth (bps)
+    86 1,365 Finally, to illustrate the efficiency of resource management in edge
+    computing, CPU and memory utilization are considered for the analysis as both
+    factors rely on the service execution model and the computational needs of the
+    services being fired from off-loaders. Figure 10 depicts the utilization of CPU
+    and RAM on the Raspberry Pi acting as an edge node in two cases: with and without
+    the deployment of SMPHA model on it. As shown in Figure 10, the SMPHA model affects
+    the CPU of the Raspberry Pi node significantly as it consumed around 41.2% of
+    the CPU compared to only 3.5% when it does not host the SMPHA model. However,
+    the memory (RAM) utilization in both the cases (with and without deployment of
+    an SMPHA model) is nearly the same which is around 31%. Comparatively RAM utilization
+    does not have much difference in with and without SMPHA. It is worthwhile to note
+    that, the CPU utilization is still much lower than the 50% of total CPU capacity
+    in Raspberry Pi. Therefore, it becomes feasible for adopting edge server implementation
+    in the proposed irrigation system. Figure 10 CPU and memory utilization with and
+    without SMPHA. 6 Conclusion This article proposed a novel approach to edge-based
+    irrigation system to facilitate decision-making on watering the plants on scheduled
+    time. The proposed approach applying IoT with an edge computing framework enables
+    the farming system to adapt to the changes in environmental conditions automatically
+    and efficiently. The process of automatic irrigation regulates irrigation according
+    to the live weather parameters for forecasting the irrigation process. Soil moisture
+    prediction was performed using major regression algorithms that are again combined
+    with k-means clustering for estimating the changes incurred in soil moisture prediction.
+    These techniques were compared through metrics such as MAPE, MSE, speed, and power
+    consumption from which XB + k-means was found to perform better. The XB + k-means
+    algorithm was further used for the implementation of decision mechanism on the
+    developed edge computing model. The proposed edge model saves the data communication
+    cost and reduces the response time of IoT services. It can be deployed on existing
+    devices on the network edges serving as edge nodes, thereby reducing the overall
+    implementation cost of a large-scale IoT system. The edge-based approach was found
+    to perform better than the cloud-based approach in terms of response time, latency,
+    throughput, and bandwidth usage. Finally, the edge model was analyzed through
+    CPU and memory usage while running with and without the algorithm. In both cases,
+    the memory utilization is almost lower to total available resource of the edge
+    device. From this, edge device can allocate its remaining resource for other computing
+    services, which increases the efficiency of edge computing device. The number
+    of end edge nodes can be increased according to the field area and then to check
+    the potency of the system. Conflict of interest: The authors declare no conflict
+    of interest. Data availability statement: All data that support the findings of
+    this study are included within the article. References [1] India: Issues and Priorities
+    for Agriculture, The World Bank, May 17, 2012. https://www.worldbank.org/en/news/feature/2012/05/17/india-agriculture-issues-priorities.Search
+    in Google Scholar [2] India at a glance in Agriculture, FAO in India. https://www.fao.org/india/fao-in-india/india-at-a-glance/en/.Search
+    in Google Scholar [3] Cavicchioli R, Ripple WJ, Timmis KN, Azam F, Bakken LR,
+    Baylis M, et al. Scientists’ warning to humanity: Microorganisms and climate change.
+    Nature Rev Microbiol. 2019;17(9):569–86. 10.1038/s41579-019-0222-5. Search in
+    Google Scholar PubMed PubMed Central [4] Huong NTL, Bo YS, Fahad S. Economic impact
+    of climate change on agriculture using Ricardian approach: A case of Northwest
+    Vietnam. J Saudi Society Agricult Sci. 2019;18(4):449–457. 10.1016/j.jssas.2018.02.006.
+    Search in Google Scholar [5] Fagodiya RK, Pathak H, Bhatia A, Jain N, Kumar A,
+    Malyan SK. Global warming impacts of nitrogen use in agriculture: An assessment
+    for India since 1960. Carbon Management. 2020;11(3):291–301. 10.1080/17583004.2020.1752061.
+    Search in Google Scholar [6] Sarkar S, Chatterjee S, Misra S. Assessment of the
+    suitability of fog computing in the context of internet of things. IEEE Trans
+    Cloud Comput. 2018;6(1):46–59. 10.1109/TCC.2015.2485206. Search in Google Scholar
+    [7] Porter JR, Xie L, Challinor AJ, Cochrane K, Howden SM, Iqbal MM, et al. Food
+    security and food production systems. In: Field CB, Barros VR, Dokken DJ, Mach
+    KJ, Mastrandrea MD, Bilir TE, et al., editors. Climate Change 2014: Impacts, Adaptation,
+    and Vulnerability. Part A: Global and Sectoral Aspects. Contribution of Working
+    Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate
+    Change Cambridge, United Kingdom: Cambridge University Press and New York, NY,
+    USA; 2014. p. 485–533.Search in Google Scholar [8] Lal R. Adaptation and mitigation
+    of climate change by improving agriculture in India. In: S. SherazMahdi (Ed.),
+    Climate Change and Agriculture in India: Impact and Adaptation. Cham: Springer
+    International Publishing; 2019. p. 217–27. 10.1007/978-3-319-90086-5_17Search
+    in Google Scholar [9] Saravanan K, Julie G, Robinson H. (Eds.), Handbook of research
+    on implementation and deployment of IoT projects in smart cities. Hershey: IGI
+    global, 2019. 10.4018/978-1-5225-9199-3Search in Google Scholar [10] Baylis A.
+    Advances in precision farming technologies for crop protection. Outlooks Pest
+    Manag. 2017;28(4):158–61. 10.1564/v28_aug_04Search in Google Scholar [11] Mulla
+    D, Khosla R. Historical evolution and recent advances in precision farming. Soil-Specific
+    Farming Precision Agriculture. Boca Raton: CRC Press; 2015. 10.1201/b18759-2Search
+    in Google Scholar [12] Dutta L, and Basu TK. Extraction and optimization of leaves
+    images of mango tree and classification using ANN. IJRAET 2013;1(3):46–51. Search
+    in Google Scholar [13] Kawai T, Mineno H. Evaluation environment using edge computing
+    for artificial intelligence-based irrigation system. 2020 16th International Conference
+    on Mobility, Sensing and Networking (MSN). Tokyo, Japan: IEEE; 2020. p. 214–9.
+    10.1109/MSN50589.2020.00046Search in Google Scholar [14] Munir MS, Bajwa IS, Ashraf
+    A, Anwar W, Rashid R. Intelligent and smart irrigation system using edge computing
+    and IoT. Complexity. 2021;2021:1–16. 10.1155/2021/6691571Search in Google Scholar
+    [15] Angelopoulos CM, Filios G, Nikoletseas S, Raptis TP. Keeping data at the
+    edge of smart irrigation networks: A case study in strawberry greenhouses. Comput
+    Netw. 2020;167:107039. 10.1016/j.comnet.2019.107039Search in Google Scholar [16]
+    Satyanarayanan M. The emergence of edge computing. Computer. 2017;50(1):30–9.
+    10.1109/MC.2017.9Search in Google Scholar [17] Shi W, Dustdar S. The promise of
+    edge computing. Computer. 2016;49(5):78–81. 10.1109/MC.2016.145Search in Google
+    Scholar [18] Ramirez Izolan PL, Diniz Rossi F, Hohemberger R, Konzen MP, da Cunha
+    Rodrigues G, Saquette LR, et al. Low-cost fog computing platform for soil moisture
+    management. In: 2020 International Conference on Information Networking (ICOIN).
+    Barcelona, Spain: IEEE; 2020. p. 499–504. 10.1109/ICOIN48656.2020.9016572Search
+    in Google Scholar [19] Ferrandez-Pastor F, Garcia-Chamizo, J, Nieto-Hidalgo, M,
+    Mora-Pascual, J, Mora-Martínez, J. Developing ubiquitous sensor network platform
+    using internet of things: application in precision agriculture. Sensors. 2016;16(7):1141.
+    10.3390/s16071141Search in Google Scholar PubMed PubMed Central [20] Xu X, Liu
+    X, Xu Z, Dai F, Zhang X, Qi L. Trust-oriented IoT service placement for smart
+    cities in edge computing. IEEE Internet Things J. 2020;7(5):4084–91. 10.1109/JIOT.2019.2959124Search
+    in Google Scholar [21] Wu X, Liu M. In-situ soil moisture sensing: Measurement
+    scheduling and estimation using compressive sensing. In: 2012 ACM/IEEE 11th International
+    Conference on Information Processing in Sensor Networks (IPSN). Beijing, China:
+    IEEE; 2012. p. 1–11. 10.1145/2185677.2185679Search in Google Scholar [22] Kameoka
+    T, Nishioka K, Motonaga Y, Kimura Y, Hashimoto A, Watanabe N. Smart sensing in
+    a Vineyard for advanced viticultural management. In: Proceedings of the 2014 International
+    Workshop on Web Intelligence and Smart Sensing. Saint Etienne France; 2014. p.
+    1–4. 10.1145/2637064.2637091Search in Google Scholar [23] Cagri Serdaroglu K,
+    Onel C, Baydere S. IoT-based smart plant irrigation system with enhanced learning.
+    In: 2020 IEEE Computing, Communications and IoT Applications (ComComAp.) Beijing,
+    China: IEEE; 2020. p. 1–6. 10.1109/ComComAp51192.2020.9398892Search in Google
+    Scholar [24] Kwok J, Sun Y. A smart IoT-based irrigation system with automated
+    plant recognition using deep learning. In: Proceedings of the 10th International
+    Conference on Computer Modeling and Simulation - ICCMS2018. Sydney, Australia:
+    ACM Press; 2018. p. 87–91. 10.1145/3177457.3177506Search in Google Scholar [25]
+    Goldstein A, Fink L, Meitin A, Bohadana S, Lutenberg O, Ravid G. Applying machine
+    learning on sensor data for irrigation recommendations: Revealing the agronomist’s
+    tacit knowledge. Precision Agricult. 2018;19(3):421–44. 10.1007/s11119-017-9527-4Search
+    in Google Scholar [26] Vij A, Vijendra S, Jain A, Bajaj S, Bassi A, Sharma A.
+    IoT and machine learning approaches for automation of farm irrigation system.
+    Proc Comput Sci. 2020;167:1250–7. 10.1016/j.procs.2020.03.440Search in Google
+    Scholar [27] Krishnan H, Scholar R. MongoDB – a comparison with NoSQL databases.
+    Int J Scientific Eng Res. 2016;7(5):1035–7. Search in Google Scholar [28] Ojha
+    T, Misra S, Raghuwanshi NS. Wireless sensor networks for agriculture: The state-of-the-art
+    in practice and future challenges. Comput Electr Agricult. 2015;118:66–84. 10.1016/j.compag.2015.08.011Search
+    in Google Scholar [29] Gutierrez J, Villa-Medina JF, Nieto-Garibay A, Porta-Gandara
+    MA. Automated irrigation system using a wireless sensor network and GPRS module.
+    IEEE Trans Instrument Measurement. 2014;63(1):166–76. 10.1109/TIM.2013.2276487Search
+    in Google Scholar [30] Chanthakit S, Keeratiwintakorn P, Rattanapoka C. An IoT
+    system design with real time stream processing and data flow integration. In:
+    2019 Research, Invention, and Innovation Congress (RI2C.) Bangkok, Thailand: IEEE;
+    2019. p. 1–5. 10.1109/RI2C48728.2019.8999968Search in Google Scholar [31] Lv H,
+    Wang S. Design and application of IoT microservices based on Seneca. USA: DEStech
+    Transactions on Computer Science and Engineering, (icte.). 2016. 10.12783/dtcse/icte2016/4814Search
+    in Google Scholar [32] Lee B-H, Dewi EK, Wajdi MF. Data security in cloud computing
+    using AES under HEROKU cloud. In: 2018 27th Wireless and Optical Communication
+    Conference (WOCC). Hualien: IEEE; 2018. p. 1–5. 10.1109/WOCC.2018.8372705Search
+    in Google Scholar [33] Lopez Pena MA, Munoz Fernandez I. SAT-IoT: An architectural
+    model for a high-performance fog/edge/cloud IoT platform. In: 2019 IEEE 5th world
+    forum on internet of things (WF-IoT.) Limerick, Ireland: IEEE; 2019. p. 633–8.
+    10.1109/WF-IoT.2019.8767282Search in Google Scholar [34] Weather API. Retrieved
+    from https://openweathermap.org/api.Search in Google Scholar [35] Drew Gislason.
+    Zigbee wireless networking, 1st ed. Newnes, London: Elsevier Publisher; 2008.
+    Search in Google Scholar [36] Tanabe K, Tanabe Y, Hagiya M. Model-based testing
+    for MQTT applications. In: Virvou M, Nakagawa H, Jain LC. (Eds.), Knowledge-Based
+    Software Engineering: 2020. Cham: Springer International Publishing; 2020. p.
+    47–59. 10.1007/978-3-030-53949-8_5Search in Google Scholar [37] Babun L, Denney
+    K, Celik ZB, McDaniel P, Uluagac AS. A survey on IoT platforms: Communication,
+    security, and privacy perspectives. Comput Netw. 2021;192:108040. 10.1016/j.comnet.2021.108040Search
+    in Google Scholar [38] Rastogi K, Lohani D. Edge computing-based internet of things
+    framework for indoor occupancy estimation. Int J Ambient Comput Intell. 2020;11(4):16–37.
+    10.4018/978-1-6684-5700-9.ch031Search in Google Scholar [39] Premkumar S, Sigappi
+    AN. Functional framework for edge-based agricultural system. In: AI, Edge and
+    IoT-based Smart Agriculture, 1st ed. USA: Academic Press, Elsevier; 2021. p. 71–100.
+    10.1016/B978-0-12-823694-9.00029-3Search in Google Scholar [40] Phani Kumar J,
+    Paramaguru P, Arumugam T, Manikanda Boopathi N, Venkatesan K. Genetic divergence
+    among Ramnad mundu chilli (Capsicum annuum L.) genotypes for yield and quality.
+    Electr J Plant Breeding. 2021;12(1):228–34. Search in Google Scholar [41] Goap
+    A, Sharma D, Shukla AK, Rama Krishna C. An IoT-based smart irrigation management
+    system using Machine learning and open source technologies. Comput Electronic
+    Agricult. 2018;155:41–9. 10.1016/j.compag.2018.09.040Search in Google Scholar
+    [42] Aslanpour MS, Gill SS, Toosi AN. Performance evaluation metrics for cloud,
+    fog and edge computing: A review, taxonomy, benchmarks and standards for future
+    research. Internet Things. 2020;12:100273. 10.1016/j.iot.2020.100273Search in
+    Google Scholar [43] Sunardi A, Suharjito MVC architecture: a comparative study
+    between Laravel framework and slim framework in freelancer project monitoring
+    system web based. Proc Comput Sci. 2019;157:134–41. 10.1016/j.procs.2019.08.150Search
+    in Google Scholar [44] Robert Shimonski. The wireshark field guide, 1st ed. New
+    York: Syngress Press, Elsevier; 2013. 10.1016/B978-0-12-410413-6.00001-2Search
+    in Google Scholar Received: 2022-01-10 Revised: 2022-02-28 Accepted: 2022-03-16
+    Published Online: 2022-05-27 © 2022 S. Premkumar and AN. Sigappi, published by
+    De Gruyter This work is licensed under the Creative Commons Attribution 4.0 International
+    License. Download article (PDF) From the journal Journal of Intelligent Systems
+    Volume 31 Issue 1 Submit manuscript Journal and Issue This issue All issues Articles
+    in the same Issue Research Articles Construction of 3D model of knee joint motion
+    based on MRI image registration Evaluation of several initialization methods on
+    arithmetic optimization algorithm performance Application of visual elements in
+    product paper packaging design: An example of the “squirrel” pattern Deep learning
+    approach to text analysis for human emotion detection from big data Cognitive
+    prediction of obstacle''s movement for reinforcement learning pedestrian interacting
+    model The application of neural network algorithm and embedded system in computer
+    distance teach system Machine translation of English speech: Comparison of multiple
+    algorithms Automatic control of computer application data processing system based
+    on artificial intelligence A secure framework for IoT-based smart climate agriculture
+    system: Toward blockchain and edge computing Application of mining algorithm in
+    personalized Internet marketing strategy in massive data environment On the correction
+    of errors in English grammar by deep learning Research on intelligent interactive
+    music information based on visualization technology Extractive summarization of
+    Malayalam documents using latent Dirichlet allocation: An experience Conception
+    and realization of an IoT-enabled deep CNN decision support system for automated
+    arrhythmia classification Masking and noise reduction processing of music signals
+    in reverberant music Cat swarm optimization algorithm based on the information
+    interaction of subgroup and the top-N learning strategy State feedback based on
+    grey wolf optimizer controller for two-wheeled self-balancing robot Research on
+    an English translation method based on an improved transformer model Short-term
+    prediction of parking availability in an open parking lot PUC: parallel mining
+    of high-utility itemsets with load balancing on spark Image retrieval based on
+    weighted nearest neighbor tag prediction A comparative study of different neural
+    networks in predicting gross domestic product A study of an intelligent algorithm
+    combining semantic environments for the translation of complex English sentences
+    A study on automatic correction of English grammar errors based on deep learning
+    A novel fingerprint recognition method based on a Siamese neural network A hidden
+    Markov optimization model for processing and recognition of English speech feature
+    signals Crime reporting and police controlling: Mobile and web-based approach
+    for information-sharing in Iraq CRNet: Context feature and refined network for
+    multi-person pose estimation Improving the efficiency of intrusion detection in
+    information systems Research on reform and breakthrough of news, film, and television
+    media based on artificial intelligence An optimized solution to the course scheduling
+    problem in universities under an improved genetic algorithm An adaptive RNN algorithm
+    to detect shilling attacks for online products in hybrid recommender system Computing
+    the inverse of cardinal direction relations between regions An improved Jaya optimization
+    algorithm with ring topology and population size reduction Review Articles A review
+    on voice pathology: Taxonomy, diagnosis, medical procedures and detection techniques,
+    open challenges, limitations, and recommendations for future directions An extensive
+    review of state-of-the-art transfer learning techniques used in medical imaging:
+    Open issues and challenges Special Issue: Explainable Artificial Intelligence
+    and Intelligent Systems in Analysis For Complex Problems and Systems Tree-based
+    machine learning algorithms in the Internet of Things environment for multivariate
+    flood status prediction Evaluating OADM network simulation and an overview based
+    metropolitan application Radiography image analysis using cat swarm optimized
+    deep belief networks Comparative analysis of blockchain technology to support
+    digital transformation in ports and shipping IoT network security using autoencoder
+    deep neural network and channel access algorithm Large-scale timetabling problems
+    with adaptive tabu search Eurasian oystercatcher optimiser: New meta-heuristic
+    algorithm Trip generation modeling for a selected sector in Baghdad city using
+    the artificial neural network Trainable watershed-based model for cornea endothelial
+    cell segmentation Hessenberg factorization and firework algorithms for optimized
+    data hiding in digital images The application of an artificial neural network
+    for 2D coordinate transformation A novel method to find the best path in SDN using
+    firefly algorithm Systematic review for lung cancer detection and lung nodule
+    classification: Taxonomy, challenges, and recommendation future works Special
+    Issue on International Conference on Computing Communication & Informatics Edge
+    detail enhancement algorithm for high-dynamic range images Suitability evaluation
+    method of urban and rural spatial planning based on artificial intelligence Writing
+    assistant scoring system for English second language learners based on machine
+    learning Dynamic evaluation of college English writing ability based on AI technology
+    Image denoising algorithm of social network based on multifeature fusion Automatic
+    recognition method of installation errors of metallurgical machinery parts based
+    on neural network An FCM clustering algorithm based on the identification of accounting
+    statement whitewashing behavior in universities Emotional information transmission
+    of color in image oil painting College music teaching and ideological and political
+    education integration mode based on deep learning Behavior feature extraction
+    method of college students’ social network in sports field based on clustering
+    algorithm Evaluation model of multimedia-aided teaching effect of physical education
+    course based on random forest algorithm Venture financing risk assessment and
+    risk control algorithm for small and medium-sized enterprises in the era of big
+    data Interactive 3D reconstruction method of fuzzy static images in social media
+    The impact of public health emergency governance based on artificial intelligence
+    Optimal loading method of multi type railway flatcars based on improved genetic
+    algorithm Special Issue: Evolution of Smart Cities and Societies using Emerging
+    Technologies Data mining applications in university information management system
+    development Implementation of network information security monitoring system based
+    on adaptive deep detection Face recognition algorithm based on stack denoising
+    and self-encoding LBP Research on data mining method of network security situation
+    awareness based on cloud computing Topology optimization of computer communication
+    network based on improved genetic algorithm Implementation of the Spark technique
+    in a matrix distributed computing algorithm Construction of a financial default
+    risk prediction model based on the LightGBM algorithm Application of embedded
+    Linux in the design of Internet of Things gateway Research on computer static
+    software defect detection system based on big data technology Study on data mining
+    method of network security situation perception based on cloud computing Modeling
+    and PID control of quadrotor UAV based on machine learning Simulation design of
+    automobile automatic clutch based on mechatronics Research on the application
+    of search algorithm in computer communication network Special Issue: Artificial
+    Intelligence based Techniques and Applications for Intelligent IoT Systems Personalized
+    recommendation system based on social tags in the era of Internet of Things Supervision
+    method of indoor construction engineering quality acceptance based on cloud computing
+    Intelligent terminal security technology of power grid sensing layer based upon
+    information entropy data mining Deep learning technology of Internet of Things
+    Blockchain in distribution network faults Optimization of shared bike paths considering
+    faulty vehicle recovery during dispatch The application of graphic language in
+    animation visual guidance system under intelligent environment Iot-based power
+    detection equipment management and control system Estimation and application of
+    matrix eigenvalues based on deep neural network Brand image innovation design
+    based on the era of 5G internet of things Special Issue: Hybrid Fuzzy Systems
+    for Mobile Robots and Their Applications IoT-enabled edge computing model for
+    smart irrigation system Convex optimization for additive noise reduction in quantitative
+    complex object wave retrieval using compressive off-axis digital holographic imaging
+    Special Issue: Cognitive Cyber-Physical System with Artificial Intelligence for
+    Healthcare 4.0. Auxiliary diagnosis study of integrated electronic medical record
+    text and CT images A hybrid particle swarm optimization with multi-objective clustering
+    for dermatologic diseases diagnosis An efficient recurrent neural network with
+    ensemble classifier-based weighted model for disease prediction Design of metaheuristic
+    rough set-based feature selection and rule-based medical data classification model
+    on MapReduce framework Special Issue: Human-Centred Artificial Intelligence for
+    Web 4.0 Construction of an IoT customer operation analysis system based on big
+    data analysis and human-centered artificial intelligence for web 4.0 Human-centered
+    artificial intelligence-based ice hockey sports classification system with web
+    4.0 Subjects Architecture and Design Arts Asian and Pacific Studies Business and
+    Economics Chemistry Classical and Ancient Near Eastern Studies Computer Sciences
+    Cultural Studies Engineering General Interest Geosciences History Industrial Chemistry
+    Islamic and Middle Eastern Studies Jewish Studies Law Library and Information
+    Science, Book Studies Life Sciences Linguistics and Semiotics Literary Studies
+    Materials Sciences Mathematics Medicine Music Pharmacy Philosophy Physics Social
+    Sciences Sports and Recreation Theology and Religion Services For Journal Authors
+    For Book Authors For Librarians Rights & Permissions Publications Publication
+    types Open Access About Contact Career About De Gruyter Partnerships Press FAQs
+    Social Facebook Instagram LinkedIn X / Twitter YouTube Winner of the OpenAthens
+    Best Publisher UX Award 2022  Help/FAQ Privacy policy Cookie Policy Accessibility
+    Terms & Conditions Legal Notice © Walter de Gruyter GmbH 2024 Cookie information
+    We only use necessary cookies to be able to offer you our web services to the
+    full extent. In our Cookie Policy you can find more details about all cookies
+    we use and for what purposes. Close"'
+  inline_citation: '>'
+  journal: Journal of Intelligent Systems
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: IoT-enabled edge computing model for smart irrigation system
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

@@ -1,0 +1,1835 @@
+- DOI: https://doi.org/10.3390/s18093105
+  analysis: '>'
+  authors:
+  - Ricardo Pérez‐Castillo
+  - Ana G. Carretero
+  - Ismael Caballero
+  - Moisés Rodríguez
+  - Mario Piattini
+  - Alejandro Maté
+  - Sun-Ho Kim
+  - Dongwoo Lee
+  citation_count: 13
+  full_citation: '>'
+  full_text: ">\nsensors\nArticle\nDAQUA-MASS: An ISO 8000-61 Based Data Quality\n\
+    Management Methodology for Sensor Data\nRicardo Perez-Castillo 1,*\n, Ana G. Carretero\
+    \ 1, Ismael Caballero 1\n, Moises Rodriguez 1,2\n,\nMario Piattini 1,2, Alejandro\
+    \ Mate 3, Sunho Kim 4 and Dongwoo Lee 5\n1\nInformation Technologies & Systems\
+    \ Institute (ITSI), University of Castilla-La Mancha, 13071 Ciudad Real,\nSpain;\
+    \ anaisabel.gomez@uclm.es (A.G.C.); ismael.caballero@uclm.es (I.C.);\nmoises.rodriguez@uclm.es\
+    \ (M.R.); mario.piattini@uclm.es (M.P.)\n2\nAQC Lab, 13051 Ciudad Real, Spain\n\
+    3\nLucentia Lab, University of Alicante, 03690 San Vicente del Raspeig, Alicante,\
+    \ Spain; amate@lucentialab.es\n4\nDepartment of Industrial & Management Engineering,\
+    \ Myongji University, Seoul 449-728, Korea;\nshk@mju.ac.kr\n5\nGTOne, Seoul 07299,\
+    \ Korea; leewow@gtone.co.kr\n*\nCorrespondence: ricardo.pdelcastillo@uclm.es;\
+    \ Tel.: +34-926295300\nReceived: 1 August 2018; Accepted: 12 September 2018; Published:\
+    \ 14 September 2018\n\x01\x02\x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\
+    \x06\a\nAbstract: The Internet-of-Things (IoT) introduces several technical and\
+    \ managerial challenges when\nit comes to the use of data generated and exchanged\
+    \ by and between various Smart, Connected\nProducts (SCPs) that are part of an\
+    \ IoT system (i.e., physical, intelligent devices with sensors and\nactuators).\
+    \ Added to the volume and the heterogeneous exchange and consumption of data,\
+    \ it is\nparamount to assure that data quality levels are maintained in every\
+    \ step of the data chain/lifecycle.\nOtherwise, the system may fail to meet its\
+    \ expected function. While Data Quality (DQ) is a mature\nﬁeld, existing solutions\
+    \ are highly heterogeneous. Therefore, we propose that companies, developers\n\
+    and vendors should align their data quality management mechanisms and artefacts\
+    \ with well-known\nbest practices and standards, as for example, those provided\
+    \ by ISO 8000-61. This standard enables a\nprocess-approach to data quality management,\
+    \ overcoming the difﬁculties of isolated data quality\nactivities. This paper\
+    \ introduces DAQUA-MASS, a methodology based on ISO 8000-61 for data\nquality\
+    \ management in sensor networks. The methodology consists of four steps according\
+    \ to the\nPlan-Do-Check-Act cycle by Deming.\nKeywords: data quality; data quality\
+    \ management processes; ISO 8000-61; data quality in sensors;\nInternet-of-Things;\
+    \ IoT; Smart, Connected Products; SCPs\n1. Introduction\n“Our economy, society\
+    \ and survival aren’t based on ideas or information—they’re based on\nthings”\
+    \ [1]. This is one of the core foundations of the Internet-of-Things (IoT) as\
+    \ stated by Ashton,\nwho coined the term. IoT is an emerging global internet-based\
+    \ information architecture facilitating\nthe exchange of goods and services [2].\
+    \ IoT systems are inherently built on data gathered from\nheterogeneous sources\
+    \ in which the volume, variety and velocity of data generation, exchanging\nand\
+    \ processing are dramatically increasing [3]. Furthermore, there is a certain\
+    \ emergence of IoT\nsemantic-oriented vision which needs ways to represent and\
+    \ manipulate the vast amount of raw data\nexpected to be generated from and exchanged\
+    \ between the “things” [4].\nThe vast amount of data in IoT environments, gathered\
+    \ from a global-scale deployment of\nsmart-things, is the basis for making intelligent\
+    \ decisions and providing better services (e.g., smart\nmobility as presented\
+    \ in [5]). In other words, data represents the bridge that connects cyber and\n\
+    Sensors 2018, 18, 3105; doi:10.3390/s18093105\nwww.mdpi.com/journal/sensors\n\
+    Sensors 2018, 18, 3105\n2 of 24\nphysical worlds. Despite of its tremendous relevance,\
+    \ if data are of inadequate quality, decisions\nfrom both humans and other devices\
+    \ are likely to be unsound [6,7].\nAs a consequence, Data\nQuality (DQ) has become\
+    \ one of the key aspects in IoT [6,8–10]. In IoT, and in particular, Smart,\n\
+    Connected Products (SCPs), have concrete characteristics that favour the apparition\
+    \ of problems due to\ninadequate levels of data quality. Mühlhäuser [11] deﬁnes\
+    \ smart, connected products (SCPs) as “entities\n(tangible object, software, or\
+    \ service) designed and made for self-organized embedding into different\n(smart)\
+    \ environments in the course of its lifecycle, providing improved simplicity and\
+    \ openness\nthrough improved connections”. While some of the SCP-related characteristics\
+    \ might be considered\nomnipresent (i.e., uncertain, erroneous, noisy, distributed\
+    \ and voluminous), other characteristics are\nmore speciﬁc and highly dependent\
+    \ on the context and monitored phenomena (i.e., smooth variation,\ncontinuous,\
+    \ correlation, periodicity or Markovian behaviour) [6].\nAlso, outside of the\
+    \ IoT research area, DQ has been broadly studied during last years, and it has\n\
+    become a mature research area capturing the growing interest of the industry due\
+    \ to the different types\nof values that companies can extract from data [12].\
+    \ This fact is reﬂected by the standardization efforts\nlike ISO/IEC 25000 series\
+    \ addressing systems and software quality requirements and evaluation\n(SQuaRE)\
+    \ [13], or ISO 8000-60 series concerning the best practices in data quality management\n\
+    processes. In order to assure adequate levels of data quality, it is necessary\
+    \ to produce and implement\nmethods, processes, and speciﬁc techniques for managing\
+    \ data concerns. We pose that such standards\ncan be tailored and used within\
+    \ the IoT context, not only bring beneﬁts standardizing solutions and\nenabling\
+    \ a better communication between partners. Also, the number of problems and system\
+    \ fails\non the IoT environment is reduced, better decisions can be taken due\
+    \ to a better quality of data, all\nstakeholders are aligned and can take beneﬁt\
+    \ of the advances on the standard used, and it is easier to\napply data quality\
+    \ solutions in a global way because the heterogeneity is reduced.\nDue to the\
+    \ youth of IoT, and despite DQ standards, frameworks, management techniques and\n\
+    tools proposed in the literature, DQ for IoT has not been yet widely studied.\
+    \ However, and prior to this\nresearch line, it is possible to cite some works\
+    \ that had addressed some DQ concerns in sensor wireless\nnetworks [8,14], or\
+    \ in data streaming [15,16] among other proposals [6]. However, these works have\n\
+    not considered the management of DQ in a holistic way in line with existing DQ-related\
+    \ standards. In\nour attempt to align the study of DQ in IoT to international\
+    \ standards, this paper provides practitioners\nand researchers with DAQUA-MASS,\
+    \ a methodology for managing data quality in SCP environments,\nwhich considers\
+    \ some of the DQ best practices for improving quality of data in SCP environments\n\
+    aligned to ISO 8000-61 [17]. Due to the intrinsic distributed nature of IoT systems,\
+    \ using such standards\nwill enable the various organizations to be aligned to\
+    \ the same foundations, and in the end, to work in\na seamless way, what will\
+    \ undoubtedly improve the performance of the business processes.\nThe remainder\
+    \ of this paper is organized as follows: Section 2 presents the most challenging\
+    \ data\nquality management concerns in the context of the SCP environments; Section\
+    \ 3 explores related work.\nSection 4 explains the data quality model in which\
+    \ our methodology is based on. Section 5 presents our\nproposed methodology for\
+    \ managing data quality in SCP environments. Finally, Section 6 discusses\nconclusions\
+    \ and implications of this work.\n2. Data Quality Challenges in SCP Environments\n\
+    This section introduces some general ideas about Smart, Connected Products (SCPs)\
+    \ operations,\nas an essential part of IoT. In addition, some challenges related\
+    \ to DQ in SCP environments are\nalso introduced.\nAccording to Cook et al. [18],\
+    \ a smart environment is a small world where all kinds of smart\ndevices are continuously\
+    \ working to make inhabitants’ lives more comfortable.\nAccording to\nMühlhäuser\
+    \ [11], SCP provides intelligent actions through improved connections by means\
+    \ of\ncontext-awareness, semantic self-description, proactive behaviour, multimodal\
+    \ natural interfaces,\nAI planning, and machine learning.\nSensors 2018, 18, 3105\n\
+    3 of 24\nSCPs have three main core components: physical, smart, and connectivity\
+    \ components. Smart\ncomponents extend the capabilities and value of the physical\
+    \ components, while connectivity extends\nthe capabilities and value of the smart\
+    \ components. This enables some smart components to exist\noutside the physical\
+    \ product itself, with a cycle of value improvement [19].\nIoT and SCP can be\
+    \ confused in some contexts. However, IoT simply reﬂects the growing number\n\
+    of SCPs and highlights the new opportunities they can represent. IoT, which can\
+    \ involve people or\nthings, is a mean for interchanging information. What makes\
+    \ SCPs essentially different is not the\nInternet, but the changing nature of\
+    \ the “things” [19]. A product that is smart and connected to the\ncloud could\
+    \ become part of an interconnected management solution; and companies can therefore\n\
+    evolve from making products to offering more complex, higher-value services within\
+    \ a “system of\nsystems” [20].\nSCPs include processors, sensors, software and\
+    \ connectivity that allow data to be exchanged\nbetween the product and its environment.\
+    \ The data collected by sensors of these SCPs can be then\nanalysed to inform\
+    \ decision-making, enable operational efﬁciencies and continuously improve the\n\
+    performance of the product. This paper focuses on the data produced by such sensors,\
+    \ and how\ninadequate levels of data quality may affect the processing of the\
+    \ data, while smart and connectivity\nparts of SCPs are outside of the scope of\
+    \ this paper.\nSCPs can be connected in large, complex networks throughout three\
+    \ different layers [9]:\nacquisition, processing and utilization layer (see Figure\
+    \ 1).\nSensors 2018, 18, x \n3 of 24 \n \nthe capabilities and value of the smart\
+    \ components. This enables some smart components to exist \noutside the physical\
+    \ product itself, with a cycle of value improvement [19]. \nIoT and SCP can be\
+    \ confused in some contexts. However, IoT simply reflects the growing \nnumber\
+    \ of SCPs and highlights the new opportunities they can represent. IoT, which\
+    \ can involve \npeople or things, is a mean for interchanging information. What\
+    \ makes SCPs essentially different is \nnot the Internet, but the changing nature\
+    \ of the “things” [19]. A product that is smart and connected \nto the cloud could\
+    \ become part of an interconnected management solution; and companies can \ntherefore\
+    \ evolve from making products to offering more complex, higher-value services\
+    \ within a \n“system of systems” [20]. \nSCPs include processors, sensors, software\
+    \ and connectivity that allow data to be exchanged \nbetween the product and its\
+    \ environment. The data collected by sensors of these SCPs can be then \nanalysed\
+    \ to inform decision-making, enable operational efficiencies and continuously\
+    \ improve the \nperformance of the product. This paper focuses on the data produced\
+    \ by such sensors, and how \ninadequate levels of data quality may affect the\
+    \ processing of the data, while smart and connectivity \nparts of SCPs are outside\
+    \ of the scope of this paper. \nSCPs can be connected in large, complex networks\
+    \ throughout three different layers [9]: \nacquisition, processing and utilization\
+    \ layer (see Figure 1). \n \nFigure 1. Layers in SCP environments. \n \nAcquisition\
+    \ layer refers to the sensor data collection system where sensors, raw (or sensed)\
+    \ and \npre-processed data are managed. This is the main focus of this paper.\
+    \ \n \nProcessing layer involves data resulting from data processing and management\
+    \ centre where \nenergy, storage and analyse capabilities are more significant.\
+    \ \n \nUtilization layer concerns delivered data (or post-processed data) exploited,\
+    \ for example, over a \nGIS or combined with other services or applications. \n\
+    As previously stated, the scope of the paper is limited to the data produced by\
+    \ SCPs’ sensors. \nHence, the proposal is mainly intended to be applied in the\
+    \ context of the acquisition layer. \nsensor node\nrouting node\nData management\
+    \ &\nProcessing centre\nuser\nwww\nAcquisition\nLayer\nProcessing\nLayer\nUtilization\n\
+    Layer\nFigure 1. Layers in SCP environments.\n•\nAcquisition layer refers to the\
+    \ sensor data collection system where sensors, raw (or sensed) and\npre-processed\
+    \ data are managed. This is the main focus of this paper.\n•\nProcessing layer\
+    \ involves data resulting from data processing and management centre where\nenergy,\
+    \ storage and analyse capabilities are more signiﬁcant.\nSensors 2018, 18, 3105\n\
+    4 of 24\n•\nUtilization layer concerns delivered data (or post-processed data)\
+    \ exploited, for example, over a\nGIS or combined with other services or applications.\n\
+    As previously stated, the scope of the paper is limited to the data produced by\
+    \ SCPs’ sensors.\nHence, the proposal is mainly intended to be applied in the\
+    \ context of the acquisition layer.\nNevertheless, the management of the data\
+    \ quality in sensors can impact on how data is processed\n(processing layer) and\
+    \ how data may be used later (utilization layer).\nNetworking and management of\
+    \ SCP operations can generate the business intelligence needed\nto deliver smart\
+    \ services. Smart services are delivered to or via smart objects that feature\
+    \ awareness\nand connectivity [21]. SCP can carry out the following functions\
+    \ to support smart services [22]: status,\ndiagnostics, upgrades, control and\
+    \ automation, proﬁling and behaviour tracking, replenishment and\ncommerce, location\
+    \ mapping and logistics, etc.\nSCP operations enable new capabilities for companies,\
+    \ although also arising new problems and\nchallenges must be taken into account.\
+    \ On one hand, SCP operations require companies to build and\nsupport an entirely\
+    \ new technology infrastructure [19]. Technological layers in the new technology\n\
+    landscape include new product hardware, embedded software, connectivity, a product\
+    \ cloud running\non remote servers, security tools, gateway for external information\
+    \ sources, and integration with\nenterprise business systems. On the other hand,\
+    \ SCP operations can provide competitive advantages,\nwhich are based on the operational\
+    \ effectiveness. Operation effectiveness requires to embrace best\npractices along\
+    \ the value chain, including up-to-date product technologies, the latest production\n\
+    equipment, and state-of-the-art sales force methods, IT solutions, and so forth.\
+    \ Thus, SCP operations\nalso creates new best practices across the value chain\
+    \ [19].\nAccording to the different sources of data in these SCP environments,\
+    \ we can distinguish different\ntypes of aggregated data:\n•\nSensor data: data\
+    \ that is generated by sensors and digitalized in a computer-readable format (for\n\
+    example, the camera sensor readings).\n•\nDevice data: It is integrated by sensor\
+    \ data; observed metadata (metadata that characterizes the\nsensor data, e.g.,\
+    \ timestamp of sensor data); and device meta data (metadata that characterizes\n\
+    the device, e.g., device model, sensor model, manufacturer, etc.), so device data,\
+    \ for example, can\nbe data coming from the camera (device).\n•\nGeneral data:\
+    \ data related to/or coming from devices which has been modiﬁed or computed to\n\
+    derive different data plus business data (i.e., data for business use such as\
+    \ operation, maintenance,\nservice, customers, etc.).\n•\nIoT data: general data\
+    \ plus device data.\nA reduction in the levels of quality of these data due to\
+    \ different problems in SCP operations can\nthreaten the success factors of SCP\
+    \ environments [6]. The quality of produced data is often affected\nby dysfunctional\
+    \ SCP devices and sensors, which are the sources providing data, and can potentially\n\
+    result in inadequate levels of quality that are only detected later on, when data\
+    \ are being processed\nand used. Therefore, while we can identify dysfunctional\
+    \ SCP devices through the analysis of sensor\ndata by using data quality management\
+    \ techniques, it is noteworthy that these devices will impact\nthe rest of the\
+    \ sensor network. According to [6], Table 1 summarizes some of these SCP factors\
+    \ that,\nin some cases, could condition or lead to data quality issues. In addition,\
+    \ the three columns on the\nright of Table 1 show (marked with a cross) the most\
+    \ critical layers affected in a greater extent by every\nSCP factor.\nSensors\
+    \ 2018, 18, 3105\n5 of 24\nTable 1. SCP factors that can ﬁnally affect the levels\
+    \ of DQ according to [6].\nSCP Factor\nSide Effect in Data Quality\nAcquisition\n\
+    Processing\nUtilization\nDeployment Scale\nSCPs are expected to be deployed on\
+    \ a global scale. This leads to a huge heterogeneity\nin data sources (not only\
+    \ computers but also daily objects). Also, the huge number of\ndevices accumulates\
+    \ the chance of error occurrence.\nX\nX\nResources constraints\nFor example, computational\
+    \ and storage capabilities that do not allow complex\noperations due, in turn,\
+    \ to the battery-power constraints among others.\nX\nX\nNetwork\nIntermittent\
+    \ loss of connection in the IoT is recurrent. Things are only capable of\ntransmitting\
+    \ small-sized messages due to their scarce resources.\nX\nX\nSensors\nEmbedded\
+    \ sensors may lack precision or suffer from loss of calibration or even low\n\
+    accuracy. Faulty sensors may also result in inconsistencies in data sensing.\n\
+    X\nEnvironment\nSCP devices will not be deployed only in tolerant and less aggressive\
+    \ environments. To\nmonitor some phenomenon, sensors may be deployed in environments\
+    \ with extreme\nconditions. Data errors emerge when the sensor experiences the\
+    \ surrounding\nenvironment inﬂuences [23].\nX\nX\nVandalism\nThings are generally\
+    \ defenceless from outside physical threats (both from humans and\nanimals).\n\
+    X\nX\nFail-dirty.\nA sensor node fails, but it keeps up reporting readings which\
+    \ are erroneous. It is a\ncommon problem for SCP networks and an important source\
+    \ of outlier readings.\nX\nX\nPrivacy\nPrivacy preservation processing, thus DQ\
+    \ could be intentionally reduced.\nX\nSecurity vulnerability\nSensor devices are\
+    \ vulnerable to attack, e.g., it is possible for a malicious entity to alter\n\
+    data in an SCP device.\nX\nX\nData stream processing\nData gathered by smart things\
+    \ are sent in the form of streams to the back-end pervasive\napplications which\
+    \ make use of them. Some stream processing operators could affect\nquality of\
+    \ the underlying data [10].Other important factors are data granularity and\n\
+    variety [24]. Granularity concerns interpolation and spatio-temporal density while\n\
+    variety refers to interoperability and dynamic semantics.\nX\nX\nSensors 2018,\
+    \ 18, 3105\n6 of 24\nTilak et al. [23] provide a taxonomy of sensor errors. These\
+    \ errors are directly related to different\ndata quality problems in the acquisition\
+    \ layer. The mentioned taxonomy distinguishes the following\nsix types of data\
+    \ sensors errors (see Table 2). Apart from errors in isolated SCP devices, there\
+    \ are other\ncommunication errors which can happen at SCP network level [23].\
+    \ Table 3 summarizes the main\ntypes of communication errors: omission, crashes,\
+    \ delay and message corruption. The table shows the\nDQ issue derived by each\
+    \ problem, the root cause and possible solution.\nTable 2. Sensors errors deriving\
+    \ DQ problems in SCP environments (adapted from [8]).\nError\nDescription\nExample\n\
+    Temporal delay error\nThe observations are continuously produced\nwith a constant\
+    \ temporal deviation\nSensors 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable 2.\
+    \ Sensors errors deriving DQ problems in SCP environments (adapted from [8]).\
+    \ \nError \nDescription \nExample \nTemporal delay \nerror \nThe observations\
+    \ are continuously produced with a constant temporal \ndeviation \n \nConstant\
+    \ or offset \nerror \nThe observations continuously deviate from the expected\
+    \ value by a \nconstant offset. \n \nContinuous varying \nor drifting error \n\
+    The deviation between the observations and the expected value is \ncontinuously\
+    \ changing according to some continuous time-dependent \nfunction (linear or non-linear).\
+    \ \n \nCrash or jammed \nerror \nThe sensor stops providing any readings on its\
+    \ interface or gets jammed \nand stuck in some incorrect value. \n \nTrimming\
+    \ error \nData is correct for values within some interval but are modiﬁed for\
+    \ \nvalues outside the interval. Beyond the interval, the data can be \ntrimmed\
+    \ or may vary proportionally. \n \nOutliers error \nThe observations occasionally\
+    \ deviate from the expected value, at \nrandom points in the time domain. \n \n\
+    Noise error \nThe observations deviate from the expected value stochastically\
+    \ in the \nvalue domain and permanently in the temporal domain. \n \nTable 3.\
+    \ SCP Network Errors. \nSensor Fault \nDQ Problem \nRoot Cause \nSolution \nOmission\
+    \ faults \nAbsence of values \nMissing sensor \nNetwork reliability, \nretransmission\
+    \ \nCrash faults \n(fading/intermittent) \nInaccuracy/absence of \nvalues \nEnvironment\
+    \ \ninterference \nRedundancy/estimating with \npast values \nDelay faults \n\
+    Inaccuracy \nTime domain \nTimeline solutions \nMessage corruption \nIntegrity\
+    \ \nCommunication \nIntegrity validation \n \nDQ characteristics to assess data\
+    \ quality in use within a specific context. This aspect considers \nselected criteria\
+    \ to estimate the quality of raw sensor data at the acquisition and processing\
+    \ layer. \nThere are some DQ characteristics considered, which make it possible\
+    \ to estimate the quality on \ndata sources, their context of acquisition and\
+    \ their transmission to the data management and \nprocessing. These DQ characteristics\
+    \ are accuracy and completeness according to ISO/IEC 25012 \n[25] and reliability\
+    \ and communication reliability as proposed in [9]. It is also related to the\
+    \ \nutilization layer and includes availability regarding ISO/IEC 25012 [25] plus\
+    \ timeliness and \nadequacy as defined in [9]. \n \nDQ Characteristics aimed\
+    \ at managing internal data quality. The main goal of managing internal \ndata\
+    \ quality is to avoid inconsistent data and maintain the temporality of sensor\
+    \ data at the \nprocessing layer. These characteristics are consistency and currency\
+    \ according to ISO/IEC 25012 \n[25] and volatility as proposed in [9]. \n3. Related\
+    \ Work \nThe goal of this section is twofold. First, Section 3.1 presents some\
+    \ works related to the study of \ndata quality in sensor networks and SCP environments\
+    \ in general. Second, Section 3.2 introduces and \nd t\nlit\nth d l\ni\ni\nd\n\
+    t\nd\nth\ni\nt ib ti\nf th\nd\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nConstant or offset error\n\
+    The observations continuously deviate from\nthe expected value by a constant offset.\n\
+    Sensors 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable 2. Sensors errors deriving\
+    \ DQ problems in SCP environments (adapted from [8]). \nError \nDescription \n\
+    Example \nTemporal delay \nerror \nThe observations are continuously produced\
+    \ with a constant temporal \ndeviation \n \nConstant or offset \nerror \nThe observations\
+    \ continuously deviate from the expected value by a \nconstant offset. \n \nContinuous\
+    \ varying \nor drifting error \nThe deviation between the observations and the\
+    \ expected value is \ncontinuously changing according to some continuous time-dependent\
+    \ \nfunction (linear or non-linear). \n \nCrash or jammed \nerror \nThe sensor\
+    \ stops providing any readings on its interface or gets jammed \nand stuck in\
+    \ some incorrect value. \n \nTrimming error \nData is correct for values within\
+    \ some interval but are modiﬁed for \nvalues outside the interval. Beyond the\
+    \ interval, the data can be \ntrimmed or may vary proportionally. \n \nOutliers\
+    \ error \nThe observations occasionally deviate from the expected value, at \n\
+    random points in the time domain. \n \nNoise error \nThe observations deviate\
+    \ from the expected value stochastically in the \nvalue domain and permanently\
+    \ in the temporal domain. \n \nTable 3. SCP Network Errors. \nSensor Fault \n\
+    DQ Problem \nRoot Cause \nSolution \nOmission faults \nAbsence of values \nMissing\
+    \ sensor \nNetwork reliability, \nretransmission \nCrash faults \n(fading/intermittent)\
+    \ \nInaccuracy/absence of \nvalues \nEnvironment \ninterference \nRedundancy/estimating\
+    \ with \npast values \nDelay faults \nInaccuracy \nTime domain \nTimeline solutions\
+    \ \nMessage corruption \nIntegrity \nCommunication \nIntegrity validation \n\
+    \ \nDQ characteristics to assess data quality in use within a specific context.\
+    \ This aspect considers \nselected criteria to estimate the quality of raw sensor\
+    \ data at the acquisition and processing layer. \nThere are some DQ characteristics\
+    \ considered, which make it possible to estimate the quality on \ndata sources,\
+    \ their context of acquisition and their transmission to the data management and\
+    \ \nprocessing. These DQ characteristics are accuracy and completeness according\
+    \ to ISO/IEC 25012 \n[25] and reliability and communication reliability as proposed\
+    \ in [9]. It is also related to the \nutilization layer and includes availability\
+    \ regarding ISO/IEC 25012 [25] plus timeliness and \nadequacy as defined in [9].\
+    \ \n \nDQ Characteristics aimed at managing internal data quality. The main goal\
+    \ of managing internal \ndata quality is to avoid inconsistent data and maintain\
+    \ the temporality of sensor data at the \nprocessing layer. These characteristics\
+    \ are consistency and currency according to ISO/IEC 25012 \n[25] and volatility\
+    \ as proposed in [9]. \n3. Related Work \nThe goal of this section is twofold.\
+    \ First, Section 3.1 presents some works related to the study of \ndata quality\
+    \ in sensor networks and SCP environments in general. Second, Section 3.2 introduces\
+    \ and \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \nContinuous varying or drifting\nerror\nThe\
+    \ deviation between the observations and\nthe expected value is continuously changing\n\
+    according to some continuous\ntime-dependent function (linear or\nnon-linear).\n\
+    Sensors 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable 2. Sensors errors deriving\
+    \ DQ problems in SCP environments (adapted from [8]). \nError \nDescription \n\
+    Example \nTemporal delay \nerror \nThe observations are continuously produced\
+    \ with a constant temporal \ndeviation \n \nConstant or offset \nerror \nThe observations\
+    \ continuously deviate from the expected value by a \nconstant offset. \n \nContinuous\
+    \ varying \nor drifting error \nThe deviation between the observations and the\
+    \ expected value is \ncontinuously changing according to some continuous time-dependent\
+    \ \nfunction (linear or non-linear). \n \nCrash or jammed \nerror \nThe sensor\
+    \ stops providing any readings on its interface or gets jammed \nand stuck in\
+    \ some incorrect value. \n \nTrimming error \nData is correct for values within\
+    \ some interval but are modiﬁed for \nvalues outside the interval. Beyond the\
+    \ interval, the data can be \ntrimmed or may vary proportionally. \n \nOutliers\
+    \ error \nThe observations occasionally deviate from the expected value, at \n\
+    random points in the time domain. \n \nNoise error \nThe observations deviate\
+    \ from the expected value stochastically in the \nvalue domain and permanently\
+    \ in the temporal domain. \n \nTable 3. SCP Network Errors. \nSensor Fault \n\
+    DQ Problem \nRoot Cause \nSolution \nOmission faults \nAbsence of values \nMissing\
+    \ sensor \nNetwork reliability, \nretransmission \nCrash faults \n(fading/intermittent)\
+    \ \nInaccuracy/absence of \nvalues \nEnvironment \ninterference \nRedundancy/estimating\
+    \ with \npast values \nDelay faults \nInaccuracy \nTime domain \nTimeline solutions\
+    \ \nMessage corruption \nIntegrity \nCommunication \nIntegrity validation \n\
+    \ \nDQ characteristics to assess data quality in use within a specific context.\
+    \ This aspect considers \nselected criteria to estimate the quality of raw sensor\
+    \ data at the acquisition and processing layer. \nThere are some DQ characteristics\
+    \ considered, which make it possible to estimate the quality on \ndata sources,\
+    \ their context of acquisition and their transmission to the data management and\
+    \ \nprocessing. These DQ characteristics are accuracy and completeness according\
+    \ to ISO/IEC 25012 \n[25] and reliability and communication reliability as proposed\
+    \ in [9]. It is also related to the \nutilization layer and includes availability\
+    \ regarding ISO/IEC 25012 [25] plus timeliness and \nadequacy as defined in [9].\
+    \ \n \nDQ Characteristics aimed at managing internal data quality. The main goal\
+    \ of managing internal \ndata quality is to avoid inconsistent data and maintain\
+    \ the temporality of sensor data at the \nprocessing layer. These characteristics\
+    \ are consistency and currency according to ISO/IEC 25012 \n[25] and volatility\
+    \ as proposed in [9]. \n3. Related Work \nThe goal of this section is twofold.\
+    \ First, Section 3.1 presents some works related to the study of \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \nCrash or jammed error\nThe sensor stops providing any readings\
+    \ on\nits interface or gets jammed and stuck in\nsome incorrect value.\nSensors\
+    \ 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable 2. Sensors errors deriving DQ\
+    \ problems in SCP environments (adapted from [8]). \nError \nDescription \nExample\
+    \ \nTemporal delay \nerror \nThe observations are continuously produced with a\
+    \ constant temporal \ndeviation \n \nConstant or offset \nerror \nThe observations\
+    \ continuously deviate from the expected value by a \nconstant offset. \n \nContinuous\
+    \ varying \nor drifting error \nThe deviation between the observations and the\
+    \ expected value is \ncontinuously changing according to some continuous time-dependent\
+    \ \nfunction (linear or non-linear). \n \nCrash or jammed \nerror \nThe sensor\
+    \ stops providing any readings on its interface or gets jammed \nand stuck in\
+    \ some incorrect value. \n \nTrimming error \nData is correct for values within\
+    \ some interval but are modiﬁed for \nvalues outside the interval. Beyond the\
+    \ interval, the data can be \ntrimmed or may vary proportionally. \n \nOutliers\
+    \ error \nThe observations occasionally deviate from the expected value, at \n\
+    random points in the time domain. \n \nNoise error \nThe observations deviate\
+    \ from the expected value stochastically in the \nvalue domain and permanently\
+    \ in the temporal domain. \n \nTable 3. SCP Network Errors. \nSensor Fault \n\
+    DQ Problem \nRoot Cause \nSolution \nOmission faults \nAbsence of values \nMissing\
+    \ sensor \nNetwork reliability, \nretransmission \nCrash faults \n(fading/intermittent)\
+    \ \nInaccuracy/absence of \nvalues \nEnvironment \ninterference \nRedundancy/estimating\
+    \ with \npast values \nDelay faults \nInaccuracy \nTime domain \nTimeline solutions\
+    \ \nMessage corruption \nIntegrity \nCommunication \nIntegrity validation \n\
+    \ \nDQ characteristics to assess data quality in use within a specific context.\
+    \ This aspect considers \nselected criteria to estimate the quality of raw sensor\
+    \ data at the acquisition and processing layer. \nThere are some DQ characteristics\
+    \ considered, which make it possible to estimate the quality on \ndata sources,\
+    \ their context of acquisition and their transmission to the data management and\
+    \ \nprocessing. These DQ characteristics are accuracy and completeness according\
+    \ to ISO/IEC 25012 \n[25] and reliability and communication reliability as proposed\
+    \ in [9]. It is also related to the \nutilization layer and includes availability\
+    \ regarding ISO/IEC 25012 [25] plus timeliness and \nadequacy as defined in [9].\
+    \ \n \nDQ Characteristics aimed at managing internal data quality. The main goal\
+    \ of managing internal \ndata quality is to avoid inconsistent data and maintain\
+    \ the temporality of sensor data at the \nprocessing layer. These characteristics\
+    \ are consistency and currency according to ISO/IEC 25012 \n[25] and volatility\
+    \ as proposed in [9]. \n3. Related Work \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nTrimming\
+    \ error\nData is correct for values within some\ninterval but are modiﬁed for\
+    \ values outside\nthe interval. Beyond the interval, the data can\nbe trimmed\
+    \ or may vary proportionally.\nSensors 2018, 18, x FOR PEER REVIEW  \n6 of 24\
+    \ \nTable 2. Sensors errors deriving DQ problems in SCP environments (adapted\
+    \ from [8]). \nError \nDescription \nExample \nTemporal delay \nerror \nThe observations\
+    \ are continuously produced with a constant temporal \ndeviation \n \nConstant\
+    \ or offset \nerror \nThe observations continuously deviate from the expected\
+    \ value by a \nconstant offset. \n \nContinuous varying \nor drifting error \n\
+    The deviation between the observations and the expected value is \ncontinuously\
+    \ changing according to some continuous time-dependent \nfunction (linear or non-linear).\
+    \ \n \nCrash or jammed \nerror \nThe sensor stops providing any readings on its\
+    \ interface or gets jammed \nand stuck in some incorrect value. \n \nTrimming\
+    \ error \nData is correct for values within some interval but are modiﬁed for\
+    \ \nvalues outside the interval. Beyond the interval, the data can be \ntrimmed\
+    \ or may vary proportionally. \n \nOutliers error \nThe observations occasionally\
+    \ deviate from the expected value, at \nrandom points in the time domain. \n \n\
+    Noise error \nThe observations deviate from the expected value stochastically\
+    \ in the \nvalue domain and permanently in the temporal domain. \n \nTable 3.\
+    \ SCP Network Errors. \nSensor Fault \nDQ Problem \nRoot Cause \nSolution \nOmission\
+    \ faults \nAbsence of values \nMissing sensor \nNetwork reliability, \nretransmission\
+    \ \nCrash faults \n(fading/intermittent) \nInaccuracy/absence of \nvalues \nEnvironment\
+    \ \ninterference \nRedundancy/estimating with \npast values \nDelay faults \n\
+    Inaccuracy \nTime domain \nTimeline solutions \nMessage corruption \nIntegrity\
+    \ \nCommunication \nIntegrity validation \n \nDQ characteristics to assess data\
+    \ quality in use within a specific context. This aspect considers \nselected criteria\
+    \ to estimate the quality of raw sensor data at the acquisition and processing\
+    \ layer. \nThere are some DQ characteristics considered, which make it possible\
+    \ to estimate the quality on \ndata sources, their context of acquisition and\
+    \ their transmission to the data management and \nprocessing. These DQ characteristics\
+    \ are accuracy and completeness according to ISO/IEC 25012 \n[25] and reliability\
+    \ and communication reliability as proposed in [9]. It is also related to the\
+    \ \nutilization layer and includes availability regarding ISO/IEC 25012 [25] plus\
+    \ timeliness and \nadequacy as defined in [9]. \n \nDQ Characteristics aimed\
+    \ at managing internal data quality. The main goal of managing internal \ndata\
+    \ quality is to avoid inconsistent data and maintain the temporality of sensor\
+    \ data at the \nprocessing layer. These characteristics are consistency and currency\
+    \ according to ISO/IEC 25012 \n[25] and volatility as proposed in [9]. \n3 Related\
+    \ Work\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \nOutliers error\nThe observations occasionally\
+    \ deviate from\nthe expected value, at random points in the\ntime domain.\nSensors\
+    \ 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable 2. Sensors errors deriving DQ\
+    \ problems in SCP environments (adapted from [8]). \nError \nDescription \nExample\
+    \ \nTemporal delay \nerror \nThe observations are continuously produced with a\
+    \ constant temporal \ndeviation \n \nConstant or offset \nerror \nThe observations\
+    \ continuously deviate from the expected value by a \nconstant offset. \n \nContinuous\
+    \ varying \nor drifting error \nThe deviation between the observations and the\
+    \ expected value is \ncontinuously changing according to some continuous time-dependent\
+    \ \nfunction (linear or non-linear). \n \nCrash or jammed \nerror \nThe sensor\
+    \ stops providing any readings on its interface or gets jammed \nand stuck in\
+    \ some incorrect value. \n \nTrimming error \nData is correct for values within\
+    \ some interval but are modiﬁed for \nvalues outside the interval. Beyond the\
+    \ interval, the data can be \ntrimmed or may vary proportionally. \n \nOutliers\
+    \ error \nThe observations occasionally deviate from the expected value, at \n\
+    random points in the time domain. \n \nNoise error \nThe observations deviate\
+    \ from the expected value stochastically in the \nvalue domain and permanently\
+    \ in the temporal domain. \n \nTable 3. SCP Network Errors. \nSensor Fault \n\
+    DQ Problem \nRoot Cause \nSolution \nOmission faults \nAbsence of values \nMissing\
+    \ sensor \nNetwork reliability, \nretransmission \nCrash faults \n(fading/intermittent)\
+    \ \nInaccuracy/absence of \nvalues \nEnvironment \ninterference \nRedundancy/estimating\
+    \ with \npast values \nDelay faults \nInaccuracy \nTime domain \nTimeline solutions\
+    \ \nMessage corruption \nIntegrity \nCommunication \nIntegrity validation \n\
+    \ \nDQ characteristics to assess data quality in use within a specific context.\
+    \ This aspect considers \nselected criteria to estimate the quality of raw sensor\
+    \ data at the acquisition and processing layer. \nThere are some DQ characteristics\
+    \ considered, which make it possible to estimate the quality on \ndata sources,\
+    \ their context of acquisition and their transmission to the data management and\
+    \ \nprocessing. These DQ characteristics are accuracy and completeness according\
+    \ to ISO/IEC 25012 \n[25] and reliability and communication reliability as proposed\
+    \ in [9]. It is also related to the \nutilization layer and includes availability\
+    \ regarding ISO/IEC 25012 [25] plus timeliness and \nadequacy as defined in [9].\
+    \ \n \nDQ Characteristics aimed at managing internal data quality. The main goal\
+    \ of managing internal \ndata quality is to avoid inconsistent data and maintain\
+    \ the temporality of sensor data at the \nprocessing layer. These characteristics\
+    \ are consistency and currency according to ISO/IEC 25012 \n[25] and volatility\
+    \ as proposed in [9]. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nNoise error\nThe observations\
+    \ deviate from the expected\nvalue stochastically in the value domain and\npermanently\
+    \ in the temporal domain.\nSensors 2018, 18, x FOR PEER REVIEW  \n6 of 24 \nTable\
+    \ 2. Sensors errors deriving DQ problems in SCP environments (adapted from [8]).\
+    \ \nError \nDescription \nExample \nTemporal delay \nerror \nThe observations\
+    \ are continuously produced with a constant temporal \ndeviation \n \nConstant\
+    \ or offset \nerror \nThe observations continuously deviate from the expected\
+    \ value by a \nconstant offset. \n \nContinuous varying \nor drifting error \n\
+    The deviation between the observations and the expected value is \ncontinuously\
+    \ changing according to some continuous time-dependent \nfunction (linear or non-linear).\
+    \ \n \nCrash or jammed \nerror \nThe sensor stops providing any readings on its\
+    \ interface or gets jammed \nand stuck in some incorrect value. \n \nTrimming\
+    \ error \nData is correct for values within some interval but are modiﬁed for\
+    \ \nvalues outside the interval. Beyond the interval, the data can be \ntrimmed\
+    \ or may vary proportionally. \n \nOutliers error \nThe observations occasionally\
+    \ deviate from the expected value, at \nrandom points in the time domain. \n \n\
+    Noise error \nThe observations deviate from the expected value stochastically\
+    \ in the \nvalue domain and permanently in the temporal domain. \n \nTable 3.\
+    \ SCP Network Errors. \nSensor Fault \nDQ Problem \nRoot Cause \nSolution \nOmission\
+    \ faults \nAbsence of values \nMissing sensor \nNetwork reliability, \nretransmission\
+    \ \nCrash faults \n(fading/intermittent) \nInaccuracy/absence of \nvalues \nEnvironment\
+    \ \ninterference \nRedundancy/estimating with \npast values \nDelay faults \n\
+    Inaccuracy \nTime domain \nTimeline solutions \nMessage corruption \nIntegrity\
+    \ \nCommunication \nIntegrity validation \n \nDQ characteristics to assess data\
+    \ quality in use within a specific context. This aspect considers \nselected criteria\
+    \ to estimate the quality of raw sensor data at the acquisition and processing\
+    \ layer. \nThere are some DQ characteristics considered, which make it possible\
+    \ to estimate the quality on \ndata sources, their context of acquisition and\
+    \ their transmission to the data management and \nprocessing. These DQ characteristics\
+    \ are accuracy and completeness according to ISO/IEC 25012 \n[25] and reliability\
+    \ and communication reliability as proposed in [9]. It is also related to the\
+    \ \nutilization layer and includes availability regarding ISO/IEC 25012 [25] plus\
+    \ timeliness and \nadequacy as defined in [9]. \n \nDQ Characteristics aimed\
+    \ at managing internal data quality. The main goal of managing internal \ndata\
+    \ quality is to avoid inconsistent data and maintain the temporality of sensor\
+    \ data at the \nprocessing layer. These characteristics are consistency and currency\
+    \ according to ISO/IEC 25012 \n[25] and volatility as proposed in [9]. \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \nTable 3. SCP Network Errors.\nSensor Fault\nDQ Problem\n\
+    Root Cause\nSolution\nOmission faults\nAbsence of values\nMissing sensor\nNetwork\
+    \ reliability,\nretransmission\nCrash faults\n(fading/intermittent)\nInaccuracy/absence\
+    \ of\nvalues\nEnvironment\ninterference\nRedundancy/estimating\nwith past values\n\
+    Delay faults\nInaccuracy\nTime domain\nTimeline solutions\nMessage corruption\n\
+    Integrity\nCommunication\nIntegrity validation\nAll the mentioned SCP devices/sensor\
+    \ errors will lead to different DQ problems in the three layers\ndepicted in Figure\
+    \ 1. As previously mentioned, DQ problems can be represented as a degradation\
+    \ of\nsome DQ characteristics that are especially important in different environments.\
+    \ Let us consider two\ngroups of data quality characteristics:\n•\nDQ characteristics\
+    \ to assess data quality in use within a speciﬁc context. This aspect considers\n\
+    selected criteria to estimate the quality of raw sensor data at the acquisition\
+    \ and processing layer.\nSensors 2018, 18, 3105\n7 of 24\nThere are some DQ characteristics\
+    \ considered, which make it possible to estimate the quality\non data sources,\
+    \ their context of acquisition and their transmission to the data management\n\
+    and processing. These DQ characteristics are accuracy and completeness according\
+    \ to ISO/IEC\n25012 [25] and reliability and communication reliability as proposed\
+    \ in [9]. It is also related to\nthe utilization layer and includes availability\
+    \ regarding ISO/IEC 25012 [25] plus timeliness and\nadequacy as deﬁned in [9].\n\
+    •\nDQ Characteristics aimed at managing internal data quality. The main goal of\
+    \ managing internal\ndata quality is to avoid inconsistent data and maintain the\
+    \ temporality of sensor data at the\nprocessing layer. These characteristics are\
+    \ consistency and currency according to ISO/IEC\n25012 [25] and volatility as\
+    \ proposed in [9].\n3. Related Work\nThe goal of this section is twofold. First,\
+    \ Section 3.1 presents some works related to the study\nof data quality in sensor\
+    \ networks and SCP environments in general. Second, Section 3.2 introduces\nand\
+    \ compares some data quality methodologies in order to draw the main contribution\
+    \ of the\nproposed methodology.\n3.1. Sensor Data Quality\nThere are some published\
+    \ works in the literature that address the concerns related to data quality\n\
+    management in SCP and IoT environments. Karkouch et al. [6] presented a state-of-the-art\
+    \ survey for\nDQ in IoT. This survey presents IoT-related factors endangering\
+    \ the DQ and their impact on various\nDQ characteristics. Also, DQ problems manifestations\
+    \ are discussed (and their symptoms identiﬁed) as\nwell as their impact in the\
+    \ context of IoT. Gonçalo et al. in [8] provided a similar survey addressing the\n\
+    problem of not being able to ensure desired DQ levels for dependable monitoring\
+    \ when using wireless\nsensor networks. This work pays special attention to comprehension\
+    \ of which faults can affect sensors,\nhow they can affect the quality of the\
+    \ information and how this quality can be improved and quantiﬁed.\nGutiérrez Rodríguez\
+    \ and Servigne in [9] also analysed data errors in sensor networks, in particular\
+    \ in\nenvironmental monitoring systems. In this paper, authors address the problem\
+    \ of uncertainty of data\ncoming from sensors with an approach dedicated to providing\
+    \ environmental monitoring applications\nand users with data quality information.\
+    \ Badawy et al. [26] combined parametric and non-parametric\nsignal processing\
+    \ and machine learning algorithms for automating sensor data quality control,\
+    \ which\ncan identify those parts of the sensor data that are sufﬁciently reliable\
+    \ for further analysis and discards\nuseless data.\nAnother research subarea of\
+    \ DQ in sensor networks is the DQ management in sensor data streams.\nKlein et\
+    \ al. [10] presented a quality-driven load shedding approach that screens the\
+    \ data stream to\nﬁnd and discard data items of minor quality. Thus, DQ of stream\
+    \ processing results is maximized\nunder adverse conditions such as data overload.\
+    \ Campbell et al. [15] advocated for automated quality\nassurance and quality\
+    \ control procedures based on graphical and statistical summaries for review and\n\
+    track the provenance of the data in environmental sensor streams.\nOther works\
+    \ focus on data management from different viewpoints.\nFor example,\nAl-Ruithe\
+    \ et al. [27] detailed roles, responsibilities and policies in the context of\
+    \ IoT-Cloud converged\nenvironments and provide a generic framework for data governance\
+    \ and security.\nSimilarly,\nQin et al. [14] provided a data management perspective\
+    \ on large-scale sensor environments\napplications posing non-functional requirements\
+    \ to meet the underlying timeliness, reliability and\naccuracy needs in addition\
+    \ to the functional needs of data collection. Although all these approaches\n\
+    are interesting and provide a useful vision, they still do not address how to\
+    \ make available (e.g.,\ninstitutionalize) best practices in data quality management\
+    \ to the entire organization. Such approach\nhas been proven to be more efﬁcient\
+    \ when it comes to create an organizational data quality culture.\nThis vision\
+    \ is speciﬁcally important in the case of IoT, since the SCP operations can be\
+    \ executed across\nSensors 2018, 18, 3105\n8 of 24\ndifferent networks belonging\
+    \ to different departments or even organizations. From our point of view,\nthis\
+    \ is a critical aspect for IoT that must be covered in a holistic way.\n3.2. Data\
+    \ Quality Methodologies Comparison\nThere are some methodologies that can be used\
+    \ as drivers for assessing and managing DQ.\nFirst, Lee et al. [28] proposed AIMQ\
+    \ as a methodology that encompasses a model of data quality,\na questionnaire\
+    \ to measure DQ, and analysis techniques for interpreting the DQ measures. This\n\
+    methodology is mainly used to analyse the gap between an organization and best\
+    \ practices, as well\nas to assess gaps between information systems professionals\
+    \ and data consumers. The application\nof this methodology is useful for determining\
+    \ the best area for DQ improvement activities. This\nmethodology has not been\
+    \ widely used and in a greater extent it has been considered to be too\ntheorical\
+    \ and dependent on the domain. McGilvray [29] provides a practical approach for\
+    \ planning\nand managing information quality. In comparison with the methodology\
+    \ proposed by Lee et al.,\nMcGilvray’s one provides a more pragmatic and practical\
+    \ approach to achieving the desired state of\nDQ within an organization. However,\
+    \ this methodology is still dependent on the domain of application.\nISO/TS 8000-150:2011\
+    \ [30] “speciﬁes fundamental principles of master data quality management, and\n\
+    requirements for implementation, data exchange and provenance”. This standard\
+    \ constitutes an\ninformative framework that identiﬁes processes for DQ management.\
+    \ This framework could be used\nin conjunction with, or independently of, quality\
+    \ management systems standards, for example, ISO\n9001 [31].\nBatini et al. [32]\
+    \ provided a literature review about different methodologies for data quality\n\
+    assessment and improvement. Most of the methods and techniques included in such\
+    \ review cannot be\nconsidered as a DQ management methodologies since do not consider\
+    \ all the managerial concerns\nin a holistic manner. At the contrary, most of\
+    \ these methods are focused on DQ assessment or\nimprovement in isolation. Similar\
+    \ to the mentioned review, a most recent study developed by Woodall\net al. [33]\
+    \ classiﬁed most recent DQ assessment and improvement methods. This work suffers\
+    \ the same\nproblem than the work of Batini et al. Apart of these methodologies,\
+    \ there is a lack of comprehensive\nmethodologies for the assessment and improvement\
+    \ of DQ in the domain of SCP operations and their\nunderlaying data.\nThe recent\
+    \ standard ISO 8000-61 [17] provides a set of standard guidelines for managing\
+    \ DQ in a\nholistic way, which can be tailored for different domains. However,\
+    \ its main purpose is not to serve\nas a methodology for DQ management per se,\
+    \ but it simply provides a process reference model. In\nthis sense, the standard\
+    \ is more descriptive than operative, what makes it not usable out-of-the-box.\n\
+    Aligned with this standard, this paper proposes the DAQUA-MASS methodology to\
+    \ deal with DQ\nin SCP environments. The main contribution of DAQUA-MASS methodology\
+    \ is that it takes the\nstandard best practices for depicting an operative way\
+    \ to manage DQ (as depicted in the processes\nof ISO 8000-61) and tailors these\
+    \ to the particular domain of SCP environments, and in particular, in\nsensor-related\
+    \ data.\n4. DAQUA-Model: A Data Quality Model\nReviewing the literature, it is\
+    \ possible to ﬁnd that the concept of data quality has been deﬁned in\ndifferent\
+    \ ways. The widest used deﬁnitions are aligned with the concept of “ﬁtness for\
+    \ use”. In [34], it\nis deﬁned as: “Data Quality is data that is ﬁt for use by\
+    \ data consumer. This means that usefulness\nand usability are important aspects\
+    \ of quality”. Different stakeholders can have different perceptions\nof what\
+    \ quality means for the same data [35]. It largely depends on the context in which\
+    \ data is\nused. Thus, DQ in IoT environments must be adequately managed considering\
+    \ the very nature of\nthe IoT systems. Typically, to improve data quality, a Plan-Do-Check-Act\
+    \ (PDCA) cycle speciﬁcally\ntailored for the context of usage is followed. In\
+    \ this sense, we think that adopting the processes of ISO\n8000-61 which are deployed\
+    \ in the PDCA [36] order can largely help to provide a methodology for\nmanaging\
+    \ data quality in IoT environments. At the core of the PDCA cycle for IoT environments\
+    \ is\nSensors 2018, 18, 3105\n9 of 24\nthe identiﬁcation of a Data Quality Model\
+    \ (DQModel) which, being composed of several data quality\ncharacteristics suitable\
+    \ for the problem, is used to identify and represent the data quality requirements\n\
+    required in the context. [9].\nIn our case, and according to our philosophy of\
+    \ aligning with international standards, the\nDQ Model proposed, is a specialization\
+    \ of the DQ Model introduced in ISO/IEC 25012 [25]. This\nDQ Model is widely accepted\
+    \ and used in the industry. Nevertheless, it has not been speciﬁcally\ndeveloped\
+    \ for considering SCP aspects. In fact, the scope section of such standard literally\
+    \ states that\nit “does not include data produced by embedded devices or real\
+    \ time sensors that are not retained\nfor further processing or historical purposes”\
+    \ [25]. Therefore, in order to complement the standard,\nwe provide some orientation\
+    \ in this paper on how to speciﬁcally use ISO/IEC 25012 in the context of\nSCP\
+    \ environments.\nThe DQ Model focuses on the quality of the data as part of an\
+    \ information system and deﬁnes\nquality characteristics for target data used\
+    \ by humans and systems (i.e., the data that the organization\ndecides to analyse\
+    \ and validate through the model). This model categorizes quality attributes into\n\
+    ﬁfteen characteristics and considers three perspectives: inherent, system-dependent\
+    \ and both jointly\n(see crosses in Table 4).\nTable 4. DQ Characteristics in\
+    \ ISO/IEC 25012 that can be affected by sensor data errors.\nDQ Characteristics\n\
+    Inherent\nSystem Dependent\nTemporal\nDelay\nError\nConstant\nor Offset\nError\n\
+    Continuous\nVarying/Drifting\nError\nCrash or\nJammed\nError\nTrimming\nError\n\
+    Outliers\nError\nNoise\nError\nSensors 2018, 18, x \n9 of 24 \n \nIn the following\
+    \ paragraphs, we introduce and summarize the fifteen DQ characteristics and, as\
+    \ \na main contribution in this part, we provide a vision on how these DQ characteristics\
+    \ are tailored for \nSCPs operations. Along with the definitions, for the sake\
+    \ of the understandability an example is also \nprovided for each characteristic.\
+    \ These examples are specially provided for the interpretation of these \nDQ characteristics\
+    \ in the acquisition layer, which is the scope of this paper. However, it has\
+    \ to be \nnoticed that all these DQ characteristics can be considered for all\
+    \ the SCP layers with different ways \nof assessment and interpretation. \nFrom\
+    \ the point of view of data quality management, it is quite important not to make\
+    \ the mistake \nof confusing the readings of dysfunctional sensors with inadequate\
+    \ levels of data quality, even when \na dysfunctional sensor can produce data\
+    \ without having adequate levels of quality (i.e., not fitting \nthe purpose of\
+    \ the use of data): the reason for making this distinction is that fixing errors\
+    \ due to \ndysfunctional sensors requires first fixing the sensors; on the other\
+    \ hand, if one can assure that the \nroot cause is not grounded on a dysfunctional\
+    \ sensor, but on the data itself, then, to fix data quality \nerrors, then data\
+    \ quality management techniques should be used since it should not be ignored\
+    \ what \ndata means. The description of the data quality characteristics can be\
+    \ found in the following \nparagraphs: \nTable 4. DQ Characteristics in ISO/IEC\
+    \ 25012 that can be affected by sensor data errors. \nDQ \nCharacteristics \n\
+    Inherent \nSystem Dependent \nTemporal \nDelay \nError \nConstant \nor Offset\
+    \ \nError \nContinuous \nVarying/Drifting \nError \nCrash or \nJammed \nError\
+    \ \nTrimming \nError \nOutliers \nError \nNoise \nError \n \n \n \n \n \n \n \n\
+    Accuracy \n x \n \n \nP \nS \n \nS \nP \nP \nCompleteness \n x \n \n \n \n \n\
+    P \nS \n \nS \nConsistency \n x \n \n \nS \nP \n \nS \n \nS \nCredibility \n x\
+    \ \n \n \nS \nS \n \n \nP \nS \nCurrentness \n x \n \nP \n \n \n \n \nS \n \n\
+    Accessibility \n x \n x \n \n \n \n \n \n \n \nCompliance \n x \n x \n \n \n \n\
+    \ \n \n \n \nConfidentiality \n x \n x \n \n \n \n \n \n \n \nEfficiency \n x\
+    \ \n x \n \n \n \n \n \n \n \nPrecision \n x \n x \n \n \n \n \nP \n \nS \nTraceability\
+    \ \n x \n x \nS \n \n \nS \n \n \n \nUnderstandability  x \n x \n \n \n \n \n\
+    \ \n \n \nAvailability \n \n x \nS \n \n \nS \n \n \n \nPortability \n \n x \n\
+    \ \n \n \n \n \n \n \nRecoverability \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy.\
+    \ It is the degree to which data has attributes that correctly represent the true\
+    \ value of \nthe intended attribute of a concept or event in a specific context\
+    \ of use. In SCP environments, a \nlow degree of accuracy could be derived from\
+    \ devices that provide values that could differ from \nthe value on the real world.\
+    \ For example, a low degree of accuracy can be when a humidity \nsensor reads\
+    \ a value of 30% and the real value is 50%. Low levels of accuracy could be directly\
+    \ \nrelated to sensor errors such as constant or offset, outlier errors and noise\
+    \ errors. Also, accuracy \ncould be indirectly affected by continuous varying\
+    \ or drifting and trimming error (see Table 4). \n \nCompleteness. It is the\
+    \ degree to which subject data associated with an entity has values for all \n\
+    expected attributes and related entity instances in a specific context of use.\
+    \ In SCP environments, \na low degree of completeness could be derived from devices\
+    \ that are reading and sending no \nvalues. For example, a low degree of completeness\
+    \ can happen when the records of sensor data \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors\
+    \ 2018, 18, x \n9 of 24 \n \nIn the following paragraphs, we introduce and summarize\
+    \ the fifteen DQ characteristics and, as \na main contribution in this part, we\
+    \ provide a vision on how these DQ characteristics are tailored for \nSCPs operations.\
+    \ Along with the definitions, for the sake of the understandability an example\
+    \ is also \nprovided for each characteristic. These examples are specially provided\
+    \ for the interpretation of these \nDQ characteristics in the acquisition layer,\
+    \ which is the scope of this paper. However, it has to be \nnoticed that all these\
+    \ DQ characteristics can be considered for all the SCP layers with different ways\
+    \ \nof assessment and interpretation. \nFrom the point of view of data quality\
+    \ management, it is quite important not to make the mistake \nof confusing the\
+    \ readings of dysfunctional sensors with inadequate levels of data quality, even\
+    \ when \na dysfunctional sensor can produce data without having adequate levels\
+    \ of quality (i.e., not fitting \nthe purpose of the use of data): the reason\
+    \ for making this distinction is that fixing errors due to \ndysfunctional sensors\
+    \ requires first fixing the sensors; on the other hand, if one can assure that\
+    \ the \nroot cause is not grounded on a dysfunctional sensor, but on the data\
+    \ itself, then, to fix data quality \nerrors, then data quality management techniques\
+    \ should be used since it should not be ignored what \ndata means. The description\
+    \ of the data quality characteristics can be found in the following \nparagraphs:\
+    \ \nTable 4. DQ Characteristics in ISO/IEC 25012 that can be affected by sensor\
+    \ data errors. \nDQ \nCharacteristics \nInherent \nSystem Dependent \nTemporal\
+    \ \nDelay \nError \nConstant \nor Offset \nError \nContinuous \nVarying/Drifting\
+    \ \nError \nCrash or \nJammed \nError \nTrimming \nError \nOutliers \nError \n\
+    Noise \nError \n \n \n \n \n \n \n \nAccuracy \n x \n \n \nP \nS \n \nS \nP \n\
+    P \nCompleteness \n x \n \n \n \n \nP \nS \n \nS \nConsistency \n x \n \n \nS\
+    \ \nP \n \nS \n \nS \nCredibility \n x \n \n \nS \nS \n \n \nP \nS \nCurrentness\
+    \ \n x \n \nP \n \n \n \n \nS \n \nAccessibility \n x \n x \n \n \n \n \n \n \n\
+    \ \nCompliance \n x \n x \n \n \n \n \n \n \n \nConfidentiality \n x \n x \n \n\
+    \ \n \n \n \n \n \nEfficiency \n x \n x \n \n \n \n \n \n \n \nPrecision \n x\
+    \ \n x \n \n \n \n \nP \n \nS \nTraceability \n x \n x \nS \n \n \nS \n \n \n\
+    \ \nUnderstandability  x \n x \n \n \n \n \n \n \n \nAvailability \n \n x \nS\
+    \ \n \n \nS \n \n \n \nPortability \n \n x \n \n \n \n \n \n \n \nRecoverability\
+    \ \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy. It is the degree to which data\
+    \ has attributes that correctly represent the true value of \nthe intended attribute\
+    \ of a concept or event in a specific context of use. In SCP environments, a \n\
+    low degree of accuracy could be derived from devices that provide values that\
+    \ could differ from \nthe value on the real world. For example, a low degree of\
+    \ accuracy can be when a humidity \nsensor reads a value of 30% and the real value\
+    \ is 50%. Low levels of accuracy could be directly \nrelated to sensor errors\
+    \ such as constant or offset, outlier errors and noise errors. Also, accuracy\
+    \ \ncould be indirectly affected by continuous varying or drifting and trimming\
+    \ error (see Table 4). \n \nCompleteness. It is the degree to which subject data\
+    \ associated with an entity has values for all \nexpected attributes and related\
+    \ entity instances in a specific context of use. In SCP environments, \na low\
+    \ degree of completeness could be derived from devices that are reading and sending\
+    \ no \nvalues. For example, a low degree of completeness can happen when the records\
+    \ of sensor data \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors 2018, 18, x \n9 of 24 \n\
+    \ \nIn the following paragraphs, we introduce and summarize the fifteen DQ characteristics\
+    \ and, as \na main contribution in this part, we provide a vision on how these\
+    \ DQ characteristics are tailored for \nSCPs operations. Along with the definitions,\
+    \ for the sake of the understandability an example is also \nprovided for each\
+    \ characteristic. These examples are specially provided for the interpretation\
+    \ of these \nDQ characteristics in the acquisition layer, which is the scope of\
+    \ this paper. However, it has to be \nnoticed that all these DQ characteristics\
+    \ can be considered for all the SCP layers with different ways \nof assessment\
+    \ and interpretation. \nFrom the point of view of data quality management, it\
+    \ is quite important not to make the mistake \nof confusing the readings of dysfunctional\
+    \ sensors with inadequate levels of data quality, even when \na dysfunctional\
+    \ sensor can produce data without having adequate levels of quality (i.e., not\
+    \ fitting \nthe purpose of the use of data): the reason for making this distinction\
+    \ is that fixing errors due to \ndysfunctional sensors requires first fixing the\
+    \ sensors; on the other hand, if one can assure that the \nroot cause is not grounded\
+    \ on a dysfunctional sensor, but on the data itself, then, to fix data quality\
+    \ \nerrors, then data quality management techniques should be used since it should\
+    \ not be ignored what \ndata means. The description of the data quality characteristics\
+    \ can be found in the following \nparagraphs: \nTable 4. DQ Characteristics in\
+    \ ISO/IEC 25012 that can be affected by sensor data errors. \nDQ \nCharacteristics\
+    \ \nInherent \nSystem Dependent \nTemporal \nDelay \nError \nConstant \nor Offset\
+    \ \nError \nContinuous \nVarying/Drifting \nError \nCrash or \nJammed \nError\
+    \ \nTrimming \nError \nOutliers \nError \nNoise \nError \n \n \n \n \n \n \n \n\
+    Accuracy \n x \n \n \nP \nS \n \nS \nP \nP \nCompleteness \n x \n \n \n \n \n\
+    P \nS \n \nS \nConsistency \n x \n \n \nS \nP \n \nS \n \nS \nCredibility \n x\
+    \ \n \n \nS \nS \n \n \nP \nS \nCurrentness \n x \n \nP \n \n \n \n \nS \n \n\
+    Accessibility \n x \n x \n \n \n \n \n \n \n \nCompliance \n x \n x \n \n \n \n\
+    \ \n \n \n \nConfidentiality \n x \n x \n \n \n \n \n \n \n \nEfficiency \n x\
+    \ \n x \n \n \n \n \n \n \n \nPrecision \n x \n x \n \n \n \n \nP \n \nS \nTraceability\
+    \ \n x \n x \nS \n \n \nS \n \n \n \nUnderstandability  x \n x \n \n \n \n \n\
+    \ \n \n \nAvailability \n \n x \nS \n \n \nS \n \n \n \nPortability \n \n x \n\
+    \ \n \n \n \n \n \n \nRecoverability \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy.\
+    \ It is the degree to which data has attributes that correctly represent the true\
+    \ value of \nthe intended attribute of a concept or event in a specific context\
+    \ of use. In SCP environments, a \nlow degree of accuracy could be derived from\
+    \ devices that provide values that could differ from \nthe value on the real world.\
+    \ For example, a low degree of accuracy can be when a humidity \nsensor reads\
+    \ a value of 30% and the real value is 50%. Low levels of accuracy could be directly\
+    \ \nrelated to sensor errors such as constant or offset, outlier errors and noise\
+    \ errors. Also, accuracy \ncould be indirectly affected by continuous varying\
+    \ or drifting and trimming error (see Table 4). \n \nCompleteness. It is the\
+    \ degree to which subject data associated with an entity has values for all \n\
+    expected attributes and related entity instances in a specific context of use.\
+    \ In SCP environments, \na low degree of completeness could be derived from devices\
+    \ that are reading and sending no \nvalues. For example, a low degree of completeness\
+    \ can happen when the records of sensor data \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors\
+    \ 2018, 18, x \n9 of 24 \n \nIn the following paragraphs, we introduce and summarize\
+    \ the fifteen DQ characteristics and, as \na main contribution in this part, we\
+    \ provide a vision on how these DQ characteristics are tailored for \nSCPs operations.\
+    \ Along with the definitions, for the sake of the understandability an example\
+    \ is also \nprovided for each characteristic. These examples are specially provided\
+    \ for the interpretation of these \nDQ characteristics in the acquisition layer,\
+    \ which is the scope of this paper. However, it has to be \nnoticed that all these\
+    \ DQ characteristics can be considered for all the SCP layers with different ways\
+    \ \nof assessment and interpretation. \nFrom the point of view of data quality\
+    \ management, it is quite important not to make the mistake \nof confusing the\
+    \ readings of dysfunctional sensors with inadequate levels of data quality, even\
+    \ when \na dysfunctional sensor can produce data without having adequate levels\
+    \ of quality (i.e., not fitting \nthe purpose of the use of data): the reason\
+    \ for making this distinction is that fixing errors due to \ndysfunctional sensors\
+    \ requires first fixing the sensors; on the other hand, if one can assure that\
+    \ the \nroot cause is not grounded on a dysfunctional sensor, but on the data\
+    \ itself, then, to fix data quality \nerrors, then data quality management techniques\
+    \ should be used since it should not be ignored what \ndata means. The description\
+    \ of the data quality characteristics can be found in the following \nparagraphs:\
+    \ \nTable 4. DQ Characteristics in ISO/IEC 25012 that can be affected by sensor\
+    \ data errors. \nDQ \nCharacteristics \nInherent \nSystem Dependent \nTemporal\
+    \ \nDelay \nError \nConstant \nor Offset \nError \nContinuous \nVarying/Drifting\
+    \ \nError \nCrash or \nJammed \nError \nTrimming \nError \nOutliers \nError \n\
+    Noise \nError \n \n \n \n \n \n \n \nAccuracy \n x \n \n \nP \nS \n \nS \nP \n\
+    P \nCompleteness \n x \n \n \n \n \nP \nS \n \nS \nConsistency \n x \n \n \nS\
+    \ \nP \n \nS \n \nS \nCredibility \n x \n \n \nS \nS \n \n \nP \nS \nCurrentness\
+    \ \n x \n \nP \n \n \n \n \nS \n \nAccessibility \n x \n x \n \n \n \n \n \n \n\
+    \ \nCompliance \n x \n x \n \n \n \n \n \n \n \nConfidentiality \n x \n x \n \n\
+    \ \n \n \n \n \n \nEfficiency \n x \n x \n \n \n \n \n \n \n \nPrecision \n x\
+    \ \n x \n \n \n \n \nP \n \nS \nTraceability \n x \n x \nS \n \n \nS \n \n \n\
+    \ \nUnderstandability  x \n x \n \n \n \n \n \n \n \nAvailability \n \n x \nS\
+    \ \n \n \nS \n \n \n \nPortability \n \n x \n \n \n \n \n \n \n \nRecoverability\
+    \ \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy. It is the degree to which data\
+    \ has attributes that correctly represent the true value of \nthe intended attribute\
+    \ of a concept or event in a specific context of use. In SCP environments, a \n\
+    low degree of accuracy could be derived from devices that provide values that\
+    \ could differ from \nthe value on the real world. For example, a low degree of\
+    \ accuracy can be when a humidity \nsensor reads a value of 30% and the real value\
+    \ is 50%. Low levels of accuracy could be directly \nrelated to sensor errors\
+    \ such as constant or offset, outlier errors and noise errors. Also, accuracy\
+    \ \ncould be indirectly affected by continuous varying or drifting and trimming\
+    \ error (see Table 4). \n \nCompleteness. It is the degree to which subject data\
+    \ associated with an entity has values for all \nexpected attributes and related\
+    \ entity instances in a specific context of use. In SCP environments, \na low\
+    \ degree of completeness could be derived from devices that are reading and sending\
+    \ no \nvalues. For example, a low degree of completeness can happen when the records\
+    \ of sensor data \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors 2018, 18, x \n9 of 24 \n\
+    \ \nIn the following paragraphs, we introduce and summarize the fifteen DQ characteristics\
+    \ and, as \na main contribution in this part, we provide a vision on how these\
+    \ DQ characteristics are tailored for \nSCPs operations. Along with the definitions,\
+    \ for the sake of the understandability an example is also \nprovided for each\
+    \ characteristic. These examples are specially provided for the interpretation\
+    \ of these \nDQ characteristics in the acquisition layer, which is the scope of\
+    \ this paper. However, it has to be \nnoticed that all these DQ characteristics\
+    \ can be considered for all the SCP layers with different ways \nof assessment\
+    \ and interpretation. \nFrom the point of view of data quality management, it\
+    \ is quite important not to make the mistake \nof confusing the readings of dysfunctional\
+    \ sensors with inadequate levels of data quality, even when \na dysfunctional\
+    \ sensor can produce data without having adequate levels of quality (i.e., not\
+    \ fitting \nthe purpose of the use of data): the reason for making this distinction\
+    \ is that fixing errors due to \ndysfunctional sensors requires first fixing the\
+    \ sensors; on the other hand, if one can assure that the \nroot cause is not grounded\
+    \ on a dysfunctional sensor, but on the data itself, then, to fix data quality\
+    \ \nerrors, then data quality management techniques should be used since it should\
+    \ not be ignored what \ndata means. The description of the data quality characteristics\
+    \ can be found in the following \nparagraphs: \nTable 4. DQ Characteristics in\
+    \ ISO/IEC 25012 that can be affected by sensor data errors. \nDQ \nCharacteristics\
+    \ \nInherent \nSystem Dependent \nTemporal \nDelay \nError \nConstant \nor Offset\
+    \ \nError \nContinuous \nVarying/Drifting \nError \nCrash or \nJammed \nError\
+    \ \nTrimming \nError \nOutliers \nError \nNoise \nError \n \n \n \n \n \n \n \n\
+    Accuracy \n x \n \n \nP \nS \n \nS \nP \nP \nCompleteness \n x \n \n \n \n \n\
+    P \nS \n \nS \nConsistency \n x \n \n \nS \nP \n \nS \n \nS \nCredibility \n x\
+    \ \n \n \nS \nS \n \n \nP \nS \nCurrentness \n x \n \nP \n \n \n \n \nS \n \n\
+    Accessibility \n x \n x \n \n \n \n \n \n \n \nCompliance \n x \n x \n \n \n \n\
+    \ \n \n \n \nConfidentiality \n x \n x \n \n \n \n \n \n \n \nEfficiency \n x\
+    \ \n x \n \n \n \n \n \n \n \nPrecision \n x \n x \n \n \n \n \nP \n \nS \nTraceability\
+    \ \n x \n x \nS \n \n \nS \n \n \n \nUnderstandability  x \n x \n \n \n \n \n\
+    \ \n \n \nAvailability \n \n x \nS \n \n \nS \n \n \n \nPortability \n \n x \n\
+    \ \n \n \n \n \n \n \nRecoverability \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy.\
+    \ It is the degree to which data has attributes that correctly represent the true\
+    \ value of \nthe intended attribute of a concept or event in a specific context\
+    \ of use. In SCP environments, a \nlow degree of accuracy could be derived from\
+    \ devices that provide values that could differ from \nthe value on the real world.\
+    \ For example, a low degree of accuracy can be when a humidity \nsensor reads\
+    \ a value of 30% and the real value is 50%. Low levels of accuracy could be directly\
+    \ \nrelated to sensor errors such as constant or offset, outlier errors and noise\
+    \ errors. Also, accuracy \ncould be indirectly affected by continuous varying\
+    \ or drifting and trimming error (see Table 4). \n \nCompleteness. It is the\
+    \ degree to which subject data associated with an entity has values for all \n\
+    expected attributes and related entity instances in a specific context of use.\
+    \ In SCP environments, \na low degree of completeness could be derived from devices\
+    \ that are reading and sending no \nvalues. For example, a low degree of completeness\
+    \ can happen when the records of sensor data \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors\
+    \ 2018, 18, x \n9 of 24 \n \nIn the following paragraphs, we introduce and summarize\
+    \ the fifteen DQ characteristics and, as \na main contribution in this part, we\
+    \ provide a vision on how these DQ characteristics are tailored for \nSCPs operations.\
+    \ Along with the definitions, for the sake of the understandability an example\
+    \ is also \nprovided for each characteristic. These examples are specially provided\
+    \ for the interpretation of these \nDQ characteristics in the acquisition layer,\
+    \ which is the scope of this paper. However, it has to be \nnoticed that all these\
+    \ DQ characteristics can be considered for all the SCP layers with different ways\
+    \ \nof assessment and interpretation. \nFrom the point of view of data quality\
+    \ management, it is quite important not to make the mistake \nof confusing the\
+    \ readings of dysfunctional sensors with inadequate levels of data quality, even\
+    \ when \na dysfunctional sensor can produce data without having adequate levels\
+    \ of quality (i.e., not fitting \nthe purpose of the use of data): the reason\
+    \ for making this distinction is that fixing errors due to \ndysfunctional sensors\
+    \ requires first fixing the sensors; on the other hand, if one can assure that\
+    \ the \nroot cause is not grounded on a dysfunctional sensor, but on the data\
+    \ itself, then, to fix data quality \nerrors, then data quality management techniques\
+    \ should be used since it should not be ignored what \ndata means. The description\
+    \ of the data quality characteristics can be found in the following \nparagraphs:\
+    \ \nTable 4. DQ Characteristics in ISO/IEC 25012 that can be affected by sensor\
+    \ data errors. \nDQ \nCharacteristics \nInherent \nSystem Dependent \nTemporal\
+    \ \nDelay \nError \nConstant \nor Offset \nError \nContinuous \nVarying/Drifting\
+    \ \nError \nCrash or \nJammed \nError \nTrimming \nError \nOutliers \nError \n\
+    Noise \nError \n \n \n \n \n \n \n \nAccuracy \n x \n \n \nP \nS \n \nS \nP \n\
+    P \nCompleteness \n x \n \n \n \n \nP \nS \n \nS \nConsistency \n x \n \n \nS\
+    \ \nP \n \nS \n \nS \nCredibility \n x \n \n \nS \nS \n \n \nP \nS \nCurrentness\
+    \ \n x \n \nP \n \n \n \n \nS \n \nAccessibility \n x \n x \n \n \n \n \n \n \n\
+    \ \nCompliance \n x \n x \n \n \n \n \n \n \n \nConfidentiality \n x \n x \n \n\
+    \ \n \n \n \n \n \nEfficiency \n x \n x \n \n \n \n \n \n \n \nPrecision \n x\
+    \ \n x \n \n \n \n \nP \n \nS \nTraceability \n x \n x \nS \n \n \nS \n \n \n\
+    \ \nUnderstandability  x \n x \n \n \n \n \n \n \n \nAvailability \n \n x \nS\
+    \ \n \n \nS \n \n \n \nPortability \n \n x \n \n \n \n \n \n \n \nRecoverability\
+    \ \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy. It is the degree to which data\
+    \ has attributes that correctly represent the true value of \nthe intended attribute\
+    \ of a concept or event in a specific context of use. In SCP environments, a \n\
+    low degree of accuracy could be derived from devices that provide values that\
+    \ could differ from \nthe value on the real world. For example, a low degree of\
+    \ accuracy can be when a humidity \nsensor reads a value of 30% and the real value\
+    \ is 50%. Low levels of accuracy could be directly \nrelated to sensor errors\
+    \ such as constant or offset, outlier errors and noise errors. Also, accuracy\
+    \ \ncould be indirectly affected by continuous varying or drifting and trimming\
+    \ error (see Table 4). \n \nCompleteness. It is the degree to which subject data\
+    \ associated with an entity has values for all \nexpected attributes and related\
+    \ entity instances in a specific context of use. In SCP environments, \na low\
+    \ degree of completeness could be derived from devices that are reading and sending\
+    \ no \nvalues. For example, a low degree of completeness can happen when the records\
+    \ of sensor data \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nSensors 2018, 18, x \n9 of 24 \n\
+    \ \nIn the following paragraphs, we introduce and summarize the fifteen DQ characteristics\
+    \ and, as \na main contribution in this part, we provide a vision on how these\
+    \ DQ characteristics are tailored for \nSCPs operations. Along with the definitions,\
+    \ for the sake of the understandability an example is also \nprovided for each\
+    \ characteristic. These examples are specially provided for the interpretation\
+    \ of these \nDQ characteristics in the acquisition layer, which is the scope of\
+    \ this paper. However, it has to be \nnoticed that all these DQ characteristics\
+    \ can be considered for all the SCP layers with different ways \nof assessment\
+    \ and interpretation. \nFrom the point of view of data quality management, it\
+    \ is quite important not to make the mistake \nof confusing the readings of dysfunctional\
+    \ sensors with inadequate levels of data quality, even when \na dysfunctional\
+    \ sensor can produce data without having adequate levels of quality (i.e., not\
+    \ fitting \nthe purpose of the use of data): the reason for making this distinction\
+    \ is that fixing errors due to \ndysfunctional sensors requires first fixing the\
+    \ sensors; on the other hand, if one can assure that the \nroot cause is not grounded\
+    \ on a dysfunctional sensor, but on the data itself, then, to fix data quality\
+    \ \nerrors, then data quality management techniques should be used since it should\
+    \ not be ignored what \ndata means. The description of the data quality characteristics\
+    \ can be found in the following \nparagraphs: \nTable 4. DQ Characteristics in\
+    \ ISO/IEC 25012 that can be affected by sensor data errors. \nDQ \nCharacteristics\
+    \ \nInherent \nSystem Dependent \nTemporal \nDelay \nError \nConstant \nor Offset\
+    \ \nError \nContinuous \nVarying/Drifting \nError \nCrash or \nJammed \nError\
+    \ \nTrimming \nError \nOutliers \nError \nNoise \nError \n \n \n \n \n \n \n \n\
+    Accuracy \n x \n \n \nP \nS \n \nS \nP \nP \nCompleteness \n x \n \n \n \n \n\
+    P \nS \n \nS \nConsistency \n x \n \n \nS \nP \n \nS \n \nS \nCredibility \n x\
+    \ \n \n \nS \nS \n \n \nP \nS \nCurrentness \n x \n \nP \n \n \n \n \nS \n \n\
+    Accessibility \n x \n x \n \n \n \n \n \n \n \nCompliance \n x \n x \n \n \n \n\
+    \ \n \n \n \nConfidentiality \n x \n x \n \n \n \n \n \n \n \nEfficiency \n x\
+    \ \n x \n \n \n \n \n \n \n \nPrecision \n x \n x \n \n \n \n \nP \n \nS \nTraceability\
+    \ \n x \n x \nS \n \n \nS \n \n \n \nUnderstandability  x \n x \n \n \n \n \n\
+    \ \n \n \nAvailability \n \n x \nS \n \n \nS \n \n \n \nPortability \n \n x \n\
+    \ \n \n \n \n \n \n \nRecoverability \n \n x \nS \n \n \nS \n \n \n \n \nAccuracy.\
+    \ It is the degree to which data has attributes that correctly represent the true\
+    \ value of \nthe intended attribute of a concept or event in a specific context\
+    \ of use. In SCP environments, a \nlow degree of accuracy could be derived from\
+    \ devices that provide values that could differ from \nthe value on the real world.\
+    \ For example, a low degree of accuracy can be when a humidity \nsensor reads\
+    \ a value of 30% and the real value is 50%. Low levels of accuracy could be directly\
+    \ \nrelated to sensor errors such as constant or offset, outlier errors and noise\
+    \ errors. Also, accuracy \ncould be indirectly affected by continuous varying\
+    \ or drifting and trimming error (see Table 4). \n \nCompleteness. It is the\
+    \ degree to which subject data associated with an entity has values for all \n\
+    expected attributes and related entity instances in a specific context of use.\
+    \ In SCP environments, \na low degree of completeness could be derived from devices\
+    \ that are reading and sending no \nvalues. For example, a low degree of completeness\
+    \ can happen when the records of sensor data \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\
+    \ \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nAccuracy\n\
+    x\nP\nS\nS\nP\nP\nCompleteness\nx\nP\nS\nS\nConsistency\nx\nS\nP\nS\nS\nCredibility\n\
+    x\nS\nS\nP\nS\nCurrentness\nx\nP\nS\nAccessibility\nx\nx\nCompliance\nx\nx\nConﬁdentiality\n\
+    x\nx\nEfﬁciency\nx\nx\nPrecision\nx\nx\nP\nS\nTraceability\nx\nx\nS\nS\nUnderstandability\n\
+    x\nx\nAvailability\nx\nS\nS\nPortability\nx\nRecoverability\nx\nS\nS\nAs part\
+    \ of the methodology, we propose the association of the DQ characteristics with\
+    \ some of\nthe sensor data errors previously shown in Table 2. These relationships\
+    \ suggest that erroneous data\ngenerated due to some malfunctioning sensors could\
+    \ lead or affect some of the DQ characteristics. We\ndistinguish these relationships\
+    \ in Table 4 with ‘P’ and ‘S’ respectively signifying that a sensor error can\n\
+    have a primary or secondary impact in DQ characteristics. Primary means a direct\
+    \ (or more critical)\neffect while secondary is a collide (or less critical) impact.\n\
+    In the following paragraphs, we introduce and summarize the ﬁfteen DQ characteristics\
+    \ and,\nas a main contribution in this part, we provide a vision on how these\
+    \ DQ characteristics are tailored\nfor SCPs operations. Along with the deﬁnitions,\
+    \ for the sake of the understandability an example is\nalso provided for each\
+    \ characteristic. These examples are specially provided for the interpretation\
+    \ of\nthese DQ characteristics in the acquisition layer, which is the scope of\
+    \ this paper. However, it has to be\nnoticed that all these DQ characteristics\
+    \ can be considered for all the SCP layers with different ways of\nassessment\
+    \ and interpretation.\nFrom the point of view of data quality management, it is\
+    \ quite important not to make the mistake\nof confusing the readings of dysfunctional\
+    \ sensors with inadequate levels of data quality, even when\na dysfunctional sensor\
+    \ can produce data without having adequate levels of quality (i.e., not ﬁtting\n\
+    Sensors 2018, 18, 3105\n10 of 24\nthe purpose of the use of data): the reason\
+    \ for making this distinction is that ﬁxing errors due to\ndysfunctional sensors\
+    \ requires ﬁrst ﬁxing the sensors; on the other hand, if one can assure that the\
+    \ root\ncause is not grounded on a dysfunctional sensor, but on the data itself,\
+    \ then, to ﬁx data quality errors,\nthen data quality management techniques should\
+    \ be used since it should not be ignored what data\nmeans. The description of\
+    \ the data quality characteristics can be found in the following paragraphs:\n\
+    •\nAccuracy. It is the degree to which data has attributes that correctly represent\
+    \ the true value of the\nintended attribute of a concept or event in a speciﬁc\
+    \ context of use. In SCP environments, a low\ndegree of accuracy could be derived\
+    \ from devices that provide values that could differ from the\nvalue on the real\
+    \ world. For example, a low degree of accuracy can be when a humidity sensor\n\
+    reads a value of 30% and the real value is 50%. Low levels of accuracy could be\
+    \ directly related to\nsensor errors such as constant or offset, outlier errors\
+    \ and noise errors. Also, accuracy could be\nindirectly affected by continuous\
+    \ varying or drifting and trimming error (see Table 4).\n•\nCompleteness. It is\
+    \ the degree to which subject data associated with an entity has values for all\n\
+    expected attributes and related entity instances in a speciﬁc context of use.\
+    \ In SCP environments,\na low degree of completeness could be derived from devices\
+    \ that are reading and sending no\nvalues. For example, a low degree of completeness\
+    \ can happen when the records of sensor data\nhave missing values. Low levels\
+    \ of completeness could be related directly to sensor errors such as\ncrash or\
+    \ jammed errors and indirectly, trimming and noise errors (see Table 4).\n•\n\
+    Consistency. It represents the degree to which data has attributes that are free\
+    \ from contradiction\nand are coherent with other data in a speciﬁc context of\
+    \ use. It can be either or both among data\nregarding one entity and across similar\
+    \ data for comparable entities. In SCP environments, a low\ndegree of consistency\
+    \ could happen when two sensors produce contradictory data. For example,\nfor\
+    \ proximity sensors that provide the relative distance to the sensor position,\
+    \ a consistency\nproblem for a single sensor could be a negative distance value,\
+    \ while a consistency problem\nbetween two sensors in the same position could\
+    \ be two different values. Thus, low levels of\nconsistency could be related with\
+    \ continuous varying/drifting error and indirectly with constant\nor offset errors,\
+    \ trimming and noise error (see Table 4).\n•\nCredibility. It is deﬁned as the\
+    \ degree to which data has attributes that are regarded as true and\nbelievable\
+    \ by users in a speciﬁc context of use. In SCP environments, a low degree of credibility\n\
+    could be derived from a single sensor placed in someplace and the data cannot\
+    \ be validated by\nanother entity or even sensor. For example, a credibility issue\
+    \ could happen when a sensor whose\ndata is compared with another sensor placed\
+    \ near does not match. Low levels of credibility could\nbe related directly to\
+    \ sensor errors such as outlier errors and indirectly with constant or offset\n\
+    error, continuous varying/drifting error and noise error (see Table 4).\n•\nCurrentness.\
+    \ It is the degree to which data has attributes that are of the right age in a\
+    \ speciﬁc\ncontext of use. In SCP environments, a low degree of currentness could\
+    \ be derived from a sensor\nthat can be indicating past values as current value\
+    \ (see Table 4). For example, if an irrigation\nsensor produces a value that indicates\
+    \ that the ﬁeld must be irrigated, it has been irrigated and the\ndata is not\
+    \ updated. The data indicates whether it is necessary irrigation, or it is already\
+    \ irrigated,\nso this would be data without sufﬁcient currentness.\n•\nAccessibility.\
+    \ It is the degree to which data can be accessed in a speciﬁc context of use,\
+    \ particularly\nby people who need supporting technology or special conﬁguration\
+    \ because of some disability. In\nSCP environments, a low degree of accessibility\
+    \ could be derived due to the necessary user is not\nallowed in the precise moment.\
+    \ For example, data produced by a speciﬁc sensor is unreachable\ndue to network\
+    \ issues.\n•\nCompliance. It refers to the degree to which data has attributes\
+    \ that adhere to standards,\nconventions or regulations in force and similar rules\
+    \ relating to data quality in a speciﬁc context\nof use. In SCP environments,\
+    \ a low degree of compliance could be derived from data sensor that\nis not being\
+    \ using the standards formats established on the organization. For example, if\
+    \ the\nSensors 2018, 18, 3105\n11 of 24\norganization establishes that for distance\
+    \ sensors the unit for values is meters, and if some sensors\nproduce values expressed\
+    \ in meters and other in miles these data have low compliance levels.\n•\nConﬁdentiality.\
+    \ It is the degree to which data has attributes that ensure that it is only accessible\n\
+    and interpretable by authorized users in a speciﬁc context of use. In SCP environments,\
+    \ a low\ndegree of conﬁdentiality could be derived from an inefﬁcient security\
+    \ management of sensor\ndata. For example, a conﬁdentiality leak might happen\
+    \ when data produced by a sensor placed in\na nuclear power plant can be freely\
+    \ accessed from external networks even when this data was\nmarked as sensible\
+    \ and, therefore, conﬁdential in order to prevent possible terrorist acts.\n•\n\
+    Efﬁciency. It is the degree to which data has attributes that can be processed\
+    \ and provide the\nexpected levels of performance by using the appropriate amounts\
+    \ and types of resources in a\nspeciﬁc context of use. For example, a sensor send\
+    \ data about where is placed and send a code\nand a description every time the\
+    \ sensor sends o stores a record, it has low efﬁciency because only\nthe code\
+    \ is enough to know all about the place. In SCP environments, a low degree of\
+    \ efﬁciency\ncould be derived from the storage of duplicated data that could take\
+    \ more time and resources to\nsend or manipulate the data.\n•\nPrecision. It is\
+    \ the degree to which data has attributes that are exact or that provide discrimination\n\
+    in a speciﬁc context of use. In SCP environments, a low degree of precision could\
+    \ be derived from\ndevices that are providing inexact values as in the next example.\
+    \ For example, sensor data that\nstore weight with no decimals and it is required\
+    \ a minimum of three decimals. Low levels of\nconsistency could be related directly\
+    \ with trimming errors, and indirectly with noise errors (see\nTable 4).\n•\n\
+    Traceability. The degree to which data has attributes that provide an audit trail\
+    \ of access to the\ndata and of any changes made to the data in a speciﬁc context\
+    \ of use. In SCP environments, a low\ndegree of traceability could be derived\
+    \ from sensor data with no metadata. For example, data logs\ncontain information\
+    \ about who has acceded to sensor data and operations made with them. Low\nlevels\
+    \ of traceability could be related indirectly to crash or jammed errors as well\
+    \ as to temporal\ndelay errors (see Table 4).\n•\nUnderstandability. The degree\
+    \ to which data has attributes that enable it to be read and interpreted\nby users,\
+    \ and are expressed in appropriate languages, symbols and units in a speciﬁc context\
+    \ of\nuse. In SCP environments, a low degree of understandability could be derived\
+    \ from sensor data\nrepresented with codes instead of acronyms. For example, records\
+    \ of data about temperature\non a car has an attribute to know the place of the\
+    \ sensor in the car. This attribute can be stored\nas a code like “xkq1”, but\
+    \ if is stored as “GasolineTank” it is supposed to have a higher level\nof understandability.\n\
+    •\nAvailability. The degree to which data has attributes that enable it to be\
+    \ retrieved by authorized\nusers and/or applications in a speciﬁc context of use.\
+    \ In SCP environments, a low degree of\navailability could be derived from the\
+    \ insufﬁcient resources of the system in which sensor data is\nstored. For example,\
+    \ to assure sensor data availability, sensor replication can be used to make\n\
+    it available even if there is some issue on a sensor. Low levels of availability\
+    \ could be related\nindirectly with temporal delay error and crash or jammed errors\
+    \ (see Table 4).\n•\nPortability. The degree to which data has attributes that\
+    \ enable it to be installed, replaced or\nmoved from one system to another preserving\
+    \ the existing quality in a speciﬁc context of use. For\nexample, sensor data\
+    \ is going to be shared with a concrete system or even other organization or\n\
+    department, data loss can occur. If this happens, for example, due to a data model\
+    \ mismatching\nor a problem with the data format, the reason is directly related\
+    \ to portability of data. In SCP\nenvironments, a low degree of portability could\
+    \ be derived from sensor data that does not follow\na speciﬁc data model (see\
+    \ Table 4) or the format present some problems.\n•\nRecoverability. The degree\
+    \ to which data has attributes that enable it to maintain and preserve\na speciﬁed\
+    \ level of operations and quality, even in the event of failure, in a speciﬁc\
+    \ context of\nuse. In SCP environments, a low degree of recoverability could be\
+    \ derived from devices that\nSensors 2018, 18, 3105\n12 of 24\ndoes not have a\
+    \ mechanism failure tolerant or backup. For example, when a device has a failure,\n\
+    data stored in that device should be recoverable. Low levels of recoverability\
+    \ could be related\nindirectly with temporal delay error and crash or jammed errors\
+    \ (see Table 4).\nAlthough our DQ Model considers initially all the DQ characteristics\
+    \ deﬁned in ISO/IEC 25012,\nit could be necessary to customize the DQ characteristics\
+    \ chosen to adapt them into the speciﬁc\nSCP context. This customization might\
+    \ depend on the concrete organization and how it applies the\nmethodology to speciﬁc\
+    \ SCP contexts. The customized model will conform the data quality model for\n\
+    an organization with a speciﬁc SCP environment.\n5. DAQUA-MASS: A Data Quality\
+    \ Management Methodology for Data Sensors\nThis section presents DAQUA-MASS, an\
+    \ ISO 8000-61-based Data Quality Management\nmethodology for data sensors. Steps\
+    \ provided in this methodology are based in some of the processes\nintroduced\
+    \ by ISO 8000-61 [17], which, as we previously said, gathers the best practices\
+    \ around data\nquality management by means of a process approach. Each process\
+    \ in this standard is described by\nmeans of a purpose, the outcomes and the activities\
+    \ that are to be applied for the assurance of data\nquality. Thus, this standard\
+    \ mainly covers: (1) fundamental principles of data quality management; (2)\n\
+    the structure of the data quality management process; (3) deﬁnitions of the lower\
+    \ level processes for\ndata quality management; (4) the relationship between data\
+    \ quality management and data governance;\n(5) implementation requirements. This\
+    \ standard is used along with ISO 8000-62 to assess and improve\nthe organizational\
+    \ maturity when it comes to data quality management. However, in this paper, we\n\
+    consider the processes in ISO 8000-61 to rigorously depict DAQUA-MASS.\nSteps\
+    \ of DAQUA-MASS are grouped in four phases according to the Plan-Do-Check-Act\
+    \ cycle, as\nit is done in 8000-61. PDCA is implicitly a closed loop, signifying\
+    \ that the process is iterative and last\nphase of every iteration provides feedback\
+    \ on starting a new iteration. Many acknowledged models,\nsuch as the in IoT information\
+    \ fusion [37] or the JDL model [38], are all closed loops. By this way, they\n\
+    can be self-improved to adjust the dynamic world to maximize the performance.\
+    \ The IoT is a dynamic\nsystem so, the data quality management is adapted to the\
+    \ changes in every loop of the methodology.\nEach loop serves to adapt to changes\
+    \ and new quality needs that may arise. The methodology is\ndesigned so that the\
+    \ complete cycle is iteratively executed depending on the goals, needs and resources\n\
+    of the organization. The PDCA cycle will contribute to more effective and efﬁcient\
+    \ data quality and\nconsists of seven steps grouped in the following four phases:\n\
+    •\nThe plan phase establishes the strategy and the data quality improvement implementation\
+    \ plan\nas necessary to deliver results in accordance with data requirements;\n\
+    •\nIn the do phase the data quality improvement implementation plan is executed;\n\
+    •\nDuring the check phase, it is conducted the monitorization of data quality\
+    \ and process\nperformance against the strategy and data requirements and report\
+    \ the results to validate the\nefﬁciency of the corrective actions; and ﬁnally\n\
+    •\nThe act phase takes actions to continually improve process performance.\nFigure\
+    \ 2 summarizes the step ﬂow throughout the four phases. Every step is deﬁned with\
+    \ a\ngeneral description and set of concrete activities. Following sections present\
+    \ all the methodology\nsteps grouped in the mentioned Plan-Do-Check-Act cycle.\
+    \ The deﬁnition for all the steps provides a\ntable depicting all the expected\
+    \ input and output generated by each activity in the step as well as a\nRACIQ\
+    \ matrix (R—Responsible (works on); A—Accountable, C—Consulted; I—Informed; Q—Quality\n\
+    Reviewer) which indicates the role of stakeholders involved in the activity.\n\
+    We consider the following list of stakeholders to be involved in the application\
+    \ of this methodology.\nIt should be notice that there are alternative, similar\
+    \ (even overlapped) role deﬁnitions in the context of\ndata quality management\
+    \ and SCP environments. However, we consider these are the most common\nand well-known\
+    \ stakeholders, and other that are not mentioned can be easily assimilated to\
+    \ one of\nthe proposed.\nSensors 2018, 18, 3105\n13 of 24\n \nFigure 2 summarizes\
+    \ the step flow throughout the four phases. Every step is defined with a \ngeneral\
+    \ description and set of concrete activities. Following sections present all the\
+    \ methodology \nsteps grouped in the mentioned Plan-Do-Check-Act cycle. The definition\
+    \ for all the steps provides a \ntable depicting all the expected input and output\
+    \ generated by each activity in the step as well as a \nRACIQ matrix (R—Responsible\
+    \ (works on); A—Accountable, C—Consulted; I—Informed; Q—\nQuality Reviewer) which\
+    \ indicates the role of stakeholders involved in the activity. \n \nFigure 2.\
+    \ Methodology DAQUA-MASS phases and steps. \nWe consider the following list of\
+    \ stakeholders to be involved in the application of this \nmethodology. It should\
+    \ be notice that there are alternative, similar (even overlapped) role definitions\
+    \ \nin the context of data quality management and SCP environments. However, we\
+    \ consider these are \nthe most common and well-known stakeholders, and other\
+    \ that are not mentioned can be easily \nassimilated to one of the proposed. \n\
+    \ \n \nFigure 2. Methodology DAQUA-MASS phases and steps.\n•\nChief Information\
+    \ Ofﬁcer (CIO). It is the most senior executive in an enterprise responsible for\
+    \ the\ntraditional information technology and computer systems that support enterprise\
+    \ goal.\n•\nChief Data Ofﬁcer (CDO). It is a corporate ofﬁcer responsible for\
+    \ enterprise wide data governance\nand utilization of data as an asset, via data\
+    \ processing, analysis, data mining, information trading\nand other means. CIO\
+    \ and CDO are at the executive level.\n•\nData Governance Manager (DGM). He or\
+    \ she is overseeing enterprise data governance program\ndevelopment and is responsible\
+    \ for architecting certain solutions and frameworks. It is at the\nstrategic level.\n\
+    •\nData Quality Steward for SCP domain (SCP DQ Steward). It is a DQ steward at\
+    \ tactical level for\nthe area of SCP environments by considering its implications\
+    \ in DQ.\n•\nData Quality Steward (DQ Steward). It is responsible for utilizing\
+    \ an organization’s data quality\ngovernance processes to ensure ﬁtness of data\
+    \ elements—both the content and metadata. Data\nstewards have a specialist role\
+    \ that incorporates processes, policies, guidelines and responsibilities\nfor\
+    \ administering organizations’ entire data in compliance with DQ policies and\
+    \ procedures. This\nis at operational level.\n•\nSCP Technical Architect (SCP\
+    \ Arch). A SCP architect is a SCP (and in general IoT) expert who\nmakes high-level\
+    \ design choices and dictates technical standards, including SCP technology\n\
+    standards, tools, and platforms.\n5.1. The Plan Phase\nThe data quality planning\
+    \ phase establishes data requirements and objectives for data quality,\ncreating\
+    \ plans to achieve the objectives and evaluating the performance of the plans.\
+    \ These plans\nbalance current data quality levels, cost, resources and capabilities\
+    \ across the organization for the\nassessment of data quality of sensor data.\
+    \ This phase is initiated based on needs and expectations of\nstakeholders or\
+    \ the feedback of the process improvements performed during data quality improvement\n\
+    (the act phase). The expected result of the execution of this phase is the complete\
+    \ planiﬁcation for\nadequately collect sensor data. This includes requirements\
+    \ management, deﬁnition of policies for data,\ndevices lifecycle management, and\
+    \ it is important to highlight the deﬁnition of policies to retain the\noriginal\
+    \ unmanipulated data and all versions of the input data. Table 5 summarizes inputs,\
+    \ outputs\nand responsibility distribution for this phase. Following, a description\
+    \ of the steps grounded on the\ncorresponding ISO 8000-61 process is introduced.\
+    \ At this point it is reminded that the scope of the\nmethodology is on sensor\
+    \ data (see Figure 1).\nSensors 2018, 18, 3105\n14 of 24\nTable 5. Inputs, outputs\
+    \ and RACIQ matrix for the Plan phase. (R—Responsible (works on); A—Accountable,\
+    \ C—Consulted; I—Informed; Q—Quality Reviewer).\nStep\nAct.\nInput\nOutput\nCIO\n\
+    CDO\nDGM\nSCP DQ Steward\nDQ Steward\nSCP Arch\nP1\nP1-1\n•\nList of prioritized\
+    \ data quality requirements\n•\nPerform analysis deﬁnition\n•\nSpeciﬁcation of\
+    \ data lifecycle in\nSCP environments\nI\nA\nC\nR\nP1-2\n•\nSpeciﬁcation of data\
+    \ lifecycle in SCP environments\n•\nData Quality Policies for SCPs\n•\nData Quality\
+    \ Procedures for SCPs\nI\nA\nR\nR\nC\nP1-3\n•\nSpeciﬁcation of data lifecycle\
+    \ in SCP environments\n•\nData Quality Policies for SCPs\n•\nData Quality Procedures\
+    \ for SCPs\n•\nMeta-data speciﬁcation\nI\nC\nA\nR\nC\nP1-4\n•\nSpeciﬁcation of\
+    \ data lifecycle in SCP environments\n•\nStakeholders or any other experts opinion\n\
+    •\nData Quality Strategy\n•\nList of prioritized data\nquality requirements\n\
+    I\nA\nR\nR\nR\nC\nP2\nP2-1\n•\nList of prioritized data quality requirements\n\
+    •\nMechanisms for data monitoring\n•\nMetrics list\n•\nMeasurement plan\nI\nA\n\
+    C\nR\nP2-2\n•\nMetric list\n•\nMeasurement plan\n•\nList of prioritized data quality\
+    \ requirements\n•\nImplementation of\nmeasurement methods\nA\nQ\nQ\nR\nP3\nP3-1\n\
+    •\nDQ Issues list\n•\nData Quality Strategy\n•\nList of prioritized data quality\
+    \ requirements\n•\nBusiness process deﬁnition\n•\nRoot causes for DQ issues related\n\
+    with SCP faults\n•\nReport with the effects of DQ issues\non business processes\n\
+    I\nA\nR\nR\nR\nQ\nP3-2\n•\nData Quality Strategy\n•\nList of prioritized data\
+    \ quality requirements\n•\nBusiness process deﬁnition\n•\nDQ risk catalogue\n\
+    I\nI\nA\nR\nR\nC\nP3-3\n•\nRoot causes for DQ issues related with SCP faults\n\
+    •\nReport with the effects of DQ issues on business processes\n•\nSpeciﬁcation\
+    \ of data lifecycle in SCP environments\n•\nSCP node placement plan\n•\nSCP node\
+    \ replication plan\n•\nSolution deﬁnition for mitigating\nroot causes\nI\nA\n\
+    R\nR\nR\nC\nP3-4\n•\nData Quality Strategy\n•\nBusiness process deﬁnition\n•\n\
+    DQ risk catalogue\n•\nSpeciﬁcation of data lifecycle in SCP environments\n•\n\
+    Improvement target list\nP3-5\n•\nData Quality Strategy\n•\nList of prioritized\
+    \ data quality requirements\n•\nReport with the effects of DQ issues on business\
+    \ processes\n•\nDQ risk catalogue\n•\nData quality enhancement plan\nI\nQ\nA\n\
+    R\nR\nC\nSensors 2018, 18, 3105\n15 of 24\n5.1.1. P1. Characterization of the\
+    \ Current State of the Sensor Data Contexts\nThis ﬁrst step is devoted to characterizing\
+    \ the current state of the SCP environments and all the\nspeciﬁc sensor data contexts.\
+    \ This step has the following activities:\n•\nP1-1. Sensor and sensor data lifecycle\
+    \ management speciﬁcation. The lifecycle of sensors [2]\nand sensor data [39]\
+    \ have to be deﬁned so that it can be managed. For sensors, the lifecycle\nstarts\
+    \ when the device is obtained, and the last step is when it is necessary to replace\
+    \ o remove\nthe sensor because it became useless. For sensor data, the lifecycle\
+    \ starts when sensors produce\nthe data and ends when the data is eliminated.\
+    \ The end of the sensor data life cycle should not\nbe confused with the moment\
+    \ in which the data goes from being operational to historical data.\nOperational\
+    \ sensor data is used on a day-to-day basis, but when data is no longer useful\
+    \ on a\nday-to-day basis due to its age, these data is separated and stored in\
+    \ another database and become\ninto historical data. It is important to highlight\
+    \ that sensor and sensor data lifecycle is used to\nbetter contextualize the environment\
+    \ of the data.\n•\nP1-2. Management of quality policies, standards and procedures\
+    \ for data quality management.\nSpecify fundamental intentions and rules for data\
+    \ quality management. Ensure the data quality\npolicies, standards and procedures\
+    \ are appropriate for the data quality strategy, comply with\ndata requirements\
+    \ and establish the foundation for continual improvement of the effectiveness\n\
+    and efﬁciency of data quality management in all the key SCP operations. The purpose\
+    \ of data\nquality policy/standards/procedures management is to capture rules\
+    \ that apply to performing\ndata quality control, data quality assurance, data\
+    \ quality improvement, data-related support and\nresource provision consistently.\
+    \ Before the implementation and deﬁnition of the complete plan, it\nshould be\
+    \ deﬁned the policies, standards and procedures in order to deﬁne the implementation\n\
+    plan based on them.\n•\nP1-3. Provision of sensor data and work speciﬁcations.\
+    \ Developing speciﬁcations that describe\ncharacteristics of data and work instructions\
+    \ for smart connected products enables Data processing\nand data quality monitoring\
+    \ and control. To support the description of the provision of the sensor\ndata\
+    \ work speciﬁcations some metadata must be provided. Metadata can help with one\
+    \ of the\nbiggest problems of SCP: interoperability. Interoperability refers to\
+    \ the ability for one or more\nsmart connected products to communicate and exchange\
+    \ [15].\n•\nP1-4. Identiﬁcation, prioritization and validation of sensor data\
+    \ requirements. Collect the needs\nand expectations related to sensor data from\
+    \ devices and stakeholders. Then, it is translated by\nidentiﬁcation, prioritization\
+    \ and validation of data requirements. The purpose of Requirements\nManagement\
+    \ is to establish the basis for creating or for reﬁning a data quality strategy\
+    \ for SCP\nenvironments aligned to the needs and expectations of stakeholders.\
+    \ It is important to have well\ndeﬁned and implemented good sensor data requirements\
+    \ to avoid problems since the start and to\nfacilitate the collection and integration\
+    \ of sensor data.\n5.1.2. P2. Assessment of the Current State of the Levels of\
+    \ Data Quality\nThis step is aimed to evaluate the current state of the data quality\
+    \ levels in all the surrounding\nSCP environments. This step has the following\
+    \ activities:\n•\nP2-1. Identiﬁcation of the data quality characteristics representing\
+    \ quality requirements and\ndetermination and development of metrics and measurement\
+    \ methods. Develop or select the\nmeasurement indicators, corresponding metrics\
+    \ and measurement methods used to measure the\nquality levels of data produced\
+    \ by devices during all the SCP operations.\n•\nP2-2. Measurement and analysis\
+    \ of data quality levels. Measure the data quality levels by\nimplementing the\
+    \ measurement plans and determining the measurement results. This means\nthe application\
+    \ of the measurement algorithms deﬁned and developed on the previous step\n(P2-1).\
+    \ Such algorithms strongly depend on the IT infrastructure landscape of every\
+    \ organization.\nThereby, every organization often develop their own algorithms\
+    \ or use commercial solutions\nSensors 2018, 18, 3105\n16 of 24\nwhich are compliant\
+    \ with their own infrastructure. Merino et al. [7] presents algorithms and\nmetrics\
+    \ for each data quality characteristic. After data quality levels have been measured,\
+    \ these\ncan be quantitatively analysed to extract insights about the SCP environment\
+    \ being managed.\nAs a result, a list of nonconformities can be elaborated in\
+    \ the next step, with which to make\ninformed decisions.\n5.1.3. P3. Data Quality\
+    \ Enhancement Plan Deﬁnition\nData Quality implementation planning identiﬁes the\
+    \ resources and sequencing by which to\nperform DQ control, DQ Assurance, DQ Improvement,\
+    \ data-related support and resource provision\nacross the organization. At this\
+    \ point, after the collection of sensor data requirements and the deﬁnition\n\
+    of standards and policies, it is important to conﬁgure the devices to implement\
+    \ the plan and place\neach node following a deﬁned strategy. Optimal node placement\
+    \ allows to obtain the optimal value\nthrough data. This step considers the following\
+    \ activities:\n•\nP3-1. Analysis of root causes of data nonconformities. Analysing\
+    \ the root causes of each data\nquality issue and assess the effect of the issue\
+    \ on business processes. The purpose of root cause\nanalysis and solution development\
+    \ of non-solved data quality non-conformities is to establish,\nin accordance\
+    \ with the data quality strategy and with the priorities identiﬁed by Data Quality\n\
+    Assurance, the basis on which to perform data cleansing and/or process improvement\
+    \ for data\nnonconformity prevention.\n•\nP3-2. Data quality risk assessment.\
+    \ Identify risks throughout the data life cycle, analyse the impact\nif each risk\
+    \ was to occur and determine risk priorities to establish the basis for monitoring\
+    \ and\ncontrol of processes and data. The purpose of data quality monitoring and\
+    \ control is, by following\napplicable work instructions, to identify and respond\
+    \ when Data Processing fails to deliver data\nthat meet the requirements in the\
+    \ corresponding data speciﬁcation. It allows to control what is\nhappening on\
+    \ data or even on the SCP environment. For example, with the control of sensor\
+    \ data\nquality, it is possible to identify certain issues on devices. Data is\
+    \ often the most important thing\nto protect, because although the direct cost\
+    \ of losing it may be small compared with research\ndata or intellectual property.\
+    \ If a sensor is not functioning any more due to some reason, it can\nbe replaced,\
+    \ but if a data loss is produced is very difﬁcult to recover it or even impossible\
+    \ to\nrecover. This can bring not only a data loss but can also be the root cause\
+    \ of other problems. In\nconclusion, data quality risks should be identiﬁed in\
+    \ order to avoid them. As Karkouch et al.\nhighlight in [6], the main factors\
+    \ affecting DQ in SCP or IoT environments are: deployment scale,\nresources constraints,\
+    \ network, sensors (as physical devices), environment, vandalism, fail-dirty,\n\
+    privacy preservation, security vulnerability and data stream processing.\n•\n\
+    P3-3. Development of improvement solutions to eliminate the root causes. Propose\
+    \ solutions to\neliminate the root causes and prevent recurrence of nonconformities.\
+    \ Evaluate the feasibility of\nthe proposed improvements through cost beneﬁt analysis.\n\
+    •\nP3-4. Deﬁnition of improvement targets. The purpose of this activity is to\
+    \ analyse possible\nimprovements areas according to the business processes, risk\
+    \ catalogue and the data quality\nstrategy; and then it selects those that are\
+    \ more aligned with the data quality strategy and/or are\nable to lead to greater\
+    \ data quality enhancement regarding previous detected risks. Speciﬁc areas\n\
+    or sub-nets of devices in the organization’s SCP environments could also serve\
+    \ as a criterion to\ndetermine speciﬁc improvement targets.\n•\nP3-5. Establishment\
+    \ of the data quality enhancement plan. Deﬁne the scope and target of data\nquality\
+    \ and prepare detailed implementation plans, deﬁning and allocating the resources\
+    \ needed.\n5.2. The Do Phase\nThis phase consists of the data quality control\
+    \ that is carried out based on the implementation\nplan established in data quality\
+    \ planning (see the Plan phase). The phase, when completed, delivers\nSensors\
+    \ 2018, 18, 3105\n17 of 24\ndata that meet the speciﬁed requirements. This phase\
+    \ involves creating, using and updating data\naccording to speciﬁed work instructions\
+    \ and monitoring quality by checking whether the data conform\nto predetermined\
+    \ speciﬁcations.\nIn this phase, it is important to address aspects such as the\
+    \ provision of complete metadata, the use\nof ﬂags to convey information about\
+    \ data, the documentation of all sensor data processing, monitoring\nand control\
+    \ of data, maintain appropriate levels of human inspection, perform range, domain\
+    \ and\nslope checks, implement an automated alert system for sensor network issues\
+    \ or automate sensor data\nquality procedures. Table 6 summarizes inputs, outputs\
+    \ and responsibility distribution for this phase.\nD1. Execution of the Data Quality\
+    \ Improvement Plan\nThe purpose of Provision of Data Speciﬁcations and Work Instructions\
+    \ is to establish the basis on\nwhich to perform Data Processing and Data Quality\
+    \ Monitoring and Control, taking account of the\noutcomes of the Data Quality\
+    \ Planning, the Data-Related Support and the Resource Provision processes.\nHaving\
+    \ the plan obtained for the ﬁrst phase, the ﬁrst step is to provide data and work\
+    \ speciﬁcation to\ncollect data from devices on the deﬁned way. This step considers\
+    \ the following activities:\n•\nD1-1. Establish ﬂags to convey information about\
+    \ the sensor data. Flags or qualiﬁers convey\ninformation about individual data\
+    \ values, typically using codes that are stored in a separate ﬁeld\nto correspond\
+    \ with each value. Flags can be highly speciﬁc to individual studies and data\
+    \ sets or\nstandardized across all data.\n•\nD1-2. Deﬁnition of the optimal node\
+    \ placement plan. It is a very challenging problem that\nhas been proven to be\
+    \ NP-hard (non-deterministic polynomial-time hardness) for most of the\nformulations\
+    \ of sensor deployment [40,41]. To tackle such complexity, several heuristics\
+    \ have\nbeen proposed to ﬁnd sub-optimal solutions [42,43]. However, the context\
+    \ of these optimization\nstrategies is mainly static in the sense that assessing\
+    \ the quality of candidate positions is based on\na structural quality metric\
+    \ such as distance, network connectivity and/or basing the analysis on\na ﬁxed\
+    \ topology. Also, application-level interest can vary over time and the available\
+    \ network\nresources may change as new nodes join the network, or as existing\
+    \ nodes run out of energy [44].\nAlso, if we talk about node placement, node or\
+    \ sensor replication. Replicating data sensors\nis important for purposes of high\
+    \ availability and disaster recovery. Also, replication of this\ndata on cloud\
+    \ storage needs to be implemented efﬁciently. Archiving is one way to recover\
+    \ lost\nor damaged data in primary storage space, but replicas of data repositories\
+    \ that are updated\nconcurrently with the primary repositories can be used for\
+    \ sensitive systems with strong data\navailability requirements. Replication can\
+    \ be demanding in terms of storage and may degrade\nperformance due to if a concurrent\
+    \ updates strategy is enforced.\n•\nD1-3. Redesign the software or hardware that\
+    \ includes sensors to eliminate root causes. It\nis an alternative process to\
+    \ the optimal re-placements of sensors. For example, redesign and\nreimplement\
+    \ a fragment of a SCP’s ﬁrmware could improve fault tolerance.\n•\nD1-4. Data\
+    \ Cleansing. The purpose of Data Cleansing is to ensure, in response to the results\
+    \ of\nroot cause analysis and solution development, the organization can access\
+    \ data sets that contain\nno nonconformities capable of causing unacceptable disruption\
+    \ to the effectiveness and efﬁciency\nof decision making using those data. Also,\
+    \ the nonconformities are corrected implementing\ndeveloped solutions and make\
+    \ a record of the corrections.\n•\nD1-5. Force an appropriate level of human inspection.\
+    \ If performed by trained and experienced\ntechnicians, visual inspection is used\
+    \ to monitor the state of industrial equipment and to identify\nnecessary repairs.\
+    \ There are also technologies used to assist with fault recognition or even to\n\
+    automate inspections. Shop ﬂoor workers are made responsible for basic maintenance\
+    \ including\ncleaning machines, visual inspection and initial detection of machine\
+    \ degradation.\n•\nD1-6. Implement an automated alert system to warn about potential\
+    \ sensor data quality issues.\nHaving only human inspection can be a complex task\
+    \ for maintenance staff. It is necessary to\nSensors 2018, 18, 3105\n18 of 24\n\
+    implement a system in which some key indicators are constantly reading if the\
+    \ sensors status\nis correct or not. If a sensor is not working properly, the\
+    \ root cause can be due to a hardware,\nnetwork or software failure and affects\
+    \ to data quality. Furthermore, an automated data quality\nprocedure might identify\
+    \ anomalous spikes in the data and ﬂag them. Even though, it is almost\nalways\
+    \ necessary the human supervision, intervention and inspection as stated in [45,46];\
+    \ the\ninclusion of automated quality is often an improvement, because it ensures\
+    \ consistency and\nreduces human bias. Automated data quality procedures are also\
+    \ more efﬁcient at handling the\nvast quantities of data that are being generated\
+    \ by streaming sensor networks and reduces the\namount of human inspection required.\n\
+    •\nD1-7. Schedule sensor maintenance to minimize data quality issues. Sensors\
+    \ require routine\nmaintenance and scheduled calibration that, in some cases,\
+    \ can be done only by the manufacturer.\nIdeally, maintenance and repairs are\
+    \ scheduled to minimize data loss (e.g., snow-depth sensors\nrepaired during the\
+    \ summer) or staggered in such a way that data from a nearby sensor can be\nused\
+    \ to ﬁll gaps. In cases in which unscheduled maintenance is required, stocking\
+    \ replacement\nparts on site ensures that any part of the network can be replaced\
+    \ immediately.\n5.3. The Check Phase\nThe check phase consists of the data quality\
+    \ assurance, which measures data quality levels and\nthe methodology steps performance\
+    \ related to data nonconformities or other issues that have arisen as\na result\
+    \ of the data quality planning (see the Plan phase) or the data quality control\
+    \ (see the Do phase).\nThis measurement provides evidence by which to evaluate\
+    \ the impact of any identiﬁed poor levels of\ndata quality on the effectiveness\
+    \ and efﬁciency of business processes. On this phase is important to\naddress\
+    \ aspects like schedule sensor maintenance and repairs to minimize data loss,\
+    \ measurement and\nevaluation of sensor data quality. Table 7 summarizes inputs,\
+    \ outputs and responsibility distribution\nfor this phase.\n5.3.1. C1. Testing\
+    \ the Efﬁciency of the Corrective Actions\nThe purpose of Measurement of Data\
+    \ Quality is the Provision of Measurement Criteria, to generate\ninput for the\
+    \ Evaluation of Measurement Results. This step considers the following activities:\n\
+    •\nC1-1. Monitoring and control of the enhanced data. According to the identiﬁed\
+    \ risk priorities,\nmonitor and measure conformity of data to the applicable speciﬁcation.\n\
+    Monitoring and\nmeasuring takes place either at intervals or continuously and\
+    \ in accordance with applicable work\ninstructions. This work instructions can\
+    \ be: perform range checks on numerical data, perform\ndomain checks on categorical\
+    \ data and perform slope and persistence checks on continuous data\nstreams. If\
+    \ data nonconformities are found, then correct the data when viable and distribute\
+    \ to\nstakeholders a record of the viability and degree of success for each corrective\
+    \ action.\n•\nC1-2. Deﬁnition of an interstice comparison plan. Create policies\
+    \ for comparing data with data\nfrom related sensors. If no replicate sensors\
+    \ exist, interstice comparisons are useful, whereby data\nfrom one location are\
+    \ compared with data from nearby identical sensors.\nSensors 2018, 18, 3105\n\
+    19 of 24\nTable 6. Inputs, outputs and RACIQ matrix for the Do phase. (R—Responsible\
+    \ (works on); A—Accountable, C—Consulted; I—Informed; Q—Quality Reviewer).\nStep\n\
+    Act.\nInput\nOutput\nCIO\nCDO\nDGM\nSCP DQ Steward\nDQ Steward\nSCP Arch\nD1\n\
+    D1-1\n•\nMeta-data speciﬁcation\n•\nSpeciﬁcation of data lifecycle in SCP environments\n\
+    •\nSensor ﬂags speciﬁcation\nA\nQ\nR\nD1-2\n•\nSpeciﬁcation of data lifecycle\
+    \ in SCP environments\n•\nSCP node placement plan update\n•\nSCP node replication\
+    \ plan update\nI\nA\nQ\nR\n•\nRoot causes for DQ issues related with SCP faults\n\
+    •\nSpeciﬁcation of data lifecycle in SCP environments\n•\nSCP hardware updates\n\
+    •\nSCP software updates\nI\nA\nQ\nR\nD1-3\n•\nRoot causes for DQ issues related\
+    \ with SCP faults\n•\nReport with the effects of DQ issues on business processes\n\
+    •\nSCP node placement plan\n•\nSCP node replication plan\n•\nImplementation of\
+    \ data\ncleansing mechanisms\nI\nA\nQ\nR\nC\nD1-4\n•\nData quality enhancement\
+    \ plan\n•\nDQ risk catalogue\n•\nMechanisms for data monitoring\n•\nHuman inspection\
+    \ plan\nI\nA\nQ\nR\nC\nD1-5\n•\nAutomated alert system\nI\nC\nQ\nA\nR\nD1-6\n\
+    •\nRoot causes for DQ issues related with SCP faults\n•\nReport with the effects\
+    \ of DQ issues on business processes\n•\nSpeciﬁcation of data lifecycle in SCP\
+    \ environments\n•\nSCP node placement plan\n•\nSCP node replication plan\n•\n\
+    Sensor maintenance plan\nI\nA\nQ\nR\nTable 7. Inputs, outputs and RACIQ matrix\
+    \ for the Check phase. (R—Responsible (works on); A—Accountable, C—Consulted;\
+    \ I—Informed; Q—Quality Reviewer).\nStep\nAct.\nInput\nOutput\nCIO\nCDO\nDGM\n\
+    SCP DQ Steward\nDQ Steward\nSCP Arch\nC1\nC1-1\n•\nData quality enhancement plan\n\
+    •\nList of prioritized data quality requirements\n•\nDQ risk catalogue\n•\nMechanisms\
+    \ for data\nmonitoring update\n•\nDQ control mechanisms update\nI\nA\nR\nR\nR\n\
+    C1-2\n•\nSpeciﬁcation of data lifecycle in SCP environments\n•\nSCP node placement\
+    \ and replication plan\n•\nInterstice comparison plan\nI\nA\nQ\nR\nC2\nC2-1\n\
+    •\nData Quality Strategy\n•\nDQ risk catalogue\n•\nImplementation of measurement\
+    \ methods\n•\nDQ Issues list\nI\nI\nA\nR\nQ\nSensors 2018, 18, 3105\n20 of 24\n\
+    5.3.2. C2. Review of Data Quality Issues\nThe purpose of Review of Data Quality\
+    \ Issues is to identify the starting point for deciding to\nmeasure data quality\
+    \ levels and process performance with the potential to generate opportunities\
+    \ to\nimprove data quality. The results of measurement and evaluation of data\
+    \ quality are analysed and\npossible issues are identiﬁed. This step considers\
+    \ the following activities:\n•\nC2-1. Issue analysis. Review non-solved nonconformities\
+    \ arising from Data Processing to identify\nthose that are possibly connected\
+    \ to the reported issue that has triggered the need for Data Quality\nAssurance.\
+    \ This review creates a set of related nonconformities. This set is the basis\
+    \ for further\ninvestigation through the measurement of data quality levels in\
+    \ SCP environments. Respond to\nthe reporting of unresolved data nonconformities\
+    \ from within Data Quality Control, indications\nof the recurrence of types of\
+    \ nonconformity or other issues raised against the results of Data\nQuality Planning\
+    \ or Data Quality Control.\n5.4. The Act Phase\nThe Act phase consists of the\
+    \ data quality improvement that involves analysing the root causes of\ndata quality\
+    \ issues based on the assessment results derived from data quality assurance (see\
+    \ the Check\nphase). To prevent future data nonconformities, the steps in this\
+    \ phase try to correct all the existing\nnonconformities and also transforms SCP\
+    \ operations as appropriate. On this phase, it is important\nto address aspects\
+    \ as analysis of root causes of sensor data problems, management of sensor data\n\
+    problems, correction and prevention, make available ready access to replacement\
+    \ parts and anticipate\ncommon repairs and maintain inventory replacement parts.\
+    \ Table 8 summarizes inputs, outputs and\nresponsibility distribution for this\
+    \ phase.\nTable 8.\nInputs, outputs and RACIQ matrix for the Act phase.\n(R—Responsible\
+    \ (works on);\nA—Accountable, C—Consulted; I—Informed; Q—Quality Reviewer).\n\
+    Step\nAct.\nInput\nOutput\nCIO\nCDO\nDGM\nSCP DQ Steward\nDQ Steward\nSCP Arch\n\
+    A1\nA1-1\n•\nSensor maintenance plan\n•\nSCP node placement plan\n•\nSCP node\
+    \ replication plan\n•\nRoot causes for DQ issues\nrelated with SCP faults\n•\n\
+    Report with the effects of DQ\nissues on business processes\n•\nSpeciﬁcation of\
+    \ data lifecycle\nin SCP environments\n•\nSensor calibration plan\n•\nReplacement\
+    \ ready\naccess strategy\n•\nSensor maintenance plan\nI\nA\nC\nR\nA1-2\n•\nDevice\
+    \ replacement plan\nI\nA\nC\nR\nA1. Data Quality Issues Prevention\nThe purpose\
+    \ of Data Quality issues prevention results of Root Cause Analysis and Solution\n\
+    Development is to increase the extent to which the organization achieves a systematic\
+    \ and systemic\napproach to achieving data quality. This step tries to prevent\
+    \ issues on devices or, for example, to avoid\ndata loss when it can be predicted\
+    \ the repair or the maintenance of devices of the SCP environment. In\norder to\
+    \ prevent the recurrence of each actual or the occurrence of each potential data\
+    \ nonconformity\nor similar data nonconformities by reﬁning and applying guidelines,\
+    \ rules and procedures. To achieve\nthis, the following activities should be conducted:\n\
+    •\nA1-1.\nMake available ready access to replacement parts.\nSchedule routine\
+    \ calibration of\ninstruments and sensors based on manufacturer speciﬁcations.\
+    \ Maintaining additional calibrated\nsensors of the same make/model can allow\
+    \ immediate replacement of sensors removed for\nSensors 2018, 18, 3105\n21 of\
+    \ 24\ncalibration to avoid data loss. Otherwise, sensor calibrations can be scheduled\
+    \ at non-critical\ntimes or staggered such that a nearby sensor can be used as\
+    \ a proxy to ﬁll gaps.\n•\nA1-2. Update the strategy for node replacement. Controlled\
+    \ replacement is often pursued for\nonly a selected subset of the employed nodes\
+    \ with the goal of structuring the network topology\nin a way that achieves the\
+    \ desired application requirements. In addition to coverage, the nodes’\npositions\
+    \ affect numerous network performance metrics such as energy consumption, delay\
+    \ and\nthroughput. For example, large distances between nodes weaken the communication\
+    \ links, lower\nthe throughput and increase energy consumption. Additionally,\
+    \ it can anticipate some common\nrepairs and maintain inventory replacement parts.\
+    \ This means that sensors could be replaced\nbefore failure where sensor lifetimes\
+    \ are known or can be estimated.\n6. Conclusions\nIn this paper, we have tackled\
+    \ the challenges of data quality problems in SCP environments. Many\nresearch\
+    \ and standardization efforts have been made in the DQ area over the last years,\
+    \ and some\ninteresting results have been already transferred to IoT as well.\
+    \ However, the approaches presented in\nthe literature have two main drawbacks.\
+    \ On the one hand, these proposals do not take into account the\nnature of SCP\
+    \ environments and the concrete factors that affect the way in which DQ must be\
+    \ treated in\nsuch context. On the other hand, these approaches do not consider\
+    \ existing DQ management standards\nthat have not been tailored yet for IoT and,\
+    \ more speciﬁcally, to SCP contexts. Given the importance of\ninstitutionalizing\
+    \ best practices in SCP for DQ management, we consider it of paramount importance\n\
+    to provide practitioners and organizations with techniques aligned with standards,\
+    \ reducing their\nadaptation efforts and favouring systematic and holistic approaches\
+    \ to the problem. As a main\ncontribution, we have provided in this paper a Data\
+    \ Quality Management Methodology for Sensor\nData, named DAQUA-MASS, based on\
+    \ ISO 8000-61. The methodology is structured according to the\nPDCA Cycle of continuous\
+    \ improvement. The methodology is composed by 7 steps divided in several\nactivities.\
+    \ Input and output products are already identiﬁed for each activity in the methodology.\
+    \ It is\nnoteworthy to highlight the identiﬁcation of the various roles involved\
+    \ in the management of data\nquality in sensor data.\nSo, the data quality model\
+    \ along with the methodology offer a unique framework to enable\ndesigners of\
+    \ IoT projects including sensor networks and practitioners in charge of exploiting\
+    \ IoT\nsystems to assure that the business processes working over these systems\
+    \ can manage data with\nadequate levels of quality. Once discarded data quality\
+    \ problems or identiﬁed data quality problems\nroot causes, it will be easier\
+    \ to focus the attention exclusively on sensor networks of IoT systems.\nWorking\
+    \ aligned to international open standards will enable organizations to speak the\
+    \ same language\nand devote the required efforts only to the proper working of\
+    \ the IoT systems, preventing to be aware\nof some other data quality concerns.\n\
+    Future research lines are planned to be primarily focused on the empirical validation\
+    \ of this\nmethodology. It will be used by different organization in various SCP\
+    \ environments in order to\nensure its applicability in large scale. The mentioned\
+    \ case studies will allow us to provide different\nspecializations of the data\
+    \ quality model (or recommendation on how to tailor it) to different\norganization\
+    \ depending on the domain. In parallel, other future research lines are in accordance\n\
+    with some limitations of the scope considered in this paper. Thus, it is expected\
+    \ to be considered data\nquality management issues and its implications in the\
+    \ processing and utilization layers apart from\nthe acquisition layer (see Figure\
+    \ 1). While simpliﬁed data analysis is being performed at the devices\nin the\
+    \ acquisition layer to control the device, most of analysis, diagnosis and improvement\
+    \ of sensor\ndata are being performed in the processing layer. This will force\
+    \ to manage sensor data together with\ngeneral-purpose data to achieve a holistic\
+    \ data quality management in the processing layer.\nSensors 2018, 18, 3105\n22\
+    \ of 24\nAuthor Contributions:\nConceptualization,\nR.P.-C. and I.C.;\nInvestigation,\n\
+    R.P.-C.,\nA.G.C. and I.C.;\nWriting-Original Draft Preparation, R.P.-C., A.G.C.\
+    \ and I.C.; Writing-Review & Editing, R.P.-C., A.G.C.; I.C.;\nM.R., M.P., A.M.,\
+    \ S.K. and D.L.; Supervision, I.C. and M.P.; Project Administration, R.P.-C. and\
+    \ I.C.; Funding\nAcquisition, I.C., M.P., S.K., D.L.\nFunding:\nThis work was\
+    \ primarily funded by DQIoT project (Eureka program, E!11737; and CDTI\n(Centro\
+    \ Para el Desarrollo Tecnológico Industrial), INNO-20171086). Additionally, this\
+    \ work was partially\nfunded by SEQUOIA project (TIN2015-63502-C3-1-R and TIN2015-63502-C3-3-R)\
+    \ (MINECO/FEDER); GEMA\nSBPLY/17/180501/000293, Consejería de Educación, Cultura\
+    \ y Deporte de la Dirección General de Universidades,\nInvestigación e Innovación\
+    \ de la JCCM); ECD project (Evaluación y Certiﬁcación de la Calidad de Datos)\n\
+    (PTQ-16-08504) (Torres Quevedo Program, MINECO). Finally, it was also supported\
+    \ through a grant to Ricardo\nPérez-Castillo enjoys from JCCM within the initiatives\
+    \ for talent retention and return in line with RIS3 goals.\nConﬂicts of Interest:\
+    \ The authors declare no conﬂict of interest.\nReferences\n1.\nAshton, K. That\
+    \ ‘internet of things’ thing. RFID J. 2009, 22, 97–114.\n2.\nWeber, R.H. Internet\
+    \ of things–governance quo vadis? Comput. Law Secur. Rev. 2013, 29, 341–347. [CrossRef]\n\
+    3.\nHassanein, H.S.; Oteafy, S.M. Big Sensed Data Challenges in the Internet of\
+    \ Things. In Proceedings of the\n13th International Conference on Distributed\
+    \ Computing in Sensor Systems (DCOSS), Ottawa, ON, Canada,\n5–7 June 2017.\n4.\n\
+    Atzori, L.; Iera, A.; Morabito, G. The internet of things: A survey. Comput. Netw.\
+    \ 2010, 54, 2787–2805.\n[CrossRef]\n5.\nZhang, W.; Zhang, Z.; Chao, H.C. Cooperative\
+    \ fog computing for dealing with big data in the internet\nof vehicles: Architecture\
+    \ and hierarchical resource management. IEEE Commun. Mag. 2017, 55, 60–67.\n[CrossRef]\n\
+    6.\nKarkouch, A.; Mousannif, H.; Al Moatassime, H.; Noel, T. Data quality in internet\
+    \ of things: A state-of-the-art\nsurvey. J. Netw. Comput. Appl. 2016, 73, 57–81.\
+    \ [CrossRef]\n7.\nMerino, J.; Caballero, I.; Rivas, B.; Serrano, M.; Piattini,\
+    \ M. A data quality in use model for big data.\nFuture Gener. Comput. Syst. 2016,\
+    \ 63, 123–130. [CrossRef]\n8.\nJesus, G.; Casimiro, A.; Oliveira, A. A Survey\
+    \ on Data Quality for Dependable Monitoring in Wireless Sensor\nNetworks. Sensors\
+    \ 2017, 17, 2010. [CrossRef] [PubMed]\n9.\nRodríguez, C.C.G.; Servigne, S. Managing\
+    \ Sensor Data Uncertainty: A Data Quality Approach. Int. J. Agric.\nEnviron. Inf.\
+    \ Syst. 2014, 4, 35–54. [CrossRef]\n10.\nKlein, A.; Hackenbroich, G.; Lehner,\
+    \ W. How to Screen a Data Stream-Quality-Driven Load Shedding in\nSensor Data\
+    \ Streams. 2009. Available online: http://mitiq.mit.edu/ICIQ/Documents/IQ%20Conference%\n\
+    202009/Papers/3-A.pdf (accessed on 13 September 2018).\n11.\nMühlhäuser, M. Smart\
+    \ products: An introduction. In Proceedings of the European Conference on Ambient\n\
+    Intelligence, Darmstadt, Germany, 7–10 November 2007; Springer: Berlin, Germany,\
+    \ 2007; pp. 158–164.\n12.\nLaney, D.B. Infonomics: How to Monetize, Manage, and\
+    \ Measure Information as an Asset for Competitive Advantage;\nRoutledge: London,\
+    \ UK, 2017.\n13.\nISO/IEC. ISO/IEC 25000:2014.\nSystems and Software Engineering—Systems\
+    \ and Software Quality\nRequirements and Evaluation (SQuaRE)—Guide to SQuaRE.\
+    \ 2014. Available online: https://www.iso.\norg/standard/64764.html (accessed\
+    \ on 13 September 2018).\n14.\nQin, Z.; Han, Q.; Mehrotra, S.; Venkatasubramanian,\
+    \ N. Quality-aware sensor data management. In The Art\nof Wireless Sensor Networks;\
+    \ Springer: Berlin/Heidelberg, Germany, 2014; pp. 429–464.\n15.\nCampbell, J.L.;\
+    \ Rustad, L.E.; Porter, J.H.; Taylor, J.R.; Dereszynski, E.W.; Shanley, J.B.;\
+    \ Gries, C.; Henshaw, D.L.;\nMartin, M.E.; Sheldon, W.M. Quantity is nothing without\
+    \ quality: Automated QA/QC for streaming\nenvironmental sensor data. Bioscience\
+    \ 2013, 63, 574–585. [CrossRef]\n16.\nKlein, A.; Lehner, W. Representing data\
+    \ quality in sensor data streaming environments. J. Date Inf. Qual.\n2009, 1,\
+    \ 10. [CrossRef]\n17.\nISO. ISO 8000-61: Data Quality—Part 61: Data Quality Management:\
+    \ Process Reference Model. 2016.\nAvailable online: https://www.iso.org/standard/63086.html\
+    \ (accessed on 13 September 2018).\n18.\nCook, D.; Das, S.K. Smart Environments:\
+    \ Technology, Protocols and Applications; John Wiley Sons: Hoboken, NJ,\nUSA,\
+    \ 2004.\nSensors 2018, 18, 3105\n23 of 24\n19.\nPorter, M.E.; Heppelmann, J.E.\
+    \ How smart, connected products are transforming competition. Harvard Bus.\nRev.\
+    \ 2014, 92, 64–88.\n20.\nOstrower, D. Smart Connected Products: Killing Industries,\
+    \ Boosting Innovation. 2014. Available online:\nhttps://www.wired.com/insights/2014/11/smart-connected-products\
+    \ (accessed on 13 September 2018).\n21.\nWuenderlich, N.V.; Heinonen, K.; Ostrom,\
+    \ A.L.; Patricio, L.; Sousa, R.; Voss, C.; Lemmink, J.G. “Futurizing”\nsmart service:\
+    \ implications for service researchers and managers. J. Serv. Mark. 2015, 29,\
+    \ 442–447. [CrossRef]\n22.\nAllmendinger, G.; Lombreglia, R. Four strategies for\
+    \ the age of smart services. Harvard Bus. Rev. 2005, 83,\n131.\n23.\nTilak, S.;\
+    \ Abu-Ghazaleh, N.B.; Heinzelman, W. A taxonomy of wireless micro-sensor network\
+    \ models. ACM\nSIGMOBILE Mob. Comput. Commun. Rev. 2002, 6, 28–36. [CrossRef]\n\
+    24.\nBarnaghi, P.; Bermudez-Edo, M.; Tönjes, R. Challenges for quality of data\
+    \ in smart cities. J. Date Inf. Qual.\n2015, 6, 6. [CrossRef]\n25.\nISO/IEC. ISO/IEC\
+    \ 25012: Software Engineering-Software Product Quality Requierements and Evaluation\n\
+    (SQuaRE)—Data Quality Model. 2008. Available online: https://www.iso.org/standard/35736.html\n\
+    (accessed on 13 September 2018).\n26.\nBadawy, R.; Raykov, Y.P.; Evers, L.J.;\
+    \ Bloem, B.R.; Faber, M.J.; Zhan, A.; Claes, K.; Little, M.A. Automated\nQuality\
+    \ Control for Sensor Based Symptom Measurement Performed Outside the Lab. Sensors\
+    \ 2018, 18, 1215.\n[CrossRef] [PubMed]\n27.\nAl-Ruithe, M.; Mthunzi, S.; Benkhelifa,\
+    \ E. Data governance for security in IoT & cloud converged\nenvironments. In Proceedings\
+    \ of the 2016 IEEE/ACS 13th International Conference of Computer Systems\nand\
+    \ Applications (AICCSA), Agadir, Morocco, 29 November–2 December 2016.\n28.\n\
+    Lee, Y.W.; Strong, D.M.; Kahn, B.K.; Wang, R.Y. AIMQ: A methodology for information\
+    \ quality assessment.\nInf. Manag. 2002, 40, 133–146. [CrossRef]\n29.\nMcGilvray,\
+    \ D. Executing Data Quality Projects: Ten Steps to Quality Data and Trusted Information\
+    \ (TM); Elsevier:\nBurlington, VT, USA, 2008.\n30.\nISO. ISO/TS 8000-150:2011\
+    \ Data Quality—Part 150: Master Data: Quality Management Framework. 2011.\nAvailable\
+    \ online: https://www.iso.org/standard/54579.html (accessed on 13 September 2018).\n\
+    31.\nISO. ISO 9001:2015 Quality Management Systems—Requirements, in ISO 9000 Family—Quality\
+    \ Management.\n2015. Available online: https://www.iso.org/standard/62085.html\
+    \ (accessed on 13 September 2018).\n32.\nBatini, C.; Cappiello, C.; Francalanci,\
+    \ C.; Maurino, A. Methodologies for data quality assessment and\nimprovement.\
+    \ ACM Comput. Surv. 2009, 41, 16. [CrossRef]\n33.\nWoodall, P.; Oberhofer, M.;\
+    \ Borek, A. A classiﬁcation of data quality assessment and improvement methods.\n\
+    Int. J. Inf. Qual. 2014, 3, 298–321. [CrossRef]\n34.\nStrong, D.M.; Lee, Y.W.;\
+    \ Wang, R.Y. Data quality in context. Commun. ACM 1997, 40, 103–110. [CrossRef]\n\
+    35.\nWang, R.Y. A product perspective on total data quality management. Commun.\
+    \ ACM 1998, 41, 58–65.\n[CrossRef]\n36.\nSrivannaboon, S. Achieving competitive\
+    \ advantage through the use of project management under the\nplan-do-check-act\
+    \ concept. J. Gen. Manag. 2009, 34, 1–20.\n37.\nChen, P.Y.; Cheng, S.M.; Chen,\
+    \ K.C. Information fusion to defend intentional attack in internet of things.\n\
+    IEEE Internet Things J. 2014, 1, 337–348. [CrossRef]\n38.\nBlasch, E.; Steinberg,\
+    \ A.; Das, S.; Llinas, J.; Chong, C.; Kessler, O.; Waltz, E.; White, F. Revisiting\
+    \ the JDL\nmodel for information Exploitation. In Proceedings of the 16th International\
+    \ Conference on Information\nFusion (FUSION), Istanbul, Turkey, 9–12 July 2013.\n\
+    39.\nPastorello, G.Z., Jr. Managing the Lifecycle of Sensor Data: From Production\
+    \ to Consumption. 2008. Available\nonline: https://lis-unicamp.github.io/wp-content/uploads/2014/09/tese_GZPastorelloJr.pdf\
+    \ (accessed on\n13 September 2018).\n40.\nCerpa, A.; Estrin, D. ASCENT: Adaptive\
+    \ self-conﬁguring sensor networks topologies. IEEE Trans. Mob.\nComput. 2004,\
+    \ 3, 272–285. [CrossRef]\n41.\nCheng, X.; Du, D.Z.; Wang, L.; Xu, B. Relay sensor\
+    \ placement in wireless sensor networks. Wirel. Netw. 2008,\n14, 347–355. [CrossRef]\n\
+    42.\nDhillon, S.S.; Chakrabarty, K. Sensor placement for effective coverage and\
+    \ surveillance in distributed sensor\nnetworks. In Proceedings of the 2003 IEEE\
+    \ Wireless Communications and Networking, New Orleans, LA,\nUSA, 16–20 March 2003.\n\
+    Sensors 2018, 18, 3105\n24 of 24\n43.\nPan, J.; Cai, L.; Hou, Y.T.; Shi, Y.; Shen,\
+    \ S.X. Optimal Base-Station Locations in Two-Tiered Wireless Sensor\nNetworks.\
+    \ IEEE Trans. Mob. Comput. 2005, 4, 458–473. [CrossRef]\n44.\nWu, J.; Yang, S.\
+    \ SMART: A scan-based movement-assisted sensor deployment method in wireless sensor\n\
+    networks. IEEE INFOCOM 2005, 4, 2313.\n45.\nPeppler, R.A.; Long, C.; Sisterson,\
+    \ D.; Turner, D.; Bahrmann, C.; Christensen, S.W.; Doty, K.; Eagan, R.;\nHalter,\
+    \ T.; Iveyh, M. An overview of ARM Program Climate Research Facility data quality\
+    \ assurance. Open\nAtmos. Sci. J. 2008, 2, 192–216. [CrossRef]\n46.\nFiebrich,\
+    \ C.A.; Grimsley, D.L.; McPherson, R.A.; Kesler, K.A.; Essenberg, G.R. The value\
+    \ of routine site visits\nin managing and maintaining quality data from the Oklahoma\
+    \ Mesonet. J. Atmos. Ocean. Technol. 2006, 23,\n406–416. [CrossRef]\n© 2018 by\
+    \ the authors. Licensee MDPI, Basel, Switzerland. This article is an open access\n\
+    article distributed under the terms and conditions of the Creative Commons Attribution\n\
+    (CC BY) license (http://creativecommons.org/licenses/by/4.0/).\n"
+  inline_citation: '>'
+  journal: Sensors (Basel)
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/1424-8220/18/9/3105/pdf?version=1536926894
+  publication_year: 2018
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'DAQUA-MASS: An ISO 8000-61 Based Data Quality Management Methodology for
+    Sensor Data'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

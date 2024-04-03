@@ -23,11 +23,12 @@ logger.addHandler(file_handler)
 
 
 class QueryProcessor:
-    def __init__(self, yaml_file, output_folder, api_key_path, email):
+    def __init__(self, yaml_file, output_folder, api_key_path, email, new_yaml_file):
         self.yaml_file = yaml_file
         self.output_folder = Path(output_folder)
         self.api_key_path = api_key_path
         self.email = email
+        self.new_yaml_file = new_yaml_file
         self.web_scraper = WebScraper()
         self.openalex_search = OpenAlexPaperSearch(
             email, self.web_scraper, self.output_folder
@@ -36,6 +37,7 @@ class QueryProcessor:
             api_key_path, self.web_scraper, self.output_folder
         )
         self.irrigation_data = IrrigationData(yaml_file)
+        self.new_data = {}
 
     async def process_queries(self):
         try:
@@ -56,7 +58,12 @@ class QueryProcessor:
             ) in self.irrigation_data.iterate_data():
                 if query and "yaml_path" not in response:
                     entries_to_process.append(
-                        (subsection["index"], point_title, point_content)
+                        (
+                            subsection["index"],
+                            subsection["subsection_title"],
+                            point_title,
+                            point_content,
+                        )
                     )
                     query_tasks.append(
                         self.process_query(
@@ -73,15 +80,15 @@ class QueryProcessor:
             logger.info(f"Found {len(entries_to_process)} entries to process:")
             for entry in entries_to_process:
                 logger.info(
-                    f"Subsection: {entry[0]}, Point Title: {entry[1]}, Point Content: {entry[2]}"
+                    f"Subsection: {entry[0]}, Subsection Title: {entry[1]}, Point Title: {entry[2]}, Point Content: {entry[3]}"
                 )
 
             logger.info(f"Processing {len(query_tasks)} queries.")
             await asyncio.gather(*query_tasks)
             logger.info("Finished processing queries.")
 
-            await self.irrigation_data.save_data()
-            logger.info("Saved updated YAML data.")
+            await self.save_new_data()
+            logger.info("Saved new YAML data.")
 
         except Exception as e:
             logger.exception("An error occurred during query processing.")
@@ -115,59 +122,53 @@ class QueryProcessor:
             logger.warning(f"Unsupported query type: {query_type}")
             return
 
-        await self.irrigation_data.update_response(
+        await self.update_new_data(
             subsection["index"],
+            subsection["subsection_title"],
             point_title,
             point_content,
-            query_id,
-            response_id,
-            "yaml_path",
             str(output_path),
         )
 
-    async def delete_yaml_entries(self):
+    async def update_new_data(
+        self, subsection_index, subsection_title, point_title, point_content, yaml_path
+    ):
+        if subsection_index not in self.new_data:
+            self.new_data[subsection_index] = {
+                "subsection_title": subsection_title,
+                "point_content": {},
+            }
+        if point_title not in self.new_data[subsection_index]["point_content"]:
+            self.new_data[subsection_index]["point_content"][point_title] = {
+                "content": point_content,
+                "yaml_paths": [],
+            }
+        self.new_data[subsection_index]["point_content"][point_title][
+            "yaml_paths"
+        ].append(yaml_path)
+
+        await self.save_new_data()
+
+    async def save_new_data(self):
         yaml = YAML()
-        with open(self.yaml_file, "r") as file:
-            data = yaml.load(file)
-
-        def remove_yaml_path(obj):
-            if isinstance(obj, dict):
-                if "yaml_path" in obj:
-                    del obj["yaml_path"]
-                for value in obj.values():
-                    remove_yaml_path(value)
-            elif isinstance(obj, list):
-                for item in obj:
-                    remove_yaml_path(item)
-
-        remove_yaml_path(data)
-
-        with open(self.yaml_file, "w") as file:
-            yaml.dump(data, file)
-
-        logger.info("Deleted all 'yaml_path' keys and values.")
+        with open(self.new_yaml_file, "w") as file:
+            yaml.dump(self.new_data, file)
 
 
-async def main(delete_current_entries: bool):
+async def main():
     yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\outline_queries.yaml"
     output_folder = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\search_results"
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     email = "bnsoh2@huskers.unl.edu"
+    new_yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\new_outline_structure.yaml"
 
-    query_processor = QueryProcessor(yaml_file, output_folder, api_key_path, email)
-
-    if delete_current_entries:
-        await query_processor.delete_yaml_entries()
-        logger.info("Deleted all 'yaml_path' keys and values.")
-        await query_processor.process_queries()
-    else:
-        await query_processor.process_queries()
+    query_processor = QueryProcessor(
+        yaml_file, output_folder, api_key_path, email, new_yaml_file
+    )
+    await query_processor.process_queries()
 
     logger.info("Code execution completed successfully.")
 
 
 if __name__ == "__main__":
-    delete_current_entries = (
-        True  # Set this to false if you don't want current entries deleted
-    )
-    asyncio.run(main(delete_current_entries))
+    asyncio.run(main())

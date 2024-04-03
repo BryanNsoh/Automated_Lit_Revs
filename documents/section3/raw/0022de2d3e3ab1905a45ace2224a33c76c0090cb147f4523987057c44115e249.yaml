@@ -1,0 +1,1217 @@
+- DOI: https://doi.org/10.3390/s19184038
+  analysis: '>'
+  authors:
+  - Ion Bica
+  - Bogdan-Cosmin Chifor
+  - Ștefan-Ciprian Arseni
+  - Ioana Matei
+  citation_count: 7
+  full_citation: '>'
+  full_text: ">\nsensors\nArticle\nMulti-Layer IoT Security Framework for Ambient\n\
+    Intelligence Environments\nIon Bica *, Bogdan-Cosmin Chifor, S, tefan-Ciprian\
+    \ Arseni\nand Ioana Matei\nFaculty of Information Systems and Cyber Security,\
+    \ “Ferdinand I” Military Technical Academy, 050141\nBucharest, Romania; bogdan.chifor@mta.ro\
+    \ (B.-C.C.); stefan.arseni@mta.ro (S.-C.A.); ioana.matei@mta.ro (I.M.)\n* Correspondence:\
+    \ ion.bica@mta.ro\nReceived: 5 August 2019; Accepted: 17 September 2019; Published:\
+    \ 19 September 2019\n\x01\x02\x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\
+    \x06\a\nAbstract: Ambient intelligence is a new paradigm in the Internet of Things\
+    \ (IoT) world that brings\nsmartness to living environments to make them more\
+    \ sensitive; adaptive; and personalized to human\nneeds. A critical area where\
+    \ ambient intelligence can be used is health and social care; where it\ncan improve\
+    \ and sustain the quality of life without increasing ﬁnancial costs. The adoption\
+    \ of this\nnew paradigm for health and social care largely depends on the technology\
+    \ deployed (sensors and\nwireless networks), the software used for decision-making\
+    \ and the security, privacy and reliability\nof the information. IoT sensors and\
+    \ wearables collect sensitive data and must respond in a near\nreal-time manner\
+    \ to input changes. An IoT security framework is meant to oﬀer the versatility\
+    \ and\nmodularization needed to sustain such applications. Our framework was designed\
+    \ to easily integrate\nwith diﬀerent health and social care applications, separating\
+    \ security tasks from functional ones and\nbeing designed with independent modules\
+    \ for each layer (Cloud, gateway and IoT device), that oﬀer\nfunctionalities relative\
+    \ to that layer.\nKeywords: IoT; security framework; remote attestation; packet\
+    \ ﬁltering; trust management\n1. Introduction\nEven if it is a relatively new\
+    \ concept, the Internet of Things (IoT) opens perspectives that can change\nthe\
+    \ way we interact, not only with each other but also with the environment surrounding\
+    \ us. IoT is\nan emerging ﬁeld that has received a lot of attention from many\
+    \ industries, allowing the development\nof applications for automotive, transport,\
+    \ telecommunication or ambient intelligence. Beyond the\ntempting facilities that\
+    \ IoT solutions oﬀer, the innovation aspects are more enlightening in ambient\n\
+    intelligence. In this area, IoT applications address optimization, eﬃciency or\
+    \ ease-of-use issues, and\ndevices work in order to support people in carrying\
+    \ out their everyday life activities. IoT devices can\nprovide an approach that\
+    \ enables older people or people with disabilities to live in a more autonomous\n\
+    and personalized ambient, increasing their independence and enabling them to solve\
+    \ certain routine\nprocedures on their own, positively inﬂuencing the quality\
+    \ of their living standards.\nIn ambient intelligence applications, data from\
+    \ sensors provides important information about\nthe current state of the environment,\
+    \ and in order to make the right decisions, data must be accurate.\nBut as in\
+    \ any IoT system, there may appear irregularities in data accuracy. False positives,\
+    \ abnormal\nvalues or misinterpretations can occur due to sensors nature, hardware\
+    \ faults, compromised nodes,\nelectromagnetic interference, etc. Therefore, to\
+    \ prevent these problems, it is necessary to implement\na solution capable of\
+    \ ﬁltering out abnormal measurements so that diﬀerentiation between node defects\n\
+    and the real situations that require the immediate involvement of specialized\
+    \ personnel, can be made.\nThere are ambient intelligence applications that require\
+    \ high security measures due to the critical\nnature of the sensed information,\
+    \ especially when taking into consideration the healthcare context\n(e.g., medical\
+    \ information). Traditional security methods are diﬃcult to implement in this\
+    \ case because\nSensors 2019, 19, 4038; doi:10.3390/s19184038\nwww.mdpi.com/journal/sensors\n\
+    Sensors 2019, 19, 4038\n2 of 20\nan IoT application usually consists of diﬀerent\
+    \ interconnected hardware (resource constrained) and\nsoftware components from\
+    \ multiple vendors which raise many issues. Considering this context, there\n\
+    are many particularities that need to be addressed by a security solution: a large\
+    \ number of devices,\neach with its unique capability and purpose, ad-hoc connections,\
+    \ increased diﬃculty in managing\nthe entire system and diﬀerent methods through\
+    \ which devices interact with consumers (humans or\nother systems). In health\
+    \ and social care applications that process sensitive data, security and privacy\n\
+    measures must be implemented without aﬀecting service eﬃciency. Thus, a feasible\
+    \ security solution\nneeds to implement protection mechanisms at all layers of\
+    \ the IoT system (e.g., devices, gateways,\nCloud), while still allowing uninterrupted\
+    \ and transparent communications between these layers.\nTo develop an ambient\
+    \ intelligence application, one can use an existing IoT platform, such as AWS\n\
+    IoT from Amazon, ARM Bed from ARM and other partners, Azure IoT Suite from Microsoft,\
+    \ Brillo/Weave\nfrom Google, Calvin from Ericsson, HomeKit from Apple, Kura from\
+    \ Eclipse, or SmartThings from\nSamsung. These platforms allow rapid application\
+    \ development and support a broad range of sensors\nand wearables. In addition,\
+    \ each platform encapsulates standard security mechanisms like authentication,\n\
+    authorization, access control, and secure communication, as presented in [1].\
+    \ However, important\nsecurity challenges required by critical IoT applications,\
+    \ including health and social care ones, are not\nhandled by these platforms.\
+    \ Data anomaly detection, remote attestation or packet filtering are issues that\n\
+    need to be addressed to be able to mitigate complex attacks.\nIn this paper, we\
+    \ propose a security framework that tackles these challenges, bringing improvements\n\
+    to ambient intelligence applications, with emphasis on the health and social care\
+    \ monitoring. To achieve\nthis, the proposed framework consists of interconnected\
+    \ modules that are integrated at each of the\nmain layers of an IoT system: Cloud,\
+    \ gateway, and device. The framework is built on a customized\ndecentralized architecture,\
+    \ empowering middle-layer devices, such as gateways, while having a central\n\
+    point of management through a Cloud platform. The framework’s key components are\
+    \ presented in the\nremaining sections of the paper, which has the following structure.\
+    \ Section 2 presents the related work\nbeing done in this domain. In Section 3\
+    \ we describe the proposed security framework, while in Section 4\nwe present\
+    \ the tests and analyses we have done on the framework modules. Section 5 ends\
+    \ the paper\nwith conclusions and future research directions.\n2. Related Work\n\
+    The proposal made in [2] consists of a layered architecture of an IoT system and\
+    \ aspects of\nhardware and software design. At the same time, several areas of\
+    \ application of the proposed model\nsuch as smart cities, agriculture or healthcare,\
+    \ have been outlined. In [3], the authors have studied the\nstate-of-the-art for\
+    \ IoT and pointed out that there are two important issues to be taken into account\n\
+    when designing an IoT system: the privacy of the people and the conﬁdentiality\
+    \ of the services and\nprocesses. In order to prevent these problems, it is necessary\
+    \ to design an architecture tailored to the\npurpose of the project, then to adopt\
+    \ a security framework that meets the requirements of privacy\nand conﬁdentiality.\n\
+    A complex IoT system is characterized by a large number of heterogeneous devices\
+    \ that need\nto be managed and have their data properly collected and processed.\
+    \ This means that the data must\nbe analyzed and ﬁltered in order to identify\
+    \ the compromised nodes and to detect anomalies of the\nrecorded data. Anomaly\
+    \ detection is a resource-consuming process, meaning that it must be made at\n\
+    the gateway or cloud layer given that the nodes have a low power processor and\
+    \ are based on low\npower consumption. There are many ways proposed by researchers\
+    \ to detect data anomalies: machine\nlearning, recurrent calculation, statistical\
+    \ calculation, decision trees [4], but catching the abnormality\ndata becomes\
+    \ even more diﬃcult when there is a chance of communication errors or some intentional\n\
+    injection of malicious data by an attacker.\nA considerable eﬀort has been made\
+    \ by the research and industry communities, in presenting\ngeneric IoT frameworks,\
+    \ such as Internet of Things Architecture (IoT-A) [5] or Core Platform of the\n\
+    Future Internet (FiWARE) [6] for solving the above mentioned problems. Whilst\
+    \ the second framework,\nSensors 2019, 19, 4038\n3 of 20\nFiWARE, implements a\
+    \ “security-by-design” paradigm with generic components (such as monitoring,\n\
+    identity, and conﬁdentiality management, context security or secure storage),\
+    \ the ﬁrst one, IoT-A,\nproposes a trust model that considers the following security\
+    \ aspects:\n•\nTrust domains—an IoT device can collect data from diﬀerent domains;\n\
+    •\nTrust evaluation mechanisms—a device reputation is calculated based on direct\
+    \ observations or\nby querying neighboring IoT devices/gateways;\n•\nBehavior\
+    \ analysis policies—shape the interaction between two IoT devices, based on their\n\
+    reputation levels;\n•\nTrust anchor—an entity with the highest reputation, trusted\
+    \ by all devices in the IoT system;\n•\nTrust federalization—delegate the trust\
+    \ evaluation mechanism to another entity, in order to\nensure interoperability.\n\
+    Another security framework designed for unattended environments to control nodes\
+    \ that have\naccess to the network is presented in [7]. The access control is\
+    \ based on administrative approval in\norder to ensure compliance with deﬁned\
+    \ security rules. In a network intended to monitor the functions\nof the human\
+    \ body and the environment, the information that transits the network is life-critical.\n\
+    So there is a need to deploy security mechanisms for preventing malicious attacks.\
+    \ The basis for these\nis to deﬁne the standards and protocols used to enhance\
+    \ data security. A signiﬁcant improvement has\nbeen seen in the IEEE 802.15.4\
+    \ and is broadly explained in [8].\nRegardless of what framework an IoT system\
+    \ is built upon, the large number of integrated devices\ntransforms the notions\
+    \ of trust in collected information and the reputation of IoT devices into two\
+    \ key\nconcepts [9]. These two concepts are also directly linked: depending on\
+    \ the devices’ reputation, data\ncollected from it is tagged with a speciﬁc level\
+    \ of trust by a user. In health and social care applications,\ndata cannot be\
+    \ assessed anymore as simple environmental data, without any reference to a person’s\n\
+    habits; instead, it needs to be split into diﬀerent categories, according to their\
+    \ origin and future use\n(e.g., data collected from Personal Area Networks (PAN)\
+    \ [10] or Body Area Networks (BAN) [11] needs\neither to be processed locally\
+    \ or to be anonymized before being sent in Cloud and the users need to\nhave full\
+    \ control of it, while environmental data can be sent and processed remotely without\
+    \ the need\nof applying the same level of ﬁltering as in the previous case). Thus,\
+    \ in these types of applications,\ntrust is not only a characteristic of data\
+    \ read from sensors and their reputation, but it becomes also\na requirement for\
+    \ the functioning of the entire IoT environment (users need not only to trust\
+    \ received\ndata but also to trust the way the system manipulates that data, before\
+    \ and after it is being presented to\nthem). This second “level” of trust can\
+    \ be achieved through security mechanisms that ensure privacy\nand protection\
+    \ of data throughout the entire lifecycle of that data. Returning to the link\
+    \ between the\nﬁrst “level” of trust and reputation of nodes, as stated at the\
+    \ beginning of this paragraph, the notion of\nreputation can be used to deﬁne\
+    \ the resulting value of the process of assessing IoT devices based on\ntheir\
+    \ behavior features, such as: transaction history, reliability of established\
+    \ communication links\nor quality of sent data. Each one of these features impacts\
+    \ the way an IoT device (a node in the IoT\nnetwork) is perceived by other nodes.\
+    \ An IoT device trustworthiness impacts directly the connections\nwith other devices:\
+    \ data published by a device with a low reputation score has a low probability\
+    \ of\nbeing consumed. Thus, a malicious node introduced in the IoT system would\
+    \ be detected through its\nbehavior, no matter when an attack is launched. Considering\
+    \ this capability, many models for assessing\nthe reputation level of a node have\
+    \ been proposed, based on diﬀerent mathematics, physics or other\naspects, such\
+    \ as Bayesian [12], subjective logic [13], entropy [14,15] or biological elements\
+    \ [16,17]. Even\nthough the concept of a reputation assessment model can be for\
+    \ a variety of domains, authors in [18,19]\nhave highlighted ﬁve essential stages\
+    \ that a reputation-based architecture needs to have built-in:\n•\nData collection—query\
+    \ the node or its neighbors for behavioral information;\n•\nScoring and reputation\
+    \ level assessment—reputation score of a node is calculated based on\na reputation\
+    \ assessment model (one of those described before or a similar one);\nSensors\
+    \ 2019, 19, 4038\n4 of 20\n•\nNodes selection—valid nodes can consider data rerouting,\
+    \ based on updated reputation scores of\ntheir neighboring nodes;\n•\nTransaction\
+    \ execution—after a data transfer is ﬁnished, a transaction is considered executed,\
+    \ then\nthe user can give it a score;\n•\nUpdating the reputation level of a node—based\
+    \ on the users’ score, nodes can be “rewarded” or\n“punished”, aﬀecting their\
+    \ reputation.\n•\nFurthermore, authors in [20] emphasize several characteristics\
+    \ that must be considered before\nintegrating security features based on reputation\
+    \ in an IoT system architecture:\n•\nUsers’ partiality in scoring nodes;\n•\n\
+    Possible transitivity of reputation across a trust chain;\n•\nInitial context\
+    \ in which primary trust relations are deﬁned (based on given reputation scores).\n\
+    Extending the applications commonly found in an IoT system, the authors in [21]\
+    \ propose the\ndeployment of a reputation solution for evaluating data presented\
+    \ by devices in a participatory\nsensing environment. Given the dynamic nature\
+    \ of this sensing environment, the adaptivity of\na reputation-based evaluation\
+    \ architecture is another advantage and a desired characteristic.\nAlthough these\
+    \ reputation-based security mechanisms can bring improvements in the overall\n\
+    security of an IoT system, they are not protected against some classic attack\
+    \ methods that can be\nadapted to work in a reputation-assessing architecture.\
+    \ Such examples of attacks are mentioned in [20].\nTo counter these possible problems\
+    \ the IoT architecture needs to have regular security mechanisms\nintegrated,\
+    \ such as Transport Layer Security (TLS) / Datagram Transport Layer Security (DTLS)\n\
+    communications, authentication and Access Control Lists (ACL). Another issue with\
+    \ reputation-based\nsecurity mechanisms is the overhead in power consumption,\
+    \ given the additional computations needed\nto evaluate the reputation for each\
+    \ node. One direction for assessing the impact of this issue in the\noverall performance\
+    \ of an IoT system is the modeling of energy consumption in sensor networks\n\
+    using stochastic Petri networks (SPNs), as presented in [22]. This approach can\
+    \ give a prediction of\npower consumption, thus enabling gateways to adjust the\
+    \ computations required by the reputation\nevaluation algorithm, at diﬀerent levels\
+    \ of battery power.\n3. Proposed IoT Security Framework\nThe design of a security\
+    \ framework for ambient intelligence environments should be based on\na modular\
+    \ architecture that allows scalability, given that IoT networks are widely adopted\
+    \ today.\nIn the beginning, a typical context of ambient intelligence was homes,\
+    \ and over time it expanded to\nworkspaces, public spaces and hospital environments.\
+    \ The proposed framework has a multi-level\nstructure and includes at each level\
+    \ (node, gateway, and Cloud) a component mandated to monitor\nand act independently\
+    \ if the module is prone to attacks. The architecture presented in the following\n\
+    subsections is based on the classic centralized model but introduces decentralized\
+    \ architecture elements\nby using the gateway as a key element. This is because\
+    \ all nodes have a single communication link\nwhich implies that any connection\
+    \ with another node will be monitored and managed by the gateway,\nthus allowing\
+    \ the local control of the resources, with the Cloud module acting as a supervisor.\n\
+    An important feature that must be provided by an IoT security framework in the\
+    \ ambient\nintelligence applications consists of a secure infrastructure that\
+    \ allows the data transmission from the\nend-point sensors to the cloud services.\
+    \ Also, an IoT security framework must oﬀer the infrastructure\nfor additional\
+    \ services, like sensor anomaly detection which is critical in the healthcare\
+    \ context. Our\nproposed framework oﬀers the support for running an anomaly detection\
+    \ algorithm on the gateway\nside, in order to detect sensor data anomalies in\
+    \ a real time manner, thus satisfying the requirements of\na healthcare application.\
+    \ Moreover, the gateway element in our system processes requests for two data\n\
+    categories in order to address various ambient environment applications: critical\
+    \ healthcare data which\nmust be processed immediately and environment context\
+    \ data which is not critical, but which can\nlead to better knowledge about the\
+    \ persons’ health state. Given the importance of the gateway in our\nSensors 2019,\
+    \ 19, 4038\n5 of 20\nsystem, we implemented a low cost Denial of Service (DoS)\
+    \ mitigation solution which assures another\nimportant requirement of an ambient\
+    \ intelligence environment application: the system availability.\nAs presented\
+    \ in Figure 1, the proposed solution integrates various security components at\
+    \ all\nlevels of the IoT system. The interaction of diﬀerent security modules\
+    \ is ensured by establishing a trust\nrelationship based on the authentication\
+    \ mechanism. The IoT security framework allows establishing\nthese trust relationships\
+    \ using X.509 digital certiﬁcates, asymmetric keys or pre-shared symmetric\nkeys,\
+    \ depending on the constraints of the devices involved. In addition to this, the\
+    \ solution includes\nan anomaly detection module by which node behavior is observed\
+    \ and quantiﬁed at the gateway level\nto create a more trustworthy system.\nSensors\
+    \ 2019, 19, x FOR PEER REVIEW \n5 of 20 \n \ndata which is not critical, but which\
+    \ can lead to better knowledge about the persons’ health state. \nGiven the importance\
+    \ of the gateway in our system, we implemented a low cost Denial of Service \n\
+    (DoS) mitigation solution which assures another important requirement of an ambient\
+    \ intelligence \nenvironment application: the system availability. \nAs presented\
+    \ in Figure 1, the proposed solution integrates various security components at\
+    \ all \nlevels of the IoT system. The interaction of different security modules\
+    \ is ensured by establishing a \ntrust relationship based on the authentication\
+    \ mechanism. The IoT security framework allows \nestablishing these trust relationships\
+    \ using X.509 digital certificates, asymmetric keys or pre-shared \nsymmetric\
+    \ keys, depending on the constraints of the devices involved. In addition to this,\
+    \ the \nsolution includes an anomaly detection module by which node behavior is\
+    \ observed and quantified \nat the gateway level to create a more trustworthy\
+    \ system. \n \nFigure 1. The architecture of the proposed security framework.\
+    \ \n3.1. Cloud Layer \nAs we mentioned before, the feature that links our proposed\
+    \ security framework with other \ncentralized IoT systems is the Cloud module\
+    \ that acts as an access point for users to connect to \ndifferent services and\
+    \ as a management module for the underlying IoT system, but with reduced \ncapabilities.\
+    \ The Proposed Cloud Platform (PCP) was not designed as a replacement for the\
+    \ Existing \nCloud Platforms (ECP), but as a security “complement” for them, adding\
+    \ additional features to \nenforce control over devices (behavior and data). Data\
+    \ is exchanged between these two Cloud \nplatforms by means of APIs exposed by\
+    \ the ECP. In this manner, we ensure that data coming from \ngateways is filtered\
+    \ so that the ECP does not receive corrupted information and that users obtain\
+    \ the \ncorrect results when accessing services. Thus, the first functionality\
+    \ from the reduced set that the \nPCP implements is to be an element of overseeing\
+    \ and enforcing specific security rules and policies, \nmeant to limit the infusion\
+    \ of malicious data due to a rogue gateway. Aside from filtering traffic \nflows,\
+    \ the PCP acts also as a service discovery module for the gateway and devices\
+    \ layers, by \naggregating services available on different ECPs. As a mention,\
+    \ the services that are aggregated by \nthe PCP are services that are allowed\
+    \ by the administrators of the IoT environment and the \nunderlying devices can\
+    \ be linked to. By ensuring this service, data collected inside the IoT system\
+    \ is \navailable to other IoT systems. Still, the PCP monitors and secures these\
+    \ connections, enforcing the \nrules of access control defined at the moment of\
+    \ establishing connections with these “exterior” \nservices. Being a policy enforcement\
+    \ point, the PCP permits the traffic flow, from end-point IoT \ndevices, only\
+    \ to secure upper layer services (legitimate ECP entities). \nBy being a central\
+    \ hub where different gateways interconnect, the PCP has mechanisms of \nensuring\
+    \ secure communication links between gateways and itself or between users and\
+    \ the services \nFigure 1. The architecture of the proposed security framework.\n\
+    3.1. Cloud Layer\nAs we mentioned before, the feature that links our proposed\
+    \ security framework with other\ncentralized IoT systems is the Cloud module that\
+    \ acts as an access point for users to connect to\ndiﬀerent services and as a\
+    \ management module for the underlying IoT system, but with reduced\ncapabilities.\
+    \ The Proposed Cloud Platform (PCP) was not designed as a replacement for the\
+    \ Existing\nCloud Platforms (ECP), but as a security “complement” for them, adding\
+    \ additional features to enforce\ncontrol over devices (behavior and data). Data\
+    \ is exchanged between these two Cloud platforms by\nmeans of APIs exposed by\
+    \ the ECP. In this manner, we ensure that data coming from gateways is\nﬁltered\
+    \ so that the ECP does not receive corrupted information and that users obtain\
+    \ the correct results\nwhen accessing services. Thus, the ﬁrst functionality from\
+    \ the reduced set that the PCP implements\nis to be an element of overseeing and\
+    \ enforcing speciﬁc security rules and policies, meant to limit\nthe infusion\
+    \ of malicious data due to a rogue gateway. Aside from ﬁltering traﬃc ﬂows, the\
+    \ PCP\nacts also as a service discovery module for the gateway and devices layers,\
+    \ by aggregating services\navailable on diﬀerent ECPs. As a mention, the services\
+    \ that are aggregated by the PCP are services that\nare allowed by the administrators\
+    \ of the IoT environment and the underlying devices can be linked\nto. By ensuring\
+    \ this service, data collected inside the IoT system is available to other IoT\
+    \ systems.\nStill, the PCP monitors and secures these connections, enforcing the\
+    \ rules of access control deﬁned at\nthe moment of establishing connections with\
+    \ these “exterior” services. Being a policy enforcement\npoint, the PCP permits\
+    \ the traﬃc ﬂow, from end-point IoT devices, only to secure upper layer services\n\
+    (legitimate ECP entities).\nBy being a central hub where diﬀerent gateways interconnect,\
+    \ the PCP has mechanisms of\nensuring secure communication links between gateways\
+    \ and itself or between users and the services\nSensors 2019, 19, 4038\n6 of 20\n\
+    it is conﬁgured to oﬀer. The security tokens needed to authenticate and authorize\
+    \ both users and\ngateways are manually provided by an administrator, in the management\
+    \ interface of the PCP.\nBesides these active tasks that employ the use of the\
+    \ PCP in diﬀerent scenarios of an IoT\nenvironment, the PCP is mostly a passive\
+    \ component. This is because the main idea behind our PCP is\nit to act as a repository\
+    \ integrating two main functionalities:\n•\na central point where anomaly detection\
+    \ data and graphs created by gateways can converge and\noﬀer an integrated overview\
+    \ of the IoT environment;\n•\na storage location in which valuable data (working\
+    \ data) gathered by the gateways can be pushed.\nThis data is being stored in\
+    \ diﬀerent areas, depending on the type of information it contains:\n#\nenvironmental\
+    \ data accessible to every requesting service;\n#\nhistorical data needed for\
+    \ reassessing the level of trust and reputation of each collector\nnode or sensor;\n\
+    #\nprivacy-aware data consisting of information related to an individual or his\
+    \ habits. This\ntype of data has also assigned a certain tag, speciﬁc to each\
+    \ individual, as presented later\nin the paper.\nThis repository is a central\
+    \ database that stores information provided by gateways that also query\nand update\
+    \ this information based on their authorization levels. By querying this repository,\
+    \ gateways\ncan correctly choose trusted links to enable connections between IoT\
+    \ devices from areas that are distinct,\nbut connected in the same IoT system,\
+    \ as presented in Figure 2.\nSensors 2019, 19, x FOR PEER REVIEW \n6 of 20 \n\
+    \ \nit is configured to offer. The security tokens needed to authenticate and\
+    \ authorize both users and \ngateways are manually provided by an administrator,\
+    \ in the management interface of the PCP. \nBesides these active tasks that employ\
+    \ the use of the PCP in different scenarios of an IoT \nenvironment, the PCP is\
+    \ mostly a passive component. This is because the main idea behind our PCP \n\
+    is it to act as a repository integrating two main functionalities: \n• \na central\
+    \ point where anomaly detection data and graphs created by gateways can converge\
+    \ and \noffer an integrated overview of the IoT environment; \n• \na storage location\
+    \ in which valuable data (working data) gathered by the gateways can be \npushed.\
+    \ This data is being stored in different areas, depending on the type of information\
+    \ it \ncontains: \no  environmental data accessible to every requesting service;\
+    \ \no  historical data needed for reassessing the level of trust and reputation\
+    \ of each collector node \nor sensor; \no  privacy-aware data consisting of information\
+    \ related to an individual or his habits. This \ntype of data has also assigned\
+    \ a certain tag, specific to each individual, as presented later in \nthe paper.\
+    \ \nThis repository is a central database that stores information provided by\
+    \ gateways that also \nquery and update this information based on their authorization\
+    \ levels. By querying this repository, \ngateways can correctly choose trusted\
+    \ links to enable connections between IoT devices from areas \nthat are distinct,\
+    \ but connected in the same IoT system, as presented in Figure 2. \n \nFigure\
+    \ 2. The architecture of the proposed Cloud platform. \nAt this stage, the PCP\
+    \ is enabled only to store the above mentioned types of data and ensure \nsecure\
+    \ access to it, without having the means of manipulating it. Still, if a certain\
+    \ degree of trust is \nensured from the moment when the IoT environment is created\
+    \ and configured, the PCP could be \nextended to support methods of data integration\
+    \ and update, leading to the creation of a uniformed \ngraph of anomalies detected\
+    \ across the entire IoT system. Even though this might bring an \nadvantage in\
+    \ having an integrated overview of the devices’ anomaly detection characteristics,\
+    \ it \nimplies also the use of the same or similar anomaly detection algorithms\
+    \ in each gateway, thus \nsimilar hardware configurations (easy to comply within\
+    \ a newly created IoT system, but harder in \none that is updating an existing\
+    \ IoT environment). \nFigure 2. The architecture of the proposed Cloud platform.\n\
+    At this stage, the PCP is enabled only to store the above mentioned types of data\
+    \ and ensure\nsecure access to it, without having the means of manipulating it.\
+    \ Still, if a certain degree of trust is\nensured from the moment when the IoT\
+    \ environment is created and conﬁgured, the PCP could be\nextended to support\
+    \ methods of data integration and update, leading to the creation of a uniformed\n\
+    graph of anomalies detected across the entire IoT system. Even though this might\
+    \ bring an advantage\nin having an integrated overview of the devices’ anomaly\
+    \ detection characteristics, it implies also\nthe use of the same or similar anomaly\
+    \ detection algorithms in each gateway, thus similar hardware\nSensors 2019, 19,\
+    \ 4038\n7 of 20\nconﬁgurations (easy to comply within a newly created IoT system,\
+    \ but harder in one that is updating\nan existing IoT environment).\n3.2. Gateway\
+    \ Layer\nEven though there are diﬀerent models of IoT networks, gateway-centric\
+    \ is one of the most\nemployed for health and social care applications.\nOne of\
+    \ the main advantages brought by the\ngateway-centric model is that it consists\
+    \ of a central device that implements logic to coordinate the\nIoT sensors. From\
+    \ the cost perspective, having a gateway-centric network allows deploying a ﬂeet\
+    \ of\nsensors with limited capabilities, given the fact that the gateway can be\
+    \ used to oﬄoad both security\nand data processing functions. The gateway is the\
+    \ element that links the end-point network segment\nwith the upstream network\
+    \ elements, executes translation from lightweight to classic communication\nprotocols\
+    \ or executes various security tasks like authentication, authorization and access\
+    \ control or\npacket ﬁltering. The gateway can also act as a network access server\
+    \ on various layers: the gateway\ncan execute a Layer 2 Extensible Authentication\
+    \ Protocol (EAP) authentication, a Message Queuing\nTelemetry Transport (MQTT)\
+    \ user/password based authentication or a custom authentication protocol\ntransported\
+    \ as Constrained Application Protocol (CoAP) payload. IoT gateways do not have\
+    \ the same\ncomputational constraints as the end-point IoT devices, thus being\
+    \ suitable for oﬄoading certain\nresource intensive tasks from the low-end devices,\
+    \ like security operations. Having a gateway-centric\nmodel also brings a series\
+    \ of advantages in the overall IoT network economics, by reducing the latency\n\
+    required to process IoT delivered data (real-time applications) and reducing the\
+    \ traﬃc between the\nsensors and the Cloud back-end.\nBeing a central IoT network\
+    \ element, gateways need adequate protection mechanisms against\nsophisticated\
+    \ DoS attacks in order to provide the network availability and to satisfy real-time\
+    \ constraints.\nTaking advantage of the IoT gateway capabilities, various architectures\
+    \ transform this device into\na multi-tenant application hypervisor. For instance,\
+    \ the gateway can run an MQTT broker application\nor a CoAP client which aggregates\
+    \ data from multiple sensors.\nThe gateway plays a central role in our IoT security\
+    \ framework, having two main tasks:\nimplementing a sensor anomaly detection module\
+    \ and a mechanism for an advanced network\npacket ﬁltering. The previously mentioned\
+    \ IoT gateway tasks stress the necessity of implementing\na security control plane\
+    \ that allows the end-point IoT devices to transmit and receive the sensor\nanomaly\
+    \ status and packet ﬁltering related commands and data.\nThearchitectureoftheproposedsecurityframeworkconsistsofagatewayandasuiteofIoTend-point\n\
+    devices that enable security as a service structure. The security control plane\
+    \ between the end-point\ndevices and the gateway consists of a publish-subscribe\
+    \ protocol, which allows an energy-efficient\nasynchronous communication path\
+    \ from the gateway to the nodes. The sensor anomaly detection control\nplane consists\
+    \ of the following commands: publish data and acquire the anomaly status. The\
+    \ gateway\nprocesses the anomaly detection requirement commands and executes the\
+    \ associated actions on the Cloud\nplatform side. When the IoT nodes are acquiring\
+    \ data, the gateway parses the published information\nfrom the Cloud platform,\
+    \ it runs a sensor anomaly detection algorithm and delivers the status to the\
+    \ IoT\ndevices. The sensor anomaly detection module has the following elements:\n\
+    •\nThe sub-module which is in charge of securing the communication between the\
+    \ gateway and the\nCloud platform;\n•\nThe sub-module which secures the communication\
+    \ between the IoT end-nodes and the gateway;\n•\nThe sub-module which computes\
+    \ the IoT sensor anomaly status.\nIn this security scheme, the Cloud platform\
+    \ has the role of a sensor data repository, storing\nthe IoT published data. The\
+    \ calculation of anomaly status is executed locally, on the gateway side,\nthe\
+    \ Cloud module being a passive element which does not allow any data modiﬁcation\
+    \ after the publish\nevent. The proposed IoT security framework employs a sensor\
+    \ anomaly detection algorithm module\nwith a well-deﬁned interface. Thus, the\
+    \ security framework abstracts the actual anomaly algorithm\nSensors 2019, 19,\
+    \ 4038\n8 of 20\nimplementation, oﬀering only a plug-in module which allows running\
+    \ any type of anomaly detection\nalgorithm. The security framework acts as a software\
+    \ container that injects in a custom anomaly\ndetection algorithm implementation\
+    \ the input data collected from the Cloud platform. By adding\na generic sensor\
+    \ anomaly detection algorithm support, the IoT security framework addresses the\n\
+    speciﬁc requirements of each deployment scenario.\nEven though the IoT gateway\
+    \ is not a device with major resource constraints, the power\nconsumption should\
+    \ be taken into consideration when running a sensor anomaly detection algorithm.\n\
+    In order to address this issue, we propose a Stochastic Petri Network (SPN) model\
+    \ of the gateway\npower consumption. This is an abstract model that indicates\
+    \ the number of times the gateway ﬁnite\nstate machine enters a generic Process\
+    \ and Sleep state. In contrast to a ﬁnite state machine model\nwhich comprises\
+    \ states and conditions which must be satisﬁed to transition from one state into\
+    \ another,\nan SPN model consists of transitions, which are ﬁred following a stochastic\
+    \ paradigm, and states\n(places) which hold the system resources. In our gateway\
+    \ model, the resources consist of requests\nreceived by the gateway (real time/critical\
+    \ requests and best eﬀort requests which are held in the Queue,\nReal-time queue\
+    \ and Best-eﬀort queue states) and execution resources (which are transitioned\
+    \ between\nthe Process and Sleep states).\nThe SPN model has two main purposes:\
+    \ limiting the sensor anomaly computing tasks when the\ngateway has a low battery\
+    \ level and predicting the power consumption. More specifically, we propose\n\
+    an SPN API that allows a developer to translate a power consumption formal model\
+    \ into a software\nmodule that can be deployed on the gateway. As we have already\
+    \ shown in [23], an SPN model can\nbe used to estimate the power consumption of\
+    \ an IoT gateway. By using the SPN model, the gateway\nadministrator can make\
+    \ a prediction regarding the power consumption based on the network traffic\n\
+    characteristics (e.g., number of requests per time interval). This can help in\
+    \ planning the IoT network\ngateway provisioning and estimating maintenance operations.\
+    \ By having this planning, an administrator\ncan further estimate the costs associated\
+    \ with running and maintaining security and network functions\non edge IoT gateways.\
+    \ The proposed SPN power consumption model is a generic framework whose\noutput\
+    \ depends on the actual anomaly detection algorithm and on the underlying hardware\
+    \ platform.\nAn example of an SPN reputation power consumption model is depicted\
+    \ in Figure 3.\nSensors 2019, 19, x FOR PEER REVIEW \n8 of 20 \n \nadding a generic\
+    \ sensor anomaly detection algorithm support, the IoT security framework addresses\
+    \ \nthe specific requirements of each deployment scenario. \nEven though the IoT\
+    \ gateway is not a device with major resource constraints, the power \nconsumption\
+    \ should be taken into consideration when running a sensor anomaly detection \n\
+    algorithm. In order to address this issue, we propose a Stochastic Petri Network\
+    \ (SPN) model of the \ngateway power consumption. This is an abstract model that\
+    \ indicates the number of times the \ngateway finite state machine enters a generic\
+    \ Process and Sleep state. In contrast to a finite state \nmachine model which\
+    \ comprises states and conditions which must be satisfied to transition from \n\
+    one state into another, an SPN model consists of transitions, which are fired\
+    \ following a stochastic \nparadigm, and states (places) which hold the system\
+    \ resources. In our gateway model, the resources \nconsist of requests received\
+    \ by the gateway (real time/critical requests and best effort requests which \n\
+    are held in the Queue, Real-time queue and Best-effort queue states) and execution\
+    \ resources (which \nare transitioned between the Process and Sleep states). \n\
+    The SPN model has two main purposes: limiting the sensor anomaly computing tasks\
+    \ when the \ngateway has a low battery level and predicting the power consumption.\
+    \ More specifically, we \npropose an SPN API that allows a developer to translate\
+    \ a power consumption formal model into a \nsoftware module that can be deployed\
+    \ on the gateway. As we have already shown in [23], an SPN \nmodel can be used\
+    \ to estimate the power consumption of an IoT gateway. By using the SPN model,\
+    \ \nthe gateway administrator can make a prediction regarding the power consumption\
+    \ based on the \nnetwork traffic characteristics (e.g., number of requests per\
+    \ time interval). This can help in planning \nthe IoT network gateway provisioning\
+    \ and estimating maintenance operations. By having this \nplanning, an administrator\
+    \ can further estimate the costs associated with running and maintaining \nsecurity\
+    \ and network functions on edge IoT gateways. The proposed SPN power consumption\
+    \ \nmodel is a generic framework whose output depends on the actual anomaly detection\
+    \ algorithm and \non the underlying hardware platform. An example of an SPN reputation\
+    \ power consumption model \nis depicted in Figure 3. \n \nFigure 3. SPN power\
+    \ consumption model for sensor anomaly detection. \nAs it can be observed in our\
+    \ generic SPN model, we have the following transitions: \n• \nRX - generates request\
+    \ messages for the gateway (using a random model). \n• \nClassify - it classifies\
+    \ the messages based on their priority. Given the healthcare context, there can\
+    \ \nbe two types of messages: contextual messages which are handled following\
+    \ a best-effort \nparadigm and critical messages which are handled on a real-time\
+    \ basis. This transition does not \nfollow a stochastic model and it is triggered\
+    \ for every change occurred in the Queue states. \n• \nDelegate - this transition\
+    \ has a hybrid behavior, having the next logic: \nFigure 3. SPN power consumption\
+    \ model for sensor anomaly detection.\nAs it can be observed in our generic SPN\
+    \ model, we have the following transitions:\n•\nRX—generates request messages\
+    \ for the gateway (using a random model).\n•\nClassify—it classiﬁes the messages\
+    \ based on their priority. Given the healthcare context, there\ncan be two types\
+    \ of messages: contextual messages which are handled following a best-eﬀort\n\
+    Sensors 2019, 19, 4038\n9 of 20\nparadigm and critical messages which are handled\
+    \ on a real-time basis. This transition does not\nfollow a stochastic model and\
+    \ it is triggered for every change occurred in the Queue states.\n•\nDelegate—this\
+    \ transition has a hybrid behavior, having the next logic:\n#\nfor every real-time\
+    \ message it executes a transition into the Process states (this behavior is\n\
+    not stochastic);\n#\nif there are no real-time messages and if the execution is\
+    \ currently in the Process states, then\nit executes a transition into the Sleep\
+    \ states with a probability given by Equation (1);\n#\nif there are no real-time\
+    \ messages and if the execution is currently in the Sleep states, then it\nexecutes\
+    \ another transition into the Sleep states, with a probability given by Equation\
+    \ (1);\n#\nif none of the previously mentioned steps are executed, this transition\
+    \ extracts a best-eﬀort\nmessage and moves the execution into the Process states.\n\
+    These transitions are accompanied by ﬁve SPN states as follows:\n•\nQueue—accumulates\
+    \ both the critical and best eﬀort requests;\n•\nReal-time queue—accumulates the\
+    \ critical requests;\n•\nBest-eﬀort queue—accumulates the best-eﬀort requests;\n\
+    •\nSleep—indicates the number of times the gateway transitions into a Sleep state;\n\
+    •\nProcess—indicates the number of times the gateway transitions into a Process\
+    \ state. This is the\nconsumption intensive state which must be translated into\
+    \ a hardware dependent consumption metric.\nOur SPN API allows introducing new\
+    \ states and transitions along with a custom transition\nfrequency function. In\
+    \ our tests, we have used a battery level dependent function for the Delegate\n\
+    transition, as presented in Equation (1). This transition function uses as input\
+    \ both the gateway battery\nlevel along with a random variable and returns a boolean\
+    \ value which indicates if the SPN transition\nshould be executed or not. If the\
+    \ Delegate transition is executed, the SPN machine moves into the\nSleep states,\
+    \ thus, according to Equation (1), if the battery level is low, the probability\
+    \ of transitioning\ninto the Sleep state increases:\ndelegate_func = f(battery_level,\
+    \ random_variable) = {True, random_variable >\nbattery_level, False otherwise}\n\
+    (1)\nThus, a developer can model the power consumption of the IoT gateway in a\
+    \ custom manner\nand obtain the application speciﬁc trade-oﬀ between security\
+    \ and availability. In Figure 4 it can be\nobserved that the number of transitions\
+    \ into the Sleep and Process states have a linear dependence on\nthe battery level:\
+    \ the number of transitions into the Process state is increasing along with a\
+    \ high battery\nlevel, while the number of transitions into the Sleep state is\
+    \ increasing along with a low battery level.\nFigure 4 consists of the following\
+    \ input data sets:\n•\nuniform distribution of real-time and best-eﬀort messages\
+    \ (Figure 4a);\n•\nbest-eﬀort predominant messages which allow the system to increase\
+    \ the transitions into the Sleep\nstates (Figure 4b);\n•\nreal-time predominant\
+    \ messages which force the system to increase the transitions into the Process\n\
+    states (Figure 4c).\nThe results from Figure 4 measure only the number of times\
+    \ an SPN transition is executed based on\nthe input requests pattern. To further\
+    \ obtain actual power consumption metrics, the number of times\nthe Process transition\
+    \ is executed must be correlated with the actual anomaly detection algorithm and\n\
+    hardware characteristics. One could obtain power consumption values by running\
+    \ the proposed SPN\nframework on an energy aware hardware emulator.\nSensors 2019,\
+    \ 19, 4038\n10 of 20\nSensors 2019, 19, x FOR PEER REVIEW \n10 of 20 \n \n \n\
+    (a) \n \n(b) \n \n(c) \n \nFigure 4. SPN consumption model of the IoT Security\
+    \ Gateway: (a) Uniform distributed real \ntime/best effort messages; (b) Best\
+    \ effort predominant message; (c) Real time predominant messages. \nIn an IoT\
+    \ network, the gateway executes a suite of communication processes, which cover\
+    \ the \nentire network stack, starting with data layer protocols and ending with\
+    \ the application layer \nprotocols. The gateway role is augmented in a publish-subscribe\
+    \ network because the gateway can \nbe the module that relays the packets between\
+    \ end-point IoT devices. In a client-server IoT network \ntopology, the gateway\
+    \ translates packet from a lightweight protocol, bridging the upper layer Cloud\
+    \ \nnetwork segment with the end-point network segment. Taking into consideration\
+    \ these \ncharacteristics, the gateway becomes a multi-tenant device which can\
+    \ execute various security \nprocesses (e.g., authentication, network access,\
+    \ policy enforcement), given its central role in an IoT \nnetwork. One of the\
+    \ most important attacks in IoT networks is the Denial of Service (DoS) which\
+    \ can \nbe split into two main categories: \n• \nDoS on the end-point devices\
+    \ with the purpose of draining the battery and the availability of the \ndevice;\
+    \ \n• \nDoS on the gateway side with the purpose of affecting the availability\
+    \ of the IoT network or \nservices. \nOur IoT security framework implements a\
+    \ packet filtering mechanism on the gateway side in \norder to mitigate DoS network\
+    \ attacks. The packet filtering module can cover all the networking \nstack layers,\
+    \ focusing on the Message Queuing Telemetry Transport (MQTT) / MQTT for Sensor\
+    \ \nNetworks (MQTT-SN) and CoAP application layer protocols. The network filter\
+    \ layer consists of \ntwo sub-modules: the packet filter mechanism in the kernel\
+    \ side and the userspace filter component. \nThe packet filtering on the kernel\
+    \ side is implemented using the Extended Berkeley Packet Filter \n(eBPF) technology.\
+    \ This technology allows deploying a lightweight network parser in the kernel\
+    \ \nFigure 4. SPN consumption model of the IoT Security Gateway: (a) Uniform distributed\
+    \ real time/best\neﬀort messages; (b) Best eﬀort predominant message; (c) Real\
+    \ time predominant messages.\nIn an IoT network, the gateway executes a suite\
+    \ of communication processes, which cover\nthe entire network stack, starting\
+    \ with data layer protocols and ending with the application layer\nprotocols.\
+    \ The gateway role is augmented in a publish-subscribe network because the gateway\n\
+    can be the module that relays the packets between end-point IoT devices. In a\
+    \ client-server IoT\nnetwork topology, the gateway translates packet from a lightweight\
+    \ protocol, bridging the upper\nlayer Cloud network segment with the end-point\
+    \ network segment. Taking into consideration these\ncharacteristics, the gateway\
+    \ becomes a multi-tenant device which can execute various security processes\n\
+    (e.g., authentication, network access, policy enforcement), given its central\
+    \ role in an IoT network.\nOne of the most important attacks in IoT networks is\
+    \ the Denial of Service (DoS) which can be split\ninto two main categories:\n\
+    •\nDoS on the end-point devices with the purpose of draining the battery and the\
+    \ availability of\nthe device;\n•\nDoS on the gateway side with the purpose of\
+    \ aﬀecting the availability of the IoT network or services.\nOur IoT security\
+    \ framework implements a packet ﬁltering mechanism on the gateway side in\norder\
+    \ to mitigate DoS network attacks. The packet ﬁltering module can cover all the\
+    \ networking\nstack layers, focusing on the Message Queuing Telemetry Transport\
+    \ (MQTT) / MQTT for Sensor\nNetworks (MQTT-SN) and CoAP application layer protocols.\
+    \ The network ﬁlter layer consists of\ntwo sub-modules: the packet ﬁlter mechanism\
+    \ in the kernel side and the userspace ﬁlter component.\nThe packet ﬁltering on\
+    \ the kernel side is implemented using the Extended Berkeley Packet Filter (eBPF)\n\
+    technology. This technology allows deploying a lightweight network parser in the\
+    \ kernel virtual\nmachine. The kernel network parser allows a rapid packet inspection\
+    \ which oﬀers the possibility of\nSensors 2019, 19, 4038\n11 of 20\ndropping or\
+    \ modifying packets. This mechanism allows the authenticated and authorized IoT\
+    \ nodes\nto install custom ﬁltering instructions in the network ﬁlter virtual\
+    \ machine on the gateway side. Thus,\na low resource endpoint IoT device can oﬄoad\
+    \ the CPU intensive packet ﬁltering task on the gateway\nside. By using this gateway\
+    \ delegated ﬁltering mechanism, an IoT device can save CPU cycles for its’\nown\
+    \ system and for the gateway system, dropping malicious network packets in the\
+    \ earliest possible\nstage. Such a dynamic security mechanism is suitable for\
+    \ mitigating MQTT attacks where a malicious\npublisher device sends DoS packets\
+    \ to a subscriber device.\nThe packet ﬁltering architecture also uses an IoT node\
+    \ virtual instance on the gateway side, which\nkeeps the device state (e.g., ﬁltering\
+    \ commands, online state, etc.) and acts as a buﬀer between the\ngateway and the\
+    \ physical IoT device. Each packet ﬁlter routine uses a suite of packet qualiﬁers\
+    \ (e.g.,\nsource IP address, MQTT identiﬁer, MQTT QoS value) which triggers the\
+    \ routine. A kernel space\nﬁltering mechanism requires the usage of an operating\
+    \ system (e.g., lightweight Linux), which can\nbe a drawback for bare-metal systems\
+    \ or for systems that are not eBPF compatible. To overcome\nthis drawback, the\
+    \ proposed IoT security framework implements a hybrid kernel/userspace ﬁltering\n\
+    mechanism. The userspace ﬁltering mechanism is implemented as an application protocol\
+    \ security\nmodule. The security module has a well-deﬁned interface and it is\
+    \ called by the core packet application\nprotocol daemon for each received packet.\
+    \ By using a packet ﬁltering interface, the module can be\neasily replaced with\
+    \ a custom one without changing the core protocol implementation. The userspace\n\
+    ﬁltering module consists of a collection of routines that can execute tasks like\
+    \ packet inspection\nor accept/drop the packet based on the authentication/authorization\
+    \ state. Like the kernel ﬁltering\nmechanism, the userspace module uses packet\
+    \ qualiﬁers that can lead to a packet reject action if they\nare correlated with\
+    \ the sender/receiver authentication state. At the gateway side, the userspace\
+    \ ﬁltering\nmodule can receive ﬁltering policies (ACL structure) from the endpoint\
+    \ nodes by using the secure\ncontrol communication channel. In a particular MQTT\
+    \ scenario, an endpoint IoT node can install the\nfollowing policies:\n•\nPacket\
+    \ rate limit which is correlated with the received (IoT node) battery level;\n\
+    •\nAsynchronous authentication of the publisher IoT device (the policy is installed\
+    \ by the subscriber\nIoT device which wants to receive data only from trusted\
+    \ nodes);\n•\nAsynchronous authorization of the publisher IoT device;\n•\nBlacklisting\
+    \ nodes based on the protocol URI (e.g., MQTT client id);\n•\nPacket dropping\
+    \ based on diﬀerent qualiﬁes (e.g., header values, payload value).\nRegarding\
+    \ the CoAP protocol, the gateway ﬁltering solution handles the CoAP proxy scenario.\n\
+    Thus, the IoT framework permits installing security policies which authenticate\
+    \ both the CoAP server\nand client and limits the rate of CoAP responses based\
+    \ on the client’s battery level. The CoAP rate\nlimiting capability addresses\
+    \ the multicast responses which can be easily used to execute a battery\ndrain\
+    \ attack. The gateway packet ﬁltering architecture is depicted in Figure 5.\n\
+    The userspace and the kernel ﬁltering module are not mutually exclusive. Taking\
+    \ into consideration\nthe limitations of in-kernel eBPF network parsers (e.g.,\
+    \ loop restrictions), our hybrid packet inspection\nsolution is a multi-stage\
+    \ ﬁltering solution. Thus, the complex part of the ﬁltering routine can be\ninstalled\
+    \ on the userspace module (e.g., authentication/authorization veriﬁcation or querying\
+    \ other\nmodules when validating the packet). The simplest part of the ACL can\
+    \ be installed in the kernel\nﬁltering module, which achieves higher speeds and\
+    \ optimizations in the packet rejection process.\nOur multi-stage ﬁltering mechanism\
+    \ also addresses the IoT TLS/DTLS encrypted traﬃc.\nThe in-kernel ﬁltering module\
+    \ does not have the TLS/DTLS session key, thus it cannot inspect\nencrypted traﬃc\
+    \ payload. This scenario is addressed by the userspace ﬁltering module which is\n\
+    attached to the application protocol process (e.g., MQTT broker process) and receives\
+    \ plain-text packets\nthat can be inspected normally (with the associated performance\
+    \ penalties of userspace ﬁltering).\nSensors 2019, 19, 4038\n12 of 20\n \npp\n\
+    g\nq\ng\np y\nRegarding the CoAP protocol, the gateway filtering solution handles\
+    \ the CoAP proxy scenario. \nThus, the IoT framework permits installing security\
+    \ policies which authenticate both the CoAP \nserver and client and limits the\
+    \ rate of CoAP responses based on the client’s battery level. The CoAP \nrate\
+    \ limiting capability addresses the multicast responses which can be easily used\
+    \ to execute a \nbattery drain attack. The gateway packet filtering architecture\
+    \ is depicted in Figure 5. \n \nFigure 5. The architecture of the gateway packet\
+    \ ﬁltering module.\nBoth the userspace and kernel security modules employ a cooperative\
+    \ ﬁltering paradigm between\nthe endpoint IoT nodes and the gateway, which addresses\
+    \ the dynamic character of IoT networks.\nThe software security module which runs\
+    \ on the gateway has a lightweight structure and it does\nnot rely on the underlying\
+    \ hardware capabilities, being suitable even for battery powered devices and\n\
+    for applications that cannot beneﬁt from the gateway-centric model. Taking this\
+    \ into consideration,\nthe security functions deployed on the gateway can be executed\
+    \ on regular IoT nodes, thus addressing\nother IoT network topologies than the\
+    \ gateway-centric ones. For instance, these security functions\ncould be executed\
+    \ by specially designated IoT nodes from a mesh or multi-hop routing topology.\n\
+    3.3. IoT Device Layer\nThe outstanding feature of IoT devices is their ability\
+    \ to ensure system security using limited\nresources. The endpoints are the most\
+    \ vulnerable to attacks because they are often installed in open\nspace environments\
+    \ and an attacker can gain physical access to them, leading to security breaches\
+    \ in\nwhich the attacker can compromise the hardware and software conﬁgurations\
+    \ and alter the information\ntransmitted over the network. In this regard, the\
+    \ proposed architecture includes, at the device layer,\na remote attestation framework\
+    \ that has the role of checking the hardware and software conﬁguration.\nAttestation\
+    \ is a mechanism for the gateway to measure the IoT end-point integrity and remove\n\
+    the node from the network if compromised. Traditionally, remote attestation is\
+    \ achieved by means of\nsecure hardware, like Trusted Platform Module (TPM) incurring\
+    \ resource and monetary costs which are\nnot acceptable for the majority of IoT\
+    \ devices. Attestation can also be achieved using a software-only\nsolution, but\
+    \ this mechanism may not reach the desired security level of a particular IoT\
+    \ application.\nThere are also hybrid solutions that combine the previously mentioned\
+    \ mechanisms in order to obtain\na trade-oﬀ between the security level and the\
+    \ costs (including hardware complexity).\nThere are a series of papers that propose\
+    \ diﬀerent types of attestation solutions that can fall into\none of the three\
+    \ categories presented before. Since hardware-based remote attestation has a greater\n\
+    cost than the remaining two categories, we will focus mainly on software or hybrid\
+    \ solutions. In [24]\nauthors have proposed a software-based technique that takes\
+    \ advantage of specially designed functions\nthat will have a diﬀerent way of\
+    \ executing if an attacker tries to modify it, introducing extra delays,\ntherefore\
+    \ any alteration of the base software image will be detected and reported. Following\
+    \ the\nhybrid approach, in [25] the authors proposed the Secure and Minimal Architecture\
+    \ for (establishing\na dynamic) Root of Trust (SMART), through which they use\
+    \ the properties of the Read-Only Memory\n(ROM) module found in majority of low-end\
+    \ microcontroller unit (MCU) architectures to replicate\na few of the features\
+    \ that a TPM has (e.g., secure key storage area, reserved zone for attestation\
+    \ code\nor access control for enforcing the protection of specially deﬁned areas).\
+    \ Another proposal is given\nin [26] and consists of a technique that uses Physically\
+    \ Unclonable Functions (PUF) to detect any\nSensors 2019, 19, 4038\n13 of 20\n\
+    variation in the ﬂow of function execution, by beneﬁting of side-eﬀects in the\
+    \ processor manufacturing\nto generate unique hardware outputs for each input.\
+    \ For IoT devices that are running a lightweight\nLinux operating system, there\
+    \ are also mechanisms like Integrity Measurement Architecture (IMA)\nthat can\
+    \ attest the system run-time integrity. Linux IMA can also be integrated with\
+    \ a TPM in order to\ncompare the run-time integrity value with a data source that\
+    \ cannot be modiﬁed.\nThe proposed attestation framework has a generic structure\
+    \ that implements a secure message\nprotocol and relies on an external module\
+    \ for obtaining the integrity measurements (e.g., TPM, Linux\nIMA). Whenever the\
+    \ gateway wants to check the integrity of a node, it sends a Node Attestation\n\
+    Request (NAR) message to the IoT device. The NAR message consists of a nonce and\
+    \ an Hash-based\nMessage Authentication Code (HMAC) signature, computed over the\
+    \ nonce value, using a pre-shared\nkey established between the endpoint device\
+    \ and the gateway during the device enrollment phase.\nAfter receiving the NAR\
+    \ message, the node validates it by verifying the HMAC signature, thus\nmitigating\
+    \ DoS attacks where a malicious entity sends multiple attestation requests to\
+    \ the device\nin order to exhaust the computing/energy resources of the node.\
+    \ If the NAR message is validated,\nthe endpoint device executes the attestation\
+    \ measurements by means of an external module (e.g.,\nmethods mentioned at the\
+    \ beginning of this subsection). After obtaining the integrity measurement\nvalues,\
+    \ the endpoint device sends to the gateway a Node Attestation Measurement (NAM)\
+    \ message\nwhich consists of integrity measurement values along with an HMAC signature,\
+    \ computed over the\nintegrity measurement values concatenated with the nonce\
+    \ received from the gateway. The HMAC\nsignature of the NAM message is computed\
+    \ using the same pre-shared private key, established between\nthe IoT device and\
+    \ the gateway. The gateway validates the HMAC signature of the NAM packet (using\n\
+    the request nonce and the pre-shared key) and checks if the integrity measurement\
+    \ values are the same\nwith the values stored on the gateway side. If the signature\
+    \ is invalid or the integrity measurement\nvalues are incorrect, the gateway marks\
+    \ the device as compromised and ceases any communication\nwith it. The attestation\
+    \ state machine on the IoT device and gateway side take into consideration\na\
+    \ connectionless transport protocol, sending the messages multiple times before\
+    \ transitioning into\nan error state. The remote attestation message protocol\
+    \ is presented in Figure 6.\nSensors 2019, 19, x FOR PEER REVIEW \n13 of 20 \n\
+    \ \nAnother proposal is given in [26] and consists of a technique that uses Physically\
+    \ Unclonable \nFunctions (PUF) to detect any variation in the flow of function\
+    \ execution, by benefiting of \nside-effects in the processor manufacturing to\
+    \ generate unique hardware outputs for each input. For \nIoT devices that are\
+    \ running a lightweight Linux operating system , there are also mechanisms like\
+    \ \nIntegrity Measurement Architecture (IMA) that can attest the system run-time\
+    \ integrity. Linux IMA \ncan also be integrated with a TPM in order to compare\
+    \ the run-time integrity value with a data \nsource that cannot be modified. \n\
+    The proposed attestation framework has a generic structure that implements a secure\
+    \ message \nprotocol and relies on an external module for obtaining the integrity\
+    \ measurements (e.g., TPM, \nLinux IMA). Whenever the gateway wants to check the\
+    \ integrity of a node, it sends a Node \nAttestation Request (NAR) message to\
+    \ the IoT device. The NAR message consists of a nonce and an \nHash-based Message\
+    \ Authentication Code (HMAC) signature, computed over the nonce value, \nusing\
+    \ a pre-shared key established between the endpoint device and the gateway during\
+    \ the device \nenrollment phase. After receiving the NAR message, the node validates\
+    \ it by verifying the HMAC \nsignature, thus mitigating DoS attacks where a malicious\
+    \ entity sends multiple attestation requests \nto the device in order to exhaust\
+    \ the computing/energy resources of the node. If the NAR message is \nvalidated,\
+    \ the endpoint device executes the attestation measurements by means of an external\
+    \ \nmodule (e.g., methods mentioned at the beginning of this subsection). After\
+    \ obtaining the integrity \nmeasurement values, the endpoint device sends to the\
+    \ gateway a Node Attestation Measurement \n(NAM) message which consists of integrity\
+    \ measurement values along with an HMAC signature, \ncomputed over the integrity\
+    \ measurement values concatenated with the nonce received from the \ngateway.\
+    \ The HMAC signature of the NAM message is computed using the same pre-shared\
+    \ private \nkey, established between the IoT device and the gateway. The gateway\
+    \ validates the HMAC \nsignature of the NAM packet (using the request nonce and\
+    \ the pre-shared key) and checks if the \nintegrity measurement values are the\
+    \ same with the values stored on the gateway side. If the \nsignature is invalid\
+    \ or the integrity measurement values are incorrect, the gateway marks the device\
+    \ \nas compromised and ceases any communication with it. The attestation state\
+    \ machine on the IoT \ndevice and gateway side take into consideration a connectionless\
+    \ transport protocol, sending the \nmessages multiple times before transitioning\
+    \ into an error state. The remote attestation message \nprotocol is presented\
+    \ in Figure 6. \n \nFigure 6. The architecture of the Remote Node Attestation\
+    \ Module. \nThrough the dynamic approach of the gateway to node profiling and\
+    \ suspicious behavior \ndetection, devices are continuously monitored and in case\
+    \ a device seems to have been \ncompromised, then the gateway can request the\
+    \ starting of the attestation cycle. Abnormal behavior \nof the nodes can be detected\
+    \ by inbound and outbound traffic analysis. A node that no longer \nFigure 6.\
+    \ The architecture of the Remote Node Attestation Module.\nThrough the dynamic\
+    \ approach of the gateway to node proﬁling and suspicious behavior detection,\n\
+    devices are continuously monitored and in case a device seems to have been compromised,\
+    \ then the\ngateway can request the starting of the attestation cycle. Abnormal\
+    \ behavior of the nodes can be\ndetected by inbound and outbound traﬃc analysis.\
+    \ A node that no longer performs its tasks or starts\nSensors 2019, 19, 4038\n\
+    14 of 20\nmaking forbidden connections can be suspected that is under the direct\
+    \ control of an attacker. In this\ncase, the gateway sends to the node a veriﬁcation\
+    \ request and the latter starts the attestation cycle.\nRegarding the security\
+    \ of the communication channel, messages between IoT devices and gateway\nmay\
+    \ be protected using an Integrity Check Value (ICV), which consists of an HMAC\
+    \ computed over\nthe message payload. The ICV ﬁeld usage allows detection of packet\
+    \ tampering and replay attacks,\nwhich could allow an attacker to manipulate the\
+    \ sensor aggregated information. The HMAC algorithm\nemploys the aforementioned\
+    \ pre-shared key between the endpoint device and the gateway.\nThe proposed security\
+    \ framework also takes into consideration the privacy required by speciﬁc\nuser-related\
+    \ data. If data is mainly collected through a group of body sensors interconnected\
+    \ in a BAN\nthat has a speciﬁc sink through which data is exported to gateways,\
+    \ we can consider that sink as\na collector node. For enforcing the anonymization\
+    \ of data being sent to gateways and upper levels in\nthe framework, the collector\
+    \ node is initialized for each new individual with a diﬀerent tag that will\n\
+    be associated with all data collected and sent by that node. This tag will be\
+    \ generated based on the\nperson’s identity features (social security number,\
+    \ name, and age) that will be fed as input to a hash\nfunction, to ensure the\
+    \ randomness of the tag. By creating the tag in this manner, any future data\n\
+    associated with a person can be processed without employing the user’s identity.\
+    \ Also, through the\ntag, we create a decoupling of data and a person’s identity,\
+    \ without aﬀecting any of the functionality\noﬀered by the IoT system.\nConsidering\
+    \ the limited resources that an IoT device has, it is very important to carefully\
+    \ monitor\nthem, because an overload of a node can lead to lower computational\
+    \ performance or inactivity. In the\nproposed architecture, every node implements\
+    \ a module in charge of monitoring the load level in order\nto optimize the use\
+    \ of resources such as memory loading, CPU usage or battery level. Any exceeding\n\
+    of acceptable performance thresholds that can slow down the system will be managed\
+    \ at the gateway\nlayer by adapting traﬃc and activities in order to improve the\
+    \ distribution of workloads across the\nsystem elements.\nWhen the gateway receives\
+    \ an alert from the node about its status, it will update the security\npolicies\
+    \ and forward the information to the node, which in turn will call the policy\
+    \ update agent\ninstalled at its level. The policy update agent can also be called\
+    \ by the node when it detects that the\npreset thresholds are exceeded. In this\
+    \ case, the node initiates the process of updating security policies\nby sending\
+    \ a request to the gateway (see Figure 7).\nSensors 2019, 19, x FOR PEER REVIEW\
+    \ \n14 of 20 \n \nperforms its tasks or starts making forbidden connections can\
+    \ be suspected that is under the direct \ncontrol of an attacker. In this case,\
+    \ the gateway sends to the node a verification request and the latter \nstarts\
+    \ the attestation cycle. \nRegarding the security of the communication channel,\
+    \ messages between IoT devices and \ngateway may be protected using an Integrity\
+    \ Check Value (ICV), which consists of an HMAC \ncomputed over the message payload.\
+    \ The ICV field usage allows detection of packet tampering and \nreplay attacks,\
+    \ which could allow an attacker to manipulate the sensor aggregated information.\
+    \ The \nHMAC algorithm employs the aforementioned pre-shared key between the endpoint\
+    \ device and the \ngateway. \nThe proposed security framework also takes into\
+    \ consideration the privacy required by specific \nuser-related data. If data\
+    \ is mainly collected through a group of body sensors interconnected in a \nBAN\
+    \ that has a specific sink through which data is exported to gateways, we can\
+    \ consider that sink \nas a collector node. For enforcing the anonymization of\
+    \ data being sent to gateways and upper levels \nin the framework, the collector\
+    \ node is initialized for each new individual with a different tag that \nwill\
+    \ be associated with all data collected and sent by that node. This tag will be\
+    \ generated based on \nthe person’s identity features (social security number,\
+    \ name, and age) that will be fed as input to a \nhash function, to ensure the\
+    \ randomness of the tag. By creating the tag in this manner, any future \ndata\
+    \ associated with a person can be processed without employing the user’s identity.\
+    \ Also, through \nthe tag, we create a decoupling of data and a person’s identity,\
+    \ without affecting any of the \nfunctionality offered by the IoT system. \nConsidering\
+    \ the limited resources that an IoT device has, it is very important to carefully\
+    \ \nmonitor them, because an overload of a node can lead to lower computational\
+    \ performance or \ninactivity. In the proposed architecture, every node implements\
+    \ a module in charge of monitoring \nthe load level in order to optimize the use\
+    \ of resources such as memory loading, CPU usage or \nbattery level. Any exceeding\
+    \ of acceptable performance thresholds that can slow down the system \nwill be\
+    \ managed at the gateway layer by adapting traffic and activities in order to\
+    \ improve the \ndistribution of workloads across the system elements. \nWhen the\
+    \ gateway receives an alert from the node about its status, it will update the\
+    \ security \npolicies and forward the information to the node, which in turn will\
+    \ call the policy update agent \ninstalled at its level. The policy update agent\
+    \ can also be called by the node when it detects that the \npreset thresholds\
+    \ are exceeded. In this case, the node initiates the process of updating security\
+    \ \npolicies by sending a request to the gateway (see Figure 7). \n \nFigure 7.\
+    \ The architecture of the Node Status Monitoring Module. \n3.4. Management Layer\
+    \ \nFigure 7. The architecture of the Node Status Monitoring Module.\nSensors\
+    \ 2019, 19, 4038\n15 of 20\n3.4. Management Layer\nIn order to oﬀer a complete\
+    \ security framework architecture, for the user level we have proposed\na web\
+    \ application as a management tool. The web application allows the security administrator,\n\
+    through the graphical interface, to enable packet ﬁltering policies or to create\
+    \ a blacklist with devices\nthat are not taken into account when the anomaly detection\
+    \ score is computed. Regarding the sensor\nanomaly detection process, the security\
+    \ administrator can set certain parameters for monitoring the\nprocess and alerting\
+    \ him whenever a triggered parameter is activated, for example when the maximum\n\
+    value is reached, then the data is transmitted to the web application and the\
+    \ administrator can analyze\nit and take action.\nThe web application can be also\
+    \ considered the logging center of the IoT system. The logs from the\nnodes reach\
+    \ the gateway which will redirect them to the web platform, thus the logs will\
+    \ be available\nfor the security administrator. In order to address the incompatibility\
+    \ issues with existing proprietary\nsolutions, the web platform interacts with\
+    \ gateways using Representational State Transfer (REST) calls\nsecured by the\
+    \ TLS protocol.\nThrough the web application, the security administrator can monitor\
+    \ and keep track of packet\nstreams, having the possibility to view the rate at\
+    \ which packages are processed. The packet processing\nrate allows the security\
+    \ administrator to evaluate, in real time, the eﬀectiveness of the installed ﬁltering\n\
+    policies and to observe the pattern of a DoS attack.\n4. Testing and Results Analysis\n\
+    In realizing the proof-of-concept for diﬀerent modules of our proposed security\
+    \ framework,\nwe used open-source components that oﬀered a proven solution at\
+    \ a speciﬁc layer of the architecture\nwhile enabling various customizations needed\
+    \ to implement the functionality described in the previous\nsection. For managing\
+    \ connections and enforcing the monitoring and access control features of the\n\
+    Cloud module, we integrated a Zuul proxy solution, through which we can implement\
+    \ security\nrules. Acting as a service aggregator, the Zuul proxy empowered the\
+    \ use of ﬁltering mechanisms\non packets and the implementation of the service\
+    \ discovery mechanism described in the previous\nsection. The passive component\
+    \ of the Cloud module, namely the ambient environment repository,\nneeds to store\
+    \ information in a structure similar to a graph. Considering this, we chose to\
+    \ implement\nthe repository using a Not Only Structured Query Language (NoSQL)\
+    \ solution and picked MongoDB\nfor this purpose, given its maturity and the availability\
+    \ of drivers for several programming languages,\nsuch as C++ and Java.\nFor the\
+    \ core gateway security framework implementation we used Eclipse Kura which interacts\
+    \ with\nother local systems (e.g., Mosquitto MQTT broker) by means of IPC mechanisms.\
+    \ Thus, our reputation\nand SPN consumption modules are deployed as Kura OSGi\
+    \ containers. For the Cloud interaction, we used\nthe regular Java Jetty HyperText\
+    \ Transfer Protocol (HTTP) client for consuming REST services exposed by\nthe\
+    \ Cloud module: sensing data publishing, sensing data retrieval. Regarding the\
+    \ communication stack,\nwe used separate IoT protocol daemons like Mosquitto for\
+    \ MQTT broker, Eclipse Paho for MQTT-SN\nand Eclipse Californium for the CoAP\
+    \ server.\nAs stressed in the previous section, packet ﬁltering is a complex task\
+    \ that cannot be executed\nby resource constrained endpoint IoT devices. This\
+    \ process needs continuous optimizations even\non the gateway side in order to\
+    \ reduce security allocated resources (CPU cycles, memory). Given\nthat IoT network\
+    \ applications require low-latency communications, a DoS attack could be executed\n\
+    even if the gateway allocates resources for dropping the malicious packets, thus\
+    \ being unable to\ndispatch the legitimate packets in the required time frame.\
+    \ In order to evaluate the packet ﬁltering\nmodule for our gateway side IoT framework,\
+    \ we tested a scenario where an attacker executes a DoS\nusing the MQTT-SN protocol.\
+    \ IoT gateways are usually low-cost devices deployed at the edge of\nthe network.\
+    \ These devices are not equipped with advanced hardware based ﬁltering modules\
+    \ like\nApplication-Speciﬁc Integrated Circuits (ASIC), Field Programmable Gate\
+    \ Arrays (FPGA) or Intelligent\nNetwork Interface Controllers (SmartNIC). Considering\
+    \ these characteristics, the gateway ﬁltering\nSensors 2019, 19, 4038\n16 of 20\n\
+    solutions must be executed exclusively in software, either in the kernel or in\
+    \ userspace. Kernel ﬁltering\nsolutions bring the advantage of dropping a malicious\
+    \ packet in the earliest stage of the network data\nprocessing pipeline. Thus,\
+    \ a kernel based early packet drop mechanism saves resources because kernel\n\
+    packet (e.g., Linux skb structure) data structures will not be allocated and the\
+    \ receiver process will not\nbe scheduled, thus avoiding important context switch\
+    \ penalties. A kernel packet ﬁlter module brings\nthe drawback of complex development\
+    \ and the security risks of compromising or crashing the system\nwhen deploying\
+    \ an untrusted kernel module. The userspace ﬁltering solutions bring more ﬂexibility\n\
+    in terms of packet processing with the penalties of costly operating system context\
+    \ switches. In the\ncase of DoS attacks, the system is delayed by executing multiple\
+    \ context switches, being unable to\nprocess packets in the required time frame.\n\
+    A typical MQTT-SN scenario consists of IoT sensors that transmit information to\
+    \ a central broker,\nusing MQTT-SN PUBLISH, via a transparent or aggregator gateway.\
+    \ In our experiments, we simulated\nan MQTT-SN PUBLISH DoS attack, where a malicious\
+    \ device tries to allocate the gateway ﬁltering\nresources in order to block the\
+    \ legitimate packet processing. The implementation consists of a dynamic\nkernel\
+    \ based MQTT-SN ﬁltering solution, using the eBPF technology. More speciﬁcally,\
+    \ we used the\neXpress Data Path (XDP) / Iovisor open-source project which allows\
+    \ programming the Linux kernel\nnetwork data path using eBPF instructions generated\
+    \ from C programs (using the clang compiler).\nOur implementation uses the BPF\
+    \ Compiler Collection (BCC) framework, which allows injecting\nthe in-kernel eBPF\
+    \ instructions using a python front-end. For keeping a session on the kernel ﬁlter\n\
+    module and for collecting statistics, we used eBPF maps to communicate between\
+    \ the controller and\nthe ﬁlter module. For the MQTT-SN gateway, we used the Eclipse\
+    \ Paho MQTT-SN project, which\nwas integrated with our userspace ACL module. We\
+    \ simulated an attack scenario where one or\nmore IoT devices are compromised\
+    \ and used by the attack coordinator to execute DoS actions on the\ngateway side,\
+    \ by sending a continuous ﬂow of MQTT-SN PUBLISH packets. For the client (attacker)\n\
+    which ﬂoods the network with MQTT-SN PUBLISH packets, we also used the Eclipse\
+    \ Paho libraries.\nIn a ﬁrst experiment, we measured the number of dropped packets\
+    \ per second, by using the XDP\nkernel ﬁlter and the userspace module. For obtaining\
+    \ the kernel packet drop statistics, we used an eBPF\narray to store the values\
+    \ and a Python script which polls the module every second. For our testing\nscenario,\
+    \ we dropped MQTT-SN packets based on the QoS value, a protocol feature that can\
+    \ be easily\nexploited by an attacker. In Figure 8 is presented the MQTT-SN drop\
+    \ rate per second, when using\na kernel XDP packet ﬁlter compared with a userspace\
+    \ packet ﬁlter. As it can be observed, the traﬃc\ndrop process follows the same\
+    \ pattern, with the XDP kernel drop rate being 60k packet higher than the\nuserspace\
+    \ alternative. The results for this test case were obtained after the attacker\
+    \ device sent 100\nmillion MQTT-SN packets.\nSensors 2019, 19, x FOR PEER REVIEW\
+    \ \n16 of 20 \nresources because kernel packet (e.g., Linux skb structure) data\
+    \ structures will not be allocated and \nthe receiver process will not be scheduled,\
+    \ thus avoiding important context switch penalties. A \nkernel packet filter module\
+    \ brings the drawback of complex development and the security risks of \ncompromising\
+    \ or crashing the system when deploying an untrusted kernel module. The userspace\
+    \ \nfiltering solutions bring more flexibility in terms of packet processing with\
+    \ the penalties of costly \noperating system context switches. In the case of\
+    \ DoS attacks, the system is delayed by executing \nmultiple context switches,\
+    \ being unable to process packets in the required time frame. \nA typical MQTT-SN\
+    \ scenario consists of IoT sensors that transmit information to a central \nbroker,\
+    \ using MQTT-SN PUBLISH, via a transparent or aggregator gateway. In our experiments,\
+    \ we \nsimulated an MQTT-SN PUBLISH DoS attack, where a malicious device tries\
+    \ to allocate the gateway \nfiltering resources in order to block the legitimate\
+    \ packet processing. The implementation consists of \na dynamic kernel based MQTT-SN\
+    \ filtering solution, using the eBPF technology. More specifically, \nwe used\
+    \ the eXpress Data Path (XDP) / Iovisor open-source project which allows programming\
+    \ the \nLinux kernel network data path using eBPF instructions generated from\
+    \ C programs (using the \nclang compiler). Our implementation uses the BPF Compiler\
+    \ Collection (BCC) framework , which \nallows injecting the in-kernel eBPF instructions\
+    \ using a python front-end. For keeping a session on \nthe kernel filter module\
+    \ and for collecting statistics, we used eBPF maps to communicate between \nthe\
+    \ controller and the filter module. For the MQTT-SN gateway, we used the Eclipse\
+    \ Paho \nMQTT-SN project, which was integrated with our userspace ACL module.\
+    \ We simulated an attack \nscenario where one or more IoT devices are compromised\
+    \ and used by the attack coordinator to \nexecute DoS actions on the gateway side,\
+    \ by sending a continuous flow of MQTT-SN PUBLISH \npackets. For the client (attacker)\
+    \ which floods the network with MQTT-SN PUBLISH packets, we \nalso used the Eclipse\
+    \ Paho libraries. In a first experiment, we measured the number of dropped \n\
+    packets per second, by using the XDP kernel filter and the userspace module. For\
+    \ obtaining the \nkernel packet drop statistics, we used an eBPF array to store\
+    \ the values and a Python script which \npolls the module every second. For our\
+    \ testing scenario, we dropped MQTT-SN packets based on \nthe QoS value, a protocol\
+    \ feature that can be easily exploited by an attacker. In Figure 8 is presented\
+    \ \nthe MQTT-SN drop rate per second, when using a kernel XDP packet filter compared\
+    \ with a \nuserspace packet filter. As it can be observed, the traffic drop process\
+    \ follows the same pattern, with \nthe XDP kernel drop rate being 60k packet higher\
+    \ than the userspace alternative. The results for this \ntest case were obtained\
+    \ after the attacker device sent 100 million MQTT-SN packets. \n \nFigure 8. Drop\
+    \ packet rate (per second), in a DoS attack scenario. \nIn Figure 9 are presented\
+    \ the results of a second test case, where we analyze the rate of \nprocessed\
+    \ packets per second in a case of DoS attack. The DoS attack scenario consists\
+    \ of a malicious \ndevice that sends 100 million MQTT-SN packets with a QoS value\
+    \ of 1 and a legitimate device that \nsends the same number of packets with a\
+    \ QoS value of 0. As it can be observed, when the gateway \nuses the XDP kernel\
+    \ filtering method, it can process 20 k more legitimate packets, than when using\
+    \ \nthe userspace alternative. \nFigure 8. Drop packet rate (per second), in a\
+    \ DoS attack scenario.\nIn Figure 9 are presented the results of a second test\
+    \ case, where we analyze the rate of processed\npackets per second in a case of\
+    \ DoS attack. The DoS attack scenario consists of a malicious device\nSensors\
+    \ 2019, 19, 4038\n17 of 20\nthat sends 100 million MQTT-SN packets with a QoS\
+    \ value of 1 and a legitimate device that sends\nthe same number of packets with\
+    \ a QoS value of 0. As it can be observed, when the gateway uses\nthe XDP kernel\
+    \ ﬁltering method, it can process 20 k more legitimate packets, than when using\
+    \ the\nuserspace alternative.\nSensors 2019, 19, x FOR PEER REVIEW \n17 of 20\
+    \ \n \nFigure 9. Processed packet rate (per second) in a DoS attack scenario.\
+    \ \nAs noted in Section 3.3, before starting any data transfer, the gateway executes\
+    \ a remote \nattestation protocol with the IoT device. To validate the gateway\
+    \ attestation state machine, we \nsimulated a compromised IoT device by tampering\
+    \ the attestation response packet and by delivering \na wrong integrity measurement\
+    \ hash. \nThe DoS attack experimental results show that our proposed method drastically\
+    \ improves the \npacket drop rate, without requiring any dedicated hardware. Such\
+    \ a solution permits deploying \noff-the-shelf low cost gateways that can handle\
+    \ the security and network functions for the associated \nIoT network. This brings\
+    \ flexibility in choosing the hardware equipment to be installed on the IoT \n\
+    network edge. Also, by removing the necessity of having dedicated hardware for\
+    \ packet filtering \n(e.g., ASICs), the power consumption on the gateway side\
+    \ is significantly reduced. Implementing \nthe security filtering functions in\
+    \ software also brings flexibility in terms of software updates, taking \ninto\
+    \ consideration the continuously changing IoT attack techniques. In contrast,\
+    \ while ASIC filtering \nmechanism can provide a better performance in dropping\
+    \ packets, changing a hardware generation \nbrings increased costs and delays,\
+    \ which can be unacceptable for the agility of IoT markets. \n5. Conclusions and\
+    \ Future Work \nIoT development is a complex task, due to the multitude of elements\
+    \ which compose an IoT \nsystem, thus a standard framework accelerates considerably\
+    \ the time to market of an IoT product. \nMoreover, the importance of an IoT security\
+    \ framework is augmented in the current context, taking \ninto consideration that\
+    \ IoT devices operate with user private data and that mature IoT security \nsolutions\
+    \ can increase the IoT technology adoption. Our security framework targets all\
+    \ the layers of \nan IoT application: end-point network, gateway/edge, Cloud and\
+    \ management, trying to offer an \nall-in-one solution for designing an IoT security\
+    \ system. \nThe proposed security framework was designed to be deployed on low-cost\
+    \ commodity IoT \nhardware. It does not rely on dedicated hardware for executing\
+    \ security and network functions \noffload, trying to meet a trade-off between\
+    \ performance and costs, as presented in the experimental \nresults section. The\
+    \ experimental results analyze both functional aspects (power consumption \nmodel)\
+    \ and security aspects (DoS attacks mitigation mechanism) in order to validate\
+    \ one of the main \ncharacteristics of our system: a high availability security\
+    \ platform. This characteristic is critical for \nambient intelligence applications\
+    \ that need to rely on a highly available infrastructure that must \nprovide security\
+    \ functions. Costs and flexibility are also two important characteristics of an\
+    \ ambient \nintelligence application infrastructure, which are addressed by our\
+    \ system, taking into consideration \nthat the security and network edge devices\
+    \ have high costs in terms of acquisition/deployment and \nmaintenance. Also,\
+    \ given the fact that our solution is implemented using software-only functions,\
+    \ \nthe system can be easily updated in order to meet the dynamic of the IoT security\
+    \ landscape, where \nnew attacks and vulnerabilities are discovered frequently.\
+    \ \nFigure 9. Processed packet rate (per second) in a DoS attack scenario.\nAsnotedinSection3.3,beforestartinganydatatransfer,thegatewayexecutesaremoteattestationprotocol\n\
+    with the IoT device. To validate the gateway attestation state machine, we simulated\
+    \ a compromised IoT\ndevice by tampering the attestation response packet and by\
+    \ delivering a wrong integrity measurement hash.\nThe DoS attack experimental\
+    \ results show that our proposed method drastically improves the\npacket drop\
+    \ rate, without requiring any dedicated hardware. Such a solution permits deploying\n\
+    oﬀ-the-shelf low cost gateways that can handle the security and network functions\
+    \ for the associated\nIoT network. This brings ﬂexibility in choosing the hardware\
+    \ equipment to be installed on the IoT\nnetwork edge. Also, by removing the necessity\
+    \ of having dedicated hardware for packet ﬁltering\n(e.g., ASICs), the power consumption\
+    \ on the gateway side is signiﬁcantly reduced. Implementing\nthe security ﬁltering\
+    \ functions in software also brings ﬂexibility in terms of software updates, taking\n\
+    into consideration the continuously changing IoT attack techniques. In contrast,\
+    \ while ASIC ﬁltering\nmechanism can provide a better performance in dropping\
+    \ packets, changing a hardware generation\nbrings increased costs and delays,\
+    \ which can be unacceptable for the agility of IoT markets.\n5. Conclusions and\
+    \ Future Work\nIoT development is a complex task, due to the multitude of elements\
+    \ which compose an IoT\nsystem, thus a standard framework accelerates considerably\
+    \ the time to market of an IoT product.\nMoreover, the importance of an IoT security\
+    \ framework is augmented in the current context, taking into\nconsideration that\
+    \ IoT devices operate with user private data and that mature IoT security solutions\n\
+    can increase the IoT technology adoption. Our security framework targets all the\
+    \ layers of an IoT\napplication: end-point network, gateway/edge, Cloud and management,\
+    \ trying to oﬀer an all-in-one\nsolution for designing an IoT security system.\n\
+    The proposed security framework was designed to be deployed on low-cost commodity\
+    \ IoT\nhardware. It does not rely on dedicated hardware for executing security\
+    \ and network functions oﬄoad,\ntrying to meet a trade-oﬀ between performance\
+    \ and costs, as presented in the experimental results\nsection. The experimental\
+    \ results analyze both functional aspects (power consumption model) and\nsecurity\
+    \ aspects (DoS attacks mitigation mechanism) in order to validate one of the main\
+    \ characteristics\nof our system: a high availability security platform. This\
+    \ characteristic is critical for ambient intelligence\napplications that need\
+    \ to rely on a highly available infrastructure that must provide security functions.\n\
+    Costs and ﬂexibility are also two important characteristics of an ambient intelligence\
+    \ application\ninfrastructure, which are addressed by our system, taking into\
+    \ consideration that the security and\nSensors 2019, 19, 4038\n18 of 20\nnetwork\
+    \ edge devices have high costs in terms of acquisition/deployment and maintenance.\
+    \ Also,\ngiven the fact that our solution is implemented using software-only functions,\
+    \ the system can be\neasily updated in order to meet the dynamic of the IoT security\
+    \ landscape, where new attacks and\nvulnerabilities are discovered frequently.\n\
+    Concerning the security attacks, based on the experimental results, we can conclude\
+    \ that our\nsystem is resilient to DoS attacks and to energy exhaustion attacks.\
+    \ The simulated DoS attack consists\nof one or more compromised IoT devices that\
+    \ send malicious network packets to the gateway, this\nattack being handled at\
+    \ the gateway side by dropping packets in an optimized manner while serving\n\
+    normal requests. The energy exhaustion attack is also handled at the gateway side\
+    \ by the SPN power\nconsumption model which delays, in a stochastic manner, the\
+    \ execution of the anomaly detection\nalgorithm when the gateway’s battery is\
+    \ low.\nRegarding our future work, we plan to integrate and test various reputation\
+    \ algorithms to oﬀer\na suite of default algorithms which can address various\
+    \ IoT interactions model, like Barabasi-Albert,\nWatts-Strogatz or random. Another\
+    \ research direction is extending our security framework with\na Linux Containers\
+    \ (LXC) manager in order to allow endpoint IoT devices to run complex ﬁltering\n\
+    applications on the gateway side. Taking into consideration that a Trusted Execution\
+    \ Environment\n(TEE) is important in the IoT context, mainly because of the deployment\
+    \ scenario (e.g., low physical\nprotection, third-party software), we also plan\
+    \ to add a TEE compatible abstract software module.\nThe TEE aware module will\
+    \ allow our IoT security framework to be integrated with TEE hardware\nand as\
+    \ a default implementation, we plan to use OpenTEE. Regarding our packet ﬁlter\
+    \ solution,\nwe plan to integrate our security framework with an eBPF aware SmartNIC\
+    \ which can oﬄoad the\ngateway CPU from the ﬁltering process while providing the\
+    \ same ﬂexibility as our in-kernel packet\nprotection mechanism.\nFrom the anomaly\
+    \ detection point of view, we plan to implement and test an algorithm based on\n\
+    the prediction of node value and afterward use the predicted value to detect potential\
+    \ data anomalies.\nOur goal is to implement a Sequential Minimal Optimization\
+    \ (SMO) Regression, which is the most\nsuitable prediction method for healthcare\
+    \ [4], and to catch the error by comparing the values with\na dynamic threshold.\
+    \ A dynamic value for the threshold is eﬃcient in healthcare systems because of\n\
+    tracked parameters which may vary depending on the activity that the person undertakes.\
+    \ The threshold\nwill be determined using the sliding window algorithm.\nIn this\
+    \ paper, we presented a modular IoT security framework for ambient intelligence\
+    \ environment\nwhich addresses all the IoT application layers and targets various\
+    \ security areas. This framework aims\nto be platform independent and it can be\
+    \ integrated with third-party IoT platforms, separating the\nsecurity tasks from\
+    \ the functional processes.\nAuthor Contributions: Conceptualization and methodology,\
+    \ I.B., B.-C.C., S.-C.A. and I.M.; formal analysis, I.B.,\nB.-C.C., S.-C.A. and\
+    \ I.M.; software and validation, B.-C.C., S.-C.A. and I.M.; writing—original draft\
+    \ preparation,\nI.B., B.-C.C., S.-C.A and I.M.; writing—review and editing, I.B.,\
+    \ B.-C.C., S.-C.A and I.M.; supervision and funding\nacquisition, I.B.\nFunding:\
+    \ This work was supported by a grant of the Romanian Ministry of Research and\
+    \ Innovation, CCCDI –\nUEFISCDI, project number PN-III-P1-1.2-PCCDI-2017-0272/Avant-garde\
+    \ Technology Hub for Advanced Security\n(ATLAS), within PNCDI III.\nAcknowledgments:\
+    \ The authors would like to thank the reviewers for all useful and helpful comments\
+    \ on\nour manuscript.\nConﬂicts of Interest: The authors declare no conﬂict of\
+    \ interest.\nReferences\n1.\nAmmar, M.; Russello, G.; Crispo, B. Internet of Things:\
+    \ A survey on the security of IoT frameworks. J. Inf.\nSecur. Appl. 2018, 38,\
+    \ 8–27. [CrossRef]\n2.\nGordana, G.; Mladen, V.; Nebojsa, M.; Dragan, V. The IoT\
+    \ architectural framework, design issues and\napplication domains. Wirel. Pers.\
+    \ Commun. 2017, 92, 127–148. [CrossRef]\nSensors 2019, 19, 4038\n19 of 20\n3.\n\
+    Bandyopadhyay, D.; Sen, J. Internet of things: Applications and challenges in\
+    \ technology and standardization.\nWirel. Pers. Commun. 2011, 58, 49–69. [CrossRef]\n\
+    4.\nHaque, S.A.; Rahman, M.; Aziz, S.M. Sensor anomaly detection in wireless sensor\
+    \ networks for healthcare.\nSensors 2015, 15, 8764–8786. [CrossRef] [PubMed]\n\
+    5.\nBauer, M.; Boussard, M.; Bui, N.; Carrez, F.; Jardak, C.; De Loof, J.; Magerkurth,\
+    \ C.; Meissner, S.; Nettstater, A.;\nOlivereau, A.; et al. Internet of things—Architecture\
+    \ IOT-A Deliverable D1.5—Final architectural reference\nmodel for the IoT v3.0.\
+    \ Available online: https://iotforum.org/wp-content/uploads/2014/10/D1.5.pdf (accessed\n\
+    on 3 August 2019).\n6.\nFiWARE—Security Architecture. Available online: https://forge.ﬁware.org/plugins/mediawiki/wiki/ﬁware/\n\
+    index.php/Security_Architecture (accessed on 3 August 2019).\n7.\nOliveira, L.M.L.;\
+    \ Rodrigues, J.P.C.; De Sausa, A.F.; Lloret, J. A network access control framework\
+    \ for\n6LoWPAN networks. Sensors 2013, 13, 1210–1230. [CrossRef] [PubMed]\n8.\n\
+    Saleem, S.; Ullah, S.; Kwak, K.S. A study of IEEE 802.15.4 security framework\
+    \ for wireless body area networks.\nSensors 2011, 11, 1383–1395. [CrossRef] [PubMed]\n\
+    9.\nEder, T.; Nachtmann, D.; Schreckling, D. Trust and Reputation in the Internet\
+    \ of Things; Tech. Rep.; Universitat\nPassau: Passau, Germany, 2013.\n10.\nZimmerman,\
+    \ T.G. Personal area networks: Near-ﬁeld intrabody communication. IBM Syst. J.\
+    \ 1996, 35,\n609–617. [CrossRef]\n11.\nDam, K.V.; Pitchers, S.; Barnard, M. From\
+    \ PAN to BAN: why body area networks? In Proceedings of the\nWireless World Research\
+    \ Forum (WWRF) Second Meeting, Nokia Research Centre, Helsinki, Finland, 10–11\n\
+    May 2001.\n12.\nNielsen, M.; Krukow, K.; Sassone, V. A bayesian model for event-based\
+    \ trust. Electron. Notes Theor. Comput.\nSci. 2007, 172, 499–521. [CrossRef]\n\
+    13.\nYaun, J.; Zhou, H.; Chen, H. SLAD: Subjective logic anomaly detection framework\
+    \ in wireless sensor\nnetworks. Int. J. Distrib. Sens. Netw. 2011, 8, 1–21. [CrossRef]\n\
+    14.\nHonjun, D.; Zhiping, J.; Xiaona, D. An entropy-based trust modeling and evaluation\
+    \ for wireless sensor\nnetworks. In Proceedings of the International Conference\
+    \ on Embedded Software and Systems, Sichuan,\nChina, 29–31 July 2008; pp. 27–34.\
+    \ [CrossRef]\n15.\nHong, L.; Jiaming, T.; Yan, S. Entropy-based trust management\
+    \ for data collection in wireless sensor networks.\nIn Proceedings of the 5th\
+    \ International Conference on Wireless Communications, Networking and Mobile\n\
+    Computing, Beijing, China, 24–26 September 2009; pp. 1–4. [CrossRef]\n16.\nMármol,\
+    \ F.G.; Pérez, G.M. Providing trust in wireless sensor networks using a bio-inspired\
+    \ technique.\nTelecommun. Syst. 2011, 46, 163–180. [CrossRef]\n17.\nMarzi, H.;\
+    \ Li, M. An enhanced bio-inspired trust and reputation model for wireless sensor\
+    \ network. Proced.\nComput. Sci. 2013, 19, 1159–1166. [CrossRef]\n18.\nMarti,\
+    \ S.; Garcia-Molina, H. Taxonomy of trust: Categorizing P2P reputation systems.\
+    \ Comput. Netw. 2006,\n50, 472–484. [CrossRef]\n19.\nMármol, F.G.; Pérez, G.M.\
+    \ Towards pre-standardization of trust and reputation models for distributed and\n\
+    heterogeneous systems. Comput. Stand. Interfaces 2010, 32, 185–196. [CrossRef]\n\
+    20.\nKhalid, O.; Khan, S.U.; Madani, S.A.; Hayat, K.; Khan, M.I. Comparative study\
+    \ of trust and reputation\nsystems for wireless sensor networks. Secur. Commun.\
+    \ Netw. 2013, 6, 669–688. [CrossRef]\n21.\nAlswailim, M.A.; Hassanein, H.S.; Zulkernine,\
+    \ M. A reputation system to evaluate participants for\nparticipatory sensing.\
+    \ In Proceedings of the 2016 IEEE Global Communications Conference (GLOBECOM),\n\
+    Washington, DC, USA, 4–8 December 2016; pp. 1–6. [CrossRef]\n22.\nShareef, A.;\
+    \ Zhu, Y. Energy modeling of wireless sensor nodes based on petri nets. In Proceedings\
+    \ of the 39th\nInternational Conference on Parallel Processing, San Diego, CA,\
+    \ USA, 13–16 September 2010; pp. 101–110.\n[CrossRef]\n23.\nChifor, B.C.; Bica,\
+    \ I.; Patriciu, V.V. Sensing service architecture for smart cities using social\
+    \ network platforms.\nSoft Comput. 2017, 21, 4513–4522. [CrossRef]\n24.\nSeshadri,\
+    \ A.; Luk, M.; Shi, E.; Perrig, A.; Van Doorn, L.; Khosla, P. Pioneer: Verifying\
+    \ integrity and\nguaranteeing execution of code on legacy platforms. In Proceedings\
+    \ of the Twentieth ACM Symposium on\nOperating Systems Principles, Brighton, UK,\
+    \ 23–26 October 2005.\nSensors 2019, 19, 4038\n20 of 20\n25.\nEl Defrawy, K.;\
+    \ Francillon, A.; Perito, D.; Tsudik, G. SMART: Secure and minimal architecture\
+    \ for (establishing\na dynamic) root of trust. In Proceedings of the 19th Annual\
+    \ Network and Distributed System Security\nSymposium, San Diego, CA, USA, 5–8\
+    \ February 2012.\n26.\nKong, J.; Koushanfar, F.; Pendyala, P.K.; Sadeghi, A.R.;\
+    \ Wachsmann, C. PUFatt: Embedded platform\nattestation based on novel processor-based\
+    \ PUFs. In Proceedings of the 51st ACM/EDAC/IEEE Design\nAutomation Conference\
+    \ (DAC), San Francisco, CA, USA, 1–5 June 2014; pp. 1–6. [CrossRef]\n© 2019 by\
+    \ the authors. Licensee MDPI, Basel, Switzerland. This article is an open access\n\
+    article distributed under the terms and conditions of the Creative Commons Attribution\n\
+    (CC BY) license (http://creativecommons.org/licenses/by/4.0/).\n"
+  inline_citation: '>'
+  journal: Sensors (Basel)
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/1424-8220/19/18/4038/pdf?version=1568888936
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Multi-Layer IoT Security Framework for Ambient Intelligence Environments
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

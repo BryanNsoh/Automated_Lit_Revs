@@ -1,0 +1,642 @@
+- DOI: https://doi.org/10.1109/access.2019.2909525
+  analysis: '>'
+  authors:
+  - Osamu Takyu
+  - Kohji Shirai
+  - Takeo Fujii
+  - Mitsuo Ohta
+  citation_count: 6
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Journals & Magazines >IEEE Access >Volume: 7 Adaptive
+    Channel Assignment With Predictions of Sensor Results and Channel Occupancy Ratio
+    in PhyC-SN Publisher: IEEE Cite This PDF Osamu Takyu; Keiichiro Shirai; Takeo
+    Fujii; Mai Ohta All Authors 8 Cites in Papers 689 Full Text Views Open Access
+    Comment(s) Abstract Document Sections I. Introduction II. Related Works III. System
+    Model IV. Proposed Channel Assignment V. Numerical Results Show Full Outline Authors
+    Figures References Citations Keywords Metrics Footnotes Abstract: Applications
+    related to the Internet of Things are widely diversified and require both low
+    latency and the access of massive sensors to wireless sensor networks. In physical
+    wireless parameter conversion sensor networks (PhyC-SN), a fusion center (FC)
+    can recognize information from all sensors on the frequency spectrum of the received
+    signals via conversion from sensor information to signal frequency. The higher
+    resolution of sensor information of PhyC-SNs requires securing more frequency
+    bandwidth. Therefore, spectrum sharing between PhyC-SNs and other systems is essential.
+    For this study, we assume that primary systems (PSs) refer to other wireless systems
+    and that secondary systems (SSs) refer to the PhyC-SN. The SS detects any access
+    from the PS and immediately stops access to an FC. This results in a loss of sensor
+    information. Thus, the accuracy of the gathered sensor information by an FC is
+    degraded. This paper proposes an adaptive channel assignment based on two predictions;
+    sensor information and channel occupancy rate. In the proposed method, the predicted
+    error caused by the cessation of channel access is calculated and the assignment
+    is constructed by minimizing this predicted error. Since the sensor can select
+    channels in accordance with the error of an instantaneous sensor result, the proposed
+    channel assignment can utilize awareness of the instantaneous sensor result. The
+    proposed method achieves high accuracy of gathered sensor information while delivering
+    less frequent sensor information to the FC, thereby improving the utilization
+    efficiency of frequency channels. In the proposed double stage recognition for
+    physical wireless parameter conversion sensor networks (PhyC-SN), a distribution
+    of all the sensing information can be recogn...View more Published in: IEEE Access
+    ( Volume: 7) Page(s): 44645 - 44658 Date of Publication: 09 April 2019 Electronic
+    ISSN: 2169-3536 DOI: 10.1109/ACCESS.2019.2909525 Publisher: IEEE Funding Agency:
+    SECTION I. Introduction Recently, the Internet of Things (IoT) has attracted increasing
+    attention for the purpose of monitoring and controlling the status of computerized
+    devices using the Internet, thereby realizing possible improvements in convenience,
+    productivity, and energy efficiency [1]. The demands of the data transmission
+    networks that support the IoT, known as Wireless sensor networks (WSNs), have
+    thus greatly diversified over recent years. Fields of particular interest include;
+    reducing maintenance costs via “life extension” [2], “low delays” for mechanical
+    robot control and autonomous driving [3], [4], and a “high capacity” for gathering
+    wide and diverse sensor information, such as the monitoring of crustal movement
+    during earthquakes [5]. Since WSNs involve machine to machine (M2M) communication,
+    the demand for WSNs is likely to become significantly enhanced as compared to
+    conventional wireless communication, which involves human to machine communication.
+    To achieve real time properties and a high capacity to access multiple sensors
+    of WSNs, several wireless access schemes have been implemented. Frequency hopping
+    methods [6] and the use of ultra-wide bands based on impulse radio time hopping
+    [7] enable simultaneous wireless access based on spread spectrum technology. However,
+    when the load from the simultaneous wireless access of sensors exceeds the spreading
+    gain, the packet error rate rapidly degrades, which can drastically degrade communication
+    quality. Methods involving multi-user, multi-input, multi-output [8] and non-orthogonal
+    multiple access [9] technologies also enable the simultaneous wireless access
+    of multi-antenna systems. However, such methods cause increases in delay times
+    owing to the complicated processing required for separation of a signal. The present
+    authors have proposed the use of Physical Wireless Parameter Conversion Sensor
+    Networks (PhyC-SNs) as novel, real time information gathering systems [10]. A
+    PhyC-SN converts sensor information to a carrier frequency in a manner similar
+    to frequency shift keying. After all sensors in the network simultaneously access
+    a single fusion center (FC), the FC detects the frequency spectra of the received
+    signals using fast Fourier transform (FFT). In this case, the modulation signal
+    sent by each sensor appears as a sharp spike in a spectrum at different frequencies,
+    where the center frequency of the spectrum corresponds to the sensor information.
+    Since distribution of the spectra coincides with that of all sensor information,
+    the statistical information (such as the median value and the variance of the
+    distribution) is instantly obtained. The processing delay in the demodulation
+    at the FC is extremely short, as it simply consists of a one-time FFT and spectrum
+    detection. After obtaining the statistics for all sensors, the FC can separate
+    the signals by using a few features from each sensor as information sources. For
+    example, we have proposed a method using the unique frequency offset of a sensor
+    [11], [12], a method using the Kalman filter for capturing temporal correlations
+    of sensor results [13], and a data separation method that regards the correlation
+    of data as a shortest path problem [14]. A PhyC-SN determines the number of quantization
+    levels for sensor information based on available bandwidth, meaning that the transmission
+    of highly detailed sensor information requires expansion of the bandwidth. For
+    such an expansion, the network utilizes a dynamic spectrum access (DSA) cognitive
+    radio, which allows frequency sharing between different types of radio systems.
+    For example, the 2.4GHz band uses WiFi, ZigBee, and BLE, and the Sub-GHz band,
+    WiSUN and LPWA, share a frequency spectrum among heterogeneous wireless systems.
+    To avoid interference with other systems, a listen before talk (LBT) access control
+    is applied using a spectrum sensor. When access from another system is recognized,
+    the external access of the main system is stopped, thereby avoiding interference
+    with other systems. Hence, transmitting opportunities for the main system are
+    somewhat limited when other systems frequently use the same channels. In the PhyC-SN,
+    each quantization level of sensor information is assigned to a particular channel
+    for modulation and demodulation. If any channels are frequently occupied by other
+    systems, the quantization levels assigned to them frequently fail owing to the
+    LBT access control. As a result, the accuracy of the statistics obtained from
+    the aggregated results of all sensors is drastically degraded. Therefore, the
+    construction of assignments between quantization levels and channels should include
+    adaptation to channel occupancy caused by the other systems. In this paper, we
+    propose using an adaptive construction to assign channels to quantization levels
+    in PhyC-SNs by utilizing two predictions, sensor information and channel occupancy
+    rate (COR). The first is that information from sensors that captures physical
+    phenomena such as temperature, illuminance, humidity, vibrancy, location, and
+    CO2 density has significant temporal and spatial correlation. We propose a probability
+    model to estimate future sensor information derived from the aggregated results
+    of past sensor information. As a result, an occurrence probability is obtained
+    from the quantization levels of that sensor information. Second, we focus on the
+    COR of each channel [15], which is the average frequency of use by other systems.
+    The COR is given as the ratio of the entire spectrum sensor observation time to
+    the time another system occupies a channel and can therefore indicate the probability
+    that a channel will be occupied in the future. Using the two predicted values
+    we construct a method of assigning channel and quantization levels based on cost
+    optimization. We consider two types of cost: the successful probability of delivering
+    (SPD) sensor information to the FC and the minimum mean square error (MMSE). For
+    the cost associated with MMSE, the predicted error caused by the cessation of
+    channel access is calculated and assignment is decided by minimizing this predicted
+    error. Since the sensor can select a channel in accordance with the error of an
+    instantaneous sensor result, the proposed channel assignment uses awareness of
+    the instantaneous sensor result. This paper also considers double stage recognitions
+    (online and offline processes) for an assignment optimization method. The online
+    and offline processes estimate the statistics of all the sensor information and
+    a future tendency for each sensor result. We consider two schemes for estimating
+    COR: the use of specific spectrum sensors and crowd-sourced [16] consignment of
+    other wireless systems. For computer simulation and experimental evaluation, the
+    proposed PhyC-SN achieves the superior accuracy that aggregated sensor information
+    brings, compared with conventional packet access based on frequency division multiple
+    access (FDMA). Moreover, the method of assigning channels and quantization levels,
+    which is constructed using the MMSE criterion, improves the accuracy of aggregated
+    sensor information with a smaller SPD owing to the awareness of the instantaneous
+    sensor result. Thus, it can improve the usage efficiency of frequency channels.
+    The contribution of this study is as follows. First is the construction of a wireless
+    sensor network with channel assignment based on the two predictions, sensor results,
+    and an estimation of COR assisted by spectrum sensor and crowdsourcing. Second
+    is the construction of channel assignment using recognition of the instantaneous
+    sensor result. The third clarifies the advantage of the proposed channel assignment
+    using computer simulation. The production of cognitive sensor networks and the
+    optimization of channel assignment are provided in Section II. The assumed system
+    model and details of the proposed channel assignment are provided in Section III.
+    The simulation results are provided in Section IV. Section V concludes this paper.
+    Tables 1 and 2 show the list of abbreviated words and parameters in this paper,
+    respectively. TABLE 1 Abbreviated Words TABLE 2 Parameters in This Paper SECTION
+    II. Related Works Various DSA schemes for WSNs have been considered using frequency
+    spectrum sharing among heterogeneous wireless communication systems. Spectrum
+    sharing causes the degradation of specific quality of service (QoS) criteria,
+    such as the packet delivery rate (PDR), latency, and the accuracy of the aggregated
+    sensor information [17]. Therefore, an important problem concerning spectrum sharing
+    is how to improve the degraded QoS. In spectrum sharing among heterogeneous wireless
+    communication systems, it is assumed that there are two priority classes in the
+    access channel: Primary systems (PSs) and Secondary systems (SSs). In order to
+    increase the number of simultaneous accessing nodes, both PSs and SSs simultaneously
+    access the frequency spectrum without the degradation of QoS, which is referred
+    to as an underlay DSA [18]. The co-channel interference (CCI) from the transmitters
+    of the PS is derived using the theory of stochastic geometry and the optimal construction
+    of transmission power control of the SS is constructed as in [19]. In an underlay
+    type of DSA, the instantaneous CCI of the PS fluctuates significantly and is dependent
+    of the PS traffic. A power margin [20] or a high-speed MAC protocol is required,
+    which estimates the instantaneous CCI of the PS and controls the parameters of
+    transmission power and wireless access. However, this causes excessive power consumption
+    by the sensor nodes. In underlay DSA, the transmission power is too small to suppress
+    interference to the PS and to maintain the large throughput required for QoS of
+    the SS. When the SS can transmit a signal with enough power to satisfy the required
+    QoS, it controls the selection of accessing channels or the access timing to a
+    channel to avoid harmful interference to the PS, where the type of spectrum sharing
+    is an overlay DSA. Various varieties of channel selection or resource allocation
+    for overlay DSA of cognitive sensor networks have been considered so far [21].
+    Reference [21] shows conventional studies for optimal channel assignment based
+    on various kinds of criteria, such as energy efficiency, throughput, QoS, interference
+    avoidance, fairness or priority, and the number of handoff events. For our proposed
+    WSNs, the amount of information from sensors is constant and two aspects of quality
+    are achieved; that is the real-time data collection for simultaneous access from
+    all the sensors to the FC and avoiding interference to the PS. In addition, the
+    accuracy of all the sensor results collected by the FC is adequately improved.
+    Conventional studies consider maximization of the PDR for improving the accuracy
+    of sensor results collected by FC. Random channel assignment to a sensor node
+    in FDMA systems is proposed [22]. Since interference to the PS can be modeled
+    using the stochastic process, the transmission power is controlled to ensure the
+    suppression of interference to the PS. However, the optimization of channel assignment
+    is not considered. Channel assignment based on spectrum usability for increasing
+    PDR and reducing power consumption is proposed [23]. Carrier sensing is iteratively
+    performed until an available channel is found and thus the delay for channel access
+    is significant. Channel assignment with an awareness of the transmit waiting time
+    of each sensor is proposed [24], but is only available under an unbalanced transmit
+    waiting time among sensors. Channel assignment for increasing the efficiency of
+    both energy and frequency spectrum usage with the securement of a specific PDR
+    is proposed for the WSN via energy harvesting [25]. If channel access from the
+    PS increases, the required PDR cannot be assured. Channel assignment using a successful
+    rate of packet transmission based on the signal to noise power for minimizing
+    late packet delivery is proposed [26]. This requires channel state information
+    (CSI), but how to estimate CSI is not described. The optimal channel assignment
+    subject to cumulative interference for maximizing the availability of a channel
+    is considered [27]. In addition, channel assignment based on the COR of a PS assisted
+    by a cloud server for maximizing the future availability of access channels is
+    considered [28]. The conventional channel assignment for maximizing PDR is via
+    assignment to an individual sensor node. In PhyC-SN, the channel assignment to
+    the individual quantization level of a sensor result is constructed, and thus,
+    each sensor changes the accessing channel in accordance with the importance of
+    the instantaneous sensor result. Channel assignment by adaption to an instantaneous
+    sensor result is referred to as channel assignment with information awareness.
+    To our knowledge, channel assignment with information awareness has not yet been
+    considered. Moreover, tendencies found using sensor information have recently
+    been applied to WSN protocols to reduce power consumption and improve the accuracy
+    of gathered sensor information. Coding schemes that include the temporal and spatial
+    correlations of sensor information have been considered for improving both error
+    rates [29] and the efficiency of collecting sensor information owing to the suppression
+    of redundant data [30]. A sleep schedule using the temporal correlation of sensor
+    information has been proposed for prolonging the life time of sensors [31]. For
+    a multi-hop WSN, a clustering technique using the spatial correlation of sensor
+    information is proposed in [32]–[34]. As the updating of clustering becomes less
+    frequent, overhead signaling for rearranging clusters is reduced, achieving the
+    prolongation of sensor nodes. In addition, the access schedule of sensor nodes
+    based on the spatial correlation of sensor information is proposed in [35]. The
+    improvement in the QoS achieved; more specifically the latency, the accuracy of
+    gathered sensor information, and the power consumption of sensor nodes are all
+    enhanced. However, the achievement of real-time information collection using sensors
+    together with the construction of channel selection based on the tendencies of
+    both sensor information and channel occupancy rates has not yet been considered.
+    Thus, this paper utilizes a novel WSN for achieving real-time data collection
+    and improving frequency usage efficiency under a frequency spectrum shared among
+    heterogeneous wireless communication systems. SECTION III. System Model A. Overview
+    of PHYC-SN Figure 1 shows an overview of the proposed PhyC-SN. The system is made
+    up of single FC and multiple sensor nodes (nodes); each node sends detected sensor
+    information to the FC. Hence, a star network topology is constructed, where j
+    indicates the node number ( j∈{1,2,…,J} ) and J is the total number of nodes.
+    FIGURE 1. Overview of PhyC-SN. Show All In each node, sensor information is converted
+    into a discrete value using uniform quantization, where the delegated value of
+    each quantized interval is referred to as a quantization level. We define x j,n
+    ,n∈{1,2,…,N} as the n th quantization level of the j th node, where N is the total
+    number of quantization levels. In the PhyC-SN, the quantization level is converted
+    to subcarrier by inverse fast Fourier transform (IFFT). The PhyC-SN uses a conversion
+    matrix W to determine the relationship between the quantization level and the
+    subcarrier number. If n th quantization level is converted into k th subcarrier,
+    the conversion matrix components of the k th line and n th column, W k,n , are
+    set to 1, W k,n =1 . Otherwise, W k,n =0 . The conversion matrix has the following
+    two conditions of constraint: (1) Each quantization level must be converted into
+    a subcarrier. Therefore, ∑ K k=1 W k,n =1 is set, where K is the total number
+    of subcarriers. (2) Each subcarrier is assigned to (at most) one quantization
+    level. It is acceptable for a subcarrier to not be assigned to any quantization
+    level. Therefore, ∑ N n=1 W k,n ≤1 , where N=K , the equal relation, ∑ N n=1 W
+    k,n =1 , is set. As example, we set a conversion matrix with K lines and N columns.
+    As a result, the above two constraint conditions are described as follows: W∈
+    {0,1} K×N s.t. { ∑ K k=1 W k,n =1 ∑ N n=1 W k,n ≤1. (1) View Source where the
+    matrix is referred to as a conversion matrix (CM). For sharing the conversion
+    matrix, the FC broadcasts information pertaining to the CM to all nodes. If a
+    n th quantization level is converted via subcarrier modulation, the node selects
+    the n th column vector of the CM, W n =[ W 1,n , W 2,n ,…, W K,n ] ⊤ , after which
+    it is fed into the IFFT. Following this, the node obtains the time domain signal
+    of a subcarrier whose frequency corresponds to the n th quantization level. After
+    frequency up-conversion, the sinusoidal wave of the carrier frequency plus the
+    subcarrier frequency are sent to the FC. The FC broadcasts a request signal to
+    all sensors and all nodes simultaneously send the resulting sinusoidal waves to
+    the FC. Thus, the request signal sent by the FC is a trigger for the access channels
+    of all nodes. After down conversion, the FC detects the frequency spectrum of
+    the received signal by FFT. The sinusoidal wave sent by each node is detected
+    in the narrow spectrum in the form of a spike [13]. Since the size of the IFFT
+    used by the sensor is the same as that of the FFT used by the FC, the spectrum
+    of received signal is resolved into the common spectrum components of the subcarrier.
+    If the FC detects spectrum components above a certain threshold, it recognizes
+    the subcarrier index of the detected spectrum components. Following this, the
+    FC can recognize all sensor information via conversion from the recognized subcarrier
+    indices to the quantization level of sensor information by the CM, W . As a result,
+    the FC can recognize the statistical tendencies of the aggregated sensor information.
+    The threshold for detecting spectrum components should be adjusted in order to
+    avoid misdetection and false alarms [36]. The impacts of both false alarms and
+    misdetection to the accuracy of aggregated sensor information are important topics
+    for future work; thus, this paper assumes that neither situation has occurred
+    due to use of a suitable threshold. In addition, the frequency offset caused by
+    the frequency mismatch of local oscillators between the transmitter and receiver
+    can cause errors in the recognition of sensor information and inter-carrier interferences
+    [13]. Compensation techniques for frequency offset, such as multi-antenna schemes
+    [13] and interference cancellation [11], [12], have been considered. This paper
+    assumes that any frequency offset is negligible owing to these compensation techniques.
+    Once the FC can estimate the median, deviation, and outliers of all sensor information
+    from the detected spectrum components, various schemes for inserting the ID node
+    into the transmitted signal are considered for specifying the information source
+    of the individual sensor information. These include frequency hopping with ID
+    specific sequences [37], fractional frequency offset with ID specification [11],
+    [12], and multi-target tracking with periodically informing ID [14]. B. Spectrum
+    Sharing Among PhyC-SN and Other Systems We assume that the PhyC-SN utilizes an
+    LBT type of DSA such as WiFi, and that PS and SS refers to other systems and the
+    PhyC-SN, respectively. PSs and SSs are located at random points over a specific
+    area. In the PhyC-SN, a node detects the access of a PS via a spectrum sensor
+    in a channel. When the node detects access, it stops accessing the channel; the
+    channel bandwidth is identical to the subcarrier bandwidth defined by the FFT
+    and the channel number is the same as the FFT index. As a result, the node cannot
+    inform the FC about the sensor information. The availability of spectrum sensors
+    for detecting PSs is defined by the circle model [38]. If a PS is located within
+    the circle of a spectrum sensor, a SS can recognize the access of the PS; otherwise
+    it cannot. We assume that interference from an SS to the PS within and without
+    the circle of a spectrum sensor is large and small enough such that PS packet
+    loss either occurs or does not occur, respectively. Therefore, the SS can avoid
+    harmful interference to the PS within the circle of the spectrum sensor, as well
+    as performing the spatial reuse of the channel accessed by the PS outside the
+    circle of spectrum sensor. Error detections, false alarms, and misdetection have
+    all occurred during spectrum sensing [36]. For suppressing error detections, the
+    enhancements of spectrum sensing have been studied [39]. Since the impact of false
+    alarms and misdetection to the sharing of spectra by the PhyC-SN is important
+    for future work, we assume that this does not occur in this instance. SECTION
+    IV. Proposed Channel Assignment The proposed method must predict the tendency
+    of sensor information and the COR. Figure 2 shows the application of the proposed
+    method for predicting two tendencies, referred to as double stage recognition.
+    The two external sources for the prediction of COR are analyzed and detailed in
+    section IV-B. The FC constructs the CM for determining assignment of quantization
+    level and channel using the two tendencies. Following this the FC broadcasts information
+    related to the CM of the request signal to all sensors. FIGURE 2. Double stage
+    recognition for proposed channel assignment. Show All This section explains the
+    prediction of the tendency of sensor information, the prediction of the COR with
+    external sources, and the two types of CM construction methods. A. Double Stage
+    Recognition Figure 2 shows the process flow of double stage recognition. In the
+    first stage (online process), the FC recognizes the median, outlier, and deviation
+    of all the sensor information using spectrum detection and the conversion from
+    subcarrier index to sensor information. In the second stage, (offline process),
+    the FC estimates the individual sensor information. Owing to the ID insertion
+    [11], [37] and data tracking techniques [14], the FC can individuate all of the
+    aggregated sensor information. In addition, the FC utilizes first in first out
+    (FIFO) memories for recording the individual sensor information, where the number
+    of memories are equal to the number of nodes. Techniques such as use of the Kalman
+    filter [40], the autoregressive model (AR) [40], and use of the minimum mean square
+    error (MMSE) [41] are used to predict the tendency of sensor information from
+    previously recorded data. Owing to the predicted tendency of sensor information,
+    the most likely value of sensor information and its deviation could be estimated
+    by extrapolation. In mobile sensor networks for robotics, when information concerning
+    spatial position is modeled using a random variable of Gaussian distribution,
+    a highly accurate description of a robot’s position can be achieved [42]. A Kalman
+    Filter can predict the sensor information modeled by a random variable of Gaussian
+    distribution with high accuracy [43]. When sensor information is determined by
+    numerous various incidents, sensor information can be modeled using a random variable
+    of Gaussian distribution in accordance with a central limit theorem [44]. We assume
+    that future sensor information is modeled using a Gaussian random model whose
+    average and variance are given by the most likely value of sensor information
+    and its deviation. When the mean and variance of the j th node’s Gaussian model
+    are predicted as μ j and σ 2 j , the probability of the n th quantization level,
+    x j,n , is given as: p j,n = = ∫ x j,n +Δ/2 x j,n −Δ/2 1 2 σ 2 j − − − √ e − (x−
+    μ j ) 2 2 σ 2 j dx 1 2 ⎡ ⎣ ⎢ erfc ⎧ ⎩ ⎨ ⎪ ⎪ x j,n −Δ/2− μ j 2 σ 2 j − − − √ ⎫
+    ⎭ ⎬ ⎪ ⎪ −erfc ⎧ ⎩ ⎨ ⎪ ⎪ x j,n +Δ/2− μ j 2 σ 2 j − − − √ ⎫ ⎭ ⎬ ⎪ ⎪ ⎤ ⎦ ⎥ , (2)
+    View Source where Δ is the quantizing interval and erfc( ⋅ ) is the complementary
+    error function [45]. Thus, the FC could predict the occurrence probability of
+    each quantization level for each node. B. Prediction of COR From the assumed sensitivity
+    of a spectrum sensor in section III-B, it is possible to detect the wireless access
+    of different PSs even if each sensor is located in a different place. Therefore,
+    the CORs measured by each sensor are also different [38]. The wireless architecture
+    of the sensor node is a narrow band transceiver designed to ensure low power consumption
+    and the use of simple processing [18]. As a result, the accessing channels of
+    nodes are limited. To obtain the COR for all the channels, the switching channels
+    and COR measurements are iteratively performed. As many channels are defined in
+    the PhyC-SN, measurements of the COR and switching channels are numerous. The
+    required power consumption for measuring COR is excessive, therefore we consider
+    two external sources for measuring COR; specific spectrum sensors, and crowd sourcing
+    to increase energy efficiency. 1) Specific Spectrum Sensors A specific spectrum
+    sensor has a solo function, which is the measurement of the COR. Figure 3 (a)
+    shows the location and sensitivity of specific spectrum sensors. Each spectrum
+    sensor measures the COR of all channels and informs the FC of both the measured
+    COR and its positional information, where specific sensors can obtain position
+    information via positioning systems (such as GPS). FIGURE 3. Image of position
+    and sensor sensitivity of outsources for estimating COR. (a) Spectrum spectrum
+    sensors. (b) Crowd sourcing. Show All Each node in the PhyC-SN also informs the
+    FC of positional information, obtained via positioning systems. The FC considers
+    the COR of the node as the COR of the nearest specific sensor to the node. Thus,
+    the difference between the COR obtained with a specific sensor and that measured
+    by the node occurs due to their different positions. As the number of specific
+    sensors increases, the COR difference can be mitigated. In addition, since the
+    specific sensors are systematically located, it can be mitigated rapidly as the
+    number of sensors increases. The sensitivity of the spectrum sensors is switchable
+    depending on their intended use and can be set to the same value as the PhyC-SN
+    sensors. 2) Crowd Sourcing Scheme We assume that the other systems use spectrum
+    awareness of cognitive radio for exploiting vacant channels. The COR information
+    is useful for the PhyC-SN but not for the other systems. Therefore, exchanges
+    regarding information concerning COR between PhyC-SNs and other systems is encouraged.
+    If the other systems are crowded around a PhyC-SN, the PhyC-SN can gather comprehensive
+    information about the COR [16]. We refer to the COR measurement by other systems
+    as crowd sourcing. In crowd sourcing, the other systems inform the FC regarding
+    the measured COR and positional information. The FC can presume the COR of the
+    node as equal to that of the nearest other system to the node. Moreover, crowd
+    sourcing is free from the cost of constructing and running spectrum sensors. Since
+    the location of a spectrum sensor is not controlled, the spatial density of the
+    sensors is not uniform. In addition, the sensitivity of each spectrum sensor is
+    adjusted as each system exploits more channels [20]. Mismatches in position and
+    sensitivity between the PhyC-SN and other systems occur. The former mismatch can
+    be compensated for by increasing the number of systems, but the latter cannot.
+    C. Optimal Construction of a Conversion Matrix After second stage recognition,
+    the FC obtains two predictions: the probabilities of quantization levels in the
+    sensor information and the COR. The FC constructs the CM, W , using a two-stage
+    optimization system, the maximal successful probability of delivering sensor information,
+    and the MMSE. 1) Maximal Successful Probability of Delivering Sensor Information
+    (SPD) The j th node sends the n th quantization level to the FC by sinusoidal
+    wave whose frequency is matched to the k th channel. Once this occurs, the SPD
+    of the sensor information is p j,n (1− ρ j,k ) , where ρ j,k is the COR of the
+    k th channel measured by j th node. Therefore, the CM, W , is constructed from
+    the following maximization problem: max W ∑ k=1 K ∑ n=1 N W k,n ∑ j=1 J p j,n
+    (1− ρ j,k ) Subject to ∑ k=1 K W k,n =1,  ∑ n=1 N W k,n ≤1. (3) (4) View Source
+    This is known as the maximal flow problem. If K=N , the candidate solutions of
+    this problem have O(N!) ; thus, it is an NP hard problem. This problem corresponds
+    to the assignment problem1; doing so is known to result in the maximum matching
+    problem for the bipartite graph and also in a minimum-cost flow problem that can
+    be efficiently solved by using a Hungarian algorithm (also known as the Kuhn-Munkres
+    algorithm [46], [47]). In the proposed method, we use an implementation of O(
+    N 3 ) computational complexity shown in [48], which is based on the graph theory
+    (the minimum-cost flow problem) [49], [50]. 2) Minimum Mean Square Error (MMSE)
+    When the j th node stops delivering the sensor information to the FC due to PS
+    access, the FC ceases obtaining sensor information from the j th node. However,
+    it can compensate by using the most likely sensor information value μ j , which
+    is predicted using past sensor information. If the j th node tends to deliver
+    the n th quantization level of sensor information to the FC, the square error
+    between the true and compensated quantization levels is ( x j,n − μ j ) 2 . The
+    probability that j th node will detect PS access through the k th channel using
+    a spectrum sensor is ρ j,k . Therefore, the mean square error is given as: ( x
+    j,n − μ j ) 2 p j,n ρ j,k . We construct the CM from the following MMSE: min W
+    ∑ k=1 K ∑ n=1 N W k,n ∑ j=1 J ( x j,n − μ j ) 2  p j,n ρ j,k Subject to ∑ k=1
+    K W k,n =1, ∑ n=1 N W k,n ≤1, (5) (6) View Source This is a known as the minimum
+    cost flow problem, which is a linear programing problem. If K=N , the candidate
+    solutions of this problem are O(N!) ; thus it is an NP hard problem. Since this
+    optimization is also applied to the Hungarian algorithm [46], [47], we obtain
+    the optimal weights under O( N 3 ) computational complexity. In the channel assignment
+    based on the MMSE, each sensor can adaptively select a channel in accordance with
+    the square error of the instantaneous sensor result from the prediction. Therefore,
+    channel assignment based on the MMSE uses awareness of the instantaneous sensor
+    results. SECTION V. Numerical Results We verify the efficacy of our proposed method
+    by computer simulation. The computer simulation is based on the Monte Carlo Method
+    [54] and it is constructed by MATLAB. For construction of the optimal channel
+    assignment, we use open source software [48]. Table 3 shows the simulation parameters.
+    TABLE 3 Simulation Parameters We assume a square field for location of the sensor
+    nodes. The FC is located in the center of the square. The position of each sensor
+    is decided using the two-dimensional random variable of uniform distribution.
+    Moreover, we assume the number of channels, K , is equal to the number of quantization
+    levels, N . The maximum and minimum quantization levels of sensor information
+    are N/2 and −N/2+1 , respectively, using uniform quantization. We assume that
+    the sensor information is modeled using a random walk before quantization. The
+    original sensor information of the j th user in the i th sampling period, q (i)
+    j , is given as follows: q (i) j = μ (i) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ + n (i) j , (7) View
+    Source where μ (i) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ is a real value from sensor information and
+    is given as follows. μ (i) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ = ⎧ ⎩ ⎨ ⎪ ⎪ ⎪ ⎪ μ (i−1) j ¯ ¯ ¯ ¯ ¯
+    ¯ ¯ ¯ ¯ ¯ ¯ ¯ +δmod(i,5)=0 μ (i−1) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯   mod(i,5)≠0 (8)
+    View Source where mod(a,b) computes a modulo b and δ is the uniform random variable
+    taking either 1 or −1. The initial value of the original sensor information, μ
+    (i=1) j , is modeled as the [−0.2N,0.2N] uniform random variable. n (i) j is an
+    external force to the sensor and is modeled using the Gaussian random variable
+    with 0 average and 10 − − √ deviation. During quantization, the j th sensor obtains
+    the quantization level x j,n of the sensor information as follows: arg x j,n min
+    ∀ n ( x j,n − q (i) j ) 2 (9) View Source After quantization, each sensor sent
+    the quantization level of sensor information to the FC via the PhyC-SN. We define
+    the training period for predicting the tendency of sensor information as equal
+    to the memory size. We do not evaluate the accuracy of the aggregated information
+    from sensors during the training period. After completing the training period,
+    we evaluate the accuracy of the aggregated information. We assume that the bandwidth
+    occupied by a PS is modeled by N PS channels as a PS is a more broadband system
+    than an SS. When constructing the proposed CM, we use a Hungarian Algorithm [48].
+    The FDMA is assumed to be a conventional access scheme. For the FDMA, the number
+    of channels occupied by a node is set at 6 for fair comparison to the PhyC-SN,
+    as the total number of quantization levels in the PhyC-SN is 64, which is equivalent
+    to a 6-bit transmission. In addition, the FDMA uses a small order modulation scheme
+    (similar to BPSK) to achieve the large propagation distance from the nodes to
+    the FC. Thus, the data rates of the PhyC-SN and FDMA are common. The FDMA node
+    continuously occupies 6 channels. As the total number of channels is 64, the number
+    of nodes simultaneously accessing the FC is 10. Two powerful channel assignments
+    for the FDMA have been proposed. For the first, the adaptive channel assignment
+    of FDMA for maximizing a SPD has been proposed [27], [28], where the SPD is the
+    ratio of the number of packets successfully sent to the fusion center to the total
+    number of packets. For the second, a random assignment between each sensor and
+    channel has been proposed [22]. In the performance evaluations, the indicators
+    of the former and the latter assignments are “FDMA Pmax” and “FDMA Random”, respectively.
+    When using the PhyC-SN, the performance of random assignments between quantization
+    level and channel, the optimal conversion matrix constructed by maximizing the
+    successful probability of delivering sensor information, and the optimal CM constructed
+    by the MMSE are labeled “random”, “Pmax”, and “MMSE. ” For all four schemes, if
+    the node does not deliver the sensor information to the FC via the channel occupied
+    by a PS, the FC compensate by using the most likely value of sensor information
+    predicted from previous data. To evaluate the accuracy of the aggregated sensor
+    information, we use the root mean square error (RMSE) as follows: RMSE= E j,i
+    ⎡ ⎣ ⎢ ⎢ ⎛ ⎝ ⎜ x (i) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ − μ (i) j ¯ ¯ ¯ ¯ ¯ ¯ ¯ Δ ⎞ ⎠ ⎟ 2 ⎤ ⎦ ⎥ ⎥
+    − − − − − − − − − − − − − − − − − −  ⎷     (10) View Source where x (i) j
+    ¯ ¯ ¯ ¯ ¯ ¯ ¯ is the quantization level of the j th user recognized by the FC
+    in the i th time slot. The minimization of the RMSE value directly improve the
+    recognition accuracy of the aggregated sensor information. If the RMSE = 1, the
+    difference between the true sensor information and the gathered sensor information
+    is equal to one quantization level Δ . In deciding the memory size for predicting
+    the tendency of sensor information, we evaluate the average RMSE with various
+    amounts of memory. Figure 4 shows the performance as indicated by the memory and
+    the average RMSE, where we assume that all the sensor information has reached
+    the FC without any access stop caused by the channel occupancy of a PS. From this
+    figure, the convex tendency for size of memory is confirmed. This is because the
+    tradeoff between mitigating the fluctuation of a sensor result and enhancing the
+    tracking performance of sensor results is constructed for the amount of memory.
+    The optimal memory for minimizing RMSE is from 30 samples to 75 samples and the
+    average RMSE is not significantly different from this. Therefore, we use 50 samples
+    as the memory size. FIGURE 4. Performances between Size of Memory and Average
+    RMSE. Show All A. Specific Spectrum Sensors Figure 5 shows the RMSE of aggregated
+    sensor information in a specific spectrum for estimation of the COR. “Ideal” in
+    the horizontal axis indicates that the COR estimated by the spectrum sensor is
+    perfectly matched to that estimated by the nodes. The area of sensor nodes is
+    divided into small square grids and the specific sensor is then located on the
+    center of each grid. Thus, the number of grids is equal to the number of specific
+    sensors. Figure 6 shows the performance of the average SPD. FIGURE 5. Performances
+    of Average RMSE (Specific Spectrum Sensors). Show All FIGURE 6. Performances of
+    Average SPD (Specific Spectrum Sensor). Show All From figures 5 and 6, it can
+    be seen that the RMSE and the SPD of FDMA are larger and smaller than those of
+    the PhyC-SN, respectively. There are two reasons for the performance degradation
+    of FDMA: the FDMA node occupies six times more channels than that of the PhyC-SN.
+    When the PS accesses any channel occupied by the node, the node stops access to
+    the FC. Therefore, the access of a node in FDMA is more frequently disturbed by
+    the occupation of a channel by the PS. The second reason is the decreased freedom
+    of channel selection. In the simultaneous access from all the nodes to the FC,
+    almost all the channels are occupied. Although FDMA adaptively changes the assignment
+    of a channel to each node under an ideal COR estimation, some nodes cannot avoid
+    assignment to the channels highly frequently occupied by a PS. The PhyC-SN MMSE
+    and PhyC-SN Pmax achieve the smallest and second smallest RMSE. In particular,
+    PhyC-SN MMSE achieves a smaller RMSE than the quantization interval. From these
+    results, we confirm the advantages of the construction of an adaptive CM in the
+    context of both sensor information and the COR. In addition, it is worth noting
+    that in Fig. 6, the SPD of PhyC-SN MMSE is 5% smaller than that of PhyC-SN Pmax.
+    Since PhyC-SN MMSE achieves superior RMSE performance with utilization of fewer
+    channels, it can improve the usage efficiency of frequency resources. The reasons
+    for this improvement are as follows. In PhyC-SN MMSE, it is not necessary to deliver
+    the quantization level corresponding to the predicted mean value of the sensor
+    information. Instead, the quantization level with a greater difference from the
+    predicted mean value and higher occurrence probability is delivered to the FC
+    as often as possible. Owing to the awareness of the instantaneous sensor results,
+    the channel assignment based on MMSE can suppress redundant sensor information
+    as well as achieve better accuracy of gathered sensor results. As the number of
+    specific spectrum sensors is greater than 64, we could not confirm large-scale
+    improvement of the RMSE in PhyC-SN MMSE. Figure 7 shows the performance of the
+    number of sensors and the mean square error (MSE) of an estimated COR from an
+    ideal COR. From this figure, the performance of MSE is a monotone decreasing for
+    the number of sensors because the location mismatch between the spectrum sensors
+    and the sensor node is mitigated and thus the difference of an estimated COR is
+    mitigated. In addition, as the number of sensors is larger than 64, the MSE of
+    an estimated COR is smaller than 2⋅ 10 −2 . Therefore, the required MSE of the
+    estimated COR is almost 2⋅ 10 −2 or smaller. In the assumed environment, we consider
+    the number of required specific spectrum sensors to be larger than 64. FIGURE
+    7. Performance between the number of sensors and the average MSE of the COR estimated
+    by spectrum sensors. Show All B. Crowd Sourcing For crowd sourcing, the location
+    of the other systems for measuring COR is modeled using the two-dimensional random
+    valuables of uniform distribution. We assume that the sensitivity of a spectrum
+    sensor in the other systems is identical to that of the PhyC-SN node. Figures
+    8 and 9 show the performances of the RMSE and SPD and a number of other systems
+    for measuring COR. As can be seen, the PhyC-SN MMSE achieves the minimum RMSE
+    with a smaller SPD. Moreover, an improvement in frequency utilization is produced,
+    even under the measurements of the crowd-sourced COR. Upon increasing the number
+    of sensors, specific spectrum sensors converge slightly more rapidly to the RMSE
+    than with crowd sourcing. This is because the specific spectrum sensors are located
+    systematically, as the difference in distance between the node of PhyC-SN and
+    a specific spectrum sensor decreases. This results in greater accuracy for estimating
+    COR than with crowd sourcing. FIGURE 8. Performances of average RMSE in crowd
+    sourcing. Show All FIGURE 9. Performance of average SPD (Crowd Sourcing). Show
+    All Figure 10 shows the performances of RMSE and the number of spectrum sensors
+    in crowd sourcing with different spectrum sensitivities. As described in section
+    III-B, the sensitivity of spectrum sensor is modeled by a circle whose radius
+    is defined by the maximal distance of PS access detection. We assume that the
+    radius is modeled by the independent [ S d (1− Δ S d ), S d (1+ Δ S d ) ], uniformly
+    distributed random variable, where S d and Δ S d are at the maximal distance of
+    spectrum sensor from the node and the parameter for deciding the maximal difference
+    of sensitivity is between the node and the spectrum sensor. FIGURE 10. Performances
+    of average RMSE (Crowd sourcing with different sensitivity). Show All Figure 10
+    shows the performance between RMSE and the number of sensors in crowd sourcing,
+    where Δ S d are 0, 0.2, and 0.5. The improvement of RMSE is confirmed despite
+    spectrum sensitivity differences. However, as the number of sensors is larger
+    than 64 in Δ S d =0.5 , the RMSEs of both FDMA Pmax and PhyC-SN MMSE are not improved
+    but saturated. Figure 11 shows the performance between the number of sensors and
+    the MSE of estimated COR. From this figure, as the number of sensors is larger
+    than 64 in Δ S d =0.5 , the MSE of the estimated COR is also not improved. Therefore,
+    non-improvment in estimating COR directly decides the degradation of the RMSE
+    of sensor information. The RMSE of FDMA Pmax is more significantly degraded than
+    that of PhyC-SN MMSE because the number of channels occupied by FDMA is 6 times
+    larger than that of PhyC-SN and the cumulative estimation error of COR among 6
+    channels causes the degradation of channel assignment. Even in Δ S d =0.5 , the
+    RMSE of PhyC-SN MMSE is smaller than 1 and thus a smaller estimation error than
+    one quantization level is achieved. FIGURE 11. Performances between the number
+    of spectrum sensors and average MSE of estimated COR (Crowd sourcing with different
+    sensitivity). Show All C. Performance Evaluation With Actual Sensor Results For
+    the proposed assignment, the accuracy of the prediction of sensor results decides
+    the accuracy of collected sensor results in the fusion center. Evaluating the
+    accuracy of prediction to the practical sensor result is important for clarifying
+    the practicality of the proposed assignment. Figure 12 shows an overview of the
+    performance evaluation composed of both the experimental environment and the computer
+    simulation, where temperature sensors are used in the same evaluation system as
+    Ref [12]. Temperature data is measured and recorded in the memory of each sensor.
+    Following this, delivery of the measured sensor information to the FC by the WSN
+    is performed via computer simulation. Therefore, we use the recorded temperature
+    data as the test sensor result for use in the computer simulation. FIGURE 12.
+    Overview of Experimental Evaluation and Computer Simulation. Show All Table 4
+    shows the simulation parameters of the WSN. Figure 13 shows the measured temperature
+    data as a base certainty regarding sensor information.2 We use a crowd sourcing
+    scheme to measure COR, where the spectrum sensitivity in the nodes is equal to
+    that in the crowd sourcing spectrum sensors. The measured temperature is added
+    as the Gaussian noise, which is identical to that in eq. (7). The mean and variance
+    of the Gaussian noise are 0 and 0.1. The dynamic range of the quantization level
+    ranged from 0 to 51.2 degrees. The number of quantization levels was 256, which
+    is equal to the number of channels. TABLE 4 Computer Simulation in Part 2 FIGURE
+    13. Ground Truth of Sensor Information (Temperature). Show All Figures 14 and
+    15 show the CDFs of RMSE and SPD. The RMSE of PhyC-SN MMSE is the best RMSE and
+    it achieves almost 90% for a RMSE under 1.0. In SPD performance, the PhyC-SN Pmax
+    achieves the best SPD, but a larger RMSE than the PhyC-SN MMSE. The former cannot
+    select the suitable channel for sending the sensor result with a large square
+    error to the FC. The SPDs of FDMA MMSE and FDMA Pmax are smaller than that of
+    PhyC-SN MMSE and Pmax. As we explained, FDMA occupies more channels than PhyC-SN.
+    Therefore, FDMA more frequently stops sending the sensor results. When the PhyC-SN
+    MMSE is applied to the practical detected sensor results, a better RMSE and smaller
+    SPD are achieved and thus better frequency usage efficiency can be accomplished.
+    FIGURE 14. Performances of RMSE (Evaluation with Actual Sensor Results). Show
+    All FIGURE 15. Performances of SPD (Evaluation with Actual Sensor Results). Show
+    All SECTION VI. Conclusions This study implemented adaptive channel assignments
+    for spectrum sharing among heterogeneous wireless systems in physical wireless
+    parameter conversion sensor networks (PhyC-SN) under simultaneous wireless access
+    from numerous sensors. In the proposed channel assignment method, the errors calculated
+    from the predicted tendency of sensor information and predicted channel occupancy
+    rate are minimized. The sensor adaptively selects the channel in accordance with
+    the error from both the predicted sensor result and the actual one. Therefore,
+    our proposed channel assignment uses an awareness of the instantaneous sensor
+    results. From the computer simulation, the proposed channel assignment improves
+    channel utilization efficiency. In future work, the performance of our proposed
+    method should be analyzed during real-time application of the Internet of Things.
+    Authors Figures References Citations Keywords Metrics Footnotes More Like This
+    Quality of Service Requirement in Wireless Sensor Networks: A Survey 2018 IEEE
+    Global Conference on Wireless Computing and Networking (GCWCN) Published: 2018
+    Quality of Service Aided Power Aware Resource Allocation Optimization with Channel
+    Estimation in Wireless Sensor Network 2023 Second International Conference on
+    Augmented Intelligence and Sustainable Systems (ICAISS) Published: 2023 Show More
+    IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: IEEE access
+  limitations: '>'
+  pdf_link: https://ieeexplore.ieee.org/ielx7/6287639/8600701/08682068.pdf
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Adaptive Channel Assignment With Predictions of Sensor Results and Channel
+    Occupancy Ratio in PhyC-SN
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
