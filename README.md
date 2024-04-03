@@ -1,3 +1,6 @@
+![image](https://github.com/BryanNsoh/Automated_Lit_Revs/assets/51336052/a2c67a6f-e500-49de-9322-41dd5b3ac337)
+
+
 # Automated Search and Curation for Systematic Literature Reviews
 
 This repository contains a set of Python scripts for automating the search and curation process in systematic literature reviews. The system leverages APIs, web scraping, and natural language processing to streamline the identification, retrieval, and analysis of relevant research papers.
