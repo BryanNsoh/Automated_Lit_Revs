@@ -1,4 +1,3 @@
-```markdown
 # Automated Search and Curation for Systematic Literature Reviews
 
 This repository contains a set of Python scripts for automating the search and curation process in systematic literature reviews. The system leverages APIs, web scraping, and natural language processing to streamline the identification, retrieval, and analysis of relevant research papers.
@@ -68,4 +67,3 @@ The modular design of the system allows for easy extension and customization:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
