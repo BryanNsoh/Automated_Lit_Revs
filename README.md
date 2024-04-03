@@ -61,7 +61,7 @@ This repository contains a set of Python scripts for automating the search and c
 The modular design of the system allows for easy extension and customization:
 
 - Add new search APIs by creating a new module in the `utils/` directory and integrating it into the main process.
-- Customize the relevance scoring algorithm by modifying the `llm_api_handler.py` script.
+- Customize the relevance scoring algorithm by modifying the `extract_relevant_papers.py` script.
 - Extend the web scraping capabilities by updating the `web_scraper.py` script.
 
 ## License
