@@ -83,7 +83,16 @@ import os
 import logging
 
 logger = logging.getLogger(__name__)
-
+logger.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+file_handler = logging.FileHandler("yaml_iterator.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 from ruamel.yaml import YAML
 
@@ -142,8 +151,11 @@ class IrrigationData:
 
     async def iterate_data(self):
         for subsection in self.data["subsections"]:
+            logger.info(f"Processing subsection: {subsection}")
             for point in subsection["points"]:
                 point_title = next(iter(point))
+                point_content = point[point_title]["point_content"]
+                logger.info(f"Processing point: {point_title} - {point_content}")
                 point_data = point[point_title]
                 query_types = [
                     key for key in point_data.keys() if key.endswith("_queries")
@@ -153,16 +165,28 @@ class IrrigationData:
                     for query_mother in queries:
                         query_id = query_mother["query_id"]
                         query = query_mother["query"]
+                        logger.info(f"Processing query: {query_id} - {query}")
                         for response in query_mother.get("responses", []):
                             response_id = response["response_id"]
-                            yield subsection, point_title, query_type, query_id, response_id, response, query
+                            yield subsection, point_title, point_content, query_type, query_id, response_id, response, query
 
     async def update_response(
-        self, subsection_index, point_title, query_id, response_id, field, value
+        self,
+        subsection_index,
+        point_title,
+        point_content,
+        query_id,
+        response_id,
+        field,
+        value,
     ):
         subsection = self.data["subsections"][subsection_index]
         for point in subsection["points"]:
-            if point_title in point:
+            if (
+                point_title in point
+                and point[point_title]["point_content"] == point_content
+            ):
+                logger.info(f"Found matching point: {point_title} - {point_content}")
                 point_data = point[point_title]
                 query_types = [
                     key for key in point_data.keys() if key.endswith("_queries")
@@ -171,8 +195,12 @@ class IrrigationData:
                     queries = point_data.get(query_type, [])
                     for query in queries:
                         if query["query_id"] == query_id:
+                            logger.info(f"Found matching query ID: {query_id}")
                             for response in query.get("responses", []):
                                 if response["response_id"] == response_id:
+                                    logger.info(
+                                        f"Found matching response ID: {response_id}"
+                                    )
                                     response[field] = value
                                     await self.save_data()
                                     return

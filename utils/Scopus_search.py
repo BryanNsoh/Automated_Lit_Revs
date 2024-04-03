@@ -32,11 +32,11 @@ logger.addHandler(file_handler)
 
 
 class ScopusSearch:
-    def __init__(self, key_path, web_scraper, output_folder):
+    def __init__(self, key_path, doi_scraper, output_folder):
         self.load_api_keys(key_path)
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
-        self.web_scraper = web_scraper
+        self.scraper = doi_scraper
         self.output_folder = output_folder
 
     def load_api_keys(self, key_path):
@@ -110,7 +110,7 @@ class ScopusSearch:
         return None
 
     async def search_and_parse(
-        self, query, query_id, response_id, content, count=25, view="COMPLETE"
+        self, query, query_id, response_id, count=25, view="COMPLETE"
     ):
         try:
             results = await self.search(query, count, view, response_format="json")
@@ -140,7 +140,7 @@ class ScopusSearch:
                     if doi:
                         logger.info(f"Scraping full text for DOI: {doi}")
                         try:
-                            full_text = content
+                            full_text = await self.scraper.get_url_content(doi)
                             full_text = await prepare_text_for_json(full_text)
                             logger.info(
                                 f"Full text scraped successfully for DOI: {doi}"
