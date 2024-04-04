@@ -1,7 +1,12 @@
 import os
 import yaml
 import logging
-from prompts import review_intention, section_intentions
+from prompts import (
+    review_intention,
+    section_intentions,
+    previous_sections,
+    write_next_section,
+)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -25,6 +30,12 @@ class SummaryGenerator:
 
     def generate_summary(self, section_number, outline_data):
         summary_content = ""
+
+        summary_content += "<instructions>\n"
+        summary_content += f"{write_next_section}\n"
+        summary_content += "</instructions>\n\n"
+
+        summary_content += "<documents>\n"
 
         summary_content += "<review_intention>\n"
         summary_content += f"{review_intention}\n"
@@ -122,6 +133,16 @@ class SummaryGenerator:
                     )
 
                 summary_content += f"</subsection_point_{point_number}>\n\n"
+
+                summary_content += "<previous_sections>\n"
+                summary_content += f"{previous_sections}\n"
+                summary_content += "</previous_sections>\n\n"
+
+                summary_content += "</documents>\n"
+
+                summary_content += "<instructions>\n"
+                summary_content += f"{write_next_section}\n"
+                summary_content += "</instructions>\n\n"
 
             summary_file = os.path.join(subsection_folder, "summary.txt")
             with open(summary_file, "w", encoding="utf-8") as file:
