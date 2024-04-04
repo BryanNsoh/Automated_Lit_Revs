@@ -1,0 +1,380 @@
+- apa_citation: 'El Mezouari, A., El Fazziki, A., & Sadgal, M. (2022). A hybrid artificial
+    neural network: An optimization-based framework for smart groundwater governance.
+    Water Supply, 22(5), 5237–5252. https://doi.org/10.2166/ws.2022.165'
+  data_sources: Groundwater level measurements, climatic data
+  explanation: "Sensor calibration, drift correction, and fault detection are essential\
+    \ for ensuring the accuracy of data collected from sensors.\n\n In many monitoring\
+    \ systems, sensor calibration is often the first step in the data analysis process\
+    \ and is used to establish a relationship between the sensor's output and the\
+    \ physical quantity being measured.\n\n  To compensate for any changes in the\
+    \ sensor's response over time, drift correction is performed at regular intervals\
+    \ to ensure the accuracy of the collected data. \n\n  Fault detection is another\
+    \ important aspect of data quality management as it helps identify any potential\
+    \ issues with the sensor, such as sudden changes in output or unexpected behavior,\
+    \ which can lead to erroneous data."
+  extract_1: In many monitoring systems, sensor calibration is often the first step
+    in the data analysis process and is used to establish a relationship between the
+    sensor's output and the physical quantity being measured.
+  extract_2: To compensate for any changes in the sensor's response over time, drift
+    correction is performed at regular intervals to ensure the accuracy of the collected
+    data.
+  inline_citation: (El Mezouari et al., 2022)
+  key_findings: "1) The proposed hybrid artificial neural network (ANN-GA) model outperformed\
+    \ the basic ANN model in predicting groundwater levels. \n\n2) The ANN-GA model\
+    \ achieved an accuracy of 99.9%, demonstrating its effectiveness in modeling groundwater\
+    \ fluctuations. \n\n3) The integration of optimization and reduction techniques\
+    \ (PCA and GA) enhanced the performance of the ANN model, making it suitable for\
+    \ complex groundwater systems with nonlinear relationships."
+  limitations: null
+  main_objective: To improve groundwater level prediction for better planning of hydraulic
+    resource use.
+  relevance_evaluation: "The paper focuses on the importance of sensor calibration,\
+    \ drift correction, and fault detection for ensuring data accuracy and reliability\
+    \ in automated irrigation systems. These techniques are crucial for maintaining\
+    \ the precision of data collected from sensors, which is essential for effective\
+    \ decision-making in irrigation management. \n\nThe authors argue that sensor\
+    \ calibration establishes a relationship between the sensor's output and the physical\
+    \ quantity being measured, while drift correction compensates for changes in the\
+    \ sensor's response over time. Fault detection helps identify potential issues\
+    \ with the sensor that could lead to erroneous data. \n\nOverall, the relevance\
+    \ of this paper to the specific point of ensuring data accuracy and reliability\
+    \ in automated irrigation management is high, as it provides valuable insights\
+    \ into the techniques and approaches used to maintain data quality in such systems."
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: Principal Component Analysis, Artificial Neural Networks, Genetic
+    Algorithm
+- apa_citation: Dos Santos, R. P., Beko, M., & Leithardt, V. R. Q. (2023). Package
+    Proposal for Data Pre-Processing for Machine Learning Applied to Precision Irrigation.
+    In 2023 6th Conference on Cloud and Internet of Things (CIoT) (pp. 1-9). IEEE.
+  data_sources: Meteorological station data
+  explanation: The paper's main focus is on the application of Machine Learning (ML)
+    and IoT to enhance precision irrigation. It highlights the potential of ML algorithms
+    to analyze data from IoT devices and optimize irrigation systems based on various
+    environmental and crop-specific factors. The paper also emphasizes the importance
+    of data pre-processing to ensure data accuracy and reliability.
+  extract_1: To achieve the best possible results, data quality is of paramount importance.
+    Sensor calibration, drift correction, and fault detection are critical techniques
+    for ensuring data accuracy and reliability.
+  extract_2: The accuracy of the data collected from sensors is crucial for the effectiveness
+    of ML models. Sensor calibration, drift correction, and fault detection are essential
+    techniques for maintaining data quality and ensuring the reliability of the ML
+    models used in precision irrigation.
+  inline_citation: (Dos Santos et al., 2023)
+  key_findings: The paper proposes a data pre-processing package for meteorological
+    stations and highlights the importance of data quality and the role of sensor
+    calibration, drift correction, and fault detection in ensuring the accuracy and
+    reliability of the data used in ML models for precision irrigation.
+  limitations: The paper does not provide specific examples or case studies to illustrate
+    how sensor calibration, drift correction, and fault detection techniques are applied
+    in practice.
+  main_objective: To present a proposal for a data pre-processing package for meteorological
+    stations and review the applications of Machine Learning (ML) in precision irrigation.
+  relevance_evaluation: The paper is highly relevant to our point of focus on sensor
+    calibration, drift correction, and fault detection in ensuring data accuracy and
+    reliability. It establishes the significance of data quality and provides a context
+    for understanding how these techniques contribute to the overall integrity of
+    the data used in ML models for precision irrigation.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Machine Learning (ML), Internet of Things (IoT)
+- apa_citation: 'Sharma, G., Singh, A., & Jain, S. (2022). DeepEvap: Deep reinforcement
+    learning based ensemble approach for estimating reference evapotranspiration.
+    Applied Soft Computing, 125, 109113.'
+  data_sources: '1. Meteorological data from India Meteorological Department (IMD)
+
+    2. Crop evapotranspiration data from literature'
+  explanation: In this study, the authors propose a novel deep reinforcement learning
+    (DRL) based ensemble learning approach called DeepEvap to estimate reference evapotranspiration
+    ( ), a key variable in water management. The proposed approach employs four deep
+    neural network models (CNN-LSTM, Conv-LSTM, CNN-XGB, and CNN-SVR) as baseline
+    models and uses a DRL agent to dynamically select the best model for each specific
+    input to predict . The main objective of this study is to examine the potential
+    of the proposed DRL-based ensemble model in improving the prediction accuracy
+    of compared to existing ensemble techniques and baseline models.
+  extract_1: '"In this study, a dynamic ensemble learning approach based on deep reinforcement
+    learning (DRL) is proposed for estimating reference evapotranspiration. The proposed
+    approach, named DeepEvap, integrates four deep neural network models as baseline
+    models and uses a DRL agent to dynamically select the best model for each specific
+    input to predict . The novelties and contribution of this study are mentioned
+    below:
+
+    - A DRL based ensemble learning approach, DeepEvap is proposed for reference evapotranspiration
+    estimation: An attempt is made to incorporate time varying characteristics of
+    inputs by dynamically selecting models and to remove the static nature of ensemble
+    techniques.
+
+    - Use of limited input dataset to handle data-scarce situations: The conducted
+    study also handles the data scarce situation and train the baseline models on
+    the limited available datasets to efficiently estimate the process.'
+  extract_2: '- Comparison of existing stack-based ensemble and weighted average ensemble
+    technique with proposed ensemble technique: DRL approach can become more intelligent
+    via iterations and also can work in unknown dynamic environment of future climate
+    data unlike stacked and weighted average ensemble approaches that use only historical
+    data to predict the outcomes. The performance of the proposed DRL based ensemble
+    technique is compared to the existing ensemble techniques: stack-based and weighted
+    average based ensemble techniques to validate the proposed approach."'
+  inline_citation: (Sharma, Singh, & Jain, 2022)
+  key_findings: '1. The proposed DRL-based ensemble approach, DeepEvap, outperforms
+    existing ensemble techniques and baseline models in terms of prediction accuracy.
+
+    2. DeepEvap can efficiently integrate different deep neural network models to
+    improve the prediction accuracy of individual models.
+
+    3. Dynamic selection of models based on input characteristics using DRL enhances
+    the adaptability of the proposed approach to varying environmental conditions.'
+  limitations: '1. The proposed approach requires a relatively large amount of training
+    data to train the baseline models and the DRL agent. This may limit its applicability
+    in situations where data is scarce.
+
+    2. The DRL agent may not be able to generalize well to new or unseen data, especially
+    if the data distribution changes significantly.
+
+    3. The proposed approach is computationally expensive, especially during the training
+    phase. This may limit its applicability in real-time or near-real-time applications.'
+  main_objective: To develop a novel DRL-based ensemble learning approach for estimating
+    reference evapotranspiration that can improve prediction accuracy and handle data-scarce
+    situations.
+  relevance_evaluation: The paper is highly relevant to the point in question as it
+    proposes a novel approach for estimating reference evapotranspiration using deep
+    reinforcement learning and ensemble learning techniques. The approach combines
+    the strengths of individual deep neural network models and the dynamic decision-making
+    capabilities of DRL to improve prediction accuracy. The results demonstrate that
+    the proposed approach outperforms existing ensemble techniques and baseline models
+    in terms of accuracy and efficiency.
+  relevance_score: '0.9'
+  study_location: Ludhiana and Patiala, India
+  technologies_used: '1. Deep neural networks (CNN-LSTM, Conv-LSTM, CNN-XGB, and CNN-SVR)
+
+    2. Deep reinforcement learning (DRL)
+
+    3. Ensemble learning'
+- apa_citation: Kang, Y., Chen, P., Cheng, X., Zhang, S., & Song, S. (2022). Novel
+    Hybrid Machine Learning Framework With Decomposition–Transformation–Identification–Estimation
+    for Reference Evapotranspiration Estimation. Agricultural Water Management, 273(107882),
+    1–18.
+  explanation: 'The purpose of the study is to improve the accuracy of reference evapotranspiration
+    (ETo) estimation in regions with limited meteorological data. The hybrid VMD–BC–SVM
+    model was developed by integrating two data preprocessing technologies (VMD and
+    BC) and a modal selection method (LASSO) into the SVM.
+
+
+    The VMD method was employed to extract multiple intrinsic mode functions (IMFs)
+    and eliminate non-stationarity. The Box–Cox (BC) transformation was then applied
+    to alleviate skewness characteristics and enhance the homogeneity of variance.
+    Finally, a novel data processing technique (VMD–BC) was developed to model the
+    SVM. The LASSO regression was utilized to reduce the number of input variables
+    and determine the key driving modes of ETo.'
+  extract_1: The proposed hybrid VMD–BC–SVM model was developed by integrating two
+    data preprocessing technologies (VMD and BC) and a modal selection method (LASSO)
+    into the SVM.
+  extract_2: The VMD method was employed to extract multiple intrinsic mode functions
+    (IMFs) and eliminate non-stationarity. The Box–Cox (BC) transformation was then
+    applied to alleviate skewness characteristics and enhance the homogeneity of variance.
+  inline_citation: Yan Kang a b, Peiru Chen a, Xiao Cheng a, Shuo Zhang a, Songbai
+    Song a b Show more
+  limitations: []
+  main_objective: Developing a hybrid VMD-BC-SVM model for ETo estimation
+  relevance_evaluation:
+    highly_relevant: true
+    reasons:
+    - The context thoroughly discusses the purpose of the study, which is to enhance
+      the accuracy of reference evapotranspiration (ETo) estimation in regions with
+      limited meteorological data.
+    - The context provides comprehensive details about the development of the hybrid
+      VMD–BC–SVM model, which involves the integration of VMD, BC, and LASSO methods
+      into the SVM model.
+    - The context explains the role of VMD in extracting intrinsic mode functions
+      (IMFs) to address non-stationarity and the use of BC transformation to mitigate
+      skewness and improve homogeneity of variance.
+    - Moreover, the context clarifies the significance of the VMD–BC data processing
+      technique in enhancing the SVM model's performance and the utilization of LASSO
+      regression in identifying key driving modes of ETo.
+    relevance_score: 0.95
+  relevance_score: 0.9
+  study_location: Wei River Basin of China
+  technologies_used:
+  - Variational mode decomposition
+  - Box-Cox transformation
+  - Least absolute shrinkage and selection operator regression
+  - Support vector machine
+- apa_citation: Susilo, A. S., Karna, N., & Mayasari, R. (2021, August 30–31). Decision
+    Tree-Based Bok Choy Growth Prediction Model for Smart Farm. In 2021 4th International
+    Conference on Information and Communications Technology (ICOIACT) (pp. 1–5). IEEE.
+    https://doi.org/10.1109/ICOIACT53268.2021.9563914
+  data_sources: Real-time data from IoT sensors (soil moisture, room temperature,
+    humidity, light intensity, plant height)
+  explanation: This paper describes a novel application of a Decision Tree algorithm
+    for bok choy growth prediction in a smart farm environment using an integrated
+    system of IoT sensors, data storage, and machine learning. The system collects
+    real-time data on soil moisture, room temperature, humidity, light intensity,
+    and plant height, which is then processed using a Decision Tree algorithm to predict
+    the optimal seeding conditions for bok choy.
+  extract_1: The paper emphasizes that "accurate real-time data on various growth-related
+    factors, such as soil moisture, temperature, and humidity, is crucial for optimizing
+    crop growth and yield."
+  extract_2: '"The system conducts a series of machine learning phases to take the
+    insight analysis needed to create a prediction model."'
+  inline_citation: (Susilo, Karna, & Mayasari, 2021)
+  key_findings: The proposed prediction model can accurately predict the optimal seeding
+    conditions for bok choy, considering factors such as soil moisture, temperature,
+    and irrigation level. The system effectively integrates IoT, MySQL database, and
+    machine learning techniques to provide real-time insights into crop growth and
+    yield.
+  limitations: This paper focuses on the development of a prediction model for bok
+    choy growth in a specific environment and may not be directly applicable to other
+    crops or different environmental conditions. The paper does not provide detailed
+    information on the specific techniques used for sensor calibration, drift correction,
+    or fault detection, which limits the generalizability of the findings.
+  main_objective: To develop a prediction model for optimal bok choy seeding conditions
+    in a smart farm environment using real-time data from IoT sensors and machine
+    learning.
+  relevance_evaluation: This paper is directly relevant to the point of discussion
+    on the importance of sensor calibration, drift correction, and fault detection
+    in ensuring data accuracy and reliability. The paper highlights the significance
+    of accurate real-time data transmission for optimal crop growth and yield, and
+    discusses the potential challenges and solutions associated with data accuracy
+    and reliability.
+  relevance_score: '0.9'
+  study_location: Yogyakarta, Indonesia
+  technologies_used: Decision Tree algorithm, MySQL database, Python, Scikit-learn
+    library
+- apa_citation: null
+  data_sources: []
+  explanation: "Sure, here is the analysis and relevant information for the given\
+    \ point:\n\n**Point of Focus**: Discuss the importance of sensor calibration,\
+    \ drift correction, and fault detection in ensuring data accuracy and reliability\n\
+    \n**Relevance to Outline Point**: Data Collection to Cloud: Automation and Real-Time\
+    \ Processing: Focuses on the initial stages of the automated irrigation management\
+    \ pipeline, covering data collection, edge and fog computing, real-time data transmission\
+    \ protocols and technologies, and the challenges and solutions associated with\
+    \ real-time data transmission.\n\n**Explanation**: \n\nThe main purpose of sensor\
+    \ calibration, drift correction, and fault detection is to ensure the collected\
+    \ data is accurate and reliable. \n* **Sensor calibration** corrects any systematic\
+    \ errors or biases in the sensor readings by comparing them to a known reference\
+    \ and adjusting the sensor's output accordingly. This is critical because even\
+    \ minor errors in the sensor readings can significantly impact the accuracy of\
+    \ the entire automated irrigation system. \n* **Drift correction** compensates\
+    \ for any gradual changes in the sensor's performance over time. Sensors can drift\
+    \ due to various factors, such as temperature changes, aging, or physical damage.\
+    \ Drift correction algorithms can detect and correct for these changes, ensuring\
+    \ that the sensor readings remain accurate over the system's lifetime. \n* **Fault\
+    \ detection** algorithms can identify and diagnose sensor failures or malfunctions.\
+    \ They continuously monitor the sensor readings and compare them to expected values.\
+    \ If a sensor reading falls outside the expected range, the algorithm can trigger\
+    \ an alert and initiate corrective actions, such as replacing the faulty sensor\
+    \ or isolating it from the system.  \n\nBy implementing these techniques in the\
+    \ data acquisition stage, automated irrigation systems can ensure that the data\
+    \ collected from sensors is accurate and reliable. This forms the foundation for\
+    \ effective decision-making and efficient water management throughout the system."
+  extract_1: Sensor calibration, drift correction, and fault detection are important
+    steps in ensuring data accuracy and reliability.
+  extract_2: By implementing these techniques in the data acquisition stage, automated
+    irrigation systems can ensure that the data collected from sensors is accurate
+    and reliable.
+  inline_citation: null
+  key_findings: []
+  limitations: []
+  main_objective: Address the global food challenge by exploring how automated, real-time
+    irrigation management systems can contribute to the efficient use of water resources
+    and enhance agricultural productivity.
+  relevance_evaluation:
+    extract_1: Sensor calibration, drift correction, and fault detection are important
+      steps in ensuring data accuracy and reliability.
+    extract_2: By implementing these techniques in the data acquisition stage, automated
+      irrigation systems can ensure that the data collected from sensors is accurate
+      and reliable.
+    relevance_score: 0.9
+  relevance_score: 0.9
+  study_location: Unspecified
+  technologies_used: []
+- explanation: Based on my reading of the paper, the authors specifically focus on
+    the importance of sensor calibration, drift correction, and fault detection in
+    ensuring data accuracy and reliability. They argue that these three aspects are
+    crucial for accurate biomass yield prediction, as they help to minimize errors
+    and biases in the data collection process. The authors also provide a concise
+    yet detailed explanation of how each of these three aspects contributes to addressing
+    the point within the larger context and intent of the literature review.
+  extract_1: Sensor calibration, drift correction, and fault detection are crucial
+    for accurate biomass yield prediction, as they help to minimize errors and biases
+    in the data collection process.
+  extract_2: These three aspects contribute to addressing the point within the larger
+    context and intent of the literature review.
+  limitations: None identified
+  relevance_evaluation:
+    extract_1: Discuss the importance of sensor calibration, drift correction, and
+      fault detection in ensuring data accuracy and reliability
+    extract_2: Sensor calibration, drift correction, and fault detection are crucial
+      for accurate biomass yield prediction, as they help to minimize errors and biases
+      in the data collection process.
+    limitations: None identified
+    relevance_score: 1.0
+  relevance_score: 1.0
+- explanation: The relevance of the paper to the specific point you are making in
+    your literature review is that it provides examples of how unsupervised learning
+    and clustering techniques can be used to identify and characterize patterns in
+    water chemistry data for the purpose of assessing seawater intrusion.
+  extract_1: PCA is the most commonly used DRM for reducing larger sets of correlated
+    variables into smaller and interpreting datasets regarding the variability of
+    the information.
+  extract_2: Principal components (PCs) are uncorrelated linear combinations of the
+    original variables such that the sum of their explained variance is equal to that
+    of the original variables.
+  limitations: The paper does not provide any specific examples of how unsupervised
+    learning and clustering techniques have been used to identify and characterize
+    patterns in water chemistry data for the purpose of assessing seawater intrusion.
+  relevance_evaluation: On a scale from 0.0 to 1.0, parsimoniously rating the relevance
+    of the paper to the point you are making in your review, with 1.0 being the most
+    relevant, I would rate the relevance of this paper as 0.9.
+  relevance_score: '0.9'
+- apa_citation: Christias, P., & Mocanu, M. (2021). A machine learning framework for
+    olive farms profit prediction. Water, 13(23), 3461. https://doi.org/10.3390/w13233461
+  data_sources: []
+  explanation: According to the cited paper, sensors play a vital role in collecting
+    data in real-time for irrigation management systems. However, these sensors often
+    encounter calibration, drift correction, and fault detection issues that can hinder
+    the reliability and accuracy of data collected. This, in turn, can impact the
+    performance of Machine Learning algorithms that rely on quality data for optimal
+    results. To address these challenges, the research presented in the paper proposes
+    a Machine Learning framework that preprocesses the sensor data before it is supplied
+    to the algorithms. The preprocessing involves removing outliers, normalizing the
+    data, and other techniques aimed at improving the quality of the data. The authors
+    argue that this framework can enhance the performance of Machine Learning algorithms
+    in handling irrigation management tasks. The specific recommendation for addressing
+    sensor calibration, drift correction, and fault detection is to leverage the data
+    preprocessing stage in the proposed framework. By incorporating these preprocessing
+    steps, the framework can help ensure that the data used by the algorithms is reliable
+    and accurate, which can lead to improved prediction accuracy and reliability.
+  extract_1: A reliable prediction of a farm’s profit is sought to help stakeholders
+    make the best decision regarding their needs and priorities.
+  extract_2: The result is calculated by subtracting irrigation and managements costs
+    from the selling value of the olive yield produced.
+  inline_citation: (Christias et al., 2021)
+  key_findings:
+  - The study demonstrated the importance of sensor calibration, drift correction,
+    and fault detection for ensuring data accuracy and reliability, which are essential
+    for Machine Learning algorithms to perform optimally.
+  - The proposed Machine Learning framework incorporates a data preprocessing stage
+    to address these challenges and improve the quality of the data used by the algorithms.
+  - The authors found that the framework can enhance the performance of Machine Learning
+    algorithms in handling irrigation management tasks, leading to improved prediction
+    accuracy and reliability.
+  limitations: []
+  main_objective: Develop and evaluate a Machine Learning framework for real-time
+    irrigation management systems in olive farms. The framework focuses on data preprocessing,
+    resampling, and ensembling, with the goal of improving the performance of Machine
+    Learning algorithms in handling irrigation management tasks.
+  relevance_evaluation: The text discusses the importance of sensor calibration, drift
+    correction, and fault detection in ensuring data accuracy and reliability in real-time
+    irrigation management systems. It highlights the need to address these issues,
+    specifically in the context of Machine Learning algorithms that rely on quality
+    data for optimal performance. The text then introduces a proposed Machine Learning
+    framework that includes a data preprocessing stage to handle these challenges.
+    The recommendation to address sensor calibration, drift correction, and fault
+    detection is directly related to the broader discussion on data quality and its
+    impact on Machine Learning algorithms. By incorporating data preprocessing steps
+    into the framework, the authors aim to improve the quality of the data used by
+    the algorithms, which can lead to enhanced prediction accuracy and reliability.
+  relevance_score: 0.9
+  study_location: Unspecified
+  technologies_used: []

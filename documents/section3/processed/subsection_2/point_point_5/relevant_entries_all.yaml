@@ -1,0 +1,423 @@
+- DOI: https://doi.org/10.4108/airo.3616
+  analysis: '>'
+  apa_citation: Singh, P. D., & Singh, K. D. (2023). Security and Privacy in Fog/Cloud-based
+    IoT Systems for AI and Robotics. EAI Endorsed Transactions on AI and Robotics,
+    1, 10.4108/airo.3616.
+  authors:
+  - Prabh Deep Singh
+  - Kiran Deep Singh
+  citation_count: 0
+  data_sources: Not explicitly mentioned in the given text
+  explanation: The study aims to delve into the security and privacy concerns associated
+    with Fog/Cloud-based Internet of Things (IoT) systems used for AI and robotics
+    applications. It analyzes potential vulnerabilities and threats within the interconnected
+    systems and examines innovative security mechanisms, encryption approaches, access
+    control strategies, and privacy-preserving solutions to safeguard data, communications,
+    and user identities.
+  extract_1: Fog/Cloud-based IoT architectures can solve the exponential growth of
+    IoT data.
+  extract_2: This paper addresses security and privacy issues related to Fog/Cloud-based
+    IoT systems and AI/Robotics.
+  full_citation: '>'
+  full_text: ">\nEAI Endorsed Transactions  \non AI and Robotics \nResearch Article\
+    \ \n1 \nSecurity and Privacy in Fog/Cloud-based IoT Systems for \nAI and Robotics\
+    \ \nPrabh Deep Singh1 and Kiran Deep Singh2,* \n1 Department of Computer Science\
+    \ and Engineering, Graphic Era Deemed to be University, Dehradun, India \n2 Chitkara\
+    \ University Institute of Engineering and Technology, Chitkara University, Rajpura,\
+    \ Punjab, India\nAbstract \nIntegration of Internet of Things (IoT) systems based\
+    \ on the fog or the cloud with Artificial Intelligence (AI) and Robotics \nhas\
+    \ prepared the way for breakthrough advancements in a variety of different fields\
+    \ of business. However, these cross-\ndisciplinary technologies present significant\
+    \ difficulties in supporting confidentiality and safeguarding data. This article\
+    \ digs \ninto the issues of proving robust security and protecting user privacy\
+    \ in IoT systems based in the fog or the cloud and used \nfor AI and robotics\
+    \ applications. This study gives insights into the possible hazards such interconnected\
+    \ systems meet by \nconducting an in-depth review of existing security threats,\
+    \ vulnerabilities, and privacy concerns. In addition, the study \ninvestigates\
+    \ innovative security mechanisms, encryption approaches, access control strategies,\
+    \ and privacy-preserving \nsolutions that can be used to safeguard data, communications,\
+    \ and user identities. The results of this study highlight the \ndemand for comprehensive\
+    \ security and privacy solutions to support the mainstream deployment of Fog/Cloud-based\
+    \ \nInternet of Things systems in the field of artificial intelligence and robotics.\
+    \ \nKeywords: Security and privacy, Fog/Cloud Computing, Robotics, Artificial\
+    \ Intelligence, Internet of Things \nReceived on 25 July 2023, accepted on 27\
+    \ August 2023, published on 28 August 2023 \nCopyright © 2023 P. D. Singh et al.,\
+    \ licensed to EAI. This is an open access article distributed under the terms\
+    \ of the CC BY-NC-SA \n4.0, which permits copying, redistributing, remixing, transformation,\
+    \ and building upon the material in any medium so long as the \noriginal work\
+    \ is properly cited. \ndoi: 10.4108/airo.3616 \n1. Introduction\nIoT, AI, and\
+    \ robotics have transformed many industries and \naspects of human life due to\
+    \ rapid technological \nadvancement. IoT systems connect physical devices and\
+    \ \nobjects to the internet to collect and exchange data [1],[2]. At \nthe same\
+    \ time, AI and Robotics allow them to intelligently \nprocess and analyse the\
+    \ data and act autonomously[3]. IoT, \nAI, and Robotics have created exciting\
+    \ opportunities in \nhealthcare, transportation, agriculture, smart cities, and\
+    \ \nindustrial automation. AI and robotics Fog/Cloud-based IoT \nsystems face\
+    \ significant security and privacy issues [4]. \nFog/Cloud computing is used in\
+    \ IoT architectures due to the \nrapid growth of IoT devices and data. Fog computing,\
+    \ which \nextends Cloud services to the network edge near the data \nsource, has\
+    \ enabled real-time data processing, reduced \nlatency, and increased bandwidth\
+    \ efficiency [5]. This \nparadigm shift has enabled the integration of AI and\
+    \ Robotics \n*Corresponding author. Email: kdkirandeep@gmail.com\ninto IoT systems,\
+    \ enabling devices to make intelligent \ndecisions and perform tasks without Cloud\
+    \ infrastructure [6]. \nIoT, AI, and Robotics offer promising opportunities and\
+    \ \ncomplex security and privacy issues. Distributed data \nprocessing, \nheterogeneous\
+    \ \ndevices, \nand \nwireless \ncommunication \nmake \nFog/Cloud-based \nIoT \n\
+    systems \nvulnerable to attacks [7],[8]. Unauthorized access, data \nbreaches,\
+    \ and cyber-attacks on interconnected devices can \ncause data theft, service\
+    \ disruption, and even physical harm \nin critical applications[9]. \nThis paper\
+    \ addresses security and privacy issues related to \nFog/Cloud-based IoT systems\
+    \ and AI/Robotics. These \ntechnologies must be robustly protected from potential\
+    \ threats \nas they become more widespread [10], [11]. This research \ncould improve\
+    \ the trustworthiness and reliability of \nFog/Cloud-based IoT systems, promoting\
+    \ the widespread \nadoption of IoT, AI, and Robotics across various domains \n\
+    [12],[13]. \nEAI Endorsed Transactions on \nAI and Robotics\nP. D. Singh and K.\
+    \ D. Singh\n2 \n2. Fog/Cloud-based IoT Architectures for\nAI and Robotics\nThe\
+    \ Internet of Things (IoT) has changed how devices and \npeople interact. A vast\
+    \ network of sensors, actuators, and \nsmart devices collect and exchange data\
+    \ via the internet in \nIoT. The traditional Cloud computing model struggles to\
+    \ \nmanage the massive amount of data generated by IoT \napplications as they\
+    \ grow in scale and complexity. As a \ncomplement to Cloud computing, Fog computing\
+    \ allows real-\ntime processing and analysis of IoT data [14]. \nFog computing,\
+    \ or Edge computing, brings Cloud computing \ncloser to data sources and IoT devices.\
+    \ Decentralizing \ncomputation, storage, and networking reduces latency and \n\
+    improves system efficiency. Unlike cloud computing, Fog \ncomputing processes\
+    \ and analyses data at the network's edge \nusing edge devices, access points,\
+    \ and servers [15]. \nKey Fog/Cloud-based IoT Architecture Components \nFog/Cloud-based\
+    \ IoT architectures depend on them. These \ndevices measure temperature, humidity,\
+    \ light, and motion \nusing sensors. The Fog and Cloud nodes process data \ncollected\
+    \ by IoT devices. Fog nodes connect IoT devices to \nCloud data centres [16].\
+    \ Edge servers, routers, and gateways \nare placed near IoT devices or critical\
+    \ network points. Fog \nnodes aggregate and preprocess IoT device data, reducing\
+    \ \nlatency and network congestion. Local data analysis allows \nreal-time decision-making\
+    \ without the Cloud The advantages \nof developing robotics with the integration\
+    \ of Fog/Cloud with \nIoT are shown in Figure 1. \nCloud data centres store and\
+    \ process massive amounts of IoT \ndata from multiple Fog nodes and devices. Cloud\
+    \ data centres \nhave \npowerful \ncomputing, \nstorage, \nand \nprocessing \n\
+    capabilities. They perform intensive data analytics, machine \nlearning algorithms,\
+    \ and data storage that may not be feasible \nor efficient at the Fog layer [17].\
+    \ \n3. Cloud/Fog IoT Architecture Workflow\nTypical Fog/Cloud-based IoT architecture\
+    \ workflow: \nSensor-equipped IoT devices gather environmental data. The \napplication\
+    \ can generate data in real-time or periodically.  \n3.1 Local Fog Layer Preprocessing\
+    \ \n Nearby Fog nodes preprocess and analyse the collected data. \nFog nodes filter,\
+    \ aggregate, and process data, removing \nirrelevant or unimportant data. Local\
+    \ processing reduces \nCloud data transmission, saving network bandwidth. \n3.2\
+    \ Data Transmission \nSecure channels send pre-processed data to Cloud data \n\
+    centres. This data transmission provides Cloud data centres \nwith relevant data\
+    \ for analysis and decision-making. \n3.3 Cloud-based Processing and Analysis\
+    \ \nCloud data centres use machine learning algorithms and \nadvanced data analytics\
+    \ to gain insights from large data sets. \nCloud layers can manage computationally\
+    \ intensive tasks that \nFog layers cannot. \nData analysis yields actionable\
+    \ insights or commands. The \nFog layer distributes these insights and commands\
+    \ to IoT \ndevices for action or real-time feedback. \n4. Fog/Cloud IoT Architecture\
+    \ Challenges\nFog/Cloud-based IoT architectures have many benefits but \nalso\
+    \ many drawbacks [18]: \n4.1 Security \nFog nodes are vulnerable to security breaches\
+    \ due to their \ndecentralized nature. Data and system integrity depend on \n\
+    strong security and encryption at the Fog and Cloud layers. \n4.2 Data Management\
+    \ \nLarge-scale deployments can make data management and \nsynchronization difficult.\
+    \ Data integrity requires efficient \ndata storage, retrieval, and synchronization.\
+    \ \nFog nodes have limited computational, storage, and energy \nresources. \n\
+    Maintaining \nsystem \nperformance \nrequires \noptimizing Fog node resource use\
+    \ and load balancing. \nFigure 1: Fog/ Cloud based IoT advantages. \n4.3 Interoperability\
+    \  \nDifferent vendors make IoT devices and sensors with several \ntypes and communication\
+    \ protocols. Maintaining device-\nFog/Cloud interoperability is difficult. \n\
+    4.4 Edge-to-Cloud Decisions \nChoosing whether to process data and tasks at the\
+    \ edge (Fog) \nor in the Cloud is difficult. Optimizing system performance \n\
+    requires balancing local processing and centralized Cloud \nanalysis [19]. \n\
+    Fog/Cloud-based IoT architectures can solve the exponential \ngrowth of IoT data.\
+    \ This architecture enables real-time data \nFog/Cloud-\nbased IoT \nadvantages\n\
+    Bandwidth \nEfficiency\nReliability\nScalability\nReduced \nnetwork \ncongestion\
+    \ \nData \nprivacy\nCost\nEAI Endorsed Transactions on \nAI and Robotics\nSecurity\
+    \ and Privacy in Fog/Cloud-based IoT Systems for AI and Robotics \n3 \nanalysis,\
+    \ low-latency decision-making, and improved user \nexperiences by combining Fog\
+    \ computing's edge processing \nwith Cloud computing's scalability and power.\
+    \ To realize the \nfull potential of Fog/Cloud-based IoT architectures in \ncreating\
+    \ a more connected and intelligent world, security, \ndata management, resource\
+    \ constraints, interoperability, and \ndecision-making must be addressed. \n5.\
+    \ Security Measures in Fog/Cloud-based\nIoT Systems\nAs Fog/Cloud-based IoT systems\
+    \ evolve and become more \nwidespread, protecting these interconnected devices\
+    \ and their \ndata becomes crucial. Fog computing's distributed nature, the \n\
+    considerable number of IoT devices, and their importance in \nvarious applications\
+    \ increase the attack surface for cyber \nthreats. The Fog and Cloud layers must\
+    \ implement strong \nsecurity measures to reduce these security risks and protect\
+    \ \ndata integrity and confidentiality [20],[21]. This section \ndiscusses Fog/Cloud-based\
+    \ IoT security measures. \n5.1 Authentication and Access Control \nIoT devices\
+    \ and users must be authenticated before accessing \nthe system. Password-based,\
+    \ two-factor, and biometric \nauthentication ensure only authorized users can\
+    \ access IoT \ndevices and sensitive data. Access control policies must be \n\
+    implemented to regulate user and device access based on \nroles and privileges.\
+    \ Fog/Cloud-based IoT systems use \nRBAC and ABAC access control models. \n5.2\
+    \ Encryption and Secure Communication \nIoT devices, Fog nodes, and Cloud data\
+    \ centres need \nencryption to protect data. End-to-end encryption keeps data\
+    \ \nsecure; only intended recipients can decrypt it. Fog/Cloud-\nbased IoT systems\
+    \ use TLS and SSL for secure \ncommunication. MQTT and CoAP can also securely\
+    \ transfer \ndata between IoT devices and the Fog layer. \n5.3 \nIntrusion \n\
+    Detection \nand \nPrevention \nSystems (IDPS) \nIDPS helps find and respond to\
+    \ cyber threats in real time. \nThese systems analyse network traffic for signs\
+    \ of \nunauthorized access or malicious activity. The IDPS can \nalert, block\
+    \ suspicious traffic, or automatically counterattack \nwhen detecting an anomaly\
+    \ [22]. \n5.4 Security Patches and Updates \nIoT devices, Fog node, and Cloud\
+    \ data centre software and \nfirmware must be regularly updated to address known\
+    \ \nvulnerabilities. Manufacturers and developers should quickly \nrelease security\
+    \ patches and updates to fix vulnerabilities and \nprevent new threats. Automated\
+    \ updates can also keep \ndevices and systems secure [23]. \n5.5 \nSecure \nBootstrapping\
+    \ \nand \nDevice \nOnboarding \nNew devices must be securely connected to the\
+    \ network to \nprevent unauthorized devices from accessing the Fog/Cloud-\nbased\
+    \ IoT system. Secure bootstrapping involves device \nauthentication \nand \nsecure\
+    \ \ncommunication. \nDevice \ncertificates, PKI, and attestation can secure bootstrapping.\
+    \ \n5.6 \nTrust \nManagement \nand \nBlockchain \nApplications \nFog/Cloud-based\
+    \ IoT systems use trust management \nmechanisms to set up trust between entities.\
+    \ IoT devices, Fog \nnodes, and Cloud data centres must be trusted before \naccessing\
+    \ \ncritical \nresources \nand \ndata. \nBlockchain's \ndecentralized and immutable\
+    \ ledger for transactions and \ndevice interactions can boost trust and security.\
+    \ \n5.7 Physical Security \nFog/Cloud-based IoT systems need digital and physical\
+    \ \nsecurity. IoT devices, Fog nodes, and Cloud data centres must \nhave restricted\
+    \ physical access to prevent hardware theft. \nAccess control, surveillance, and\
+    \ tamper-resistant enclosures \ncan deter physical attacks. \n5.8 Security Audits\
+    \ and Monitoring \nFog/Cloud-based IoT systems need regular security audits \n\
+    and checking to find vulnerabilities and security breaches. \nSecurity audits\
+    \ evaluate the system's security, while \ncontinuous monitoring tracks system\
+    \ activities, network \ntraffic, and user behaviour for suspicious or malicious\
+    \ activity \n[24]. \n6. Privacy Preservation in Fog/Cloud-\nbased IoT Systems\n\
+    Fog/Cloud-based IoT systems collect and process substantial \namounts of sensitive\
+    \ data from individuals, organizations, \nand smart devices, making privacy preservation\
+    \ a major \nconcern. Fog computing's scale and distributed nature, \ncombined\
+    \ with Cloud data centres’ centralized data storage \nand processing, can make\
+    \ privacy protection difficult. \nThroughout the data lifecycle, privacy-preserving\
+    \ methods \naddress these issues and protect personal data. This section \ndiscusses\
+    \ Fog/Cloud-based IoT privacy measures [25]. \nAnonymization and pseudonymization\
+    \ protect data subjects' \nidentities. Data is anonymized by removing or obfuscating\
+    \ \ndirect identifiers. However, pseudonymization allows data to \nbe linked across\
+    \ records without revealing individual \nidentities. These methods prevent re-identification\
+    \ and de-\nidentify data before processing and analysis [26]. \n6.1 Differential\
+    \ Privacy \nDifferential privacy supplies mathematical guarantees to \nprotect\
+    \ individual privacy while allowing useful data \nanalysis. Before aggregation,\
+    \ it adds random noise to the data \nto minimize the effect of individual data.\
+    \ This mechanism \nprevents the extraction of individual data while allowing \n\
+    valuable insights from aggregated data. \nEAI Endorsed Transactions on \nAI and\
+    \ Robotics\nP. D. Singh and K. D. Singh\n4 \n6.2 Privacy-aware Data Processing\
+    \ \nPrivacy rules and policies are implemented during data \nprocessing. These\
+    \ methods minimize privacy breaches by \nensuring data is managed according to\
+    \ privacy regulations \nand best practices. Privacy-aware algorithms and protocols\
+    \ \nbalance privacy with data processing goals [27]. \n6.3 Data Minimization \n\
+    Data minimization collects and stores only the data needed \nfor a specific purpose.\
+    \ By collecting less data, privacy risks \nare reduced. Data minimization involves\
+    \ removing obsolete \ndata. \n6.4 Privacy Policies and User Consent \nManagement\
+    \  \nFog/Cloud-based IoT systems need clear privacy policies to \ninform users\
+    \ how their data will be collected, processed, and \nshared. User consent management\
+    \ ensures explicit consent \nfor data collection and use. Users can choose what\
+    \ data they \nshare and for what purposes with granular consent \npreferences.\
+    \ \n6.5 Secure Data Transfer and Storage \nEncrypted communication channels and\
+    \ secure sockets \nprotect data transmitted between IoT devices, Fog nodes, and\
+    \ \nCloud data centres. Data encryption protects data at rest from \nunauthorized\
+    \ access. \n6.6 Data Ownership and Control \nFog/Cloud-based IoT systems should\
+    \ enable data ownership \nand control. Data subjects should be able to access,\
+    \ change, \nremove, and revoke consent for data processing. This gives \npeople\
+    \ control over their data and improves data management \ntransparency. \nFog/Cloud-based\
+    \ \nIoT \nsystems \nmust \nfollow \nprivacy \nregulations like the EU's General\
+    \ Data Protection Regulation \n(GDPR) or the US's California Consumer Privacy\
+    \ Act \n(CCPA). These regulations protect privacy rights and hold \norganizations\
+    \ accountable for data processing [28]. \n7. Challenges and Limitations\nFog/Cloud-based\
+    \ IoT systems have many advantages, such as \nlow latency, improved scalability,\
+    \ and enhanced data \nprocessing. Still, they also have several drawbacks that\
+    \ must \nbe addressed for successful deployment and operation. This \nsection\
+    \ will discuss Fog/Cloud-based IoT system challenges \nand limitations [29][30].\
+    \ \n7.1 Resource Constraints and Performance \nTrade-offs  \nFog nodes have limited\
+    \ computational, storage, and energy \nresources, which can affect system performance.\
+    \ Data \nprocessing and analysis tasks are distributed between the Fog \nand Cloud\
+    \ layers, compromising local processing efficiency \nfor centralized Cloud computing.\
+    \ Maintaining performance \nrequires balancing trade-offs and optimizing resource\
+    \ \nutilization [31]. \n7.2 Scalability and Latency  \nAs IoT devices and data\
+    \ volume grow, Fog/Cloud-based IoT \nsystems must scale. In dynamic, large-scale\
+    \ deployments, \nscalability and load balancing between Fog nodes and Cloud \n\
+    data centres can be difficult. Data transmission between Fog \nnodes and Cloud\
+    \ data centres may cause latency issues, \naffecting real-time applications. \n\
+    7.3 Interoperability and Standardization Issues \nDifferent vendors make IoT devices,\
+    \ resulting in various \ndevice types, communication protocols, and data formats.\
+    \ \nInteroperability between devices, Fog nodes, and Cloud data \ncentres requires\
+    \ standardized communication protocols and \ndata exchange formats. Interoperability\
+    \ issues can make \nFog/Cloud-based IoT systems difficult to integrate [32]. \n\
+    7.4 Security Issues  \nFog computing's distributed nature and many connected \n\
+    devices increase cyber threats. Security and monitoring are \nneeded to secure\
+    \ fog nodes, cloud data centres, and \ncommunication channels. End-to-end security\
+    \ is essential to \nprevent data breaches and unauthorized access, especially\
+    \ \nduring Fog Node-Cloud data transmission. \n7.5 Privacy Issues \nFog/Cloud-based\
+    \ IoT systems manage massive amounts of \ndata, including sensitive personal information.\
+    \ Privacy and \ndata analysis are difficult. Data anonymization and \ndifferential\
+    \ privacy must be carefully applied to protect \nprivacy without compromising\
+    \ data utility. \n7.6 Edge-to-Cloud Decisions \nChoosing whether to process data\
+    \ and tasks at the edge (Fog) \nor in the Cloud is difficult. To perfect system\
+    \ performance, \nconsider data volume, latency, and computational complexity \n\
+    when balancing local processing and centralized Cloud \nanalysis. \n7.7 Energy\
+    \ Efficiency and Sustainability  \nBattery-powered IoT devices consume a lot of\
+    \ energy. IoT \ndevices must balance real-time processing and data \ntransmission\
+    \ with energy-efficient operation to extend battery \nlife and reduce environmental\
+    \ impact. Energy efficiency can \nbe improved by task offloading and sleep schedules.\
+    \ \n7.8 Cost and Infrastructure  \nCloud data centres and Fog nodes are expensive\
+    \ to deploy and \nkeep Fog/Cloud-based IoT systems. Adopting these \ntechnologies\
+    \ \nrequires \nconsideration \nof \ninfrastructure, \noperational costs, and ROI\
+    \ [33]. \n8. Conclusion\nFog computing, Cloud computing, and the Internet of Things\
+    \ \n(IoT) have created a transformative era of technological \nEAI Endorsed Transactions\
+    \ on \nAI and Robotics\nSecurity and Privacy in Fog/Cloud-based IoT Systems for\
+    \ AI and Robotics \n5 \nadvancement, where interconnected devices, AI, and \n\
+    Robotics are reshaping industries and changing how we \ninteract with our surroundings.\
+    \ IoT systems with Fog and \nCloud-based architectures enable real-time data processing,\
+    \ \nlow latency, and scalability for healthcare, transportation, \nindustrial\
+    \ automation, smart cities, and more. This paper \nexamined security and privacy\
+    \ in Fog/Cloud-based IoT \nsystems for AI and Robotics, highlighting their importance,\
+    \ \nchallenges, and practical solutions. \nFog/Cloud-based IoT systems must be\
+    \ secure due to their \ndistributed nature and many connected devices. Security\
+    \ must \nbe strong to prevent cyberattacks. Authentication and access \ncontrol\
+    \ safeguard the system and sensitive data. IoT devices, \nFog nodes, and Cloud\
+    \ data centres send data encrypted and \nsecurely. Intrusion Detection and Prevention\
+    \ Systems (IDPS) \ncontinuously check network traffic and find suspicious \nactivities\
+    \ to prevent and respond to cyberattacks. Security \npatches and updates are necessary\
+    \ to fix vulnerabilities and \nprevent new threats. \nFog/Cloud-based IoT systems\
+    \ must preserve privacy to keep \nuser \nand \nstakeholder \ntrust. \nAnonymization\
+    \ \nand \npseudonymization ensure that sensitive data is de-found \nduring processing.\
+    \ Differential privacy mathematically \nguarantees individual privacy while allowing\
+    \ meaningful \ndata analysis. Privacy-aware data processing and data \nminimization\
+    \ reduce data exposure. Privacy policies and user \nconsent management allow users\
+    \ to control and understand \ndata processing. \nTo be successful, Fog/Cloud-based\
+    \ IoT systems must \novercome many challenges and limitations. Limited \ncomputational\
+    \ power and energy in Fog nodes may affect \nsystem performance and scalability.\
+    \ Balancing local \nprocessing efficiency with centralized Cloud capabilities\
+    \ \nrequires careful trade-offs. Due to the diversity of IoT devices \nand communication\
+    \ protocols, standardization is needed to \nensure seamless integration. \nDue\
+    \ to the increased attack surface, security measures must \nbe strengthened to\
+    \ keep up with evolving cyber threats. \nFog/Cloud-based IoT systems must apply\
+    \ privacy-enhancing \ntechniques and follow privacy regulations to protect personal\
+    \ \ndata without compromising data utility. Edge-to-Cloud \ndecision-making requires\
+    \ intelligent task allocation between \nFog and Cloud layers, considering data\
+    \ volume, latency, and \ncomputational complexity. \nBattery-powered IoT devices\
+    \ must be energy efficient and \nsustainable to reduce environmental impact and\
+    \ energy \nconsumption. Fog/Cloud-based IoT systems can perfect \nresource use\
+    \ and budget allocation, but the cost must be \nconsidered. \nReferences \n[1]\n\
+    P. Singh and K. D. Singh, “Fog-Centric Intelligent\nSurveillance System: A Novel\
+    \ Approach for\nEffective and Efficient Surveillance,” in 2023\nInternational\
+    \ Conference on Advancement in\nComputation \n\\& \nComputer \nTechnologies\n\
+    (InCACCT), 2023, pp. 762–766.\n[2]\nK. D. Singh, “Securing of Cloud Infrastructure\
+    \ using\nEnterprise Honeypot,” in Proceedings - 2021 3rd \nInternational Conference\
+    \ on Advances in Computing, \nCommunication Control and Networking, ICAC3N \n\
+    2021, \n2021, \npp. \n1388–1393. \ndoi: \n10.1109/ICAC3N53548.2021.9725389. \n\
+    [3]\nG. Aceto, V. Persico, and A. Pescapé, “Industry 4.0\nand Health: Internet\
+    \ of Things, Big Data, and Cloud\nComputing for Healthcare 4.0,” J. Ind. Inf.\
+    \ Integr.,\nvol. 18, 2020, doi: 10.1016/j.jii.2020.100129.\n[4]\nS. S. Kang, K.\
+    \ D. Singh, and S. Kumari, “Smart\nantenna for emerging 5G and application,” in\
+    \ Printed\nAntennas, CRC Press, 2022, pp. 249–264.\n[5]\nK. D. Singh, “Particle\
+    \ Swarm Optimization assisted\nSupport Vector Machine based Diagnostic System\n\
+    for Dengue prediction at the early stage,” in\nProceedings - 2021 3rd International\
+    \ Conference on\nAdvances in Computing, Communication Control\nand Networking,\
+    \ ICAC3N 2021, 2021, pp. 844–848.\ndoi: 10.1109/ICAC3N53548.2021.9725670.\n[6]\n\
+    U. S. P. Srinivas Aditya, R. Singh, P. K. Singh, and\nA. Kalla, “A Survey on Blockchain\
+    \ in Robotics:\nIssues, \nOpportunities, \nChallenges \nand \nFuture\nDirections,”\
+    \ J. Netw. Comput. Appl., vol. 196, p.\n103245, 2021, doi: 10.1016/j.jnca.2021.103245.\n\
+    [7]\nS. Meng, X. He, and X. Tian, “Research on Fintech\ndevelopment issues based\
+    \ on embedded cloud\ncomputing and big data analysis,” Microprocess.\nMicrosyst.,\
+    \ \nvol. \n83, \n2021, \ndoi:\n10.1016/j.micpro.2021.103977.\n[8]\nH. Goumidi,\
+    \ Z. Aliouat, and S. Harous, “Vehicular\nCloud Computing Security: A Survey,”\
+    \ Arab. J. Sci.\nEng., vol. 45, no. 4, pp. 2473–2499, 2020, doi:\n10.1007/s13369-019-04094-0.\n\
+    [9]\nK. D. Singh and P. Singh, “A Novel Cloud-based\nFramework to Predict the\
+    \ Employability of\nStudents,” in 2023 International Conference on\nAdvancement\
+    \ \nin \nComputation \n\\& \nComputer\nTechnologies (InCACCT), 2023, pp. 528–532.\n\
+    [10]\nP. Dhiman et al., “A novel deep learning model for\ndetection of severity\
+    \ level of the disease in citrus\nfruits,” Electronics, vol. 11, no. 3, p. 495,\
+    \ 2022.\n[11]\nS. Tiwari, S. Kumar, and K. Guleria, “Outbreak\nTrends of Coronavirus\
+    \ Disease-2019 in India: A\nPrediction,” Disaster Med. Public Health Prep., vol.\n\
+    14, \nno. \n5, \npp. \ne33–e38, \n2020, \ndoi:\n10.1017/dmp.2020.115.\n[12]\n\
+    J. Venkatesh et al., “A Complex Brain Learning\nSkeleton Comprising Enriched Pattern\
+    \ Neural\nNetwork System for Next Era Internet of Things,” J.\nHealthc. Eng.,\
+    \ vol. 2023, 2023.\n[13]\nP. R. Kapula, B. Pant, B. Kanwer, D. Buddhi, K. V.\n\
+    D. Sagar, and S. Sinthu, “Integration of AI in\nimplementation of Wire-less Webbing:\
+    \ A detailed\nReview,” in 2023 International Conference on\nArtificial Intelligence\
+    \ and Smart Communication\n(AISC), 2023, pp. 983–989.\n[14]\nM. Wang, T. Zhu,\
+    \ T. Zhang, J. Zhang, S. Yu, and W.\nZhou, “Security and privacy in 6G networks:\
+    \ New\nareas and new challenges,” Digit. Commun.\nEAI Endorsed Transactions on\
+    \ \nAI and Robotics\n \nP. D. Singh and K. D. Singh \n6 \nNetworks, vol. 6, no.\
+    \ 3, pp. 281–291, 2020, doi: \n10.1016/j.dcan.2020.07.003. \n[15] \nG. Yang et\
+    \ al., “Homecare Robotic Systems for \nHealthcare 4.0: Visions and Enabling Technologies,”\
+    \ \nIEEE J. Biomed. Heal. Informatics, vol. 24, no. 9, pp. \n2535–2549, 2020,\
+    \ doi: 10.1109/JBHI.2020.2990529. \n[16] \nA. Martinetti, P. K. Chemweno, K. Nizamis,\
+    \ and E. \nFosch-Villaronga, “Redefining Safety in Light of \nHuman-Robot Interaction:\
+    \ A Critical Review of \nCurrent Standards and Regulations,” Front. Chem. \nEng.,\
+    \ vol. 3, 2021, doi: 10.3389/fceng.2021.666237. \n[17] \nY. Chen, Y. Ping, Z.\
+    \ Zhang, B. Wang, and S. Y. He, \n“Privacy-preserving image multi-classification\
+    \ deep \nlearning model in robot system of industrial IoT,” \nNeural Comput. Appl.,\
+    \ vol. 33, no. 10, pp. 4677–\n4694, 2021, doi: 10.1007/s00521-020-05426-0. \n\
+    [18] \nN. A. Angel, D. Ravindran, P. M. D. R. Vincent, K. \nSrinivasan, and Y.\
+    \ C. Hu, “Recent advances in \nevolving computing paradigms: Cloud, edge, and\
+    \ fog \ntechnologies,” Sensors, vol. 22, no. 1, 2022, doi: \n10.3390/s22010196.\
+    \ \n[19] \nF. Bademosi and R. R. A. Issa, “Factors Influencing \nAdoption and\
+    \ Integration of Construction Robotics \nand Automation Technology in the US,”\
+    \ J. Constr. \nEng. Manag., vol. 147, no. 8, 2021, doi: \n10.1061/(asce)co.1943-7862.0002103.\
+    \ \n[20] \nH. Goumidi, Z. Aliouat, and S. Harous, “Vehicular \nCloud Computing\
+    \ Security: A Survey,” Arab. J. Sci. \nEng., vol. 45, no. 4, pp. 2473–2499, Apr.\
+    \ 2020, doi: \n10.1007/s13369-019-04094-0. \n[21] \nY. Chen, Y. Ping, Z. Zhang,\
+    \ B. Wang, and S. Y. He, \n“Privacy-preserving image multi-classification deep\
+    \ \nlearning model in robot system of industrial IoT,” \nNeural Comput. Appl.,\
+    \ vol. 33, no. 10, pp. 4677–\n4694, May 2021, doi: 10.1007/s00521-020-05426-0.\
+    \ \n[22] \nE. Fosch-Villaronga and C. Millard, “Cloud robotics \nlaw and regulation:\
+    \ Challenges in the governance of \ncomplex and dynamic cyber–physical ecosystems,”\
+    \ \nRob. Auton. Syst., vol. 119, pp. 77–91, 2019, doi: \n10.1016/j.robot.2019.06.003.\
+    \ \n[23] \nS. Chatterjee, R. Chaudhuri, and D. Vrontis, “Usage \nIntention of\
+    \ Social Robots for Domestic Purpose: \nFrom Security, Privacy, and Legal Perspectives,”\
+    \ Inf. \nSyst. Front., 2021, doi: 10.1007/s10796-021-10197-\n7. \n[24] \nS. Jain,\
+    \ C. Nandhini, R. D.-W. P. Communications, \nand  undefined 2021, “ECC-based authentication\
+    \ \nscheme for cloud-based robots,” Springer. \n[25] \nA. K. Tanwani, R. Anand,\
+    \ J. E. Gonzalez, and K. \nGoldberg, “RILaaS: Robot Inference and Learning as\
+    \ \na Service,” IEEE Robot. Autom. Lett., vol. 5, no. 3, \npp. \n4423–4430, \n\
+    2020, \ndoi: \n10.1109/LRA.2020.2998414. \n[26] \nJ. Wan, J. Li, M. Imran, and\
+    \ D. Li, “A blockchain-\nbased solution for enhancing security and privacy in\
+    \ \nsmart factory,” IEEE Trans. Ind. Informatics, vol. 15, \nno. \n6, \npp. \n\
+    3652–3660, \n2019, \ndoi: \n10.1109/TII.2019.2894573. \n[27] \nJ. P. A. Yaacoub,\
+    \ H. N. Noura, O. Salman, and A. \nChehab, “Robotics cyber security: vulnerabilities,\
+    \ \nattacks, countermeasures, and recommendations,” \nInt. J. Inf. Secur., vol.\
+    \ 21, no. 1, pp. 115–158, 2022, \ndoi: 10.1007/s10207-021-00545-8. \n[28] \nE.\
+    \ Fosch-Villaronga and T. Mahler, “Cybersecurity, \nsafety and robots: Strengthening\
+    \ the link between \ncybersecurity and safety in the context of care \nrobots,”\
+    \ Comput. Law Secur. Rev., vol. 41, 2021, doi: \n10.1016/j.clsr.2021.105528. \n\
+    [29] \nY. Xianjia, J. P. Queralta, J. Heikkonen, and T. \nWesterlund, “Federated\
+    \ Learning in Robotic and \nAutonomous Systems,” Procedia Comput. Sci., vol. \n\
+    191, \npp. \n135–142, \n2021, \ndoi: \n10.1016/j.procs.2021.07.041. \n[30] \n\
+    A. K. Tanwani, N. Mor, J. Kubiatowicz, J. E. \nGonzalez, and K. Goldberg, “A Fog\
+    \ Robotics \nApproach to Deep Robot Learning: Application to \nobject recognition\
+    \ and grasp planning in surface \ndecluttering,” Proc. - IEEE Int. Conf. Robot.\
+    \ Autom., \nvol. \n2019-May, \npp. \n4559–4566, \n2019, \ndoi: \n10.1109/ICRA.2019.8793690.\
+    \ \n[31] \nW. Liang, Z. Ning, S. Xie, Y. Hu, S. Lu, and D. \nZhang, “Secure fusion\
+    \ approach for the Internet of \nThings in smart autonomous multi-robot systems,”\
+    \ \nInf. Sci. (Ny)., vol. 579, pp. 468–482, 2021, doi: \n10.1016/j.ins.2021.08.035.\
+    \ \n[32] \nS. Chatterjee, R. Chaudhuri, and D. Vrontis, “Usage \nIntention of\
+    \ Social Robots for Domestic Purpose: \nFrom Security, Privacy, and Legal Perspectives,”\
+    \ Inf. \nSyst. Front., 2021, doi: 10.1007/s10796-021-10197-\n7. \n[33] \nS. Jain,\
+    \ C. Nandhini, and R. Doriya, “ECC-Based \nAuthentication Scheme for Cloud-Based\
+    \ Robots,” \nWirel. Pers. Commun., vol. 117, no. 2, pp. 1557–\n1576, Mar. 2021,\
+    \ doi: 10.1007/s11277-020-07935-6. \n \nEAI Endorsed Transactions on \nAI and\
+    \ Robotics\n"
+  inline_citation: (Singh and Singh, 2023)
+  journal: EAI endorsed transactions on artificial intelligence and robotics
+  key_findings: Fog/Cloud-based IoT systems offer efficiency and scalability but face
+    security and privacy challenges. Implementing robust security measures (authentication,
+    encryption, intrusion detection), privacy-preserving techniques (anonymization,
+    differential privacy), and following data regulations are crucial for ensuring
+    the trustworthiness and reliability of these systems.
+  limitations: The study primarily centers around security and privacy aspects of
+    Fog/Cloud-based IoT systems and does not delve deeply into the technical complexities
+    of data standardization and harmonization.
+  main_objective: To investigate the security and privacy issues associated with Fog/Cloud-based
+    IoT systems, focusing on AI and robotics applications, and to propose solutions
+    for robust data protection.
+  pdf_link: https://publications.eai.eu/index.php/airo/article/download/3616/2476
+  publication_year: 2023
+  relevance_evaluation: This study focuses on the security and privacy concerns in
+    Fog/Cloud-based IoT systems, which is directly relevant to the discussion of data
+    standardization and harmonization for seamless integration and interoperability
+    in the section and subsection specified.
+  relevance_score: '0.8'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Fog computing, Cloud computing, IoT, AI, Robotics
+  title: Security and Privacy in Fog/Cloud-based IoT Systems for AI and Robotics
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

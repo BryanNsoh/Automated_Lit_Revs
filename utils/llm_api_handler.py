@@ -173,7 +173,7 @@ class LLM_APIHandler:
             retry_count = 0
             while retry_count < 5:
                 try:
-                    clipped_prompt = clip_prompt(prompt, max_tokens=28000)
+                    clipped_prompt = clip_prompt(prompt, max_tokens=26000)
                     logging.info(
                         f"Generating content with Gemini API (client {client_index}). Prompt: {clipped_prompt}"
                     )
