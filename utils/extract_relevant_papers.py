@@ -7,11 +7,7 @@ import chardet
 import re
 import os
 from llm_api_handler import LLM_APIHandler
-from prompts import (
-    get_prompt,
-    review_intention,
-    section_intentions,
-)
+from prompts import get_prompt, review_intention, section_intentions
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -61,16 +57,15 @@ class PaperRanker:
         retry_count = 0
         while retry_count < self.max_retries:
             prompt = get_prompt(
-                "rank_papers",
+                template_name="rank_papers",
                 review_intention=review_intention,
                 point_content=point_content,
                 subsection_title=subsection_title,
-                document_title=entry.get("title", ""),
                 full_text=entry.get("full_text", ""),
-                abstract=entry.get("description", ""),
                 section_intention=section_intention,
             )
             try:
+                print(f"Processing entry: {entry.get('title', '')}")
                 response = await self.llm_api_handler.generate_gemini_content(prompt)
                 if response is None:
                     logger.warning(
@@ -97,6 +92,9 @@ class PaperRanker:
                                 await self.save_relevant_entry(
                                     output_folder_path, entry
                                 )
+                                await self.save_parsed_entry(
+                                    output_folder_path, json_data
+                                )
                             return entry
                         except (ValueError, TypeError):
                             logger.warning(
@@ -121,7 +119,7 @@ class PaperRanker:
         return None
 
     async def save_relevant_entry(self, output_folder_path, entry):
-        output_file_name = "relevant_entries.yaml"
+        output_file_name = "relevant_entries_all.yaml"
         output_file_path = os.path.join(output_folder_path, output_file_name)
         try:
             async with aiofiles.open(output_file_path, "a", encoding="utf-8") as file:
@@ -130,6 +128,17 @@ class PaperRanker:
             logger.info(f"Successfully saved relevant entry to: {output_file_path}")
         except Exception as e:
             logger.exception(f"Error saving relevant entry: {str(e)}")
+
+    async def save_parsed_entry(self, output_folder_path, parsed_data):
+        output_file_name = "relevant_entries_parsed.yaml"
+        output_file_path = os.path.join(output_folder_path, output_file_name)
+        try:
+            async with aiofiles.open(output_file_path, "a", encoding="utf-8") as file:
+                yaml_data = yaml.safe_dump([parsed_data], allow_unicode=True)
+                await file.write(yaml_data)
+            logger.info(f"Successfully saved parsed entry to: {output_file_path}")
+        except Exception as e:
+            logger.exception(f"Error saving parsed entry: {str(e)}")
 
     async def process_yaml_files(
         self,
@@ -141,12 +150,10 @@ class PaperRanker:
     ):
         tasks = []
         for yaml_file_path in yaml_file_paths:
-            logger.info(f"Processing file: {yaml_file_path}")
             try:
                 async with aiofiles.open(yaml_file_path, "r", encoding="utf-8") as file:
                     data = yaml.safe_load(await file.read())
             except FileNotFoundError:
-                logger.warning(f"File not found: {yaml_file_path}. Skipping.")
                 continue
             except Exception as e:
                 logger.exception(f"Error loading YAML file: {str(e)}")
@@ -197,43 +204,49 @@ class FileSystemHandler:
         except Exception as e:
             logger.exception(f"Error loading outline file: {str(e)}")
             return
+
         section_intention = section_intentions.get(section_number, "")
         tasks = []
-        for subsection in outline_data["subsections"]:
-            subsection_index = subsection["index"]
-            subsection_title = subsection["subsection_title"]
-            for point_dict in subsection["points"]:
-                for point_key, point in point_dict.items():
-                    point_content = point["point_content"]
-                    point_folder_name = point_key.replace(" ", "_")
-                    point_folder = os.path.join(
-                        output_folder_path,
-                        f"subsection_{subsection_index}",
-                        point_folder_name,
+
+        for subsection_number, subsection_data in outline_data.items():
+            subsection_title = subsection_data.get("subsection_title", "")
+            point_content_data = subsection_data.get("point_content", {})
+
+            subsection_folder_name = f"subsection_{subsection_number}"
+            subsection_folder = os.path.join(
+                output_folder_path,
+                subsection_folder_name,
+            )
+            os.makedirs(subsection_folder, exist_ok=True)
+
+            for point_number, point_data in point_content_data.items():
+                point_content = point_data.get("content", "")
+                yaml_file_paths = point_data.get("yaml_paths", [])
+
+                point_folder_name = f"point_{point_number.lower().replace(' ', '_')}"
+                point_folder = os.path.join(
+                    subsection_folder,
+                    point_folder_name,
+                )
+                os.makedirs(point_folder, exist_ok=True)
+
+                task = asyncio.create_task(
+                    ranker.process_yaml_files(
+                        yaml_file_paths,
+                        point_folder,
+                        subsection_title,
+                        point_content,
+                        section_intention,
                     )
-                    os.makedirs(point_folder, exist_ok=True)
-                    yaml_file_paths = []
-                    for response in point["scopus_queries"] + point["alex_queries"]:
-                        for response_data in response["responses"]:
-                            yaml_file_path = response_data.get("yaml_path", "")
-                            if yaml_file_path:
-                                yaml_file_paths.append(yaml_file_path)
-                    task = asyncio.create_task(
-                        ranker.process_yaml_files(
-                            yaml_file_paths,
-                            point_folder,
-                            subsection_title,
-                            point_content,
-                            section_intention,
-                        )
-                    )
-                    tasks.append(task)
+                )
+                tasks.append(task)
+
         await asyncio.gather(*tasks)
 
 
 async def main(section_number):
     output_folder_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\processed"
-    outline_file_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\outline_queries.yaml"
+    outline_file_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\new_outline_structure.yaml"
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     async with LLM_APIHandler(api_key_path) as api_handler:
         ranker = PaperRanker(api_key_path)
@@ -255,5 +268,5 @@ async def main(section_number):
 
 
 if __name__ == "__main__":
-    section_number = "3"  # Replace with the desired section number
+    section_number = "3"
     asyncio.run(main(section_number))
