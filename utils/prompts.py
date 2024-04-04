@@ -250,6 +250,7 @@ def remove_illegal_characters(text):
 
 
 def get_prompt(template_name, **kwargs):
+
     prompts = {  # Soom to be deprecated
         "paper_analysis": """<instructions>  
 First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_content> within the context of the overall literature review outline and intention provided.
@@ -376,21 +377,21 @@ The  platform will be specified in the search guidance. Replace * with the platf
 </documents>
 """,
         "rank_papers": """
-        <instructions>  
-First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_content> within the context of the overall literature review intention provided and the specific section and subsection of the review.
+Here is the updated prompt with corrected XML tags:
+
+<instructions>
+First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_focus> within the context of the overall literature review intentions and the specific section and sub-section in which the point is located.
 
 Your analysis should include:
 
-A concise analysis of how the specifics of the paper contribute to addressing the point within the larger context and intent of the literature review. Consider the following factors based on the paper type:
-Relevance: How directly does the paper address the key issues pertaining to the outline point?
-Insight: To what extent does the paper provide novel, meaningful, or valuable information for the point?
-Credibility: How reliable, valid, and trustworthy are the paper's findings, methods, or arguments?
-Scope: How comprehensive is the paper's coverage of topics relevant to the outline point?
-Recency: How up-to-date is the information in the context of the current state of knowledge on the topic?
-The three most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. Include the most important quote under "verbatim_quote1", the second most important under "verbatim_quote2", and the third under "verbatim_quote3". If no quotes are directly relevant, leave these blank.
-A relevance score between 0 and 1 representing the overall fit of the paper to the outline point and review. Use the following rubric:
+1. A concise summary (3-5 sentences) of the key points of the paper as they relate to the outline point. Include this in the "explanation" field of the JSON.
+
+2. A succinct yet detailed explanation of how the specifics of the paper contribute to addressing the point within the larger context and intent of the literature review. Consider the following factors based on the paper type: relevance, insight, credibility, scope, and recency. Include this in the "relevance_evaluation" field of the JSON.
+
+3. A relevance score between 0 and 1 representing the overall fit of the paper to the outline point and review. Use the following rubric and include the score in the "relevance_score" field of the JSON:
+
 0.9-1.0: Exceptionally relevant - Comprehensively addresses all key aspects of the point with highly insightful, reliable, and up-to-date information. A must-include for the review.
-0.8-0.89: Highly relevant - Addresses key issues of the point with, credible, and meaningful information. Adds substantial value to the review.
+0.8-0.89: Highly relevant - Addresses key issues of the point with novel, credible, and meaningful information. Adds substantial value to the review.
 0.7-0.79: Very relevant - Directly informs the point with reliable and valuable information, but may have minor limitations in scope, depth, or recency.
 0.6-0.69: Moderately relevant - Provides useful information for the point, but has some notable gaps in addressing key issues or limitations in insight, credibility, or timeliness.
 0.5-0.59: Somewhat relevant - Addresses aspects of the point, but has significant limitations in scope, depth, reliability, or value of information. May still be worth including.
@@ -398,60 +399,76 @@ A relevance score between 0 and 1 representing the overall fit of the paper to t
 0.2-0.39: Minimally relevant - Only briefly touches on the point with information that is of questionable value, reliability, or timeliness. Not recommended for inclusion.
 0.0-0.19: Not relevant - Fails to address the point or provide any useful information. Should be excluded from the review.
 
-Be uncompromising in assigning the most appropriate score based on a holistic assessment of the paper's merits and limitations.
+4. The two most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. Include the most important quote under "extract_1" and the second most important under "extract_2". If no quotes are directly relevant, leave these blank. Use quotation marks around the extracts in the JSON.
 
-List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank. Additionally, provide the in-line and apa citations of the paper in the relevant json field. If these are not provided, construct them based on the information in the paper.
-Provide your analysis and other responses in the following JSON format:
+5. List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank. Include this in the "limitations" field of the JSON as a comma-separated list.
 
+6. Provide a suggested in-line citation for the paper under "inline_citation" in the format (Author, Year), and a full APA style reference under "apa_citation".
 
+7. Under "study_location", provide the specific city/region and country where the study was conducted. If not explicitly stated, infer the most likely location based on author affiliations or other context clues. If the location cannot be determined, write "Unspecified".
+
+8. For "main_objective", state the primary goal or research question of the study in 1-2 sentences.
+
+9. List the key technologies, methods, or approaches used in the study under "technologies_used", separated by commas.
+
+10. Under "data_sources", list the primary sources of data used in the analysis, such as "Survey data", "Interviews", "Case studies", "Literature review", etc. Separate each source with a comma.
+
+11. Summarize the main findings or results of the study in 2-3 sentences under "key_findings".
+
+Provide your analysis in the following JSON format. Be as precise, specific, and concise as possible in your responses. Use the provided fields and format exactly as shown below:
+
+<response_format>
 {{
-"analysis": "",
-"verbatim_quote1": "",
-"verbatim_quote2": "",
-"relevance_score": 0.0,
-"full_citation": "",
-"inline_citation": "",
-"limitations": ""
+ "explanation": "From your close reading of the paper, provide a concise explanation of the study's purpose and main objectives, using a maximum of 3 sentences.",
+ "relevance_evaluation": "Evaluate the relevance of the paper to the specific point you are making in your literature review. Explain your reasoning in a maximum of 3 sentences.",
+ "relevance_score": "On a scale from 0.0 to 1.0, parsimoniously rate the relevance of the paper to the point you are making in your review, with 1.0 being the most relevant.",
+ "extract_1": "Select the most relevant verbatim quote from the paper that supports your point, using a maximum of 3 sentences.",
+ "extract_2": "Select the second most relevant verbatim quote from the paper that supports your point, using a maximum of 3 sentences.",
+ "limitations": "List the main limitations of the study, separated by commas using a maximum of 2 sentences.",
+ "inline_citation": "Provide the inline citation for the paper using the format: (Author Surname, Publication Year). If it's not directly provided, do your best to infer it",
+ "apa_citation": "Provide the full APA citation for the paper, ensuring that all elements (author, year, title, publication, etc.) are correctly formatted. If it's not directly provided, do your best to infer it",
+ "study_location": "Specify the city/region and country where the study was conducted.",
+ "main_objective": "State the main objective of the study in 1-2 sentences.",
+ "technologies_used": "List the key technologies used in the study, separated by commas. Be ultra-specific.",
+ "data_sources": "List the main data sources used in the study, separated by commas. Be ultra-specific",
+ "key_findings": "Summarize the key findings of the study in 2-3 sentences."
 }}
+</response_format>
 
-Use double quotation marks around all field names and values.
-Separate field/value pairs with a comma.
-Do not add any extra characters, line breaks, indentation etc. inside the curly braces.
-If a field is not applicable, set its value to an empty string "".
-Set "relevance_score" to a numerical value between 0.0 and 1.0, following the provided rubric.
-Follow the specified order of fields exactly.
-
-Strict adherence to this JSON format is critical. Any deviation, even a small one like a missing quotation mark or extra space, may result in an unusable output that cannot be processed correctly.
+Leave any fields blank if not applicable, but keep the field names. The "explanation" field should be one paragraph maximum.
 </instructions>
 
-<documents>
 <context>
+
 <review_intention>
 {review_intention}
 </review_intention>
 
-<point_content>
-{point_content}
-</point_content>
-
-<subsection_title>
-{subsection_title}  
-</subsection_title>
-
 <section_intention>
 {section_intention}
 </section_intention>
-</context>
-<title>
-{document_title}
-</title>
+
+<subsection_title>
+{subsection_title}
+</subsection_title>
+
+<point_focus>
+{point_content}
+</point_focus>
+
 <full_text>
 {full_text}
 </full_text>
-<abstract>
-{abstract}
-</abstract>
-</documents>
+
+</context>
 """,
     }
-    return prompts[template_name].format(**kwargs)
+
+    try:
+        return prompts[template_name].format(**kwargs)
+
+    except KeyError as e:
+        missing_key = str(e).strip("'")
+        raise ValueError(
+            f"Missing argument for template '{template_name}': {missing_key}"
+        )
