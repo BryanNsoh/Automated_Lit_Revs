@@ -153,9 +153,22 @@ class QueryGenerator:
 
 
 # Example usage
-yaml_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\research_paper_outline.yaml"
-section_title = "DATA COLLECTION TO CLOUD: AUTOMATION AND REAL-TIME PROCESSING"
-section_number = 3
+section_info = {
+    4: "SECTION 4 TITLE",
+    5: "SECTION 5 TITLE",
+    6: "SECTION 6 TITLE",
+    7: "SECTION 7 TITLE",
+}
+
 api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
 processor = QueryGenerator(api_key_path)
-asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))
+
+for section_number, section_title in section_info.items():
+    yaml_path = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section_number}\research_paper_outline.yaml"
+    asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))
+
+# section_title = "DATA COLLECTION TO CLOUD: AUTOMATION AND REAL-TIME PROCESSING"
+# section_number = 3
+# api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+# processor = QueryGenerator(api_key_path)
+# asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))

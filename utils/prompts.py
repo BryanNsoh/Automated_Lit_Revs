@@ -68,7 +68,7 @@ Begin your answer with a brief recap of the instructions stating what you will t
 
 Critical: 
 - Do not include a conclusion or summary as the entry is in the middle of the document. Focus on addressing the points and supporting them with evidence from the provided papers. Ensure that the subsection is well-structured, coherent, and effectively contributes to the overall research paper.
-- The subsection we are focusing on is: 3.1. Irrigation management data.
+- The subsection we are focusing on is: 3.4. Real-Time Data Transmission Protocols and Technologies
 
 
 """
