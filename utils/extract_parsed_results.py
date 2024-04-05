@@ -63,6 +63,7 @@ class SummaryGenerator:
 
             summary_content += "<subsection_title>\n"
             summary_content += f"{subsection_title}\n"
+            print(subsection_title)
             summary_content += "</subsection_title>\n\n"
 
             for point_number, point_data in point_content_data.items():
