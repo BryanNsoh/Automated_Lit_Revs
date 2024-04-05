@@ -154,10 +154,11 @@ class QueryGenerator:
 
 # Example usage
 section_info = {
-    4: "SECTION 4 TITLE",
-    5: "SECTION 5 TITLE",
-    6: "SECTION 6 TITLE",
-    7: "SECTION 7 TITLE",
+    4: "AUTOMATED DATA PROCESSING IN THE CLOUD: Examines the importance of data quality and preprocessing in the cloud, containerization strategies for scalable and autonomous deployment, and the deployment of machine learning (ML) models for real-time data processing and inference.",
+    5: "GENERATING AND APPLYING IRRIGATION INSIGHTS: Focuses on the application of ML-generated insights to control irrigation systems without manual intervention, investigating the real-time generation and automated application of actionable irrigation insights, and the importance of interpretability and explainability in ML models.",
+    6: "INTEGRATION, INTEROPERABILITY, AND STANDARDIZATION: Explores the challenges and strategies for integrating automated systems with existing irrigation infrastructure and other precision agriculture technologies, highlighting the importance of interoperability and standardization in enabling seamless communication and compatibility.",
+    7: "MONITORING AND ENSURING SYSTEM RELIABILITY: Focuses on strategies for ensuring the robustness and reliability of the automated irrigation system, including resilience and fault tolerance, advanced monitoring techniques, closed-loop control, and addressing security concerns and risks in large-scale deployments.",
+    8: "CASE STUDIES AND REAL-WORLD IMPLEMENTATIONS: Presents detailed examples of successful deployments of end-to-end automated irrigation systems in various agricultural settings, highlighting lessons learned, challenges encountered, and best practices derived from real-world implementations.",
 }
 
 api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
