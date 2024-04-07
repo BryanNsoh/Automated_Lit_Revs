@@ -1,0 +1,417 @@
+- DOI: https://doi.org/10.48047/nq.2022.20.5.nq22810
+  analysis: '>'
+  authors:
+  - Luxmi Sapra
+  citation_count: 1
+  full_citation: '>'
+  full_text: ">\nLuxmi Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT\
+    \ Using Convolutional Neural Network \n \n                      eISSN1303-5150\
+    \                                                                            \
+    \                                                                         www.neuroquantology.com\
+    \                                       \n \n \nWireless Sensor Network System\
+    \ for Clever \nVegetation-IoT Using Convolutional Neural \nNetwork \n \nLuxmi\
+    \ Sapra, \nAssociate Professor, School of Computing, Graphic Era Hill University,\
+    \ \nDehradun, Uttarakhand India 248002 \n \n \nAbstract: \nThe development of\
+    \ Wireless Sensor Networks (WSNs) as a technology has great promise for a number\
+    \ \nof uses, including environmental monitoring. In recent years, the development\
+    \ of intelligent systems for \nmaintaining and monitoring vegetation has been\
+    \ made possible by the integration of WSNs with the \nInternet of Things (IoT).\
+    \ In this study, convolutional neural networks (CNNs) are used to create a wireless\
+    \ \nsensor network system for intelligent vegetation (WSN-CVIoT). The suggested\
+    \ system attempts to \nprecisely track and assess vegetation health, enabling\
+    \ prompt intervention and better farming methods. \nKeywords. Wireless Sensor\
+    \ Networks, Internet of Things (IoT), Clever Vegetation, Convolutional \nNeural\
+    \ Network (CNN), Agriculture, Precision Agriculture, Environmental Monitoring,\
+    \ Urban Green \nSpaces, Sensor Nodes, Wireless Communication. \nDOI Number: 10.48047/nq.2022.20.5.NQ22810\
+    \                         NeuroQuantology 2022; 20(5): 5283-5290 \n \nI. \nIntroduction:\
+    \ \nAgriculture and environmental monitoring are \nonly two of the many industries\
+    \ that have been \ntransformed by wireless sensor networks \n(WSNs) and the Internet\
+    \ of Things (IoT). The \nmonitoring and control of vegetation, which is \nessential\
+    \ \nfor \nguaranteeing \nfood \nsecurity, \nenvironmental sustainability, and\
+    \ ecosystem \nhealth, is one essential application in this field. \nThe creation\
+    \ of intelligent systems for real-time \nmonitoring and analysis of vegetation\
+    \ has been \nmade possible by the integration of WSNs and \nIoT technologies.\
+    \ This has enhanced agricultural \npractises and allowed for timely intervention.\
+    \ \nTraditional \nvegetation \nmonitoring \nhas \ndepended on manual observations\
+    \ and sporadic \ninspections, which are time-consuming, labor-\nintensive, and\
+    \ have a limited capacity to give \nreal-time information. WSNs have become a\
+    \ \npotent tool for automatic and continuous \nmonitoring of vegetative characteristics,\
+    \ such as \ntemperature, humidity, soil moisture, and light \nintensity, thanks\
+    \ to developments in sensor \ntechnologies. WSNs are made up of numerous \ngeographically\
+    \ dispersed sensors that work \ntogether to gather and transmit data to a base\
+    \ \nstation or central node for additional processing \nand analysis. \nThe demand\
+    \ for effective and intelligent \nvegetation monitoring systems has been \npushed\
+    \ by the expanding worldwide population \nand the necessity for sustainable agriculture\
+    \ \npractises. Traditional methods fall short of the \nrequirements of precision\
+    \ agriculture, where \naccurate and timely information about the \nhealth of the\
+    \ plants is essential for maximising \nresource allocation and reducing environmental\
+    \ \nimpacts. By enabling automated analysis and \ndecision-making based on real-time\
+    \ data, the \nintegration of CNNs with WSNs and IoT can \naddress these issues\
+    \ and improve agricultural \nproductivity and resource management. The \nNEUROQUANTOLOGY\
+    \ | MAY 2022 | VOLUME 20 | ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n\
+    5283\nLuxmi Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT\
+    \ Using Convolutional Neural Network \n \n                      eISSN1303-5150\
+    \                                                                            \
+    \                                                                         www.neuroquantology.com\
+    \                                       \n \ndesign and deployment of a WSN-CVIoT\
+    \ system \nemploying CNNs for monitoring and analysing \nvegetation are the main\
+    \ topics of this study. The \nscope of the system includes sensor location \n\
+    and choice, data transmission and gathering \nmethods, preprocessing of gathered\
+    \ data, and \nCNN application for vegetation health analysis. \nThe performance\
+    \ of the system is also assessed, \nand its effectiveness with other methods is\
+    \ \ncompared, in the research. However, the \nimmediate focus of this study does\
+    \ not include \nthe deployment of the system in particular \nagricultural or environmental\
+    \ contexts or the \ncreation of domain-specific decision-making \nalgorithms.\
+    \ In conclusion, this research article \ngives a thorough investigation into the\
+    \ design of \na wireless sensor network system for the \nInternet of Things-enabled\
+    \ clever vegetation. \nThe suggested system enables real-time data \ncollecting,\
+    \ analysis, and decision-making in an \neffort \nto \novercome \nthe \nconstraints\
+    \ \nof \nconventional vegetation monitoring systems. \nThe remainder of this essay\
+    \ will go into greater \ndetail regarding the system design, the function \nof\
+    \ \nCNNs \nin \nvegetation \nanalysis, \nthe \nimplementation procedure, the outcomes\
+    \ of \nthe experiments, and potential uses and future \nprospects for the suggested\
+    \ system. \nII. \nLiterature Review: \nIn this part, we provide an extensive assessment\
+    \ \nof published studies on wireless sensor \nnetworks (WSNs), the Internet of\
+    \ Things (IoT), \nand convolutional neural networks (CNNs) as \nthey apply to\
+    \ the observation and analysis of \nvegetation. In order to build a solid foundation\
+    \ \nfor the proposed study on a Wireless Sensor \nNetwork System for Clever Vegetation-IoT\
+    \ \n(WSN-CVIoT) utilising CNNs, the review intends \nto give a comprehensive grasp\
+    \ of the present \nstate-of-the-art, identify research gaps, and \nsummarise the\
+    \ literature. Numerous studies \nhave emphasised the use of WSNs for \nmonitoring\
+    \ vegetation. In order to monitor soil \nmoisture and temperature, Ahmad et al.\
+    \ (2018) \npresented a WSN-based system. This showed \nhow well WSNs work at providing\
+    \ real-time data \nfor irrigation control. Similar to this, Zhang et al. \n(2017)\
+    \ created a WSN system to track a variety \nof environmental factors in agricultural\
+    \ areas, \nsuch as temperature, humidity, and light \nintensity, \nto \nenable\
+    \ \nprecision \nagriculture \npractises. These studies demonstrate the value \n\
+    of WSNs in gathering information on the state \nof the environment and vegetation.\
+    \ \nThe ability to monitor vegetation has been \nsignificantly improved by the\
+    \ integration of \nWSNs with IoT technologies. An IoT-based \nsystem \nfor \n\
+    real-time \nmonitoring \nand \nmanagement of greenhouse settings was \npresented\
+    \ by Wang et al. in 2019. The system \nused \nWSNs \nto \ngather \ninformation\
+    \ \non \ntemperature, \nhumidity, \nand \nCO2 \nlevels, \nproviding the best possible\
+    \ management of \ngreenhouses. WSNs and the Internet of Things \nwere used in\
+    \ a different study by Liu et al. \n(2020) to monitor agricultural growth and\
+    \ \noptimise resource allocation. These studies \nshow how real-time data collecting,\
+    \ analysis, \nand decision-making can enhance vegetation \nmonitoring via IoT.\
+    \ In the area of computer \nvision and image analysis, CNNs have attracted \n\
+    a lot of interest. CNNs have been effectively \nused for tasks like plant disease\
+    \ detection and \nclassification in the context of vegetation \nanalysis. Using\
+    \ photos of leaves, Mohanty et al. \n(2016) created a CNN model to identify illnesses\
+    \ \nin plants with excellent accuracy. Similar to this, \nKamilaris et al. (2018)\
+    \ used CNNs to identify \ncrops and weeds, enabling more precise weed \nmanagement\
+    \ methods. These experiments \ndemonstrate how well CNNs do automated \nvegetation\
+    \ analysis, allowing for the possibility \nof \ntimely \nand \naccurate \nintervention\
+    \ \nin \nagricultural practises. \nTo create intelligent systems for monitoring\
+    \ and \nanalysing vegetation, recent research has \nconcentrated on merging WSNs\
+    \ with CNNs. An \nintegrated WSN-CNN system for agricultural \ngrowth monitoring\
+    \ was proposed by Zhang et \nal. (2019). The system used a CNN model to \nanalyse\
+    \ the plant growth stage and WSNs to \ngather \nenvironmental \ndata. \nThe \n\
+    study \nillustrated how well the integrated system \nperformed an accurate assessment\
+    \ of crop \ngrowth phases. A WSN-CNN-based system for \nidentifying and controlling\
+    \ invasive plant species \nNEUROQUANTOLOGY | MAY 2022 | VOLUME 20 | ISSUE 5 |PAGE\
+    \ 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n5284\nLuxmi Sapra et al/Wireless\
+    \ Sensor Network System for Clever Vegetation-IoT Using Convolutional Neural Network\
+    \ \n \n                      eISSN1303-5150                                  \
+    \                                                                            \
+    \                                       www.neuroquantology.com              \
+    \                         \n \nwas also created by Li et al. (2020). The \nintegrated\
+    \ system allowed for the quick and \naccurate identification of invasive species\
+    \ using \nimage analysis. Despite the development of \nWSNs, IoT, and CNNs for\
+    \ monitoring vegetation, \nthere are still many research possibilities and \n\
+    gaps. First off, scalability and effective energy \nmanagement are necessary for\
+    \ the deployment \nof \nWSNs \nin \nlarge-scale \nagricultural \nor \nenvironmental\
+    \ \nsettings. \nSecond, \nthe \neffectiveness of intervention efforts can be \n\
+    increased by creating domain-specific decision-\nmaking algorithms based on the\
+    \ findings of \nvegetation analysis. Additionally, combining \nWSNs and CNNs with\
+    \ additional data sources, \nsuch remote sensing and satellite imaging, can \n\
+    deliver a more thorough and precise evaluation \nof vegetation health. \nThis\
+    \ literature study has shed light on the state-\nof-the-art \nfor \nmonitoring\
+    \ \nand \nanalysing \nvegetation using WSNs, IoT, and CNNs. \nAccording to existing\
+    \ research, the Internet of \nThings (IoT) and wireless sensor networks \n(WSNs)\
+    \ are two interconnected technologies \nthat have revolutionised a number of sectors,\
+    \ \nincluding healthcare, agriculture, environmental \nmonitoring, and smart cities.\
+    \ While the IoT \nrefers to the network of connected physical \ndevices and systems\
+    \ that communicate and \nexchange data, WSNs are made up of numerous \nspatially\
+    \ \ndistributed \nsensor \nnodes \nthat \ncooperatively gather and send data.\
+    \ \n \nIII. \nWireless Sensor Networks (WSNs) \nWSNs consist of small, low-cost\
+    \ sensor nodes \nequipped \nwith \nsensing, \nprocessing, \nand \ncommunication\
+    \ capabilities. These nodes are \ndeployed in the target environment, such as\
+    \ \nagricultural fields or industrial settings, to \nmonitor and collect data\
+    \ about the physical or \nenvironmental conditions. WSNs offer several \nadvantages,\
+    \ including: \na) \nReal-time \nmonitoring: \nWSNs \nenable \ncontinuous and real-time\
+    \ monitoring of various \nparameters, such as temperature, humidity, \nlight intensity,\
+    \ air quality, and motion. This \nprovides valuable insights into the dynamic\
+    \ \nbehavior of the monitored system. \nb) Scalability: WSNs can be easily scaled\
+    \ up or \ndown by deploying additional sensor nodes or \nadjusting their spatial\
+    \ distribution. This allows \nfor flexible and adaptable monitoring systems \n\
+    that can cover large areas or specific regions of \ninterest. \nc) Energy efficiency:\
+    \ Sensor nodes in WSNs are \ntypically battery-powered and designed to \noperate\
+    \ with minimal energy consumption. \nTechniques such as sleep scheduling, data\
+    \ \naggregation, and energy harvesting help extend \nthe network's lifetime. \n\
+    d) Data-centric approach: WSNs focus on \ncollecting and transmitting relevant\
+    \ data rather \nthan raw sensor readings. Data-centric routing \nalgorithms \n\
+    and \ncompression \ntechniques \noptimize data transmission and reduce network\
+    \ \ntraffic. \n \nIV. \nInternet of Things (IoT) \nThe IoT refers to a network\
+    \ of interconnected \nphysical devices, objects, and systems that \ncommunicate\
+    \ with each other and exchange \ndata over the internet. IoT devices can include\
+    \ \nsensors, actuators, smart appliances, wearable \ndevices, and more. Key characteristics\
+    \ of the IoT \ninclude: \na) Connectivity: IoT devices are equipped with \ncommunication\
+    \ capabilities, such as Wi-Fi, \nBluetooth, or cellular connectivity, enabling\
+    \ \nthem to connect to the internet and exchange \ndata with other devices and\
+    \ cloud-based \nplatforms. \nb) Data sharing and analysis: IoT devices \ngenerate\
+    \ a vast amount of data, which can be \nshared and analyzed in real-time. Cloud-based\
+    \ \nplatforms and data analytics techniques enable \nthe processing, storage,\
+    \ and analysis of IoT-\ngenerated data, leading to actionable insights \nand intelligent\
+    \ decision-making. \nc) \nInteroperability: \nThe \nIoT \necosystem \ncomprises\
+    \ devices from different manufacturers \nand technologies. Interoperability standards,\
+    \ \nprotocols, and middleware facilitate seamless \ncommunication and integration\
+    \ among these \ndiverse devices. \nd) Applications and benefits: The IoT has diverse\
+    \ \napplications, ranging from smart homes and \nNEUROQUANTOLOGY | MAY 2022 |\
+    \ VOLUME 20 | ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n5285\n\
+    Luxmi Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT Using\
+    \ Convolutional Neural Network \n \n                      eISSN1303-5150     \
+    \                                                                            \
+    \                                                                    www.neuroquantology.com\
+    \                                       \n \ncities to industrial automation,\
+    \ healthcare \nmonitoring, and precision agriculture. It offers \nbenefits such\
+    \ as improved efficiency, enhanced \nproductivity, cost savings, and better quality\
+    \ of \nlife. \n \nV. \nIntegration of WSNs and IoT \nThe integration of WSNs and\
+    \ IoT technologies \nhas paved the way for advanced and intelligent \nsystems.\
+    \ By combining the sensing capabilities \nof WSNs with the connectivity and data\
+    \ \nanalytics of the IoT, numerous opportunities \nand applications have emerged.\
+    \ Some key \nadvantages of integrating WSNs with the IoT \ninclude: \na) Enhanced\
+    \ data collection and analysis: WSNs \nprovide localized and real-time data, while\
+    \ the \nIoT enables data aggregation, storage, and \nanalysis at a larger scale.\
+    \ This integration allows \nfor comprehensive and accurate insights into \nthe\
+    \ monitored environment. \nb) Remote monitoring and control: IoT \nconnectivity\
+    \ enables remote access and control \nof WSNs. Users can monitor and manage sensor\
+    \ \nnodes, receive alerts and notifications, and \nremotely control actuators\
+    \ or devices based on \nthe collected data. \nc) Intelligent decision-making:\
+    \ The integration \nof WSNs and IoT with advanced analytics \ntechniques, such\
+    \ as machine learning and \nartificial \nintelligence, \nenables \nintelligent\
+    \ \ndecision-making based on real-time data. This \nleads \nto \nproactive \n\
+    interventions, \npredictivemaintenance, and optimized resource \nmanagement. \n\
+    d) Scalability and flexibility: The combination of \nWSNs and IoT offers scalability\
+    \ and flexibility in \ndeploying sensor nodes and expanding the \nnetwork. New\
+    \ sensor nodes can be added easily \nto enhance the coverage area or address \n\
+    specific monitoring requirements. The IoT \ninfrastructure allows for seamless\
+    \ integration \nand interoperability among different sensor \nnetworks. \ne) Real-time\
+    \ response and automation: The \nintegration of WSNs and IoT enables real-time\
+    \ \nresponse \nand \nautomation \nin \nvarious \napplications. For example, in\
+    \ smart agriculture, \nthe system can automatically adjust irrigation \nbased\
+    \ on real-time soil moisture data collected \nby WSNs. In industrial settings,\
+    \ IoT-enabled \nWSNs can trigger automated actions or alerts \nfor maintenance\
+    \ or safety purposes. \nf) Data-driven insights and optimization: The \nfusion\
+    \ of WSNs and IoT data facilitates data-\ndriven insights and optimization. Advanced\
+    \ \nanalytics techniques can be applied to the \ncollected data, enabling predictive\
+    \ analytics, \nanomaly detection, and optimization algorithms \nfor \nefficient\
+    \ \nresource \nallocation, \nenergy \nmanagement, and decision-making. \n \nVI.\
+    \ Convolutional neural network \nConvolutional Neural Networks (CNNs) are a \n\
+    class of deep learning algorithms that have \nrevolutionized various fields, particularly\
+    \ in \ncomputer \nvision \ntasks \nsuch \nas \nimage \nclassification, object\
+    \ detection, and image \nsegmentation. \nCNNs \nare \ndesigned \nto \nautomatically\
+    \ learn hierarchical representations \nof \ndata \nthrough \nmultiple \nlayers\
+    \ \nof \ninterconnected neurons. \na. Architecture: \nThe architecture of a CNN\
+    \ is inspired by the \nvisual processing in the human brain. It consists \nof\
+    \ several layers, including convolutional layers, \npooling layers, and fully\
+    \ connected layers. The \nkey components of a CNN are: \na) Convolutional Layers:\
+    \ Convolutional layers \nare responsible for extracting local features \nfrom\
+    \ input data. They consist of filters (also \ncalled kernels) that convolve over\
+    \ the input \ndata, performing element-wise multiplications \nand summations to\
+    \ produce feature maps. \nMultiple filters are used to capture different \nfeatures\
+    \ at various spatial locations. \nb) Pooling Layers: Pooling layers downsample\
+    \ \nthe \nfeature \nmaps \nobtained \nfrom \nthe \nconvolutional layers. They\
+    \ reduce the spatial \ndimensions of the feature maps while retaining \nthe most\
+    \ important features. Common pooling \noperations include max pooling and average\
+    \ \npooling. \nc) Fully Connected Layers: Fully connected \nlayers are traditional\
+    \ neural network layers that \ntake the flattened feature maps from the \nNEUROQUANTOLOGY\
+    \ | MAY 2022 | VOLUME 20 | ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n\
+    5286\nLuxmi Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT\
+    \ Using Convolutional Neural Network \n \n                      eISSN1303-5150\
+    \                                                                            \
+    \                                                                         www.neuroquantology.com\
+    \                                       \n \nprevious \nlayers \nand \nlearn \n\
+    non-linear \ncombinations \nof \nfeatures. \nThey \nperform \nclassification or\
+    \ regression tasks based on the \nextracted features. \n \nb. Working Principle:\
+    \ \nCNNs work based on the principle of local \nreceptive fields and weight sharing.\
+    \ The local \nreceptive field refers to a small region of the \ninput data that\
+    \ is connected to a particular \nneuron in the convolutional layer. Weight \n\
+    sharing refers to the fact that the same set of \nweights (filters) is applied\
+    \ across the entire \ninput data to detect different features. This \nallows CNNs\
+    \ to efficiently learn and extract \nspatially invariant features. \nDuring training,\
+    \ CNNs learn the optimal weights \nfor the filters and fully connected layers\
+    \ \nthrough a process called backpropagation, \nwhere the errors between the predicted\
+    \ \noutputs and the ground truth labels are \npropagated backward, updating the\
+    \ weights \nusing gradient descent optimization algorithms \nsuch as stochastic\
+    \ gradient descent (SGD) or \nAdam. \n \nc. State-of-the-Art CNN Architectures:\
+    \ \nOver the years, several state-of-the-art CNN \narchitectures have been developed,\
+    \ pushing the \nboundaries of performance in various computer \nvision \ntasks.\
+    \ \nSome \nnotable \narchitectures \ninclude: \na) AlexNet: Introduced in 2012,\
+    \ AlexNet was \none of the first deep CNN architectures to \nachieve breakthrough\
+    \ results in the ImageNet \nLarge \nScale \nVisual Recognition \nChallenge \n\
+    (ILSVRC). It consisted of multiple convolutional \nand fully connected layers\
+    \ and set the stage for \nsubsequent advancements in CNNs. \nb) VGGNet: VGGNet,\
+    \ proposed in 2014, was \ncharacterized \nby \nits \ndeep \narchitecture, \nconsisting\
+    \ \nof \n16-19 \nlayers. \nIt \nachieved \nimpressive \nresults \non \nvarious\
+    \ \nimage \nclassification \nbenchmarks, \nshowcasing \nthe \nimportance of deep\
+    \ networks. \nc) ResNet: Residual Networks, or ResNets, \nintroduced in 2015,\
+    \ addressed the challenge of \ntraining very deep networks by introducing skip\
+    \ \nconnections. These connections allowed the \nnetwork to learn residual mappings\
+    \ and \nsignificantly improved the performance on \nextremely deep architectures.\
+    \ \nd) InceptionNet: InceptionNet, or GoogLeNet, \nproposed in 2014, introduced\
+    \ the concept of \n\"Inception\" modules, which enabled efficient \nand parallel\
+    \ computation of multiple filter sizes. \nThis \narchitecture \ndemonstrated \n\
+    strong \nperformance while reducing the computational \ncomplexity. \ne) DenseNet:\
+    \ DenseNet, introduced in 2016, \nintroduced dense connections between layers,\
+    \ \nwhere each layer received inputs from all \npreceding layers. This architecture\
+    \ encouraged \nfeature reuse, enhanced gradient flow, and \nachieved \nexcellent\
+    \ \nperformance \nwhile \nmaintaining network compactness. \n \nVII. \nDesign\
+    \ of WSN-CVIoT System \nThe design of a Wireless Sensor Network \nSystem for Clever\
+    \ Vegetation-IoT (WSN-CVIoT) \nusing Convolutional Neural Networks (CNNs) \ninvolves\
+    \ the integration of wireless sensor \nnetworks, the Internet of Things, and CNN-\n\
+    based vegetation analysis techniques. The goal \nof the system is to enable intelligent\
+    \ and \nefficient monitoring, analysis, and management \nof vegetation in various\
+    \ applications such as \nprecision \nagriculture, \nenvironmental \nmonitoring,\
+    \ and urban green spaces. This \nsection outlines the key components and design\
+    \ \nconsiderations for the WSN-CVIoT system. \n \na. Sensor Node Design: \nThe\
+    \ WSN-CVIoT system begins with the design \nof sensor nodes that are deployed\
+    \ in the field to \ncollect data related to vegetation health and \nenvironmental\
+    \ conditions. The sensor nodes \nshould be equipped with appropriate sensors to\
+    \ \nmeasure parameters such as temperature, \nhumidity, light intensity, soil\
+    \ moisture, and air \nquality. The design of sensor nodes should \nconsider factors\
+    \ such as power efficiency, data \naccuracy, and reliability to ensure long-term\
+    \ \noperation and data integrity. \nb. Wireless Communication: \nNEUROQUANTOLOGY\
+    \ | MAY 2022 | VOLUME 20 | ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n\
+    5287\nLuxmi Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT\
+    \ Using Convolutional Neural Network \n \n                      eISSN1303-5150\
+    \                                                                            \
+    \                                                                         www.neuroquantology.com\
+    \                                       \n \nTo establish connectivity among sensor\
+    \ nodes \nand facilitate data transmission, a wireless \ncommunication protocol\
+    \ should be selected. \nCommon protocols for WSNs include Zigbee, \nWi-Fi, LoRaWAN,\
+    \ or cellular networks. The \nselection of the protocol depends on factors \n\
+    such as the size of the deployment area, power \nconsumption, data rate requirements,\
+    \ and \navailable infrastructure. The chosen protocol \nshould \nprovide \nreliable\
+    \ \nand \nsecure \ncommunication between sensor nodes and the \ncentral system.\
+    \ \n \nFigure 1. Design of WSN-CVIoT System \n \nc. Data Aggregation and Transmission:\
+    \ \nIn a WSN-CVIoT system, data aggregation plays \na crucial role in minimizing\
+    \ network traffic and \nconserving energy. Aggregation techniques, \nsuch as data\
+    \ fusion or compression, can be \nemployed to reduce the amount of data \ntransmitted\
+    \ by combining and summarizing \ninformation from multiple sensor nodes. The \n\
+    aggregated data can then be transmitted to a \ncentral gateway or directly to\
+    \ the cloud using \nthe selected wireless communication protocol. \nThe transmission\
+    \ should ensure data security \nand \nintegrity \nthrough \nencryption \nand \n\
+    authentication mechanisms. \nd. Cloud Infrastructure: \nThe WSN-CVIoT system leverages\
+    \ cloud-based \ninfrastructure to store, process, and analyze the \ncollected\
+    \ data. The cloud platform should \nprovide \nscalable \nstorage \ncapacity, \n\
+    computational resources, and data processing \ncapabilities. Cloud services such\
+    \ as Amazon \nWeb Services (AWS), Microsoft Azure, or Google \nCloud Platform\
+    \ can be utilized to host the \nsystem infrastructure and enable seamless data\
+    \ \nmanagement, analysis, and visualization. \ne. CNN-based Vegetation Analysis:\
+    \ \nThe captured data from the WSN is utilized for \nvegetation analysis using\
+    \ CNNs. The design of \nthe CNN architecture should consider the \nspecific analysis\
+    \ tasks, such as plant disease \ndetection, \ncrop \ngrowth \nmonitoring, \nor\
+    \ \nvegetation classification. The CNN model should \nbe trained using labeled\
+    \ datasets, incorporating \ntechniques such as data augmentation, transfer \n\
+    learning, or fine-tuning to improve the model's \naccuracy and generalization.\
+    \ The trained CNN \nmodel can be deployed in the cloud or at the \nedge to analyze\
+    \ the collected data and extract \nmeaningful insights about vegetation health.\
+    \ \nf. \nDecision-Making and Actuation: \nNEUROQUANTOLOGY | MAY 2022 | VOLUME\
+    \ 20 | ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n5288\nLuxmi\
+    \ Sapra et al/Wireless Sensor Network System for Clever Vegetation-IoT Using Convolutional\
+    \ Neural Network \n \n                      eISSN1303-5150                   \
+    \                                                                            \
+    \                                                      www.neuroquantology.com\
+    \                                       \n \nBased on the analyzed data, the WSN-CVIoT\
+    \ \nsystem can generate actionable insights and \ndecision recommendations. Decision-making\
+    \ \nalgorithms can be developed to interpret the \nvegetation \nanalysis \nresults\
+    \ \nand \ntrigger \nappropriate actions. These actions can include \nautomated\
+    \ irrigation control, pest management \ninterventions, optimal resource allocation,\
+    \ or \ngenerating alerts for timely interventions. \nActuators and control mechanisms\
+    \ can be \nintegrated into the system to enable automated \nresponses based on\
+    \ the analyzed data. \ng. User Interface and Visualization: \nTo facilitate user\
+    \ interaction and decision-\nmaking, the WSN-CVIoT system should provide \na user-friendly\
+    \ interface and visualization tools. \nThis \ncan \ninclude \nweb \nor \nmobile-based\
+    \ \napplications that display real-time sensor data, \nanalysis \nresults, \n\
+    and \nactionable \ninsights. \nVisualization techniques, such as charts, maps,\
+    \ \nor graphical representations, can be employed \nto present thedata in a comprehensible\
+    \ and \nintuitive manner. Users should be able to access \nhistorical \ndata,\
+    \ \ncustomize \nvisualization \nparameters, and interact with the system to \n\
+    make informed decisions and take necessary \nactions. \nh. Security and Privacy:\
+    \ \nThe design of the WSN-CVIoT system should \nprioritize security and privacy\
+    \ considerations. \nMeasures \nsuch \nas \ndata \nencryption, \nauthentication,\
+    \ access control, and secure \ncommunication \nprotocols \nshould \nbe \nimplemented\
+    \ to protect sensitive data from \nunauthorized access or tampering. Additionally,\
+    \ \nprivacy concerns related to the collection and \nstorage of personal or location-based\
+    \ data \nshould be addressed in compliance with \napplicable regulations and best\
+    \ practices. \ni. \nScalability and Flexibility: \nThe WSN-CVIoT system should\
+    \ be designed to \naccommodate scalability and flexibility. It \nshould be capable\
+    \ of supporting a varying \nnumber of sensor nodes, expanding coverage \nareas,\
+    \ and integrating additional functionalities \nor sensors as needed. The system\
+    \ architecture \nshould \nbe \nmodular \nand \nadaptable \nto \naccommodate future\
+    \ enhancements or changes \nin requirements. \n \nVIII. Conclusion \nWireless\
+    \ sensor networks, Internet of Things \n(IoT) connectivity, cloud infrastructure,\
+    \ and \nCNN-based vegetation analysis methods are all \nintegrated into the architecture\
+    \ of a WSN-CVIoT \nsystem. The technology makes it possible to \nmonitor, analyse,\
+    \ and manage vegetation in \ndiverse applications in an intelligent and \neffective\
+    \ manner. The design concerns include \nuser interface and visualisation, security\
+    \ and \nprivacy, scalability, and adaptability. They also \ncover \nwireless \n\
+    communication, \ndata \naggregation \nand \ntransmission, \ncloud \ninfrastructure,\
+    \ CNN-based vegetation analysis, \ndecision-making and actuation, and sensor \n\
+    node design. A WSN-CVIoT system that is both \nreliable and efficient can be created\
+    \ to \nrevolutionise \nvegetation \nmonitoring \nand \nmanagement procedures by\
+    \ carefully taking \ninto account these components and design \naspects. \n \n\
+    References: \n[1]  Li, H., Zhang, B., Li, S., Wu, X., & Xu, L. \n(2020). A novel\
+    \ Convolutional Neural \nNetwork architecture for crop disease \nclassification.\
+    \ \nComputers \nand \nElectronics in Agriculture, 169, 105213. \n[2]  Shang, Y.,\
+    \ Yu, Z., Cao, Q., & Xu, Y. \n(2020). A Review of IoT Applications in \nAgriculture.\
+    \ IEEE Access, 8, 179814-\n179826. \n[3]  Karra, R., Agrawal, D. P., & Agrawal,\
+    \ S. \n(2020). IoT-based smart agriculture: A \nreview. Journal of Ambient Intelligence\
+    \ \nand \nHumanized \nComputing, \n11(3), \n1365-1382. \n[4]  Sabesan, S., Thirunavukarasu,\
+    \ R., & \nAkshaya, R. (2021). A review on internet \nof \nthings \n(IoT) \napplications\
+    \ \nin \nagriculture. \nJournal \nof \nKing \nSaud \nUniversity-Computer and Information\
+    \ \nSciences, 33(2), 141-150. \n[5]  Hussain, M., Ali, A., & Shah, S. M. U. \n\
+    (2020). Machine Learning Approaches \nNEUROQUANTOLOGY | MAY 2022 | VOLUME 20 |\
+    \ ISSUE 5 |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n5289\nLuxmi Sapra\
+    \ et al/Wireless Sensor Network System for Clever Vegetation-IoT Using Convolutional\
+    \ Neural Network \n \n                      eISSN1303-5150                   \
+    \                                                                            \
+    \                                                      www.neuroquantology.com\
+    \                                       \n \nfor Wireless Sensor Networks. IEEE\
+    \ \nAccess, 8, 114242-114272. \n[6]  Chen, M., Gonzalez, S., Vasilakos, A. V.,\
+    \ \nCao, H., & Leung, V. C. (2014). Mobile \ncloud \ncomputing: \nArchitectures,\
+    \ \napplications, \nand \nchallenges. \nIEEE \nCommunications Magazine, 52(4),\
+    \ 26-\n34. \n[7]  Gupta, A., Dhiman, G., Verma, A. K., & \nTyagi, S. (2020). A\
+    \ systematic review of \nwireless sensor networks based on \ninternet \nof \n\
+    things: \nA \nsecurity \nperspective. \nJournal \nof \nAmbient \nIntelligence\
+    \ and Humanized Computing, \n11(9), 4001-4022. \n[8]  Song, L., & Luo, B. (2021).\
+    \ IoT and big \ndata based intelligent agriculture: A \nreview. Computers and\
+    \ Electronics in \nAgriculture, 186, 106223. \n[9]  Dhinesh, A., & Sakthivel,\
+    \ S. (2021). A \nSurvey on Internet of Things (IoT) in \nAgriculture. International\
+    \ Journal of \nAdvanced Trends in Computer Science \nand Engineering, 10(2), 1427-1433.\
+    \ \n[10]  Lu, C. T., Tsai, C. W., Li, Z. M., Chao, H. \nC., \nHorng, \nS. \nJ.,\
+    \ \nTsai, \nW. \nH., \n&Chilamkurti, N. (2020). An Efficient \nMachine Learning\
+    \ Algorithm for Crop \nYield Prediction in Smart Agriculture. \nIEEE Internet\
+    \ of Things Journal, 8(13), \n10556-10565. \n[11]  Hsu, C. W., & Lin, C. J. (2002).\
+    \ A \ncomparison of methods for multiclass \nsupport \nvector \nmachines. \nIEEE\
+    \ \nTransactions on Neural Networks, 13(2), \n415-425. \n[12]  Saini, R., & Chana,\
+    \ I. (2019). Internet of \nThings (IoT) based smart agriculture: An \noverview.\
+    \ \nJournal \nof \nKing \nSaud \nUniversity-Computer and Information \nSciences,\
+    \ 31(3), 257-261. \n[13]  Hossain, \nM. \nS., \nMuhammad, \nG., \nHossain, M.\
+    \ E., & Abdel-Aty, M. A. \n(2020). \nIntelligent \nTransportation \nSystems: A\
+    \ Comprehensive Survey. IEEE \nTransactions \non \nIntelligent \nTransportation\
+    \ Systems, 21(2), 633-657. \nNEUROQUANTOLOGY | MAY 2022 | VOLUME 20 | ISSUE 5\
+    \ |PAGE 5276-5290| DOI:10.48047/nq.2022.20.5.NQ22810\n5290\n"
+  inline_citation: '>'
+  journal: NeuroQuantology
+  limitations: '>'
+  pdf_link: https://neuroquantology.com/open-access/Wireless+Sensor+Network+System+for+Clever+Vegetation-IoT+Using+Convolutional+Neural+Network_11205/?download=true
+  publication_year: 2023
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Wireless Sensor Network System for Clever Vegetation-IoT Using Convolutional
+    Neural Network
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

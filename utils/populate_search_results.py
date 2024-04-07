@@ -156,11 +156,30 @@ class QueryProcessor:
 
 
 async def main():
-    yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\outline_queries.yaml"
-    output_folder = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\search_results"
+
+    # api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    # email = "bnsoh2@huskers.unl.edu"
+
+    # async def process_sections():
+    #     for section in range(6, 6):
+    #         yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\outline_queries.yaml"
+    #         output_folder = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\search_results"
+    #         new_yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\new_outline_structure.yaml"
+
+    #         query_processor = QueryProcessor(
+    #             yaml_file, output_folder, api_key_path, email, new_yaml_file
+    #         )
+    #         await query_processor.process_queries()
+
+    # await process_sections()
+
+    # logger.info("Code execution completed successfully.")
+
+    yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\outline_queries.yaml"
+    output_folder = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\search_results"
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     email = "bnsoh2@huskers.unl.edu"
-    new_yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\new_outline_structure.yaml"
+    new_yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\new_outline_structure.yaml"
 
     query_processor = QueryProcessor(
         yaml_file, output_folder, api_key_path, email, new_yaml_file
