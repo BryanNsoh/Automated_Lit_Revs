@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 import json
 from llm_api_handler import LLM_APIHandler
+import asyncio
+import aiofiles
 from prompts import (
     get_prompt,
     review_intention,
@@ -28,15 +30,25 @@ class QueryGenerator:
         yaml_dir = Path(yaml_path).parent
         temp_output_file = yaml_dir / "temp_outline_queries.yaml"
 
-        subsections = self.yaml_data["subsections"]
+        subsections = self.yaml_data.get(
+            "subsections", []
+        )  # Use get() to handle missing subsections
         tasks = []
         for subsection in subsections:
-            subsection_title = subsection["subsection_title"]
+            subsection_title = subsection.get(
+                "subsection_title", ""
+            )  # Use get() to handle missing subsection title
+            if not subsection_title or subsection_title == "null":
+                print(f"Skipping subsection with title: {subsection_title}")
+                continue  # Skip processing for empty or null subsection titles
+
             print(f"Processing subsection: {subsection_title}")
-            points = subsection["points"]
+            points = subsection.get("points", [])  # Use get() to handle missing points
             for point in points:
                 for point_key, point_data in point.items():
-                    point_content = point_data["point_content"]
+                    point_content = point_data.get(
+                        "point_content", ""
+                    )  # Use get() to handle missing point content
 
                     # Generate queries for each query type
                     query_types = [
@@ -154,19 +166,27 @@ class QueryGenerator:
 
 # Example usage
 section_info = {
-    4: "AUTOMATED DATA PROCESSING IN THE CLOUD: Examines the importance of data quality and preprocessing in the cloud, containerization strategies for scalable and autonomous deployment, and the deployment of machine learning (ML) models for real-time data processing and inference.",
-    5: "GENERATING AND APPLYING IRRIGATION INSIGHTS: Focuses on the application of ML-generated insights to control irrigation systems without manual intervention, investigating the real-time generation and automated application of actionable irrigation insights, and the importance of interpretability and explainability in ML models.",
     6: "INTEGRATION, INTEROPERABILITY, AND STANDARDIZATION: Explores the challenges and strategies for integrating automated systems with existing irrigation infrastructure and other precision agriculture technologies, highlighting the importance of interoperability and standardization in enabling seamless communication and compatibility.",
-    7: "MONITORING AND ENSURING SYSTEM RELIABILITY: Focuses on strategies for ensuring the robustness and reliability of the automated irrigation system, including resilience and fault tolerance, advanced monitoring techniques, closed-loop control, and addressing security concerns and risks in large-scale deployments.",
-    8: "CASE STUDIES AND REAL-WORLD IMPLEMENTATIONS: Presents detailed examples of successful deployments of end-to-end automated irrigation systems in various agricultural settings, highlighting lessons learned, challenges encountered, and best practices derived from real-world implementations.",
+    # 7: "MONITORING AND ENSURING SYSTEM RELIABILITY: Focuses on strategies for ensuring the robustness and reliability of the automated irrigation system, including resilience and fault tolerance, advanced monitoring techniques, closed-loop control, and addressing security concerns and risks in large-scale deployments.",
+    # 8: "CASE STUDIES AND REAL-WORLD IMPLEMENTATIONS: Presents detailed examples of successful deployments of end-to-end automated irrigation systems in various agricultural settings, highlighting lessons learned, challenges encountered, and best practices derived from real-world implementations.",
 }
 
 api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
 processor = QueryGenerator(api_key_path)
 
-for section_number, section_title in section_info.items():
-    yaml_path = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section_number}\research_paper_outline.yaml"
-    asyncio.run(processor.process_yaml(yaml_path, section_title, section_number))
+
+async def process_sections(processor, section_info):
+    tasks = []
+    for section_number, section_title in section_info.items():
+        yaml_path = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section_number}\research_paper_outline.yaml"
+        task = asyncio.create_task(
+            processor.process_yaml(yaml_path, section_title, section_number)
+        )
+        tasks.append(task)
+    await asyncio.gather(*tasks)
+
+
+asyncio.run(process_sections(processor, section_info))
 
 # section_title = "DATA COLLECTION TO CLOUD: AUTOMATION AND REAL-TIME PROCESSING"
 # section_number = 3

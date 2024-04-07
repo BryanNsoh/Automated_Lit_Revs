@@ -1,0 +1,876 @@
+- analysis: '>'
+  authors:
+  - Weikmann G.
+  - Marinelli D.
+  - Paris C.
+  - Migdall S.
+  - Gleisberg E.
+  - Appel F.
+  - Bach H.
+  - Dowling J.
+  - Bruzzone L.
+  citation_count: '0'
+  description: This article presents a novel system that produces multiyear high-resolution
+    irrigation water demand maps for agricultural areas, enabling a new level of detail
+    for irrigation support for farmers and agricultural stakeholders. The system is
+    based on a scalable distributed deep learning (DL) model trained on dense time
+    series of Sentinel-2 images and a large training set for the first year of observation
+    and fine tuned on new labeled data for the consecutive years. The trained models
+    are used to generate multiyear crop type maps, which are assimilated together
+    with the Sentinel-2 dense time series and the meteorological data into a physically
+    based agrohydrological model to derive the irrigation water demand for different
+    crops. To process the required large volume of multiyear Copernicus Sentinel-2
+    data, the software architecture of the proposed system has been built on the integration
+    of the Food Security thematic exploitation platform (TEP) and the data-intensive
+    artificial intelligence Hopsworks platform. While the Food Security TEP provides
+    easy access to Sentinel-2 data and the possibility of developing processing algorithms
+    directly in the cloud, the Hopsworks platform has been used to train DL algorithms
+    in a distributed manner. The experimental analysis was carried out in the upper
+    part of the Danube Basin for the years 2018, 2019, and 2020 considering 37 Sentinel-2
+    tiles acquired in Austria, Moravia, Hungary, Slovakia, and Germany.
+  doi: 10.1109/JSTARS.2023.3294107
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Journals & Magazines >IEEE Journal of Selected Topi...
+    >Volume: 16 Multiyear Mapping of Water Demand at Crop Level: An End-to-End Workflow
+    Based on High-Resolution Crop Type Maps and Meteorological Data Publisher: IEEE
+    Cite This PDF Giulio Weikmann; Daniele Marinelli; Claudia Paris; Silke Migdall;
+    Eva Gleisberg; Florian Appel; Heike Bach; Jim Dowling; Lorenzo Bruzzone All Authors
+    525 Full Text Views Open Access Under a Creative Commons License Abstract Document
+    Sections I. Introduction II. Related Works III. Proposed System for Crop Mapping
+    and Irrigation Demand Assessment IV. Dataset Description and Experimental Setup
+    V. Experimental Results Show Full Outline Authors Figures References Keywords
+    Metrics Footnotes Abstract: This article presents a novel system that produces
+    multiyear high-resolution irrigation water demand maps for agricultural areas,
+    enabling a new level of detail for irrigation support for farmers and agricultural
+    stakeholders. The system is based on a scalable distributed deep learning (DL)
+    model trained on dense time series of Sentinel-2 images and a large training set
+    for the first year of observation and fine tuned on new labeled data for the consecutive
+    years. The trained models are used to generate multiyear crop type maps, which
+    are assimilated together with the Sentinel-2 dense time series and the meteorological
+    data into a physically based agrohydrological model to derive the irrigation water
+    demand for different crops. To process the required large volume of multiyear
+    Copernicus Sentinel-2 data, the software architecture of the proposed system has
+    been built on the integration of the Food Security thematic exploitation platform
+    (TEP) and the data-intensive artificial intelligence Hopsworks platform. While
+    the Food Security TEP provides easy access to Sentinel-2 data and the possibility
+    of developing processing algorithms directly in the cloud, the Hopsworks platform
+    has been used to train DL algorithms in a distributed manner. The experimental
+    analysis was carried out in the upper part of the Danube Basin for the years 2018,
+    2019, and 2020 considering 37 Sentinel-2 tiles acquired in Austria, Moravia, Hungary,
+    Slovakia, and Germany. Published in: IEEE Journal of Selected Topics in Applied
+    Earth Observations and Remote Sensing ( Volume: 16) Page(s): 6758 - 6775 Date
+    of Publication: 13 July 2023 ISSN Information: DOI: 10.1109/JSTARS.2023.3294107
+    Publisher: IEEE Funding Agency: SECTION I. Introduction The continuous acquisition
+    of Sentinel-21 Copernicus data represents a unique opportunity to constantly monitor
+    the Earth''s surface at high spatial resolution. In the context of water irrigation
+    management, Earth observation (EO) data are essential to improve water resource
+    planning, efficient irrigation practices, monitoring of irrigation infrastructure,
+    and early detection of droughts or floods, allowing the continuous monitoring
+    of large-scale hydrological processes without the need of in situ measurements
+    [1]. The extreme scale of such a growing volume of data requires a paradigm shift
+    from the traditional approach of downloading, replicating, and exploiting data
+    on local servers to a dynamic and scalable approach where the data are processed
+    directly in the cloud. In this context, the European Space Agency (ESA) launched
+    the thematic exploitation platforms (TEPs) in 2014 covering seven main categories:
+    Coastal, Forestry, Geohazards, Hydrology, Polar, Urban, and Food Security. Each
+    platform is a collaborative, virtual work environment that facilitates the access
+    to and the exploitation of the Copernicus Big Earth observation data. Although
+    the offered working environments provide computational resources to develop processing
+    algorithms online, these are not sufficient for supporting cutting-edge artificial
+    intelligence (AI) techniques aimed at advanced computing applications. In the
+    remote sensing (RS) community, Deep learning (DL) models are more and more considered
+    to classify effectively and efficiently continuously acquired satellite data [2],
+    [3], [4]. The development of distributed scalable DL models requires high-performance
+    computing platforms and GPU accelerators, which should be properly integrated
+    with the thematic exploitation platforms (TEPs). In this context, such data and
+    architectures can bring significant advantages to food security applications [5],
+    [6]. These include the monitoring of agricultural areas, and in particular, the
+    mapping of water availability and crop water demand both at field and regional
+    scale. Indeed, in recent years, severe droughts started to hit regions typically
+    not affected by such events, due to the lack of rain in spring/summer. The increasing
+    spatial distribution, frequency, and severity of such events requires the monitoring
+    of the crop water demand to mitigate the implications on food availability and
+    plan government interventions for new infrastructures and irrigation strategies.
+    The production of such irrigation maps is essential not only to optimize the irrigational
+    resources, but also to improve the crop performance, mitigate the environmental
+    impacts, preserving the soil health, the water quality, and the ecosystem integrity.
+    Existing methods for water demand estimation based on RS data often use hyperspectral
+    images [7] for crop mapping. While such data provide very detailed spectral information,
+    they lack in terms of both temporal resolution and spatial coverage. This strongly
+    limits their use at the national or continental scale. Moreover, Sentinel-2 data
+    are freely accessible and available, with a short revisit time of five days and
+    spatial resolution of 10 m, making them suitable for agricultural applications
+    at the crop field level. Hyperspectral images usually have a higher spatial resolution
+    (30 m in average) and a smaller geometric field of view (GFOV), resulting in a
+    wider revisit time gap. This limitation is common also to methods that use data
+    acquired from unmanned aerial vehicle (UAV) [8]. Other methods [9] work at large
+    scale using data acquired by low-resolution sensors such as moderate resolution
+    imaging spectroradiometer (MODIS) thus making the field level monitoring unfeasible,
+    as parcel sizes are often smaller than the MODIS spatial resolution. In recent
+    years, significant efforts have been made to link computing platforms with cloud
+    platforms [10], [11] storing high spatial resolution EO data, to enable efficient
+    and effective use of satellite data for specific thematic applications. In particular,
+    the connection of such platforms is essential for the following: access the data
+    from various sources, removing the need to search and retrieve data manually;
+    process the data and perform the analysis on RS data; customize and automate the
+    workflows to specific thematic needs; integrate models and algorithms; promote
+    collaboration and knowledge sharing among researchers and users in the RS community.
+    However, existing approaches are typically focused on a single-year map production
+    and on relatively small study areas, whereas little has been done to study how
+    to produce irrigation maps at a large scale and on a continuous basis. This article
+    aims to address these issues by answering the following operational and interrelated
+    research questions. How can an end-to-end workflow be designed to effectively
+    integrate and process satellite and meteorological data to efficiently produce
+    irrigation maps at large scale? How can we define a system being able to ingest
+    the continuous stream of recently acquired satellite and meteorological data to
+    regularly generate up-to-date irrigation maps? To address these issues, the main
+    novelties of this article are twofold. To propose an end-to-end workflow that
+    integrates the Food Security TEP and the Hopsworks platform to implement a dynamic
+    and scalable approach where the data are processed directly in the cloud through
+    computationally demanding DL models. To define a novel system for producing high-resolution
+    multiyear maps of water requirements at crop level to enable effective agricultural
+    water management activities (i.e., continuous irrigation recommendations at crop
+    level). In greater detail, this article presents an efficient and effective workflow
+    for the continuous production of high spatial resolution (10 m) annual maps for
+    large-scale water demand assessment computed at crop level. The workflow makes
+    extensive use of the information provided by the time series of Sentinel-2 EO
+    data to generate continuously updated crop type maps (exploiting DL) and crop-based
+    agrohydrological models (designed to assimilate the leaf area index (LAI) and
+    the same Sentinel-2 EO data used for crop type mapping). This article is organized
+    into seven sections. Section II discusses related works. Section III presents
+    the proposed system architecture for crop mapping and assessment of irrigation
+    demand. Section IV describes the study area and the considered dataset. Section
+    V illustrates the experimental results in terms of annual crop type maps (Sections
+    V-A and V-B) and annual irrigation water demand (Sections V-C and V-D). Section
+    VI reports the findings of the research and comments the results. Finally, Section
+    VII concludes this article, while details of the processing architecture can be
+    found in the Appendix. SECTION II. Related Works As recently remarked from the
+    new European Green Deal [12], sustainable food production plays a central role
+    to guarantee food security. In this context, a critical issue is the implementation
+    of agricultural policies for an efficient and sustainable management of crops
+    and in particular of the natural resources such as water. For the generation of
+    field specific irrigation water demand maps, a key component is the knowledge
+    of the planted crop types. Knowing the crop type allows the derivation of the
+    photosynthetically active leaf area in a crop-type specific way and ultimately
+    allows to calculate the water demand of different crops over the year [13], [14],
+    [15]. Recently, several works have focused on the production of crop type maps
+    on country or continental scale due to the availability of high-resolution time
+    series of multispectral satellite data acquired with a short revisit time such
+    as Sentinel-2 (i.e., up to 5 days) [16], [17], [18]. The temporal information
+    allows modeling the phenological trends of different cultivation [19], which results
+    in an accurate mapping of the crop type [20], [21]. Ibrahim et al. [16] present
+    an automatic approach to map the main cultivation present in Nigeria based on
+    Sentinel-2 time-series and very-high-resolution SkySat data. In [17], Sentinel-2
+    time series are used together with the Eurostat land use and coverage area frame
+    survey (LUCAS) [22], [23] to generate a 10-m crop type map for the European Union
+    (EU) for 19 crop types in 2018. Both approaches presented in [16] and [17] consider
+    a random forest (RF) classifier, which is widely used for large-scale mapping
+    [24]. However, Rußwurm et al. [25] compared seven deep neural networks classifiers
+    with an RF baseline, showing that multitemporal DL approaches significantly outperform
+    the RF classifier for the crop type mapping problem. To emphasize the temporal
+    information provided by the time series of Sentinel-2 images, three main categories
+    of DL models were considered, i.e., attention-based models [26], recurrence-based
+    models [27], and time-convolution-based models [28]. The accuracies obtained by
+    the attention-based transformer model [29] and the recurrent models (i.e., long-short-term
+    memory (LSTM) [30] and Star recurrent neural network (RNN) [31]) were similar,
+    and in overall, higher compared to those of RF and time-convolution-based models
+    [32]. In addition to the mapping of crop types, several approaches have been defined
+    for monitoring crop water stress and assessing irrigation water demand. The latter
+    is becoming ever more important, as water availability changes with climate change.
+    Thus, approaches using different types of remotely sensed information are being
+    developed. Thermal data have long been used as a basis to determine water stress.
+    The crop water stress index, originally proposed by [33] and looking at the difference
+    between crop canopy and ambient air temperatures, is one of the earliest examples
+    of such indicators. More recently, this approach has been adapted so that it can
+    be derived purely based on RS data, particularly Landsat 8 thermal data [34].
+    However, the bottleneck of Landsat 8 pertains to its low revisit frequency (16
+    daily), making it less suitable for near-real-time monitoring of crop water stress.
+    In the absence of current high-resolution thermal missions with high revisit frequencies,
+    researchers have looked for ways to detect crop water stress from optical imagery.
+    Taking advantage of different portions of the electromagnetic spectrum, both multispectral
+    and hyperspectral data are used to estimate leaf water content [35], [36], [37],
+    [38], [39], [40], chlorophyll content [38], and xanthophyll content [38], [41]
+    as indicators to detect water stress. Early signs of water stress are well detectable
+    based on the near-infrared [35] or short-wave infrared part of the spectrum due
+    to the increased reflectance near the water absorption bands or the visible (VIS)
+    part reduced by changes in chlorophyll content [42]. Algorithms range from narrow-band
+    spectral indices [42] over linear nonparametric regression methods such as partial
+    least squares regressions [43], [44] to physically based radiative transfer models
+    [36], [45], [46]. Beyond the variables that can be directly derived from EO data,
+    additional information about the crops can be derived by crop growth modeling
+    [47]. Using a crop growth model, soil moisture can be modeled in different soil
+    layers and the influence of irrigation can be simulated. Thus, variables like
+    plant water demand, water availability, and water use efficiency can be derived
+    [48], [49]. Unlike approaches based on simple spectral indices, crop growth models
+    allow a precise agricultural analysis at the crop level, thus enabling a better
+    management of inputs (e.g., irrigation). However, these models are generally not
+    used in large-scale operational workflows due to the need for crop type maps.
+    Ensuring accurate crop type maps implies integrating DL models applied to long
+    time series of data into the workflow, which entails the need tohandle a large
+    volume of EO data, and have high computational resources. Existing virtual work
+    environments, which facilitate access to large volumes of data, offer limited
+    computational resources, thus requiring to transfer large volumes of data to local
+    servers where DL architectures should be trained for accurate crop type mapping.
+    Another major limitation of the literature methods is their focus on producing
+    single year analysis. In order to monitor agricultural areas, multiyear mapping
+    is essential to continuously provide up-to-date information. Due to both crop
+    rotation practice and changes in the image acquisition conditions as well as the
+    crop phenology, the class statistical distributions usually vary between years
+    leading to a decrease of performances of a DL classifier trained on a given year
+    when applied to a different one [50]. For this reason, it is necessary to fine
+    tune the initial DL model on recently acquired EO data, which still requires additional
+    computational resources. SECTION III. Proposed System for Crop Mapping and Irrigation
+    Demand Assessment Fig. 1 depicts the developed end-to-end work flow, which starts
+    with the Level 1c Sentinel-2 data available on the Food Security TEP and ends
+    with the annual irrigation water demand maps. First, the dense time series of
+    Sentinel-2 are preprocessed in the Food Security TEP to perform the atmospheric
+    correction, cirrus correction, cloud, and cloud shadow masking. The obtained atmospherically
+    corrected images are further processed to generate a time series of 12 monthly
+    composites per tile. To this end, the scalable distributed DL model is trained
+    on the Hopsworks platform from scratch for the first year of operations, whereas
+    it is fined tuned for the next years. The Hopsworks performs the training of the
+    model on a parallel architecture while abstracting away the complexities of distributed
+    computing from the user. This allows the user to focus only on the definition
+    and configuration of the model, simplifying and accelerating the development and
+    testing process. The trained models are then deployed on the Food Security TEP
+    where they are used to perform the inference. In such a way, all the data processing
+    and inference is performed on the TEP independently of the utilized model and
+    its training. Finally, the crop type maps are provided as input together with
+    the meteorological data and the atmospherically corrected images to the agrohydrological
+    model employed to assess the water demand per crop field. In the following subsections,
+    details are provided. Fig. 1. End-to-end work-flow of the proposed system. While
+    the training of the DL models requires the distributed Hopsworks platform, the
+    other steps are processed directly in the Food Security TEP. Show All A. Satellite
+    Data and Time-Series Image Preprocessing The time series of Sentinel-2 data are
+    the input to the production of both the crop type and the water demand maps. Starting
+    from Sentinel-2 Level 1c data, VISTA''s image processing chain implemented in
+    the Food Security TEP performs a high-quality atmospheric correction, including
+    high-accuracy cloud and cloud shadow masking as well as cirrus correction. After
+    the atmospheric correction, we selected the bands having a spatial resolution
+    of 10 and 20 m, performing a nearest neighbor interpolation on the 20-m bands
+    to match the resolution of the highest spatial resolution channels. The atmospherically
+    corrected data are further processed before training the DL model to harmonize
+    the time series from the temporal view point, i.e., generate time series of uniform
+    length across the study area. To this end, a time series of 12 monthly composites
+    is computed per Sentinel-2 tile using a statistic-based approach working at the
+    pixel level. Let us consider a time series of N Sentinel-2 images acquired in
+    a given month and let us focus on one individual pixel. Let X=[ x 1 , x 2 …, x
+    S ] be the multitemporal spectral vector of the individual pixel composed by S
+    spectral channels, where x s =[ x 1 s , x 2 s ,…, x N s ] represent the reflectance
+    values of band s for each date, with s∈[1,…,S] . Working separately on each spectral
+    channel, the N reflectance values are collapsed into a single one (representing
+    the month) by computing their median. Given the median operator M , the monthly
+    composite computation for one pixel is as follows: x c,s =M{ x 1 s , x 2 s ,…,
+    x N s }∀s∈[1,…,S]. (1) View Source The resulting spectral vector of the composite
+    of one month for a pixel is x c =[ x c,1 , x c,s ,…, x c,S ] . This operation
+    is performed for each month and for each pixel obtaining a multitemporal spectral
+    vector composed of S×12 features, i.e., S reflectance values for 12 months. Note
+    that the median operator is applied after discarding cloudy, snowy, and shadowy
+    samples using the masks provided by the atmospheric correction step. If no images
+    are available for a given pixel for a month (e.g., due to cloud coverage), the
+    harmonization process sets all the reflectance values of the month to zero. In
+    this way, we ensure the uniform length of the time series. Moreover, this allows
+    the DL model to handle the missing data by relying on the information provided
+    by the rest of the time series [51]. Indeed, the approach is based on the assumption
+    that a sufficient number of images is available for each month to reliably generate
+    the composite. This assumption is reasonable due to the short revisit time of
+    the Sentinel-2 constellation (i.e., up to 5 days). Furthermore, this step clearly
+    mitigates the problem of missing data values in the images due to cloud cover.
+    B. Distributed DL Model for Crop Type Mapping In order to accurately perform crop
+    type classification, it is necessary to model the phenological trends of the different
+    crops during the year [52]. To extract this information from the time series of
+    12 monthly composites, we considered a multitemporal DL architecture based on
+    the LSTM architecture. This model has been selected due to its internal feedback
+    connections, which are designed to model sequential data by exploiting previous
+    observations to analyze current ones [53], [54]. Fig. 2 provides an overview of
+    the training and classification flow for the crop type map generation, which predicts
+    the crop type at pixel level focusing on the agricultural areas. The adopted network
+    consists in a multilayer LSTM, where the first three layers have 200, 125, and
+    100 hidden units, respectively, followed by a fully connected layer and a softmax
+    layer. The softmax layer is the one where posteriors are extracted and pixel-level
+    classification is performed. The proposed architecture has been trained on the
+    Hopswork platform according to a distributed strategy to distribute the workload
+    across multiple workers each having one GPU. In this work, the architecture has
+    been trained on two workers each having one GPU. It is worth mentioning that training
+    the network considering two GPUs is considerably faster than training with single
+    worker (i.e., ca. 50% of the time saved using two GPUs). However, due to the Hopswork
+    platform, the distributed strategy can be easily scaled allowing for the use of
+    more GPUs, further reducing the training time. Fig. 2. Flow scheme showing the
+    training of the LSTM model on the Hopswork platform and its use on the Food Security
+    TEP to generate the crop type map. Show All C. Crop Type Map Production and Update
+    After the LSTM has been trained, it is deployed on the Food Security TEP where
+    the Sentinel-2 data are prepared to be fed to the network in the following two
+    steps: 1) preprocessing, and 2) masking of the pixels outside agricultural areas.
+    The first step aims to transform the time series into the format expected by the
+    network, i.e., the 12 monthly composites, each representing a month in the selected
+    agronomic year, according to what was presented in Section III-A. The second step
+    aims at focusing the analysis only on agricultural areas. For this purpose, we
+    employed the publicly available PAN-European high-resolution layer (HRL) [55],
+    which provides information on several specific land cover characteristics at 10-m
+    spatial resolution, including crop locations. The crop type map is generated by
+    providing the 12 masked monthly composites to the trained network per Sentinel-2
+    tile to be classified. After the generation of the crop type map, few standard
+    morphological operators are applied. This postprocessing step allows us to remove
+    pixel-level noise leveraging the spatial correlation. In particular, an opening
+    operation followed by an erosion using a structuring element of size 2×2 is applied
+    to the crop type map at class level. Finally, all labeled areas smaller than a
+    minimum threshold of 15 pixels are discarded. The filtering parameters have been
+    defined according to the spatial resolution of the Sentinel-2 data and the minimum
+    area of individual fields to be identified. The architecture described so far
+    illustrates the crop type mapping approach for the one-year scenario. However,
+    the goal of the proposed workflow is to continuously monitor the considered agricultural
+    area. To this end, we aim to exploit the DL model trained in 2018 to classify
+    the new target years, i.e., 2019 and 2020, as building a new dataset for training
+    a new model from scratch is not feasible at the operational level. However, the
+    application of a pretrained architecture to new target years requires the definition
+    of a domain adaptation strategy since the spectral signature changes over time
+    and the model gradually loses its ability to correctly map crop types as the time
+    gap between different years increases. In order to adapt the reference year architecture
+    to the new target years, first the irregular Sentinel-2 time series acquired in
+    2019 and 2020 are reprojected on the same regular time grid by exploiting the
+    monthly composite strategy described in Section III-A. Then, the multiyear time
+    series are harmonized in order to match the radiometric characteristics of the
+    one used in the pretrained network, i.e., the time series of the reference year
+    [56]. In particular, each monthly composite is initially normalized in order to
+    have zero mean and unit variance at band level, and then, the normalized composite
+    is processed to match the mean and the variance of the corresponding monthly composite
+    in the reference year. Finally, we adapted the LSTM trained on 2018 considering
+    a relatively small number of training samples for 2019 and 2020 compared to the
+    training set used to train the architecture on the target year. These samples
+    are used to perform the fine tuning of the pretrained network in the following
+    two steps: the last fully connected layer is trained, while the other layers are
+    frozen; the whole unfrozen network is trained considering a low learning rate.
+    The first step allows the network to quickly reach a convergence, while the training
+    of the previous layers allows the optimization of computational time and avoids
+    the divergence from the original network [57]. By employing this approach, we
+    can adapt the performance of the DL architecture to the new target years using
+    a small number of training samples compared to the number of model parameters.
+    D. Irrigation Water Demand Map Generation To estimate the irrigation water demand
+    at the parcel level, the proposed end-to-end workflow leverages the well-established
+    processes of mass and energy transfer (PROMET) model. Over the past three decades,
+    this crop-based agrohydrological model has been employed in both scientific and
+    service operations because of its capability of simulating all relevant energy
+    and mass fluxes on a physical basis. Currently, this model is operationally applied
+    to smart farming services and specifically used for irrigation advice. Moreover,
+    the PROMET model has been designed to assimilate the LAI and the same EO data
+    used to generate the crop type maps, thus leading to consistent output products.
+    The main advantages of using the PROMET growth model in the considered workflow
+    are as follows: it allows a spatial and temporal dynamic calibration by using
+    observed variables like measured leaf area and phenological developments [59];
+    it provides water recommendation at individual crop level [60]; it can model 15
+    different crop types [61]. Fig. 3 shows the various components of the PROMET model,
+    which is able to integrate EO-derived land information (i.e., crop types and LAI)
+    and meteorological data to receive an up-to-date consistency between simulated
+    and observed variables. The crop water demand for transpiration is calculated
+    for each hour based on the simulated potential photosynthesis. If soil moisture
+    conditions do not suffice this water demand and irrigation is not applied, photosynthesis
+    is reduced accordingly. As an alternative, the amount of irrigation required to
+    avoid water stress of the crop can be calculated. Hourly values are aggregated
+    over a longer time period (e.g., 5–7 days) and irrigation advice for the next
+    days is provided to the farmers using meteorological forecasts in the simulations.
+    Fig. 3. Modules of the PROMET model and their connections and interfaces (modified
+    from [58]). Show All Fig. 4 shows the reasoning for integrating the Sentinel-2
+    based crop type maps and the LAI monitoring for the land surface processing. Based
+    on model simulations, all relevant crop and water information layers can be obtained
+    and the related maps be generated. The spatial scale for the crop water demand
+    simulations is 10 × 10 m, which corresponds to the spatial sampling distance of
+    Sentinel-2. This allows us to do a direct comparison with the 10 × 10 m Sentinel-2
+    image. This means that for each sample point the crop type and the leaf area development
+    can be derived from the corresponding Sentinel-2 pixel. The leaf area is retrieved
+    by model inversion using the radiative transfer model soil-leaf-canopy [46] over
+    the Sentinel-2 time series and temporally interpolated to daily values using the
+    harmonic analysis of time series (HANTS) algorithm [62]. The leaf area information
+    is then assimilated into the crop growth model PROMET in order to realistically
+    simulate variables as photosynthesis and transpiration. Fig. 4. Approach used
+    based on EO and crop type maps for water demand calculations. Show All SECTION
+    IV. Dataset Description and Experimental Setup This section describes the considered
+    study area, the EO and meteorological data used to perform the experimental analysis,
+    and the validation dataset used to assess the accuracy of the obtained results
+    summarized in Table I. Finally, details on the experimental setup are provided.
+    TABLE I List of Dataset Used to Perform the Result Assessment A. EO and Meteorological
+    Data The considered study area is covered by 37 Sentinel-2 tiles located in the
+    Danube catchment, Europe''s second largest river basin. The basin is characterized
+    by different geographic regions ranging from the cold and humid Alps to the warm
+    and more arid regions in the East allowing for the testing of the method under
+    different conditions. Three agronomic years were considered (i.e., 2018, 2019,
+    and 2020), amounting to a total of more than 9 TB of preprocessed Sentinel-2 data
+    made up of nine spectral bands at 10-m spatial resolution. The data available
+    in the Food Security TEP include all the high spatial resolution spectral bands
+    (i.e., 10 and 20 m) except for Band 8, which is discarded because of its coarser
+    spectral resolution compared to Band 8A. The meteorological data used in PROMET
+    are based on downscaled model outputs from the German Weather Service German weather
+    service (DWD). The used freely available COSMO ICON EU dataset offers hourly time
+    steps that fit with the temporal resolution used in the PROMET model to simulate
+    water balance components (e.g., soil moisture, surface runoff, transpiration,
+    evaporation, and interception). B. Validation Dataset 1) DL Model To validate
+    the crop type maps, we considered the following: publicly available land parcel
+    identification system (LPIS) crop type maps in Austria for the three agronomic
+    years, which are based on farmer declarations [63]; the 2018 LUCAS database samples
+    available for the whole study area for the 2017–2018 agronomic year; the 2018
+    Bavarian crop type map, which is based on farmer declarations and available within
+    the ExtremeEarth project provided by the Bavarian Ministry of Agriculture (“Bayrisches
+    Staatsministerium für Ernährung, Landwirtschaft und Forsten”). The 2018 LUCAS
+    database and the Bavarian map are used to determine the spatial generalization
+    capabilities of the model, i.e., in areas where no training samples are available
+    (all Sentinel-2 tiles outside of Austria). The LUCAS database is extremely reliable
+    since is based on in situ surveys collected by expert surveyors in the field.
+    For more information, please consult Eurostat''s technical reference document
+    on the quality control procedure.2 Similarly, the Bavarian map is a reliable validation
+    source since is based on farmer declaration. The self-declaration maps follow
+    the subsidy control in the framework of the European Common Agriculture Policy
+    (CAP).3 Controls are performed periodically to check the validity of the farmer''s
+    declarations by national or regional producer accuracy (PAs), responsible for
+    the direct payments at a country level.4 These maps are considered reliable products
+    and have been extensively used to generate training and validation dataset [25],
+    [64], [65]. The 2019 and 2020 LPIS Austrian maps allow us to assess the generalization
+    capability of the DL model from the temporal view point. Since the maps are used
+    to generate the training set used for the learning of the multiyear LSTM models,
+    we considered spatially uncorrelated portions of the study area to assess the
+    results. This condition allows us to generate spatially uncorrelated training
+    and test sets. 2) PROMET Model To evaluate the simulation results, the PROMET
+    model outputs are aggregated in the temporal and spatial domains. The annual maps
+    representative of the three agronomic years are generated through integration
+    of the simulated hourly crop water demand values. Spatially, the sample points
+    were averaged over nomenclature of territorial units for statistics (NUTS) 1 regions,
+    since the visualization of all sample points is not meaningful. Nevertheless,
+    the information is generated for all of the simulated fields. To validate the
+    observed irrigation water demand and the underlying crop water stress, we considered
+    an indirect approach, as no large-scale in situ measurements for crop water stress
+    or crop water demand are available for the Danube basin. Hence, the validation
+    efforts are based on the connection between precipitation and crop water stress.
+    We used the Copernicus Climate Data Store,5 aggregated to subcountry level, for
+    our comparisons. Although no direct validation can be performed in the considered
+    study area, we would like to remark that the PROMET model was selected for the
+    considered end-to-end workflow since it has been extensively employed in several
+    scientific studies [13], [47], [48], [62], [66], [67], [68], [69]. In particular,
+    the different components of the PROMET model have been validated in order to compare
+    simulated soil moisture profiles with measurements using time domain reflectometer
+    (TDR) soil probes, or simulated versus measured crop parameters in terms of leaf
+    area, biomass, crop height, and phenology. Evapotranspiration estimations were
+    validated with Eddy covariance stations, while crop yield estimations using farm
+    data. Several studies using PROMET can be found for EO-based LAI retrieval and
+    data assimilation in [13], [47], and [62], for yield simulations at field scale
+    in [48], [66], and [67], for water balance components in [68] and [69]. C. Experimental
+    Setup To be efficient on a large scale, the presented software architecture is
+    based on the integration of the Food Security TEP and the data-intensive AI Hopsworks
+    platform. While the former provides easy access to Sentinel-2 data and computational
+    resources for processing the EO data, the latter is used to efficiently train
+    the developed DL models in a distributed and transparent manner. By combining
+    the strengths of each platform, the deployed end-to-end workflow ingests the Level
+    1c data acquired by the Sentinel-2 satellites and provides the final products
+    computed at large scale for multiple years. 1) DL Model To successfully train
+    the LSTM architecture on the considered study area, a large amount of high-quality
+    informative training samples is required. As part of the ExtremeEarth project,
+    we defined the TimeSen2Crop6 dataset [52], an open-source benchmark dataset consisting
+    of more than one million crop type samples associated with 16 different classes.
+    The TimeSen2Crop benchmark dataset models one agronomic year ranging from September
+    2017 and August 2018. The labeled samples have a minimum-distance requirement
+    of 120 m (12 pixels) from each other, in order to reduce spatial correlation (please
+    refer to [52] for more details on this training database). The architecture parameters
+    were selected following a standard grid search approach, sampling the learning
+    rate and the weight decay from log-uniform distributions, U log ([ 10 −2 , 10
+    −4 ]) and U log ([ 10 −2 , 10 −8 ]) , respectively. We considered different numbers
+    of cascaded layers L∈{2,3,4} and hidden representation H∈{ 2 5 , 2 6 , 2 7 } .
+    The architecture has been trained on the Hopsworks platform considering synchronous
+    distributed training on two different GPUs. For fine tuning the DL model to generate
+    the multiyear classification, we selected 1500 samples per crop type distributed
+    throughout the entire Austria. The seven Sentinel-2 tiles acquired in Austria
+    were divided into minipatches, to generate training and test sets having spatially
+    uncorrelated samples. The number of samples per crop type was defined by comparing
+    the performance of the network without fine tuning, with 150 samples per class,
+    and considering 1500 samples per class. The architecture performance showed limited
+    increment after the latter, leading us to the choice of this configuration to
+    have a good tradeoff between number of samples and performance of the architecture
+    [56]. The accuracies of the crop type maps are reported considering the standard
+    metrics typically used to evaluate the classification results, i.e., user accuracy
+    (UA)%, PA%, and overall accuracy (OA)%. While the UA% measures the number of pixels
+    correctly classified in a specific crop type with respect to the total number
+    of pixels classified as that crop type, the PA% measures the number of pixels
+    correctly classified in a specific crop type with respect to the total number
+    of pixels belonging to that crop type. The OA% provides an overall assessment
+    of the model''s performance considering the accuracy of all crop types collectively.
+    In addition, the confidence intervals are reported for all the metrics, calculated
+    as in [70]. 2) PROMET Model In order to monitor crop development and irrigation
+    water demand, a sampling approach using millions of individual fields has been
+    chosen (see Fig. 5). Using distributed pixels reduces the number of calculations
+    without a significant loss of local and regional heterogeneity [71]. In particular,
+    samples are selected using a regular grid, by combining the classification result
+    and a dynamic selection based on geometry and a quality factor. Through the applied
+    sampling, a representative distribution within the administrative units considered
+    (NUTS levels) is ensured. The crop type classification is the basis for selecting
+    sample points that are simulated with PROMET. Samples are located at a minimum
+    distance from field boundaries or roads to guarantee pure crop-specific remotely
+    sensed information. Finally, more than 4 million sample points have been selected
+    randomly distributed over all classified crop type classes in the investigated
+    Danube basin. They cover five countries. Fig. 5. Overview on the spatial setup
+    of the PROMET simulations based on the crop type classification for the “winter
+    wheat” crop type. Show All SECTION V. Experimental Results This section presents
+    the experimental analysis carried out to assess the effectiveness of the proposed
+    workflow. First, the spatial and temporal generalization capabilities of the DL
+    model are assessed using the validation dataset. Then, the obtained irrigation
+    water demand recommendations are presented at a aggregated level and crop level.
+    A. DL Model: Spatial Generalization Capability To assess the spatial generalization
+    capability of the DL model, we analyze the accuracy obtained in the entire study
+    area. In particular, we compare the accuracy obtained in Austria (where the TimeSen2Crop
+    training dataset is available) with the one obtained in the surrounding countries,
+    i.e., Czech Republic, Germany, Hungary, Slovakia, and Slovenia. Due to the availability
+    of the 2018 LUCAS in situ survey, the results reported focus on the first agronomic
+    year (i.e., from September 2017 to August 2018). Table II shows the PA%, UA%,
+    and OA% obtained in Austria (i.e., “Training Country”) and the rest of the study
+    area (i.e., “Test Countries”). Please note that the results obtained per country
+    are reported in Table V of the Appendix. The results show no noticeable drop in
+    performance for any crop type when applying the model outside Austria, even though
+    no samples were used to fine tune or train the network in any of the Sentinel-2
+    tiles belonging to the Test Countries. In particular, the OA% obtained in Austria
+    is 89.10%, which is comparable with the one obtained in the Test Countries, i.e.,
+    84.38%. By analyzing the accuracy obtained for the different crop types, as expected
+    the ones having the lowest accuracy are the following: TABLE II UA%, PA%, and
+    OA% Considering a 95% Confidence Interval Obtained on the 2018 LUCAS in situ Samples
+    in Austria Where Training Data were Available (Training Country) and Outside Austria
+    Where no Reference Data were Used (Test Countries) TABLE III Quantitative Results
+    (for the 2018 Agronomic Year) in Terms of UA%, PA%, and OA% Considering a 95%
+    Confidence Interval Obtained in Austria and Bavaria by the DL Model Trained Using
+    the TimeSen2Crop Austrian Dataset TABLE IV Quantitative Results (for the 2018,
+    2019, and 2020 Agronomic Years), Considering a 95% Confidence Interval, in Terms
+    of UA, PA, and OA Obtained by the Architectures (a) Trained on 2018 Without Adaptation
+    on the 2019 and 2020, (b) Fine Tuned on the 2019, and (c) Fine Tuned on the 2020
+    TABLE V Quantitative Results (for the 2018 Agronomic Year) in Terms of UA%, PA%,
+    and OA% Obtained by the Architecture on the LUCAS Samples (Danube Basin) minoritarian
+    classes such as “triticale” and “rye” (which are often confused, since “triticale”
+    is a hybrid cultivation of “wheat–rye”); mixed heterogeneous classes such as “Permanent
+    Plantations.” However, both UA% and PA% are above 70% for most crop types, even
+    though a detailed classification scheme is considered compared to those used in
+    the literature that typically have less than ten classes [25], [72]. These results
+    are confirmed by the ones available in Table III, which shows the classification
+    accuracies obtained in 2018 considering the test set of the TimeSen2Crop dataset
+    extracted from the Austrian crop type map based on the farmers'' declarations
+    (focusing on the Sentinel-2 tile “33UVP”) and the Bavarian farmers'' declarations
+    (i.e., Sentinel-2 tiles “33UNA,” “33UPA,” “33UQA,” “32UNV,” “32UPV,”, “32UQV,”
+    “32UMU,” “32UNU,” “32UPU,” “32UQU,” and “33UUQ”). Similar to the results presented
+    in Table II, the accuracy metrics are comparable for both countries. Indeed, the
+    network achieved an OA% of 94.22% and 90.71% in Austria and Bavaria, respectively,
+    and similar UA% and PA% in the classes present in the Bavaria region. Moreover,
+    also in Bavaria, the “rye” class has the lowest accuracy because of its similarity
+    with other winter cereals. A more detailed assessment can be performed in Austria
+    due to the availability of all 15 crop types. Here, the most critical classes
+    are “Winter Caraway” and “Permanent Plantations.” The former is mainly confused
+    with the “winter wheat” because of their similar spectral-temporal behavior. The
+    latter is difficult to represent adequately as it is both affected by a low number
+    of training samples (i.e., minoritarian class) and is a mixed heterogeneous class.
+    Please note that, due to the peculiarities of the presented large-scale analysis,
+    the availability of samples per class for different crop types varies significantly
+    in different countries [74], [75]. Despite in the Bavaria scene only a subset
+    of the considered classes are present in the area analyzed (“grassland,” “corn,”
+    “spring cereals,” “rapeseed,” “potato,” “rye,” “sugarbeet,” “barley,” and “winter
+    wheat”), the results obtained are extremely valuable since they show the generalization
+    capacity of the network, which achieves very similar accuracy regardless of the
+    use of training samples belonging to the Austrian country alone. B. DL Model:
+    Temporal Generalization Capability To assess the temporal generalization capability
+    of the DL model, we evaluate the accuracy of the multiyear crop type maps generated
+    in Austria by comparing the results obtained with 2018, 2019, and 2020 farmer''s
+    based declaration LIPS maps. Differently from Table III, the results obtained
+    are not evaluated only in tile “33UVP” but in the whole Austrian country. However,
+    also in this case, the validation set considered is statistical independent with
+    respect to the training data. The multiyear classification accuracies are shown
+    in Table IV, which compares the numerical results obtained with the fine-tuning
+    strategy (15 000 samples for the 2019 and 2020 agronomic years) with the results
+    obtained by using the initial DL model without any adaptation. Moreover, a comparison
+    between the fine-tuned networks and the networks without adaptation is reported.
+    One can observe that the fine-tuned OA% show an improvement of 7% and 5% when
+    compared to the OA% score of the network without adaptation, for 2019 and 2020,
+    respectively. These results demonstrate that the proposed system can be easily
+    adapted and applied to multiyear time series for long-term monitoring analysis.
+    Indeed, the obtained accuracies are stable in the following two agronomic years,
+    with a small decrease in terms of performance when considering the 2020. In particular,
+    the network achieves an OA% of 88.75% in 2018, which is comparable with 86.85%
+    and 83.94% obtained in 2019 and 2020, respectively. The PA% and UA% values confirm
+    these results, showing similar accuracies with the reference agronomic year. By
+    analyzing the accuracies of different types of crops in detail, one can see that
+    the DL model achieves stable results over time even for the most critical classes
+    such as “triticale” and “rye” crop types. In contrast, if no fine-tuning strategy
+    is considered, the crop type mapping accuracies decrease when the target year
+    is far from the reference year used initially to train the architecture from scratch.
+    Fig. 6 shows a qualitative example of crop type map obtained over the same area
+    in the three agronomic years, i.e., 2018, 2019, and 2020. In particular, a true
+    color representation is reported together with the multiyear maps to visually
+    inspect the crop changes visible in the satellite data. This qualitative analysis
+    confirms the quantitative assessment. Fig. 6. Qualitative example of multiyear
+    crop type mapping results obtained. (a) Aerial images of the patch analyzed from
+    Environmental Systems Research Institute (ESRI) world imagery [73]. (b) 2018 crop
+    type maps. (c) 2019 crop type maps. (d) 2020 crop type maps. Show All C. PROMET
+    Model: Crop Level Results Fig. 7 shows an example of simulated crop water demand
+    estimated in 2018 and 2019 for the same crop parcels. From these qualitative results,
+    one can notice the importance of considering a crop growth model tailored to the
+    specific properties of different crop types. Because of the different weather
+    patterns of 2018 and 2019, different amounts of precipitation occurred at different
+    times of the year. The impact of such dryness was not uniform across all crops,
+    as different crop types reacted differently to the varying weather conditions.
+    In 2018, the dryness primarily affected “soy,” causing significant challenges
+    for their growth and yield [76]. In 2019, both “soy” and “corn” were affected,
+    although the severity of the dry conditions on “corn” was identified as relatively
+    milder compared to “soy.” In both years, the winter crops, i.e., “winter barley”
+    and “winter wheat,” which have their main growing phase in spring, demonstrated
+    a higher resilience to the dryness and were able to manage their water requirements
+    more efficiently during their crucial growth stages. Fig. 7. Simulated irrigation
+    water demand estimated for the same parcels in: (a) 2018 and (b) 2019. Show All
+    Fig. 8 shows the obtained spatial irrigation recommendation generated by the PROMET
+    model for a specific parcel. The presented example, which reports the water demand
+    computed for week 29, highlights the spatial sensitivity of the model. Because
+    of the model''s ability to take into account all the relevant factors that can
+    impact irrigation (e.g., soil moisture levels, weather conditions, crop requirements,
+    and agricultural management options like fertilization), it is possible to generate
+    targeted recommendations at a very high spatial resolution. Within the crop, the
+    model is able to simulate all relevant energy and mass fluxes on a physical basis
+    at the pixel level (i.e., 10-m spatial resolution), thus leading to extremely
+    precise crop water demand recommendations. For this reason, the PROMET model has
+    been extensively employed in the last 30 years for smart farming services. Although
+    this qualitative example demonstrates the capability of the PROMET model to optimize
+    water usage and enhance crop yield at high spatial resolution, the proposed end-to-end
+    workflow is the first attempt to perform such analysis at large scale. This is
+    mainly due to the efficient and effective production of crop-type maps for the
+    entire study area, which was made possible by the workflow. Fig. 8. Example of
+    spatial irrigation recommendation as provided operationally to farmers using the
+    data assimilation concept using the PROMET model and leaf area time series as
+    retrieved from Sentinel-2. Show All D. PROMET Model: Aggregated Results To demonstrate
+    the effectiveness of the proposed end-to-end workflow, crop water stress and irrigation
+    water demand were calculated using the PROMET model for the study site for the
+    most prevalent crop types in the years between 2018 and 2020. Indeed, to the best
+    of the author''s knowledge, no in situ data on water demand are available that
+    cover the entirety of Austria and the area analyzed during the three selected
+    agronomic years, making a quantitative large-scale validation not possible. However,
+    this indirect validation performed by aggregating the results over the whole crop
+    season and analyzing the regional differences provides a comprehensive overview
+    at a higher level of abstraction. Fig. 9(a) shows the irrigation crop water demand
+    for the whole season for winter wheat for the years 2018–2020. Winter wheat is
+    harvested in July or early August. In general, wheat does not require irrigation
+    as can be seen in the simulations with the blue colouring. This fits with farming
+    practice in this region. Only in the drought year 2018, some regions turn colour
+    to red, which means that using irrigation could have increased the yield. On the
+    contrary, as shown in Fig. 9(b), it is immediately visible that “corn” summer
+    crop is more strongly affected by water stress and has a much higher irrigation
+    water demand over the season. This difference is visible both in the total water
+    demand and in the affected regions over the different years. In 2020, the total
+    irrigation water demand was lower than in the other two years. This can be explained
+    when looking at the precipitation variance against the 20 year mean as seen in
+    Fig. 10. In 2020, there is overall less deviation from the mean, and especially
+    in the third quarter of the year, (which is the summer months) more water was
+    available than in 2018 and 2019. Nevertheless, for “corn,” there was still water
+    stress and irrigation water demand even in 2020. Fig. 9. Simulated irrigation
+    water demand for the 3 considered years for: (a) “wheat,” and (b) “corn.” The
+    results obtained are presented aggregated on NUTS 1 level and vegetation period/year.
+    Show All Fig. 10. Deviation of the precipitation water availability against long
+    year statistics for the three considered years. Show All Fig. 11 shows exemplary
+    daily modeling results for the “corn” crop type in terms of crop water stress
+    (where 1 means no stress and lower values indicate higher water stress levels)
+    and crop water demand (in millimeter) for two Austrian regions. For comparison,
+    the precipitation used as modeling input is also shown in the plots. Early “corn”
+    growth stages were not affected by water stress, but from late July through all
+    of August, crop water demand was almost consistently higher than the available
+    water supply, leading to water stress. In Styria, some heavier rainfalls could
+    reduce the water stress, but they did not manage to fill the whole water demand.
+    In order to avoid water stress for each field under investigation, the irrigation
+    demand is simulated and displayed in the green line in Fig. 11. Fig. 11. Simulated
+    crop water stress and irrigation crop water demand for “corn” for two regions
+    in Austria in 2018. Show All SECTION VI. Discussion The objective of this article
+    is to present a successful end-to-end workflow for the production of irrigation
+    water demand in an operational scenario by integrating processing capabilities
+    of the TEPs, which provides access to the Sentinel-2 data and computational resources
+    for data processing, and the parallel computing architectures of the Hopsworks
+    platform. By interconnecting the two infrastructures, the proposed automatic end-to-end
+    workflow is able to process large volumes of Sentinel-2 images and provides water
+    irrigation recommendations at crop level. This can be useful to both single farmers
+    and stakeholders. By exploiting the Food Security TEP, the different models can
+    be retrieved from the Hopsworks and used for the inference in a fast and effective
+    way. This agile method allows the definition and the training of different models
+    on the Hopsworks without the need of changing the pipeline implemented on the
+    thematic platform. Moreover, since the TEPs allow the retrieval of different sources
+    of data and datasets, it is possible to implement the data processing in the pipeline.
+    One example can be found in the masking procedure of nonagricultural areas, which
+    has to be performed before running the crop type classification. In this case,
+    we employed the HRL map to mask the noncrop pixels. However, any other high-resolution
+    land cover map available can be used to focus only on cultivated areas [77], [78].
+    The LSTM DL model achieve accurate classification results from both the spatial
+    and temporal view point. Indeed, the LSTM for 2018 obtained an OA of 85.39% and
+    85.20% on the LUCAS validation dataset and the farmer''s declaration map, respectively.
+    These accuracies demonstrate that the network has good spatial generalization
+    capability, achieving similar accuracy over the entire study area despite having
+    been trained only on the Austrian territory. Similar results are obtained for
+    the new target years 2019 and 2020 having an OA of 81.29% and 78.79%, respectively,
+    considering only 15 000 training samples per year. Although the amount of labeled
+    data used to train the network in later years is much smaller than that used to
+    train it in 2018, the qualities of the maps obtained are visually comparable.
+    From the qualitative example reported in Fig. 6, one can notice that the three
+    crop type maps correctly distinguish the boundaries of the different cultivated
+    fields. Indeed, even though the network performs a pixel-level classification,
+    the shape of the fields is clearly visible in the scene for all years. The results
+    obtained confirm the effectiveness of the architecture even under conditions of
+    multiyear maps production. Also, they accurately show the changes that have occurred
+    on the land in different agronomic years due to crop rotation practices. Finally,
+    we would like to emphasize that the proposed DL model can work anywhere, as long
+    as a sufficient number of reference samples are available for training or fine
+    tuning the DL model. It is worth noting that many efforts are currently being
+    made to generate publicly available mapping datasets of crop types to support
+    agricultural monitoring [72], [79]. In addition, several EU Member States are
+    publishing agricultural information based on farmers'' declarations (collected
+    for the monitoring of European subsidies) for research purposes. Therefore, it
+    is possible to conclude that the crop type mapping component of the proposed end-to-end
+    workflow can be used to perform the continuous production of accurate crop type
+    maps. This enables precise agricultural analysis at the crop level instead of
+    considering basic approaches based on simple spectral indices computed for the
+    whole study area. The water demand assessment allowed us to infer important information
+    about the crops under investigation. In particular, we detected a crop demand
+    that exceeded consistently the available water supply for “corn,” leading to water
+    stress. Examining the aggregated results over the entire crop season also allowed
+    for an analysis of regional differences. In particular, certain crops such as
+    “winter wheat” typically do not require irrigation, which is allineated to the
+    farming practices in the region, but we detected a drought year in 2018 where
+    several regions displayed red coloring, suggesting that irrigation could have
+    increased yields. “Corn” summer crops, instead, are significantly affected by
+    water stress [80] and require a much higher irrigation water demand throughout
+    the season. The variance in precipitation compared to the 20-year mean also provides
+    an explanation for the observed differences. The results demonstrate the importance
+    of assessing crop-specific water requirements and irrigation needs based on regional
+    and yearly variations in water availability. Understanding such dynamics can inform
+    farmers and policymakers in implementing effective irrigation strategies and water
+    management practices to mitigate crop water stress and optimize water use efficiency.
+    Overall, the study conducted emphasizes the need of continuously monitoring and
+    assessment of crop water stress and irrigation water demand to ensure sustainable
+    agricultural practices in the face of changing climatic conditions and water availability.
+    Furthermore, the method suggested for choosing and combining sample points, specifically
+    within administrative areas, involves integrating detailed data at the field level
+    with the summarized findings at the NUTS 1 level. This approach caters to the
+    specific requirements of individual farmers by providing operational services
+    tailored to their needs, while also presents broader information to governmental
+    bodies and other relevant parties. Consequently, the results can be adjusted to
+    meet the distinct expectations of different user groups. SECTION VII. Conclusion
+    In this article, we have presented a system for the production of multiyear water
+    availability maps by assessment of the irrigation water demand at the crop level.
+    We exploited time series of Sentinel-2 data for agricultural areas at 10 m of
+    spatial resolution for wide-scale irrigation support. The end-to-end workflow
+    was developed by integrating the Food Security TEP, which provides access to the
+    Sentinel-2 data and computational resources for data processing, and the data-intensive
+    AI Hopsworks platform, designed for training distributed DL models. First, the
+    data are atmospherically corrected and preprocessed in the TEP to generate the
+    atmospherically corrected time series of Sentinel-2 and the time series of spatially
+    and temporally harmonized 12-month composites. Then, a scalable distributed LSTM
+    DL model is trained on the Hopsworks platform from scratch for the first year
+    of observation, while being fine tuned for the subsequent years. The trained models
+    are used in the Food Security TEP to generate multiyear crop type maps, which
+    are combined together with the meteorological data and the atmospherically corrected
+    time series of Sentinel-2 images to assess the irrigation water demand for millions
+    of agricultural fields by the PROMET agrohydrological model. The experimental
+    results obtained in the upper part of the Danube Catchment for the 2018, 2019,
+    and 2020 demonstrate the effectiveness of the proposed system. The results obtained
+    for crop water stress and irrigation water demand demonstrate the model''s ability
+    to identify at which growth stages the water demand exceeds water supply. In particular,
+    the multiyear results obtained pointed out the capability of the proposed system
+    to capture the different levels of water stress and irrigation water demand for
+    different crops, under different weather conditions and for different seasons.
+    As future developments, we plan to test the proposed system architecture for multiple
+    target years (i.e., for a 10-year window), in order to assess its robustness from
+    the temporal view point. Moreover, we would like to test it on different countries
+    to further evaluate its generalization capability from the spatial view point.
+    Finally, we would like to explore the possibility of generating in-season (i.e.,
+    before the end of the year) crop type maps to be combined with short- and mid-season
+    weather forecasts to generate predictive analyses of water stress. These early
+    water demand forecasts can be extremely useful in providing irrigation policy
+    advice at the local and regional levels. ACKNOWLEDGMENT The authors would like
+    to thank Dr. W. Angermair for granting permission to publish the results obtained
+    from his fields. Appendix Proposed System: Processing Architecture The entire
+    pipeline has been implemented on cloud computing platforms to exploit their distributed
+    processing power and eliminate the need of downloading/uploading large amounts
+    of data. Moreover, the use of such platforms allows for easy access to the entire
+    processing pipeline by the service providers and final users, thus guaranteeing
+    effective exploitation of the developed methods and generated products. According
+    to the properties of the considered platforms, the Food Security TEP7 was used
+    to implement the complete pipeline starting with the pre-processing of the Level
+    1c Sentinel-2 data and ending with the production of the irrigation water demand
+    maps, whereas Hopsworks8 was used to specifically perform the training of the
+    distributed DL model taking the TimeSen2Crop database as input. This condition
+    allows us to minimize the amount of data volume transferred from one platform
+    to the other. Indeed, to train the DL model on the Hopsworks platform, only the
+    TimeSen2crop database has to be uploaded, without the need of transferring the
+    whole time series of Sentinel-2 images. The obtained LSTM models can be downloaded
+    to the TEP directly using the Hopsworks API,9 so that the inference procedure
+    (i.e., production of crop type maps) can be carried out where the satellite data
+    are available. SECTION A. Food Security TEP Implementation The Food Security TEP
+    is an online platform that provides access to EO and non-EO data and the services
+    to process them. The basic principle is to bring algorithms to the data. All the
+    Level 1c Sentinel-2 datasets are available on the Food Security TEP via the Copernicus
+    services within the Data and Information Access Services concept10 on the Creodias.11
+    The Food Security TEP, operated by VISTA, holds data access mechanisms, tools
+    for data processing and data analytics, and all solutions for scientists and service
+    providers to process, analyze, and share data. On the Food Security TEP, the different
+    services components are available as processors based on docker containers associated
+    with bash files that automatically execute the python scripts related to each
+    particular service. Services (or processors) can be used and combined by users,
+    according to their account level and access rights. In the considered pipeline,
+    the steps implemented in the TEP are as follows: the preprocessing of the Sentinel-2
+    data to generate the bottom-of-atmosphere images; the preparation of the time
+    series of 12 monthly composites per year according (see Section III-A); the production
+    of the multiyear crop type maps; the crop type maps postprocessing based on morphological
+    operators (see Section III-C). The final crop type maps and mechanisms are stored
+    inside a collection in the Food Security TEP, and therefore, available to other
+    users. Fig. 12 Fig. 12. GUI of the Food Security TEP showing the service for monthly
+    composite generation. Show All presents an example of the graphical user interface
+    (GUI) of the Food Security TEP with the left part of the screen showing the service
+    selection and setting and the right part the map over which the results are displayed.
+    Hopsworks is used for the distributed training of the model. It is a data-intensive
+    platform for AI that is horizontally scalable and enables the development of end-to-end
+    machine learning and DL pipelines. It provides the software development kit for
+    a wide variety of operations including the following. Machine learning feature
+    management with a Feature Store. Horizontally scalable distributed training on
+    multiple machines with both CPUs and GPUs. Model serving using Kubernetes for
+    the deployment of the model in a container environment with Hopsworks managing
+    secure authentication and authorization access to the model. Model management
+    and monitoring to manage model and experiment metadata as well as analyze the
+    model usage in near real time. To perform the distributed training, first the
+    TimeSen2Crop database stored on the Hopsworks file system (HopsFS) is moved to
+    the local machine using the Hopsworks API, and then, the temporal harmonization
+    (see Section III-A) is applied to all the samples. Then, the distributed training
+    of the LSTM is performed according to a multiworker mirrored strategy. In such
+    a way, the training is performed synchronously on multiple workers, each with
+    one GPU, by replicating the variables and computations on each device. Note that
+    the distributed strategy can easily be scaled to run on many GPUs. From the user
+    perspective, few modifications are required that are mostly related to enable
+    the distributed training in the code and to define the settings of the distributed
+    environment in the Hopsworks interface. Finally, the model is saved in HopsFS
+    so that it can be retrieved by the Food Security TEP for the inference. SECTION
+    B. Extra Experimental Results Table V reports the accuracies on the LUCAS dataset
+    per country analyzed. Please note that some countries lack samples for all the
+    considered classes. For both this reason and the small number of validation samples
+    present in some countries, the confidence intervals were not calculated per class
+    but were only considered in the OA% analysis. Authors Figures References Keywords
+    Metrics Footnotes More Like This YOLOv5 Crop Detection Deep Learning Model using
+    Artificial Intelligence (AI) and Edge Computing 2022 International Conference
+    on Augmented Intelligence and Sustainable Systems (ICAISS) Published: 2022 Deep
+    Learning techniques applied to predict the irrigation prescription for potato
+    crops in Boyacá 2021 IEEE CHILEAN Conference on Electrical, Electronics Engineering,
+    Information and Communication Technologies (CHILECON) Published: 2021 Show More
+    IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS
+    VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: IEEE Journal of Selected Topics in Applied Earth Observations and Remote
+    Sensing
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Multiyear Mapping of Water Demand at Crop Level: An End-to-End Workflow
+    Based on High-Resolution Crop Type Maps and Meteorological Data'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

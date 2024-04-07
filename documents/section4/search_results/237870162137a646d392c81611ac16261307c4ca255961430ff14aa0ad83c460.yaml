@@ -1,0 +1,897 @@
+- DOI: https://doi.org/10.3390/agronomy12112905
+  analysis: '>'
+  authors:
+  - Chuanhong Song
+  - Wenbo Ma
+  - Junjie Li
+  - Baoshan Qi
+  - Bangfan Liu
+  citation_count: 3
+  full_citation: '>'
+  full_text: ">\nCitation: Song, C.; Ma, W.; Li, J.; Qi,\nB.; Liu, B. Development\
+    \ Trends in\nPrecision Agriculture and Its\nManagement in China Based on Data\n\
+    Visualization. Agronomy 2022, 12,\n2905. https://doi.org/10.3390/\nagronomy12112905\n\
+    Academic Editors: Chunhua Liao,\nTaifeng Dong, Jiali Shang and\nJinfei Wang\n\
+    Received: 6 October 2022\nAccepted: 18 November 2022\nPublished: 21 November 2022\n\
+    Publisher’s Note: MDPI stays neutral\nwith regard to jurisdictional claims in\n\
+    published maps and institutional afﬁl-\niations.\nCopyright:\n© 2022 by the authors.\n\
+    Licensee MDPI, Basel, Switzerland.\nThis article is an open access article\ndistributed\n\
+    under\nthe\nterms\nand\nconditions of the Creative Commons\nAttribution (CC BY)\
+    \ license (https://\ncreativecommons.org/licenses/by/\n4.0/).\nagronomy\nArticle\n\
+    Development Trends in Precision Agriculture and Its\nManagement in China Based\
+    \ on Data Visualization\nChuanhong Song 1, Wenbo Ma 2, Junjie Li 3,4, Baoshan\
+    \ Qi 3,4 and Bangfan Liu 3,4,*\n1\nThe Center for Economic Research, Shandong\
+    \ University, Jinan 250100, China\n2\nSchool of Education and Cultural Information\
+    \ Development, Woosuk University,\nAnju 55338, Republic of Korea\n3\nSchool of\
+    \ Public Administration, Yanshan University, Qinhuangdao 066004, China\n4\nHebei\
+    \ Public Policy Evaluation and Research Center, Qinhuangdao 066004, China\n*\n\
+    Correspondence: liubangfan@ysu.edu.cn\nAbstract: Recent innovations are increasingly\
+    \ recognizing applications in precision agricultural\nsystems that use data science\
+    \ techniques as well as so-called machine learning techniques. Big data\nanalytics\
+    \ have created various data-intensive decision-making opportunities. This study\
+    \ reviews\nthe big data analysis practices in the agriculture industry to resolve\
+    \ various problems to provide\nprospects and exciting ﬁelds of application in\
+    \ China. In the successful implementation of precise\nfarming, the high-volume\
+    \ and complicated data generated present challenges for the economic\ngrowth of\
+    \ China. Emerging deep learning techniques seem promising and must be reinvented\n\
+    to meet current challenges. Thus, this paper suggests a big data analytics agriculture\
+    \ monitoring\nsystem (BDA-AMS) to ensure the highly accurate prediction of crop\
+    \ yield in precision agriculture and\neconomic management using a deep learning\
+    \ algorithm. The convolution neural network gathers\nthe raw images from UAVs\
+    \ and performs early predictions of crop yield. The simulation analysis\nusing\
+    \ an open-source agricultural dataset resulted in a high parameter–precision ratio\
+    \ (98.8%), high\naccuracy (98.9%), a better performance ratio (95.5%), an improved\
+    \ data transmission rate (97.8%),\na reduced power consumption ratio (18.8%),\
+    \ and an enhanced weather forecasting ratio (94.8%),\nproduction density ratio\
+    \ (98.8%), and reliability ratio (98.6%) compared to the baseline models.\nKeywords:\
+    \ big data analytics; precision agriculture; crop yield; deep learning; prediction\n\
+    1. Introduction\n1.1. Background and Origin of the Research\nAs the speciﬁc sector\
+    \ of economic growth develops, agriculture creates jobs in the\nlargely rural\
+    \ communities in China. Agriculture is the most consistent word used to\nindicate\
+    \ the various ways in which plants and domestic animals are provided with food\
+    \ and\nthrough which other goods are produced for the global human population.\
+    \ The agriculture\nsystem complements a very broad range of agriculturally integral\
+    \ and descriptive activities,\nsuch as cultivation, domestication, crops, farming,\
+    \ and vegetation, and proper handlings\nsuch as mixed food production, deforestation,\
+    \ and new competition [1]. Agricultural\nanalysis and actual farming production\
+    \ systems rely on and generate a host of internal and\nexternal data information\
+    \ system resources as well as control economic management in\nChina. Agriculture\
+    \ manufacturing provides possibilities in developed countries to pull\npeople\
+    \ out of poverty and offers job options and food as well as other raw materials\
+    \ [2].\nAgriculture provides more employment from agricultural machinery manufacturers,\
+    \ food\nprocessing plants, logistics, utilities, and production, playing an important\
+    \ part in the\nsupport and promotion of China’s economic management and representing\
+    \ the backbone\nof everything [3,4].\nPrecision agriculture has now improved and\
+    \ might continue to change farming man-\nagement, as farmers take the mixture\
+    \ of resources, search lands, and inputs into account\nAgronomy 2022, 12, 2905.\
+    \ https://doi.org/10.3390/agronomy12112905\nhttps://www.mdpi.com/journal/agronomy\n\
+    Agronomy 2022, 12, 2905\n2 of 19\nregarding how they use conservation techniques,\
+    \ how they should price their crops, and\nhow they consider the long-term scale\
+    \ of their activities [5]. Several scientiﬁc contributions\ninvolve precision\
+    \ agriculture (PA), particularly in terms of data collection strategies, data\n\
+    analysis, high-sensitivity identiﬁcation, ﬁeld activity, and accurate agriculture\
+    \ evaluation.\nPrecision agriculture has resulted in signiﬁcant data development\
+    \ in agriculture, which\nhas challenged researchers and farmers to ﬁnd new ways\
+    \ to analyze and use data for\nimproved decision-making [6,7]. Precision agriculture\
+    \ uses data, web data, and stream\ndata from different sources, such as crop growth\
+    \ monitors, agro-informatics websites, and\nsatellite images, for decision-making\
+    \ and to predict agricultural big data interactions [8].\nThe function of unmanned\
+    \ aerial vehicles (UAVs) is essential for fostering large-scale\nmonitoring and\
+    \ data-acquiring applications in precision agriculture. They reduce the\ndependence\
+    \ on non-existence or on the increased costs of third-party accessibility and\n\
+    computing resources [9,10].\nBig data is an emerging concept that describes any\
+    \ structured data, sub-data, and\nunstructured data that are capable of being\
+    \ exploited. Big data are generated at the intersec-\ntion between geoprocessing,\
+    \ ﬁeld development, climate, and consumer knowledge [11]. A\ncombination of technologies\
+    \ and analytics are involved in big data applications in agricul-\nture [12].\
+    \ Big data applications involve collecting, compiling, and promptly analyzing\
+    \ new\ndata to enhance and guide analysts and farmers in making choices [13].\
+    \ Geographic data\ndetails are site-speciﬁc information that is historically correlated\
+    \ with precise cultivation,\nsuch as land-speciﬁc properties and crop yields.\
+    \ Big data are always referred to as the\nnext big thing in many agriculture circles\
+    \ [14]. Increasing information gathered on crop\nproduction at the farm level\
+    \ (big soil data) and detailed weather data (big climate data)\nare forming the\
+    \ backbone of precision agriculture technology and will help to develop the\n\
+    agricultural economic management of China [15]. The design of big data technology\
+    \ in\nagriculture can either guide farmers in helping long-organized supply chains\
+    \ to become\nefﬁcient or can lead farmers to execute short production processes\
+    \ along with distributors\nand the government [16,17]. Scale-neutral big data\
+    \ technologies are being developed to\nprevent farmers from choosing one form\
+    \ of agricultural production over another [18].\nAs large amounts of data are\
+    \ collected to inform individual agriculture and ﬁelds, the\nexpansion of technology\
+    \ makes them possible to be applied to different proportions of\nfarmers [19].\
+    \ Big data analytics aims to create an effective decision-making framework that\n\
+    functions as a guide to agricultural production. The present research will collect\
+    \ focused\ncategories that will allow different types of consumers to obtain their\
+    \ data [20,21]. The\nstudy of the varying factors affecting crop yield can be\
+    \ based on big econometric data [22].\nWhile UAV contributions are well-known\
+    \ and signiﬁcant for the development of sustain-\nable agricultural production,\
+    \ incorporating these components into the perception layer is\nexpected to considerably\
+    \ boost solutions for tracking, production analysis, forecasting, and\ndecision-making\
+    \ [23,24].\n1.2. Literature Works\nMa Li et al. [25] proposed Agricultural Economic\
+    \ Development (AED) in China. AED\nanalyzes the coupling properties and spatial–temporal\
+    \ trends of agrarian labor shifts and\nrapidly urbanized economic growth through\
+    \ empirical and structural analytical techniques\ncentered on framing regional-level\
+    \ information from 1991, 2000, and 2010 collected in\nChina. In conclusion, several\
+    \ suggestions for developing the central, secondary, and\nprimary economies and\
+    \ the vitality of rural economies are made that are centered on\ncombined types\
+    \ and spatially distributed features of economic–labor friction correlations.\n\
+    Long Liang et al. [26] developed the agricultural subsidies assessment of cropping\n\
+    system (ASACS). ASACS was used to evaluate lifecycle assessment (LCA) to determine\n\
+    the environmental effects in Huantai County, which experiences high-density and\
+    \ high-\nintensity cultivation when implementing the winter/summer corn replacement\
+    \ method.\nOver the period from 1996 to 2012, there was a reduced energy capacity,\
+    \ climate change\npotential acidiﬁcation ecotoxicity, and turbid possibility.\n\
+    Agronomy 2022, 12, 2905\n3 of 19\nWenjing Li et al. [27] discussed a hybrid modeling\
+    \ approach (HMA). Their proposed\nHMA aims to investigate factors that decide\
+    \ the acceptance of precision agriculture in-\nnovations in Chinese farming in\
+    \ crop structures and makes suggestions for potential\ntechnology developments.\
+    \ The requirements that make it easier for farmers to implement\nsuch technologies\
+    \ were the best indicators. These factors must be taken into consideration\nby\
+    \ policymakers and utility companies to promote innovations\nKeswani, B. et al.\
+    \ [27] initialized the IoT and big data-based decision support (IoT-DSS)\nto produce\
+    \ appropriate valve control commands. Precision agriculture requires production\n\
+    changes in the region, sales growth, resource support, and environmental impact\
+    \ according\nto an automated processor’s range of information and documentation.\
+    \ The collection of\ninformation in real time is performed using the proposed\
+    \ implementation technique of the\nIoT node tested in the region. An IoT-DSS system\
+    \ is proposed to accumulate 17 global and\nenvironmental parameters when predicting\
+    \ the possible impact on soil MC within 1 h. This\narticle discusses the system’s\
+    \ entire architecture, the implementation approach, and the\nproposed IoT-based\
+    \ DSS framework’s performance.\nSieverding, H., M. et al. [28] introduced an LCA\
+    \ primer for the agricultural community.\nThe term LCA is commonly used to describe\
+    \ several methods and analytical resources. Life-\ncycle analysis provides a transdisciplinary\
+    \ method where teams with various competencies\nand experiences can better use\
+    \ all occupations. This paper aims to provide the agricultural\npopulation and\
+    \ the agriculturists associated with LCAs with an initial treatment. Agricul-\n\
+    tural LCAs can differ greatly because agricultural products have multiple end\
+    \ uses, are\ncomplex, and can be produced by various practices, resources, and\
+    \ production systems.\nCrop LCAs are subject to different data points, aggregation\
+    \ methods, production processes\nand facilities, yields, and analytical assumptions.\n\
+    Mohapatra, A. G. et al. [29] deliberated smart data-based decision support (SDSS)\
+    \ by\nconsidering the temperature, soil, water, crop information, and agriculture\
+    \ quality and\nuniformity from the challenging information-based systems currently\
+    \ being maintained.\nThis work (SDSS) was carried out alongside DSS to produce\
+    \ accurate SMS alerts using\ninterfaces between the GPS module and an efﬁcient\
+    \ heating irrigation control method.\nThe farm data that are aggregated in real\
+    \ time are introduced to the radial basis model’s\nneural network function. The\
+    \ soil data are supported by the DSS model for the appropriate\ngeneration of\
+    \ SMS notiﬁcations to the farmer’s mobile device. The proposed smart DSS\nsystem\
+    \ reduces the amount of wastewater resulting from precipitation by considering\n\
+    temperature, land, water, and crop data.\nPham, T. N et al. [30] indicated that\
+    \ many diseases affect the quality of fruits and grains\nand pose a serious threat\
+    \ to global food security, while convolutional neural networks\n(CNN) and artiﬁcial\
+    \ neural networks (ANN) provide fast and accurate tools for identifying\nplant\
+    \ diseases. A list of multiple measurement-related features representing blobs\
+    \ was\nchosen and then sorted using a wrapper-based feature selection method based\
+    \ on a hybrid\ntechnique based on the model’s effectiveness. They preferred the\
+    \ application that used an\nANN input, and their ﬁndings were compared to those\
+    \ from a different methodology that\nsuccessfully used CNN models that had been\
+    \ improved by transfer learning. The results\nshowed that their methodology can\
+    \ be applied to reduced devices such as smartphones to\nsupport farmers on the\
+    \ land.\nBhat, S. A et al. [31] introduced the current big data applications used\
+    \ in smart agricul-\nture and some of the challenges of big data technology in\
+    \ the agricultural sector. This work\ncompared and discussed the computational\
+    \ characteristics and limitations of different ma-\nchine learning (ML) techniques\
+    \ in precision agriculture. Most of these big data applications\nare applicable\
+    \ to large industrial farms, and very little work has been carried out on small\n\
+    farms in the developing world.\nBased on this literature review, there are some\
+    \ issues with existing methods. Hence, in\nthis paper, BDA-AMS has been proposed\
+    \ to identify the crop growth level and to improve\nproduction. Big data can be\
+    \ used to create various data-intensive decision-making opportunities.\nAgronomy\
+    \ 2022, 12, 2905\n4 of 19\nBig data analysis has become an integral part of agricultural\
+    \ economic management\nand has played an important role in crop production, agricultural\
+    \ product processing,\ntransportation and storage, and safety prevention, and\
+    \ has largely improved the efﬁciency\nof management in precision agriculture.\
+    \ Through big data analysis, management depart-\nments are able to quickly integrate\
+    \ resources, improving the efﬁciency of the management\nof the agricultural economy\
+    \ and laying a good foundation for agricultural development.\n2. Big Data Analytics-Initiated\
+    \ Agriculture Monitoring System (BDA-AMS)\n2.1. Reasons for System Design\nThis\
+    \ paper discusses precision agriculture using big data analysis for crop yield\n\
+    prediction, reducing labor, and improving agriculture monitoring systems to enhance\n\
+    China’s economic management. Big data analytics in agriculture provide meaningful\n\
+    insight to advance weather decisions, improve crop efﬁciency, and reduce the possible\n\
+    usage of fertilizers and pesticide costs. The management of the social and economic\
+    \ growth\nof China mainly depends on precision agriculture and crop yield production.\
+    \ The details of\nagriculture regarding precision spraying and the details of\
+    \ crop yield are stored on a cloud\nplatform in which precision agriculture and\
+    \ agriculture monitoring systems are used to\ndevelop China’s economic management.\n\
+    Various big data sources in precision agriculture use UAV components with organized\n\
+    and unstructured data types. In agriculture, big data applies to the huge amount\
+    \ of data\ngenerated from social and measured agricultural work. The processing\
+    \ and management\nof big data is a difﬁcult challenge across the traditional platforms\
+    \ and methodologies\nused to manage China’s economic condition. Big data analysis\
+    \ and UAV solutions can\nsupport farm production companies and departments in\
+    \ carrying out agricultural growth\nand productivity analyses, supporting expected\
+    \ agriculture trends, and identifying social\nstatus. Big data analysis and ICT\
+    \ applications can take real-time management measures\nin precision agriculture.\
+    \ Knowledge of big historical information can be mined, and\ntrends can be discovered\
+    \ to forecast harmful agriculture events. This paper suggests a\nbig data analytics-initiated\
+    \ agriculture monitoring system (BDA-AMS) to ensure high-\nprecision crop yield\
+    \ predictions using a deep learning algorithm based on the social and\neconomic\
+    \ background.\n2.2. BDA-AMS’ Basic Framework and Main Principles\nBDA-AMS’ basic\
+    \ framework is roughly expressed in Figures 1 and 2.\nFigure 1 demonstrates cloud\
+    \ computing-based precision agriculture. In all ways,\nagricultural activities\
+    \ are responsible for a substantial amount of data input/production as\nwell as\
+    \ remote sensing data and use much of their external information to direct farmers’\n\
+    decisions through the use of weather data and satellite images. Usually, three\
+    \ features of\nlarge agricultural concept data, including volume, variation, and\
+    \ velocity, are employed.\nIn other words, the variety of data obtained in massive\
+    \ quantities due to high speed from\nagricultural activities can be called big\
+    \ data. In the interest of big agricultural data, the data\nproduced from distributed\
+    \ resources and constrained sources to be extracted, processed,\nand analyzed\
+    \ to cloud computing in agriculture can provide analysts and decision-makers\n\
+    with massive solutions to solve economic problems. The beneﬁt of the cloud is\
+    \ that it\nis capable of gathering and centering complete data independent of\
+    \ their origin from\nspecial blocks during extensive data management processes\
+    \ for detailed processing, such\nthat valuable information is recorded to maintain\
+    \ the related economic issues. This can\nbe achieved using new database architectures,\
+    \ including research methods, databases,\nand distributed storage, when processing\
+    \ extensive information to spread loads across\nseveral nodes using the maximum\
+    \ abstraction of the parallel mechanism. Using precision\nagriculture and the\
+    \ crop production to predict the agricultural economic management is\nutilized\
+    \ with the data obtained from the database server and the remote user, as illustrated\n\
+    in Figure 2.\nAgronomy 2022, 12, 2905\n5 of 19\nAgronomy 2022, 12, x FOR PEER\
+    \ REVIEW \n5 of 20 \n \n \n \nFigure 1. The agricultural monitoring system. \n\
+    \ \nFigure 2. Cloud computing-based precision agriculture. \nFigure 1. The agricultural\
+    \ monitoring system.\nAgronomy 2022, 12, x FOR PEER REVIEW \n5 of 20 \n \n \n\
+    \ \nFigure 1. The agricultural monitoring system. \n \nFigure 2. Cloud computing-based\
+    \ precision agriculture. \nFigure 2. Cloud computing-based precision agriculture.\n\
+    Agronomy 2022, 12, 2905\n6 of 19\nAgricultural economic management comes from\
+    \ agricultural production, not only for\nthe process, or for the result, and strives\
+    \ to achieve ﬁne management. In the information\nage, agricultural economic management\
+    \ based on information technology can be roughly\nrepresented as in Figure 3.\n\
+    \ \nfrom special blocks during extensive data management processes for detailed\
+    \ processing, \nsuch that valuable information is recorded to maintain the related\
+    \ economic issues. This \ncan be achieved using new database architectures, including\
+    \ research methods, databases, \nand distributed storage, when processing extensive\
+    \ information to spread loads across \nseveral nodes using the maximum abstraction\
+    \ of the parallel mechanism. Using precision \nagriculture and the crop production\
+    \ to predict the agricultural economic management is \nutilized with the data\
+    \ obtained from the database server and the remote user, as illustrated \nin Figure\
+    \ 2. \nAgricultural economic management comes from agricultural production, not\
+    \ only \nfor the process, or for the result, and strives to achieve fine management.\
+    \ In the infor-\nmation age, agricultural economic management based on information\
+    \ technology can be \nroughly represented as in Figure 3. \n \nFigure 3. Economic\
+    \ management developed from crop production. \nThe virtualization network provider\
+    \ is an integral part of the architecture. It is re-\nsponsible for developing\
+    \ the user profile to question the system and to design the required \nbig data\
+    \ resources to achieve the user’s requirements. The datasets are generated from\
+    \ \ndifferent sources, including sensors, weather and climate stations, satellites,\
+    \ and govern-\nment entities, to enhance China’s economic management. Data collection\
+    \ is an essential \ntask, as it can keep the data streams together before the\
+    \ storage process is complete. This \nwork focuses more on the composition of\
+    \ excellent data and profile services, while their \nproposed development will\
+    \ discuss the transaction service. Important technological ad-\nvances have been\
+    \ made in big data, data collection, decision-making systems, and agri-\ncultural\
+    \ information technology, and many farmers use integrated crop management \ntechnology\
+    \ to reduce waste and to increase the value of the economic background of \ncrops.\
+    \ \nFigure 3. Economic management developed from crop production.\nThe virtualization\
+    \ network provider is an integral part of the architecture. It is respon-\nsible\
+    \ for developing the user proﬁle to question the system and to design the required\
+    \ big\ndata resources to achieve the user’s requirements. The datasets are generated\
+    \ from different\nsources, including sensors, weather and climate stations, satellites,\
+    \ and government entities,\nto enhance China’s economic management. Data collection\
+    \ is an essential task, as it can\nkeep the data streams together before the storage\
+    \ process is complete. This work focuses\nmore on the composition of excellent\
+    \ data and proﬁle services, while their proposed devel-\nopment will discuss the\
+    \ transaction service. Important technological advances have been\nmade in big\
+    \ data, data collection, decision-making systems, and agricultural information\n\
+    technology, and many farmers use integrated crop management technology to reduce\
+    \ waste\nand to increase the value of the economic background of crops.\nFigure\
+    \ 4 shows an agricultural ﬁeld using a sensor node and a database system. The\n\
+    WSNs in the agricultural ﬁeld can contribute to farm precision and to various\
+    \ parameters,\nsuch as temperature, soil condition, precipitation, air pressure,\
+    \ and precision agriculture, to\ndevelop economic management. Big data must develop\
+    \ automated tools or techniques for\ndecision-making that can apply the appropriate\
+    \ amount of input at the right moment and\nat the right locations to increase\
+    \ the output quality of crops (water, fertilizers, pesticides,\netc.). Farmers\
+    \ do not need to continually monitor agricultural economic management to\nacquire\
+    \ information from new automated irrigation systems in modern agriculture. The\n\
+    proposed monitoring system can be performed by gathering real-time soil, temperature,\n\
+    and air quality data using sensors in a more accurate approach that utilizes agricultural\n\
+    economic management. The proposed use protocol is a resource method in which a\
+    \ ﬁeld\nobservation can be taken out automatically using sensors and the requirements\
+    \ deﬁned\nby users to save farmers’ energy and time in continuous ﬁeld monitoring\
+    \ to determine\nwhere irrigation is required in general. In addition to making\
+    \ more intelligent decisions,\npredictive analysis is needed such that irrigation\
+    \ can occur automatically when a rising\nwater requirement exists to meet the\
+    \ needs of economic problems.\nThe primary issue when developing communication\
+    \ protocols is energy conservation\nfor wireless sensor networks (WSNs), which\
+    \ requires consistent data from network ﬁeld ap-\nplications (such as military\
+    \ applications, healthcare applications, and trafﬁc management),\nwhile some applications,\
+    \ such as agriculture and industrial applications with efﬁcient\nAgronomy 2022,\
+    \ 12, 2905\n7 of 19\nprecision, require network information when appropriate.\
+    \ The proposed communication\nprotocol uses a regionally dependent static clustering\
+    \ method to provide adequate coverage\nacross an extensive area in agriculture\
+    \ economic management. The whole network area is\ndivided into ﬁxed regions, where\
+    \ various types of interacting sensor nodes are accessible.\nThe communication\
+    \ network allows aggregated sensor nodes, and there is less energy in\nspeciﬁc\
+    \ nodes than in other nodes, sending data directly to the base station (BS). Other\n\
+    highly powered nodes use IoT sensor node technology to transmit data into the\
+    \ BS. This re-\nduces the consumption of sensor node energy in any data transmission\
+    \ cycle and improves\nthe system capacity. A protocol for adequate irrigation\
+    \ in the agricultural sector is proposed\nfor efﬁcient, energy-efﬁcient, periodic\
+    \ threshold-sensitive regional basis-based integrated\nrouting to improve economic\
+    \ management. The proposed communication protocol for\nprecision agriculture is\
+    \ the most effective energy-efﬁcient routing protocol.\nAgronomy 2022, 12, x FOR\
+    \ PEER REVIEW \n7 of 20 \n \n \nFigure 4 shows an agricultural field using a sensor\
+    \ node and a database system. The \nWSNs in the agricultural field can contribute\
+    \ to farm precision and to various parameters, \nsuch as temperature, soil condition,\
+    \ precipitation, air pressure, and precision agriculture, \nto develop economic\
+    \ management. Big data must develop automated tools or techniques \nfor decision-making\
+    \ that can apply the appropriate amount of input at the right moment \nand at\
+    \ the right locations to increase the output quality of crops (water, fertilizers,\
+    \ pesti-\ncides, etc.). Farmers do not need to continually monitor agricultural\
+    \ economic manage-\nment to acquire information from new automated irrigation\
+    \ systems in modern agricul-\nture. The proposed monitoring system can be performed\
+    \ by gathering real-time soil, tem-\nperature, and air quality data using sensors\
+    \ in a more accurate approach that utilizes ag-\nricultural economic management.\
+    \ The proposed use protocol is a resource method in \nwhich a field observation\
+    \ can be taken out automatically using sensors and the require-\nments defined\
+    \ by users to save farmers’ energy and time in continuous field monitoring \n\
+    to determine where irrigation is required in general. In addition to making more\
+    \ intelli-\ngent decisions, predictive analysis is needed such that irrigation\
+    \ can occur automatically \nwhen a rising water requirement exists to meet the\
+    \ needs of economic problems. \n \nFigure 4. Agricultural field using sensor nodes\
+    \ and database system. \nThe primary issue when developing communication protocols\
+    \ is energy conservation \nfor wireless sensor networks (WSNs), which requires\
+    \ consistent data from network field \napplications (such as military applications,\
+    \ healthcare applications, and traffic manage-\nment), while some applications,\
+    \ such as agriculture and industrial applications with effi-\ncient precision,\
+    \ require network information when appropriate. The proposed communi-\ncation\
+    \ protocol uses a regionally dependent static clustering method to provide adequate\
+    \ \ncoverage across an extensive area in agriculture economic management. The\
+    \ whole net-\nwork area is divided into fixed regions, where various types of\
+    \ interacting sensor nodes \nare accessible. The communication network allows\
+    \ aggregated sensor nodes, and there is \nless energy in specific nodes than in\
+    \ other nodes, sending data directly to the base station \n(BS). Other highly\
+    \ powered nodes use IoT sensor node technology to transmit data into \nFigure\
+    \ 4. Agricultural ﬁeld using sensor nodes and database system.\nFigure 5 explores\
+    \ smart agriculture-based system technologies for farmers. Smart\nfarming is a\
+    \ new concept that includes managing farms using national information tech-\n\
+    nology to increase the quantity and efﬁciency of products while reducing the number\
+    \ of\nhuman workers required. IoT systems implemented on a farm can gather and\
+    \ process data\nin a repetitive process that allows farmers to rapidly respond\
+    \ to analytical challenges and\nenvironmental conditions to improve economic management.\
+    \ Precision farming is a prime\nfactor for IoT methods that can increase the control\
+    \ and precision in farming. Simply added,\nplants and bovine animals are precisely\
+    \ controlled, with perfect precision determined by\nthe devices used in modern\
+    \ agriculture. The main difference between precision farming\nand the classical\
+    \ approach is that it allows for one square meter per plant/animal rather\nthan\
+    \ per ﬁeld. As with precision agriculture, intelligent farming techniques enable\
+    \ farmers\nto better monitor each animal’s needs and to change their food to avoid\
+    \ symptoms and\nimprove health. In precision agriculture, smart sensors provide\
+    \ data for farmers to monitor\nand maximize crops and to deal with changing environmental\
+    \ factors. By placing sensors,\nfarmers can micro-detect their crops, maintain\
+    \ energy levels, and reduce their impact on\nthe environment.\nAgronomy 2022,\
+    \ 12, 2905\n8 of 19\nSmart agriculture research aims to determine a farm management\
+    \ decision-making\nsystem. Smart farming considers these systems essential, from\
+    \ seed planting and watering\nto health in the harvested sector, and these systems\
+    \ can solve population development\nproblems, climate change, and functions, gaining\
+    \ technological attention. Telematics\nsystems enable farmers to closely follow\
+    \ their sets of vehicles and trucks using GPS trackers,\nwhich allows agricultural\
+    \ managers to know exactly where all the tractors and cars are at\nany given time.\
+    \ The collected user data analyses can be used to collect data that farmers\n\
+    can use to reﬁne their farming, allowing farmers to make smart agricultural decisions\n\
+    regarding production density, from preparation to cultivation, and smart objects\
+    \ identify\nthemselves by their ability to record and analyze information. Smart\
+    \ agriculture uses both\nhardware (IoT) and software for data collection and provides\
+    \ actionable insight into all\nfarming agriculture economies before and after\
+    \ planting.\n \ngional basis-based integrated routing to improve economic management.\
+    \ The proposed \ncommunication protocol for precision agriculture is the most\
+    \ effective energy-efficient \nrouting protocol. \nFigure 5 explores smart agriculture-based\
+    \ system technologies for farmers. Smart \nfarming is a new concept that includes\
+    \ managing farms using national information tech-\nnology to increase the quantity\
+    \ and efficiency of products while reducing the number of \nhuman workers required.\
+    \ IoT systems implemented on a farm can gather and process data \nin a repetitive\
+    \ process that allows farmers to rapidly respond to analytical challenges and\
+    \ \nenvironmental conditions to improve economic management. Precision farming\
+    \ is a \nprime factor for IoT methods that can increase the control and precision\
+    \ in farming. \nSimply added, plants and bovine animals are precisely controlled,\
+    \ with perfect precision \ndetermined by the devices used in modern agriculture.\
+    \ The main difference between pre-\ncision farming and the classical approach\
+    \ is that it allows for one square meter per \nplant/animal rather than per field.\
+    \ As with precision agriculture, intelligent farming tech-\nniques enable farmers\
+    \ to better monitor each animal’s needs and to change their food to \navoid symptoms\
+    \ and improve health. In precision agriculture, smart sensors provide data \n\
+    for farmers to monitor and maximize crops and to deal with changing environmental\
+    \ fac-\ntors. By placing sensors, farmers can micro-detect their crops, maintain\
+    \ energy levels, and \nreduce their impact on the environment. \n \nFigure 5.\
+    \ Smart agriculture-based system technologies. \nSmart agriculture research aims\
+    \ to determine a farm management decision-making \nsystem. Smart farming considers\
+    \ these systems essential, from seed planting and watering \nto health in the\
+    \ harvested sector, and these systems can solve population development \nproblems,\
+    \ climate change, and functions, gaining technological attention. Telematics sys-\n\
+    tems enable farmers to closely follow their sets of vehicles and trucks using\
+    \ GPS trackers, \nwhich allows agricultural managers to know exactly where all\
+    \ the tractors and cars are at \nFigure 5. Smart agriculture-based system technologies.\n\
+    Figure 6 depicts a crop yield prediction system based on smart agriculture and\
+    \ data\nstorage. Smart agriculture is an adaptive concept that refers to the management\
+    \ of farmers\nusing precision IT technologies to increase product quantity and\
+    \ quality while minimizing\nthe number of human workers required. Smart farming\
+    \ is an alternative method for the\nefﬁcient use of water to grow crops, and the\
+    \ addition of imaginative farming approaches\nto conventional agriculture limits\
+    \ real-time control, reducing human resources, time, and\nprecise estimates of\
+    \ the required irrigation water while protecting crops against disasters\nsuch\
+    \ as diseases and ﬂoods. These developments help farmers to reduce the costs of\n\
+    growing and maintaining yields and increase farmers’ income by producing a large\
+    \ number\nof crops using modern agriculture to improve economic management. The\
+    \ resulting papers\ncompare traditional and intelligent agricultural activities,\
+    \ smart farming technologies, and\nWSNs in the farming realm as well as autonomous\
+    \ water application.\nAgronomy 2022, 12, 2905\n9 of 19\n \nefficient use of water\
+    \ to grow crops, and the addition of imaginative farming approaches \nto conventional\
+    \ agriculture limits real-time control, reducing human resources, time, and \n\
+    precise estimates of the required irrigation water while protecting crops against\
+    \ disasters \nsuch as diseases and floods. These developments help farmers to\
+    \ reduce the costs of grow-\ning and maintaining yields and increase farmers’\
+    \ income by producing a large number of \ncrops using modern agriculture to improve\
+    \ economic management. The resulting papers \ncompare traditional and intelligent\
+    \ agricultural activities, smart farming technologies, \nand WSNs in the farming\
+    \ realm as well as autonomous water application. \n \nFigure 6. Crop yield prediction-based\
+    \ smart agriculture and data storage. \n2.3. Operation of System \nThe loss of\
+    \ WSN data transfer happens due to environmental implications. When \ntransmitted\
+    \ by data, most wireless sensor communication technologies cover a short \nFigure\
+    \ 6. Crop yield prediction-based smart agriculture and data storage.\n2.3. Operation\
+    \ of System\nThe loss of WSN data transfer happens due to environmental implications.\
+    \ When\ntransmitted by data, most wireless sensor communication technologies cover\
+    \ a short range\nof sensors or routers within the WSN. Multi-tire, ad hoc, and\
+    \ mesh network topologies will\nprolong connectivity within the network. Some\
+    \ of the critical problems in WSNs are the\nscale and location of a sensor node.\
+    \ The performance and life of a WSN primarily depend on\nsensor node deployment.\
+    \ The deployment system for a WSN covers two groups—random\nand determinist deployments—with\
+    \ haphazard approaches being used for deployment in\nexpansive open environments\
+    \ and deterministic point-by-point strategies being used for\nsmall-scale deployments.\n\
+    The automated WSN and GPRS irrigation system was established, and this device\n\
+    transmits soil moisture and temperature information to the sensors throughout\
+    \ the root\narea of a plant’s wireless communication system. The sensor information\
+    \ is gathered at\na gateway and sent to a webpage. This algorithm sets the temperature\
+    \ and soil moisture\nthreshold values programmed for a microcontroller-based gateway\
+    \ to control irrigation\nmeasurements. This paper highlights the advantages of\
+    \ intelligent agriculture over con-\nventional framing and numerous technologies\
+    \ and implementations. By installing smart\nagriculture systems, farmers will\
+    \ beneﬁt from higher proﬁts, better yields, easier land mon-\nitoring, and productive\
+    \ water use. Finally, numerous WSM and different approaches have\nbeen proposed\
+    \ for independent irrigation in agriculture. The whole agriculture system can\n\
+    be automated to create sustainable agriculture through technologies such as the\
+    \ Internet\nof Things, fog computation, and cloud computing, which reduce the\
+    \ waste of time and\nreliable resources. Table 1 shows the symbols and descriptions.\n\
+    σZ = N ∑\nk\nj=1 λ1 O1 | Uj |\n(1)\nAgronomy 2022, 12, 2905\n10 of 19\nTable 1.\
+    \ Symbols and descriptions.\nSymbol\nDescription\nG\nMeasured resistance\nσ\n\
+    Molar conductivity\nFB\nTemperature traction\nO\nMolar\nN\nCell-constant\nUj\n\
+    Value of the ion charge\neq\nTranslation factor of temperature\nq\nTemperature\n\
+    a0 a1\nRegression coefﬁcients\nY\nNumber-dependent variable\nAccording to Equation\
+    \ (1), the limiting molar conductivity is calculated. In this equa-\ntion, N is\
+    \ a cell-constant that accounts for the geometrical electrodes due to the geometry\
+    \ of\nthe time ﬁeld, σ is the limiting ion molar conductivity, O is the molar\
+    \ concentrations (mol\nO−3), and Uj is the absolute value of the ion charge.\n\
+    FB25\n= eq·FBq\n(2)\nAccording to Equation (2), Figure 7 shows how the temperature\
+    \ consumption is\nformulated. For comparison purposes, FB is represented by the\
+    \ reference temperature\ntraction of the electric current and the volume of 25\
+    \ µC. The calculation of FB depends on\nthe separation between the electrodes.\
+    \ The greater the distance, the deeper the calculation\nand reference are at a\
+    \ speciﬁc temperature (q, FBq), and eq is a translation factor in the\ntemperature\
+    \ assigned in Equation (2)\nFBa = 1\n2 πaG\n(3)\ny 2022, 12, x FOR PEER REVIEW\
+    \ \n11 of 20 \n.\n. \nFigure 7. Temperature consumption. \n\U0001D439\U0001D435\
+    ௔  = 1\n2  \U0001D70B\U0001D44E\U0001D43A \n(3)\nAccording to Equation (3), the\
+    \ measuring volume for field collection is calculated. In \nall plant trials to\
+    \ determine heat tolerance, FBa is traditionally the standard test and uses \n\
+    approximately two inner potential salinity electrodes. G is measured by resistance,\
+    \ and \nFBa is the inverse of G. A relationship between FBa and FBq is required\
+    \ for the soil surface \nspacing at a depth of approximately that of the interelectrode\
+    \ results obtained in Equation \n(4): \n\U0001D439\U0001D435\n= \U0001D439\U0001D435\
+    ௔௝ି௔௝ିଵ  െ ൫\U0001D439\U0001D435௔௝  .   \U0001D44E௝൯ െ ൫\U0001D439\U0001D435௔௝ିଵ.\
+    \   \U0001D44E௝ିଵ൯\n(4)\nFigure 7. Temperature consumption.\nAccording to Equation\
+    \ (3), the measuring volume for ﬁeld collection is calculated.\nIn all plant trials\
+    \ to determine heat tolerance, FBa is traditionally the standard test and\nuses\
+    \ approximately two inner potential salinity electrodes. G is measured by resistance,\n\
+    and FBa is the inverse of G. A relationship between FBa and FBq is required for\
+    \ the soil\nsurface spacing at a depth of approximately that of the interelectrode\
+    \ results obtained in\nEquation (4):\nFBy = FBaj−aj−1 −\n\0FBaj . aj\n\x01 −\n\
+    \0FBaj−1·aj−1\n\x01\n\0aj − aj−1\n\x01\n(4)\nAs determined in Equation (4), the\
+    \ ﬁxed electrode is updated. FBa can be used to\ndetermine the discrete plant\
+    \ depth range, FBy by calculating FBa in successive levels by\nAgronomy 2022,\
+    \ 12, 2905\n11 of 19\nincreasing the distance between the electrodes from one\
+    \ electrode to another. The current\nsource is calculated according to the idea\
+    \ that it can be superseded using Equation (4),\nwhere aj is the inter-place that\
+    \ is equivalent to the sampling depth, and aj−1 is the inter-place\nthat is equivalent\
+    \ to the previous sample depth in Equation (5):\nˆx = e(y) + ξ\n(5)\nˆxj\n= a0\
+    \ + a1yj + ξ\n(6)\nThe linear regression and data processing calculated using\
+    \ Equations (5) and (6) are\nevaluated. This is the supervised learning approach\
+    \ to forecast possible trends of historical\ndata objects. In this case, Y is\
+    \ the number-dependent variable, and the numerical value of\nx is approximated.\
+    \ Equation (6) indicates the difference between the real value and the\nforecasted\
+    \ value. Y is estimated to be e(y), and ˆx is implied symbolically. When there\n\
+    is a linear dependence between x and y, linear regression can be used. In this\
+    \ case, the\nalgorithm used in model y as a function of x demonstrates Equation\
+    \ (7):\nE(T) = 1\nK\nK\n∑\nj=1\nξ2\nj\n(7)\nAccording to Equation (7), MapReduce\
+    \ is calculated. MapReduce is used to measure\nthe mean absolute percentage error\
+    \ values and to compute the patterns in the data predicted\nin the regression\
+    \ model. In this case, the x vector consists of k digits (×1, ×2, ×3 to 1, 1\n\
+    Kn),\nand k is the number of the data object attribute values in the dataset in\
+    \ Equation (8):\na1 = yx − y x\nx2\n− x2\n(8)\nUsing Equations (8) and (9), the\
+    \ regression coefﬁcients are evaluated. The equations\nare used to calculate regression\
+    \ coefﬁcients a0 and a1. The sum of the vectors of y and a1 is\nproportional to\
+    \ the number of dimensions in functional space and in the error word—the\nreal\
+    \ and expected values differentiate the target variable. The symbol is used to\
+    \ denote the\ntarget variable’s expected value using the model and x + a1 + y.\
+    \ Algorithms are used for\nlearning, and a1 is used in the dataset objects. The\
+    \ aim is to decrease the difference between\nthe real and forecasted values for\
+    \ all the data objects. This difference may be determined\nby decreasing the square\
+    \ amount of the difference between the actual and the forecasted\ntargeted values\
+    \ in Equation (9):\na0 = x − a1 − y\n(9)\nR(On + E) = R(On) T( E|On)\nR(E)\n(10)\n\
+    Figure 8 shows the low computational cost of Equation (10). As this algorithm\
+    \ func-\ntions with the assumption that each class system is nonlinear, a closed\
+    \ form was used to\nidentify the highest probability of training, and computational\
+    \ costs were low. The training\ndatasets include a series of E-tuples composed\
+    \ of n properties, and tuples were tested for\nthe different classes: R(On + E).\
+    \ The BDA-AMS has been proposed to achieve a precision\nratio, high accuracy,\
+    \ a better performance ratio, an improved data transmission rate, a\nreduced power\
+    \ consumption ratio, and an enhanced weather forecasting ratio, production\ndensity\
+    \ ratio, mean absolute percentage ratio, and reliability ratio.\nAgronomy 2022,\
+    \ 12, 2905\n12 of 19\n \np\ny\n,\nidentify the highest probability of training,\
+    \ and computational costs were low. The train-\ning datasets include a series\
+    \ of E-tuples composed of n properties, and tuples were tested \nfor the different\
+    \ classes: \U0001D445ሺ\U0001D442௡ ൅ \U0001D438ሻ. The BDA-AMS has been proposed\
+    \ to achieve a pre-\ncision ratio, high accuracy, a better performance ratio,\
+    \ an improved data transmission \nrate, a reduced power consumption ratio, and\
+    \ an enhanced weather forecasting ratio, pro-\nduction density ratio, mean absolute\
+    \ percentage ratio, and reliability ratio. \n \nFigure 8. Low computational cost.\
+    \ \n3. Results and Discussion \nThe BDA-AMS method has been proposed to improve\
+    \ agricultural and efficiency \nperformance based on the following parameters:\
+    \ the precision ratio, accuracy ratio, im-\nproved data transmission rate, reduced\
+    \ power consumption ratio, and enhanced weather \nforecasting ratio, production\
+    \ density ratio, mean absolute percentage ratio, and reliability \nratio. \n3.1.\
+    \ Precision Ratio (%) and Mean Absolute Percentage Ratio (%) \nPrecision agriculture\
+    \ is a technical method for improving communication between \nagricultural produce,\
+    \ normal food, and input land, electricity, water, fertilizers, and pes-\nticides,\
+    \ and agricultural products that are used in modern agriculture. Precision agricul-\n\
+    ture can improve simplified methods and massively develop an area’s status, improving\
+    \ \nChina’s economic management. Farmers are informed of advanced technologies\
+    \ that can \ncontribute to creative and precise agriculture, agricultural production\
+    \ is clever, thorough, \nFigure 8. Low computational cost.\n3. Results and Discussion\n\
+    The BDA-AMS method has been proposed to improve agricultural and efﬁciency\nperformance\
+    \ based on the following parameters: the precision ratio, accuracy ratio, im-\n\
+    proved data transmission rate, reduced power consumption ratio, and enhanced weather\n\
+    forecasting ratio, production density ratio, mean absolute percentage ratio, and\
+    \ reliability\nratio.\n3.1. Precision Ratio (%) and Mean Absolute Percentage Ratio\
+    \ (%)\nPrecision agriculture is a technical method for improving communication\
+    \ between\nagricultural produce, normal food, and input land, electricity, water,\
+    \ fertilizers, and pesti-\ncides, and agricultural products that are used in modern\
+    \ agriculture. Precision agriculture\ncan improve simpliﬁed methods and massively\
+    \ develop an area’s status, improving China’s\neconomic management. Farmers are\
+    \ informed of advanced technologies that can contribute\nto creative and precise\
+    \ agriculture, agricultural production is clever, thorough, and data-\ncentered,\
+    \ and multi-storage systems are used in big data analytics. The productive and\n\
+    accurate extent and appropriate implementation of irrigation in agriculture and\
+    \ in farming\nwater management are designed to respond to crop requirements, reducing\
+    \ mistakes and\nadverse environmental impacts. Figure 9 shows the precision ratio\
+    \ (%) and the mean\nabsolute ratio (%).\nIn conclusion, farmer’s age, farm size,\
+    \ farmer perceptions of the provision of the re-\nquired information for precision\
+    \ agriculture in the case of the sample tested, and attendance\nin workshops and\
+    \ exhibitions have essential effects on the acceptance of intelligent agri-\n\
+    culture. The error rate reduction obtained from the proposed model is used for\
+    \ economic\nmanagement in agriculture. The mean absolute error must be as low\
+    \ as possible, and the\nmean square error ratio should be equal to one if a simple\
+    \ method has been used. The\nmean absolute regression error and the linear regression\
+    \ of simple public information for\nthe tested concentrations were obtained from\
+    \ jack-knife procedures.\n3.2. Data Transmission Rate (%) and Reliability Ratio\
+    \ (%)\nThe high volume and the need for an efﬁcient and practical analysis of\
+    \ real-time\ndata for agricultural production have resulted in the creation of\
+    \ new technologies and\nframeworks to acquire, store, process, interpret, and\
+    \ analyze extensive datasets for decision-\nmaking based on future predictions\
+    \ to improve economic management. On small farms,\nprecision agriculture is appropriate,\
+    \ and it protects various GPS and GIS sensors in a\nspeciﬁc cultivable area for\
+    \ up to several hundred meters. In terms of the environment for\nmanufacturing\
+    \ plants, these systems handle datasets that include satellite imagery, sensors,\n\
+    and weather data, and propose a collection of techniques based on the user’s speciﬁcation,\n\
+    type of data, and processing requirements, including characteristics to consider\
+    \ for the\nefﬁcient processing of agricultural information. Figure 10 explores\
+    \ the data transmission\nrate (%) and the reliability ratio (%).\nAgronomy 2022,\
+    \ 12, 2905\n13 of 19\nand data-centered, and multi-storage systems are used in\
+    \ big data analytics. The\ntive and accurate extent and appropriate implementation\
+    \ of irrigation in agricul\nin farming water management are designed to respond\
+    \ to crop requirements, r\nmistakes and adverse environmental impacts. Figure\
+    \ 9 shows the precision ratio\nthe mean absolute ratio (%). \n \n(a) \n \n(b)\
+    \ \nFigure 9. (a) Precision ratio (%). (b) Mean absolute ratio (%). \nIn conclusion,\
+    \ farmer’s age, farm size, farmer perceptions of the provision o\nquired information\
+    \ for precision agriculture in the case of the sample tested, and\nance in workshops\
+    \ and exhibitions have essential effects on the acceptance of in\nagriculture.\
+    \ The error rate reduction obtained from the proposed model is used\nnomic management\
+    \ in agriculture. The mean absolute error must be as low as p\nand the mean square\
+    \ error ratio should be equal to one if a simple method has be\nThe mean absolute\
+    \ regression error and the linear regression of simple public info\nfor the tested\
+    \ concentrations were obtained from jack-knife procedures. \n \n \nFigure 9. (a)\
+    \ Precision ratio (%). (b) Mean absolute ratio (%).\nThis paper proposes a proﬁle-based\
+    \ approach for managing farm data in a cloud\narchitecture. Smart agriculture\
+    \ provides enormous amounts of agricultural data and\ninformation, improving economic\
+    \ management for farms in modern agriculture systems.\nMethodologies and implications\
+    \ have been created as appropriate to reduce harmful effects\nand to improve the\
+    \ process’ reliability and accuracy. The sensor node has been shown\nto operate\
+    \ reliably in the ﬁeld and to collect information from over 100 hectares, and\
+    \ the\ndevice has a revolving radius of 3 m. A data processing interface would\
+    \ later replace this\ndevice. The data design should be analyzed with a simple\
+    \ case A/D processor to increase\nthe reliability.\nAgronomy 2022, 12, 2905\n\
+    14 of 19\ncific cultivable area for up to several hundred meters. In terms of\
+    \ the environmen\nmanufacturing plants, these systems handle datasets that include\
+    \ satellite imagery,\nsors, and weather data, and propose a collection of techniques\
+    \ based on the user’s s\nfication, type of data, and processing requirements,\
+    \ including characteristics to con\nfor the efficient processing of agricultural\
+    \ information. Figure 10 explores the data t\nmission rate (%) and the reliability\
+    \ ratio (%). \n \n(a) \n \n(b) \nFigure 10. (a) Data transmission rate (%). (b)\
+    \ Data reliability ratio (%). \nThis paper proposes a profile-based approach for\
+    \ managing farm data in a clou\nchitecture. Smart agriculture provides enormous\
+    \ amounts of agricultural data and i\nmation, improving economic management for\
+    \ farms in modern agriculture syst\nMethodologies and implications have been created\
+    \ as appropriate to reduce harmf\nfects and to improve the process’ reliability\
+    \ and accuracy. The sensor node has \nshown to operate reliably in the field and\
+    \ to collect information from over 100 hect\nand the device has a revolving radius\
+    \ of 3 m. A data processing interface would \nFigure 10. (a) Data transmission\
+    \ rate (%). (b) Data reliability ratio (%).\n3.3. Accuracy Ratio (%)\nThrough\
+    \ monitoring in real time, smart agriculture reduces power and time expenses\n\
+    and accurately estimates the water needed for irrigation, solving traditional\
+    \ farming disad-\nvantages based on economic management. The approach uses ontology\
+    \ to concentrate on\nstability and system adaptability by integrating the machine\
+    \ learning algorithms used by\nanalyzing logged datasets to accurately identify\
+    \ critical thresholds for plant-based parame-\nters and to derive new information\
+    \ and expand system ontology. A WSN can accomplish\nthis objective by acquiring\
+    \ approximate values from the available data and rendering\naccurate values. To\
+    \ consider the optimum agreement between the calculated data accuracy,\nthe estimated\
+    \ energy to perform the task, and the price, elements must be chosen, thus\nprioritizing\
+    \ sensor use. The accuracy measurements of sensors on the LCD screen were\nseen\
+    \ and veriﬁed. Finally, before the evaluation, the sensors were conﬁgured to guarantee\n\
+    data accuracy and to allow users to overcome challenges during the system’s calculation\n\
+    process. Figure 11 shows the accuracy ratio (%).\nAgronomy 2022, 12, 2905\n15\
+    \ of 19\n \np\nj\ny\nq\ng pp\ning accurate values. To consider the optimum agreement\
+    \ between the calculated data ac-\ncuracy, the estimated energy to perform the\
+    \ task, and the price, elements must be chosen, \nthus prioritizing sensor use.\
+    \ The accuracy measurements of sensors on the LCD screen \nwere seen and verified.\
+    \ Finally, before the evaluation, the sensors were configured to \nguarantee data\
+    \ accuracy and to allow users to overcome challenges during the system’s \ncalculation\
+    \ process. Figure 11 shows the accuracy ratio (%). \n \nFigure 11. Accuracy ratio\
+    \ (%). \n3.4. Performance Ratio (%) \nTo develop and improve economic management,\
+    \ the measurements need to be eval-\nuated with the standard system goal, quantitative\
+    \ and efficiency results, lead time aspects, \nand signal variations, and the\
+    \ appropriate approach for extracting signal distractions and \nfor designing\
+    \ and managing the action selected to correct the performance of agricultural\
+    \ \nprocesses needs to be determined. This implies that critical performance and\
+    \ result meas-\nurements can be quickly evaluated upon access to update data sources\
+    \ for the successful \nplanning and management of the economy. Enhanced technology\
+    \ enables a system to \nlearn its performance through interaction with an external\
+    \ environment from the point of \nview of data processing. The proposed preferred\
+    \ system for analytical data processing \nand improved technologies are selected\
+    \ for general decision-making problems in agricul-\ntural economic management.\
+    \ In this design, the best-performing different data sources \nwere combined with\
+    \ data pre-processing technology to improve the accuracy of the re-\nsources,\
+    \ developing an efficient and personalized working environment to increase agri-\n\
+    cultural production. Figure 12 explores the performance ratio (%). \nFigure 11.\
+    \ Accuracy ratio (%).\n3.4. Performance Ratio (%)\nTo develop and improve economic\
+    \ management, the measurements need to be evalu-\nated with the standard system\
+    \ goal, quantitative and efﬁciency results, lead time aspects,\nand signal variations,\
+    \ and the appropriate approach for extracting signal distractions and\nfor designing\
+    \ and managing the action selected to correct the performance of agricultural\n\
+    processes needs to be determined. This implies that critical performance and result\
+    \ mea-\nsurements can be quickly evaluated upon access to update data sources\
+    \ for the successful\nplanning and management of the economy. Enhanced technology\
+    \ enables a system to\nlearn its performance through interaction with an external\
+    \ environment from the point of\nview of data processing. The proposed preferred\
+    \ system for analytical data processing and\nimproved technologies are selected\
+    \ for general decision-making problems in agricultural\neconomic management. In\
+    \ this design, the best-performing different data sources were\ncombined with\
+    \ data pre-processing technology to improve the accuracy of the resources,\ndeveloping\
+    \ an efﬁcient and personalized working environment to increase agricultural\n\
+    production. Figure 12 explores the performance ratio (%).\nAgronomy 2022, 12,\
+    \ x FOR PEER REVIEW \n16 of 20 \n \n \nFigure 12. Performance ratio (%). \n3.5.\
+    \ Power Consumption Ratio (%) \nSource node data dissemination allows the operating\
+    \ parameters for nodes such as \npower transmission, sample frequency, service\
+    \ ratio, and period duration to be moni-\ntored Deep usage is a mighty challenge\
+    \ because as that premium period mechanism is\nFigure 12. Performance ratio (%).\n\
+    Agronomy 2022, 12, 2905\n16 of 19\n3.5. Power Consumption Ratio (%)\nSource node\
+    \ data dissemination allows the operating parameters for nodes such as\npower\
+    \ transmission, sample frequency, service ratio, and period duration to be monitored.\n\
+    Deep usage is a mighty challenge, because as that premium period mechanism is\
+    \ imple-\nmented at a node, power consumption is not optimal. The proposed system\
+    \ introduces time\nmonitoring with low power consumption. This program identiﬁes\
+    \ the nodes with a higher\nand lower packet loss ratio to transmit the sync code.\
+    \ Finally, with good time precision, the\nprogram implements low power consumption,\
+    \ allowing modern agriculture to enhance\nthe economy. An effective management\
+    \ method uses the power of plant photosynthesis to\npower down by reducing the\
+    \ process to develop land quality, crop resistance, and nutrient\ndensity. Figure\
+    \ 13 shows the power consumption ratio (%).\n \n \nFigure 12. Performance ratio\
+    \ (%). \n3.5. Power Consumption Ratio (%) \nSource node data dissemination allows\
+    \ the operating parameters for nodes such as \npower transmission, sample frequency,\
+    \ service ratio, and period duration to be moni-\ntored. Deep usage is a mighty\
+    \ challenge, because as that premium period mechanism is \nimplemented at a node,\
+    \ power consumption is not optimal. The proposed system intro-\nduces time monitoring\
+    \ with low power consumption. This program identifies the nodes \nwith a higher\
+    \ and lower packet loss ratio to transmit the sync code. Finally, with good \n\
+    time precision, the program implements low power consumption, allowing modern\
+    \ agri-\nculture to enhance the economy. An effective management method uses the\
+    \ power of \nplant photosynthesis to power down by reducing the process to develop\
+    \ land quality, \ncrop resistance, and nutrient density. Figure 13 shows the power\
+    \ consumption ratio (%). \n \nFigure 13. Power consumption ratio (%). \nFigure\
+    \ 13. Power consumption ratio (%).\n3.6. Weather Forecasting Ratio (%)\nThe weather\
+    \ forecast affects the success of a farmer’s decisions, and forecasts can help\n\
+    us to make conﬁdent choices every day. These choices include crop irrigation,\
+    \ implantation\ntime, and days appropriate for ﬁeldwork, and farmers’ decisions\
+    \ can lead to viable crops\nor failures. In agriculture, the climate is the most\
+    \ inﬂuential factor, and no crop model\ncan be created without considering the\
+    \ atmosphere. Various weather forecasts evaluate\nagriculture and predict yield,\
+    \ disaster management, and various other ﬁelds. In weather\nforecasting, different\
+    \ machine learning algorithms, including support vector machines\nand soft computing\
+    \ methods, have been used for all the above reasons. Table 2 shows the\nweather\
+    \ forecasting ratio (%).\nTable 2. Weather forecasting ratio (%).\nNumber of\n\
+    Devices\nWeather Forecasting Ratio (%)\nIoT-DSS\nLCA\nSDSS\nCNN-ANN\nBDA-AMS\n\
+    10\n21.836\n15.937\n17.852\n19.231\n84.622\n20\n20.401\n16.765\n17.727\n19.342\n\
+    85.711\n30\n19.094\n14.657\n17.494\n19.659\n86.315\n40\n18.024\n14.922\n17.571\n\
+    23.987\n87.318\n50\n18.882\n16.342\n17.790\n23.567\n88.724\n60\n17.852\n12.212\n\
+    18.234\n23.459\n90.648\n70\n17.727\n14.254\n18.345\n25.671\n91.727\n80\n15.974\n\
+    13.084\n18.675\n30.222\n92.922\n90\n15.571\n16.145\n18.879\n33.567\n93.321\n100\n\
+    15.128\n14.124\n19.111\n34.987\n94.864\nAgronomy 2022, 12, 2905\n17 of 19\n3.7.\
+    \ Production Density (%)\nThe effects of climate change on crop production have\
+    \ been proposed, and an enforced\nfacts system for agriculture is essential for\
+    \ sustainable development. The production\ndensity determines the accessible amount\
+    \ of product used to encourage increased food\nsafety and crop production and\
+    \ creates a wealth of alternative crop options. There are\nmultiple advantages\
+    \ of the nutritious food advice from big data for the end-users of the\nmethod,\
+    \ and various analyses are precious for nutritionally based vegetable production\n\
+    and delivery systems that are completely dependent on economic management. Plant\
+    \ input\nand crop values have made it necessary for farmers to use the information\
+    \ and to make\ndifﬁcult choices regarding agriculture for the existing crop, soil,\
+    \ and environmental data.\nThe analysis of the new production data shows optimized\
+    \ production and farming that is\nmore vulnerable to climate change. Table 3 shows\
+    \ the production density ratio (%).\nTable 3. Production density ratio (%).\n\
+    Number of\nDevices\nProduction Density (%)\nIoT-DSS\nLCA\nSDSS\nCNN-ANN\nBDA-AMS\n\
+    10\n31.836\n65.937\n77.852\n84.231\n91.622\n20\n30.401\n66.765\n77.727\n84.342\n\
+    92.711\n30\n39.094\n64.657\n77.494\n85.659\n92.315\n40\n38.024\n64.922\n78.571\n\
+    86.987\n93.318\n50\n38.882\n66.342\n78.790\n86.567\n94.724\n60\n47.852\n72.212\n\
+    79.234\n87.459\n94.648\n70\n47.727\n74.254\n80.345\n88.671\n95.727\n80\n45.974\n\
+    63.084\n81.675\n89.222\n96.922\n90\n55.571\n66.145\n82.879\n90.567\n97.321\n100\n\
+    55.128\n64.124\n83.111\n90.987\n98.864\nThe BDA-AMS ensures high-precision crop\
+    \ yield predictions using a deep learning\nalgorithm to achieve the following\
+    \ parameters: a precision ratio, high accuracy, a better\nperformance ratio, an\
+    \ improved data transmission rate, a reduced power consumption\nratio, an enhanced\
+    \ weather forecasting ratio, and an improved production density ratio\nand mean\
+    \ absolute ratio, when compared to the initialized IoT and big data-based decision\n\
+    support (IoT-DSS), lifecycle analysis (LCA), smart data-based decision support\
+    \ (SDSS), and\nconvolutional neural network (CNN) and artiﬁcial neural network\
+    \ (ANN) methods.\n4. Conclusions and Future Work\nPredictive analyses can be utilized\
+    \ for making smart agricultural decisions by gath-\nering data on temperature,\
+    \ soil and air quality, crop growth, equipment, labor costs, and\navailability\
+    \ in real-time. This is called precision agriculture. Big data can play an essential\n\
+    role in managing the real-time data collection of massive streaming data in precision\
+    \ agri-\nculture. With the growing demands for the scale of big data, data analysis\
+    \ reliability and\nperformance are challenges. Farmers must move away from traditional\
+    \ agricultural meth-\nods to precision agriculture to improve farm productivity\
+    \ and to maintain healthier food\nsupplies. Precision agriculture operates in\
+    \ collaboration with information technologies to\nimprove agricultural techniques.\
+    \ This paper proposed BDA-AMS to ensure high-precision\npredictions for crop yield\
+    \ to improve the economic management of China by utilizing a deep\nlearning algorithm.\
+    \ The neural network gathers raw images from UAVs and predicts crop\nyield at\
+    \ an early point. Thus, the experimental results show that the proposed BDA-AMS\n\
+    is able to predict crop yield, reduce labor, and improve agriculture monitoring\
+    \ systems.\nThe convolutional neural network gathers the raw images from the UAVs\
+    \ and performs\nAgronomy 2022, 12, 2905\n18 of 19\nearly predictions of crop yield\
+    \ to achieve the following parameters: a high parameter preci-\nsion ratio (98.8%),\
+    \ high accuracy (98.9%), a better performance ratio (95.5%), an improved\ndata\
+    \ transmission rate (97.8%), a reduced power consumption ratio (18.8%), and an\
+    \ en-\nhanced weather forecasting ratio (94.8%), production density ratio (98.8%),\
+    \ mean absolute\npercentage ratio (96.2%), and reliability ratio (98.6%), when\
+    \ compared to other methods.\nAuthor Contributions: C.S. and W.M. designed and\
+    \ wrote the paper. C.S. and B.L. supervised\nthe writing of the paper. B.Q. and\
+    \ W.M. collected and collated materials and conducted ﬁeld\ndata collection. C.S.\
+    \ was responsible for the conception and design of the manuscript. B.L. and\n\
+    J.L. provided ﬁnancial support. All authors have read and agreed to the published\
+    \ version of\nthe manuscript.\nFunding: This research was funded by the Hebei\
+    \ Social Science Foundation project “Research on the\nimplementation of policies\
+    \ to curb agricultural land conversion in the development of new agriculture\n\
+    in Hebei Province” (Grant No. HB19Gl015), and by the Hebei Provincial Department\
+    \ of Education\nScience research project of Humanities and Social Sciences “Research\
+    \ on the promotion path of\nindustrial chain of Hebei coastal counties (districts\
+    \ and cities) from the perspective of coordinated\ndevelopment of Beijing, Tianjin\
+    \ and Hebei” (Grant No. ZD202104).\nData Availability Statement: The data used\
+    \ to support the ﬁndings of this study are available from\nthe corresponding author\
+    \ upon request.\nConﬂicts of Interest: We declare that we do not have any commercial\
+    \ or associative interests that\nrepresent any conﬂicts of interest in connection\
+    \ with the work submitted.\nReferences\n1.\nMekonnen, Y.; Namuduri, S.; Burton,\
+    \ L.; Sarwat, A.; Bhansali, S. Machine learning techniques in wireless sensor\
+    \ network-based\nprecision agriculture. J. Electrochem. Soc. 2019, 167, 037522.\
+    \ [CrossRef]\n2.\nSankar, S.; Srinivasan, P.; Luhach, A.K.; Somula, R.; Chilamkurti,\
+    \ N. Energy-aware grid-based data aggregation scheme in routing\nProtocol for\
+    \ agricultural internet of things. Sustain. Comput. Inform. Syst. 2020, 28, 100422.\
+    \ [CrossRef]\n3.\nNie, X.; Fan, T.; Wang, B.; Li, Z.; Shankar, A.; Manickam, A.\
+    \ Big data analytics and IoT in operation safety management in\nunderwater management.\
+    \ Comput. Commun. 2020, 154, 188–196. [CrossRef]\n4.\nTantalaki, N.; Souravlas,\
+    \ S.; Roumeliotis, M. Data-driven decision making in precision agriculture: The\
+    \ rise of big data in\nagricultural systems. J. Agric. Food Inf. 2019, 20, 344–380.\
+    \ [CrossRef]\n5.\nVaratharajan, R.; Manogaran, G.; Priyan, M.K. A big data classiﬁcation\
+    \ approach using LDA with an enhanced SVM method for\nECG signals in cloud computing.\
+    \ Multimed. Tools Appl. 2018, 77, 10195–10215. [CrossRef]\n6.\nElhoseny, M.; Abdelaziz,\
+    \ A.; Salama, A.S.; Riad, A.M.; Muhammad, K.; Sangaiah, A.K. A hybrid model of\
+    \ the internet of things\nand cloud computing manages big data in health services\
+    \ applications. Future Gener. Comput. Syst. 2018, 86, 1383–1394. [CrossRef]\n\
+    7.\nManogaran, G.; Vijayakumar, V.; Varatharajan, R.; Kumar, P.M.; Sundarasekar,\
+    \ R.; Hsu, C.H. Machine learning-based big data\nprocessing framework for cancer\
+    \ diagnosis using a hidden Markov model and GM clustering. Wirel. Pers. Commun.\
+    \ 2018,\n102, 2099–2116. [CrossRef]\n8.\nReddy Maddikunta, P.K.; Hakak, S.; Alazab,\
+    \ M.; Bhattacharya, S.; Reddy Gadekallu, T.; Zada Khan, W.; Pham, Q.V. Uncrewed\n\
+    Aerial Vehicles in Smart Agriculture: Applications, Requirements, and Challenges.\
+    \ IEEE Sens. J. 2021, 21, 17608–17619. [CrossRef]\n9.\nPerakis, K.; Lampathaki,\
+    \ F.; Nikas, K.; Georgiou, Y.; Marko, O.; Maselyne, J. CYBELE–Fostering precision\
+    \ agriculture livestock\nfarming through secure access to large-scale HPC-enabled\
+    \ virtual industrial experimentation environments fostering scalable big\ndata\
+    \ analytics. Comput. Netw. 2020, 168, 107035. [CrossRef]\n10.\nManogaran, G.;\
+    \ Hsu, C.H.; Rawal, B.S.; Muthu, B.A.; Mavromoustakis, C.X.; Mastorakis, G. ISOF:\
+    \ Information Scheduling and\nOptimization Framework for Improving the Performance\
+    \ of Agriculture Systems Aided by Industry 4.0. IEEE Internet Things J.\n2020,\
+    \ 8, 3120–3129. [CrossRef]\n11.\nAnbarasan, M.; Muthu, B.; Sivaparthipan, C.B.;\
+    \ Sundarasekar, R.; Kadry, S.; Krishnamoorthy, S.; Dasel, A.A. Detection of ﬂood\n\
+    disaster system based on IoT, big data, and convolutional deep neural network.\
+    \ Comput. Commun. 2020, 150, 150–157. [CrossRef]\n12.\nChen, J.; Ramanathan, L.;\
+    \ Alazab, M. Holistic, big data integrated artiﬁcial intelligent modeling to improve\
+    \ privacy and security\nin smart cities’ data management. Microprocess. Microsyst.\
+    \ 2021, 81, 103722. [CrossRef]\n13.\nPeters, E.; Kliestik, T.; Musa, H.; Durana,\
+    \ P. Product decision-making information systems, real-time big data analytics,\
+    \ and deep\nlearning-enabled smart process planning in sustainable industry 4.0.\
+    \ J. Self-Gov. Manag. Econ. 2020, 8, 16–22.\n14.\nKuch, D.; Kearnes, M.; Gulson,\
+    \ K. The promise of precision: Dataﬁcation in medicine, agriculture, and education.\
+    \ Policy Stud.\n2020, 41, 527–546. [CrossRef]\n15.\nAlazab, M.; Hong, S.H.; Ng,\
+    \ J. Louder bark with no bite: Privacy protection through the regulation of mandatory\
+    \ data breach\nnotiﬁcation in Australia. Future Gener. Comput. Syst. 2021, 116,\
+    \ 22–29. [CrossRef]\nAgronomy 2022, 12, 2905\n19 of 19\n16.\nKumar, N. Call for\
+    \ Special Issue Papers: Internet of Things Data Visualization for Business Intelligence:\
+    \ Deadline for Manuscript\nSubmission: September 12, 2020. Big Data 2020, 8, 249–250.\
+    \ [CrossRef]\n17.\nJindal, A.; Kumar, N.; Singh, M. A uniﬁed framework for big\
+    \ data acquisition, storage, and analytics for demand response\nmanagement in\
+    \ smart cities. Future Gener. Comput. Syst. 2020, 108, 921–934. [CrossRef]\n18.\n\
+    Garg, S.; Singh, A.; Kaur, K.; Aujla, G.S.; Batra, S.; Kumar, N.; Obaidat, M.S.\
+    \ Edge computing-based security framework for big\ndata analytics in VANETs. IEEE\
+    \ Netw. 2019, 33, 72–81. [CrossRef]\n19.\nNiu, H.; Hollenbeck, D.; Zhao, T.; Wang,\
+    \ D.; Chen, Y. Evapotranspiration Estimation with Small UAVs in Precision Agriculture.\n\
+    Sensors 2020, 20, 6427. [CrossRef]\n20.\nGuillén, M.A.; Llanes, A.; Imbernón,\
+    \ B.; Martínez-España, R.; Bueno-Crespo, A.; Cano, J.C.; Cecilia, J.M. Performance\
+    \ evaluation\nof edge-computing platforms for the prediction of low temperatures\
+    \ in agriculture using deep learning. J. Supercomput. 2021,\n77, 818–840. [CrossRef]\n\
+    21.\nBalfe, É.L.; Jorge, L.A.D.C.; Sanches, I.D.A.; Luchiari Júnior, A.; da Costa,\
+    \ C.C.; Victoria, D.D.C.; Ramirez, A.R. Precision and\nDigital Agriculture: Adoption\
+    \ of Technologies and Perception of Brazilian Farmers. Agriculture 2020, 10, 653.\
+    \ [CrossRef]\n22.\nAfzaal, H.; Farooque, A.A.; Abbas, F.; Acharya, B.; Esau, T.\
+    \ Computation of evapotranspiration with artiﬁcial intelligence for\nprecision\
+    \ water resource management. Appl. Sci. 2020, 10, 1621. [CrossRef]\n23.\nPopescu,\
+    \ D.; Stoican, F.; Stamatescu, G.; Ichim, L.; Dragana, C. Advanced UAV–WSN system\
+    \ for intelligent monitoring in\nprecision agriculture. Sensors 2020, 20, 817.\
+    \ [CrossRef]\n24.\nEscamilla-Garcia, A.; Soto-Zarazúa, G.M.; Toledano-Ayala, M.;\
+    \ Rivas-Araiza, E.; Gastélum-Barrios, A. Applications of Artiﬁcial\nNeural Networks\
+    \ in Greenhouse Technology and Overview for Smart Agriculture Development. Appl.\
+    \ Sci. 2020, 10, 3835.\n[CrossRef]\n25.\nMa, L.; Long, H.; Zhang, Y.; Tu, S.;\
+    \ Ge, D.; Tu, X. Agricultural labor changes and agricultural economic development\
+    \ in China and\ntheir implications for rural vitalization. J. Geogr. Sci. 2019,\
+    \ 29, 163–179. [CrossRef]\n26.\nLiang, L.; Wang, Y.; Ridoutt, B.G.; Lal, R.; Wang,\
+    \ D.; Wu, W.; Zhao, G. Agricultural subsidies assessment of cropping system from\n\
+    environmental and economic perspectives in North China based on LCA. Ecol. Indic.\
+    \ 2019, 96, 351–360. [CrossRef]\n27.\nLi, W.; Clark, B.; Taylor, J.A.; Kendall,\
+    \ H.; Jones, G.; Li, Z.; Frewer, L.J. A hybrid modeling approach to understanding\
+    \ adoption of\nprecision agriculture technologies in Chinese cropping systems.\
+    \ Comput. Electron. Agric. 2020, 172, 105305. [CrossRef]\n28.\nSieverding, H.;\
+    \ Kebreab, E.; Johnson, J.M.; Xu, H.; Wang, M.; Grosso, S.J.D.; Stone, J.J. A\
+    \ life cycle analysis (LCA) primer for the\nagricultural community. Agron. J.\
+    \ 2020, 112, 3788–3807. [CrossRef]\n29.\nMohapatra, A.G.; Lenka, S.K.; Keswani,\
+    \ B. Neural network and fuzzy logic-based smart DSS model for irrigation notiﬁcation\
+    \ and\ncontrol in precision agriculture. Proc. Natl. Acad. Sci. India Sect. A\
+    \ Phys. Sci. 2019, 89, 67–76. [CrossRef]\n30.\nPham, T.N.; Van Tran, L.; Dao,\
+    \ S.V.T. Early Disease Classiﬁcation of Mango Leaves Using Feed-Forward Neural\
+    \ Network and\nHybrid Metaheuristic Feature Selection. IEEE Access 2020, 8, 189960–189973.\
+    \ [CrossRef]\n31.\nBhat, S.A.; Huang, N.F. Big Data and AI Revolution in Precision\
+    \ Agriculture: Survey and Challenges. IEEE Access 2021,\n9, 110209–110222. [CrossRef]\n"
+  inline_citation: '>'
+  journal: Agronomy (Basel)
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/2073-4395/12/11/2905/pdf?version=1669015548
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Development Trends in Precision Agriculture and Its Management in China Based
+    on Data Visualization
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

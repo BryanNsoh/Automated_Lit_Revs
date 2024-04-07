@@ -7,6 +7,7 @@ from prompts import (
     previous_sections,
     write_next_section,
 )
+import re
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -29,24 +30,26 @@ class SummaryGenerator:
         self.processed_data_path = processed_data_path
 
     def generate_summary(self, section_number, outline_data):
-        summary_content = ""
-
-        summary_content += "<instructions>\n"
-        summary_content += f"{write_next_section}\n"
-        summary_content += "</instructions>\n\n"
-
-        summary_content += "<documents>\n"
-
-        summary_content += "<review_intention>\n"
-        summary_content += f"{review_intention}\n"
-        summary_content += "</review_intention>\n\n"
-
-        summary_content += "<section_intention>\n"
-        section_intention = section_intentions.get(section_number, "")
-        summary_content += f"{section_intention}\n"
-        summary_content += "</section_intention>\n\n"
 
         for subsection_number, subsection_data in outline_data.items():
+
+            summary_content = ""
+
+            summary_content += "<instructions>\n"
+            summary_content += f"{write_next_section}\n"
+            summary_content += "</instructions>\n\n"
+
+            summary_content += "<documents>\n"
+
+            summary_content += "<review_intention>\n"
+            summary_content += f"{review_intention}\n"
+            summary_content += "</review_intention>\n\n"
+
+            summary_content += "<section_intention>\n"
+            section_intention = section_intentions.get(section_number, "")
+            summary_content += f"{section_intention}\n"
+            summary_content += "</section_intention>\n\n"
+
             subsection_title = subsection_data.get("subsection_title", "")
             point_content_data = subsection_data.get("point_content", {})
 
@@ -72,7 +75,7 @@ class SummaryGenerator:
                 point_folder_path = os.path.join(subsection_folder, point_folder_name)
 
                 parsed_entries_file = os.path.join(
-                    point_folder_path, "relevant_entries_parsed.yaml"
+                    point_folder_path, "relevant_entries_all.yaml"
                 )
                 if os.path.exists(parsed_entries_file):
                     with open(parsed_entries_file, "r", encoding="utf-8") as file:
@@ -91,7 +94,7 @@ class SummaryGenerator:
                 )
 
                 # Take the top 5 entries
-                top_entries = sorted_entries[:5]
+                top_entries = sorted_entries[:10]
 
                 summary_content += f"<subsection_point_{point_number}>\n"
                 summary_content += f"Point: {point_content}\n\n"
@@ -132,6 +135,12 @@ class SummaryGenerator:
                     summary_content += (
                         f"  Explanation: {entry.get('explanation', '')}\n\n"
                     )
+                    sanitized_text = re.sub(
+                        r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]+",
+                        "",
+                        entry.get("full_text", ""),
+                    )
+                    summary_content += f" Full Text: {sanitized_text}\n\n"
 
                 summary_content += f"</subsection_point_{point_number}>\n\n"
 
@@ -154,9 +163,13 @@ class SummaryGenerator:
 
 def main():
     processed_data_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents"
-    section_number = "3"
+    section_number = input("Enter section number: ")  # Get section number from user
 
-    outline_file_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\new_outline_structure.yaml"
+    outline_file_path = (
+        r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section"
+        + section_number
+        + r"\new_outline_structure.yaml"
+    )  # Modify outline file path
 
     with open(outline_file_path, "r", encoding="utf-8") as file:
         outline_data = yaml.safe_load(file)

@@ -245,15 +245,15 @@ class FileSystemHandler:
 
 
 async def main(section_number):
-    output_folder_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\processed"
-    outline_file_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section3\new_outline_structure.yaml"
+    output_folder_path = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section_number}\processed"
+    outline_file_path = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section_number}\new_outline_structure.yaml"
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     async with LLM_APIHandler(api_key_path) as api_handler:
         ranker = PaperRanker(api_key_path)
         file_system_handler = FileSystemHandler()
         os.makedirs(output_folder_path, exist_ok=True)
         logger.info(f"Starting paper ranking process for section {section_number}...")
-        await file_system_handler.process_outline(
+        await file_system_handler.process_outline(6
             outline_file_path,
             output_folder_path,
             ranker,
@@ -268,5 +268,5 @@ async def main(section_number):
 
 
 if __name__ == "__main__":
-    section_number = "3"
+    section_number = input("Enter section number: ")
     asyncio.run(main(section_number))
