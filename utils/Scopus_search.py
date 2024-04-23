@@ -168,7 +168,7 @@ class ScopusSearch:
                     parsed_result = {
                         "search_query": query,
                         "title": title,
-                        "doi": doi,
+                        "DOI": doi,
                         "description": description,
                         "journal": journal,
                         "authors": authors,
