@@ -1,13 +1,31 @@
+"""
+Scopus Search Program
+
+This program performs searches on the Scopus API based on the provided JSON queries.
+It retrieves relevant data for the first entry with successfully scraped full text,
+including title, DOI, description, journal, authors, citation count, and full text.
+The results are returned in the updated JSON format.
+
+Usage:
+    scopus_search = ScopusSearch(doi_scraper)
+    updated_json = scopus_search.search_and_parse_json(input_json)
+
+Parameters:
+    - doi_scraper: A scraper object capable of retrieving full text content given a DOI.
+    - input_json: A JSON object containing the search queries in the specified format.
+
+Returns:
+    - updated_json: The updated JSON object with the search results and additional data.
+"""
+
 import aiohttp
 import asyncio
 import json
 import time
 import logging
-import yaml
-from hashlib import sha256
-
 from collections import deque
 from misc_utils import prepare_text_for_json
+from web_scraper import WebScraper
 
 # Create a logger
 logger = logging.getLogger(__name__)
@@ -32,12 +50,11 @@ logger.addHandler(file_handler)
 
 
 class ScopusSearch:
-    def __init__(self, key_path, doi_scraper, output_folder):
+    def __init__(self, doi_scraper, key_path):
         self.load_api_keys(key_path)
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
         self.scraper = doi_scraper
-        self.output_folder = output_folder
 
     def load_api_keys(self, key_path):
         try:
@@ -109,9 +126,7 @@ class ScopusSearch:
         )
         return None
 
-    async def search_and_parse(
-        self, query, query_id, response_id, count=25, view="COMPLETE"
-    ):
+    async def search_and_parse(self, query, query_id, count=25, view="COMPLETE"):
         try:
             results = await self.search(query, count, view, response_format="json")
 
@@ -121,9 +136,8 @@ class ScopusSearch:
                 or "entry" not in results["search-results"]
             ):
                 logger.warning(f"No results found for query: {query}")
-                return ""
+                return {}
             else:
-                parsed_results = []
                 for entry in results["search-results"]["entry"]:
                     title = entry.get("dc:title")
                     doi = entry.get("prism:doi")
@@ -149,54 +163,64 @@ class ScopusSearch:
                             logger.warning(
                                 f"Error occurred while scraping full text for DOI: {doi}. Error: {e}"
                             )
-                    if title is not None:
-                        parsed_results.append(
-                            {
-                                "title": title,
-                                "doi": doi,
-                                "description": description,
-                                "journal": journal,
-                                "authors": authors,
-                                "citation_count": citation_count,
-                                "full_text": ">\n" + full_text if full_text else ">",
-                                "analysis": ">",
-                                "verbatim_quote1": ">",
-                                "verbatim_quote2": ">",
-                                "verbatim_quote3": ">",
-                                "relevance_score1": 0,
-                                "relevance_score2": 0,
-                                "limitations": ">",
-                                "inline_citation": ">",
-                                "full_citation": ">",
-                            }
-                        )
+                            continue
 
-                hashed_filename = self.get_hashed_filename(query, query_id, response_id)
-                output_path = self.save_yaml(parsed_results, hashed_filename)
-                logger.info(f"Results saved successfully to: {output_path}")
-                return output_path
+                    parsed_result = {
+                        "search_query": query,
+                        "title": title,
+                        "doi": doi,
+                        "description": description,
+                        "journal": journal,
+                        "authors": authors,
+                        "citation_count": citation_count,
+                        "full_text": full_text or "",
+                    }
+
+                    return parsed_result
+
+                logger.warning(f"No full text successfully scraped for query: {query}")
+                return {}
         except Exception as e:
             logger.error(
                 f"An error occurred while searching and parsing results for query: {query}. Error: {e}"
             )
-            return ""
+            return {}
 
-    def get_hashed_filename(self, query, query_id, response_id):
-        hash_input = f"{query}_{query_id}_{response_id}"
-        hashed_filename = sha256(hash_input.encode()).hexdigest()
-        return f"{hashed_filename}.yaml"
-
-    def save_yaml(self, data, filename):
+    async def search_and_parse_json(self, input_json):
         try:
-            output_path = self.output_folder / filename
-            # Create the output folder if it doesn't exist
-            self.output_folder.mkdir(parents=True, exist_ok=True)
-            with open(output_path, "w", encoding="utf-8") as file:
-                yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
-            logger.info(f"YAML file saved successfully: {output_path}")
-            return output_path.absolute()
+            updated_json = {}
+            for query_id, query in input_json.items():
+                parsed_result = await self.search_and_parse(query, query_id)
+                updated_json[query_id] = parsed_result
+            return json.dumps(updated_json, ensure_ascii=False)
         except Exception as e:
             logger.error(
-                f"An error occurred while saving YAML file: {filename}. Error: {e}"
+                f"An error occurred while processing the input JSON. Error: {e}"
             )
-            return ""
+            return json.dumps({})
+
+
+async def main():
+    # Create an instance of the DOIScraper class (assuming it exists)
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    doi_scraper = WebScraper()
+
+    # Create an instance of the ScopusSearch class
+    scopus_search = ScopusSearch(doi_scraper, key_path=api_key_path)
+
+    # Example usage
+    input_json = {
+        "query_1": 'TITLE-ABS-KEY("heart disease" AND "chickens")',
+        "query_2": 'TITLE-ABS-KEY("cardiovascular disease" AND "poultry")',
+        "query_3": 'TITLE-ABS-KEY("heart failure" AND "broiler chickens")',
+        "query_4": 'TITLE-ABS-KEY("myocarditis" AND "chickens")',
+        "query_5": 'TITLE-ABS-KEY("pericarditis" AND "poultry")',
+    }
+
+    # Call the search_and_parse_json method
+    updated_json = await scopus_search.search_and_parse_json(input_json)
+    print(updated_json)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

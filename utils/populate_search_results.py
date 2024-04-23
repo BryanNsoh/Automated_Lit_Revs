@@ -23,7 +23,15 @@ logger.addHandler(file_handler)
 
 
 class QueryProcessor:
-    def __init__(self, yaml_file, output_folder, api_key_path, email, new_yaml_file):
+    def __init__(
+        self,
+        yaml_file,
+        output_folder,
+        api_key_path,
+        email,
+        new_yaml_file,
+        structured_mode=True,
+    ):
         self.yaml_file = yaml_file
         self.output_folder = Path(output_folder)
         self.api_key_path = api_key_path
@@ -38,9 +46,11 @@ class QueryProcessor:
         )
         self.irrigation_data = IrrigationData(yaml_file)
         self.new_data = {}
+        self.structured_mode = structured_mode
 
     async def process_queries(self):
         try:
+            print("Loading YAML data...")
             await self.irrigation_data.load_data()
             logger.info("Loaded YAML data successfully.")
 
@@ -56,6 +66,10 @@ class QueryProcessor:
                 response,
                 query,
             ) in self.irrigation_data.iterate_data():
+                # print subsection contents
+                print(
+                    f"Subsection: {subsection['index']}, Subsection Title: {subsection['subsection_title']}, Point Title: {point_title}, Point Content: {point_content}"
+                )
                 if query and "yaml_path" not in response:
                     entries_to_process.append(
                         (
@@ -156,35 +170,44 @@ class QueryProcessor:
 
 
 async def main():
-
-    # api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-    # email = "bnsoh2@huskers.unl.edu"
-
-    # async def process_sections():
-    #     for section in range(6, 6):
-    #         yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\outline_queries.yaml"
-    #         output_folder = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\search_results"
-    #         new_yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\new_outline_structure.yaml"
-
-    #         query_processor = QueryProcessor(
-    #             yaml_file, output_folder, api_key_path, email, new_yaml_file
-    #         )
-    #         await query_processor.process_queries()
-
-    # await process_sections()
-
-    # logger.info("Code execution completed successfully.")
-
-    yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\outline_queries.yaml"
-    output_folder = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\search_results"
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     email = "bnsoh2@huskers.unl.edu"
-    new_yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section6\new_outline_structure.yaml"
 
-    query_processor = QueryProcessor(
-        yaml_file, output_folder, api_key_path, email, new_yaml_file
-    )
-    await query_processor.process_queries()
+    # Set the mode: True for structured mode, False for free mode
+    structured_mode = False
+
+    async def process_sections():
+        if structured_mode:
+            for section in range(6, 9):
+                yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\outline_queries.yaml"
+                output_folder = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\search_results"
+                new_yaml_file = rf"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\section{section}\new_outline_structure.yaml"
+
+                query_processor = QueryProcessor(
+                    yaml_file,
+                    output_folder,
+                    api_key_path,
+                    email,
+                    new_yaml_file,
+                    structured_mode,
+                )
+                await query_processor.process_queries()
+        else:
+            yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\investigations\outline_queries.yaml"
+            output_folder = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\investigations\search_results"
+            new_yaml_file = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\Coding Projects\Automated_Lit_Revs\documents\investigations\new_outline_structure.yaml"
+
+            query_processor = QueryProcessor(
+                yaml_file,
+                output_folder,
+                api_key_path,
+                email,
+                new_yaml_file,
+                structured_mode,
+            )
+            await query_processor.process_queries()
+
+    await process_sections()
 
     logger.info("Code execution completed successfully.")
 

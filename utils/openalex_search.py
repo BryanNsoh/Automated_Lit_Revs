@@ -4,7 +4,8 @@ import json
 import fitz
 import urllib.parse
 import yaml
-from hashlib import sha256
+from web_scraper import WebScraper
+from pathlib import Path
 
 import logging
 
@@ -31,14 +32,13 @@ logger.addHandler(file_handler)
 
 
 class OpenAlexPaperSearch:
-    def __init__(self, email, web_scraper, output_folder):
+    def __init__(self, email, web_scraper):
         self.base_url = "https://api.openalex.org"
         self.email = email
         self.web_scraper = web_scraper
-        self.output_folder = output_folder
         self.semaphore = asyncio.Semaphore(5)  # Limit to 5 concurrent requests
 
-    async def search_papers(self, query, query_id, response_id, max_results=30):
+    async def search_papers(self, query, query_id, max_results=30):
         async with aiohttp.ClientSession(
             timeout=aiohttp.ClientTimeout(total=600)
         ) as session:
@@ -71,8 +71,7 @@ class OpenAlexPaperSearch:
                                     data = await response.json()
 
                                     if "results" in data:
-                                        paper_data = []
-                                        for work in data["results"][:25]:
+                                        for work in data["results"]:
                                             paper = {
                                                 "DOI": (
                                                     work["doi"] if "doi" in work else ""
@@ -92,16 +91,7 @@ class OpenAlexPaperSearch:
                                                     if "cited_by_count" in work
                                                     else 0
                                                 ),
-                                                "full_citation": ">",
                                                 "full_text": ">",
-                                                "analysis": ">",
-                                                "verbatim_quote1": ">",
-                                                "verbatim_quote2": ">",
-                                                "verbatim_quote3": ">",
-                                                "relevance_score1": 0,
-                                                "relevance_score2": 0,
-                                                "limitations": ">",
-                                                "inline_citation": ">",
                                                 "journal": (
                                                     work["primary_location"]["source"][
                                                         "display_name"
@@ -181,6 +171,10 @@ class OpenAlexPaperSearch:
                                                     paper["full_text"] = (
                                                         ">\n" + full_text
                                                     )
+                                                    return json.dumps(
+                                                        {query_id: paper},
+                                                        ensure_ascii=False,
+                                                    )
                                                 else:
                                                     logger.warning(
                                                         "Failed to extract full text."
@@ -190,37 +184,29 @@ class OpenAlexPaperSearch:
                                                     f"Error occurred while extracting full text: {str(e)}"
                                                 )
 
-                                            paper_data.append(paper)
-
-                                        hashed_filename = self.get_hashed_filename(
-                                            query, query_id, response_id
+                                        logger.warning(
+                                            f"No full text successfully scraped for query: {query}"
                                         )
-                                        output_path = self.save_yaml(
-                                            paper_data, hashed_filename
-                                        )
-                                        logger.info(
-                                            f"Saved paper data to: {output_path}"
-                                        )
-                                        return output_path
+                                        return json.dumps({query_id: {}})
                                     else:
                                         logger.warning(
                                             f"Unexpected JSON structure from OpenAlex API: {data}"
                                         )
-                                        return ""
+                                        return json.dumps({query_id: {}})
                                 else:
                                     logger.error(
                                         f"Unexpected content type from OpenAlex API: {response.content_type}"
                                     )
                                     logger.error(f"URL: {search_url}")
                                     logger.error(await response.text())
-                                    return ""
+                                    return json.dumps({query_id: {}})
                             else:
                                 logger.error(
                                     f"Unexpected status code from OpenAlex API: {response.status}"
                                 )
                                 logger.error(f"URL: {search_url}")
                                 logger.error(await response.text())
-                                return ""
+                                return json.dumps({query_id: {}})
                     except asyncio.TimeoutError:
                         logger.warning(
                             f"Request timed out. Retrying in {retry_delay} seconds..."
@@ -231,7 +217,7 @@ class OpenAlexPaperSearch:
                             retry_delay *= 2  # Exponential backoff
                         else:
                             logger.error(f"Max retries exceeded for URL: {search_url}")
-                            return ""
+                            return json.dumps({query_id: {}})
                     except aiohttp.ClientError as error:
                         logger.exception(
                             f"Error occurred while making request to OpenAlex API: {str(error)}"
@@ -245,10 +231,10 @@ class OpenAlexPaperSearch:
                             retry_delay *= 2  # Exponential backoff
                         else:
                             logger.error(f"Max retries exceeded for URL: {search_url}")
-                            return ""
+                            return json.dumps({query_id: {}})
 
             logger.error(f"Max retries exceeded for URL: {search_url}")
-            return ""
+            return json.dumps({query_id: {}})
 
     async def extract_fulltext(self, pdf_url):
         async with aiohttp.ClientSession() as session:
@@ -298,22 +284,42 @@ class OpenAlexPaperSearch:
             logger.error(f"Error: Failed to scrape full text from DOI {doi}. {str(e)}")
             return ""
 
-    def get_hashed_filename(self, query, query_id, response_id):
-        hash_input = f"{query}_{query_id}_{response_id}"
-        hashed_filename = sha256(hash_input.encode()).hexdigest()
-        return f"{hashed_filename}.yaml"
-
-    def save_yaml(self, data, filename):
+    async def search_and_parse_json(self, input_json):
         try:
-            output_path = self.output_folder / filename
-            # Create the output folder if it doesn't exist
-            self.output_folder.mkdir(parents=True, exist_ok=True)
-            with open(output_path, "w", encoding="utf-8") as file:
-                yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
-            logger.info(f"YAML file saved successfully: {output_path}")
-            return output_path.absolute()
+            updated_json = {}
+            for query_id, query in input_json.items():
+                parsed_result = await self.search_papers(query, query_id)
+                updated_json.update(json.loads(parsed_result))
+            return json.dumps(updated_json, ensure_ascii=False)
         except Exception as e:
             logger.error(
-                f"An error occurred while saving YAML file: {filename}. Error: {e}"
+                f"An error occurred while processing the input JSON. Error: {e}"
             )
-            return ""
+            return json.dumps({})
+
+
+async def main():
+    # Create an instance of the WebScraper class (assuming it exists)
+    web_scraper = WebScraper()
+
+    # Create an instance of the OpenAlexPaperSearch class
+    openalex_search = OpenAlexPaperSearch(
+        email="your_email@example.com", web_scraper=web_scraper
+    )
+
+    # Example usage
+    input_json = {
+        "query_1": "heart disease chickens",
+        "query_2": "cardiovascular disease poultry",
+        "query_3": "heart failure broiler chickens",
+        "query_4": "myocarditis chickens",
+        "query_5": "pericarditis poultry",
+    }
+
+    # Call the search_and_parse_json method
+    updated_json = await openalex_search.search_and_parse_json(input_json)
+    print(updated_json)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
