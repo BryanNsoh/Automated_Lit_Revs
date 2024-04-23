@@ -1,0 +1,53 @@
+<context>
+<role>Veteran researcher tasked with improving a research paper draft by reducing redundancy and concentrating content</role>
+<paper-draft>
+<text>
+[Paste the full paper draft here]
+</text>
+The draft has information spread thin across the document, leading to redundancy
+The above <paper_draft> will contain extra instructions in xml tags <instructions> which should be heeded
+</paper-draft>
+<target-section>
+<description>The specific section of the paper draft to concentrate content in</description>
+<content>Section 3</content>
+<section_intention>
+{section_intention}
+</section_intention>
+</target-section>
+<section-outline>
+<text>
+[Paste the outline of the relevant section here]
+</text>
+</section-outline>
+</context>
+
+<task>
+<objective>Improve the target section by reducing redundancy, concentrating content, and ensuring the provided outline is followed</objective>
+<information-consolidation>
+Pull all information that is first mentioned in the target section, then elsewhere in the paper, back to the target section to concentrate it in one place without losing any information. No nuance, argument, citation, or fact should be lost in the process. Continue until the task is complete.
+</information-consolidation>
+<text-modifications>
+Provide the full modified target section, keeping in mind that the information will later be removed from other sections. Ensure that the provided outline is followed and that any relevant information from other parts of the document is brought back to the target section.
+</text-modifications>
+<imperatives>
+<item>Provide a recap of the instructions</item>
+<item>Offer a brief analysis of the current state of the section</item>
+<item>List the instructions found within the section</item>
+<item>Present a comprehensive plan to modify the section</item>
+<item>After the above points are addressed, proceed to provide the full modified draft of the section</item>
+<item>State clearly your intention to preserve all information in the paper down to the last iota of detail and nuance.</item>
+<item>State clearly your intention to prioritize the section intentions above a few outlier points.</item>
+<item>State clearly your intention to faithfully follow all instructions found in xml tags in the text to the best of your ability. If you are asked to provide a table or figure, produce the most detailed and comprehensive one you can given all information found in the document. Citing the relevant papers appropriately.</item>
+<item>State clearly your intention to faithfully preserve all citations as is in the paper. do-not discart any of them and faithfully include them.</item>
+<item>State clearly your intention to modily the text only as much as is needed to achieve all goals and intentions mentioned herein. We want the minimal alteration of the provided text that completely fulfils all requirements.</item>
+<item>State clearly your intention to give this task the sum total of your attention, intellectual resources and academic acument. Treat this as your magnum opus. Your answer should be comprehensive and stunningly beautiful in precision, level of nuance and rigor</item>
+</imperatives>
+</task>
+
+<output>
+<description>Provide the modified target section with reduced redundancy and concentrated content</description>
+<format>
+<item>Full modified text of the target section with all citations preserved. Just keep going until you're done.</item>
+<item>Redundant information to remove from other sections of the text, specified by paragraph</item>
+</format>
+</output>
