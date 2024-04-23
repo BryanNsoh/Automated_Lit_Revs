@@ -18,6 +18,7 @@ class QueryGenerator:
                 search_guidance=scopus_search_guide,
             )
             response = await self.llm_api_handler.generate_gemini_content(prompt)
+            print(response)
             queries = self.parse_response(response)
             if queries:
                 return queries

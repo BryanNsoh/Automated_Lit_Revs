@@ -31,16 +31,19 @@ class PaperRanker:
                 point_context=point_context,
             )
             try:
-                print(f"Processing queries for.")
+                print(f"Processing queries for {point_context}...")
                 response = await self.llm_api_handler.generate_gemini_content(prompt)
-                print(response)
                 if response is None:
                     logger.warning(
                         "Received None response from the Gemini API. Skipping query."
                     )
                     return None
                 try:
+                    # Find text between the first and last curly braces
+                    response = response[response.find("{") : response.rfind("}") + 1]
                     json_data = json.loads(response)
+                    json_data["DOI"] = query_data["DOI"]
+                    json_data["title"] = query_data["title"]
                     logger.debug(f"Successfully processed query.")
                     return json_data
                 except json.JSONDecodeError:
@@ -64,11 +67,18 @@ class PaperRanker:
             tasks.append(task)
 
         results = await asyncio.gather(*tasks, return_exceptions=True)
-        print(f"Results: {results}")
-        output_json = input_json.copy()
+        output_json = {}
         for query_key, result in zip(input_json.keys(), results):
             if result and isinstance(result, dict):
-                output_json[query_key].update(result)
+                relevance_score = result.get("relevance_score")
+                try:
+                    relevance_score = float(relevance_score)
+                    if relevance_score > 0.5:
+                        output_json[query_key] = result
+                except (ValueError, TypeError):
+                    logger.warning(
+                        f"Invalid relevance score for query {query_key}. Skipping paper."
+                    )
 
         return output_json
 
@@ -152,4 +162,4 @@ if __name__ == "__main__":
     }
     point_context = "Heart disease in chickens."
     output_json = asyncio.run(main(input_json, point_context))
-    # print(json.dumps(output_json, indent=2))
+    print(json.dumps(output_json, indent=2))
