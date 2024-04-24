@@ -34,13 +34,11 @@ Complex searches should be built up systematically, with parentheses to group re
 Example Advanced Searches
 
 {{
-"scopus_queries": [
-"TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND ("machine learning" OR "AI") AND "water")",
-"TITLE-ABS-KEY((iot OR "internet of things") AND (irrigation OR watering) AND sensor*)",
-"TITLE-ABS-Key(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural networks") AND "water")",
-"TITLE-ABS-KEY((crop W/5 monitor*) AND "remote sensing" AND (irrigation OR water*))",
-"TITLE("precision irrigation" OR "variable rate irrigation" AND "machine learning")"
-]
+"query_1": "TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND ("machine learning" OR "AI") AND "water")",
+"query_2": "TITLE-ABS-KEY((iot OR "internet of things") AND (irrigation OR watering) AND sensor*)",
+"query_3": "TITLE-ABS-Key(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural networks") AND "water")",
+"query_4": "TITLE-ABS-KEY((crop W/5 monitor*) AND "remote sensing" AND (irrigation OR water*))",
+"query_5": "TITLE("precision irrigation" OR "variable rate irrigation" AND "machine learning")"
 }}
 
 ** Critical: all double quotes other than the outermost ones should be preceded by a backslash (") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **. 
@@ -78,13 +76,13 @@ By following these guidelines and using proper URL encoding, you can construct e
 Searches should be concise yet precise, following the syntax rules carefully. 
 
 Example Searches
-{{ "alex_queries": [
-"https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%22soil+moisture+sensors%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
-"https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+%2B%22crop+water+demand+prediction%22&sort=relevance_score:desc&per-page=30",
-"https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%22soil+moisture+monitoring%22+%2B%22crop+water+stress%22&sort=relevance_score:desc&per-page=30",
-"https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
-"https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22precision+agriculture%22+%2B%22variable+rate+irrigation%22+%2B%22irrigation+automation%22&sort=relevance_score:desc&per-page=30"
-]}}
+{{
+"query_1": "https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%22soil+moisture+sensors%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"query_2": "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+%2B%22crop+water+demand+prediction%22&sort=relevance_score:desc&per-page=30",
+"query_3": "https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%22soil+moisture+monitoring%22+%2B%22crop+water+stress%22&sort=relevance_score:desc&per-page=30",
+"query_4": "https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"query_5": "https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22precision+agriculture%22+%2B%22variable+rate+irrigation%22+%2B%22irrigation+automation%22&sort=relevance_score:desc&per-page=30"
+}}
 
 These example searches demonstrate how to create targeted, effective alex searches. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed. The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive.  By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
 """
@@ -112,7 +110,7 @@ Carefully review the provided context, including the specific point that needs t
 - Use precise terminology and logical operators to maintain a high signal-to-noise ratio in the results
 - Cover a broad range of potential subtopics, perspectives, and article types related to the <point_content>
 - Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
-Provide your response strictly in the following JSON format:
+Provide your response strictly in the following JSON format as a single json object:
 {{
     "query_1",
     "query_2", 
@@ -123,7 +121,7 @@ Provide your response strictly in the following JSON format:
     "query_7",
     "query_8",
     "query_9",
-    "query_10"
+    "query_10",  
 }}
 ** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string.
 ** The platform will be specified in the search guidance. Replace * with the platform name (e.g., scopus_queries, alex_queries). 
@@ -143,12 +141,12 @@ Each query_n should be replaced with a unique, well-formulated search entry acco
 """,
         "rank_papers": """
 <instructions>
-First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_focus> within the context of the overall literature review intentions and the specific section and sub-section in which the point is located.
+First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_focus>.
 Your analysis should include:
-"verbatim_extracts": Provide the two most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. Include the most important quote under "extract_1" and the second most important under "extract_2". If no quotes are directly relevant, leave these blank. Use quotation marks around the extracts in the JSON.
+"verbatim_extracts": Provide the two most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. 
 "explanation": A concise summary (3-5 sentences) of the key points of the paper as they relate to the outline point. Include this in the "explanation" field of the JSON.
-"relevance_evaluation": A succinct yet detailed explanation of how the specifics of the paper contribute to addressing the point within the larger context and intent of the literature review. Consider the following factors based on the paper type: relevance, insight, credibility, scope, and recency. Include this in the "relevance_evaluation" field of the JSON.
-"relevance_score": A relevance score between 0 and 1 representing the overall fit of the paper to the outline point and review. Use the following rubric and include the score in the "relevance_score" field of the JSON:
+"relevance_evaluation": A succinct yet detailed explanation of how the specifics of the paper contribute to addressing the point. Consider the following factors based on the paper type: relevance, insight, credibility, scope, and recency. Include this in the "relevance_evaluation" field of the JSON.
+"relevance_score": A relevance score between 0 and 1 representing the overall fit of the paper to the point. Use the following rubric and include the score in the "relevance_score" field of the JSON:
 0.0-0.19: Not relevant - Fails to address the point or provide any useful information. Should be excluded from the review.
 0.2-0.39: Minimally relevant - Only briefly touches on the point with information that is of questionable value, reliability, or timeliness. Not recommended for inclusion.
 0.4-0.49: Marginally relevant - Mostly tangential to the main issues of the point, with information of limited insight, credibility, or meaningfulness. Likely not essential.
@@ -175,7 +173,7 @@ Provide your analysis in the following JSON format. Be as precise, specific, and
 {{
  "verbatim_extracts": ["Key terms and definitions", "Research questions or hypotheses", "Methodology descriptions", "Results, including statistics and data visualizations", "Tables and figures captions", "Quotes from participants or experts", "Author conclusions or summaries", "Limitations of the study or future research directions", "Include a long list of the most important text extracted verbatim from the provided paper", "Use quotes from the paper to support your summary"],
  "explanation": "From your close reading of the paper, provide a concise explanation of the study's purpose and main objectives, using a maximum of 3 sentences.",
- "relevance_evaluation": "Evaluate the relevance of the paper to the specific point you are making in your literature review. Explain your reasoning in a maximum of 3 sentences.",
+ "relevance_evaluation": "Evaluate the relevance of the paper to the specific point being asked. Explain your reasoning in a maximum of 3 sentences.",
  "relevance_score": "On a scale from 0.0 to 1.0, parsimoniously rate the relevance of the paper to the point you are making in your review, with 1.0 being the most relevant.",
  "limitations": "List the main limitations of the study, separated by commas using a maximum of 2 sentences.",
  "inline_citation": "Provide the inline citation for the paper using the format: (Author Surname, Publication Year). If it's not directly provided, do your best to infer it",
@@ -188,7 +186,7 @@ Provide your analysis in the following JSON format. Be as precise, specific, and
 }}
 </response_format>
 
-Leave any fields blank if not applicable, but keep the field names. The "explanation" field should be one paragraph maximum.
+Pay extreme attention to detail and include as much relevant information as possible within the specified constraints. Your analysis should be rigorous, insightful, and focused on the specific point provided in <point_focus>.
 </instructions>
 
 <context>
@@ -215,7 +213,10 @@ Leave any fields blank if not applicable, but keep the field names. The "explana
         {returned_results}
     </returned_results>
     <response_format>
-        Structure your answer as a literature review section of a research paper, aimed at answering the user's question with data and insights from the provided research papers. Cite the research papers inline, including hyperlinks to the papers' DOI where necessary. Include full citations of the papers in the references section at the end. There will be nosections. Just your response to the user's query then the references section.    </response_format>
+        Structure your answer as a literature review section of a research paper, aimed at answering the user's question with data and insights from the provided returned_results. 
+        Cite the research papers inline, including hyperlinks to the papers' DOI where necessary(you may need to add a https://doi.org/ to the DOI to make it a hyperlink). 
+        Include full citations of the papers in the references section at the end. There will be no other sections other than the response and the references. 
+        Organize the response in the way that feels most natural and clear.    </response_format>
 </prompt>
 
 """,

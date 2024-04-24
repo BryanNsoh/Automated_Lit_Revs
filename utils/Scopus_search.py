@@ -50,11 +50,13 @@ logger.addHandler(file_handler)
 
 
 class ScopusSearch:
-    def __init__(self, doi_scraper, key_path):
+    def __init__(self, doi_scraper, key_path, session, max_retries=4):
         self.load_api_keys(key_path)
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
         self.scraper = doi_scraper
+        self.session = session
+        self.max_retries = max_retries
 
     def load_api_keys(self, key_path):
         try:
@@ -69,9 +71,7 @@ class ScopusSearch:
         except json.JSONDecodeError:
             logger.error("Invalid JSON format in the API key file.")
 
-    async def search(
-        self, query, count=25, view="COMPLETE", response_format="json", max_retries=4
-    ):
+    async def search(self, query, count=25, view="COMPLETE", response_format="json"):
         headers = {
             "X-ELS-APIKey": self.api_key,
             "Accept": (
@@ -84,7 +84,7 @@ class ScopusSearch:
         params = {"query": query.replace("\\", ""), "count": count, "view": view}
 
         retry_count = 0
-        while retry_count < max_retries:
+        while retry_count < self.max_retries:
             try:
                 # Ensure compliance with the rate limit
                 while True:
@@ -98,31 +98,30 @@ class ScopusSearch:
                     else:
                         await asyncio.sleep(0.2)
 
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(
-                        self.base_url, headers=headers, params=params
-                    ) as response:
-                        if response.status == 200:
-                            logger.info("Scopus API request successful.")
-                            if response_format == "json":
-                                return await response.json()
-                            else:
-                                return await response.text()
+                async with self.session.get(
+                    self.base_url, headers=headers, params=params
+                ) as response:
+                    if response.status == 200:
+                        logger.info("Scopus API request successful.")
+                        if response_format == "json":
+                            return await response.json()
                         else:
-                            logger.warning(
-                                f"Scopus API request failed with status code: {response.status}"
-                            )
-                            return None
+                            return await response.text()
+                    else:
+                        logger.warning(
+                            f"Scopus API request failed with status code: {response.status}"
+                        )
+                        return None
             except (aiohttp.ClientError, asyncio.TimeoutError) as e:
                 retry_count += 1
                 wait_time = 2**retry_count
                 logger.warning(
-                    f"Error occurred while making Scopus API request: {e}. Retrying in {wait_time} seconds... (Attempt {retry_count}/{max_retries})"
+                    f"Error occurred while making Scopus API request: {e}. Retrying in {wait_time} seconds... (Attempt {retry_count}/{self.max_retries})"
                 )
                 await asyncio.sleep(wait_time)  # Exponential backoff
 
         logger.error(
-            f"Max retries ({max_retries}) exceeded. Unable to fetch data from the Scopus API for query: {query}"
+            f"Max retries ({self.max_retries}) exceeded. Unable to fetch data from the Scopus API for query: {query}"
         )
         return None
 
@@ -203,23 +202,24 @@ class ScopusSearch:
 async def main():
     # Create an instance of the DOIScraper class (assuming it exists)
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-    doi_scraper = WebScraper()
 
-    # Create an instance of the ScopusSearch class
-    scopus_search = ScopusSearch(doi_scraper, key_path=api_key_path)
+    async with aiohttp.ClientSession() as session:
+        doi_scraper = WebScraper(session)
+        # Create an instance of the ScopusSearch class
+        scopus_search = ScopusSearch(doi_scraper, api_key_path, session)
 
-    # Example usage
-    input_json = {
-        "query_1": 'TITLE-ABS-KEY("heart disease" AND "chickens")',
-        "query_2": 'TITLE-ABS-KEY("cardiovascular disease" AND "poultry")',
-        "query_3": 'TITLE-ABS-KEY("heart failure" AND "broiler chickens")',
-        "query_4": 'TITLE-ABS-KEY("myocarditis" AND "chickens")',
-        "query_5": 'TITLE-ABS-KEY("pericarditis" AND "poultry")',
-    }
+        # Example usage
+        input_json = {
+            "query_1": 'TITLE-ABS-KEY("heart disease" AND "chickens")',
+            "query_2": 'TITLE-ABS-KEY("cardiovascular disease" AND "poultry")',
+            "query_3": 'TITLE-ABS-KEY("heart failure" AND "broiler chickens")',
+            "query_4": 'TITLE-ABS-KEY("myocarditis" AND "chickens")',
+            "query_5": 'TITLE-ABS-KEY("pericarditis" AND "poultry")',
+        }
 
-    # Call the search_and_parse_json method
-    updated_json = await scopus_search.search_and_parse_json(input_json)
-    print(updated_json)
+        # Call the search_and_parse_json method
+        updated_json = await scopus_search.search_and_parse_json(input_json)
+        print(updated_json)
 
 
 if __name__ == "__main__":

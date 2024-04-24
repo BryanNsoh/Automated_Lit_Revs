@@ -1,49 +1,81 @@
 import gradio as gr
-import asyncio
 import json
+import aiohttp
+import logging
 from get_search_queries import QueryGenerator
 from scopus_search import ScopusSearch
 from analyze_papers import PaperRanker
 from synthesize_results import QueryProcessor
 from web_scraper import WebScraper
 
-
-async def process_query(query):
-    # Step 1: Generate search queries
-    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-    query_generator = QueryGenerator(api_key_path)
-    search_queries = await query_generator.generate_queries(query)
-
-    # Step 2: Perform Scopus search
-    doi_scraper = WebScraper()
-    scopus_search = ScopusSearch(doi_scraper, key_path=api_key_path)
-    search_results = await scopus_search.search_and_parse_json(search_queries)
-    search_results_json = json.loads(search_results)
-
-    # Step 3: Analyze papers
-    paper_ranker = PaperRanker(api_key_path)
-    analyzed_papers = await paper_ranker.process_queries(search_results_json, query)
-
-    # Step 4: Synthesize results
-    query_processor = QueryProcessor(api_key_path)
-    synthesized_results = await query_processor.process_query(query, analyzed_papers)
-
-    return synthesized_results
-
-
-def gradio_interface(query):
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    results = loop.run_until_complete(process_query(query))
-    return results
-
-
-iface = gr.Interface(
-    fn=gradio_interface,
-    inputs=gr.components.Textbox(lines=2, placeholder="Enter your query..."),
-    outputs="text",
-    title="Research Query Processor",
-    description="Enter your research query and get synthesized results.",
+# Configure logging to write to a file and console
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("research_query_processor.log"),
+        logging.StreamHandler(),
+    ],
 )
 
-iface.launch()
+
+class ResearchQueryProcessor:
+    def __init__(self, api_key_path):
+        self.api_key_path = api_key_path
+        self.session = None
+
+    async def init_session(self):
+        if not self.session:
+            self.session = await aiohttp.ClientSession().__aenter__()
+
+    async def close_session(self):
+        if self.session:
+            await self.session.__aexit__(None, None, None)
+
+    async def chatbot_response(self, message, history):
+        await self.init_session()
+
+        yield "Generating search queries..."
+        query_generator = QueryGenerator(self.api_key_path, self.session)
+        search_queries = await query_generator.generate_queries(message)
+        logging.info(f"Generated search queries: {search_queries}")
+
+        yield "Searching in Scopus..."
+        doi_scraper = WebScraper(self.session)
+        scopus_search = ScopusSearch(doi_scraper, self.api_key_path, self.session)
+        search_results = await scopus_search.search_and_parse_json(search_queries)
+        search_results_json = json.loads(search_results)
+        logging.info(f"Scopus search results: {search_results_json}")
+
+        yield "Analyzing papers..."
+        paper_ranker = PaperRanker(self.api_key_path, self.session)
+        analyzed_papers = await paper_ranker.process_queries(
+            search_results_json, message
+        )
+        logging.info(f"Analyzed papers: {analyzed_papers}")
+
+        yield "Synthesizing results..."
+        query_processor = QueryProcessor(self.api_key_path, self.session)
+        synthesized_results = await query_processor.process_query(
+            message, analyzed_papers
+        )
+        logging.info(f"Synthesized results: {synthesized_results}")
+
+        yield f"Completed! Here are your results: {synthesized_results}"
+        await self.close_session()
+
+
+def main():
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    processor = ResearchQueryProcessor(api_key_path)
+    chat_interface = gr.ChatInterface(
+        fn=processor.chatbot_response,
+        title="Literature Review Agent",
+        description="Enter your research query below.",
+        theme=gr.themes.Soft(),
+    )
+    chat_interface.launch(share=True)
+
+
+if __name__ == "__main__":
+    main()

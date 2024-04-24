@@ -5,11 +5,11 @@ import google.generativeai as genai
 import google.api_core.exceptions
 import anthropic
 import backoff
-import requests
 import tiktoken
 import time
 from collections import deque
 import json
+import cohere
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -98,13 +98,13 @@ class RequestTracker:
 
 
 class LLM_APIHandler:
-    def __init__(self, key_path, rps=1, window_size=55):
+    def __init__(self, key_path, session, rps=1, window_size=55):
         self.load_api_keys(key_path)
         self.rate_limiters = [
             RateLimiter(rps, window_size) for _ in range(len(self.gemini_api_keys))
         ]
         self.claude_rate_limiter = RateLimiter(rps, window_size)
-        self.together_rate_limiter = RateLimiter(rps, window_size)
+        self.cohere_rate_limiter = RateLimiter(75, 60)  # 75 calls per minute
         self.request_tracker = RequestTracker()
         self.safety_settings = [
             {
@@ -132,7 +132,8 @@ class LLM_APIHandler:
             )
             self.gemini_clients.append(client)
         self.claude_client = anthropic.Anthropic(api_key=self.claude_api_key)
-        self.session = aiohttp.ClientSession()  # Create a single session
+        self.cohere_client = cohere.Client(self.cohere_api_key)
+        self.session = session
         self.client_queue = deque(range(len(self.gemini_api_keys)))  # Round-robin queue
 
     async def __aenter__(self):
@@ -148,7 +149,7 @@ class LLM_APIHandler:
             api_keys[key] for key in api_keys if key.startswith("GEMINI_API_KEY")
         ]
         self.claude_api_key = api_keys["CLAUDE_API_KEY"]
-        self.together_api_key = api_keys["TOGETHER_API_KEY"]
+        self.cohere_api_key = api_keys["COHERE_API_KEY"]
 
     @backoff.on_exception(
         backoff.expo,
@@ -230,22 +231,26 @@ class LLM_APIHandler:
     @backoff.on_exception(
         backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
     )
-    async def generate_claude_content(
+    async def generate_opus_content(
         self,
         prompt,
         system_prompt=None,
-        model="claude-3-haiku-20240307",
+        model="claude-3-opus-20240229",
         max_tokens=3000,
     ):
         await self.claude_rate_limiter.acquire()
         try:
-            if model not in ["claude-3-haiku-20240307"]:
+            if model not in [
+                "claude-3-opus-20240229",
+                "claude-3-sonnet-20240229",
+                "claude-3-haiku-20240307",
+            ]:
                 raise ValueError(f"Invalid model: {model}")
             clipped_prompt = clip_prompt(prompt, max_tokens=180000)
             messages = [{"role": "user", "content": clipped_prompt}]
             if system_prompt is None:
                 system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
-            logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
+            # logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
             try:
                 response = self.claude_client.messages.create(
                     model=model,
@@ -253,7 +258,7 @@ class LLM_APIHandler:
                     system=system_prompt,
                     messages=messages,
                 )
-                logger.info(f"Claude API response: {response.content[0].text}")
+                # logger.info(f"Claude API response: {response.content[0].text}")
                 return response.content[0].text
             except anthropic.APIError as e:
                 logger.error(
@@ -264,93 +269,97 @@ class LLM_APIHandler:
             self.claude_rate_limiter.release()
 
     @backoff.on_exception(
-        backoff.expo,
-        (requests.exceptions.RequestException, ValueError),
-        max_tries=5,
-        max_time=60,
+        backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
     )
-    async def generate_together_content(
+    async def generate_haiku_content(
         self,
         prompt,
-        model="Qwen/Qwen1.5-72B-Chat",
-        max_tokens="null",
-        temperature=0.25,
-        top_p=0.5,
-        top_k=20,
-        repetition_penalty=1.23,
-        stop=None,
-        messages=None,
+        system_prompt=None,
+        model="claude-3-haiku-20240307",
+        max_tokens=3000,
     ):
-        await self.together_rate_limiter.acquire()
+        await self.claude_rate_limiter.acquire()
         try:
-            endpoint = "https://api.together.xyz/v1/chat/completions"
-            if stop is None:
-                stop = ["<|im_end|>", "<|im_start|>"]
-            clipped_prompt = clip_prompt(prompt, max_tokens=25000)
-            if messages is None:
-                messages = [{"content": clipped_prompt, "role": "user"}]
-            data = {
-                "model": model,
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-                "top_p": top_p,
-                "top_k": top_k,
-                "repetition_penalty": repetition_penalty,
-                "stop": stop,
-                "messages": messages,
-                "repetitive_penalty": repetition_penalty,
-            }
-            headers = {"Authorization": f"Bearer {self.together_api_key}"}
-            retry_count = 0
-            while retry_count < 5:
-                try:
-                    response = requests.post(endpoint, json=data, headers=headers)
-                    response.raise_for_status()
-                    logger.info(f"Together API response: {response.text}")
-                    response_data = response.json()
-                    generated_text = response_data["choices"][0]["message"]["content"]
-                    return generated_text
-                except requests.exceptions.RequestException as e:
-                    retry_count += 1
-                    logger.warning(
-                        f"Error from Together API. Retry count: {retry_count}. Error: {e}"
-                    )
-                    await asyncio.sleep(
-                        min(2**retry_count, 60)
-                    )  # Exponential backoff capped at 60 seconds
+            if model not in [
+                "claude-3-opus-20240229",
+                "claude-3-sonnet-20240229",
+                "claude-3-haiku-20240307",
+            ]:
+                raise ValueError(f"Invalid model: {model}")
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            messages = [{"role": "user", "content": clipped_prompt}]
+            if system_prompt is None:
+                system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
+            # logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
+            try:
+                response = self.claude_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    system=system_prompt,
+                    messages=messages,
+                )
+                # logger.info(f"Claude API response: {response.content[0].text}")
+                return response.content[0].text
+            except anthropic.APIError as e:
+                logger.error(
+                    f"Max retries reached. Unable to generate content with Claude API. Error: {e}. Moving on."
+                )
+                return None
+        finally:
+            self.claude_rate_limiter.release()
+
+    async def generate_cohere_content(
+        self,
+        prompt,
+        model="command-r-plus",
+        temperature=0.3,
+        prompt_truncation="AUTO",
+        connectors=None,
+    ):
+        await self.cohere_rate_limiter.acquire()
+        try:
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            response = self.cohere_client.chat(
+                model=model,
+                message=clipped_prompt,
+                temperature=temperature,
+                chat_history=[],
+                prompt_truncation=prompt_truncation,
+                connectors=connectors,
+            )
+            print(response.text)
+            return response.text
+        except Exception as e:
             logger.error(
-                "Max retries reached. Unable to generate content with Together API. Moving on."
+                f"Unable to generate content with Cohere API. Error: {e}. Moving on."
             )
             return None
         finally:
-            self.together_rate_limiter.release()
+            self.cohere_rate_limiter.release()
 
 
 async def main():
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     rps = 5  # Requests per second
     window_size = 60  # Window size in seconds
-    async with LLM_APIHandler(api_key_path, rps, window_size) as api_handler:
-        # Test Gemini API
-        gemini_prompt = "What is the meaning of life?"
-        gemini_response = await api_handler.generate_gemini_content(gemini_prompt)
-        print("Gemini Response:")
-        print(gemini_response)
-        print()
+    async with aiohttp.ClientSession() as session:
+        async with LLM_APIHandler(
+            api_key_path, session, rps, window_size
+        ) as api_handler:
+            gemini_prompt = "What is the meaning of life?"
+            claude_prompt = "What is the meaning of life?"
+            cohere_prompt = "What is the meaning of life?"
 
-        # Test Claude API
-        claude_prompt = "What is the meaning of life?"
-        claude_response = await api_handler.generate_claude_content(claude_prompt)
-        print("Claude Response:")
-        print(claude_response)
-        print()
+            responses = await asyncio.gather(
+                api_handler.generate_gemini_content(gemini_prompt),
+                api_handler.generate_opus_content(claude_prompt),
+                api_handler.generate_cohere_content(cohere_prompt),
+            )
 
-        # Test Together API
-        together_prompt = "What is the meaning of life?"
-        together_response = await api_handler.generate_together_content(together_prompt)
-        print("Together Response:")
-        print(together_response)
-        print()
+            gemini_response, claude_response, cohere_response = responses
+            print("Gemini Response:", gemini_response)
+            print("Claude Response:", claude_response)
+            print("Cohere Response:", cohere_response)
 
 
 if __name__ == "__main__":

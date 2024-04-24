@@ -32,235 +32,217 @@ logger.addHandler(file_handler)
 
 
 class OpenAlexPaperSearch:
-    def __init__(self, email, web_scraper):
+    def __init__(self, email, web_scraper, session):
         self.base_url = "https://api.openalex.org"
         self.email = email
         self.web_scraper = web_scraper
         self.semaphore = asyncio.Semaphore(5)  # Limit to 5 concurrent requests
+        self.session = session
 
     async def search_papers(self, query, query_id, max_results=30):
-        async with aiohttp.ClientSession(
-            timeout=aiohttp.ClientTimeout(total=600)
-        ) as session:
-            if query.startswith("https://api.openalex.org/works?"):
-                search_url = f"{query}&mailto={self.email}"
-            else:
-                encoded_query = urllib.parse.quote(query)
-                search_url = f"{self.base_url}/works?search={encoded_query}&per_page={max_results}&mailto={self.email}"
+        if query.startswith("https://api.openalex.org/works?"):
+            search_url = f"{query}&mailto={self.email}"
+        else:
+            encoded_query = urllib.parse.quote(query)
+            search_url = f"{self.base_url}/works?search={encoded_query}&per_page={max_results}&mailto={self.email}"
 
-            retries = 0
-            max_retries = 3
-            retry_delay = 1
+        retries = 0
+        max_retries = 3
+        retry_delay = 1
 
-            while retries < max_retries:
-                async with self.semaphore:
-                    try:
-                        await asyncio.sleep(
-                            0.2
-                        )  # Wait for 0.2 seconds between requests to comply with rate limits
-                        async with session.get(search_url) as response:
-                            if response.status == 429:
-                                logger.warning(
-                                    f"Rate limit exceeded. Retrying in {retry_delay} seconds..."
-                                )
-                                await asyncio.sleep(retry_delay)
-                                retries += 1
-                                retry_delay *= 2  # Exponential backoff
-                            elif response.status == 200:
-                                if response.content_type == "application/json":
-                                    data = await response.json()
+        while retries < max_retries:
+            async with self.semaphore:
+                try:
+                    await asyncio.sleep(
+                        0.2
+                    )  # Wait for 0.2 seconds between requests to comply with rate limits
+                    async with self.session.get(search_url) as response:
+                        if response.status == 429:
+                            logger.warning(
+                                f"Rate limit exceeded. Retrying in {retry_delay} seconds..."
+                            )
+                            await asyncio.sleep(retry_delay)
+                            retries += 1
+                            retry_delay *= 2  # Exponential backoff
+                        elif response.status == 200:
+                            if response.content_type == "application/json":
+                                data = await response.json()
 
-                                    if "results" in data:
-                                        for work in data["results"]:
-                                            paper = {
-                                                "DOI": (
-                                                    work["doi"] if "doi" in work else ""
-                                                ),
-                                                "authors": (
-                                                    [
-                                                        author["author"]["display_name"]
-                                                        for author in work[
-                                                            "authorships"
-                                                        ]
-                                                    ]
-                                                    if "authorships" in work
-                                                    else []
-                                                ),
-                                                "citation_count": (
-                                                    work["cited_by_count"]
-                                                    if "cited_by_count" in work
-                                                    else 0
-                                                ),
-                                                "full_text": ">",
-                                                "journal": (
-                                                    work["primary_location"]["source"][
-                                                        "display_name"
-                                                    ]
-                                                    if "primary_location" in work
-                                                    and isinstance(
-                                                        work["primary_location"], dict
-                                                    )
-                                                    and "source"
-                                                    in work["primary_location"]
-                                                    and isinstance(
-                                                        work["primary_location"][
-                                                            "source"
-                                                        ],
-                                                        dict,
-                                                    )
-                                                    and "display_name"
-                                                    in work["primary_location"][
-                                                        "source"
-                                                    ]
-                                                    else ""
-                                                ),
-                                                "pdf_link": (
-                                                    work["primary_location"]["pdf_url"]
-                                                    if "primary_location" in work
-                                                    and isinstance(
-                                                        work["primary_location"], dict
-                                                    )
-                                                    and "pdf_url"
-                                                    in work["primary_location"]
-                                                    else ""
-                                                ),
-                                                "publication_year": (
-                                                    work["publication_year"]
-                                                    if "publication_year" in work
-                                                    else ""
-                                                ),
-                                                "title": (
-                                                    work["title"]
-                                                    if "title" in work
-                                                    else ""
-                                                ),
-                                            }
+                                if "results" in data:
+                                    for work in data["results"]:
+                                        paper = {
+                                            "DOI": (
+                                                work["doi"] if "doi" in work else ""
+                                            ),
+                                            "authors": (
+                                                [
+                                                    author["author"]["display_name"]
+                                                    for author in work["authorships"]
+                                                ]
+                                                if "authorships" in work
+                                                else []
+                                            ),
+                                            "citation_count": (
+                                                work["cited_by_count"]
+                                                if "cited_by_count" in work
+                                                else 0
+                                            ),
+                                            "full_text": ">",
+                                            "journal": (
+                                                work["primary_location"]["source"][
+                                                    "display_name"
+                                                ]
+                                                if "primary_location" in work
+                                                and isinstance(
+                                                    work["primary_location"], dict
+                                                )
+                                                and "source" in work["primary_location"]
+                                                and isinstance(
+                                                    work["primary_location"]["source"],
+                                                    dict,
+                                                )
+                                                and "display_name"
+                                                in work["primary_location"]["source"]
+                                                else ""
+                                            ),
+                                            "pdf_link": (
+                                                work["primary_location"]["pdf_url"]
+                                                if "primary_location" in work
+                                                and isinstance(
+                                                    work["primary_location"], dict
+                                                )
+                                                and "pdf_url"
+                                                in work["primary_location"]
+                                                else ""
+                                            ),
+                                            "publication_year": (
+                                                work["publication_year"]
+                                                if "publication_year" in work
+                                                else ""
+                                            ),
+                                            "title": (
+                                                work["title"] if "title" in work else ""
+                                            ),
+                                        }
 
-                                            full_text = ""  # Initialize full_text with an empty string
+                                        full_text = ""  # Initialize full_text with an empty string
 
-                                            try:
-                                                if paper["pdf_link"]:
+                                        try:
+                                            if paper["pdf_link"]:
+                                                logger.info(
+                                                    f"Extracting full text from PDF URL: {paper['pdf_link']}"
+                                                )
+                                                full_text = await self.extract_fulltext(
+                                                    paper["pdf_link"]
+                                                )
+                                                if not full_text:
                                                     logger.info(
-                                                        f"Extracting full text from PDF URL: {paper['pdf_link']}"
+                                                        f"Extracting full text from URL: {paper['pdf_link']}"
                                                     )
-                                                    full_text = (
-                                                        await self.extract_fulltext(
-                                                            paper["pdf_link"]
-                                                        )
-                                                    )
-                                                    if not full_text:
-                                                        logger.info(
-                                                            f"Extracting full text from URL: {paper['pdf_link']}"
-                                                        )
-                                                        full_text = await self.extract_fulltext_from_url(
-                                                            paper["pdf_link"]
-                                                        )
-
-                                                if not full_text and paper["DOI"]:
-                                                    logger.info(
-                                                        f"Extracting full text from DOI: {paper['DOI']}"
-                                                    )
-                                                    full_text = await self.extract_fulltext_from_doi(
-                                                        paper["DOI"]
+                                                    full_text = await self.extract_fulltext_from_url(
+                                                        paper["pdf_link"]
                                                     )
 
-                                                if full_text:
-                                                    logger.info(
-                                                        "Full text extracted successfully."
-                                                    )
-                                                    paper["full_text"] = (
-                                                        ">\n" + full_text
-                                                    )
-                                                    return json.dumps(
-                                                        {query_id: paper},
-                                                        ensure_ascii=False,
-                                                    )
-                                                else:
-                                                    logger.warning(
-                                                        "Failed to extract full text."
-                                                    )
-                                            except Exception as e:
-                                                logger.error(
-                                                    f"Error occurred while extracting full text: {str(e)}"
+                                            if not full_text and paper["DOI"]:
+                                                logger.info(
+                                                    f"Extracting full text from DOI: {paper['DOI']}"
+                                                )
+                                                full_text = await self.extract_fulltext_from_doi(
+                                                    paper["DOI"]
                                                 )
 
-                                        logger.warning(
-                                            f"No full text successfully scraped for query: {query}"
-                                        )
-                                        return json.dumps({query_id: {}})
-                                    else:
-                                        logger.warning(
-                                            f"Unexpected JSON structure from OpenAlex API: {data}"
-                                        )
-                                        return json.dumps({query_id: {}})
-                                else:
-                                    logger.error(
-                                        f"Unexpected content type from OpenAlex API: {response.content_type}"
+                                            if full_text:
+                                                logger.info(
+                                                    "Full text extracted successfully."
+                                                )
+                                                paper["full_text"] = ">\n" + full_text
+                                                return json.dumps(
+                                                    {query_id: paper},
+                                                    ensure_ascii=False,
+                                                )
+                                            else:
+                                                logger.warning(
+                                                    "Failed to extract full text."
+                                                )
+                                        except Exception as e:
+                                            logger.error(
+                                                f"Error occurred while extracting full text: {str(e)}"
+                                            )
+
+                                    logger.warning(
+                                        f"No full text successfully scraped for query: {query}"
                                     )
-                                    logger.error(f"URL: {search_url}")
-                                    logger.error(await response.text())
+                                    return json.dumps({query_id: {}})
+                                else:
+                                    logger.warning(
+                                        f"Unexpected JSON structure from OpenAlex API: {data}"
+                                    )
                                     return json.dumps({query_id: {}})
                             else:
                                 logger.error(
-                                    f"Unexpected status code from OpenAlex API: {response.status}"
+                                    f"Unexpected content type from OpenAlex API: {response.content_type}"
                                 )
                                 logger.error(f"URL: {search_url}")
                                 logger.error(await response.text())
                                 return json.dumps({query_id: {}})
-                    except asyncio.TimeoutError:
-                        logger.warning(
-                            f"Request timed out. Retrying in {retry_delay} seconds..."
-                        )
-                        retries += 1
-                        if retries < max_retries:
-                            await asyncio.sleep(retry_delay)
-                            retry_delay *= 2  # Exponential backoff
                         else:
-                            logger.error(f"Max retries exceeded for URL: {search_url}")
-                            return json.dumps({query_id: {}})
-                    except aiohttp.ClientError as error:
-                        logger.exception(
-                            f"Error occurred while making request to OpenAlex API: {str(error)}"
-                        )
-                        retries += 1
-                        if retries < max_retries:
-                            logger.warning(
-                                f"Retrying request in {retry_delay} seconds..."
+                            logger.error(
+                                f"Unexpected status code from OpenAlex API: {response.status}"
                             )
-                            await asyncio.sleep(retry_delay)
-                            retry_delay *= 2  # Exponential backoff
-                        else:
-                            logger.error(f"Max retries exceeded for URL: {search_url}")
+                            logger.error(f"URL: {search_url}")
+                            logger.error(await response.text())
                             return json.dumps({query_id: {}})
+                except asyncio.TimeoutError:
+                    logger.warning(
+                        f"Request timed out. Retrying in {retry_delay} seconds..."
+                    )
+                    retries += 1
+                    if retries < max_retries:
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2  # Exponential backoff
+                    else:
+                        logger.error(f"Max retries exceeded for URL: {search_url}")
+                        return json.dumps({query_id: {}})
+                except aiohttp.ClientError as error:
+                    logger.exception(
+                        f"Error occurred while making request to OpenAlex API: {str(error)}"
+                    )
+                    retries += 1
+                    if retries < max_retries:
+                        logger.warning(f"Retrying request in {retry_delay} seconds...")
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2  # Exponential backoff
+                    else:
+                        logger.error(f"Max retries exceeded for URL: {search_url}")
+                        return json.dumps({query_id: {}})
 
-            logger.error(f"Max retries exceeded for URL: {search_url}")
-            return json.dumps({query_id: {}})
+        logger.error(f"Max retries exceeded for URL: {search_url}")
+        return json.dumps({query_id: {}})
 
     async def extract_fulltext(self, pdf_url):
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.get(pdf_url) as resp:
-                    pdf_bytes = await resp.read()
-                    try:
-                        with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
-                            fulltext = ""
-                            for page in doc:
-                                fulltext += page.get_text()
-                            logger.info(f"Full text extracted from PDF: {pdf_url}")
-                            return fulltext
-                    except fitz.FileDataError:
-                        logger.error(f"Error: Cannot open PDF file from {pdf_url}")
-                        return ""
-            except aiohttp.ClientError as e:
-                logger.error(f"Error occurred while retrieving PDF from {pdf_url}")
-                logger.error(f"Error details: {str(e)}")
-                return ""
-            except Exception as e:
-                logger.error(
-                    f"Unexpected error occurred while extracting full text from {pdf_url}"
-                )
-                logger.error(f"Error details: {str(e)}")
-                return ""
+        try:
+            async with self.session.get(pdf_url) as resp:
+                pdf_bytes = await resp.read()
+                try:
+                    with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
+                        fulltext = ""
+                        for page in doc:
+                            fulltext += page.get_text()
+                        logger.info(f"Full text extracted from PDF: {pdf_url}")
+                        return fulltext
+                except fitz.FileDataError:
+                    logger.error(f"Error: Cannot open PDF file from {pdf_url}")
+                    return ""
+        except aiohttp.ClientError as e:
+            logger.error(f"Error occurred while retrieving PDF from {pdf_url}")
+            logger.error(f"Error details: {str(e)}")
+            return ""
+        except Exception as e:
+            logger.error(
+                f"Unexpected error occurred while extracting full text from {pdf_url}"
+            )
+            logger.error(f"Error details: {str(e)}")
+            return ""
 
     async def extract_fulltext_from_url(self, pdf_url):
         try:
@@ -302,23 +284,24 @@ async def main():
     # Create an instance of the WebScraper class (assuming it exists)
     web_scraper = WebScraper()
 
-    # Create an instance of the OpenAlexPaperSearch class
-    openalex_search = OpenAlexPaperSearch(
-        email="your_email@example.com", web_scraper=web_scraper
-    )
+    async with aiohttp.ClientSession() as session:
+        # Create an instance of the OpenAlexPaperSearch class
+        openalex_search = OpenAlexPaperSearch(
+            email="your_email@example.com", web_scraper=web_scraper, session=session
+        )
 
-    # Example usage
-    input_json = {
-        "query_1": "heart disease chickens",
-        "query_2": "cardiovascular disease poultry",
-        "query_3": "heart failure broiler chickens",
-        "query_4": "myocarditis chickens",
-        "query_5": "pericarditis poultry",
-    }
+        # Example usage
+        input_json = {
+            "query_1": "heart disease chickens",
+            "query_2": "cardiovascular disease poultry",
+            "query_3": "heart failure broiler chickens",
+            "query_4": "myocarditis chickens",
+            "query_5": "pericarditis poultry",
+        }
 
-    # Call the search_and_parse_json method
-    updated_json = await openalex_search.search_and_parse_json(input_json)
-    print(updated_json)
+        # Call the search_and_parse_json method
+        updated_json = await openalex_search.search_and_parse_json(input_json)
+        print(updated_json)
 
 
 if __name__ == "__main__":

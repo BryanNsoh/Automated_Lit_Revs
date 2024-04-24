@@ -3,6 +3,7 @@ import logging
 import json
 from llm_api_handler import LLM_APIHandler
 from prompts import get_prompt
+import aiohttp
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -18,8 +19,8 @@ logger.addHandler(file_handler)
 
 
 class PaperRanker:
-    def __init__(self, api_key_path, max_retries=4):
-        self.llm_api_handler = LLM_APIHandler(api_key_path)
+    def __init__(self, api_key_path, session, max_retries=4):
+        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
         self.max_retries = max_retries
 
     async def process_query(self, query_key, query_data, point_context):
@@ -32,7 +33,7 @@ class PaperRanker:
             )
             try:
                 print(f"Processing queries for {point_context}...")
-                response = await self.llm_api_handler.generate_gemini_content(prompt)
+                response = await self.llm_api_handler.generate_cohere_content(prompt)
                 if response is None:
                     logger.warning(
                         "Received None response from the Gemini API. Skipping query."
@@ -45,6 +46,7 @@ class PaperRanker:
                     json_data["DOI"] = query_data["DOI"]
                     json_data["title"] = query_data["title"]
                     logger.debug(f"Successfully processed query.")
+                    print(f"Contents: {json_data}")
                     return json_data
                 except json.JSONDecodeError:
                     logger.warning(
@@ -85,8 +87,9 @@ class PaperRanker:
 
 async def main(input_json, point_context):
     api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-    async with LLM_APIHandler(api_key_path) as api_handler:
-        ranker = PaperRanker(api_key_path)
+
+    async with aiohttp.ClientSession() as session:
+        ranker = PaperRanker(api_key_path, session)
         logger.info("Starting paper ranking process...")
         output_json = await ranker.process_queries(input_json, point_context)
         logger.info("Paper ranking process completed.")
@@ -161,5 +164,6 @@ if __name__ == "__main__":
         },
     }
     point_context = "Heart disease in chickens."
+
     output_json = asyncio.run(main(input_json, point_context))
     print(json.dumps(output_json, indent=2))
