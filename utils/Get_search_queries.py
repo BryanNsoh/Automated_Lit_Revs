@@ -19,6 +19,7 @@ class QueryGenerator:
                 point_content=query,
                 search_guidance=scopus_search_guide,
             )
+            print(f"Generating queries for {prompt}")
             response = await self.llm_api_handler.generate_cohere_content(prompt)
             queries = self.parse_response(response)
             if queries:

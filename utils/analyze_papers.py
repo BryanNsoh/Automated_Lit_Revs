@@ -63,6 +63,11 @@ class PaperRanker:
     async def process_queries(self, input_json, point_context):
         tasks = []
         for query_key, query_data in input_json.items():
+            if not query_data.get("DOI") or not query_data.get("title"):
+                logger.warning(
+                    f"Discarding query {query_key} due to missing DOI or title."
+                )
+                continue
             task = asyncio.create_task(
                 self.process_query(query_key, query_data, point_context)
             )

@@ -112,19 +112,18 @@ Carefully review the provided context, including the specific point that needs t
 - Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
 Provide your response strictly in the following JSON format as a single json object:
 {{
-    "query_1",
-    "query_2", 
-    "query_3",
-    "query_4",
-    "query_5",
-    "query_6",
-    "query_7",
-    "query_8",
-    "query_9",
-    "query_10",  
+    "query_1": "Query",
+    "query_2": "Query",
+    "query_3": "Query",
+    "query_4": Query",
+    "query_5": "Query",
+    "query_6": "Query",
+    "query_7": "Query",
+    "query_8": "Query",
+    "query_9": "Query",
+    "query_10": "Query",  
 }}
 ** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string.
-** The platform will be specified in the search guidance. Replace * with the platform name (e.g., scopus_queries, alex_queries). 
 Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
 </instructions>
 <resources>

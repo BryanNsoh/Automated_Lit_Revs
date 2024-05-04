@@ -1,0 +1,1763 @@
+
+
+# Contents of ./utils\analyze_papers.py
+import asyncio
+import logging
+import json
+from llm_api_handler import LLM_APIHandler
+from prompts import get_prompt
+import aiohttp
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+file_handler = logging.FileHandler("paper_ranker.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+class PaperRanker:
+    def __init__(self, api_key_path, session, max_retries=4):
+        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
+        self.max_retries = max_retries
+
+    async def process_query(self, query_key, query_data, point_context):
+        retry_count = 0
+        while retry_count < self.max_retries:
+            prompt = get_prompt(
+                template_name="rank_papers",
+                full_text=query_data,
+                point_context=point_context,
+            )
+            try:
+                print(f"Processing queries for {point_context}...")
+                response = await self.llm_api_handler.generate_cohere_content(prompt)
+                if response is None:
+                    logger.warning(
+                        "Received None response from the Gemini API. Skipping query."
+                    )
+                    return None
+                try:
+                    # Find text between the first and last curly braces
+                    response = response[response.find("{") : response.rfind("}") + 1]
+                    json_data = json.loads(response)
+                    json_data["DOI"] = query_data["DOI"]
+                    json_data["title"] = query_data["title"]
+                    logger.debug(f"Successfully processed query.")
+                    print(f"Contents: {json_data}")
+                    return json_data
+                except json.JSONDecodeError:
+                    logger.warning(
+                        f"Invalid JSON response for the current query. Retrying immediately..."
+                    )
+                    retry_count += 1
+            except Exception as e:
+                logger.exception(f"Error processing query: {str(e)}")
+                retry_count += 1
+
+        logger.error(f"Max retries reached for current query. Skipping query.")
+        return None
+
+    async def process_queries(self, input_json, point_context):
+        tasks = []
+        for query_key, query_data in input_json.items():
+            if not query_data.get("DOI") or not query_data.get("title"):
+                logger.warning(
+                    f"Discarding query {query_key} due to missing DOI or title."
+                )
+                continue
+            task = asyncio.create_task(
+                self.process_query(query_key, query_data, point_context)
+            )
+            tasks.append(task)
+
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        output_json = {}
+        for query_key, result in zip(input_json.keys(), results):
+            if result and isinstance(result, dict):
+                relevance_score = result.get("relevance_score")
+                try:
+                    relevance_score = float(relevance_score)
+                    if relevance_score > 0.5:
+                        output_json[query_key] = result
+                except (ValueError, TypeError):
+                    logger.warning(
+                        f"Invalid relevance score for query {query_key}. Skipping paper."
+                    )
+
+        return output_json
+
+
+async def main(input_json, point_context):
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+
+    async with aiohttp.ClientSession() as session:
+        ranker = PaperRanker(api_key_path, session)
+        logger.info("Starting paper ranking process...")
+        output_json = await ranker.process_queries(input_json, point_context)
+        logger.info("Paper ranking process completed.")
+        return output_json
+
+
+if __name__ == "__main__":
+    input_json = {
+        "query_1": {
+            "DOI": "https://doi.org/10.1007/bf00281114",
+            "authors": ["Jarrett Rj"],
+            "citation_count": 156,
+            "journal": "Diabetologia",
+            "pdf_link": "https://link.springer.com/content/pdf/10.1007%2FBF00281114.pdf",
+            "publication_year": 1984,
+            "title": "Type 2 (non-insulin-dependent) diabetes mellitus and coronary heart disease ? chicken, egg or neither?",
+            "full_text": "This is the full text of the paper...",
+        },
+        "query_2": {
+            "DOI": "https://doi.org/10.1001/jamainternmed.2019.6969",
+            "authors": [
+                "Victor W. Zhong",
+                "Linda Van Horn",
+                "Philip Greenland",
+                "Mercedes R. Carnethon",
+                "Hongyan Ning",
+                "John T. Wilkins",
+                "Donald M. Lloyd‐Jones",
+                "Norrina B. Allen",
+            ],
+            "citation_count": 221,
+            "journal": "JAMA internal medicine",
+            "pdf_link": "https://jamanetwork.com/journals/jamainternalmedicine/articlepdf/2759737/jamainternal_zhong_2020_oi_190112.pdf",
+            "publication_year": 2020,
+            "title": "Associations of Processed Meat, Unprocessed Red Meat, Poultry, or Fish Intake With Incident Cardiovascular Disease and All-Cause Mortality",
+            "full_text": "This is the full text of the paper...",
+        },
+        "query_3": {
+            "DOI": "https://doi.org/10.1016/s0034-5288(18)33737-8",
+            "authors": ["S.F. Cueva", "H. Sillau", "Abel Valenzuela", "H. P. Ploog"],
+            "citation_count": 181,
+            "journal": "Research in Veterinary Science/Research in veterinary science",
+            "publication_year": 1974,
+            "title": "High Altitude Induced Pulmonary Hypertension and Right Heart Failure in Broiler Chickens",
+            "full_text": "This is the full text of the paper...",
+        },
+        "query_4": {
+            "DOI": "https://doi.org/10.2307/1588087",
+            "authors": ["Sherwin A. Hall", "Nicanor Machicao"],
+            "citation_count": 58,
+            "journal": "Avian diseases",
+            "publication_year": 1968,
+            "title": "Myocarditis in Broiler Chickens Reared at High Altitude",
+            "full_text": "This is the full text of the paper...",
+        },
+        "query_5": {
+            "DOI": "https://doi.org/10.1038/srep14727",
+            "authors": [
+                "Huaguang Lu",
+                "Yi Tang",
+                "Patricia A. Dunn",
+                "Eva Wallner-Pendleton",
+                "Lin Lin",
+                "Eric A. Knoll",
+            ],
+            "citation_count": 82,
+            "journal": "Scientific reports",
+            "pdf_link": "https://www.nature.com/articles/srep14727.pdf",
+            "publication_year": 2015,
+            "title": "Isolation and molecular characterization of newly emerging avian reovirus variants and novel strains in Pennsylvania, USA, 2011–2014",
+            "full_text": "This is the full text of the paper...",
+        },
+    }
+    point_context = "Heart disease in chickens."
+
+    output_json = asyncio.run(main(input_json, point_context))
+    print(json.dumps(output_json, indent=2))
+
+
+# Contents of ./utils\copy_all_code.py
+import os
+
+
+def copy_py_to_txt(output_file, folder):
+    with open(output_file, "w", encoding="utf-8") as outfile:
+        for filename in os.listdir(folder):
+            if filename.endswith(".py"):
+                file_path = os.path.join(folder, filename)
+                with open(file_path, "r", encoding="utf-8") as infile:
+                    outfile.write(f"\n\n# Contents of {file_path}\n")
+                    outfile.write(infile.read())
+
+
+def main():
+    current_folder = "./utils"
+    output_filename = "all_python_contents.txt"
+    copy_py_to_txt(output_filename, current_folder)
+    print(f"All .py file contents copied to {output_filename}")
+
+
+if __name__ == "__main__":
+    main()
+
+
+# Contents of ./utils\get_search_queries.py
+import json
+import asyncio
+import aiohttp
+from llm_api_handler import LLM_APIHandler
+from prompts import get_prompt, scopus_search_guide
+
+
+class QueryGenerator:
+    def __init__(self, api_key_path, session, max_retries=10):
+        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
+        self.session = session
+        self.max_retries = max_retries
+
+    async def generate_queries(self, query):
+        retry_count = 0
+        while retry_count < self.max_retries:
+            prompt = get_prompt(
+                template_name="generate_queries",
+                point_content=query,
+                search_guidance=scopus_search_guide,
+            )
+            print(f"Generating queries for {prompt}")
+            response = await self.llm_api_handler.generate_cohere_content(prompt)
+            queries = self.parse_response(response)
+            if queries:
+                return queries
+            retry_count += 1
+            print(f"Retrying... Attempt {retry_count}")
+        print("Max retries reached. Returning empty queries.")
+        return {}
+
+    def parse_response(self, response):
+        try:
+            start_index = response.find("{")
+            end_index = response.rfind("}")
+            if start_index != -1 and end_index != -1:
+                json_string = response[start_index : end_index + 1]
+                queries = json.loads(json_string)
+                print(f"Queries generated: {len(queries)}")
+                return queries
+            else:
+                print("No valid JSON object found. Returning empty queries.")
+                return {}
+        except json.JSONDecodeError:
+            print("Error parsing JSON. Returning empty queries.")
+            return {}
+
+
+async def main(query):
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    async with aiohttp.ClientSession() as session:
+        processor = QueryGenerator(api_key_path, session)
+        queries = await processor.generate_queries(query)
+        print(json.dumps(queries, indent=2))
+
+
+if __name__ == "__main__":
+    query = "heart disease in chickens"
+    asyncio.run(main(query))
+
+
+# Contents of ./utils\llm_api_handler.py
+import asyncio
+import aiohttp
+import logging
+import google.generativeai as genai
+import google.api_core.exceptions
+import anthropic
+import backoff
+import tiktoken
+import time
+from collections import deque
+import json
+import cohere
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+
+file_handler = logging.FileHandler("llm_handler.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+def count_tokens(text, encoding_name="cl100k_base"):
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(text))
+    return num_tokens
+
+
+def clip_prompt(prompt, max_tokens, encoding_name="cl100k_base"):
+    encoding = tiktoken.get_encoding(encoding_name)
+    tokens = encoding.encode(prompt)
+    if len(tokens) > max_tokens:
+        clipped_tokens = tokens[:max_tokens]
+        clipped_prompt = encoding.decode(clipped_tokens)
+        return clipped_prompt
+    return prompt
+
+
+class RateLimiter:
+    def __init__(self, rps, window_size):
+        self.rps = rps
+        self.window_size = window_size
+        self.window_start = time.monotonic()
+        self.request_count = 0
+        self.semaphore = asyncio.Semaphore(rps)
+
+    async def acquire(self):
+        current_time = time.monotonic()
+        elapsed_time = current_time - self.window_start
+        if elapsed_time > self.window_size:
+            self.window_start = current_time
+            self.request_count = 0
+        if self.request_count >= self.rps:
+            await asyncio.sleep(self.window_size - elapsed_time)
+            self.window_start = time.monotonic()
+            self.request_count = 0
+        self.request_count += 1
+        await self.semaphore.acquire()
+
+    def release(self):
+        self.semaphore.release()
+
+
+class RequestTracker:
+    def __init__(self):
+        self.active_requests = 0
+        self.total_requests = 0
+        self.total_response_time = 0
+        self.request_times = []
+        self.throughputs = []
+
+    def start_request(self):
+        self.active_requests += 1
+        self.total_requests += 1
+        self.request_times.append(time.time())
+
+    def end_request(self, response_time):
+        self.active_requests -= 1
+        self.total_response_time += response_time
+
+    def calculate_metrics(self):
+        elapsed_time = time.time() - self.request_times[0]
+        throughput = self.total_requests / elapsed_time
+        self.throughputs.append(throughput)
+        avg_response_time = self.total_response_time / self.total_requests
+        return {
+            "active_requests": self.active_requests,
+            "total_requests": self.total_requests,
+            "throughput": throughput,
+            "avg_response_time": avg_response_time,
+        }
+
+
+class LLM_APIHandler:
+    def __init__(self, key_path, session, rps=1, window_size=55):
+        self.load_api_keys(key_path)
+        self.rate_limiters = [
+            RateLimiter(rps, window_size) for _ in range(len(self.gemini_api_keys))
+        ]
+        self.claude_rate_limiter = RateLimiter(rps, window_size)
+        self.cohere_rate_limiter = RateLimiter(75, 60)  # 75 calls per minute
+        self.request_tracker = RequestTracker()
+        self.safety_settings = [
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_HATE_SPEECH",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "threshold": "BLOCK_NONE",
+            },
+            {
+                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "threshold": "BLOCK_NONE",
+            },
+        ]
+        self.gemini_clients = []
+        for api_key in self.gemini_api_keys:
+            genai.configure(api_key=api_key)
+            client = genai.GenerativeModel(
+                "gemini-pro", safety_settings=self.safety_settings
+            )
+            self.gemini_clients.append(client)
+        self.claude_client = anthropic.Anthropic(api_key=self.claude_api_key)
+        self.cohere_client = cohere.Client(self.cohere_api_key)
+        self.session = session
+        self.client_queue = deque(range(len(self.gemini_api_keys)))  # Round-robin queue
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.session.close()  # Close the session when done
+
+    def load_api_keys(self, key_path):
+        with open(key_path, "r") as file:
+            api_keys = json.load(file)
+        self.gemini_api_keys = [
+            api_keys[key] for key in api_keys if key.startswith("GEMINI_API_KEY")
+        ]
+        self.claude_api_key = api_keys["CLAUDE_API_KEY"]
+        self.cohere_api_key = api_keys["COHERE_API_KEY"]
+
+    @backoff.on_exception(
+        backoff.expo,
+        (
+            aiohttp.ClientError,
+            ValueError,
+            google.api_core.exceptions.InternalServerError,
+            google.api_core.exceptions.ServiceUnavailable,
+            google.api_core.exceptions.Unknown,
+        ),
+        max_tries=5,
+        max_time=60,
+    )
+    async def generate_gemini_content(self, prompt):
+        client_index = self.client_queue.popleft()
+        self.client_queue.append(
+            client_index
+        )  # Move the client to the end of the queue
+        rate_limiter = self.rate_limiters[client_index]
+        await rate_limiter.acquire()
+        try:
+            retry_count = 0
+            while retry_count < 5:
+                try:
+                    clipped_prompt = clip_prompt(prompt, max_tokens=26000)
+                    logging.info(
+                        f"Generating content with Gemini API (client {client_index}). Prompt: {clipped_prompt}"
+                    )
+                    self.request_tracker.start_request()
+                    start_time = time.time()
+                    response = await self.gemini_clients[
+                        client_index
+                    ].generate_content_async(clipped_prompt)
+                    end_time = time.time()
+                    response_time = end_time - start_time
+                    self.request_tracker.end_request(response_time)
+                    if response.text:
+                        metrics = self.request_tracker.calculate_metrics()
+                        logger.info(f"Gemini API Metrics: {metrics}")
+                        return response.text
+                    else:
+                        raise ValueError("Invalid response format from Gemini API.")
+                except (IndexError, AttributeError, ValueError) as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"Error from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.InternalServerError as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"InternalServerError from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.ServiceUnavailable as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"ServiceUnavailable from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+                except google.api_core.exceptions.Unknown as e:
+                    retry_count += 1
+                    logger.warning(
+                        f"Unknown error from Gemini API (client {client_index}). Retry count: {retry_count}. Error: {e}"
+                    )
+                    await asyncio.sleep(min(2**retry_count, 30))
+            logger.error(
+                f"Max retries reached. Unable to generate content with Gemini API (client {client_index}). Moving on."
+            )
+            return None
+        except Exception as e:
+            logger.error(
+                f"Unexpected error from Gemini API (client {client_index}). Error: {e}"
+            )
+            raise
+        finally:
+            rate_limiter.release()
+
+    @backoff.on_exception(
+        backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
+    )
+    async def generate_opus_content(
+        self,
+        prompt,
+        system_prompt=None,
+        model="claude-3-opus-20240229",
+        max_tokens=3000,
+    ):
+        await self.claude_rate_limiter.acquire()
+        try:
+            if model not in [
+                "claude-3-opus-20240229",
+                "claude-3-sonnet-20240229",
+                "claude-3-haiku-20240307",
+            ]:
+                raise ValueError(f"Invalid model: {model}")
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            messages = [{"role": "user", "content": clipped_prompt}]
+            if system_prompt is None:
+                system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
+            # logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
+            try:
+                response = self.claude_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    system=system_prompt,
+                    messages=messages,
+                )
+                # logger.info(f"Claude API response: {response.content[0].text}")
+                return response.content[0].text
+            except anthropic.APIError as e:
+                logger.error(
+                    f"Max retries reached. Unable to generate content with Claude API. Error: {e}. Moving on."
+                )
+                return None
+        finally:
+            self.claude_rate_limiter.release()
+
+    @backoff.on_exception(
+        backoff.expo, (anthropic.APIError, ValueError), max_tries=5, max_time=60
+    )
+    async def generate_haiku_content(
+        self,
+        prompt,
+        system_prompt=None,
+        model="claude-3-haiku-20240307",
+        max_tokens=3000,
+    ):
+        await self.claude_rate_limiter.acquire()
+        try:
+            if model not in [
+                "claude-3-opus-20240229",
+                "claude-3-sonnet-20240229",
+                "claude-3-haiku-20240307",
+            ]:
+                raise ValueError(f"Invalid model: {model}")
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            messages = [{"role": "user", "content": clipped_prompt}]
+            if system_prompt is None:
+                system_prompt = "Directly fulfill the user's request without preamble, paying very close attention to all nuances of their instructions."
+            # logger.info(f"Generating content with Claude API. Prompt: {clipped_prompt}")
+            try:
+                response = self.claude_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    system=system_prompt,
+                    messages=messages,
+                )
+                # logger.info(f"Claude API response: {response.content[0].text}")
+                return response.content[0].text
+            except anthropic.APIError as e:
+                logger.error(
+                    f"Max retries reached. Unable to generate content with Claude API. Error: {e}. Moving on."
+                )
+                return None
+        finally:
+            self.claude_rate_limiter.release()
+
+    async def generate_cohere_content(
+        self,
+        prompt,
+        model="command-r-plus",
+        temperature=0.3,
+        prompt_truncation="AUTO",
+        connectors=None,
+    ):
+        await self.cohere_rate_limiter.acquire()
+        try:
+            clipped_prompt = clip_prompt(prompt, max_tokens=180000)
+            response = self.cohere_client.chat(
+                model=model,
+                message=clipped_prompt,
+                temperature=temperature,
+                chat_history=[],
+                prompt_truncation=prompt_truncation,
+                connectors=connectors,
+            )
+            print(response.text)
+            return response.text
+        except Exception as e:
+            logger.error(
+                f"Unable to generate content with Cohere API. Error: {e}. Moving on."
+            )
+            return None
+        finally:
+            self.cohere_rate_limiter.release()
+
+
+async def main():
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    rps = 5  # Requests per second
+    window_size = 60  # Window size in seconds
+    async with aiohttp.ClientSession() as session:
+        async with LLM_APIHandler(
+            api_key_path, session, rps, window_size
+        ) as api_handler:
+            gemini_prompt = "What is the meaning of life?"
+            claude_prompt = "What is the meaning of life?"
+            cohere_prompt = "What is the meaning of life?"
+
+            responses = await asyncio.gather(
+                api_handler.generate_gemini_content(gemini_prompt),
+                api_handler.generate_opus_content(claude_prompt),
+                api_handler.generate_cohere_content(cohere_prompt),
+            )
+
+            gemini_response, claude_response, cohere_response = responses
+            print("Gemini Response:", gemini_response)
+            print("Claude Response:", claude_response)
+            print("Cohere Response:", cohere_response)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+# Contents of ./utils\openalex_search.py
+import aiohttp
+import asyncio
+import json
+import fitz
+import urllib.parse
+import yaml
+from web_scraper import WebScraper
+from pathlib import Path
+
+import logging
+
+# Create a logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create a console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create a formatter
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+
+# Add the console handler to the logger
+logger.addHandler(console_handler)
+
+# Optional: Create a file handler to log messages to a file
+file_handler = logging.FileHandler("alex.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+class OpenAlexPaperSearch:
+    def __init__(self, email, web_scraper, session):
+        self.base_url = "https://api.openalex.org"
+        self.email = email
+        self.web_scraper = web_scraper
+        self.semaphore = asyncio.Semaphore(5)  # Limit to 5 concurrent requests
+        self.session = session
+
+    async def search_papers(self, query, query_id, max_results=30):
+        if query.startswith("https://api.openalex.org/works?"):
+            search_url = f"{query}&mailto={self.email}"
+        else:
+            encoded_query = urllib.parse.quote(query)
+            search_url = f"{self.base_url}/works?search={encoded_query}&per_page={max_results}&mailto={self.email}"
+
+        retries = 0
+        max_retries = 3
+        retry_delay = 1
+
+        while retries < max_retries:
+            async with self.semaphore:
+                try:
+                    await asyncio.sleep(
+                        0.2
+                    )  # Wait for 0.2 seconds between requests to comply with rate limits
+                    async with self.session.get(search_url) as response:
+                        if response.status == 429:
+                            logger.warning(
+                                f"Rate limit exceeded. Retrying in {retry_delay} seconds..."
+                            )
+                            await asyncio.sleep(retry_delay)
+                            retries += 1
+                            retry_delay *= 2  # Exponential backoff
+                        elif response.status == 200:
+                            if response.content_type == "application/json":
+                                data = await response.json()
+
+                                if "results" in data:
+                                    for work in data["results"]:
+                                        paper = {
+                                            "DOI": (
+                                                work["doi"] if "doi" in work else ""
+                                            ),
+                                            "authors": (
+                                                [
+                                                    author["author"]["display_name"]
+                                                    for author in work["authorships"]
+                                                ]
+                                                if "authorships" in work
+                                                else []
+                                            ),
+                                            "citation_count": (
+                                                work["cited_by_count"]
+                                                if "cited_by_count" in work
+                                                else 0
+                                            ),
+                                            "full_text": ">",
+                                            "journal": (
+                                                work["primary_location"]["source"][
+                                                    "display_name"
+                                                ]
+                                                if "primary_location" in work
+                                                and isinstance(
+                                                    work["primary_location"], dict
+                                                )
+                                                and "source" in work["primary_location"]
+                                                and isinstance(
+                                                    work["primary_location"]["source"],
+                                                    dict,
+                                                )
+                                                and "display_name"
+                                                in work["primary_location"]["source"]
+                                                else ""
+                                            ),
+                                            "pdf_link": (
+                                                work["primary_location"]["pdf_url"]
+                                                if "primary_location" in work
+                                                and isinstance(
+                                                    work["primary_location"], dict
+                                                )
+                                                and "pdf_url"
+                                                in work["primary_location"]
+                                                else ""
+                                            ),
+                                            "publication_year": (
+                                                work["publication_year"]
+                                                if "publication_year" in work
+                                                else ""
+                                            ),
+                                            "title": (
+                                                work["title"] if "title" in work else ""
+                                            ),
+                                        }
+
+                                        full_text = ""  # Initialize full_text with an empty string
+
+                                        try:
+                                            if paper["pdf_link"]:
+                                                logger.info(
+                                                    f"Extracting full text from PDF URL: {paper['pdf_link']}"
+                                                )
+                                                full_text = await self.extract_fulltext(
+                                                    paper["pdf_link"]
+                                                )
+                                                if not full_text:
+                                                    logger.info(
+                                                        f"Extracting full text from URL: {paper['pdf_link']}"
+                                                    )
+                                                    full_text = await self.extract_fulltext_from_url(
+                                                        paper["pdf_link"]
+                                                    )
+
+                                            if not full_text and paper["DOI"]:
+                                                logger.info(
+                                                    f"Extracting full text from DOI: {paper['DOI']}"
+                                                )
+                                                full_text = await self.extract_fulltext_from_doi(
+                                                    paper["DOI"]
+                                                )
+
+                                            if full_text:
+                                                logger.info(
+                                                    "Full text extracted successfully."
+                                                )
+                                                paper["full_text"] = ">\n" + full_text
+                                                return json.dumps(
+                                                    {query_id: paper},
+                                                    ensure_ascii=False,
+                                                )
+                                            else:
+                                                logger.warning(
+                                                    "Failed to extract full text."
+                                                )
+                                        except Exception as e:
+                                            logger.error(
+                                                f"Error occurred while extracting full text: {str(e)}"
+                                            )
+
+                                    logger.warning(
+                                        f"No full text successfully scraped for query: {query}"
+                                    )
+                                    return json.dumps({query_id: {}})
+                                else:
+                                    logger.warning(
+                                        f"Unexpected JSON structure from OpenAlex API: {data}"
+                                    )
+                                    return json.dumps({query_id: {}})
+                            else:
+                                logger.error(
+                                    f"Unexpected content type from OpenAlex API: {response.content_type}"
+                                )
+                                logger.error(f"URL: {search_url}")
+                                logger.error(await response.text())
+                                return json.dumps({query_id: {}})
+                        else:
+                            logger.error(
+                                f"Unexpected status code from OpenAlex API: {response.status}"
+                            )
+                            logger.error(f"URL: {search_url}")
+                            logger.error(await response.text())
+                            return json.dumps({query_id: {}})
+                except asyncio.TimeoutError:
+                    logger.warning(
+                        f"Request timed out. Retrying in {retry_delay} seconds..."
+                    )
+                    retries += 1
+                    if retries < max_retries:
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2  # Exponential backoff
+                    else:
+                        logger.error(f"Max retries exceeded for URL: {search_url}")
+                        return json.dumps({query_id: {}})
+                except aiohttp.ClientError as error:
+                    logger.exception(
+                        f"Error occurred while making request to OpenAlex API: {str(error)}"
+                    )
+                    retries += 1
+                    if retries < max_retries:
+                        logger.warning(f"Retrying request in {retry_delay} seconds...")
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2  # Exponential backoff
+                    else:
+                        logger.error(f"Max retries exceeded for URL: {search_url}")
+                        return json.dumps({query_id: {}})
+
+        logger.error(f"Max retries exceeded for URL: {search_url}")
+        return json.dumps({query_id: {}})
+
+    async def extract_fulltext(self, pdf_url):
+        try:
+            async with self.session.get(pdf_url) as resp:
+                pdf_bytes = await resp.read()
+                try:
+                    with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
+                        fulltext = ""
+                        for page in doc:
+                            fulltext += page.get_text()
+                        logger.info(f"Full text extracted from PDF: {pdf_url}")
+                        return fulltext
+                except fitz.FileDataError:
+                    logger.error(f"Error: Cannot open PDF file from {pdf_url}")
+                    return ""
+        except aiohttp.ClientError as e:
+            logger.error(f"Error occurred while retrieving PDF from {pdf_url}")
+            logger.error(f"Error details: {str(e)}")
+            return ""
+        except Exception as e:
+            logger.error(
+                f"Unexpected error occurred while extracting full text from {pdf_url}"
+            )
+            logger.error(f"Error details: {str(e)}")
+            return ""
+
+    async def extract_fulltext_from_url(self, pdf_url):
+        try:
+            logger.info(f"Extracting full text from URL: {pdf_url}")
+            content = await self.web_scraper.get_url_content(pdf_url)
+            logger.info(f"Full text extracted from URL: {pdf_url}")
+            return content
+        except Exception as e:
+            logger.error(
+                f"Error: Failed to scrape full text from PDF URL {pdf_url}. {str(e)}"
+            )
+            return ""
+
+    async def extract_fulltext_from_doi(self, doi):
+        try:
+            logger.info(f"Extracting full text from DOI: {doi}")
+            content = await self.web_scraper.get_url_content(doi)
+            logger.info(f"Full text extracted from DOI: {doi}")
+            return content
+        except Exception as e:
+            logger.error(f"Error: Failed to scrape full text from DOI {doi}. {str(e)}")
+            return ""
+
+    async def search_and_parse_json(self, input_json):
+        try:
+            updated_json = {}
+            for query_id, query in input_json.items():
+                parsed_result = await self.search_papers(query, query_id)
+                updated_json.update(json.loads(parsed_result))
+            return json.dumps(updated_json, ensure_ascii=False)
+        except Exception as e:
+            logger.error(
+                f"An error occurred while processing the input JSON. Error: {e}"
+            )
+            return json.dumps({})
+
+
+async def main():
+    # Create an instance of the WebScraper class (assuming it exists)
+    web_scraper = WebScraper()
+
+    async with aiohttp.ClientSession() as session:
+        # Create an instance of the OpenAlexPaperSearch class
+        openalex_search = OpenAlexPaperSearch(
+            email="your_email@example.com", web_scraper=web_scraper, session=session
+        )
+
+        # Example usage
+        input_json = {
+            "query_1": "heart disease chickens",
+            "query_2": "cardiovascular disease poultry",
+            "query_3": "heart failure broiler chickens",
+            "query_4": "myocarditis chickens",
+            "query_5": "pericarditis poultry",
+        }
+
+        # Call the search_and_parse_json method
+        updated_json = await openalex_search.search_and_parse_json(input_json)
+        print(updated_json)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+# Contents of ./utils\prompts.py
+import re
+
+scopus_search_guide = """
+Syntax and Operators
+
+Valid syntax for advanced search queries includes:
+
+Field codes (e.g. TITLE, ABS, KEY, AUTH, AFFIL) to restrict searches to specific parts of documents
+Boolean operators (AND, OR, AND NOT) to combine search terms
+Proximity operators (W/n, PRE/n) to find words within a specified distance - W/n: Finds terms within "n" words of each other, regardless of order. Example: journal W/15 publishing finds articles where "journal" and "publishing" are within two words of each other. - PRE/n: Finds terms in the specified order and within "n" words of each other. Example: data PRE/50 analysis finds articles where "data" appears before "analysis" within three words. - To find terms in the same sentence, use 15. To find terms in the same paragraph, use 50 -
+Quotation marks for loose/approximate phrase searches
+Braces \{\} for exact phrase searches (without hte backslashes of course)
+Wildcards (*) to capture variations of search terms
+Invalid syntax includes:
+
+Mixing different proximity operators (e.g. W/n and PRE/n) in the same expression
+Using wildcards or proximity operators with exact phrase searches
+Placing AND NOT before other Boolean operators
+Using wildcards on their own without any search terms
+Ideal Search Structure
+
+An ideal advanced search query should:
+
+Use field codes to focus the search on the most relevant parts of documents
+Combine related concepts using AND and OR
+Exclude irrelevant terms with AND NOT at the end
+Employ quotation marks and braces appropriately for phrase searching
+Include wildcards to capture variations of key terms (while avoiding mixing them with other operators)
+Follow the proper order of precedence for operators
+Complex searches should be built up systematically, with parentheses to group related expressions as needed. The information from the provided documents on syntax rules and operators should be applied rigorously.
+
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **
+
+Example Advanced Searches
+
+{{
+"query_1": "TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND ("machine learning" OR "AI") AND "water")",
+"query_2": "TITLE-ABS-KEY((iot OR "internet of things") AND (irrigation OR watering) AND sensor*)",
+"query_3": "TITLE-ABS-Key(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural networks") AND "water")",
+"query_4": "TITLE-ABS-KEY((crop W/5 monitor*) AND "remote sensing" AND (irrigation OR water*))",
+"query_5": "TITLE("precision irrigation" OR "variable rate irrigation" AND "machine learning")"
+}}
+
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string. **. 
+
+These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.
+"""
+
+alex_search_guide = """
+Syntax and Operators
+Valid syntax for advanced alex search queries includes:
+Using quotation marks %22%22 for exact phrase matches
+Adding a minus sign - before terms to exclude them
+Employing the OR operator in all caps to find pages containing either term
+Using the site%3A operator to limit results to a specific website
+Applying the filetype%3A operator to find specific file formats like PDF, DOC, etc.
+Adding the * wildcard as a placeholder for unknown words
+`
+Invalid syntax includes:
+Putting a plus sign + before words (alex stopped supporting this)
+Using other special characters like %3F, %24, %26, %23, etc. within search terms
+Explicitly using the AND operator (alex's default behavior makes it redundant)
+
+Ideal Search Structure
+An effective alex search query should:
+Start with the most important search terms
+Use specific, descriptive keywords related to irrigation scheduling, management, and precision irrigation
+Utilize exact phrases in %22quotes%22 for specific word combinations
+Exclude irrelevant terms using the - minus sign
+Connect related terms or synonyms with OR
+Apply the * wildcard strategically for flexibility
+Note:
+
+By following these guidelines and using proper URL encoding, you can construct effective and accurate search queries for alex.
+
+Searches should be concise yet precise, following the syntax rules carefully. 
+
+Example Searches
+{{
+"query_1": "https://api.openalex.org/works?search=%22precision+irrigation%22+%2B%22soil+moisture+sensors%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"query_2": "https://api.openalex.org/works?search=%22machine+learning%22+%2B%22irrigation+management%22+%2B%22crop+water+demand+prediction%22&sort=relevance_score:desc&per-page=30",
+"query_3": "https://api.openalex.org/works?search=%22IoT+sensors%22+%2B%22real-time%22+%2B%22soil+moisture+monitoring%22+%2B%22crop+water+stress%22&sort=relevance_score:desc&per-page=30",
+"query_4": "https://api.openalex.org/works?search=%22remote+sensing%22+%2B%22vegetation+indices%22+%2B%22irrigation+scheduling%22&sort=relevance_score:desc&per-page=30",
+"query_5": "https://api.openalex.org/works?search=%22wireless+sensor+networks%22+%2B%22precision+agriculture%22+%2B%22variable+rate+irrigation%22+%2B%22irrigation+automation%22&sort=relevance_score:desc&per-page=30"
+}}
+
+These example searches demonstrate how to create targeted, effective alex searches. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed. The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive.  By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
+"""
+
+
+def remove_illegal_characters(text):
+    if text is None:
+        return ""
+    illegal_chars = re.compile(r"[\000-\010]|[\013-\014]|[\016-\037]")
+    return illegal_chars.sub("", str(text))
+
+
+def get_prompt(template_name, **kwargs):
+
+    prompts = {
+        "generate_queries": """
+<documents>
+<document index="1">
+<source>search_query_prompt.txt</source>
+<document_content>
+<instructions>
+Carefully review the provided context, including the specific point that needs to be addressed by the literature search, given in <point_content>. Your task is to generate a set of 10 highly optimized search queries that would surface the most relevant, insightful, and comprehensive set of research articles to shed light on various aspects of the particular point <point_content>. The queries should:
+- Be thoughtfully crafted to return results that directly address the key issues and nuances of the <point_content>
+- Demonstrate creativity and variety in their formulation to capture different dimensions of the topic
+- Use precise terminology and logical operators to maintain a high signal-to-noise ratio in the results
+- Cover a broad range of potential subtopics, perspectives, and article types related to the <point_content>
+- Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
+Provide your response strictly in the following JSON format as a single json object:
+{{
+    "query_1": "Query",
+    "query_2": "Query",
+    "query_3": "Query",
+    "query_4": Query",
+    "query_5": "Query",
+    "query_6": "Query",
+    "query_7": "Query",
+    "query_8": "Query",
+    "query_9": "Query",
+    "query_10": "Query",  
+}}
+** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string.
+Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
+</instructions>
+<resources>
+<point_content>
+{point_content}
+</point_content>
+<search_guidance>
+{search_guidance}
+</search_guidance>
+</resources>
+</document_content>
+</document>
+</documents>
+""",
+        "rank_papers": """
+<instructions>
+First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_focus>.
+Your analysis should include:
+"verbatim_extracts": Provide the two most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. 
+"explanation": A concise summary (3-5 sentences) of the key points of the paper as they relate to the outline point. Include this in the "explanation" field of the JSON.
+"relevance_evaluation": A succinct yet detailed explanation of how the specifics of the paper contribute to addressing the point. Consider the following factors based on the paper type: relevance, insight, credibility, scope, and recency. Include this in the "relevance_evaluation" field of the JSON.
+"relevance_score": A relevance score between 0 and 1 representing the overall fit of the paper to the point. Use the following rubric and include the score in the "relevance_score" field of the JSON:
+0.0-0.19: Not relevant - Fails to address the point or provide any useful information. Should be excluded from the review.
+0.2-0.39: Minimally relevant - Only briefly touches on the point with information that is of questionable value, reliability, or timeliness. Not recommended for inclusion.
+0.4-0.49: Marginally relevant - Mostly tangential to the main issues of the point, with information of limited insight, credibility, or meaningfulness. Likely not essential.
+0.5-0.59: Somewhat relevant - Addresses aspects of the point, but has significant limitations in scope, depth, reliability, or value of information. May still be worth including.
+0.6-0.69: Moderately relevant - Provides useful information for the point, but has some notable gaps in addressing key issues or limitations in insight, credibility, or timeliness.
+0.7-0.79: Very relevant - Directly informs the point with reliable and valuable information, but may have minor limitations in scope, depth, or recency.
+0.8-0.89: Highly relevant - Addresses key issues of the point with novel, credible, and meaningful information. Adds substantial value to the review.
+0.9-1.0: Exceptionally relevant - Comprehensively addresses all key aspects of the point with highly insightful, reliable, and up-to-date information. A must-include for the review.
+Be uncompromising and extremely parsimonious in assigning the most appropriate score based on a holistic assessment of the paper's merits and limitations.
+Default to a lower score if there are any doubts or reservations about the paper's relevance.
+
+"limitations": List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank. Include this in the "limitations" field of the JSON as a comma-separated list.
+"inline_citation": Provide a suggested in-line citation for the paper under "inline_citation" in the format (Author, Year).
+"apa_citation": Provide a full APA style reference under "apa_citation".
+"study_location": Provide the specific city/region and country where the study was conducted. If not explicitly stated, infer the most likely location based on author affiliations or other context clues. If the location cannot be determined, write "Unspecified".
+"main_objective": State the primary goal or research question of the study in 1-2 sentences.
+"technologies_used": List the key technologies, methods, or approaches used in the study under "technologies_used", separated by commas.
+"data_sources": List the primary sources of data used in the analysis, such as "Survey data", "Interviews", "Case studies", "Literature review", etc. Separate each source with a comma.
+"key_findings": Summarize the main findings or results of the study in 2-3 sentences under "key_findings".
+
+Provide your analysis in the following JSON format. Be as precise, specific, and concise as possible in your responses. Use the provided fields and format exactly as shown below:
+
+<response_format>
+{{
+ "verbatim_extracts": ["Key terms and definitions", "Research questions or hypotheses", "Methodology descriptions", "Results, including statistics and data visualizations", "Tables and figures captions", "Quotes from participants or experts", "Author conclusions or summaries", "Limitations of the study or future research directions", "Include a long list of the most important text extracted verbatim from the provided paper", "Use quotes from the paper to support your summary"],
+ "explanation": "From your close reading of the paper, provide a concise explanation of the study's purpose and main objectives, using a maximum of 3 sentences.",
+ "relevance_evaluation": "Evaluate the relevance of the paper to the specific point being asked. Explain your reasoning in a maximum of 3 sentences.",
+ "relevance_score": "On a scale from 0.0 to 1.0, parsimoniously rate the relevance of the paper to the point you are making in your review, with 1.0 being the most relevant.",
+ "limitations": "List the main limitations of the study, separated by commas using a maximum of 2 sentences.",
+ "inline_citation": "Provide the inline citation for the paper using the format: (Author Surname, Publication Year). If it's not directly provided, do your best to infer it",
+ "apa_citation": "Provide the full APA citation for the paper, ensuring that all elements (author, year, title, publication, etc.) are correctly formatted. If it's not directly provided, do your best to infer it",
+ "study_location": "Specify the city/region and country where the study was conducted.",
+ "main_objective": "State the main objective of the study in 1-2 sentences.",
+ "technologies_used": "List the key technologies used in the study, separated by commas. Be ultra-specific.",
+ "data_sources": "List the main data sources used in the study, separated by commas. Be ultra-specific",
+ "key_findings": "Summarize the key findings of the study in 2-3 sentences."
+}}
+</response_format>
+
+Pay extreme attention to detail and include as much relevant information as possible within the specified constraints. Your analysis should be rigorous, insightful, and focused on the specific point provided in <point_focus>.
+</instructions>
+
+<context>
+
+<point_focus>
+{point_context}
+</point_focus>
+
+<full_text>
+{full_text}
+</full_text>
+
+</context>
+""",
+        "synthesize_results": """
+<prompt>
+    <expert_description>
+        You are a gifted polymath adept at synthesizing and breaking down rigorous research into digestible parts without sacrificing rigor, utilizing provided materials to offer a structured answer to the user's question through the synthesis of research papers.
+    </expert_description>
+    <user_query>
+        {user_query}
+    </user_query>
+    <returned_results>
+        {returned_results}
+    </returned_results>
+    <response_format>
+        Structure your answer as a literature review section of a research paper, aimed at answering the user's question with data and insights from the provided returned_results. 
+        Cite the research papers inline, including hyperlinks to the papers' DOI where necessary(you may need to add a https://doi.org/ to the DOI to make it a hyperlink). 
+        Include full citations of the papers in the references section at the end. There will be no other sections other than the response and the references. 
+        Organize the response in the way that feels most natural and clear.    </response_format>
+</prompt>
+
+""",
+    }
+    try:
+        return prompts[template_name].format(**kwargs)
+
+    except KeyError as e:
+        missing_key = str(e).strip("'")
+        raise ValueError(
+            f"Missing argument for template '{template_name}': {missing_key}"
+        )
+
+
+# Contents of ./utils\scopus_search.py
+"""
+Scopus Search Program
+
+This program performs searches on the Scopus API based on the provided JSON queries.
+It retrieves relevant data for the first entry with successfully scraped full text,
+including title, DOI, description, journal, authors, citation count, and full text.
+The results are returned in the updated JSON format.
+
+Usage:
+    scopus_search = ScopusSearch(doi_scraper)
+    updated_json = scopus_search.search_and_parse_json(input_json)
+
+Parameters:
+    - doi_scraper: A scraper object capable of retrieving full text content given a DOI.
+    - input_json: A JSON object containing the search queries in the specified format.
+
+Returns:
+    - updated_json: The updated JSON object with the search results and additional data.
+"""
+
+import aiohttp
+import asyncio
+import json
+import time
+import logging
+from collections import deque
+from misc_utils import prepare_text_for_json
+from web_scraper import WebScraper
+
+# Create a logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create a console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create a formatter
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+
+# Add the console handler to the logger
+logger.addHandler(console_handler)
+
+# Optional: Create a file handler to log messages to a file
+file_handler = logging.FileHandler("scopus.log")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+class ScopusSearch:
+    def __init__(self, doi_scraper, key_path, session, max_retries=4):
+        self.load_api_keys(key_path)
+        self.base_url = "http://api.elsevier.com/content/search/scopus"
+        self.request_times = deque(maxlen=6)
+        self.scraper = doi_scraper
+        self.session = session
+        self.max_retries = max_retries
+
+    def load_api_keys(self, key_path):
+        try:
+            with open(key_path, "r") as file:
+                api_keys = json.load(file)
+            self.api_key = api_keys["SCOPUS_API_KEY"]
+            logger.info("API keys loaded successfully.")
+        except FileNotFoundError:
+            logger.error(f"API key file not found at path: {key_path}")
+        except KeyError:
+            logger.error("SCOPUS_API_KEY not found in the API key file.")
+        except json.JSONDecodeError:
+            logger.error("Invalid JSON format in the API key file.")
+
+    async def search(self, query, count=25, view="COMPLETE", response_format="json"):
+        headers = {
+            "X-ELS-APIKey": self.api_key,
+            "Accept": (
+                "application/json"
+                if response_format == "json"
+                else "application/atom+xml"
+            ),
+        }
+
+        params = {"query": query.replace("\\", ""), "count": count, "view": view}
+
+        retry_count = 0
+        while retry_count < self.max_retries:
+            try:
+                # Ensure compliance with the rate limit
+                while True:
+                    current_time = time.time()
+                    if (
+                        not self.request_times
+                        or current_time - self.request_times[0] >= 1
+                    ):
+                        self.request_times.append(current_time)
+                        break
+                    else:
+                        await asyncio.sleep(0.2)
+
+                async with self.session.get(
+                    self.base_url, headers=headers, params=params
+                ) as response:
+                    if response.status == 200:
+                        logger.info("Scopus API request successful.")
+                        if response_format == "json":
+                            return await response.json()
+                        else:
+                            return await response.text()
+                    else:
+                        logger.warning(
+                            f"Scopus API request failed with status code: {response.status}"
+                        )
+                        return None
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                retry_count += 1
+                wait_time = 2**retry_count
+                logger.warning(
+                    f"Error occurred while making Scopus API request: {e}. Retrying in {wait_time} seconds... (Attempt {retry_count}/{self.max_retries})"
+                )
+                await asyncio.sleep(wait_time)  # Exponential backoff
+
+        logger.error(
+            f"Max retries ({self.max_retries}) exceeded. Unable to fetch data from the Scopus API for query: {query}"
+        )
+        return None
+
+    async def search_and_parse(self, query, query_id, count=25, view="COMPLETE"):
+        try:
+            results = await self.search(query, count, view, response_format="json")
+
+            if (
+                results is None
+                or "search-results" not in results
+                or "entry" not in results["search-results"]
+            ):
+                logger.warning(f"No results found for query: {query}")
+                return {}
+            else:
+                for entry in results["search-results"]["entry"]:
+                    title = entry.get("dc:title")
+                    doi = entry.get("prism:doi")
+                    description = entry.get("dc:description")
+                    journal = entry.get("prism:publicationName")
+                    citation_count = entry.get("citedby-count", "0")
+                    authors = [
+                        author.get("authname")
+                        for author in entry.get("author", [])
+                        if author.get("authname") is not None
+                    ]
+
+                    full_text = None
+                    if doi:
+                        logger.info(f"Scraping full text for DOI: {doi}")
+                        try:
+                            full_text = await self.scraper.get_url_content(doi)
+                            full_text = await prepare_text_for_json(full_text)
+                            logger.info(
+                                f"Full text scraped successfully for DOI: {doi}"
+                            )
+                        except Exception as e:
+                            logger.warning(
+                                f"Error occurred while scraping full text for DOI: {doi}. Error: {e}"
+                            )
+                            continue
+
+                    parsed_result = {
+                        "search_query": query,
+                        "title": title,
+                        "DOI": doi,
+                        "description": description,
+                        "journal": journal,
+                        "authors": authors,
+                        "citation_count": citation_count,
+                        "full_text": full_text or "",
+                    }
+
+                    return parsed_result
+
+                logger.warning(f"No full text successfully scraped for query: {query}")
+                return {}
+        except Exception as e:
+            logger.error(
+                f"An error occurred while searching and parsing results for query: {query}. Error: {e}"
+            )
+            return {}
+
+    async def search_and_parse_json(self, input_json):
+        try:
+            updated_json = {}
+            for query_id, query in input_json.items():
+                parsed_result = await self.search_and_parse(query, query_id)
+                updated_json[query_id] = parsed_result
+            return json.dumps(updated_json, ensure_ascii=False)
+        except Exception as e:
+            logger.error(
+                f"An error occurred while processing the input JSON. Error: {e}"
+            )
+            return json.dumps({})
+
+
+async def main():
+    # Create an instance of the DOIScraper class (assuming it exists)
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+
+    async with aiohttp.ClientSession() as session:
+        doi_scraper = WebScraper(session)
+        # Create an instance of the ScopusSearch class
+        scopus_search = ScopusSearch(doi_scraper, api_key_path, session)
+
+        # Example usage
+        input_json = {
+            "query_1": 'TITLE-ABS-KEY("heart disease" AND "chickens")',
+            "query_2": 'TITLE-ABS-KEY("cardiovascular disease" AND "poultry")',
+            "query_3": 'TITLE-ABS-KEY("heart failure" AND "broiler chickens")',
+            "query_4": 'TITLE-ABS-KEY("myocarditis" AND "chickens")',
+            "query_5": 'TITLE-ABS-KEY("pericarditis" AND "poultry")',
+        }
+
+        # Call the search_and_parse_json method
+        updated_json = await scopus_search.search_and_parse_json(input_json)
+        print(updated_json)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+# Contents of ./utils\synthesize_results.py
+import asyncio
+import logging
+from llm_api_handler import LLM_APIHandler
+from prompts import get_prompt
+import aiohttp
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+class QueryProcessor:
+    def __init__(self, api_key_path, session):
+        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
+
+    async def process_query(self, user_query, returned_results):
+        prompt = get_prompt(
+            template_name="synthesize_results",
+            user_query=user_query,
+            returned_results=returned_results,
+        )
+        try:
+            logger.info(f"Processing query: {user_query}")
+            response = await self.llm_api_handler.generate_opus_content(prompt)
+            return response
+        except Exception as e:
+            logger.error(f"Error processing query: {e}")
+            return None
+
+
+async def main():
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+
+    async with aiohttp.ClientSession() as session:
+        query_processor = QueryProcessor(api_key_path, session)
+
+        user_query = "What are the latest advancements in artificial intelligence?"
+        returned_results = [
+            "AI has made significant progress in fields such as computer vision and natural language processing.",
+            "Deep learning techniques have revolutionized AI, enabling machines to learn from large datasets.",
+            "AI is being applied in various domains, including healthcare, finance, and autonomous vehicles.",
+        ]
+
+        logger.info("Starting query processing...")
+        response = await query_processor.process_query(user_query, returned_results)
+        if response:
+            logger.info(f"Response: {response}")
+        else:
+            logger.warning("Failed to generate a response.")
+        logger.info("Query processing completed.")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+# Contents of ./utils\user_interface.py
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import gradio as gr
+import json
+import aiohttp
+import logging
+from utils.get_search_queries import QueryGenerator
+from utils.scopus_search import ScopusSearch
+from utils.analyze_papers import PaperRanker
+from utils.synthesize_results import QueryProcessor
+from utils.web_scraper import WebScraper
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("research_query_processor.log"),
+        logging.StreamHandler(),
+    ],
+)
+
+
+class ResearchQueryProcessor:
+    def __init__(self, api_key_path):
+        self.api_key_path = api_key_path
+        self.session = None
+
+    async def chatbot_response(self, message, history):
+        async with aiohttp.ClientSession() as session:
+            self.session = session
+            logging.info(f"Received message: {message}")
+
+            yield "Generating search queries..."
+            query_generator = QueryGenerator(self.api_key_path, self.session)
+            search_queries = await query_generator.generate_queries(message)
+            logging.info(f"Generated search queries: {search_queries}")
+
+            yield "Searching in Scopus..."
+            doi_scraper = WebScraper(self.session)
+            scopus_search = ScopusSearch(doi_scraper, self.api_key_path, self.session)
+            search_results = await scopus_search.search_and_parse_json(search_queries)
+            search_results_json = json.loads(search_results)
+            logging.info(f"Scopus search results: {search_results_json}")
+
+            yield "Analyzing papers..."
+            paper_ranker = PaperRanker(self.api_key_path, self.session)
+            analyzed_papers = await paper_ranker.process_queries(
+                search_results_json, message
+            )
+            logging.info(f"Analyzed papers: {analyzed_papers}")
+
+            yield "Synthesizing results..."
+            query_processor = QueryProcessor(self.api_key_path, self.session)
+            synthesized_results = await query_processor.process_query(
+                message, analyzed_papers
+            )
+            logging.info(f"Synthesized results: {synthesized_results}")
+
+            yield f"Completed! Here are your results: {synthesized_results}"
+
+
+def main():
+    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+    processor = ResearchQueryProcessor(api_key_path)
+    chat_interface = gr.ChatInterface(
+        fn=processor.chatbot_response,
+        title="Literature Review Agent",
+        description="Enter your research query below.",
+        theme=gr.themes.Soft(),
+    )
+    chat_interface.launch(share=True)
+
+
+if __name__ == "__main__":
+    main()
+
+
+# Contents of ./utils\web_scraper.py
+import asyncio
+import random
+import aiohttp
+from playwright.async_api import async_playwright
+from fake_useragent import UserAgent
+import logging
+import sys
+
+
+class WebScraper:
+    def __init__(self, session, max_concurrent_tasks=120):
+        self.semaphore = asyncio.Semaphore(max_concurrent_tasks)
+        self.user_agent = UserAgent()
+        self.browser = None
+        self.session = session
+        self.logger = logging.getLogger(__name__)
+
+    async def initialize(self):
+        try:
+            playwright = await async_playwright().start()
+            self.browser = await playwright.chromium.launch(headless=True)
+            self.logger.info("Browser initialized successfully")
+        except Exception as e:
+            self.logger.error(f"Failed to initialize browser: {str(e)}")
+            raise
+
+    async def close(self):
+        if self.browser:
+            await self.browser.close()
+            self.logger.info("Browser closed")
+
+    async def scrape_url(self, url, max_retries=3):
+        if not self.browser:
+            await self.initialize()  # Ensure the browser is initialized
+
+        retry_count = 0
+        while retry_count < max_retries:
+            try:
+                context = await self.browser.new_context(
+                    user_agent=self.user_agent.random,
+                    viewport={"width": 1920, "height": 1080},
+                    ignore_https_errors=True,
+                )
+                page = await context.new_page()
+                await self.navigate_to_url(page, url)
+                content = await self.extract_text_content(page)
+                self.logger.info(f"Successfully scraped URL: {url}")
+                await page.close()
+                await context.close()
+                return content
+            except Exception as e:
+                self.logger.error(
+                    f"Error occurred while scraping URL: {url}. Error: {str(e)}"
+                )
+                retry_count += 1
+                await asyncio.sleep(
+                    random.uniform(1, 5)
+                )  # Random delay between retries
+            finally:
+                try:
+                    await page.close()
+                    await context.close()
+                except Exception as e:
+                    self.logger.warning(
+                        f"Error occurred while closing page or context: {str(e)}"
+                    )
+        self.logger.warning(f"Max retries exceeded for URL: {url}")
+        return ""
+
+    async def get_url_content(self, url):
+        async with self.semaphore:
+            return await self.scrape_url(url)
+
+    async def navigate_to_url(self, page, url, max_retries=3):
+        if not url.startswith("http"):
+            url = f"https://doi.org/{url}"
+        retry_count = 0
+        while retry_count < max_retries:
+            try:
+                await page.goto(url, wait_until="networkidle", timeout=30000)
+                await asyncio.sleep(1)  # Minor delay to ensure page loads completely
+                return
+            except Exception as e:
+                self.logger.warning(
+                    f"Retrying URL: {url}. Remaining retries: {max_retries - retry_count}"
+                )
+                retry_count += 1
+                await asyncio.sleep(
+                    random.uniform(1, 5)
+                )  # Random delay between retries
+        self.logger.error(
+            f"Failed to navigate to URL: {url} after {max_retries} retries"
+        )
+        raise e
+
+    async def extract_text_content(self, page):
+        try:
+            paragraphs = await page.query_selector_all("p")
+            text_content = "".join(
+                [await paragraph.inner_text() + "\n" for paragraph in paragraphs]
+            )
+            return text_content.strip()
+        except Exception as e:
+            self.logger.error(f"Failed to extract text content. Error: {str(e)}")
+            return ""
+
+
+# Usage
+async def main():
+    log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    logging.basicConfig(
+        level=logging.INFO,
+        format=log_format,
+        handlers=[
+            logging.FileHandler("scraper.log"),
+            logging.StreamHandler(sys.stdout),
+        ],
+    )
+
+    async with aiohttp.ClientSession() as session:
+        scraper = WebScraper(session=session)
+        try:
+            await scraper.initialize()
+        except Exception as e:
+            logging.error(f"Initialization failed: {e}")
+            return  # Early return if initialization fails
+
+        urls = [
+            "10.1016/j.ifacol.2020.12.237",
+            "10.1016/j.agwat.2023.108536",
+            "10.1016/j.atech.2023.100251",
+            "10.1016/j.atech.2023.100179",
+            "10.1016/j.ifacol.2023.10.677",
+            "10.1016/j.ifacol.2023.10.1655",
+            "10.1016/j.ifacol.2023.10.667",
+            "10.1002/cjce.24764",
+            "10.3390/app13084734",
+            "10.1016/j.atech.2022.100074",
+            "10.1007/s10668-023-04028-9",
+            "10.1109/IJCNN54540.2023.10191862",
+            "10.1201/9780429290152-5",
+            "10.1016/j.jprocont.2022.10.003",
+            "10.1016/j.rser.2022.112790",
+            "10.1007/s11269-022-03191-4",
+            "10.3390/app12094235",
+            "10.3390/w14060889",
+            "10.3390/su14031304",
+        ]
+
+        scrape_tasks = []
+        for url in urls:
+            scrape_task = asyncio.create_task(scraper.get_url_content(url))
+            scrape_tasks.append(scrape_task)
+
+        scraped_contents = await asyncio.gather(*scrape_tasks)
+
+        for url, content in zip(urls, scraped_contents):
+            logging.info(f"Scraped content for URL: {url}")
+            logging.info(f"Content: {content}")
+
+        await scraper.close()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+# Contents of ./utils\__init__.py
+"""
+__init__.py
+This file ensures that the 'utils' directory is treated as a Python module.
+"""
+
+"""
+The YAML structure provided consists of a single top-level key named subsections, which contains a list of items. Each item in this list represents a Point, identified numerically (Point 1, Point 2, etc.). Below is a detailed breakdown of the hierarchical structure:
+
+Top Level
+
+subsections: A list containing items, each of which represents a subsection of content.
+Second Level (Points)
+
+Each item within subsections is a Point, denoted by - points: and further identified by a title (e.g., Point 1, Point 2, etc.).
+Third Level (Content within Points)
+
+Each Point contains:
+google_queries: A list of dictionaries. Each dictionary represents a Google search query and contains a query string, a query_id string, and a responses list.
+point_content: A string that describes the content or focus of the Point.
+alex_queries: A list of dictionaries similar to google_queries. Each dictionary represents a alex search query and contains a query string, a query_id string, and a responses list.
+Fourth Level (Query Responses)
+
+Within each google_queries and alex_queries dictionary, the responses list contains dictionaries, each representing an individual response to the query. These dictionaries include keys such as DOI, authors, citation_count, full_citation, full_text, inline_citation, journal, pdf_link, publication_year, response_id, and title, most of which are strings or lists, and some may be integers.
+This structure is repeated for each Point within the subsections. The Points are numbered sequentially and each contains its unique set of Google and alex queries along with their respective responses and a brief content description. Each query within the google_queries and alex_queries lists is identified by a unique query_id and contains multiple responses, each response structured consistently across the dataset.
+"""
+
+"""The YAML structure represents a hierarchical organization of data related to irrigation management. It consists of multiple levels of nesting, with each level providing more specific information or details.
+
+At the top level, we have the "subsections" key, which contains a list of subsections. Each subsection represents a high-level topic or category within the overall subject of irrigation management.
+
+Within each subsection, there is a "points" key, which holds a list of points. Each point represents a specific aspect, concept, or item related to the subsection it belongs to. Points are the main units of information within the YAML structure.
+
+Each point is represented as a dictionary with a single key-value pair. The key of this pair is the title or name of the point, providing a brief description or identifier for that particular point. The value associated with the point title is another dictionary that contains further details and information related to that point.
+
+Inside each point dictionary, there are two optional keys: "google_queries" and "alex_queries". These keys represent different types of queries or searches associated with the point.
+
+The "google_queries" key, if present, contains a list of dictionaries representing Google search queries related to the point. Each dictionary within this list corresponds to a specific Google query and includes the following information:
+"query": The actual query string used for the Google search.
+"query_id": A unique identifier for the query, prefixed with "google_".
+"responses": A list of dictionaries representing the search results or responses obtained from the Google query. Each response dictionary contains various fields such as "DOI", "authors", "citation_count", "full_citation", "full_text", "inline_citation", "journal", "pdf_link", "publication_year", "response_id", and "title".
+Similarly, the "alex_queries" key, if present, contains a list of dictionaries representing alex search queries related to the point. Each dictionary within this list corresponds to a specific alex query and follows a structure similar to the Google queries, with fields like "query", "query_id", and "responses".
+The "point_content" key within each point dictionary provides a brief description or summary of the content or focus of that particular point.
+
+In the code, the process_queries function traverses this YAML structure to process the queries and retrieve relevant information. It starts by iterating over the subsections, then moves on to the points within each subsection. For each point, it checks for the presence of "google_queries" and "alex_queries" keys. If found, it processes the corresponding queries using the get_scholar_data function (for Google queries) or performs alex query processing (not shown in the code snippet). The retrieved results are stored back into the "responses" field of each query dictionary.
+
+The hierarchy flows from subsections to points, and within each point, it branches into Google queries and alex queries. The queries are processed individually, and their results are stored within the respective query dictionaries, maintaining the overall structure and organization of the YAML data.
+
+This hierarchical and nested structure allows for a clear and organized representation of the data, enabling easy access and retrieval of specific information related to irrigation management based on subsections, points, and associated queries."""

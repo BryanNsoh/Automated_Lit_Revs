@@ -2,13 +2,11 @@ import os
 
 
 def copy_py_to_txt(output_file, folder):
-    with open(output_file, "w") as outfile:
+    with open(output_file, "w", encoding="utf-8") as outfile:
         for filename in os.listdir(folder):
-            if filename.endswith(".py") and not (
-                filename.endswith(".yaml") or filename.endswith(".json")
-            ):
+            if filename.endswith(".py"):
                 file_path = os.path.join(folder, filename)
-                with open(file_path, "r") as infile:
+                with open(file_path, "r", encoding="utf-8") as infile:
                     outfile.write(f"\n\n# Contents of {file_path}\n")
                     outfile.write(infile.read())
 

@@ -1,12 +1,17 @@
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import gradio as gr
 import json
 import aiohttp
 import logging
-from get_search_queries import QueryGenerator
-from scopus_search import ScopusSearch
-from analyze_papers import PaperRanker
-from synthesize_results import QueryProcessor
-from web_scraper import WebScraper
+from utils.get_search_queries import QueryGenerator
+from utils.scopus_search import ScopusSearch
+from utils.analyze_papers import PaperRanker
+from utils.synthesize_results import QueryProcessor
+from utils.web_scraper import WebScraper
 
 # Configure logging
 logging.basicConfig(
