@@ -1,9 +1,10 @@
 import asyncio
 import logging
-import json
+import re
 from llm_api_handler import LLM_APIHandler
 from prompts import get_prompt
 import aiohttp
+import json
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -28,36 +29,64 @@ class PaperRanker:
         while retry_count < self.max_retries:
             prompt = get_prompt(
                 template_name="rank_papers",
-                full_text=query_data,
+                full_text=query_data["full_text"],
                 point_context=point_context,
+                query_rationale=query_data["query_rationale"],
             )
             try:
                 print(f"Processing queries for {point_context}...")
                 response = await self.llm_api_handler.generate_cohere_content(prompt)
+                print(f"Response: {response}")
                 if response is None:
                     logger.warning(
                         "Received None response from the Gemini API. Skipping query."
                     )
                     return None
+
                 try:
-                    # Find text between the first and last curly braces
-                    response = response[response.find("{") : response.rfind("}") + 1]
-                    json_data = json.loads(response)
-                    json_data["DOI"] = query_data["DOI"]
-                    json_data["title"] = query_data["title"]
-                    logger.debug(f"Successfully processed query.")
-                    print(f"Contents: {json_data}")
-                    return json_data
-                except json.JSONDecodeError:
+                    # Extract the relevance score using the specified token format
+                    relevance_score_match = re.search(
+                        r"<<relevance>>(\d+\.\d+)<<relevance>>",
+                        response,
+                    )
+
+                    if relevance_score_match:
+                        relevance_score_str = relevance_score_match.group(1)
+                        try:
+                            relevance_score = float(relevance_score_str)
+                            if relevance_score > 0.5:
+                                logger.debug(f"Successfully processed query.")
+                                return {
+                                    "DOI": query_data["DOI"],
+                                    "title": query_data["title"],
+                                    "analysis": response,
+                                    "relevance_score": relevance_score,
+                                }
+                            else:
+                                logger.debug(
+                                    f"Relevance score {relevance_score} is below the threshold. Skipping query."
+                                )
+                                return None
+                        except ValueError:
+                            logger.warning(
+                                f"Extracted relevance score '{relevance_score_str}' is not a valid float. Retrying..."
+                            )
+                            retry_count += 1
+                    else:
+                        logger.warning(
+                            f"No relevance score found between <|relevance|> tokens in the response for query {query_key}. Response: {response}"
+                        )
+                        retry_count += 1
+                except Exception as e:
                     logger.warning(
-                        f"Invalid JSON response for the current query. Retrying immediately..."
+                        f"Error extracting relevance score for query {query_key}: {str(e)}. Retrying..."
                     )
                     retry_count += 1
             except Exception as e:
-                logger.exception(f"Error processing query: {str(e)}")
+                logger.exception(f"Error processing query {query_key}: {str(e)}")
                 retry_count += 1
 
-        logger.error(f"Max retries reached for current query. Skipping query.")
+        logger.error(f"Max retries reached for query {query_key}. Skipping query.")
         return None
 
     async def process_queries(self, input_json, point_context):
@@ -77,15 +106,7 @@ class PaperRanker:
         output_json = {}
         for query_key, result in zip(input_json.keys(), results):
             if result and isinstance(result, dict):
-                relevance_score = result.get("relevance_score")
-                try:
-                    relevance_score = float(relevance_score)
-                    if relevance_score > 0.5:
-                        output_json[query_key] = result
-                except (ValueError, TypeError):
-                    logger.warning(
-                        f"Invalid relevance score for query {query_key}. Skipping paper."
-                    )
+                output_json[query_key] = result
 
         return output_json
 
@@ -112,6 +133,7 @@ if __name__ == "__main__":
             "publication_year": 1984,
             "title": "Type 2 (non-insulin-dependent) diabetes mellitus and coronary heart disease ? chicken, egg or neither?",
             "full_text": "This is the full text of the paper...",
+            "query_rationale": "This query aims to understand the relationship between Type 2 diabetes and coronary heart disease in chickens.",
         },
         "query_2": {
             "DOI": "https://doi.org/10.1001/jamainternmed.2019.6969",
@@ -131,6 +153,7 @@ if __name__ == "__main__":
             "publication_year": 2020,
             "title": "Associations of Processed Meat, Unprocessed Red Meat, Poultry, or Fish Intake With Incident Cardiovascular Disease and All-Cause Mortality",
             "full_text": "This is the full text of the paper...",
+            "query_rationale": "This query investigates the associations between different types of meat intake, including poultry, and cardiovascular disease and mortality.",
         },
         "query_3": {
             "DOI": "https://doi.org/10.1016/s0034-5288(18)33737-8",
@@ -140,6 +163,7 @@ if __name__ == "__main__":
             "publication_year": 1974,
             "title": "High Altitude Induced Pulmonary Hypertension and Right Heart Failure in Broiler Chickens",
             "full_text": "This is the full text of the paper...",
+            "query_rationale": "This query focuses on the effects of high altitude on pulmonary hypertension and right heart failure specifically in broiler chickens.",
         },
         "query_4": {
             "DOI": "https://doi.org/10.2307/1588087",
@@ -149,6 +173,7 @@ if __name__ == "__main__":
             "publication_year": 1968,
             "title": "Myocarditis in Broiler Chickens Reared at High Altitude",
             "full_text": "This is the full text of the paper...",
+            "query_rationale": "This query examines myocarditis in broiler chickens reared at high altitude, providing insight into heart disease in this specific context.",
         },
         "query_5": {
             "DOI": "https://doi.org/10.1038/srep14727",
@@ -166,6 +191,7 @@ if __name__ == "__main__":
             "publication_year": 2015,
             "title": "Isolation and molecular characterization of newly emerging avian reovirus variants and novel strains in Pennsylvania, USA, 2011–2014",
             "full_text": "This is the full text of the paper...",
+            "query_rationale": "This query looks at the isolation and characterization of new avian reovirus variants and strains, which may have implications for chicken health.",
         },
     }
     point_context = "Heart disease in chickens."

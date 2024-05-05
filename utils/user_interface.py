@@ -12,6 +12,7 @@ from utils.scopus_search import ScopusSearch
 from utils.analyze_papers import PaperRanker
 from utils.synthesize_results import QueryProcessor
 from utils.web_scraper import WebScraper
+from utils.core_search import CORESearch
 
 # Configure logging
 logging.basicConfig(
@@ -39,17 +40,24 @@ class ResearchQueryProcessor:
             search_queries = await query_generator.generate_queries(message)
             logging.info(f"Generated search queries: {search_queries}")
 
-            yield "Searching in Scopus..."
-            doi_scraper = WebScraper(self.session)
-            scopus_search = ScopusSearch(doi_scraper, self.api_key_path, self.session)
-            search_results = await scopus_search.search_and_parse_json(search_queries)
-            search_results_json = json.loads(search_results)
-            logging.info(f"Scopus search results: {search_results_json}")
+            # yield "Searching in Scopus..."
+            # doi_scraper = WebScraper(self.session)
+            # scopus_search = ScopusSearch(doi_scraper, self.api_key_path, self.session)
+            # search_results = await scopus_search.search_and_parse_json(search_queries)
+            # search_results_json = json.loads(search_results)
+            # logging.info(f"Scopus search results: {search_results_json}")
+
+            yield "Searching in CORE..."
+            core_search = CORESearch(self.api_key_path, max_results=5)
+            search_results = await core_search.search_and_parse_json(search_queries)
+            print(search_results)
+            # print the full json format of the search results without the values
+            print(json.dumps(search_results, indent=4, sort_keys=True))
 
             yield "Analyzing papers..."
             paper_ranker = PaperRanker(self.api_key_path, self.session)
             analyzed_papers = await paper_ranker.process_queries(
-                search_results_json, message
+                search_results, message
             )
             logging.info(f"Analyzed papers: {analyzed_papers}")
 

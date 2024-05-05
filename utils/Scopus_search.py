@@ -81,7 +81,11 @@ class ScopusSearch:
             ),
         }
 
-        params = {"query": query.replace("\\", ""), "count": count, "view": view}
+        params = {
+            "query": query["search_query"].replace("\\", ""),
+            "count": count,
+            "view": view,
+        }
 
         retry_count = 0
         while retry_count < self.max_retries:
@@ -165,7 +169,8 @@ class ScopusSearch:
                             continue
 
                     parsed_result = {
-                        "search_query": query,
+                        "search_query": query["search_query"],
+                        "query_rationale": query["query_rationale"],
                         "title": title,
                         "DOI": doi,
                         "description": description,
@@ -210,11 +215,26 @@ async def main():
 
         # Example usage
         input_json = {
-            "query_1": 'TITLE-ABS-KEY("heart disease" AND "chickens")',
-            "query_2": 'TITLE-ABS-KEY("cardiovascular disease" AND "poultry")',
-            "query_3": 'TITLE-ABS-KEY("heart failure" AND "broiler chickens")',
-            "query_4": 'TITLE-ABS-KEY("myocarditis" AND "chickens")',
-            "query_5": 'TITLE-ABS-KEY("pericarditis" AND "poultry")',
+            "query_1": {
+                "search_query": "TITLE-ABS-KEY(heart disease AND chickens AND pathology)",
+                "query_rationale": "This query is essential to understand the pathology of heart disease in chickens, providing a foundation for further investigation.",
+            },
+            "query_2": {
+                "search_query": "TITLE-ABS-KEY(heart disease AND chickens AND epidemiology)",
+                "query_rationale": "This query is necessary to identify the prevalence and distribution of heart disease in chicken populations, informing strategies for disease control and prevention.",
+            },
+            "query_3": {
+                "search_query": "TITLE-ABS-KEY(heart disease AND chickens AND nutrition)",
+                "query_rationale": "This query is important to explore the relationship between nutrition and heart disease in chickens, potentially identifying dietary factors that contribute to the development of the disease.",
+            },
+            "query_4": {
+                "search_query": "TITLE-ABS-KEY(heart disease AND chickens AND genetics)",
+                "query_rationale": "This query is crucial to investigate the genetic factors that predispose chickens to heart disease, enabling the development of breeding programs that reduce the incidence of the disease.",
+            },
+            "query_5": {
+                "search_query": "TITLE-ABS-KEY(heart disease AND chickens AND diagnosis)",
+                "query_rationale": "This query is essential to identify effective diagnostic methods for heart disease in chickens, ensuring accurate and timely detection of the disease.",
+            },
         }
 
         # Call the search_and_parse_json method

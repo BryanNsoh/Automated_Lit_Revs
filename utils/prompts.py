@@ -87,6 +87,68 @@ Example Searches
 These example searches demonstrate how to create targeted, effective alex searches. They focus on specific topics, exclude irrelevant results, allow synonym flexibility, and limit to relevant domains when needed. The search terms are carefully selected to balance relevance and specificity while avoiding being overly restrictive.  By combining relevant keywords, exact phrases, and operators, these searches help generate high-quality results for the given topics.
 """
 
+core_search_guide = """
+### CORE API Search Guide: Formulating Queries in JSON Format
+
+This guide provides a structured approach to creating effective search queries using the CORE API. The guide emphasizes the JSON format to ensure clarity and precision in your search queries.
+
+#### Syntax and Operators
+
+**Valid Syntax for CORE API Queries:**
+- **Field-specific searches**: Direct your query to search within specific fields like `title`, `author`, or `subject`.
+- **Boolean Operators**: Use `AND`, `OR`, and `NOT` to combine or exclude terms.
+- **Grouping**: Use parentheses `()` to structure the query and define the order of operations.
+- **Range Queries**: Specify ranges for dates or numerical values with `>`, `<`, `>=`, `<=`.
+- **Existence Check**: Use `_exists_` to filter results based on the presence of data in specified fields.
+
+**Invalid Syntax:**
+- **Inconsistencies in field names**: Ensure field names are correctly spelled and appropriate for the data type.
+- **Improper boolean logic**: Avoid illogical combinations that nullify the search criteria (e.g., `AND NOT` used incorrectly).
+
+#### Ideal Query Structure
+
+Your search queries should:
+1. **Use Field-Specific Filters**: Focus your search on the most relevant attributes.
+2. **Combine Keywords Effectively**: Use logical operators to refine and broaden your searches.
+3. **Employ Grouping and Range Queries** where complex relationships or specific time frames are needed.
+
+#### Example Advanced Searches in JSON Format
+
+Here are examples of structured queries formatted in JSON, demonstrating different ways to effectively combine search criteria using the CORE API:
+
+```json
+{
+    "query_1": {
+        "search_query": "climate change, water resources",
+        "query_rationale": "This query is essential to understand the overall impact of climate change on global water resources, providing a broad understanding of the topic.",
+    },
+    "query_2": {
+        "search_query": "water scarcity, (hydrologist OR water expert)",
+        "query_rationale": "This query is necessary to identify areas with high water scarcity and how climate change affects the global distribution of water resources.",
+    },
+    "query_3": {
+        "search_query": "sea level rise, coastal erosion",
+        "query_rationale": "This query is crucial to understand the impact of climate change on coastal regions and the resulting effects on global water resources.",
+    },
+    "query_4": {
+        "search_query": "water conservation, climate change mitigation, environmental studies",
+        "query_rationale": "This query is important to identify strategies for water conservation and their role in mitigating the effects of climate change on global water resources.",
+    },
+    "query_5": {
+        "search_query": "glacier melting, cryosphere",
+        "query_rationale": "This query is necessary to understand the impact of climate change on glaciers and the resulting effects on global water resources.",
+    },
+}
+```
+
+### Critical Considerations
+
+- **Escape Characters**: When using JSON format, ensure that all double quotes inside JSON values are properly escaped using backslashes (`\"`) to prevent parsing errors.
+- **Complexity**: As queries become more complex, ensure they are still readable and maintainable. Use whitespace and indentation in JSON to enhance clarity.
+
+These examples illustrate how to utilize the CORE API's flexible query capabilities to target specific fields, combine search terms logically, and exclude irrelevant data. By following these guidelines and adapting the examples to your research needs, you can efficiently leverage the CORE API to access a vast range of academic materials.
+"""
+
 
 def remove_illegal_characters(text):
     if text is None:
@@ -104,32 +166,22 @@ def get_prompt(template_name, **kwargs):
 <source>search_query_prompt.txt</source>
 <document_content>
 <instructions>
-Carefully review the provided context, including the specific point that needs to be addressed by the literature search, given in <point_content>. Your task is to generate a set of 10 highly optimized search queries that would surface the most relevant, insightful, and comprehensive set of research articles to shed light on various aspects of the particular point <point_content>. The queries should:
-- Be thoughtfully crafted to return results that directly address the key issues and nuances of the <point_content>
-- Demonstrate creativity and variety in their formulation to capture different dimensions of the topic
-- Use precise terminology and logical operators to maintain a high signal-to-noise ratio in the results
-- Cover a broad range of potential subtopics, perspectives, and article types related to the <point_content>
-- Adhere strictly and diligently to any specific guidance or requirements provided in <search_guidance>. This is critical!
-Provide your response strictly in the following JSON format as a single json object:
+Review the user's main query: '{user_query}'. Break down this query into distinct sub-queries that address different aspects necessary to fully answer the main query. 
+For each sub-query, provide a rationale explaining why it is essential. Format these sub-queries according to the directions in <search_guidance>. structure your response as a json with detailed search queries, each accompanied by its rationale. 
+The output should adhere to this format:
 {{
-    "query_1": "Query",
-    "query_2": "Query",
-    "query_3": "Query",
-    "query_4": Query",
-    "query_5": "Query",
-    "query_6": "Query",
-    "query_7": "Query",
-    "query_8": "Query",
-    "query_9": "Query",
-    "query_10": "Query",  
+  "query_1": {{
+    "search_query": "unique query following the provided search guidance",
+    "query_rationale": "This query is essential to understand the overall impact of climate change on global water resources, providing a broad understanding of the topic."
+  }},
+  "query_2": {{
+    "search_query": "unique query following the provided search guidance",
+    "query_rationale": "This query is necessary to identify areas with high water scarcity and how climate change affects the global distribution of water resources."
+  }},
+  ...
 }}
-** Critical: all double quotes other than the outermost ones should be preceded by a backslash (\") to escape them in the JSON format. Failure to do so will result in an error when parsing the JSON string.
-Each query_n should be replaced with a unique, well-formulated search entry according to the instructions in <search_guidance>. No other text should be included. Any extraneous text or deviation from this exact format will result in an unusable output.
+**Note: Only generate as many sub-queries and rationales as necessary to thoroughly address the main query, up to a maximum of 10. Each sub-query must directly contribute to unraveling the main query's aspects.
 </instructions>
-<resources>
-<point_content>
-{point_content}
-</point_content>
 <search_guidance>
 {search_guidance}
 </search_guidance>
@@ -140,70 +192,46 @@ Each query_n should be replaced with a unique, well-formulated search entry acco
 """,
         "rank_papers": """
 <instructions>
-First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the specific point mentioned in <point_focus>.
-Your analysis should include:
-"verbatim_extracts": Provide the two most relevant verbatim quotes from the paper, each no more than 3 sentences, demonstrating its pertinence to the outline point and review. 
-"explanation": A concise summary (3-5 sentences) of the key points of the paper as they relate to the outline point. Include this in the "explanation" field of the JSON.
-"relevance_evaluation": A succinct yet detailed explanation of how the specifics of the paper contribute to addressing the point. Consider the following factors based on the paper type: relevance, insight, credibility, scope, and recency. Include this in the "relevance_evaluation" field of the JSON.
-"relevance_score": A relevance score between 0 and 1 representing the overall fit of the paper to the point. Use the following rubric and include the score in the "relevance_score" field of the JSON:
-0.0-0.19: Not relevant - Fails to address the point or provide any useful information. Should be excluded from the review.
-0.2-0.39: Minimally relevant - Only briefly touches on the point with information that is of questionable value, reliability, or timeliness. Not recommended for inclusion.
-0.4-0.49: Marginally relevant - Mostly tangential to the main issues of the point, with information of limited insight, credibility, or meaningfulness. Likely not essential.
-0.5-0.59: Somewhat relevant - Addresses aspects of the point, but has significant limitations in scope, depth, reliability, or value of information. May still be worth including.
-0.6-0.69: Moderately relevant - Provides useful information for the point, but has some notable gaps in addressing key issues or limitations in insight, credibility, or timeliness.
-0.7-0.79: Very relevant - Directly informs the point with reliable and valuable information, but may have minor limitations in scope, depth, or recency.
-0.8-0.89: Highly relevant - Addresses key issues of the point with novel, credible, and meaningful information. Adds substantial value to the review.
-0.9-1.0: Exceptionally relevant - Comprehensively addresses all key aspects of the point with highly insightful, reliable, and up-to-date information. A must-include for the review.
-Be uncompromising and extremely parsimonious in assigning the most appropriate score based on a holistic assessment of the paper's merits and limitations.
-Default to a lower score if there are any doubts or reservations about the paper's relevance.
+First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the following point: {point_context}, from this angle: {query_rationale}.
+Begin your response with the relevance score between the following tokens:
+<<relevance>>*.*<<relevance>>
+The relevance score should be a decimal between 0.0 and 1.0, with 1.0 being the most relevant. If there is not enough information to determine relevance, assign a score of 0.0.
+Examples: 
+- **Correct**: "<<relevance>>0.9<<relevance>>"
+- **Correct**: "<<relevance>>0.3<<relevance>>"
+- **Correct**: "<<relevance>>0.0<<relevance>>"
+After providing the relevance score, include the following in your analysis:
 
-"limitations": List any important limitations of the paper for fully addressing the point and outline, such as limited scope, methodological issues, dated information, or tangential focus. If there are no major limitations, leave this blank. Include this in the "limitations" field of the JSON as a comma-separated list.
-"inline_citation": Provide a suggested in-line citation for the paper under "inline_citation" in the format (Author, Year).
-"apa_citation": Provide a full APA style reference under "apa_citation".
-"study_location": Provide the specific city/region and country where the study was conducted. If not explicitly stated, infer the most likely location based on author affiliations or other context clues. If the location cannot be determined, write "Unspecified".
-"main_objective": State the primary goal or research question of the study in 1-2 sentences.
-"technologies_used": List the key technologies, methods, or approaches used in the study under "technologies_used", separated by commas.
-"data_sources": List the primary sources of data used in the analysis, such as "Survey data", "Interviews", "Case studies", "Literature review", etc. Separate each source with a comma.
-"key_findings": Summarize the main findings or results of the study in 2-3 sentences under "key_findings".
+Verbatim extracts: Include key terms and definitions, research questions or hypotheses, methodology descriptions, results (including statistics and data visualizations), tables and figures (with captions), quotes from participants or experts, author conclusions or summaries, limitations of the study or future research directions. Extract as much relevant text verbatim from the paper as you feel sheds more light on the prompt. 
+Explanation: Provide a concise explanation of the study's purpose and main objectives.
+Relevance evaluation: Evaluate the relevance of the paper to the specific point being asked, explaining your reasoning.
+Limitations: List any important limitations of the paper for fully addressing the point.
+Inline citation: Provide a suggested inline citation for the paper in the format (Author Surname, Year).
+APA citation: Provide a full APA style reference for the paper.
+Additional details: Specify the study location (city/region and country), main objective, key technologies used, data sources, and summarize the key findings.
 
-Provide your analysis in the following JSON format. Be as precise, specific, and concise as possible in your responses. Use the provided fields and format exactly as shown below:
-
+Provide your free-form extraction, including as much relevant information verbatim from the paper as needed to comprehensively address the prompt. Full paragraph chunks, bullet points, or reconstructed tables are all acceptable formats. Any format is acceptable as long as it's relevant and helps to answer the point_focus from the perspective of the query_rationale.
+At the end of your response, include the following JSON with the key details:
 <response_format>
 {{
- "verbatim_extracts": ["Key terms and definitions", "Research questions or hypotheses", "Methodology descriptions", "Results, including statistics and data visualizations", "Tables and figures captions", "Quotes from participants or experts", "Author conclusions or summaries", "Limitations of the study or future research directions", "Include a long list of the most important text extracted verbatim from the provided paper", "Use quotes from the paper to support your summary"],
- "explanation": "From your close reading of the paper, provide a concise explanation of the study's purpose and main objectives, using a maximum of 3 sentences.",
- "relevance_evaluation": "Evaluate the relevance of the paper to the specific point being asked. Explain your reasoning in a maximum of 3 sentences.",
- "relevance_score": "On a scale from 0.0 to 1.0, parsimoniously rate the relevance of the paper to the point you are making in your review, with 1.0 being the most relevant.",
- "limitations": "List the main limitations of the study, separated by commas using a maximum of 2 sentences.",
- "inline_citation": "Provide the inline citation for the paper using the format: (Author Surname, Publication Year). If it's not directly provided, do your best to infer it",
- "apa_citation": "Provide the full APA citation for the paper, ensuring that all elements (author, year, title, publication, etc.) are correctly formatted. If it's not directly provided, do your best to infer it",
- "study_location": "Specify the city/region and country where the study was conducted.",
- "main_objective": "State the main objective of the study in 1-2 sentences.",
- "technologies_used": "List the key technologies used in the study, separated by commas. Be ultra-specific.",
- "data_sources": "List the main data sources used in the study, separated by commas. Be ultra-specific",
- "key_findings": "Summarize the key findings of the study in 2-3 sentences."
+"inline_citation": "<author surname>, <year>",
+"apa_citation": "<full APA citation>",
+"study_location": "<city/region, country>",
+"main_objective": "<main objective>",
+"technologies_used": "<technology 1>, <technology 2>, ...",
+"data_sources": "<data source 1>, <data source 2>, ...",
+"key_findings": "<key findings summary>"
 }}
 </response_format>
-
-Pay extreme attention to detail and include as much relevant information as possible within the specified constraints. Your analysis should be rigorous, insightful, and focused on the specific point provided in <point_focus>.
 </instructions>
-
-<context>
-
-<point_focus>
-{point_context}
-</point_focus>
-
 <full_text>
 {full_text}
 </full_text>
-
-</context>
 """,
         "synthesize_results": """
 <prompt>
     <expert_description>
-        You are a gifted polymath adept at synthesizing and breaking down rigorous research into digestible parts without sacrificing rigor, utilizing provided materials to offer a structured answer to the user's question through the synthesis of research papers.
+        You are an expert polymath skilled in deep analysis and synthesis of complex research information. Utilize the provided materials, as well as any other relevant data, facts, or discussions provided to you, to construct a detailed and technically rigorous response that is akin to a high-level research analysis. Include all pertinent data, facts, and figures that aid in constructing a comprehensive analysis. Your response should reflect the depth of understanding expected from a seasoned researcher or PhD holder, ensuring no details are overlooked.
     </expert_description>
     <user_query>
         {user_query}
@@ -212,10 +240,11 @@ Pay extreme attention to detail and include as much relevant information as poss
         {returned_results}
     </returned_results>
     <response_format>
-        Structure your answer as a literature review section of a research paper, aimed at answering the user's question with data and insights from the provided returned_results. 
-        Cite the research papers inline, including hyperlinks to the papers' DOI where necessary(you may need to add a https://doi.org/ to the DOI to make it a hyperlink). 
-        Include full citations of the papers in the references section at the end. There will be no other sections other than the response and the references. 
-        Organize the response in the way that feels most natural and clear.    </response_format>
+        Provide a comprehensive, structured response that rigorously analyzes and interprets the data and insights from the provided research materials and any other relevant information you have been provided with. 
+        Mention any pertinent data, facts, numbers, etc., ensuring they are properly attributed. Cite the research papers inline, including hyperlinks to the papers' DOI where necessary (you may need prepend with https://doi.org/ to make it a hyperlink). e.g [author et al 2021](). 
+        Conclude with a full citation of all referenced papers. Structure your response in a clear, logical manner, focusing on technical accuracy and depth to thoroughly answer the user's query based on the provided data. 
+        Keep your answer tightly focused on the user's query and only include relevant/pertinent information. Begin you answer without preamble.
+    </response_format>
 </prompt>
 
 """,
