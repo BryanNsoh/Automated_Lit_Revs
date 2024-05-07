@@ -24,7 +24,7 @@ import json
 import time
 import logging
 from collections import deque
-from misc_utils import prepare_text_for_json
+from misc_utils import prepare_text_for_json, get_api_keys
 from web_scraper import WebScraper
 
 # Create a logger
@@ -50,30 +50,17 @@ logger.addHandler(file_handler)
 
 
 class ScopusSearch:
-    def __init__(self, doi_scraper, key_path, session, max_retries=4):
-        self.load_api_keys(key_path)
+    def __init__(self, doi_scraper, session, max_retries=4):
+        self.api_keys = get_api_keys()
         self.base_url = "http://api.elsevier.com/content/search/scopus"
         self.request_times = deque(maxlen=6)
         self.scraper = doi_scraper
         self.session = session
         self.max_retries = max_retries
 
-    def load_api_keys(self, key_path):
-        try:
-            with open(key_path, "r") as file:
-                api_keys = json.load(file)
-            self.api_key = api_keys["SCOPUS_API_KEY"]
-            logger.info("API keys loaded successfully.")
-        except FileNotFoundError:
-            logger.error(f"API key file not found at path: {key_path}")
-        except KeyError:
-            logger.error("SCOPUS_API_KEY not found in the API key file.")
-        except json.JSONDecodeError:
-            logger.error("Invalid JSON format in the API key file.")
-
     async def search(self, query, count=25, view="COMPLETE", response_format="json"):
         headers = {
-            "X-ELS-APIKey": self.api_key,
+            "X-ELS-APIKey": self.api_keys["SCOPUS_API_KEY"],
             "Accept": (
                 "application/json"
                 if response_format == "json"
@@ -205,13 +192,10 @@ class ScopusSearch:
 
 
 async def main():
-    # Create an instance of the DOIScraper class (assuming it exists)
-    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-
     async with aiohttp.ClientSession() as session:
         doi_scraper = WebScraper(session)
         # Create an instance of the ScopusSearch class
-        scopus_search = ScopusSearch(doi_scraper, api_key_path, session)
+        scopus_search = ScopusSearch(doi_scraper, session)
 
         # Example usage
         input_json = {

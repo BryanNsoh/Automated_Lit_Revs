@@ -1,15 +1,17 @@
 import json
 import asyncio
 import aiohttp
+
 from llm_api_handler import LLM_APIHandler
 from prompts import get_prompt, core_search_guide
+from misc_utils import get_api_keys
 
 
 class QueryGenerator:
-    def __init__(self, api_key_path, session):
-        self.api_key_path = api_key_path
+    def __init__(self, session):
+        self.api_keys = get_api_keys()
         self.session = session
-        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
+        self.llm_api_handler = LLM_APIHandler(self.api_keys, session)
 
     async def generate_queries(self, user_query):
         # Generate the prompt from the user's query
@@ -20,7 +22,7 @@ class QueryGenerator:
         )
 
         # Obtain the model's response for the generated prompt
-        response = await self.llm_api_handler.generate_llama_content(prompt)
+        response = await self.llm_api_handler.generate_openai_content(prompt)
 
         # Parse and return the response
         return self.parse_response(response)
@@ -42,9 +44,8 @@ class QueryGenerator:
 
 
 async def main():
-    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     async with aiohttp.ClientSession() as session:
-        processor = QueryGenerator(api_key_path, session)
+        processor = QueryGenerator(session)
         user_query = "Impact of climate change on global water resources"
         queries = await processor.generate_queries(user_query)
         print(json.dumps(queries, indent=2))

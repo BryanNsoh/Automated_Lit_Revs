@@ -12,7 +12,7 @@ def copy_py_to_txt(output_file, folder):
 
 
 def main():
-    current_folder = "./utils"
+    current_folder = "."
     output_filename = "all_python_contents.txt"
     copy_py_to_txt(output_filename, current_folder)
     print(f"All .py file contents copied to {output_filename}")

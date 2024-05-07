@@ -192,38 +192,38 @@ The output should adhere to this format:
 """,
         "rank_papers": """
 <instructions>
-First, carefully read through the full text of the paper provided under <full_text>. Then, analyze the paper's relevance to the following point: {point_context}, from this angle: {query_rationale}.
+Analyze the paper's relevance to {point_context} from the {query_rationale} perspective. 
+
 Begin your response with the relevance score between the following tokens:
 <<relevance>>*.*<<relevance>>
 The relevance score should be a decimal between 0.0 and 1.0, with 1.0 being the most relevant. If there is not enough information to determine relevance, assign a score of 0.0.
-Examples: 
-- **Correct**: "<<relevance>>0.9<<relevance>>"
-- **Correct**: "<<relevance>>0.3<<relevance>>"
-- **Correct**: "<<relevance>>0.0<<relevance>>"
+Examples:
+- Correct: "<<relevance>>0.9<<relevance>>"
+- Correct: "<<relevance>>0.3<<relevance>>"
+- Correct: "<<relevance>>0.0<<relevance>>"
 After providing the relevance score, include the following in your analysis:
 
-Verbatim extracts: Include key terms and definitions, research questions or hypotheses, methodology descriptions, results (including statistics and data visualizations), tables and figures (with captions), quotes from participants or experts, author conclusions or summaries, limitations of the study or future research directions. Extract as much relevant text verbatim from the paper as you feel sheds more light on the prompt. 
-Explanation: Provide a concise explanation of the study's purpose and main objectives.
-Relevance evaluation: Evaluate the relevance of the paper to the specific point being asked, explaining your reasoning.
-Limitations: List any important limitations of the paper for fully addressing the point.
-Inline citation: Provide a suggested inline citation for the paper in the format (Author Surname, Year).
-APA citation: Provide a full APA style reference for the paper.
-Additional details: Specify the study location (city/region and country), main objective, key technologies used, data sources, and summarize the key findings.
+Include in your analysis:
+- Verbatim extracts: key terms, research questions, methods, results, tables, figures, quotes, conclusions
+- Explanation of study purpose and objectives
+- Relevance evaluation to the specified point
+- Limitations for addressing the point
+- Free-form extraction with relevant verbatim information (any format). Extract as much verbatim information as needed to support your analysis.
 
-Provide your free-form extraction, including as much relevant information verbatim from the paper as needed to comprehensively address the prompt. Full paragraph chunks, bullet points, or reconstructed tables are all acceptable formats. Any format is acceptable as long as it's relevant and helps to answer the point_focus from the perspective of the query_rationale.
-At the end of your response, include the following JSON with the key details:
+End with this JSON:
 <response_format>
 {{
-"inline_citation": "<author surname>, <year>",
-"apa_citation": "<full APA citation>",
-"study_location": "<city/region, country>",
-"main_objective": "<main objective>",
-"technologies_used": "<technology 1>, <technology 2>, ...",
-"data_sources": "<data source 1>, <data source 2>, ...",
-"key_findings": "<key findings summary>"
+  "inline_citation": "<author surname>, <year>",
+  "apa_citation": "<full APA citation>",
+  "study_location": "<city/region, country>", 
+  "main_objective": "<main objective>",
+  "technologies_used": "<technology 1>, <technology 2>, ...",
+  "data_sources": "<data source 1>, <data source 2>, ...",
+  "key_findings": "<key findings summary>"
 }}
 </response_format>
 </instructions>
+
 <full_text>
 {full_text}
 </full_text>
@@ -245,6 +245,10 @@ At the end of your response, include the following JSON with the key details:
         Conclude with a full citation of all referenced papers. Structure your response in a clear, logical manner, focusing on technical accuracy and depth to thoroughly answer the user's query based on the provided data. 
         Keep your answer tightly focused on the user's query and only include relevant/pertinent information. Begin you answer without preamble.
     </response_format>
+    <critical-points>
+        - Only include and discuss sources that are directly relevant to the user query.
+        - Sources which are not directly relevant to the user query should not be included in the response.
+    </critical-points>
 </prompt>
 
 """,

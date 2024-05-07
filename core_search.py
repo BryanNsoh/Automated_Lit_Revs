@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 import json
 import logging
+from misc_utils import get_api_keys
 
 # Create a logger
 logger = logging.getLogger(__name__)
@@ -26,23 +27,11 @@ logger.addHandler(file_handler)
 
 
 class CORESearch:
-    def __init__(self, key_path, max_results):
-        self.load_api_keys(key_path)
+    def __init__(self, max_results):
+        self.api_keys = get_api_keys()
         self.base_url = "https://api.core.ac.uk/v3"
         self.max_results = max_results
-
-    def load_api_keys(self, key_path):
-        try:
-            with open(key_path, "r") as file:
-                api_keys = json.load(file)
-            self.core_api_key = api_keys["CORE_API_KEY"]
-            logger.info("API keys loaded successfully.")
-        except FileNotFoundError:
-            logger.error(f"API key file not found at path: {key_path}")
-        except KeyError:
-            logger.error("CORE_API_KEY not found in the API key file.")
-        except json.JSONDecodeError:
-            logger.error("Invalid JSON format in the API key file.")
+        self.core_api_key = self.api_keys["CORE_API_KEY"]
 
     async def search(self, search_query):
         headers = {
@@ -118,10 +107,9 @@ class CORESearch:
 
 
 async def main():
-    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
     max_results = 1
 
-    core_search = CORESearch(api_key_path, max_results)
+    core_search = CORESearch(max_results)
 
     input_json = {
         "query_1": {

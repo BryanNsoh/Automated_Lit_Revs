@@ -1,3 +1,4 @@
+from misc_utils import get_api_keys
 import asyncio
 import logging
 import re
@@ -20,8 +21,9 @@ logger.addHandler(file_handler)
 
 
 class PaperRanker:
-    def __init__(self, api_key_path, session, max_retries=4):
-        self.llm_api_handler = LLM_APIHandler(api_key_path, session)
+    def __init__(self, session, max_retries=4):
+        self.api_keys = get_api_keys()
+        self.llm_api_handler = LLM_APIHandler(self.api_keys, session)
         self.max_retries = max_retries
 
     async def process_query(self, query_key, query_data, point_context):
@@ -112,10 +114,8 @@ class PaperRanker:
 
 
 async def main(input_json, point_context):
-    api_key_path = r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-
     async with aiohttp.ClientSession() as session:
-        ranker = PaperRanker(api_key_path, session)
+        ranker = PaperRanker(session)
         logger.info("Starting paper ranking process...")
         output_json = await ranker.process_queries(input_json, point_context)
         logger.info("Paper ranking process completed.")

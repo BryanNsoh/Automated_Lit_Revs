@@ -1,5 +1,6 @@
+import os
 import json
-import asyncio
+from google.cloud import secretmanager
 
 
 async def prepare_text_for_json(text):
@@ -28,3 +29,22 @@ async def prepare_text_for_json(text):
     json_string = f'"{text}"'
 
     return json_string
+
+
+def get_api_keys(source="local"):
+    if source == "cloud":
+        client = secretmanager.SecretManagerServiceClient()
+        name = f"projects/crop2cloud24/secrets/api-keys/versions/latest"
+        response = client.access_secret_version(request={"name": name})
+        api_keys = response.payload.data.decode("UTF-8")
+        return api_keys
+    else:
+        with open(
+            os.path.expanduser(
+                r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
+            ),
+            "r",
+        ) as file:
+            api_keys = file.read()
+            api_keys = json.loads(api_keys)
+        return api_keys
