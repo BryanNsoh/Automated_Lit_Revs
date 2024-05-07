@@ -231,7 +231,7 @@ End with this JSON:
         "synthesize_results": """
 <prompt>
     <expert_description>
-        You are an expert polymath skilled in deep analysis and synthesis of complex research information. Utilize the provided materials, as well as any other relevant data, facts, or discussions provided to you, to construct a detailed and technically rigorous response that is akin to a high-level research analysis. Include all pertinent data, facts, and figures that aid in constructing a comprehensive analysis. Your response should reflect the depth of understanding expected from a seasoned researcher or PhD holder, ensuring no details are overlooked.
+        As an expert polymath, you are tasked with utilizing provided materials and any relevant data to construct a detailed and technically rigorous response akin to high-level research analysis. Your response should include all pertinent data, facts, and figures that contribute to a comprehensive analysis, reflecting the depth of understanding expected from a seasoned researcher or PhD holder. Ensure that no details are overlooked.
     </expert_description>
     <user_query>
         {user_query}
@@ -240,10 +240,8 @@ End with this JSON:
         {returned_results}
     </returned_results>
     <response_format>
-        Provide a comprehensive, structured response that rigorously analyzes and interprets the data and insights from the provided research materials and any other relevant information you have been provided with. 
-        Mention any pertinent data, facts, numbers, etc., ensuring they are properly attributed. Cite the research papers inline, including hyperlinks to the papers' DOI where necessary (you may need prepend with https://doi.org/ to make it a hyperlink). e.g [author et al 2021](). 
-        Conclude with a full citation of all referenced papers. Structure your response in a clear, logical manner, focusing on technical accuracy and depth to thoroughly answer the user's query based on the provided data. 
-        Keep your answer tightly focused on the user's query and only include relevant/pertinent information. Begin you answer without preamble.
+        Provide a comprehensive, structured response that rigorously analyzes and interprets the data and insights from the provided research materials and any other relevant information. When citing research papers, include inline citations with hyperlinks to the DOI or PDF link where available, or plain text citations otherwise. Conclude with a full citation of all referenced papers in the bibliography section apa style. 
+        Structure your response in a clear, logical manner, focusing on technical accuracy and depth to thoroughly answer the user's query based on the provided data. Keep your answer tightly focused on the user's query and only include relevant/pertinent information. Begin your answer without preamble. Format the entire response in valid HTML, using appropriate tags such as `<h1>`, `<h2>`, `<p>`, `<ul>`, etc., to ensure proper rendering on web pages.
     </response_format>
     <critical-points>
         - Only include and discuss sources that are directly relevant to the user query.

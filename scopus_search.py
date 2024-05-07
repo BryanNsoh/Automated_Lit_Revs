@@ -22,31 +22,13 @@ import aiohttp
 import asyncio
 import json
 import time
-import logging
 from collections import deque
 from misc_utils import prepare_text_for_json, get_api_keys
 from web_scraper import WebScraper
 
-# Create a logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from logger_config import get_logger
 
-# Create a console handler
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-
-# Create a formatter
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-console_handler.setFormatter(formatter)
-
-# Add the console handler to the logger
-logger.addHandler(console_handler)
-
-# Optional: Create a file handler to log messages to a file
-file_handler = logging.FileHandler("scopus.log")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger = get_logger(__name__)
 
 
 class ScopusSearch:

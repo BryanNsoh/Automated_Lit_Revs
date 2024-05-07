@@ -1,23 +1,14 @@
 from misc_utils import get_api_keys
 import asyncio
-import logging
 import re
 from llm_api_handler import LLM_APIHandler
 from prompts import get_prompt
 import aiohttp
 import json
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-console_handler.setFormatter(formatter)
-logger.addHandler(console_handler)
-file_handler = logging.FileHandler("paper_ranker.log")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+from logger_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class PaperRanker:

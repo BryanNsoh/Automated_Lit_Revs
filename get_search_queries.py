@@ -6,6 +6,10 @@ from llm_api_handler import LLM_APIHandler
 from prompts import get_prompt, core_search_guide
 from misc_utils import get_api_keys
 
+from logger_config import get_logger
+
+logger = get_logger(__name__)
+
 
 class QueryGenerator:
     def __init__(self, session):

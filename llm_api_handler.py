@@ -1,30 +1,17 @@
 import asyncio
 import aiohttp
-import logging
 import anthropic
 import backoff
 import tiktoken
 import time
-import json
 import cohere
 import requests
-import random
 from misc_utils import get_api_keys
 from openai import AsyncOpenAI
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from logger_config import get_logger
 
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-console_handler.setFormatter(formatter)
-logger.addHandler(console_handler)
-
-file_handler = logging.FileHandler("llm_handler.log")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger = get_logger(__name__)
 
 
 def count_tokens(text, encoding_name="cl100k_base"):
