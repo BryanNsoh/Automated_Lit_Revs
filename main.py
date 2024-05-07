@@ -2,14 +2,12 @@
 import os
 from user_interface import create_app
 
-if os.environ.get("ENV") == "production":
-    # Running in production (e.g., Cloud Run)
-    import logging
-    from wsgi import app as application
+app = create_app()
 
-    # Configure logging
-    logging.basicConfig(level=logging.INFO)
-else:
-    # Running locally
-    app = create_app()
-    app.launch(share=True)
+if __name__ == "__main__":
+    if os.environ.get("ENV") == "production":
+        # In production, we expect gunicorn to serve the app from wsgi.py
+        pass
+    else:
+        # Running locally
+        app.launch(share=True)

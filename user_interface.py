@@ -1,8 +1,7 @@
 # user_interface.py
+
 import sys
 import os
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import gradio as gr
 import json
 import aiohttp
@@ -20,8 +19,9 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler("research_query_processor.log"),
-        logging.StreamHandler(),
+        logging.StreamHandler(
+            sys.stdout
+        ),  # Adjusted to log to stdout for cloud environments
     ],
 )
 
@@ -31,37 +31,37 @@ class ResearchQueryProcessor:
         self.api_keys = get_api_keys()
         self.session = None
 
-    async def chatbot_response(self, message, history):
+    async def chatbot_response(self, message):
         async with aiohttp.ClientSession() as session:
             self.session = session
             logging.info(f"Received message: {message}")
 
-            yield "Generating search queries..."
+            responses = ["Generating search queries..."]
             query_generator = QueryGenerator(self.session)
             search_queries = await query_generator.generate_queries(message)
             logging.info(f"Generated search queries: {search_queries}")
 
-            yield "Searching in CORE..."
+            responses.append("Searching research database...")
             core_search = CORESearch(max_results=5)
             search_results = await core_search.search_and_parse_json(search_queries)
-            print(search_results)
-            print(json.dumps(search_results, indent=4, sort_keys=True))
+            logging.info(json.dumps(search_results, indent=4, sort_keys=True))
 
-            yield "Analyzing papers..."
+            responses.append("Analyzing papers...")
             paper_ranker = PaperRanker(self.session)
             analyzed_papers = await paper_ranker.process_queries(
                 search_results, message
             )
             logging.info(f"Analyzed papers: {analyzed_papers}")
 
-            yield "Synthesizing results..."
+            responses.append("Synthesizing results...")
             query_processor = QueryProcessor(self.session)
             synthesized_results = await query_processor.process_query(
                 message, analyzed_papers
             )
             logging.info(f"Synthesized results: {synthesized_results}")
 
-            yield f"{synthesized_results}"
+            responses.append(f"{synthesized_results}")
+            return responses
 
 
 def create_app():
@@ -74,7 +74,7 @@ def create_app():
         theme=gr.themes.Soft(),
     )
 
-    return chat_interface
+    return chat_interface.app
 
 
 # Run the app

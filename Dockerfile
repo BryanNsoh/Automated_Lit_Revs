@@ -14,4 +14,4 @@ COPY . /app
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "wsgi:app"]
+CMD ["gunicorn", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8080", "wsgi:app"]
