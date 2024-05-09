@@ -15,5 +15,4 @@ EXPOSE 8080
 
 # Run app.py when the container launches
 # Using gunicorn with uvicorn workers, binding directly to 0.0.0.0:8080
-CMD ["gunicorn", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8080", "app:app"]
-
+CMD ["gunicorn", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8080", "--timeout", "300", "app:app"]

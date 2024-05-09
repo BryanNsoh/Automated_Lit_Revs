@@ -1,3 +1,4 @@
+# misc_utils.py
 import os
 import json
 from google.cloud import secretmanager
@@ -31,13 +32,16 @@ async def prepare_text_for_json(text):
     return json_string
 
 
-def get_api_keys(source="local"):
+def get_api_keys(source="cloud"):
     if source == "cloud":
         client = secretmanager.SecretManagerServiceClient()
-        name = f"projects/crop2cloud24/secrets/api-keys/versions/latest"
+        name = "projects/crop2cloud24/secrets/api-keys/versions/latest"
         response = client.access_secret_version(request={"name": name})
         api_keys = response.payload.data.decode("UTF-8")
-        return api_keys
+        try:
+            return json.loads(api_keys)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in Google Cloud Secret Manager: {e}")
     else:
         with open(
             os.path.expanduser(
@@ -46,5 +50,7 @@ def get_api_keys(source="local"):
             "r",
         ) as file:
             api_keys = file.read()
-            api_keys = json.loads(api_keys)
-        return api_keys
+            try:
+                return json.loads(api_keys)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Invalid JSON in local file: {e}")

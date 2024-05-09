@@ -195,7 +195,7 @@ The output should adhere to this format:
 Analyze the paper's relevance to {point_context} from the {query_rationale} perspective. 
 
 Begin your response with the relevance score between the following tokens:
-<<relevance>>*.*<<relevance>>
+<<relevance>>x.x<<relevance>>
 The relevance score should be a decimal between 0.0 and 1.0, with 1.0 being the most relevant. If there is not enough information to determine relevance, assign a score of 0.0.
 Examples:
 - Correct: "<<relevance>>0.9<<relevance>>"
@@ -222,6 +222,8 @@ End with this JSON:
   "key_findings": "<key findings summary>"
 }}
 </response_format>
+
+Begin your response with: <<relevance>>
 </instructions>
 
 <full_text>
@@ -246,6 +248,7 @@ End with this JSON:
     <critical-points>
         - Only include and discuss sources that are directly relevant to the user query.
         - Sources which are not directly relevant to the user query should not be included in the response.
+        - Aim for a full and comprehensive breakdown of the topic, define the most important concepts, and provide detailed explanations.
     </critical-points>
 </prompt>
 
