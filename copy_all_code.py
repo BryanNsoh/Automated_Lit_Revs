@@ -2,19 +2,17 @@ import os
 
 
 def copy_py_to_txt(output_file, folder):
-    with open(output_file, "w") as outfile:
+    with open(output_file, "w", encoding="utf-8") as outfile:
         for filename in os.listdir(folder):
-            if filename.endswith(".py") and not (
-                filename.endswith(".yaml") or filename.endswith(".json")
-            ):
+            if filename.endswith(".py"):
                 file_path = os.path.join(folder, filename)
-                with open(file_path, "r") as infile:
+                with open(file_path, "r", encoding="utf-8") as infile:
                     outfile.write(f"\n\n# Contents of {file_path}\n")
                     outfile.write(infile.read())
 
 
 def main():
-    current_folder = "./utils"
+    current_folder = "."
     output_filename = "all_python_contents.txt"
     copy_py_to_txt(output_filename, current_folder)
     print(f"All .py file contents copied to {output_filename}")
