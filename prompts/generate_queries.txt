@@ -1,0 +1,27 @@
+<documents>
+<document index="1">
+<source>search_query_prompt.txt</source>
+<document_content>
+<instructions>
+Review the user's main query: '{user_query}'. Break down this query into distinct sub-queries that address different aspects necessary to fully answer the main query. 
+For each sub-query, provide a rationale explaining why it is essential. Format these sub-queries according to the directions in {search_guidance}. Structure your response as a JSON with detailed search queries, each accompanied by its rationale. 
+The output should adhere to this format:
+{{
+  "query_1": {{
+    "search_query": "unique query following the provided search guidance",
+    "query_rationale": "This query is essential to understand the overall impact of climate change on global water resources, providing a broad understanding of the topic."
+  }},
+  "query_2": {{
+    "search_query": "unique query following the provided search guidance",
+    "query_rationale": "This query is necessary to identify areas with high water scarcity and how climate change affects the global distribution of water resources."
+  }},
+  ...
+}}
+**Note: Only generate as many sub-queries and rationales as necessary to thoroughly address the main query, up to a maximum of 10. Each sub-query must directly contribute to unraveling the main query's aspects.
+</instructions>
+<search_guidance>
+{search_guidance}
+</search_guidance>
+</document_content>
+</document>
+</documents>

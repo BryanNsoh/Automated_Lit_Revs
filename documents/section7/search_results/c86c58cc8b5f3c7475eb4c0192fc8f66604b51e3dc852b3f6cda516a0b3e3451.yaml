@@ -1,0 +1,1095 @@
+- analysis: '>'
+  authors:
+  - Bhoi A.
+  - Nayak R.P.
+  - Bhoi S.K.
+  - Sethi S.
+  - Panda S.K.
+  - Sahoo K.S.
+  - Nayyar A.
+  citation_count: '27'
+  description: In the traditional irrigation process, a huge amount of water consumption
+    is required which leads to water wastage. To reduce the wasting of water for this
+    tedious task, an intelligent irrigation system is urgently needed. The era of
+    machine learning (ML) and the Internet of Things (IoT) brings it is a great advantage
+    of building an intelligent system that performs this task automatically with minimal
+    human effort. In this study, an IoT enabled ML-trained recommendation system is
+    proposed for efficient water usage with the nominal intervention of farmers. IoT
+    devices are deployed in the crop field to precisely collect the ground and environmental
+    details. The gathered data are forwarded and stored in a cloud-based server, which
+    applies ML approaches to analyze data and suggest irrigation to the farmer. To
+    make the system robust and adaptive, an inbuilt feedback mechanism is added to
+    this recommendation system. The experimentation, reveals that the proposed system
+    performs quite well on our own collected dataset and National Institute of Technology
+    (NIT) Raipur crop dataset.
+  doi: 10.7717/PEERJ-CS.578
+  full_citation: '>'
+  full_text: '>
+
+    "View 1 post Related research Share X Facebook Email PeerJ Computer Science IoT-IIRS:
+    Internet of Things based intelligent-irrigation recommendation system using machine
+    learning approach for efficient water usage Research articleAlgorithms and Analysis
+    of AlgorithmsArtificial IntelligenceComputer Networks and CommunicationsEmerging
+    TechnologiesReal-Time and Embedded Systems Ashutosh Bhoi1, Rajendra Prasad Nayak1,
+    Sourav Kumar Bhoi2, Srinivas Sethi3, Sanjaya Kumar Panda4, Kshira Sagar Sahoo5,
+    Anand Nayyar6 June 21, 2021 Author and article information Abstract   In the traditional
+    irrigation process, a huge amount of water consumption is required which leads
+    to water wastage. To reduce the wasting of water for this tedious task, an intelligent
+    irrigation system is urgently needed. The era of machine learning (ML) and the
+    Internet of Things (IoT) brings it is a great advantage of building an intelligent
+    system that performs this task automatically with minimal human effort. In this
+    study, an IoT enabled ML-trained recommendation system is proposed for efficient
+    water usage with the nominal intervention of farmers. IoT devices are deployed
+    in the crop field to precisely collect the ground and environmental details. The
+    gathered data are forwarded and stored in a cloud-based server, which applies
+    ML approaches to analyze data and suggest irrigation to the farmer. To make the
+    system robust and adaptive, an inbuilt feedback mechanism is added to this recommendation
+    system. The experimentation, reveals that the proposed system performs quite well
+    on our own collected dataset and National Institute of Technology (NIT) Raipur
+    crop dataset. Cite this as Bhoi A, Nayak RP, Bhoi SK, Sethi S, Panda SK, Sahoo
+    KS, Nayyar A. 2021. IoT-IIRS: Internet of Things based intelligent-irrigation
+    recommendation system using machine learning approach for efficient water usage.
+    PeerJ Computer Science 7:e578 https://doi.org/10.7717/peerj-cs.578 Main article
+    text   Introduction Water is the essential natural resource for agriculture, and
+    it is limited in nature (Kamienski et al., 2019; Wang et al., 2020; Sahoo et al.,
+    2019). In a country like India, a huge share of water is used for irrigation (Nawandar
+    & Satpute, 2019). Crop irrigation is a noteworthy factor in determining plant
+    yield, depending upon multiple climatic conditions such as air temperature, soil
+    temperature, humidity, and soil moisture (Bavougian & Read, 2018). Farmers primarily
+    rely on personal monitoring and experience for harvesting fields (Glaroudis, Iossifides
+    & Chatzimisios, 2020). Water needs to be maintained in the field (Liu et al.,
+    2020; Fremantle & Scott, 2017). Scarcity of water in these modern days is a hot
+    issue. Such a scarcity is already affecting people worldwide (LaCanne & Lundgren,
+    2018; Schleicher et al., 2017). The situation may worsen in the coming years.
+    The uniform water distribution of traditional irrigation systems is not optimal.
+    Hence, research effort has been exterted towards efficient agricultural monitoring
+    system (Kim, Evans & Iversen, 2008). In this regard, standalone monitoring station
+    is under development. For instance, a mixed signal processor (MSP430) has been
+    developed with a microcontroller along with a set of meteorological sensors. A
+    wireless sensor-based monitoring system has also been developed. It has made of
+    several wireless sensor nodes and a gateway (Gutiérrez et al., 2013). It has been
+    implemented as an easy solution with better spatial and temporal determinations.
+    In addition, there is a demand for automating the irrigation system. Automation
+    enables machines to apply intelligence by reading historical data and accordingly
+    analyze and predict the output. This mechanism is more effective than the traditional
+    rule-based algorithm (Chlingaryan, Sukkarieh & Whelan, 2018). From here onwards,
+    the role of machine learning (ML) and artificial intelligence (AI) play an important
+    role. The applications of ML in the field of agriculture domain is numerous (Jha
+    et al., 2019). Starting from crop selection and yielding to crop disease prediction,
+    different ML techniques like artificial neural networks (ANN), support vector
+    machine (SVM), k-nearest neighbor (k-NN), and decision trees have shown huge success
+    (Ge et al., 2019). After the great success of the combination of WSN and ML techniques,
+    there is a requirement for more automation and without human intervention. The
+    development of machine to machine (M2M) and the Internet of Things (IoT) allows
+    devices to communicate with one another without much human intervention. These
+    days, the usage of mobile devices is increasing, at the same time cloud computing
+    is becoming a popular technology. The existing water monitoring system used wireless
+    sensors for monitoring the soil condition for irrigation. These systems barely
+    capture the data from the land and subsequently controls the electric motor for
+    watering the land. Moreover, there is a high demand to analyze the real-time data
+    based on the historical information for irrigating fields. Research on M2M system
+    is limited, particularly regarding communication among devices to more intelligently
+    perform analysis and recommendation. Realizing the water scarcity issue and at
+    the same time the technological advancement, we are motivated to design a fully
+    automated irrigation system. This system must be smart enough so that it can adapt
+    to the local climatic conditions and precisely predict the decision on irrigation
+    in a reliable way. There are many aspects of an efficient automatic irrigation
+    system. As weather data is an important parameter for making irrigation decisions,
+    the system must be smart enough to integrate the forecasted weather data (Goldstein
+    et al., 2018). The next important aspect is to estimate the soil features properly
+    so that the prediction error can be minimized in the irrigation recommendation
+    system (Khoa et al., 2019). Once the weather data along with soil and environmental
+    parameters are forecasted, the data can be used to make final decisions regarding
+    irrigation. For this task, we need an efficient binary classifier to decide whether
+    to irrigate or not. The advanced ML techniques and IoT may provide a solution.
+    The two main motivations for this work are efficient water usage in irrigation
+    to reduce water wastage and minimize human intervention as much as possible. The
+    main objective of the work is to reduce water wastage in the agricultural field
+    by introducing an IoT-enabled ML-trained recommendation system (IoT-IIRS). In
+    this prototype, the analyzed information can be sent from the cloud server to
+    the farmer’s mobile handset priorly. This system makes the decision of whether
+    to water the field or not simple for farmers. The main contributions of this work
+    are as follows: An IoT-IIRS is proposed for efficient water usage. IoT devices
+    are deployed in the crop field to collect the ground and environmental details
+    precisely. The gathered data such as air temperature, soil temperature, humidity,
+    and soil moisture are forwarded through an Arduino and stored in a cloud-based
+    server, which applies ML algorithms such as SVM, regression tree, and agglomerative
+    clustering to analyze those data and suggest irrigation to the farmer. To make
+    the system robust and adaptive, an inbuilt feedback mechanism is added to this
+    recommendation system. Experimentation reveals that the proposed system performs
+    well on our own collected dataset and NIT Raipur crop dataset. The remaining part
+    of the paper is organized as follows. The next section introduces the related
+    work. The proposed methodology section discusses the working steps for the solution
+    framework. The results of the experiments are discussed in the result section.
+    Finally, the last section ends with concluding remarks and further scope for improvement.
+    Related work Communication is one of the most important aspects of the implementation
+    of an automatic and intelligent irrigation system. In the last few years, significant
+    research is carried out on smart irrigation. In Salas et al. (2014), the authors
+    suggested the implementation of general packet radio service (GPRS) communication
+    as a gateway between wireless sensor network (WSN) and the Internet. Numerous
+    data transmission techniques have been applied in closed-loop watering systems.
+    These are used to apply the required amount of water in the desired place in due
+    time to conserve natural resources. Bhanu et al. presented a system to build a
+    wireless sensor network-based soil moisture controller, which determines the water
+    demand by differentiating the soil moisture with a preset threshold value (Bhanu,
+    Hussain & Ande, 2014). Field authentication tests are regularly performed on distinct
+    soils to estimate the soil moisture and water quantity in the soil to develop
+    a productive watering system. If the preserved data do not match with the measured
+    soil data, then an interrupt is passed to the pressure unit to stop the irrigation.
+    Solar power-based intelligent irrigation system is proposed to provide the required
+    amount of water to the crop field (Rehman et al., 2017). Soil and humidity sensors
+    are deployed to measure the wet and dry states of the soil. Once sensing is completed,
+    the sensor node transmits the signal to the microcontroller. In addition, they
+    forward that signal to the relay to switch on and off the motor. In Kaur & Deepali
+    (2017), the authors presented a WSN-based smart irrigation system for efficient
+    water usage with the help of automated remote sensing and persistent analysis
+    of soil parameters and environmental conditions using ML. Hema et al. proposed
+    an approach to estimate the native real-time weather parameters for interpolation
+    with the help of an automated weather station (ASW) (Hema & Kant, 2014). This
+    intelligent system provides past, present, and future predictions utilizing nearby
+    ASW data and control the irrigation process during conditions like rainfall. To
+    control the irrigation, soil moisture and ASW data are exploited for error correction,
+    where interpolated value is compared with soil moisture data. In Ashwini (2018),
+    the authors stated that the smart irrigation system employing WSN and GPRS modules
+    optimizes water utilization for any agricultural crop. This approach comprises
+    of a distributed WSN along with different sensors, such as moisture and temperature
+    sensors. Gateway components are employed to transfer data from the sensor unit
+    to the base station. Direct order is sent to the actuator for regulating the irrigation
+    process and handling data from the sensor unit. According to the need and conditions
+    of the field, different algorithms are used in the system. It is programmed in
+    a microcontroller that sends commands through an actuator to regulate water quantity
+    with a valve unit. The entire framework is powered by photo-voltaic panels, where
+    duplex communication takes place through cellular networks. Web applications control
+    irrigation through regular monitoring and irrigation scheduling. In Leh et al.
+    (2019), the authors designed hardware and software by analyzing the routing protocols
+    of the sensor network. Mobile phones and wireless personal digital assistant (PDA)
+    help to monitor the soil moisture content, as a result, irrigation system is controlled.
+    Mohapatra et al. proposed an irrigation system based on WSN (Mohapatra, Lenka
+    & Keswani, 2019). The designed system uses fuzzy logic and neural network to save
+    water efficiently. The used fuzzy neural network is an integrated set of fuzzy
+    logic reasoning and self-learning ability of a neural network. Sensor nodes measure
+    temperature, humidity, soil moisture, and light intensity data. LAN or WAN helps
+    to transfer the collected data to the irrigation control system via gateway nodes.
+    The electromagnetic valve is controlled for precision irrigation based on the
+    collected data. To predict the soil moisture, the authors in (Goap et al., 2018),
+    developed an algorithm that works based on field sensor and weather forecasting
+    data. The algorithm uses the support vector regression model and k-means clustering.
+    This algorithm also provides a suggestion regarding irrigation based on the level
+    of soil moisture. Collected device information and the output of the algorithm
+    are stored in MySQL Database at the server end. In Gutiérrez et al. (2013), the
+    authors presented a system that uses a camera to capture images. Captured images
+    are processed to determine the water content of the soil. Depending on the level
+    of water in the soil, water is pumped into the crop field. The camera is controlled
+    from an Android application. The camera captures RGB pictures of soil using an
+    anti-reflective glass window to find the wet and dry areas. The WiFi connection
+    of the smartphone is used to transmit the estimated value to the gateway through
+    a router to control the water pump. M2M communication is applied as a robust mechanism
+    for effective water management during farm irrigation (Shekhar et al., 2017).
+    In Vij et al. (2020), the authors proposed a distributed network environment using
+    IoT, ML, and WSN technologies for efficient water usage and reduced soil erosion.
+    Soil moisture prediction is one of the most important tasks for an automatic irrigation
+    system. Many researchers contributed various methodologies and algorithms for
+    this task (Adeyemi et al., 2018; Sinwar et al., 2020; Singh, Kaur & Kumar, 2020).
+    Proposed methodology The proposed three-tier architecture along with the descriptions
+    are mentioned in this section. The solution architecture of our smart irrigation
+    system is given in Fig. 1. The details of each level are described below. Figure
+    1: Solution framework.   Download full-size image DOI: 10.7717/peerj-cs.578/fig-1
+    • Crop Field Level: The first one is the crop field level where different sensors
+    are deployed in the field. Various sensors like soil moisture (EC- 1258), soil
+    temperature (DS18B20), air temperature (DHT11), and humidity (DHT11) are used
+    to gather all these soil and environmental attributes. All these sensors collect
+    data and send them to the Arduino. The Arduino then forwards the sensor data to
+    the cloud server. All these sensor data are collected twice a day and forwarded
+    for cloud storage using a micro-controller device. The average value is calculated
+    and stored as the final reading for the particular day. To eliminate the inter-dependency
+    among the used parameters, the Pearson correlation is computed. It is found that
+    there is no strong correlation exists. The Arduino is also connected to the motor
+    pump through the breadboard and relay switch to turn on/off the pump for irrigation.
+    Here, we use the Arduino microcontroller because it requires low energy. • Cloud
+    Level: The second level is the cloud level where the cloud server is used to provide
+    service to the user. The sensors’ data are stored in the database. The data are
+    then feed to the ML-based model for analysis. This ML unit is the heart of this
+    intelligent system, which has two sections. One is the regression model that is
+    used to predict the soil and environmental parameters in advance. By doing so,
+    it can be used effectively to improve the performance of the system. The parameters
+    that are considered from forecasted weather data are the atmospheric pressure,
+    precipitation, solar radiation, and wind speed. These predicted values are passed
+    through a clustering model to reduce the predicted errors. The other ML-based
+    model takes the results of the clustering model along with the forecasted weather
+    data as input. This binary classification model categorizes the predicted samples
+    into two predefined classes: irrigation required (Y) or not required (N). The
+    results of these ML models are stored in the database for future actions. The
+    last component of the cloud-based server is the handler used for coordination
+    between the user and field units. Based on the suggestion of the ML model, the
+    handler will send irrigation suggestions to the user via the Android application.
+    Based on the agricultural literature, the formula used for calculating the water
+    requirement is discussed in Eq. (1). (1) E V o ∗ C f = W need where, EVo = rate
+    of evaporation Cf = crop factor Wneed = amount of water needed. • User Level:
+    At the user level, the user interacts with an Android application to enter the
+    details about the farmer and crop. Farmer credentials are used to authenticate
+    the user through login operation. In crop details, the farmer may have to provide
+    the information by selecting the drop-down menus like a session, crop name, total
+    crop days, date of sowing, and so on. Through this application, the farmer may
+    get all relevant information about the crop and field. Thus, upon receiving the
+    sensor data along with the irrigation suggestion on the Android application, the
+    user may order the on/off command to the microcontroller. Here, the system is
+    an adaptive one that takes feedback from the user for each suggestion by the handler.
+    If the farmer does not follow the recommendation, then feedback is sent to the
+    server for updation. The system will be fine-tuned subsequently based on user
+    feedback. The microcontroller upon receiving the on/off command from the user
+    performs the motor on/off operation for the supply of water to plants. Thus, we
+    have an automatic irrigation system, which can be used to increase the productivity
+    of the crop by providing an optimal amount of water. The working steps of the
+    proposed solution framework have shown in Algorithm 1. Algorithm 1: Working steps
+    for solution framework. Input: Authentication details for Login to Android application;
+    All relevant crop information from the drop down list Output: Motor turn on/off
+    1: Collect all sensor data at regular intervals through the Arduino. 2: Save the
+    sensor readings in the cloud server database. 3: Using the weather forecasted
+    data, the ML analyzer model analyzes these stored sensor data to check whether
+    irrigation is required or not? 4: The recommendation of the ML model is forwarded
+    to the Android through the handler. 5: Based on the ML recommendation and sensor
+    readings the user will inform the Arduino to send an on/off signal to the motor.
+    6: User may follow the recommendation and irrigate the field. 7: If the user does
+    not follow the recommendation, then feedback will be sent and stored in the database
+    for the corresponding sensor readings. DOI: 10.7717/peerj-cs.578/table-2 ML model
+    As mentioned earlier, the ML analyzer is the main building block of our proposed
+    system. On the stored sensor data, the regression tree (RT) algorithm is applied
+    to predict future soil and environmental data. RTs may grasp non-linear relationships
+    and are reasonably robust to outliers. These predicted parameters are further
+    improved using the agglomerative clustering (AC) algorithm. It may be suitable
+    for this task as the clusters are not supposed to be globular. The forecasted
+    weather data are combined with the predicted soil data to be fed into the classification
+    model. Then, the classifier categorizes the data sample whether irrigation is
+    required or not at that time. This way, the ML technique helps the farmer with
+    the suggestion for irrigation on the crop field. The details about this recommendation
+    architecture is mentioned in Fig. 2. The working steps of the ML model are detailed
+    in Algorithm 2. Figure 2: Architecture of ML-based model.   Download full-size
+    image DOI: 10.7717/peerj-cs.578/fig-2 Algorithm 2: Working steps for ML model.
+    Input: All sensor data and the forecasted weather data from Indian Meteorological
+    Department (IMD) Output: Recommendation for irrigation required or not 1: Apply
+    previously trained RT model on these sensor data to predict future soil and environmental
+    data. 2: Apply AC algorithm for a more precise prediction of all these sensor
+    parameters. 3: All predicted sensor parameters are combined with the forecasted
+    weather data to prepare the final data samples. 4: Apply the previously trained
+    SVM model on these final data samples. DOI: 10.7717/peerj-cs.578/table-3 RT RT
+    is constructed via a procedure known as binary iterative splitting, which is a
+    repetitive process that partition the data into branches, subbranches, and so
+    on. Each decision node in the tree assesses the value of several input variable’s
+    values. The leaf nodes of the RT carry the predicted output (response) variable
+    (Torres-Barrán, Alonso & Dorronsoro, 2019). Here, the AdaBoost algorithm is applied
+    using its library. AC AC is a type of hierarchical clustering that works on a
+    bottom-up approach (Stashevsky et al., 2019). A fundamental assumption in hierarchical
+    AC is that the merge operation is monotonic. Each scrutiny begins in its own cluster,
+    and clusters merged as one moves up the hierarchy. This clustering may improve
+    the performance of classical regression by partitioning the sample training space
+    into subspaces. SVM SVM is a supervised ML model that works very well for many
+    classification tasks (Lebrini et al., 2019). Once SVM is fed with sets of labeled
+    training data for each class, they can be categorized into new samples. For non-linear
+    classification, it performs well with a limited number of labeled training data.
+    The prototype model and its deployment in the paddy field are depicted in Figs.
+    3A and 3B separately. It contains all sensors, Arduino, GSM module, different
+    connecting wires. Along with all these IoT devices, one power bank is used as
+    the source of power. This power source may be replaced with a small solar panel
+    with a battery in the future. The Arduino is used because of its low power consumption.
+    The prototype of the android application is illustrated in Fig. 4A and the recommendation
+    for the motor using the classification, of whether irrigation is required or not
+    is shown in Fig. 4B. Figure 3: (A) Prototype model (B) Model deployment inside
+    paddy field.   Download full-size image DOI: 10.7717/peerj-cs.578/fig-3 Figure
+    4: (A) Sign-up page of the android application; (B) field status and logout page
+    of the Android application.   Download full-size image DOI: 10.7717/peerj-cs.578/fig-4
+    Results and discussion The performance of the proposed model has been evaluated
+    using Python. All the ML models have been implemented using the Scikit-learn Python
+    library. To validate the effectiveness of the system, our own collected data (GCEKIoTCommunity)
+    (https://github.com/NitrrMCACommunity/Agriculture-Automation-) along with the
+    Crops dataset of NIT Raipur (NitrrMCACommunity) (https://github.com/NitrrMCACommunity/Agriculture-Automation-/tree/master/Dataset)
+    have been used. We have collected data like soil moisture, soil temperature, humidity,
+    air temperature, and UV radiation by using the relevant sensors. The stored readings
+    of each day are the average of all readings on that day. We gathered 150 samples
+    from our simulation area. In the NIT Raipur dataset, there are 501 samples available.
+    As mentioned earlier, we have integrated the forecasted weather data from Indian
+    meteorological department site (IMD) (https://mausam.imd.gov.in/) by using weather
+    application programming interface (APIs) (https://restapitutorial.com/). Through
+    this, we have collected the data like next-day rainfall, amount of rainfall, precipitation,
+    and so on of a particular area to make our irrigation accuracy even better. As
+    the evening is the best time to irrigate, each day in the evening, the ML model
+    runs. Based on its results, the handler sends irrigation suggestions to the farmer
+    along with the stored and forecasted parameters. For the classification task,
+    the five-fold cross-validation method is used for better generalization. The efficiency
+    of the system is estimated based on the most extensively used measures, such as
+    precision, recall, F1-measure, and accuracy (A). Mathematically, these measures
+    are represented in Eqs. (2) to (4). (2) Precision( P r )= T p T p + F p (3) Recall(
+    R c )= T p T p + F n (4) F1−measure(F1)= 2∗ P r ∗ R c P r + R c where Tp, Fp,
+    and Fn are denoted as true positives, false positives, and false negatives, respectively.
+    The results of different ML models for classification are given in Table 1. The
+    different performance evaluations of the proposed model on our own collected dataset
+    are shown in Fig. 5A and 5B respectively. Similarly, the performance evaluation
+    of the proposed model on NIT Raipur crop dataset is depicted in Figs. 6A and 6B
+    respectively. The experimental results show that the performance of our system
+    is quite satisfactory for this automation task. The performance of this system
+    may further improve with experience as new data will be collected. The user feedback
+    will further fine-tune this system even if there are a few wrong suggestions.
+    The experimental results clearly demonstrate that the SVM-based model outperforms
+    other classification models on both datasets. Of the two datasets, the NIT Raipur
+    crop dataset performs better, which may be due to the larger number of samples
+    present in it. Figure 5: Performance evaluation of proposed model on our own collected
+    dataset (A) with 70:30 ratio (B) with 5-fold cross-validation.   Download full-size
+    image DOI: 10.7717/peerj-cs.578/fig-5 Figure 6: Performance evaluation of proposed
+    model on NIT Raipur crop dataset (A) with 70:30 ratio (B) with 5-fold cross-validation.   Download
+    full-size image DOI: 10.7717/peerj-cs.578/fig-6 Table 1: Suggestion for irrigation.
+    70:30 ratio of training and testing 5-fold cross validation Dataset Classifier
+    A Pr Rc F1 A Pr Rc F1 Our sensor collected data Naïve Bayes 83.48 82.67 80.95
+    81.80 83.61 82.77 80.99 81.87 Decision Tree (C4.5) 85.74 85.12 83.81 84.46 85.83
+    85.19 83.88 84.53 SVM 87.29 86.77 85.42 86.09 87.45 86.85 85.51 86.17 NIT Raipur
+    Crop dataset Naïve Bayes 84.37 83.35 82.63 82.99 84.51 83.44 82.68 83.06 Decision
+    Tree (C4.5) 86.15 85.75 83.89 84.81 86.29 85.86 83.95 84.89 SVM 88.05 87.44 86.52
+    86.98 88.22 87.55 86.59 87.07 DOI: 10.7717/peerj-cs.578/table-1 Conclusion and
+    future work In this work, a smart irrigation system prototype for efficient usage
+    of water and minimal human intervention is proposed. The proposed recommendation
+    system includes regression of soil and environmental attributes, which are further
+    improved with the help of AC. Forecasted weather data are integrated with these
+    predicted attributes to reduce the irrigation error. Finally, the classification
+    model is used to categorize the combined set of attributes for the suggestion
+    of irrigation is required or not. Based on these results, the system recommends
+    the farmer for the next irrigation. If the farmer rejects the approval, then feedback
+    is sent to the system. Further, it updates and fine-tunes the model subsequently.
+    The experiment reveals that the SVM model outperforms other classification models
+    on both datasets. As the ML-based models are data hungry, there is a strong intuition
+    that the proposed system will perform even better with more samples. This system
+    can be further extended to deciding on spraying appropriate chemicals for proper
+    growth of crop. Supplemental Information Code and data. All the ML models have
+    implemented using the Scikit-learn Python library. To validate the effectiveness
+    of the system NIT Raipur and our own collected data have been used. DOI: 10.7717/peerj-cs.578/supp-1   Download
+    Additional Information and Declarations Competing Interests The authors declare
+    that they have no competing interests. Author Contributions Ashutosh Bhoi conceived
+    and designed the experiments, performed the experiments, analyzed the data, performed
+    the computation work, prepared figures and/or tables, authored or reviewed drafts
+    of the paper, and approved the final draft. Rajendra Prasad Nayak conceived and
+    designed the experiments, performed the experiments, analyzed the data, performed
+    the computation work, prepared figures and/or tables, authored or reviewed drafts
+    of the paper, and approved the final draft. Sourav Kumar Bhoi conceived and designed
+    the experiments, performed the experiments, analyzed the data, performed the computation
+    work, prepared figures and/or tables, authored or reviewed drafts of the paper,
+    and approved the final draft. Srinivas Sethi conceived and designed the experiments,
+    analyzed the data, performed the computation work, prepared figures and/or tables,
+    authored or reviewed drafts of the paper, and approved the final draft. Sanjaya
+    Kumar Panda conceived and designed the experiments, performed the experiments,
+    analyzed the data, performed the computation work, prepared figures and/or tables,
+    authored or reviewed drafts of the paper, and approved the final draft. Kshira
+    Sagar Sahoo conceived and designed the experiments, performed the experiments,
+    analyzed the data, performed the computation work, prepared figures and/or tables,
+    authored or reviewed drafts of the paper, and approved the final draft. Anand
+    Nayyar conceived and designed the experiments, performed the experiments, analyzed
+    the data, performed the computation work, prepared figures and/or tables, authored
+    or reviewed drafts of the paper, and approved the final draft. Data Availability
+    The following information was supplied regarding data availability: Data is available
+    at GitHub: https://github.com/NitrrMCACommunity/Agriculture-Automation-. https://github.com/GCEKIoTCommunity/Irrigation-Dataset.
+    Funding This work is financially supported by the Collaborative Research Scheme
+    (CRS) of the National Project Implementation Unit (NPIU), MHRD, Government of
+    India. The funders had no role in study design, data collection and analysis,
+    decision to publish, or preparation of the manuscript. Acknowledgements   The
+    authors wish to thank the Department of Computer Application of NIT Raipur for
+    making available the Crop dataset. References   Adeyemi O, Grove I, Peets S, Domun
+    Y, Norton T. 2018. Dynamic neural network modelling of soil moisture content for
+    predictive irrigation scheduling. Sensors 18(10):3408 Ashwini B. 2018. A study
+    on smart irrigation system using iot for surveillance of crop-field. International
+    Journal of Engineering & Technology 4(5):370-373 Bavougian CM, Read PE. 2018.
+    Mulch and groundcover effects on soil temperature and moisture, surface reflectance,
+    grapevine water potential, and vineyard weed management. PeerJ 6(1):e5082 Bhanu
+    BB, Hussain MA, Ande P. 2014. Monitoring of soil parameters for effective irrigation
+    using wireless sensor networks. Chlingaryan A, Sukkarieh S, Whelan B. 2018. Machine
+    learning approaches for crop yield prediction and nitrogen status estimation in
+    precision agriculture: a review. Computers and Electronics in Agriculture 151:61-69
+    Fremantle P, Scott P. 2017. A survey of secure middleware for the internet of
+    things. PeerJ Computer Science 3(15):e114 Ge X, Wang J, Ding J, Cao X, Zhang Z,
+    Liu J, Li X. 2019. Combining UAV-based hyperspectral imagery and machine learning
+    algorithms for soil moisture content monitoring. PeerJ 7(11):e6926 Glaroudis D,
+    Iossifides A, Chatzimisios P. 2020. Survey, comparison and research challenges
+    of IoT application protocols for smart farming. Computer Networks 168(4):107037
+    Goap A, Sharma D, Shukla A, Krishna CR. 2018. An iot based smart irrigation management
+    system using machine learning and open source technologies. Computers and Electronics
+    in Agriculture 155(1):41-49 Goldstein A, Fink L, Meitin A, Bohadana S, Lutenberg
+    O, Ravid G. 2018. Applying machine learning on sensor data for irrigation recommendations:
+    revealing the agronomist’s tacit knowledge. Precision agriculture 19(3):421-444
+    Gutiérrez J, Villa-Medina JF, Nieto-Garibay A, Porta-Gándara MÁ. 2013. Automated
+    irrigation system using a wireless sensor network and gprs module. IEEE Transactions
+    on Instrumentation and Measurement 63(1):166-176 Hema N, Kant K. 2014. Local weather
+    interpolation using remote aws data with error corrections using sparse wsn for
+    automated irrigation for indian farming. Jha K, Doshi A, Patel P, Shah M. 2019.
+    A comprehensive review on automation in agriculture using artificial intelligence.
+    Artificial Intelligence in Agriculture 2(3):1-12 Kamienski C, Soininen J-P, Taumberger
+    M, Dantas R, Toscano A, Salmon Cinotti T, Filev Maia R, Torre Neto A. 2019. Smart
+    water management platform: Iot-based precision irrigation for agriculture. Sensors
+    19(2):276 Kaur S, Deepali. 2017. An automatic irrigation system for different
+    crops with wsn. Khoa TA, Man MM, Nguyen T-Y, Nguyen V, Nam NH. 2019. Smart agriculture
+    using iot multi-sensors: a novel watering management system. Journal of Sensor
+    and Actuator Networks 8(3):45 Kim Y, Evans RG, Iversen WM. 2008. Remote sensing
+    and control of an irrigation system using a distributed wireless sensor network.
+    IEEE Transactions on Instrumentation and Measurement 57(7):1379-1387 LaCanne CE,
+    Lundgren JG. 2018. Regenerative agriculture: merging farming and natural resource
+    conservation profitably. PeerJ 6:e4428 Lebrini Y, Boudhar A, Hadria R, Lionboui
+    H, Elmansouri L, Arrach R, Ceccato P, Benabdelouahab T. 2019. Identifying agricultural
+    systems using svm classification approach based on phenological metrics in a semi-arid
+    region of morocco. Earth Systems and Environment 3(2):277-288 Leh NAM, Kamaldin
+    MSAM, Muhammad Z, Kamarzaman NA. 2019. Smart irrigation system using internet
+    of things. Liu D, Jia Q, Li J, Zhang P, Ren X, Jia Z. 2020. Increased photosynthesis
+    and grain yields in maize grown with less irrigation water combined with density
+    adjustment in semiarid regions. PeerJ 8(1):e9959 Mohapatra AG, Lenka SK, Keswani
+    B. 2019. Neural network and fuzzy logic based smart DSS model for irrigation notification
+    and control in precision agriculture. Proceedings of the National Academy of Sciences,
+    India Section A: Physical Sciences 89(1):67-76 Nawandar NK, Satpute VR. 2019.
+    IoT based low cost and intelligent module for smart irrigation system. Computers
+    and Electronics in Agriculture 162(4):979-990 Rehman AU, Asif RM, Tariq R, Javed
+    A. 2017. Gsm based solar automatic irrigation system using moisture, temperature
+    and humidity sensors. Sahoo KS, Puthal D, Tiwary M, Usman M, Sahoo B, Wen Z, Sahoo
+    BP, Ranjan R. 2019. Esmlb: efficient switch migration-based load balancing for
+    multi-controller sdn in IoT. IEEE Internet of Things Journal 7(7):5852-5860 Salas
+    J, Vega H, Ortiz J, Bustos R, Lozoya C. 2014. Implementation analysis of gprs
+    communication for precision agriculture. Schleicher JM, Vögler M, Inzinger C,
+    Dustdar S. 2017. Modeling and management of usage-aware distributed datasets for
+    global smart city application ecosystems. PeerJ Computer Science 3(11):e115 Shekhar
+    Y, Dagur E, Mishra S, Sankaranarayanan S. 2017. Intelligent IoT based automated
+    irrigation system. International Journal of Applied Engineering Research 12(18):7306-7320
+    Singh S, Kaur S, Kumar P. 2020. Forecasting soil moisture based on evaluation
+    of time series analysis. In: Singh S, Pandey R, Panigrahi B, Kothari D, eds. Advances
+    in Power and Control Engineering. Lecture Notes in Electrical Engineering. Singapore:
+    Springer. 609:145-156 Sinwar D, Dhaka VS, Sharma MK, Rani G. 2020. Ai-based yield
+    prediction and smart irrigation. In: Pattnaik P, Kumar R, Pal S, eds. Internet
+    of Things and Analytics for Agriculture, Volume 2—Studies in Big Data. Singapore:
+    Springer. 67:155-180 Stashevsky PS, Yakovina IN, Alarcon Falconi TM, Naumova EN.
+    2019. Agglomerative clustering of enteric infections and weather parameters to
+    identify seasonal outbreaks in cold climates. International Journal of Environmental
+    Research and Public Health 16(12):2083 Torres-Barrán A, Alonso Á, Dorronsoro JR.
+    2019. Regression tree ensembles for wind energy and solar radiation prediction.
+    Neurocomputing 326–327(7):151-160 Vij A, Vijendra S, Jain A, Bajaj S, Bassi A,
+    Sharma A. 2020. Iot and machine learning approaches for automation of farm irrigation
+    system. Procedia Computer Science 167:1250-1257 Wang L, Wu W, Xiao J, Huang Q,
+    Hu Y. 2020. Effects of different drip irrigation modes on water use efficiency
+    of pear trees in northern China. Agricultural Water Management 245:106660 Related
+    research Addressing Internet of Things security by enhanced sine cosine metaheuristics
+    tuned hybrid machine learning model and results interpretation based on SHAP approach
+    PeerJ IoMT based smart healthcare system to control outbreaks of the COVID-19
+    pandemic PeerJ An autonomous mixed data oversampling method for AIOT-based churn
+    recognition and personalized recommendations using behavioral segmentation PeerJ
+    Evaluating deep learning variants for cyber-attacks detection and multi-class
+    classification in IoT networks PeerJ Intelligent decision making for energy efficient
+    fog nodes selection and smart switching in the IOT: a machine learning approach
+    PeerJ Precision Agriculture and Irrigation – Current U.S. Perspectives Steven
+    R. Evett et al., Transactions of the ASABE, 2019 Artificial intelligence in drug
+    discovery Matthew A Sellwood et al., Future Medicinal Chemistry, 2018 Machine
+    learning algorithms applied to weed management in integrated crop-livestock systems:
+    a systematic literature review Ana L. B. Gomes et al., Advances in Weed Science,
+    2024 Machine learning techniques for mass spectrometry imaging data analysis and
+    applications Ye Zhang et al., Bioanalysis, 2018 Machine learning techniques for
+    mass spectrometry imaging data analysis and applications Ye Zhang et al., Bioanalysis,
+    2018 Powered by Questions Links   Ask a question Learn more about Q&A 32 32 Total
+    citations 30 Recent citations 13 Field Citation Ratio 0.36 Relative Citation Ratio
+    Enter your institution To find colleagues at PeerJ CALL FOR PAPERS Revolutionizing
+    Healthcare: The Role of AI and Machine Learning View Call for Papers Earn Tokens
+    as a PeerJ Reviewer London, united kingdom View Task Download Content Alert Just
+    enter your email Tools & info Peer Review history See citing articles 27 Ask questions
+    Add links Visitors 3,090 click for details Views 3,448 Downloads 1,523 Report
+    problem with article Outline Introduction Related work Proposed methodology Results
+    and discussion Conclusion and future work Supplemental Information ACADEMIC EDITOR
+    Abdel Hamid Soliman Staffordshire University VIEW PROFILE AUTHOR & PEERJ ACADEMIC
+    EDITOR EMERGING TECHNOLOGIES Anand Nayyar Duy Tan University VIEW PROFILE   JOURNALS
+    PUBLISH COMMUNITIES LOGIN Can you publish for free in PeerJ? FIND OUT NOW About
+    us - PeerJ team | Our publications | Benefits | Partnerships | Endorsements |
+    Awards Academic boards - Advisors | Editors | Subject areas Submission guides
+    - PeerJ – Life and Environment | PeerJ Computer Science | PeerJ Chemistry Resources
+    - FAQ | Careers | Press room | Terms of use | Privacy | Credits | Contact Follow
+    us - PeerJ blog | X | Facebook | LinkedIn | Instagram | Pinterest Spread the word
+    - Activities | Resources PeerJ feeds - Atom | RSS 1.0 | RSS 2.0 | JSON PeerJ Computer
+    Science feeds - Atom | RSS 1.0 | RSS 2.0 | JSON Archives - PeerJ – Life and Environment
+    | PeerJ Computer Science © PeerJ, Inc. 2012-2024 | Public user content licensed
+    CC BY 4.0 unless otherwise specified. PeerJ ISSN: 2167-8359 PeerJ Comput. Sci.
+    ISSN: 2376-5992 PeerJ Phys. Chem. ISSN: 2689-7733 PeerJ Analytical Chem. ISSN:
+    2691-6630 PeerJ Org. Chem. ISSN: 2831-6223 PeerJ Mat. Sci. ISSN: 2691-6657 PeerJ
+    Preprints ISSN: 2167-9843"'
+  inline_citation: '>'
+  journal: PeerJ Computer Science
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'IoT-IIRS: Internet of Things based intelligent-irrigation recommendation
+    system using machine learning approach for efficient water usage'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Goap A.
+  - Sharma D.
+  - Shukla A.K.
+  - Rama Krishna C.
+  citation_count: '380'
+  description: The scarcity of clean water resources around the globe has generated
+    a need for their optimum utilization. Internet of Things (IoT) solutions, based
+    on the application specific sensors’ data acquisition and intelligent processing,
+    are bridging the gaps between the cyber and physical worlds. IoT based smart irrigation
+    management systems can help in achieving optimum water-resource utilization in
+    the precision farming landscape. This paper presents an open-source technology
+    based smart system to predict the irrigation requirements of a field using the
+    sensing of ground parameter like soil moisture, soil temperature, and environmental
+    conditions along with the weather forecast data from the Internet. The sensing
+    nodes, involved in the ground and environmental sensing, consider soil moisture,
+    soil temperature, air temperature, Ultraviolet (UV) light radiation, and relative
+    humidity of the crop field. The intelligence of the proposed system is based on
+    a smart algorithm, which considers sensed data along with the weather forecast
+    parameters like precipitation, air temperature, humidity, and UV for the near
+    future. The complete system has been developed and deployed on a pilot scale,
+    where the sensor node data is wirelessly collected over the cloud using web-services
+    and a web-based information visualization and decision support system provides
+    the real-time information insights based on the analysis of sensors data and weather
+    forecast data. The system has a provision for a closed-loop control of the water
+    supply to realize a fully autonomous irrigation scheme. The paper describes the
+    system and discusses in detail the information processing results of three weeks
+    data based on the proposed algorithm. The system is fully functional and the prediction
+    results are very encouraging.
+  doi: 10.1016/j.compag.2018.09.040
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Keywords 1. Introduction 2. Methods/Techniques used
+    3. The proposed system 4. Results and discussion 5. Conclusion Acknowledgements
+    References Show full outline Cited by (393) Figures (6) Tables (7) Table 1 Table
+    2 Table 3 Table 4 Table 5 Table Show all tables Computers and Electronics in Agriculture
+    Volume 155, December 2018, Pages 41-49 Original papers An IoT based smart irrigation
+    management system using Machine learning and open source technologies Author links
+    open overlay panel Amarendra Goap a b, Deepak Sharma b, A.K. Shukla b, C. Rama
+    Krishna a Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.compag.2018.09.040
+    Get rights and content Highlights • IoT based architecture for smart irrigation
+    using field sensors and weather forecast. • Machine-learning based Soil moisture
+    prediction algorithm with higher accuracy. • Smart irrigation scheduling algorithm
+    using predicted soil moisture and rain forecast. Abstract The scarcity of clean
+    water resources around the globe has generated a need for their optimum utilization.
+    Internet of Things (IoT) solutions, based on the application specific sensors’
+    data acquisition and intelligent processing, are bridging the gaps between the
+    cyber and physical worlds. IoT based smart irrigation management systems can help
+    in achieving optimum water-resource utilization in the precision farming landscape.
+    This paper presents an open-source technology based smart system to predict the
+    irrigation requirements of a field using the sensing of ground parameter like
+    soil moisture, soil temperature, and environmental conditions along with the weather
+    forecast data from the Internet. The sensing nodes, involved in the ground and
+    environmental sensing, consider soil moisture, soil temperature, air temperature,
+    Ultraviolet (UV) light radiation, and relative humidity of the crop field. The
+    intelligence of the proposed system is based on a smart algorithm, which considers
+    sensed data along with the weather forecast parameters like precipitation, air
+    temperature, humidity, and UV for the near future. The complete system has been
+    developed and deployed on a pilot scale, where the sensor node data is wirelessly
+    collected over the cloud using web-services and a web-based information visualization
+    and decision support system provides the real-time information insights based
+    on the analysis of sensors data and weather forecast data. The system has a provision
+    for a closed-loop control of the water supply to realize a fully autonomous irrigation
+    scheme. The paper describes the system and discusses in detail the information
+    processing results of three weeks data based on the proposed algorithm. The system
+    is fully functional and the prediction results are very encouraging. Previous
+    article in issue Next article in issue Keywords Irrigation management systemIoTPrecision
+    agriculturePrediction algorithmMachine learningEvapotranspiration 1. Introduction
+    Water scarcity is already affecting a part of the world and the situation is getting
+    worse over time due to the increasing world population and fresh water demands.
+    The current world population is around 7.2 billion and it is expected to be more
+    than 9 billion by 2050 (United Nations, 2013). The agriculture sector, particularly
+    irrigation, consumes a major portion of the freshwater. Due to lack of cost-effective
+    intelligent irrigation systems, developing countries are consuming more water
+    in contrast to the developed countries for achieving the same yield. For example,
+    India has approximately 4% of world’s freshwater resources to serve 17% of the
+    world population; however, it takes 2–4 times more water for some of its major
+    agri-produce in comparison to the other countries like China, USA (G. o. I. NITI
+    Aayog, 2015). Therefore, there is a dire need to come up with advanced technologies
+    based smart strategies and systems for effective utilization of fresh water. Gubbi
+    et al. (2013) discussed an IoT framework with cloud centric storage, processing
+    and analysis of the data received from ubiquitous sensors along with a decision
+    support interface. Cruz et al. (2018) suggested a reference model for an IoT middleware
+    platform that would support intelligent IoT applications. IoT based solutions
+    are proving very helpful in many dimensions of the agricultural landscape (Sharma
+    et al., 2016), and these intelligent solutions could also be fruitful in smart
+    irrigation with optimum utilization of water. Soil moisture, precipitation, and
+    evaporation are the essential parameters for designing a smart irrigation system.
+    The precipitation and evaporation are important key factors, which influence the
+    soil moisture. In geography and climatology, the wetness of soil is estimated
+    by the proportion of annual (or monthly) precipitation and evaporation (Shang
+    et al., 2007). Daily soil moisture can also be evaluated by the ratio of daily
+    precipitation and evaporation in the above perspective. Precipitation is directly
+    accessible in the routine weather reports; nonetheless, evaporation can be calculated
+    using other metrological essentials. For evaporation, we use an empirical model
+    given by Penman (Chen and Chen, 1993) (1) The entire evaporation depends on the
+    thermodynamic evaporation and the dynamic evaporation , where depends upon the
+    velocity of the land storm, air temperature, relative humidity of the air and
+    UV radiation. To achieve water saving, irrigation system frameworks have been
+    proposed based on various techniques, e.g., thermal imaging, Crop Water Stress
+    Index (CWSI), direct soil water measurements, etc. Thermal imaging is a prominent
+    technique for irrigation management and it is based on the shade temperature distribution
+    of the plant. In this framework, the status of the water in the plant is checked
+    over continuous intervals and irrigation is planned in view of the shade temperature
+    distribution of the plant (Wang et al., 2010). In addition, CWSI based framework
+    has been proposed for irrigation scheduling of the crops for efficient use of
+    water. The observation of CWSI was first characterized more than 30 years ago
+    (Idso et al., 1981). O’Shaughnessy and Evett (2010) proposed an automatic irrigation
+    scheduling based on direct soil water measurement that utilizes water proficiently
+    over manual irrigation system. Allen et al. (1998) suggested evapotranspiration
+    (ET) based approach, which is an important parameter to decide crop irrigation
+    needs influenced by climate parameters, e.g., solar radiation, relative humidity,
+    temperature, wind velocity, and crop features such as phase of the crop growth,
+    assortment and plant density, properties of soil, nuisance, and disease control.
+    ET-based frameworks can save water up to 42% over time-based water irrigation
+    scheduling (Davis and Dukes, 2010). Davis et al. (2009) conducted the investigations
+    in Florida and verified that ET‐based watering scheduling controllers are more
+    beneficial in term of cost, size and labor requirement for irrigation. ET-based
+    irrigation system uses much less water as compared to scheduled practices. Viani
+    et al. (2017) proposed a fuzzy logic-based decision support system based on farmer’s
+    experience with the understanding of crop condition. This system provides more
+    water saving over single-threshold and multi-threshold based irrigation scheduling.
+    Gutiérrez et al. (2014) proposed an automated irrigation system using a wireless
+    sensor network and GPRS module to save water in irrigation. In this system, a
+    network of soil moisture sensors with controller has been installed in a crop
+    field for real-time monitoring and irrigation control. Gill et al. (2006) suggested
+    a method for soil moisture prediction using support vector machines based on air
+    temperature, relative air humidity and soil temperature. Jaguey et al. (2015)
+    developed irrigation sensor based on smart phone. For sensing soil moisture, the
+    digital camera of smart phone is used to process RGB to gray for estimation of
+    ratio between wet and dry area of soil. The ratio of wetness and dryness is transmitted
+    via gateway to water motor controller. A Mobile Application (APP) is developed
+    to control sensor activity (like wakeup) and to set sensor in sleep mode. Goldstein
+    et al. (2017) proposed irrigation recommendations based on machine learning algorithm
+    with support of agronomist’s encysted knowledge. It was found that the best regression
+    model was Gradient Boosted Regression Trees (GBRT) with 93% accuracy in prediction
+    of irrigation plan/recommendation. The developed model is helpful to the agronomist’s
+    irrigation management. Roopaei et al. (2017) proposed an intelligent irrigation
+    monitoring system based on thermal imaging. The proposed technique uses thermal
+    imaging camera mounted on Drone. An algorithm is developed using images processing
+    techniques for identification of water requirement, Leaf water potential, and
+    non-uniform irrigation, which are used for irrigation monitoring. Majority of
+    the earlier irrigation systems do not consider the weather forecasting information
+    (e.g., precipitation) while making irrigation decisions. It leads to a wastage
+    of fresh water, energy and loss of crop growth (due to excess water) when a rain
+    is followed immediately by the watering of the crop. To handle such cases, IoT
+    based solutions can provide a better decision support for irrigation by utilizing
+    weather forecasting information (e.g., precipitation) from the Internet. Further,
+    the accuracy of weather forecasting is improving due to the advancement of satellite
+    imagery technology. For effective and optimum utilization of fresh water in irrigation,
+    it becomes essential to develop the smart irrigation systems based on dynamic
+    prediction of soil moisture pattern of the field and precipitation information
+    of upcoming days. This paper presents an intelligent system that predicts soil
+    moisture based on the information collected from the sensors deployed at the field
+    and the weather forecast information available on the Internet. The field data
+    has been collected through a self-designed sensor node. The server-side software
+    has been developed with node side connectivity along with information visualization
+    and decision support features. A novel algorithm has been developed for soil-moisture
+    prediction, which is based on Machine Learning techniques applied on the sensor
+    node data and the weather forecast data. The algorithm shows improved accuracy
+    and less error. The proposed approach could help in making effective irrigation
+    decisions with optimum water usage. 2. Methods/Techniques used Prediction of soil
+    moisture is vital for effective irrigation management system. The estimation of
+    soil moisture depends upon evapotranspiration Hargreaves and Samani (1985) developed
+    a method based on temperature and extra-terrestrial radiation to estimate ET0.
+    It is expressed as (2) where ET0 = reference evapotranspiration (mm/day); Tmax
+    and Tmin = maximum temperature and minimum temperature (°C) and Ra = extra-terrestrial
+    radiation (MJ m−2 day−1). Ritchie developed another method for estimation of ET0
+    (Jones and Ritchie, 1990) based on temperature and solar radiation. It is expressed
+    as (3) where ET0 = reference evapotranspiration (mm/day); Tmax and Tmin = maximum
+    and minimum temperature (°C) and Rs = solar radiation (MJ m−2 day−1). When (4)
+    Cobaner (2011) developed evapotranspiration estimation method based on Neuro-Fuzzy
+    (NF) inference and found that the NF model (based on solar radiation, air temperature,
+    and relative humidity) exhibits better accuracy than the combination of solar
+    radiation, air temperature and wind speed. From state of art, it has been analyzed
+    that prediction of soil moisture is possible using sensors placement at the field
+    and weather forecasted data. So, we have considered evaporation of soil moisture
+    based on air temperature, air relative humidity, soil temperature, and radiation.
+    The parameters are considered for analyzing the soil moisture drain (change/difference)
+    pattern based on the recorded data of soil moisture. An IoT based architecture
+    (Fig. 1) has been proposed to collect, transmit and process the physical parameters
+    (soil moisture, air temperature, air relative humidity, soil temperature, and
+    radiation) of farming land along with the weather forecast information to manage
+    the irrigation efficiently. Download : Download high-res image (307KB) Download
+    : Download full-size image Fig. 1. Architecture of proposed system. An algorithm
+    based on a combination of supervised and unsupervised machine learning techniques
+    (block diagram shown in Fig. 3 and pseudocode is discussed in Section 3.2.1) has
+    been developed using Support Vector Regression (SVR) and k-means clustering for
+    estimation of difference/change in soil moisture due to weather conditions. It
+    gives good accuracy and less Mean Squared Error (MSE) (Theobald, 1974; “Mean Squared
+    Error, 2018’’) in the prediction of the soil moisture of upcoming days with the
+    help of sensors data and the weather forecasting data. SVR model has been trained
+    using data (air temperature, air relative humidity, soil temperature, radiation,
+    and soil moisture difference) collected from field device shown in Fig. 2. The
+    Soil Moisture Differences (SMD) of upcoming days have been predicted using trained
+    SVR model and the predicted value of SMD is given as input for k-means clustering
+    for improving the accuracy of soil moisture difference (centroid value of k-means),
+    which is more accurate (Table 2) with less MSE (Table 3). The final predicted
+    soil moisture (Table 4) has been used in the development of smart irrigation scheduling
+    algorithm (Section 3.2.2) to efficiently utilize the natural rain (precipitation)
+    information for effective irrigation. To visualize the predicted soil moisture
+    of upcoming days along with precipitation information and to control (start and
+    stop) the irrigation, a responsive web portal has also been developed (Fig. 4,
+    Fig. 5). Download : Download high-res image (250KB) Download : Download full-size
+    image Fig. 2. Field data collection device. [Legends A: UV Sensor, B: Soil Temperature
+    Sensor, C: Soil Moisture Sensor, D: Air Temperature & Humidity Sensor, E: Relay
+    Switch, F: Arduino Board, G: Raspberry Pi] Download : Download high-res image
+    (586KB) Download : Download full-size image Fig. 3. Schematic diagram of prediction
+    algorithm with irrigation planning. Table 1. The variables used in the algorithm
+    for soil moisture prediction. Variable name Input/output type Variable details
+    SMD Input Soil Moisture Difference (SMD) is defined as minimum recorded soil moisture
+    of the previous day (x-1) minus minimum soil moisture for the current day (x)
+    (As the soil moisture is affected by air temperature, relative air humidity and
+    UV changes) H Input Average air relative humidity of the day Temp Input Average
+    air temperature of the day MSD Input Maximum SMD value during all days of data
+    used in training set of regression model UV Input Average Ultraviolet radiation
+    of the day WD Input Array of forecasted weather data {Tempi, Hi, UVi} that will
+    be used in soil moisture prediction STi Input Average soil temperature PSMD Output
+    at intermediate level Predicted SMD using regression model of upcoming days with
+    the help of forecasted weather data NoC Input Number of cluster (⌈MSD⌉) SVR Input
+    Support vector regression SD Input Array of field sensor data {Tempj, Hj,UVj,
+    STi, SMDj} SVR_Model Output Generated training model to predict SMD NPSMD Output
+    New predicted SMD using centroid value of k-means clustering STD Input Soil temperature
+    difference is average soil temperature for the previous day (x-1) minus average
+    soil temperature for the current day (x) PST Output Predicted soil temperature
+    based on predicted soil temperature difference and weather data Table 2. SMD based
+    on sensor data and prediction algorithm. Date SMD based on sensor data Predicted
+    SMD using SVR Predicted SMD using proposed algorithm (SVR + k-means) 15-11-2017
+    1.236227211 0.807615 0.9741 16-11-2017 0.928945011 0.845376 0.8265 17-11-2017
+    0.681400791 0.673736 0.9026 18-11-2017 0.433856571 1.037236 0.9632 19-11-2017
+    1.034538866 1.186209 1.0965 20-11-2017 1.735615593 1.111515 1.0995 Table 3. Comparison
+    of Correlation, and MSE between SMDs based on sensor data and prediction algorithm.
+    Parameter Predicted SMD using SVR Predicted SMD using proposed algorithm (SVR + k-means)
+    R (Correlation coefficient) 0.313454 0.559295 MSE (Mean squared error) 0.160337
+    0.135599 Table 4. Soil moisture based on the sensor data and the proposed algorithm.
+    Date Soil Moisture recorded by sensor Predicted soil moisture using SMD by SVR
+    Predicted soil moisture using SMD by proposed algorithm (SVR + k-means) 15-11-2017
+    25.66197279 26.09058 25.9241 16-11-2017 24.73302778 25.24521 25.0976 17-11-2017
+    24.05162699 24.57147 24.195 18-11-2017 23.61777042 23.53424 23.2318 19-11-2017
+    22.58323155 22.34803 22.1353 20-11-2017 20.84761596 21.23651 21.0358 Download
+    : Download high-res image (189KB) Download : Download full-size image Fig. 4.
+    GUI of real-time monitoring and decision support system. Download : Download high-res
+    image (164KB) Download : Download full-size image Fig. 5. The GUI of Irrigation
+    Planning Module. Support Vector Regression (SVR) (Drucker et al., 1997) is the
+    modified version of Support Vector Machine (SVM) (Hearst et al., 1998), where
+    the dependent variable is numerical in lieu of categorical. SVR is a non-parametric
+    technique and allows the creation of nonlinear models. The SVR method utilizes
+    kernel functions to generate the model. Some of the frequently used kernel functions
+    are Polynomial, Linear, Radial Basis and Sigmodal. k-means clustering (Kanungo
+    et al., 2002) takes a straightforward and simple methodology to group a given
+    information set into a definite number of clusters. The objective is to find k
+    centroids, one for each bunch. First, it divides n number of the objects into
+    k non-empty subgroups/cluster, and then finds the cluster centroids (mean point)
+    of every subgroup/cluster. Then it calculates the distances from every point to
+    the centroids and allocate each object to a specific cluster where the distance
+    is minimum from the centroid. The process iterates to re-assign the points and
+    identify the centroid of the new clusters. 3. The proposed system 3.1. System
+    architecture The architecture of proposed IoT based smart irrigation system is
+    shown in Fig. 1. It has seven main components, viz., Field data collection device
+    with relay switch (Standalone and WSN Scenario); Web service for collecting field
+    sensor data; Web service for collecting weather information available online (Internet);
+    Web service to control water motor; Soil moisture prediction algorithm; Responsive
+    web based interface for real-time monitoring; IoT enabled motor pump. These components
+    are grouped into three different layers, i.e. Data collection and transmission
+    layer, Data processing & intelligence layer and application layer of IoT (Fig.
+    1). These components are discussed in the following sections. 3.1.1. Field data
+    collection device Depending on the field requirements, a standalone sensor node
+    or a wireless sensor network of the sensor nodes may be deployed. In standalone
+    scenario field data collection device consists of four sensors, viz., VH-400 Soil
+    Moisture sensor, Soil temperature sensor, DHT22 temperature and humidity sensor,
+    and Ultraviolet (UV) Light Radiation sensor based on GUVA-S12SD and SGM8521 Op
+    Amp. The output of these sensors is read by an Arduino-Uno, which is connected
+    to Raspberry Pi (R-Pi). In R-Pi a program is written in Python language to hourly
+    fetch the data from sensors and to store the data in SQLite database, which is
+    synched with the server database using developed web service. For large farming
+    area, a Wireless Sensor Network (WSN) (Ojha et al., 2015) scenario with ZigBee
+    (Pandey et al., 2017, Gutiérrez et al., 2014) technology can be implemented in
+    which multiple sensor nodes can be planted in the specified area. Each sensor
+    node will consist of the sensors similar to the standalone device. The output
+    of these sensors is read by an Arduino-Uno connected to ZigBee for sending data
+    to Gateway Node (similar to the standalone device with ZigBee connectivity) that
+    will aggregate the received data and store it locally in SQLite and also send
+    the data to the server using web service. The current analysis (statistical analysis
+    of predicted soil moisture and its accuracy is exhibited in Fig. 6, Table 3, Table
+    5) has been done with the standalone device. The standalone device is shown in
+    Fig. 2. Table 5. Comparison of correlation, R squared and MSE between soil moisture
+    values based on the sensor data and the proposed algorithm. Parameter Predicted
+    Soil Moisture using SVR Predicted Soil Moisture using proposed algorithm (SVR + k-means)
+    R (Correlation coefficient) 0.98 0.98 Accuracy (R squared) 0.96 0.96 MSE 0.15
+    0.10 Download : Download high-res image (82KB) Download : Download full-size image
+    Fig. 6. Graphical representation of the results shown in Table 2. 3.1.2. Web service
+    for field sensor data collection The Web service is written in PHP with a light
+    weighted REST API to communicate the data between the field device and the server.
+    The service is hosted on Apache (Web server) at server machine. The R-Pi sends
+    the field data to the server using this web service. This web service can handle
+    the network fluctuation/outage during synchronizing the data from the filed device
+    to the server with the help of flag settings at the database level. 3.1.3. Web
+    service for online weather data collection A web service has been developed in
+    Python to collect the weather forecasting data. This web service also aggregates
+    the weather forecasting data like temperature, humidity, cloudiness, UV Index
+    and precipitation of different web forecasting portal like OpenWeather and AccuWeather
+    using API of these portal (Weather API, 2012, API Reference, 2017). These portals
+    provide the forecasted information in JSON, XML, or HTML format. The developed
+    web service read the forecasted data (JSON format) of the specified location using
+    API and store it in MySQL database at the server, which is considered in the prediction
+    algorithm. 3.1.4. Soil moisture prediction algorithm An algorithm has been developed
+    (Fig. 3) to predict the soil moisture based on field sensors data and weather
+    forecasting data using support vector regression model and k-means clustering
+    algorithm. The algorithm shows information regarding soil moisture of the upcoming
+    days. It also provides irrigation suggestions, based on the defined level of soil
+    moisture and predicted precipitation, to save water and energy. The generated
+    information by algorithm and device is stored in MySQL Database at the server.
+    The algorithm is discussed in detail in Section 3.2. 3.1.5. Responsive web based
+    interface for real-time monitoring A responsive web based user interface is developed
+    using PHP, MySQL and Bootstrap API for real-time monitoring and scheduling of
+    irrigation activities (Fig. 4, Fig. 5). The interface visualizes real-time sensors
+    data, predicted soil moisture of upcoming days, and precipitation information.
+    Further, it also provides a facility for irrigation scheduling. The user can schedule
+    the irrigation at a specified threshold value of soil moisture. The system guides
+    to maintain the threshold value based on the predicted pattern of soil moisture
+    and precipitation information. The system can automatically start the irrigation,
+    which stops after achieving the specified threshold value of soil moisture. 3.1.6.
+    Web service to control water motor A web service has been developed on top of
+    HTTP protocol to start and stop the water motor. This web service has been accessed
+    by Python code in R-Pi to start and stop the water motor. The Python code (running
+    on R-Pi) send signal to Arduino-Uno that controls the relay switch to start/stop
+    the water motor. 3.1.7. IoT enabled water pump In this module, a water pump is
+    connected to a relay switch that is controlled by a Wi-Fi enabled node. The node
+    is controlled by the web service through a trigger from the responsive web based
+    interface for real-time monitoring. Using this web based interface the water pump
+    can be managed remotely in manual and auto modes. 3.1.8. Communication technologies
+    used in proposed architecture In the proposed architecture, the WiFi module/Mobile
+    data communication module can be used as communication media between the field
+    device and the server. In this experiment (Standalone device scenario), a WiFi
+    module has been used to send the data to the server. In WSN scenario, ZigBee network
+    can be used between sensor node to Gateway Node and then a WiFi module or Mobile
+    data communication module can be used to send the data from the gateway node to
+    the server. 3.2. Prediction algorithm and data visualization Flow diagram of the
+    proposed soil moisture prediction algorithm and the irrigation planning algorithm
+    for data visualization and decision support is shown in Fig. 3. 3.2.1. Algorithm
+    for soil moisture prediction Algorithm Steps (Variables as in Table 1.) • Initialize
+    weather data (WD = {Tempi, Hi, UVi}) from weather forecasting web portals • Initialize
+    sensor data (SD = {Tempj, Hj, UVj, STj, SMDj})collected from the field • Train
+    SVR model for prediction of soil temperature using Tempj, Hj, UVj, STDj • Predict
+    PST using weather data WD • Train SVR model for prediction of soil moisture using
+    Tempj, Hj, UVj, STj, SMDj • Predict soil moisture difference (PSMD) using weather
+    data WD and PST • PSMD [where P0, P1, P2, ……Pn are predicted SMDs of day 1, 2,
+    3…n] • For i = 0 to n (n = total number of days of PSMD) { k-means clustering
+    on (SMD of SD, Pi, NoC) //calling k-means clustering function NPSMDi = Centroid
+    value of cluster to which Pi belongs // Final predicted value of SMD of day 1,
+    2 …n } • Output (NPSMD0, NPSMD1, NPSMD2, …., NPSMDn) 3.2.2. Algorithm of irrigation
+    scheduling Algorithm Steps Step 1. Initialize minimum threshold (THmin) of soil
+    moisture to start irrigation and maximum threshold (THmax) of soil moisture to
+    stop irrigation Step2. Set mode (manual/auto) for irrigation Step 3. If (mode = auto)  {   Read
+    and check current soil moisture (Csm)   If (Csm <= THmin) // condition check of
+    current soil moisture from its set threshold value by user   {    Ndate = Read
+    precipitation information of upcoming days and select nearest date of precipitation.    Calculate
+    required soil moisture (Rsm) = sum (predicted SMD from current date to nearest
+    date of precipitation (Ndate)) //Total change in soil moisture till nearest precipitation
+    date    Set THmax = minimum ((THmin + Rsm), THmax) // selection of minimum soil-
+    moisture required to maintain crop growth    while (THmax > Csm) // condition
+    for watering till soil moisture reaches its minimum required value.    {    Send
+    1 to relay to start irrigation //Signal to Start Water motor    }    Send 0 to
+    relay to stop irrigation //Signal to stop the water motor  } Else   {    Send
+    0 to relay to stop irrigation //Signal to stop the water motor   }  } Else  {   Enter/Set
+    date to start irrigation    If (current_date >= irrigation_date) // condition
+    to start the irrigation at specify date    {     while (THmax > Csm)     {      Send
+    1 to relay to start irrigation //Signal to start the water motor     }    }    Else    {     Send
+    0 to stop irrigation //Signal to stop the water motor    }  } 3.2.3. Experimental
+    setup The main objective of this experiment is to collect the physical parameters
+    of a farming land using sensors and to utilize these sensors’ data along with
+    weather forecast information for developing an algorithm for prediction of soil
+    moisture of the upcoming days. The algorithm uses a hybrid machine learning approach,
+    as discussed in Section 3.2, to achieve higher accuracy in soil moisture prediction.
+    It provides a probable estimate of soil moisture to plan and provision the optimum
+    irrigation. Statistical measures, R squared (Table 5) and Mean Squared Error (Table
+    3, Table 5), are used for estimation of accuracy and error rate of the proposed
+    algorithm. The experiment shows that a good estimation (close to the actual value)
+    of the soil moisture (Table 4), with the help of field data and forecasted information,
+    can be utilized for optimum irrigation with an effective utilization of natural
+    rain. As described in Section 3.1, one field data collection device (node) has
+    been deployed in the garden of our organization to collect the field data (Fig.
+    2). The data is collected at the server using the web services. Then, the data
+    is analyzed using the proposed machine learning approach (Section 3.2.1). Further,
+    a responsive web based interface has been developed for real-time monitoring,
+    data visualization and decision support system, and for the scheduling of irrigation.
+    Fig. 4 shows the GUI of responsive web based interface for real-time monitoring
+    and decision support system, which shows the current soil moisture recorded by
+    the sensor, and the predicted soil moisture generated by the algorithm. This information,
+    predicted soil moisture and precipitation information, will help user/farmer in
+    planning/scheduling of optimum irrigation. Fig. 5 shows the GUI of irrigation
+    planning module to schedule the irrigation by setting Irrigation Date, and Threshold
+    Levels for Soil Moisture. It works in two modes, viz., auto, and manual, as discussed
+    in Section 3.2.2. In manual mode, the user takes the scheduling decision based
+    on predicted soil moisture and precipitation information. In auto mode, user sets
+    the Soil Moisture Threshold levels, and the system automatically schedules the
+    irrigation date based on the predicted soil moisture and weather forecast (precipitation)
+    information. For example, if rain is expected on the scheduled irrigation date
+    or near to scheduled date, then the system will wait for the rain and it will
+    suspend the artificial/manual irrigation or it will start watering (if needed,
+    based on the algorithm) the field to maintain minimum soil moisture till the arrival
+    of rain. Further, the system can handle the changes in forecasted precipitation
+    values. 4. Results and discussion The smartness of the proposed system is dependent
+    on the accuracy of the predicted soil moisture (Table 4, Table 5). To verify the
+    accuracy of soil moisture prediction algorithm, the hourly field data for air
+    temperature, air humidity, soil moisture, soil temperature, and UV is collected
+    for three weeks. The three weeks’ hourly data has been averaged out on per day
+    basis and the 21 days’ data is divided into a training set (70% of the data) and
+    testing set (30% of the data) for applying the proposed algorithm. Initially,
+    we have predicted SMD of upcoming days using the proposed algorithm (Fig. 3) and
+    the predicted values of SMD has been used in prediction of soil moisture of upcoming
+    days. The results are summarized in Table 2, Table 3, Table 4, Table 5. The SVR + k-means
+    approach has higher accuracy with lower mean squared error over SVR approach while
+    calculating SMD (Table 2 and Table 3). The graph (Fig. 6) shows that predicted
+    SMD using proposed algorithm (SVR + k-means) is nearer to actual SMD as compared
+    to predicted SMD using SVR only. The SVR + k-means approach has the same accuracy
+    with the lower mean squared error over SVR approach in soil moisture prediction
+    (Tables 4 and 5). The predicted soil moisture shown in Table 4 has been calculated
+    based on soil moisture and SMD of previous day, e.g. soil moisture on 14-11-2017
+    is 26.8982 then the soil moisture of the next day (15-11-2017) will be equal to
+    the difference of soil moisture on the previous day (i.e., 14–11-2017) and SMD
+    difference predicted for 15-11-2017 (Table 2). From the Tables 2 and 3, we have
+    observed that the prediction of SMD using SVR + k-means approach gives higher
+    accuracy with less MSE as compared to SVR approach, and we have also observed
+    the same accuracy (R squared = 96%) with lesser MSE in prediction of soil moisture
+    using combined approach (SVR + k-means) (Table 5). It shows that the proposed
+    algorithm (based on SVR + k-means) is better as compared to SVR based approach.
+    Due to higher accuracy and minimum MSE, SVR + k-means based hybrid machine learning
+    algorithm has been used in irrigation planning module. 5. Conclusion The soil
+    moisture is a critical parameter for developing a smart irrigation system. The
+    soil moisture is affected by a number of environmental variables, e.g., air temperature,
+    air humidity, UV, soil temperature, etc. With advancement in technologies, the
+    weather forecasting accuracy has improved significantly and the weather forecasted
+    data can be used for prediction of changes in the soil moisture. This paper proposes
+    an IoT based smart irrigation architecture along with a hybrid machine learning
+    based approach to predict the soil moisture. The proposed algorithm uses sensors’
+    data of recent past and the weather forecasted data for prediction of soil moisture
+    of upcoming days. The predicted value of the soil moisture is better in terms
+    of their accuracy and error rate. Further, the prediction approach is integrated
+    into a standalone system prototype. The system prototype is cost effective, as
+    it is based on the open standard technologies. The auto mode makes it a smart
+    system and it can be further customized for application specific scenarios. In
+    future, we are planning to conduct a water saving analysis based on proposed algorithm
+    with multiple nodes along with minimizing the system cost. Acknowledgements Authors
+    are thankful to The Director, CSIR-CSIO, Chandigarh, India for support to this
+    research work at CSIR-CSIO, Chandigarh. Furthermore, authors acknowledge Sh. Kunal
+    Talwar for providing help in GUI development. References Allen et al., 1998 R.G.
+    Allen, L.S. Pereira, D. Raes, M. Smith, W. Ab Crop evapotranspiration - guidelines
+    for computing crop water requirements FAO - Food Agric. Organ. United Nations
+    Rome (1998), pp. 1-15, 10.1016/j.eja.2010.12.001 View in ScopusGoogle Scholar
+    API Reference, 2017 API Reference [WWW Document] AccuWeather APIs (accessed 9.2.17)
+    https://developer.accuweather.com/accuweather-forecast-api/apis (2017) Google
+    Scholar Chen and Chen, 1993 Q. Chen, T.Y. Chen Estimation of river basin evapotranspi-
+    ration over complex terrain using NOAA AVHRR data Acta Geogr. Sin., 48 (1) (1993),
+    pp. 61-69 Google Scholar Cobaner, 2011 M. Cobaner Evapotranspiration estimation
+    by two different neuro-fuzzy inference systems J. Hydrol., 398 (2011), pp. 292-302,
+    10.1016/j.jhydrol.2010.12.030 View PDFView articleView in ScopusGoogle Scholar
+    da Cruz et al., 2018 M.A.A. da Cruz, J.J.P.C. Rodrigues, J. Al-Muhtadi, V. Korotaev,
+    V.H.C. Albuquerque A reference model for internet of things middleware 1 1 IEEE
+    Internet Things J., 5 (2018), 10.1109/JIOT.2018.2796561 Google Scholar Davis and
+    Dukes, 2010 S.L. Davis, M.D. Dukes Irrigation scheduling performance by evapotranspiration-based
+    controllers Agric. Water Manage., 98 (2010), pp. 19-28, 10.1016/j.agwat.2010.07.006
+    View PDFView articleView in ScopusGoogle Scholar Davis et al., 2009 S.L. Davis,
+    M.D. Dukes, G.L. Miller Landscape irrigation by evapotranspiration-based irrigation
+    controllers under dry conditions in Southwest Florida Agric. Water Manage., 96
+    (2009), pp. 1828-1836, 10.1016/j.agwat.2009.08.005 View PDFView articleView in
+    ScopusGoogle Scholar Drucker et al., 1997 H. Drucker, C.J. Burges, L. Kaufman,
+    A. Smola, V. Vapoik Support vector regression machines Adv. Neural Inf. Process.
+    Syst., 1 (1997), pp. 155-161 https://doi.org/10.1.1.10.4845 View in ScopusGoogle
+    Scholar G. o. I. NITI Aayog, 2015 G. o. I. NITI Aayog, 2015. Raising Agricultural
+    Productivity and Making Farming Remunerative for Farmers [WWW Document] http://niti.gov.in/content/raising-agricultural-productivity-and-making-farming-remunerative-farmers
+    (accessed 9.10.18). Google Scholar Hargreaves and Samani, 1985 George H. Hargreaves,
+    Zohrab A. Samani Reference crop evapotranspiration from temperature Appl. Eng.
+    Agric., 1 (1985), pp. 96-99, 10.13031/2013.26773 Google Scholar Gill et al., 2006
+    M.K. Gill, T. Asefa, M.W. Kemblowski, M. McKee Soil moisture prediction using
+    support vector machines J. Am. Water Resour. Assoc., 42 (2006), pp. 1033-1046,
+    10.1111/j.1752-1688.2006.tb04512.x View in ScopusGoogle Scholar Goldstein et al.,
+    2017 A. Goldstein, L. Fink, A. Meitin, S. Bohadana, O. Lutenberg, G. Ravid Applying
+    machine learning on sensor data for irrigation recommendations: revealing the
+    agronomist’s tacit knowledge Precis. Agric., 19 (2017), pp. 421-444, 10.1007/s11119-017-9527-4
+    View in ScopusGoogle Scholar Gubbi et al., 2013 J. Gubbi, R. Buyya, S. Marusic,
+    M. Palaniswami Internet of things (IoT): a vision, architectural elements, and
+    future directions Futur. Gener. Comput. Syst., 29 (2013), pp. 1645-1660, 10.1016/j.future.2013.01.010
+    View PDFView articleView in ScopusGoogle Scholar Gutiérrez et al., 2014 J. Gutiérrez,
+    J.F. Villa-medina, A. Nieto-Garibay, M.Á. Porta-gándara, J. Gutierrez, J.F. Villa-medina,
+    A. Nieto-Garibay, M.A. Porta-Gandara Automated irrigation system using a wireless
+    sensor network and GPRS module IEEE Trans. Instrum. Meas., 63 (2014), pp. 166-176,
+    10.1109/TIM.2013.2276487 View in ScopusGoogle Scholar Hearst et al., 1998 M.A.
+    Hearst, S.T. Dumais, E. Osuna, J. Platt, B. Scholkopf Support vector machines
+    IEEE Intell. Syst. Appl., 13 (1998), pp. 18-28, 10.1109/5254.708428 Google Scholar
+    Idso et al., 1981 S.B. Idso, R.D. Jackson, P.J. Pinter, R.J. Reginato, J.L. Hatfield
+    Normalizing the stress-degree-day parameter for environmental variability Agric.
+    Meteorol., 24 (1981), pp. 45-55, 10.1016/0002-1571(81)90032-7 View PDFView articleView
+    in ScopusGoogle Scholar Jaguey et al., 2015 J.G. Jaguey, J.F. Villa-Medina, A.
+    Lopez-Guzman, M.A. Porta-Gandara Smartphone irrigation sensor IEEE Sens. J., 15
+    (2015), pp. 5122-5127, 10.1109/JSEN.2015.2435516 View in ScopusGoogle Scholar
+    Jones and Ritchie, 1990 J.W. Jones, J.T. Ritchie Crop growth models G.J. Hoffman,
+    T.A. Howel, K.H. Solomon (Eds.), Management of Farm Irrigation System ASAE (1990),
+    pp. 63-89 Google Scholar Shang et al., 2007 K.Z. Shang, S.G. Wang, Y.X. Ma, Z.J.
+    Zhou, J.Y. Wang, H.L.Y. Liu A scheme for calculating soil moisture content by
+    using routine weather data Atmos. Chem. Phys., 7 (2007), pp. 5197-5206, 10.1017/CBO9781107415324.004
+    View in ScopusGoogle Scholar Kanungo et al., 2002 T. Kanungo, D.M. Mount, N.S.
+    Netanyahu, C.D. Piatko, R. Silverman, A.Y. Wu An efficient k-means clustering
+    algorithm: analysis and implementation IEEE Trans. Pattern Anal. Mach. Intell.,
+    24 (2002), pp. 881-892, 10.1109/TPAMI.2002.1017616 View in ScopusGoogle Scholar
+    Mean Squared Error, 2018 Mean Squared Error [WWW Document] Tutorvista (accessed
+    8.29.18) https://math.tutorvista.com/statistics/mean-squared-error.html (2018)
+    Google Scholar O’Shaughnessy and Evett, 2010 S.A. O’Shaughnessy, S.R. Evett Canopy
+    temperature based system effectively schedules and controls center pivot irrigation
+    of cotton Agric. Water Manage., 97 (2010), pp. 1310-1316, 10.1016/j.agwat.2010.03.012
+    View PDFView articleView in ScopusGoogle Scholar Ojha et al., 2015 T. Ojha, S.
+    Misra, N.S. Raghuwanshi Wireless sensor networks for agriculture: the state-of-the-art
+    in practice and future challenges Comput. Electron. Agric., 118 (2015), pp. 66-84,
+    10.1016/j.compag.2015.08.011 View PDFView articleView in ScopusGoogle Scholar
+    Pandey et al., 2017 V.S. Pandey, D. Sharma, A.K. Shukla, S. Tyagi A low-cost zigbee
+    based temperature and humidity acquisition system for research and industrial
+    applications C.R.K.S.D.K. Dutta (Ed.), International Conference on Communication
+    Computing and Networking (2017), pp. 379-385 Google Scholar Roopaei et al., 2017
+    M. Roopaei, P. Rad, K.R. Choo, R. Choo Cloud of things in smart agriculture: intelligent
+    irrigation monitoring by thermal imaging IEEE Cloud Comput., 4 (2017), pp. 10-15
+    View in ScopusGoogle Scholar Sharma et al., 2016 D. Sharma, A.K. Shukla, A.P.
+    Bhondekar, C. Ghanshyam, A. Ojha A technical assessment of IOT for Indian agriculture
+    sector IJCA Proc. Natl. Symp. Mod. Inf. Commun. Technol Digit. India (2016), pp.
+    1-5 Google Scholar Theobald, 1974 C.M. Theobald Generalizations of mean square
+    error applied to ridge regression J. R. Stat. Soc. Ser. B, 36 (1974), pp. 103-106,
+    10.2307/2984775 Google Scholar United Nations, 2013 United Nations World population
+    projected to reach 9.6 billion by 2050 [WWW Document] Dep. Econ. Soc. Aff. Popul.
+    Div. United Nations (2013) (accessed 2.12.18) http://www.un.org/en/development/desa/news/population/un-report-world-population-projected-to-reach-9-6-billion-by-2050.html
+    Google Scholar Viani et al., 2017 F. Viani, M. Bertolli, M. Salucci, A. Polo Low-cost
+    wireless monitoring and decision support for water saving in agriculture IEEE
+    Sens. J., 17 (2017), pp. 4299-4309, 10.1109/JSEN.2017.2705043 View in ScopusGoogle
+    Scholar Wang et al., 2010 X. Wang, W. Yang, A. Wheaton, N. Cooley, B. Moran Efficient
+    registration of optical and IR images for automatic plant water stress assessment
+    Comput. Electron. Agric., 74 (2010), pp. 230-237, 10.1016/j.compag.2010.08.004
+    View PDFView articleView in ScopusGoogle Scholar Weather API, 2012 Weather API
+    [WWW Document] Openweather (accessed 8.30.17) https://openweathermap.org/api (2012)
+    Google Scholar Cited by (393) Automated weather forecasting and field monitoring
+    using GRU-CNN model along with IoT to support precision agriculture 2024, Expert
+    Systems with Applications Show abstract Recent advances in artificial intelligence
+    towards the sustainable future of agri-food industry 2024, Food Chemistry Show
+    abstract Towards efficient irrigation management at field scale using new technologies:
+    A systematic literature review 2024, Agricultural Water Management Show abstract
+    Application of machine learning approaches in supporting irrigation decision making:
+    A review 2024, Agricultural Water Management Show abstract The application of
+    machine learning techniques for smart irrigation systems: A systematic literature
+    review 2024, Smart Agricultural Technology Show abstract Comparing modern and
+    traditional modeling methods for predicting soil moisture in IoT-based irrigation
+    systems 2024, Smart Agricultural Technology Show abstract View all citing articles
+    on Scopus View Abstract © 2018 Elsevier B.V. All rights reserved. Recommended
+    articles Smart farming and water saving-based intelligent irrigation system implementation
+    using the Internet of Things Recent Trends in Computational Intelligence Enabled
+    Research, 2021, pp. 339-354 Sagnick Biswas, …, Jyoti Sekhar Banerjee Smart energy
+    for smart irrigation Computers and Electronics in Agriculture, Volume 129, 2016,
+    pp. 74-83 Antonia Nasiakou, …, Dimitris Zimeris View PDF Deep learning for proximal
+    soil sensor development towards smart irrigation Expert Systems with Applications,
+    Volume 198, 2022, Article 116812 Ezgi Kurtulmuş, …, Ferhat Kurtulmuş View PDF
+    Show 3 more articles Article Metrics Citations Citation Indexes: 358 Captures
+    Readers: 868 Mentions References: 1 View details About ScienceDirect Remote access
+    Shopping cart Advertise Contact and support Terms and conditions Privacy policy
+    Cookies are used by this site. Cookie settings | Your Privacy Choices All content
+    on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply."'
+  inline_citation: '>'
+  journal: Computers and Electronics in Agriculture
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: An IoT based smart irrigation management system using Machine learning and
+    open source technologies
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

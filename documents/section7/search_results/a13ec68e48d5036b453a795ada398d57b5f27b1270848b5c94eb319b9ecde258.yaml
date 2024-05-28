@@ -1,0 +1,2187 @@
+- DOI: https://doi.org/10.1016/j.rsase.2020.100351
+  analysis: '>'
+  authors:
+  - Vikas Kumar Rana
+  - T. M. V. Suryanarayana
+  citation_count: 42
+  full_citation: '>'
+  full_text: '>
+
+    Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Abstract Keywords 1. Introduction 2. Study area and data collection 3.
+    Methodology 4. Results and discussion 5. Conclusion Compliance with ethical standards
+    Ethical approval Informed consent Declaration of competing interest Appendix A.
+    Supplementary data Research Data References Show full outline Cited by (72) Figures
+    (12) Show 6 more figures Tables (8) Table 1 Table 2 Table 3 Table 4 Table 5 Table
+    6 Show all tables Extras (1) Multimedia component 1 Remote Sensing Applications:
+    Society and Environment Volume 19, August 2020, 100351 Performance evaluation
+    of MLE, RF and SVM classification algorithms for watershed scale land use/land
+    cover mapping using sentinel 2 bands Author links open overlay panel Vikas Kumar
+    Rana, Tallavajhala Maruthi Venkata Suryanarayana Show more Add to Mendeley Share
+    Cite https://doi.org/10.1016/j.rsase.2020.100351 Get rights and content Abstract
+    The land use and land cover map plays a significant role in agricultural, water
+    resources planning, management, and monitoring programs at regional and national
+    levels and is an input to various hydrological models. Land use and land cover
+    maps prepared using satellite remote sensing techniques in conjunction with landform-soil-vegetation
+    relationships and ground truth are popular for locating suitable sites for the
+    construction of water harvesting structures, soil and water conservation measures,
+    runoff computations, irrigation planning and agricultural management, analyzing
+    socio-ecological concerns, flood controlling, and overall watershed management.
+    Here we use a novel approach to analyze Sentinel–2 multispectral satellite data
+    using traditional and principal component analysis based approaches to evaluate
+    the effectiveness of maximum likelihood estimation, random forest tree, and support
+    vector machine classifiers to improve land use and land cover categorization for
+    Soil Conservation Service Curve Number model. Additionally, we use stratified
+    random sampling to evaluate the accuracies of resulted land use and land cover
+    maps in terms of kappa coefficient, overall accuracy, producer''s accuracy, and
+    user''s accuracy. The classifiers were used for classifying the data into seven
+    major land use and land cover classes namely water, built-up, mixed forest, cultivated
+    land, barren land, fallow land with vertisols dominance, and fallow land with
+    inceptisols dominance for the Vishwamitri watershed. We find that principal component
+    analysis with support vector machine is able to produce highly accurate land use
+    and land cover classified maps. Principal component analysis extracts the useful
+    spectral information by compressing redundant data embedded in each spectral channel.
+    The study highlights the use of principal component analysis with support vector
+    machine classifier to improve land use and land cover classification from which
+    policymakers can make better decisions and extract basic information for policy
+    amendments. Previous article in issue Next article in issue Keywords Multivariate
+    analysisPrincipal component analysisMachine learning 1. Introduction Information
+    on land use and land cover (LULC) plays a key role in analyzing earth information
+    for human development. It plays a significant role in planning, management, and
+    monitoring programs at the local, regional, and national levels. This type of
+    information, on one hand, provides a better understanding of land utilization
+    aspects and on the other hand, it plays an important role in the formation of
+    policies and programs required for development planning. Researchers, policymakers,
+    and planners utilize land use and land cover information to determine changes
+    in natural resources, including evaluating growth patterns Adeel (2010). 1.1.
+    Machine-learning classification methods Empirical studies by researchers from
+    diverse disciplines proved that land use and land cover information is key to
+    various applications such as hydrology, agriculture, forest, environment, geology,
+    and ecology Weng (2001); Hassan et al. (2016). Decades of scientific research
+    have shown considerable progress towards assessing land use and land cover Turner
+    et al., (2007). Numerous effective methods and advanced classifiers have been
+    applied to improve the performance of land use and land cover classification that
+    is based on moderate resolution data. Researchers have used various methods to
+    incorporate Landsat data into land-use change analyses Ozesmi and Bauer (2002);
+    Lu et al. (2004); Rundquist et al. (2001); Zhang et al. (2000). The complexity
+    of the landscape, the selected remote sensing data, image processing, and classification
+    methods, make it difficult to obtain reliable and accurate land use and land cover
+    information Manandhar et al. (2009). Researchers have tried to overcome this problem
+    from many different perspectives, with the purpose of seeking an efficient method
+    for mapping LULC patterns. These studies range from conventional statistical approaches
+    to more powerful machine learning algorithms that have enhanced the quality of
+    the solutions for this problem. Traditional remote sensing data classification
+    methods include maximum-likelihood classifier, distance measure, clustering, or
+    logistic regression. Over the last decade, more advanced methods such as decision
+    trees, k-nearest-neighbors, random forest, neural networks and support vector
+    machines have been used for LULC mapping Yu et al. (2014); Cheng et al. (2015);
+    Han et al. (2015). Recently, a study on the state of the art of supervised methods
+    for land use and land cover classification was performed by Khatami et al. (2016).
+    It was reported that Support Vector Machine, k-nearest-neighbors, and Random Forest
+    Tree generally provide better performance than other traditional classifiers,
+    SVM being the most efficient method. Support Vector Machine and Random Forest
+    Tree classifiers are recent developments in the computational aspects of image
+    classification. Their ability to minimize classification errors make them superior
+    to the parametric classifiers such as Maximum likelihood estimation classifier
+    Huang et al. (2002); Foody and Mathur (2004); Pal and Mather (2005). SVM operates
+    on the principle of statistical learning theory, called structural risk minimization,
+    which minimizes an upper bound on the generalization error. It aims at reaching
+    the minimum of the upper bound on the error probability of the classifier by achieving
+    a trade-off between the training set and the capacity. The basic approach in support
+    vector machines is to identify a hyper-plane that produces an optimal separation
+    between the two classes. SVM classification with a hyperplane that maximizes the
+    separating margin between the two classes is shown in Fig. 1. The algorithm defines
+    the multidimensional space in such a way that the gap between class clusters is
+    as large as possible. The hyper-plane is developed using a subset of the data
+    called the training data set and the generalizing ability of the developed hyper-plane
+    is validated using an independent subset called testing data set. If the training
+    dataset is not linearly separable, a kernel method is used to simulate a non-linear
+    projection of the data in a higher-dimensional space, where the classes are linearly
+    separable (Oommen et al. (2008); Candade and Dixon (2004)). Download : Download
+    high-res image (230KB) Download : Download full-size image Fig. 1. SVM classification
+    with a hyper plane that maximizes the separating margin between the two classes.
+    Random Forest Tree is an ensemble bagging algorithm which is fast, easy to parameterize,
+    and robust and has been frequently used for land use and land cover classification
+    Belgiu and Csillik (2018); Immitzer et al. (2012); Ok et al. (2012); Scanlon et
+    al. (2006); Pelletier et al. (2016). Random Forest is a general term for ensemble
+    methods using tree-type classifiers, ), k = 1, …,}, where x is the input vector
+    and are the independent and identically distributed random vectors Breiman (2001);
+    Gislason et al. (2006); Rodriguez-Galiano et al. (2012). Hence, some data may
+    be used more than once in the training of classifiers, while others might never
+    be used. Thus, greater classifier stability is achieved, as it makes it more robust
+    when facing slight variations in input data and, at the same time, it increases
+    classification accuracy. The trees are created by drawing a subset of training
+    samples through replacement (a bagging approach). The random forest classifier
+    consists of N trees, where N is the number of trees to be grown, which can be
+    any value defined by the user. To classify a new dataset, each case of the datasets
+    is passed down to each of the N trees. The forest chooses a class having the most
+    out of N votes, for that case. Furthermore, when the RF makes a tree grow, it
+    uses the best split of a random subset of input features or predictive variables
+    in the division of every node, instead of using the best split variables. Therefore,
+    this can decrease the strength of every single tree, but it reduces the correlation
+    between the trees, which reduces the generalization error. The generalization
+    error converges as the number of trees increases, therefore, the RF does not over
+    fit the data. The output of the classifier is determined by a majority vote of
+    the trees. The use of machine-learning classification methods for land use and
+    land cover extraction has become a major focus of the remote-sensing literature
+    Ghimire et al. (2012). Machine-learning algorithms are generally able to model
+    complex class signatures, can accept a variety of input training data, and do
+    not make assumptions about the data distribution (i.e. nonparametric). A wide
+    range of studies has generally found that these methods tend to produce higher
+    accuracy compared to traditional parametric classifiers, especially for complex
+    data with a high-dimensional feature space, i.e. many predictor variables Pal
+    and Mather (2005); Ghimire et al. (2012). Despite the increasing acceptance of
+    machine-learning classifiers, parametric methods appear still to be commonly used
+    in the applications and remain one of the major standards for benchmarking classification
+    experiments. 1.2. Curve number (CN) Land use and land cover map is indispensable
+    in water resources planning, management and monitoring programs at regional and
+    national levels, and required as an input to various hydrological models. One
+    of the most widely used models for calculating surface runoff in a watershed,
+    developed by the Soil Conservation Service, uses storm rainfall and a curve number.
+    National Resources Conservation Service (NRSC), United States Department of Agriculture
+    (USDA) developed the Soil Conservation Service-Curve Number (SCS–CN) method in
+    1969. The method is simple, user-friendly, stable, and useful for ungauged watersheds.
+    According to the National Engineering Handbook NRCS (2009), soils are divided
+    into four Hydrologic soil groups (HSGs), A, B, C, and D, and three dual classes,
+    A/D, B/D, and C/D. Hydrologic soil groups are fundamental component of the SCS-CN
+    method for the estimation of rainfall-runoff. HSG-A has the lowest runoff potential
+    (typically contains more than 90% sand and less than 10% clay), HSG-B has moderately
+    low runoff potential (typically contains between 10 to 20% clay and 50–90% sand),
+    HSG-C has moderately high runoff potential (typically contains between 20 to 40%
+    clay and less than 50% sand), and HSG-D has high runoff potential (typically contains
+    more than 40% clay and less than 50% sand) Ross et al. (2018). A curve number
+    is a quantitative descriptor of the land use/land cover and soil complex Slack
+    and Welch (1980). The curve number grid is a raster containing curve number values
+    assigned to each grid cell of land use/land cover and soil complex to indicate
+    their specific runoff potential. The curve number can represent an average value
+    for a watershed or an individual cell for a grid-based watershed. The curve number
+    reflects the catchment characteristics like soil type, land-use, and antecedent
+    moisture conditions Walega and Salata (2019); Ajmal et al. (2015); Harmel et al.,
+    (2018); Epps et al. (2013). The SCS-CN model has been integrated into many widely
+    used hydrological models such as Soil and Water Assessment Tool (SWAT) Neitsch
+    et al. (2011) and Hydrologic Modeling System (HEC-HMS) Feldman (2000) to simulate
+    surface runoff. Suribabu and Bhaskar (2015) used the SCS-CN method to estimate
+    runoff using continuous time series rainfall and Indian remote sensing satellite
+    data and presented a land-use factor based on the curve number to correct the
+    infiltration rate according to the prevailing land use and land cover. The Hydrologic
+    Engineering Center''s Geospatial Hydrologic Modeling Extension (HEC-GeoHMS) is
+    extension to ESRI''s ArcGIS software that compute the curve number and other loss
+    rate parameters based on various soil and land use/land cover databases. 1.3.
+    Principal component analysis (PCA) PCA is a statistical procedure that transforms
+    the input bands (with correlated variables) orthogonally from an input multivariate
+    attribute space to a new multivariate attribute space (having linearly uncorrelated
+    variables) whose axes are rotated with respect to each other. Transformation or
+    dimensionality reduction of the data in the analysis compresses data by eliminating
+    noise, redundancy, and irrelevant information. The linearly uncorrelated variables
+    in new multivariate attribute space are called principal components. The first
+    principal component (PC1 derived from the first eigenvector) is the direction
+    in space along which projections have the largest variance. The subsequent principal
+    component (PC2) is the direction that maximizes variance among all directions
+    orthogonal to the previous principal component. The variances of the remaining
+    principal component images decrease in order, as denoted by the magnitudes of
+    the corresponding eigenvalues Li and Yeh (1998); Deng et al. (2008). Recent studies
+    have investigated PCA-based methods for cloud extraction scheme for multi-spectral
+    images (Wu and Han (2019)). Researchers have tried to manage imperfections in
+    multivariate sensed data by using various PCA-based approaches. A PCA–OLS model
+    was used by Firozjaei et al. (2019) for assessing the impact of surface biophysical
+    parameters on land surface temperature variations. Massetti and Gil (2020), and
+    Abdu (2019) employed PCA for classification accuracy and trend assessments of
+    land cover/land use changes. Chen (2020) used PCA of Sentinel-2 to map the mangrove
+    of Dongzhaigang, China. In this study, PCA is used to condense the information
+    of high-dimensional Sentinel–2 multispectral satellite data into fewer channels
+    (represented by the higher-order components) and use the principal components
+    as inputs to the classifiers, thus reducing the computational demands and possibly
+    improving performance. The present study developed an approach to analyze Sentinel–2
+    satellite images using traditional and principal component analysis based approaches
+    to create land use and land cover map, which is a prerequisite for developing
+    the curve number. The study shows the performances of state-of-the-art classification
+    methods, the Maximum Likelihood Estimation, Random Forest Tree, and Support Vector
+    Machine tested on Sentinel–2 multispectral satellite data in order to observe
+    if principal component analysis improves land use and land cover classification.
+    Moreover, the application of land use and land cover map to create a curve number
+    grid is shown. 2. Study area and data collection The present study was conducted
+    in the Vishwamitri Watershed in Vadodara district, Gujarat. Vadodara district
+    is located at the south of the Tropic of Cancer in the transition zone of heavy
+    rainfall areas of South Gujarat and arid areas of North Gujarat plains. It has
+    a subtropical climate with moderate humidity and forms a part of the great Gujarat
+    plain. The eastern portion of the district is hilly terrain with several ridges,
+    plateaus, and isolated relict hills with an elevation of 150–481 m above the mean
+    sea level. The Vishwamitri river originates from the hills of Pavagadh, 43 km
+    northeast of Vadodara. The Pavagadh hill is made of trappean rocks that emerge
+    abruptly 830 m above the mean sea level. The Viswamitri river has a channel length
+    of around 70 km, of which, 58 km flows through the Vadodara district. It meets
+    the Dhadhar river at Pingalwada in the Vadodara district. Fig. 2 shows the geographical
+    location of the study area. Download : Download high-res image (1MB) Download
+    : Download full-size image Fig. 2. Geographic location of the study area. The
+    European Space Agency''s Sentinel–2 Multispectral Imager measures the reflected
+    solar spectral radiances in 13 spectral bands ranging from the visible to the
+    shortwave infrared bands Pahlevan et al. (2017). The primary purpose is to monitor
+    vegetation, water bodies, cropland, urban areas, land use, and land cover change
+    at local, regional, national, and global scales. Sentinel–2A and –2B can together
+    revisit the same region every five days with data acquisitions available in Level
+    1C processing, Table 1 shows the band characteristics of Sentinel–2 data. Table
+    1. Band characteristics of Sentinel–2 data. Sentinel 2 Bands Central Wavelength
+    (μm) Spatial Resolution (m) Band 1-Coastal aerosol 0.443 60 Band 2-Blue 0.490
+    10 Band3-Green 0.560 10 Band4-Red 0.665 10 Band5- Vegetation Red Edge 0.705 20
+    Band6- Vegetation Red Edge 0.740 20 Band7- Vegetation Red Edge 0.783 20 Band8-NIR
+    0.842 10 Band8A- Narrow NIR 0.865 20 Band9-Water vapour 0.945 60 Band10-SWIR-Cirrus
+    1.375 60 Band11-SWIR 1.610 20 Band12-SWIR 2.190 20 Ten sentinel–2 bands were used
+    in the study. The data characteristics of Cartosat DEM and Sentinel–2 data used
+    in the study are given in Table 2. Bands 1, 9, and 10 at 60 m resolution are dedicated
+    mainly to atmospheric corrections and cirrus-cloud screening. As they do not contain
+    surface information, those 3 bands were omitted after the pre-processing phase
+    from the analysis. Table 2. Data characteristics of Cartosat DEM and Sentinel–2
+    data used in the study. Cartosat DEM Acquisition technique Spatial resolution
+    Projection Satellite stereo images 1 arc-second or 30 m WGS84 Sentinel-2 Multispectral
+    Imager (MSI) Band 2-Blue 10 m WGS84 Band3-Green 10 m Band4-Red 10 m Band5- Vegetation
+    Red Edge 20 m Band6- Vegetation Red Edge 20 m Band7- Vegetation Red Edge 20 m
+    Band8-NIR 10 m Band8A- Narrow NIR 20 m Band11-SWIR 20 m Band12-SWIR 20 m According
+    to the classification based on soil texture, seven types of soils are found in
+    the Vishwamitri watershed Fig. 3. Typic Ustifluvents and Fluventic Haplustepts
+    correspond to HSG group A, Udic Haplustepts corresponds to HSG group B, Chromic
+    Haplusterts and Typic Haplustepts correspond to HSG group C and Lithic Haplustepts
+    and Vertic Haplustepts corresponds to HSG group D. The most dominating soil, Chromic
+    Haplusterts (HSG group C), covers 48.94% of the total watershed area. Download
+    : Download high-res image (437KB) Download : Download full-size image Fig. 3.
+    Soil data based on soil texture collected from (NBSS & LUP). 3. Methodology Geographic
+    Information System with imported Cartosat Digital Elevation Model was used for
+    watershed delineation as suggested by Gajalakshmi and Anantharama (2015); Patel
+    et al. (2016); Rana and Suryanarayana (2019). ESRI''s ArcGIS Desktop 10.5 software
+    was used to carry out the watershed delineation. ArcGIS is used for creating and
+    using maps, compiling geographic data, analyzing mapped information, sharing and
+    discovering geographic information, using maps and geographic information in a
+    range of applications, and managing geographic information in a database. In order
+    to remove small imperfections in the DEM data, the fill sink tool was used. A
+    sink is a cell in DEM that does not have an associated drainage value. The direction
+    that water will flow from that particular cell based on the underlying topography
+    of the landscape. A raster of the flow direction from each pixel to its downslope
+    neighbors is created by the flow-direction tool. Flow accumulations locate cells
+    with high flow where streams and channels are to be expected. The accumulated
+    flow as the accumulated weight of all pixels flowing into each downslope pixel
+    in the output raster is calculated by the flow accumulation tool. A stream network
+    was delineated by applying a threshold value to the flow accumulation raster.
+    The point on the surface at which water flows out of an area is called the outlet
+    or the pour point. Each cell has an outlet point called a pour point that indicates
+    the location where water would naturally flow out of the cell. Pour points must
+    be located in cells with a high cumulative flow. Fig. 4 shows the methodology
+    adopted for watershed delineation. The soil data collected from the National Bureau
+    of Soil Survey and Land Use Planning (NBSS & LUP) are shown in Fig. 3. Download
+    : Download high-res image (181KB) Download : Download full-size image Fig. 4.
+    Adopted methodology for watershed delineation. The Sentinel–2 cloud-free Level
+    1C data product (L1C_T43QCE_A008039_20180920T054434) acquired on 20 September
+    2018 was downloaded from the Sentinel Hub developed by European Space Agency.
+    Sentinel–2 Level 1C data were processed from Top-Of-Atmosphere Level 1C to Bottom-Of-Atmosphere
+    Level 2A. QGIS desktop 3.6.1 is a free and open-source cross-platform desktop
+    geographic information system application that supports viewing, editing, and
+    analysis of geospatial data. QGIS desktop 3.6.1 interface was used with Semi-Automatic
+    Classification Plugin (SCP), developed by Congedo (2016), to convert the Sentinel–2
+    MSI data to reflectance values and for dark object subtraction atmospheric correction
+    (DOS1) of the data. After atmospheric correction, ten bands (2–8, 8A, 11, and
+    12) were composited and clipped to the study area. The processed data were georeferenced
+    to the WGS 84 UTM 43N projected coordinate system. In order to test the effectiveness
+    of PCA, two stacks were created for the classification in ESRI''s ArcGIS Desktop
+    10.5 software. Stack 1 (Fig. 7 (a)) contained atmospherically corrected bands
+    (2–8, 8A, 11 and 12) and Stack 2 (Fig. 8 (a)) contained 3 major PCA bands accounting
+    for the 97.96% of eigenvalues. The PCA technique was used to reduce the number
+    of bands or dimensions necessary for classification. Dimension reduction leads
+    to a reduction in the computation costs without compromising the desired variability
+    in the data. According to Mather (2010), the process of PCA can be divided into
+    three steps. The first step is to calculate the covariance or correlation matrix
+    of multiband images. The covariance matrix is calculated as: CXY=Covariance between
+    Band X and Band Y  = The number of pixels  = Individual pixel value vectors of
+    Band X  = Mean of Band X  = Individual pixel value vectors of Band Y  = Mean of
+    Band Y The diagonal elements of the covariance matrix are the band variances,
+    and the off-diagonals are band covariances. If a correlation matrix is used instead
+    of a covariance matrix, each entry in C should be further divided by the product
+    of the standard deviations of the features represented by the corresponding row
+    and column. RXY = Correlation between Band X and Band Y  = Covariance between
+    Band X and Band Y  = Standard deviations of Band X  = Standard deviations of Band
+    Y The second step is to calculate the eigenvectors of the covariance matrix. Following
+    equation is used for the calculation:  = Covariance matrix  = Eigenvector  = Identity
+    matrix  = Eigenvalue The normalized eigenvectors of the covariance or correlation
+    matrix form the new coordinate system. The mapping location of each pixel, X=(x1,
+    x2, …, xk) on the ith principal component is given by which shows the rotation
+    of the axes of the feature space. The traditional approach and PCA based approach
+    used Stack 1 and Stack 2, respectively, as inputs for land use and land cover
+    classification. The training data were collected based on the manual interpretation
+    of the original Sentinel–2 data and DigitalGlobe''s WorldView-4 high-resolution
+    imagery and was kept the same for all the three classifiers to avoid the optimistic
+    bias in classification. The training sample size was kept below 1000 pixels per
+    class to evaluate the influence of the training sample size, as well as the performance
+    of classification algorithms. Training data for each land use and land cover class
+    were collected as a group of pixels. The input data and corresponding ground truth
+    data (training sample) were used to train the classifiers. The classifiers learn
+    the complex relationships between the input and ground truth data (training sample).
+    To determine the accuracy of each classification and class, a thematic accuracy
+    assessment was performed. For this purpose, firstly a reference data set including
+    a total of 100 points was created. Stratified random sampling was used with 100
+    points to obtain the ground truth data from the manual interpretation of the original
+    10 m resolution Sentinel–2 data (Band 2, 3 and 4) and DigitalGlobe''s WorldView-4
+    data (Product Id: 1ba34688-3ee0-41e4-9187-de68fdb075df-inv) acquired on 25-10-2018
+    at 5:30 a.m. with 31 cm resolution. The results of the classifications were not
+    post-processed (e.g., filtered). The classification maps were evaluated in terms
+    of their overall accuracy (OA), producer''s accuracy (PA), user''s accuracy (UA),
+    and the Kappa index of agreement (k) or Kappa coefficient and a confusion matrix
+    was created. The key element of a quantitative accuracy assessment is the creation
+    of a confusion matrix (Congalton, 2001; Janssen and Vanderwel, 1994; Story and
+    Congalton, 1986; Vikas and Suryanarayana, 2019). The confusion matrix is represented
+    by a table that shows the correspondence between the classification result and
+    a reference image assigned to a particular category, which is relative to the
+    actual category as indicated by the reference data. The producer''s accuracy is
+    the probability that value in a given class was correctly classified. User''s
+    accuracy is the probability that a value predicted to be in a certain class is
+    really in that class. The kappa coefficient measures the agreement between classification
+    and truth-values. A kappa value of 1 represents a perfect agreement, while a value
+    of 0 represents no agreement. The Overall accuracy is given by the ratio of the
+    proportion of the correctly classified pixels to the total number of pixels in
+    the confusion matrix. The land use and land cover maps were later used in HEC-GeoHMS
+    for the integration of land use land cover and soil data for curve number grid
+    preparation. A logical condition was defined in ArcGIS to generate the curve number
+    raster from the raster files of hydrologic soil group and land use and land cover
+    using TR-55 table Feldman (2000). The tables provide estimates of the curve number
+    as a function of hydrologic soil group, cover type, treatment, hydrologic condition,
+    antecedent runoff condition, and impervious area in the catchment. Selected curve
+    number values for the study area is given in Table 3. Table 3. Selected curve
+    number values for the study area using TR-55 table. LULC Sub classes of LULC HSG-A
+    HSG-B HSG-C HSG-D Water Water 100 100 100 100 Cultivated land Cultivated land
+    crop1 64 75 82 85 Cultivated land crop 2 71 80 87 90 Sparsely vegetated 74 83
+    88 90 Barren land Barren land 77 86 91 94 Fallow land (Vertisols dominance) Fallow
+    land 1 Vertisols dominated 76 85 90 93 Fallow land 2 Vertisols dominated 76 85
+    90 93 Fallow land (Inseptisol dominance) Fallow land 1 inseptisol dominated 74
+    83 88 90 Fallow land 2 inseptisol dominated 74 83 88 90 Mixed forest Mixed forest
+    36 60 73 79 Builtup Builtup 89 92 94 95 Mixed builtup 1 83 89 92 93 Mixed builtup
+    2 89 92 98 98 To estimate the runoff from Curve Number, the first step to be followed
+    is to delineate and measure the drainage area tributary to the point of analysis
+    (delineation methodology is shown in Fig. 4). The potential maximum soil retention
+    is then calculated using the following formula: where S is in mm, and CN is the
+    curve number (dimensionless). SCS-CN assumes that, for a single storm event, potential
+    maximum soil retention is equal to the ratio of direct run-off to available rainfall.
+    This relationship, after algebraic manipulation and inclusion of simplifying assumptions,
+    results in the following expression: Q = direct run-off depth P = total rainfall  =
+    initial abstraction and S can be related using the following equation:  = λ S
+    λ = 0.2 was assumed in the original SCS-CN model The interest of the study was
+    to analyze Sentinel–2 data using traditional and PCA based approaches to create
+    land use and land cover map, which is a prerequisite for developing the curve
+    number grid. Hence, the runoff computation is not shown in the study. 4. Results
+    and discussion The principal component analysis was used for data compression
+    of Sentinel-2 multispectral data to statistically maximize the amount of information
+    from the original data (bands) to a smaller number of components, called principal
+    components. The first few principal components possess most of the variability
+    of the data. The first principal component band derived from the first eigenvector
+    had the maximum amount of the total variance of the Sentinel–2 data set containing
+    bands 2–8, 8A, 11, and 12. The first three principal component bands accounted
+    for 97.92% of eigenvalues. The variances percentage of the remaining principal
+    component bands decreased in the order of the corresponding eigenvalues. The variance
+    of the PCA bands 4 to 10 is small and mostly had noises; thus the bands were removed
+    from the analysis. The eigenvalues and accumulative percentage of eigenvalues
+    in PCA bands 2–8, 8A, 11, and 12 are given in Table 5. A loading plot shows how
+    strongly each band influences a principal component. It ranges from −1 to 1. Loadings
+    close to −1 or 1 indicate that the band strongly influences the component. Loadings
+    close to 0 indicate that the band has a weak influence on the component. Fig.
+    5 shows the loading plot of the bands. It can be seen that bands 6–8A have large
+    positive loadings on component 1. While bands 2–5 and 11–12 have large positive
+    loadings on component 2. Factor loading shows how much each band has contributed
+    to the factor. Rescaled factor loadings of the principal components from the original
+    (raw) image data are as shown in Table 6. Bands 6–8A (Vegetation Red Edge and
+    near-infrared bands are highly correlated, Table 4) loaded highly in the first
+    principal component, bands 2–5 and 11–12 (highly correlated), loaded highly (positively)
+    in principal component 2, and Band 2-5 marginally loaded onto principal component
+    3. Principal component 4–10 can be termed as noise components since no factor
+    loading is prominent. It has been observed that deciduous plants have a sharp
+    order-of-magnitude increase in leaf reflectance between approximately 700 to 750
+    nm wavelength and healthy vegetation reflects highly in near-infrared band. Principal
+    component 1 can be called a healthy vegetation component as it has the highest
+    factor loading of 0.99 from band 7 and band 8A. However, principal component 2
+    and principal component 3 can''t be generalized as loading is scattered across
+    the spectrum. Table 4. Covariance (Correlation) matrix of sentinel–2 bands. Sentinel-2
+    Bands Band 2 Band 3 Band 4 Band 5 Band 6 Band 7 Band 8 Band 8A Band 11 Band 12
+    Band 2 40426.8 (1.00) 43694.4 (0.98) 63465.1 (0.95) 45236.1 (0.88) 6071.1 (0.08)
+    −8485.5 (−0.08) −9932.3 (−0.10) −14377.9 (−0.12) 42030.1 (0.53) 55946.5 (0.68)
+    Band 3 43694.4 (0.98) 49362.7 (1.00) 70250.5 (0.95) 52331.9 (0.92) 15490.6 (0.19)
+    1389.2 (0.01) 360.7 (0.00) −3597.5 (−0.03) 52797.9 (0.60) 63910.7 (0.71) Band
+    4 63465.1 (0.95) 70250.5 (0.95) 111007.2 (1.00) 78097.1 (0.92) −1973.4 (−0.01)
+    −32521.7 (−0.19) −35057.0 (−0.20) −42296.8 (−0.22) 84124.7 (0.64) 111431.2 (0.82)
+    Band 5 45236.1 (0.88) 52331.9 (0.92) 78097.1 (0.92) 65216.5 (1.00) 23153.8 (0.24)
+    6455.0 (0.05) 3933.8 (0.03) 3102.1 (0.02) 77195.9 (0.76) 86156.7 (0.83) Band 6
+    6071.1 (0.08) 15490.6 (0.19) −1973.4 (−0.01) 23153.8 (0.24) 141140.0 (1.00) 189019.7
+    (0.97) 179641.9 (0.93) 209046.3 (0.96) 55332.7 (0.37) −1619.9 (−0.01) Band 7 −8485.5
+    (−0.08) 1389.2 (0.01) −32521.7 (−0.19) 6455.0 (0.05) 189019.7 (0.97) 270417.6
+    (1.00) 256318.7 (0.96) 298626.5 (0.99) 47352.7 (0.23) −34947.6 (−0.16) Band 8
+    −9932.3 (−0.09) 360.7 (0.01) −35057.0 (−0.20) 3933.8 (−0.20) 179641.9 (0.93) 256318.7
+    (0.96) 265932.9 (1.00) 286099.6 (0.96) 47354.6 (0.23) −33365.4 (−0.16) Band 8A
+    −14377.9 (−0.12) --3597.5 (−0.03) −42296.8 (−0.22) 3102.1 (−0.22) 209046.3 (0.96)
+    298626.5 (0.99) 286099.6 (0.96) 336385.7 (1.00) 58667.2 (0.26) −37889.3 (−0.16)
+    Band 11 42030.1 (0.53) 52797.9 (0.60) 84124.7 (0.64) 77195.9 (0.64) 55332.7 (0.37)
+    47352.7 (0.23) 47354.6 (0.23) 58667.2 (0.25) 157985.6 (1.00) 142013.0 (0.88) Band
+    12 55946.5 (0.69) 63910.7 (0.71) 111431.2 (0.83) 86156.7 (0.83) −1619.9 (−0.01)
+    −34947.6 (−0.16) −33365.4 (−0.16) −37889.3 (−0.16) 142013.0 (0.88) 166130.1 (1.00)
+    Table 5. Total variance explained. Number of Principal Component Bands Extraction
+    Sums of Squared Loadings Extraction Sums of Squared Loadings Raw Rescaled Eigen
+    Value Percent of Eigen Values (%) Accumulative (%) of Eigen Values Eigen Value
+    Percent of Eigen Values (%) Accumulative (%) of Eigen Values 1 1005312.99 62.68
+    62.68 4.01 40.10 40.10 2 494281.26 30.82 93.49 4.89 48.86 88.96 3 70972.23 4.42
+    97.92 0.87 8.70 97.66 4 16477.60 1.03 98.94 0.07 0.68 98.34 5 6189.42 0.39 99.33
+    0.06 0.58 98.92 6 5111.35 0.32 99.65 0.05 0.45 99.37 7 1953.55 0.12 99.77 0.02
+    0.24 99.62 8 1663.12 0.10 99.87 0.02 0.20 99.82 9 1542.72 0.10 99.97 0.01 0.08
+    99.89 10 500.84 0.03 100.00 0.01 0.11 100.00 When analyzing a covariance matrix,
+    the initial eigenvalues are the same across the raw and rescaled solution. Table
+    6. Component matrix. Sentinel-2 Bands Component Matrix Raw (Rescaled) Principal
+    Components 1 2 3 4 5 6 7 8 9 10 Band 2 −18.35 (−.09) 167.20 (.83) 103.98 (.52)
+    5.49 (.03) −12.10 (−.06) 17.20 (.09) 18.63 (.09) 18.41 (.09) 0.70 (.00) 12.77
+    (.06) Band 3 1.76 (.01) 192.55 (.87) 107.16 (.48) 8.57 (.04) 1.93 (.01) 15.36
+    (.07) 12.13 (.05) 5.46 (.02) −0.73 (.00) −17.60 (−.08) Band 4 −64.03 (−.19) 304.89
+    (.92) 111.57 (.33) −1.53 (.00) −21.95 (−.07) 10.56 (.03) −17.89 (−.05) −23.79
+    (−.07) −2.44 (−.01) 3.50 (.01) Band 5 13.67 (.05) 240.77 (.94) 60.90 (.24) −9.04
+    (−.04) 43.60 (.17) −25.95 (−.10) −20.07 (−.08) 14.97 (.06) 8.16 (.03) 1.06 (.00)
+    Band 6 364.50 (.97) 60.92 (.16) 32.36 (.09) −33.49 (−.09) 35.78 (.10) −15.52 (−.04)
+    18.50 (.05) −14.92 (−.04) −17.56 (−.05) 2.69 (.01) Band 7 516.58 (.99) −7.86 (−.02)
+    23.99 (.05) −36.34 (−.07) −22.32 (−.04) −18.02 (−.03) 7.19 (.01) −4.80 (−.01)
+    26.65 (.05) −0.84 (.00) Band 8 503.62 (.98) −11.11 (−.02) 6.98 (.01) 109.94 (.21)
+    5.31 (.01) −1.64 (.00) −2.38 (.00) −2.14 (.00) −0.06 (.00) 1.12 (.00) Band 8A
+    576.95 (.99) −13.39 (−.02) −17.32 (−.03) −39.76 (−.07) −18.38 (−.03) 18.95 (.03)
+    −17.01 (−.03) 14.46 (.02) −15.98 (−.03) −1.44 (.00) Band 11 105.01 (.26) 351.58
+    (.88) −145.95 (−.37) −6.05 (−.02) 22.02 (.06) 37.34 (.09) 3.38 (.01) −4.17 (−.01)
+    10.18 (.03) 1.00 (.00) Band 12 −58.71 (−.14) 388.12 (.95) −96.16 (−.24) 11.97
+    (.03) −32.04 (−.08) −38.38 (−.09) 5.98 (.01) 5.22 (.01) −9.56 (−.02) −1.55 (.00)
+    PCA transformed the correlated Sentinel–2 dataset into a substantially smaller
+    set of uncorrelated variables representing most of the information present in
+    the original dataset. Fig. 6(a–c) shows the PCA bands derived from the Sentinel–2
+    data and Fig. 6(d–f) shows the frequency distribution of corresponding principal
+    component bands. The total range (maximum value - minimum value) of PCA band 3
+    is greater than the PCA band 1 and PCA band 2. However, most of the pixels fall
+    in a small range around the mean of 6486.13, which shows information loss in PCA
+    band 3. The frequency distribution reveals that the variance of the first principal
+    component is the highest, followed by the second and then by the third. The calculated
+    values of variance for PCA bands 1, 2, and 3 were 395879.55, 284229.30, and 45254.05,
+    respectively. The image produced from PCA band 1 data resembles the original image
+    and it contains most of the pertinent information inherent to the scene due to
+    high variance. Adjacent bands in a multispectral remotely sensed image are often
+    highly correlated and often convey almost the same information about the object.
+    A high correlation meaning thereby that the bands are not statistically independent.
+    A low degree of correlation was observed among the PCA bands 1, 2, and 3 (Fig.
+    7(a–c)). The correlation values between PCA bands 1 and 2, 1 and 3, and 3 and
+    2 were 0.01, −0.01, and 0.25, respectively. The non-structured appearance of the
+    scatter plots and low correlation values confirm that there is no relationship
+    among the PCA bands. High Correlation in stack 1 shows (Table 4) that there is
+    a redundancy of information and if this redundancy can be reduced, then information
+    can be compressed. The correlation between the bands which exist in the original
+    data has disappeared in the principal components. So, the PCA was able to reduce
+    correlation significantly. The principal components are new uncorrelated bands
+    obtained by a linear combination of original data, retaining as maximum as possible
+    the information present on the original data. In this way, a classification using
+    the first few principal components can be better than one performed by means of
+    the original dataset. If we compare the PCA band 1 and PCA band 2 images, PCA
+    band 1 has higher brightness values for the pixels than PCA band 2, and PCA band
+    1 shows a higher degree of contrast than PCA band 2. Download : Download high-res
+    image (252KB) Download : Download full-size image Fig. 5. Loading plot of component
+    1, 2 and 3. Download : Download high-res image (1MB) Download : Download full-size
+    image Fig. 6. Visual comparison of the principal component bands derived from
+    the Sentinel–2 data (a) PCA band 1 (b) PCA band 2 (c) PCA band 3 and (d) Frequency
+    distribution of principal component band 1 (e) Frequency distribution of principal
+    component band 2 (f) Frequency distribution of principal component band 3. Download
+    : Download high-res image (1MB) Download : Download full-size image Fig. 7. Non-structured
+    appearance of the scatter plots leads to the conclusion that there is a very low
+    relationship among the PCA bands (a) Scatter plot between PCA band 1 and 2 (b)
+    Scatter plot between PCA band 1 and 3 (c) Scatter plot between PCA band 2 and
+    3. Download : Download high-res image (759KB) Download : Download full-size image
+    Fig. 8. (a) Sentinel–2 bands visualized in natural colors composite (Stack 1)
+    (b) Spectral response curves of LULC classes in Sentinel–2 bands. (For interpretation
+    of the references to color in this figure legend, the reader is referred to the
+    Web version of this article.) Land use and land cover classes were selected based
+    on knowledge about the specific study area. Seven major land use and land cover
+    classes were identified, viz., Water, Built-up, Mixed forest, Cultivated land,
+    Barren land, Fallow land with Vertisols dominance, and Fallow land with Inceptisols
+    dominance. The classifications were conducted using Sentinel–2 original bands
+    (traditional approach) and PCA-based approach. Prediction performances of the
+    three classifier algorithms, MLE, RF, and SVM, were evaluated to reveal the efficiency
+    of two different land use and land cover classification approaches with training
+    data of less than 1000 pixels per class. Training data for each land use and land
+    cover class were collected as a group of pixels. Stratified random sampling was
+    used to obtain the testing data. The classification performed on the original
+    Sentinel–2 bands led to an unacceptable outcome with a classification overall
+    accuracy of 22% for MLE. However, 60% and 64% classification overall accuracy
+    was achieved with RF and SVM classifiers, respectively. The classification results
+    of RF and SVM are acceptable as the training data were limited to less than 1000
+    pixels per class. In the PCA-based classification approach, the same training
+    polygons were used to avoid the optimistic bias in classification. PCA based approach
+    significantly improved the overall classification accuracy of all the three classifiers.
+    The overall classification accuracy varied considerably among the classifiers.
+    The overall classification accuracy of MLE classifier was increased from 22% to
+    41% (19% increase) in the PCA based approach. The overall accuracy RF classifier
+    was increased by 10% reaching 70%, whereas the SVM classifier outperformed both
+    the classifiers with 76% overall accuracy (increased by 12%). The spectral response
+    curve is the curve showing the variation of reflectance or emittance (in terms
+    of Digital numbers) of a material with respect to wavelengths. Fig. 8, Fig. 9
+    show the variation of responses of the land use and land cover classes in Stack
+    1 and Stack 2 respectively. Classes having similar responses are hard to separate.
+    It was also observed that as the spectral distance (or separability) of the classes
+    Water and Built-up in Stack 1 and Stack 2 (Fig. 8, Fig. 9) in relation to other
+    classes was more, that is why the user''s accuracy (UA) and producer''s accuracy
+    (PA) for water class were the highest followed by the Built-up class, for both
+    traditional and PCA-based classification approaches. Kappa coefficient showed
+    a similar trend as that of the overall accuracy. Highest Kappa coefficient values
+    were obtained with SVM in PCA based approach followed by the RF. Comparative visual
+    analysis of both the approaches with all the three classifiers are shown in Fig.
+    10, Fig. 11, and the results of accuracy assessment are given in Table 7. Download
+    : Download high-res image (771KB) Download : Download full-size image Fig. 9.
+    (a) The first three principal components visualized in false colors composite
+    (Stack2) (b) Response curves of LULC classes in PCA bands. (For interpretation
+    of the references to color in this figure legend, the reader is referred to the
+    Web version of this article.) Download : Download high-res image (3MB) Download
+    : Download full-size image Fig. 10. Comparative visual analysis of classification
+    using traditional approach in (a) MLE (b) RF (c) SVM classifiers and PCA based
+    approach in (d) MLE (e) RF (f) SVM classifiers. Download : Download high-res image
+    (119KB) Download : Download full-size image Fig. 11. Classification accuracies
+    obtained by the parametric (MLE) and non-parametric (SVM and RF) classifiers for
+    traditional and PCA based approach. Table 7. Accuracy assessment of traditional
+    and PCA based approach for LULC classification using MLE, RF, and SVM classifiers.
+    LULC Sub classes of LULC Sentinel-2 Bands PCA Bands MLE RF SVM MLE RF SVM PA UA
+    PA UA PA UA PA UA PA UA PA UA Water Water 0.78 1.00 1.00 1.00 1.00 1.00 0.78 1.00
+    1.00 1.00 1.00 1.00 Cultivated land Cultivated land Crop 1 0.00 0.00 0.60 0.60
+    0.80 0.57 0.60 0.33 0.60 0.60 0.80 0.57 Cultivated land Crop 2 0.00 0.00 0.80
+    0.47 0.60 0.55 0.60 0.60 0.90 0.64 0.60 0.67 Sparsely vegetated 0.00 0.00 0.47
+    0.50 0.53 0.56 0.41 0.78 0.65 0.69 0.88 0.88 Barren land Barren land 0.00 0.00
+    0.50 0.25 0.50 0.27 0.33 0.40 0.50 0.27 0.50 0.43 Fallow land (Vertisols dominance)
+    Fallow land 1 Vertisols dominance 0.00 0.00 0.60 0.75 0.70 0.64 0.00 0.00 0.30
+    1.00 0.60 0.86 Fallow land 2 Vertisols dominance 0.33 1.00 1.00 1.00 1.00 1.00
+    0.00 0.00 1.00 1.00 1.00 0.60 Fallow land (Inseptisol dominance) Fallow land 1
+    Inseptisol dominance 0.00 0.00 0.75 0.75 0.75 0.75 0.00 0.00 0.75 0.75 1.00 0.67
+    Fallow land 2 Inseptisol dominance 1.00 0.14 0.13 1.00 0.50 1.00 0.00 0.00 0.63
+    1.00 0.75 1.00 Mixed forest Mixed forest 0.00 0.00 0.17 0.50 0.17 0.50 0.00 0.00
+    0.17 0.25 0.33 0.25 Builtup Builtup 0.00 0.00 1.00 1.00 1.00 1.00 0.17 1.00 1.00
+    0.86 1.00 0.86 Mixed builtup 1 0.14 0.08 0.86 0.60 0.71 0.71 1.00 0.19 0.86 1.00
+    1.00 1.00 Mixed builtup 2 0.56 0.24 0.33 0.43 0.44 0.44 0.89 0.35 0.89 0.62 0.56
+    1.00 Kappa coefficient 0.15 0.56 0.60 0.35 0.67 0.74 Overall Accuracy (%) 22.00
+    60.00 64.00 41.00 70.00 76.00 Note: UA-User''s accuracy, PA-Producer''s accuracy,
+    MLE- Maximum likelihood estimation, RF- Random forest tree, SVM- Support vector
+    machine. The observed difference in classification accuracies obtained by the
+    parametric (MLE) and non-parametric (SVM and RF) classifiers are similar to the
+    other reported studies Yang et al. (2011); Huang et al. (2002). Nonetheless, little
+    difference was also observed between the prediction performances of the SVM and
+    RF machine learning algorithms. The land use and land cover classification results
+    showed some diversity due to the low number of training data, yet the global performances
+    of both the classifiers were very similar for both the approaches. HEC-GeoHMS
+    was used to create the curve number with the help of the SVM classified land use
+    and land cover map using PCA based approach and soil map containing hydrological
+    soil groups. The curve number value varied from 36 to 100 for the study area,
+    lower numbers indicate low runoff potential while larger numbers indicate an increased
+    runoff potential. The calculated curve number is also termed as CN II or AMC II
+    (Antecedent Moisture Condition II). The calculated curve number can be adjusted
+    to dry moisture conditions (called as AMC I) and high moisture conditions (called
+    as AMC III) by using adjusting factors. Fig. 12 shows the curve number maps and
+    statistics is shown in Table 8, for the antecedent moisture condition II generated
+    using the traditional approach and PCA based approach. It is evident from the
+    results that land use and land cover map influences the curve number map significantly.
+    Download : Download high-res image (2MB) Download : Download full-size image Fig.
+    12. Curve number for antecedent moisture condition II generated from traditional
+    approach (a) MLE (b) RF (c) SVM classifiers and PCA based approach in (d) MLE
+    (e) RF (f) SVM classifiers. Table 8. Resulted curve number statistics using traditional
+    and PCA based approach classification. Empty Cell Sentinel-2 Bands PCA Bands MLE
+    RF SVM MLE RF SVM Minimum 71 36 36 36 36 36 Maximum 100 100 100 100 100 100 Mean
+    85.75 84.38 84.04 87.85 83.51 82.39 Median 87 88 88 89 87 88 Standard deviation
+    6.53 9.11 9.54 7.36 10.75 11.56 5. Conclusion In countries like India, high maintenance
+    costs and the requirement for skilled operators make providing gauge stations
+    to each watershed prohibitively expensive. The runoff curve numbers estimated
+    from remotely sensed parameters, such as land use and land cover and soil data,
+    in combination with observed rainfall, predict runoff depth and peak flow, may
+    result in high accuracy of hydrological modeling. As remote sensing data are widely
+    used in mathematical watershed models to simulate and evaluate the existing and
+    proposed management scenarios, it is necessary to improve the land use and land
+    cover classification accuracy. In the study, traditional and PCA based approaches
+    were used on Sentinel–2 processed data using three different supervised classification
+    methods, namely, MLE, RF, and SVM. The results show that a PCA based approach
+    is far superior to the traditional approach. Maximum classification accuracy was
+    achieved with SVM classifier; SVM outperformed the MLE and RF classifiers in both
+    traditional as well as PCA based approach even with a small training dataset.
+    The uncorrelated principal component bands enhanced the classification accuracy
+    as compared to the use of Sentinel–2 original bands. This confirms the feasibility
+    of PCA in remote sensing to extract land use and land cover information and enhance
+    the classification. Moreover, a curve number grid was also created using the land
+    use and land cover map for antecedent moisture condition II. Various hydrological
+    tools, models (SWAT, HEC-RAS, HEC-HMS, etc.), and algorithms use the curve number
+    grid within a GIS environment for hydrological modeling. Compliance with ethical
+    standards This study is in full compliance with all applicable ethical standards.
+    Ethical approval The presented research has not involved human subjects, human
+    material, or human data and therefore ethical approval has not been required.
+    Informed consent This study does not involve any subject participation and therefore
+    informed consent is not applicable. Declaration of competing interest On behalf
+    of all authors, the corresponding author states that there is no conflict of interest.
+    Appendix A. Supplementary data The following is the Supplementary data to this
+    article: Download : Download XML file (260B) Multimedia component 1. Research
+    data for this article Data not available / The authors do not have permission
+    to share data Further information on research data References Abdu, 2019 H.A.
+    Abdu Classification accuracy and trend assessments of land cover-land use changes
+    from principal components of land satellite images Int. J. Rem. Sens., 40 (4)
+    (2019), pp. 1275-1300 CrossRefView in ScopusGoogle Scholar Adeel, 2010 M. Adeel
+    Methodology for identifying urban growth potential using land use and population
+    data: a case study of Islamabad Zone IV Procedia Environ. Sci., 2 (2010), pp.
+    32-41 View PDFView articleView in ScopusGoogle Scholar Ajmal et al., 2015 M. Ajmal,
+    M. Waseem, S. Wi, T.W. Kim Evolution of a parsimonious rainfall-runoff model using
+    soil moisture proxies J. Hydrol., 530 (2015), pp. 623-633, 10.1016/j.jhydrol.2015.10.019
+    View PDFView articleView in ScopusGoogle Scholar Belgiu and Csillik, 2018 M. Belgiu,
+    O. Csillik Sentinel-2 cropland mapping using pixel-based and object-based time-weighted
+    dynamic time warping analysis Remote Sens. Environ., 204 (2018), pp. 509-523 View
+    PDFView articleView in ScopusGoogle Scholar Breiman, 2001 L. Breiman Random forests
+    Mach. Learn., 45 (1) (2001), pp. 5-32 Google Scholar Candade and Dixon, 2004 N.
+    Candade, B. Dixon May). Multispectral classification of Landsat images: a comparison
+    of support vector machine and neural network classifiers ASPRS Annual Conference
+    Proceedings (2004) (Denver, Colorado) Google Scholar Chen, 2020 N. Chen Mapping
+    mangrove in Dongzhaigang, China using Sentinel-2 imagery J. Appl. Remote Sens.,
+    14 (1) (2020), Article 014508 View in ScopusGoogle Scholar Cheng et al., 2015
+    G. Cheng, J. Han, L. Guo, Z. Liu, S. Bu, J. Ren Effective and efficient midlevel
+    visual elements-oriented land-use classification using VHR remote sensing images
+    IEEE Trans. Geosci. Rem. Sens., 53 (8) (2015), pp. 4238-4249, 10.1109/TGRS.2015.2393857
+    View in ScopusGoogle Scholar Congalton, 2001 R.G. Congalton Accuracy assessment
+    of wildland fire and other spatial information Int. J. Wildland Fire, 10 (2001),
+    pp. 321-328 View in ScopusGoogle Scholar Deng et al., 2008 J.S. Deng, K. Wang,
+    Y.H. Deng, G.J. Qi PCA-based land-use change detection and analysis using multitemporal
+    and multisensor satellite data Int. J. Rem. Sens., 29 (16) (2008), pp. 4823-4838,
+    10.1080/01431160801950162 View in ScopusGoogle Scholar Epps et al., 2013 T.H.
+    Epps, D.R. Hitchcock, A.D. Jayakaran, D.R. Loflin, T.M. Williams, D.M. Amatya
+    Curve number derivation for watersheds draining two headwater streams in lower
+    coastal plain South Carolina, USA J. Am. Water Resour. Assoc., 49 (6) (2013),
+    pp. 1284-1295, 10.1111/jawr.12084 View in ScopusGoogle Scholar Feldman, 2000 A.D.
+    Feldman Hydrologic Modeling System HEC-HMS: Technical Reference Manual US Army
+    Corps of Engineers, Hydrologic Engineering Center (2000) Google Scholar Firozjaei
+    et al., 2019 M.K. Firozjaei, S.K. Alavipanah, H. Liu, A. Sedighi, N. Mijani, M.
+    Kiavarz, Q. Weng A PCA–OLS model for assessing the impact of surface biophysical
+    parameters on land surface temperature variations Rem. Sens., 11 (18) (2019),
+    p. 2094 CrossRefView in ScopusGoogle Scholar Foody and Mathur, 2004 G.M. Foody,
+    A. Mathur Toward intelligent training of supervised image classifications: directing
+    training data acquisition for SVM classification Rem. Sens. Environ., 93 (1‐2)
+    (2004), pp. 107-117, 10.1016/j.rse.2004.06.017 View PDFView articleView in ScopusGoogle
+    Scholar Gajalakshmi and Anantharama, 2015 K. Gajalakshmi, V. Anantharama Comparative
+    study of Cartosat-DEM and SRTM-DEM on elevation data and terrain elements Int.
+    J. Adv. Rem. Sens. GIS, 4 (1) (2015), pp. 1361-1366 Google Scholar Ghimire et
+    al., 2012 B. Ghimire, J. Rogan, V. Rodríguez-Galiano, P. Panday, N. Neeti An evaluation
+    of bagging, boosting, and random forests for land-cover classification in cape
+    cod, Massachusetts, USA GIScience Remote Sens., 49 (5) (2012), pp. 623-643, 10.2747/1548-1603.49.5.623
+    View in ScopusGoogle Scholar Gislason et al., 2006 P.O. Gislason, J.A. Benediktsson,
+    J.R. Sveinsson Random forests for land cover classification Pattern Recogn. Lett.,
+    27 (4) (2006), pp. 294-300 View PDFView articleView in ScopusGoogle Scholar Han
+    et al., 2015 J. Han, D. Zhang, G. Cheng, L. Guo, J. Ren Object detection in optical
+    remote sensing images based on weakly supervised learning and high-level feature
+    learning IEEE Trans. Geosci. Rem. Sens., 53 (6) (2015), pp. 3325-3337, 10.1109/TGRS.2014.2374218
+    View in ScopusGoogle Scholar Harmel et al., 2018 R.D. Harmel, C. Baffaut, K. Douglas-Mankin
+    Review and Development of ASABE Engineering Practice 621:“Guidelines for Calibrating,
+    Validating, and Evaluating Hydrologic and Water Quality Models” (2018) Google
+    Scholar Hassan et al., 2016 Z. Hassan, S. Rabia, A. Sheikh, H.M. Amir, A. Neelam,
+    B. Amna, E. Summra Dynamics of land use and land cover change (LULCC) using geospatial
+    techniques: a case study of Islamabad Pakistan SpringerPlus, 5 (2016), p. 812
+    View in ScopusGoogle Scholar Huang et al., 2002 C. Huang, L.S. Davis, J.R.G. Townshend
+    International Journal of Remote Sensing an assessment of support vector machines
+    for land cover classification an assessment of support vector machines for land
+    cover classication Int. J. Rem. Sens., 23 (4) (2002), pp. 725-749, 10.1080/01431160110040323
+    View in ScopusGoogle Scholar Immitzer et al., 2012 M. Immitzer, C. Atzberger,
+    T. Koukal Tree species classification with Random forest using very high spatial
+    resolution 8-band worldView-2 satellite data Rem. Sens., 4 (9) (2012), pp. 2661-2693,
+    10.3390/rs4092661 View in ScopusGoogle Scholar Janssen and Vanderwel, 1994 L.L.
+    Janssen, F.J. Vanderwel Accuracy assessment of satellite derived land-cover data:
+    a review Photogramm. Eng. Rem. Sens., 60 (4) (1994) Google Scholar Khatami et
+    al., 2016 R. Khatami, G. Mountrakis, S.V. Stehman A meta-analysis of remote sensing
+    research on supervised pixel-based land-cover image classification processes:
+    general guidelines for practitioners and future research Remote Sens. Environ.,
+    177 (2016), pp. 89-100 View PDFView articleView in ScopusGoogle Scholar Li and
+    Yeh, 1998 X. Li, A.G.O. Yeh Principal component analysis of stacked multi-temporal
+    images for the monitoring of rapid urban expansion in the Pearl River Delta Int.
+    J. Rem. Sens., 19 (8) (1998), pp. 1501-1518, 10.1080/014311698215315 View in ScopusGoogle
+    Scholar Lu et al., 2004 D. Lu, P. Mausel, E. Brondízio, E. Moran Change detection
+    techniques Int. J. Rem. Sens., 25 (12) (2004), pp. 2365-2407, 10.1080/0143116031000139863
+    View in ScopusGoogle Scholar Congedo, 2016 Luca Congedo Semi-automatic classification
+    Plugin documentation https://doi.org/10.13140/RG.2.2.29474.02242/1 (2016) Google
+    Scholar Manandhar et al., 2009 R. Manandhar, I.O.A. Odehi, T. Ancevt Improving
+    the accuracy of land use and land cover classification of landsat data using post-classification
+    enhancement Rem. Sens., 1 (3) (2009), pp. 330-344, 10.3390/rs1030330 View in ScopusGoogle
+    Scholar Massetti and Gil, 2020 A. Massetti, A. Gil Mapping and assessing land
+    cover/land use and aboveground carbon stocks rapid changes in small oceanic islands''
+    terrestrial ecosystems: a case study of Madeira Island, Portugal (2009–2011) Rem.
+    Sens. Environ., 239 (2020), p. 111625 View PDFView articleView in ScopusGoogle
+    Scholar Neitsch et al., 2011 S.L. Neitsch, J.G. Arnold, J.R. Kiniry, J.R. Williams
+    Soil and Water Assessment Tool Theoretical Documentation Version 2009 Texas Water
+    Resources Institute (2011) Google Scholar NRCS, 2009 U. NRCS Chapter 7–Hydrologic
+    Soil Groups in: NRCS–National Engineering Handbook (NEH), Part 630–Hydrology USDA
+    NRCS, ashington, DC (2009) 7-1 Google Scholar Ok et al., 2012 A.O. Ok, O. Akar,
+    O. Gungor Evaluation of random forest method for agricultural crop classification
+    Eur. J. Rem. Sens., 45 (1) (2012), pp. 421-432, 10.5721/EuJRS20124535 View in
+    ScopusGoogle Scholar Oommen et al., 2008 T. Oommen, D. Misra, N.K. Twarakavi,
+    A. Prakash, B. Sahoo, S. Bandopadhyay An objective analysis of support vector
+    machine based classification for remote sensing Math. Geosci., 40 (4) (2008),
+    pp. 409-424 CrossRefView in ScopusGoogle Scholar Ozesmi and Bauer, 2002 S.L. Ozesmi,
+    M.E. Bauer Satellite remote sensing of wetlands Wetl. Ecol. Manag., 10 (5) (2002),
+    pp. 381-402, 10.1023/A:1020908432489 View in ScopusGoogle Scholar Pahlevan et
+    al., 2017 N. Pahlevan, S. Sarkar, B.A. Franz, S.V. Balasubramanian, J. He Sentinel-2
+    MultiSpectral Instrument (MSI) data processing for aquatic science applications:
+    demonstrations and validations Rem. Sens. Environ., 201 (August) (2017), pp. 47-56,
+    10.1016/j.rse.2017.08.033 View PDFView articleView in ScopusGoogle Scholar Pal
+    and Mather, 2005 M. Pal, P.M. Mather Support vector machines for classification
+    in remote sensing Int. J. Rem. Sens., 26 (5) (2005), pp. 1007-1011, 10.1080/01431160512331314083
+    View in ScopusGoogle Scholar Patel et al., 2016 A. Patel, S.K. Katiyar, V. Prasad
+    Performances evaluation of different open source DEM using Differential Global
+    Positioning System (DGPS) Egypt. J. Rem. Sens. Space Sci., 19 (1) (2016), pp.
+    7-16 View PDFView articleView in ScopusGoogle Scholar Pelletier et al., 2016 C.
+    Pelletier, S. Valero, J. Inglada, N. Champion, G. Dedieu Assessing the robustness
+    of Random Forests to map land cover with high resolution satellite image time
+    series over large areas Rem. Sens. Environ., 187 (2016), pp. 156-168, 10.1016/j.rse.2016.10.010
+    View PDFView articleView in ScopusGoogle Scholar Rana and Suryanarayana, 2019
+    V.K. Rana, T.M.V. Suryanarayana J. Geovis. Spat. Anal., 3 (2019), p. 12, 10.1007/s41651-019-0036-z
+    View in ScopusGoogle Scholar Vikas and Suryanarayana, 2019 Kumar Rana Vikas, T.M.V.
+    Suryanarayana Evaluation of SAR speckle filter technique for inundation mapping
+    Rem. Sens. Appl.: Soc. Environ., 16 (2019), p. 100271, 10.1016/j.rsase.2019.100271
+    ISSN 2352-9385 Google Scholar Rodriguez-Galiano et al., 2012 V.F. Rodriguez-Galiano,
+    B. Ghimire, J. Rogan, M. Chica-Olmo, J.P. Rigol-Sanchez An assessment of the effectiveness
+    of a random forest classifier for land-cover classification ISPRS J. Photogrammetry
+    Remote Sens., 67 (2012), pp. 93-104 View PDFView articleView in ScopusGoogle Scholar
+    Ross et al., 2018 C.W. Ross, L. Prihodko, J. Anchang, S. Kumar, W. Ji, N.P. Hanan
+    HYSOGs250m, global gridded hydrologic soil groups for curve-number-based runoff
+    modeling Sci. Data, 5 (2018), p. 180091, 10.1038/sdata.2018.91 View in ScopusGoogle
+    Scholar Rundquist et al., 2001 D.C. Rundquist, S. Narumalani, R.M. Narayanan A
+    Review of Wetlands Remote Sensing and Defining New Considerations (2001) Google
+    Scholar Scanlon et al., 2006 B.R. Scanlon, K.E. Keese, A.L. Flint, L.E. Flint,
+    C.B. Gaye, W.M. Edmunds, I. Simmers Global synthesis of groundwater recharge in
+    semiarid andaridregions Bridget Hydrol. Process., 20 (April) (2006), pp. 3335-3370,
+    10.1002/hyp View in ScopusGoogle Scholar Slack and Welch, 1980 R.B. Slack, R.
+    Welch Soil conservation service runoff curve number estimates from LANDSAT data
+    JAWRA J. Am. Water Resour. Assoc., 16 (5) (1980), pp. 887-893, 10.1111/j.1752-1688.1980.tb02504.x
+    View in ScopusGoogle Scholar Story and Congalton, 1986 M. Story, R.G. Congalton
+    Accuracy assessment: a user''s perspective Photogramm. Eng. Rem. Sens., 52 (3)
+    (1986), pp. 397-399 View in ScopusGoogle Scholar Suribabu and Bhaskar, 2015 C.R.
+    Suribabu, J. Bhaskar Evaluation of urban growth effects on surface runoff using
+    SCS-CN method and Green-Ampt infiltration model Earth Sci. Inf., 8 (3) (2015),
+    pp. 609-626, 10.1007/s12145-014-0193-z View in ScopusGoogle Scholar Turner et
+    al., 2007 B.L. Turner, E.F. Lambin, A. Reenberg The emergence of land change science
+    for global environmental change and sustainability Proc. Natl. Acad. Sci. U.S.A.,
+    104 (2007), pp. 20666-20671 CrossRefView in ScopusGoogle Scholar Walega and Salata,
+    2019 A. Walega, T. Salata Influence of land cover data sources on estimation of
+    direct runoff according to SCS-CN and modified SME methods Catena, 172 (2019),
+    pp. 232-242 View PDFView articleView in ScopusGoogle Scholar Weng, 2001 Q. Weng
+    A remote sensing-GIS evaluation of urban expansion and its impacts on the temperature
+    in the Zhujiang Delta, China Int. J. Rem. Sens., 22 (2001), pp. 1999-2014 View
+    in ScopusGoogle Scholar Wu and Han, 2019 T. Wu, L. Han Cloud extraction scheme
+    for multi-spectral images using landsat-8 OLI images with high brightness reflectivity
+    covered IEEE Access, 8 (2019), pp. 3387-3396, 10.1109/ACCESS.2019.2962871 View
+    in ScopusGoogle Scholar Yang et al., 2011 C. Yang, J.H. Everitt, D. Murden Evaluating
+    high resolution SPOT 5 satellite imagery for crop identification Comput. Electron.
+    Agric., 75 (2) (2011), pp. 347-354, 10.1016/j.compag.2010.12.012 View PDFView
+    articleView in ScopusGoogle Scholar Yu et al., 2014 L. Yu, L. Liang, J. Wang,
+    Y. Zhao, Q. Cheng, L. Hu, et al. Meta-discoveries from a synthesis of satellite-based
+    land-cover mapping research Int. J. Rem. Sens., 35 (2014), pp. 4573-4588, 10.1080/01431161.2014.930206
+    View in ScopusGoogle Scholar Zhang et al., 2000 S.Q. Zhang, S.K. Zhang, J.Y. Zhang
+    A study on wetland classification model of remote sensing in the Sangjiang Plain
+    Chin. Geogr. Sci., 10 (1) (2000), pp. 68-73, 10.1007/s11769-000-0038-1 View in
+    ScopusGoogle Scholar Cited by (72) Improving grassland classification accuracy
+    using optimal spectral-phenological-topographic features in combination with machine
+    learning algorithm 2024, Ecological Indicators Show abstract Comparison of accuracy
+    and reliability of random forest, support vector machine, artificial neural network
+    and maximum likelihood method in land use/cover classification of urban setting
+    2024, Environmental Challenges Show abstract Enhancing Land Cover/Land Use (LCLU)
+    classification through a comparative analysis of hyperparameters optimization
+    approaches for deep neural network (DNN) 2023, Ecological Informatics Show abstract
+    Mapping and spatiotemporal dynamics of land-use and land-cover change based on
+    the Google Earth Engine cloud platform from Landsat imagery: A case study of Zhoushan
+    Island, China 2023, Heliyon Show abstract Mapping cropland extent using sentinel-2
+    datasets and machine learning algorithms for an agriculture watershed 2023, Smart
+    Agricultural Technology Show abstract Understanding the cooling capacity and its
+    potential drivers in urban forests at the single tree and cluster scales 2023,
+    Sustainable Cities and Society Show abstract View all citing articles on Scopus
+    View Abstract © 2020 Elsevier B.V. All rights reserved. Recommended articles Estimation
+    of soil erosion risk in southern part of Syria by using RUSLE integrating geo
+    informatics approach Remote Sensing Applications: Society and Environment, Volume
+    20, 2020, Article 100375 Safwan Mohammed, …, Endre Harsanyie View PDF Adaptive
+    boost LS-SVM classification approach for time-series signal classification in
+    epileptic seizure diagnosis applications Expert Systems with Applications, Volume
+    161, 2020, Article 113676 Hanan Al-Hadeethi, …, Jonathan H Green View PDF Spatiotemporal
+    floodplain mapping and prediction using HEC-RAS - GIS tools: Case of the Mejerda
+    river, Tunisia Journal of African Earth Sciences, Volume 142, 2018, pp. 44-51
+    C. Ben Khalfallah, S. Saidi View PDF Show 3 more articles Article Metrics Citations
+    Citation Indexes: 66 Captures Readers: 119 View details About ScienceDirect Remote
+    access Shopping cart Advertise Contact and support Terms and conditions Privacy
+    policy Cookies are used by this site. Cookie settings | Your Privacy Choices All
+    content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply.'
+  inline_citation: '>'
+  journal: Remote sensing applications
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2020
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Performance evaluation of MLE, RF and SVM classification algorithms for watershed
+    scale land use/land cover mapping using sentinel 2 bands
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.2144/04362bm02
+  analysis: '>'
+  authors:
+  - Jonathan R. Brody
+  - Scott E. Kern
+  citation_count: 303
+  full_citation: '>'
+  full_text: '>
+
+    We use cookies to improve your experience. By continuing to browse this site,
+    you accept our cookie policy. × Sign in Institutional Access Skip main navigation
+    JOURNALS BOOKS ABOUT AUTHOR GUIDE SUBMIT BIOTECHNIQUESVOL. 36, NO. 2 BENCHMARKS
+    Open Access Sodium boric acid: a Tris-free, cooler conductive medium for DNA electrophoresis
+    Jonathan R. Brody & Scott E. Kern Published Online:6 Jun 2018https://doi.org/10.2144/04362BM02
+    Sections PDF/EPUB Tools Share It has been nearly three decades since the invention
+    of DNA electrophoresis (1–6). Current conductive media for DNA electrophoresis
+    remain largely restricted to legacy Tris-acetic acid-disodium EDTA (TAE) and Trisboric
+    acid-disodium EDTA (TBE) at substantial ionic strengths, leading to higher cost
+    and excessive heat generation, and limiting the voltage and speed of electrophoretic
+    runs. TAE and TBE usually contain between 40 to 90 mM Tris, corresponding anion
+    concentrations, and trace amounts of different forms of EDTA (1–2 mM) (7). Investigators
+    have compared and analyzed TAE and TBE buffers in DNA electrophoresis; however,
+    to our knowledge no one has substantially investigated the simplification and
+    substitution of components of these buffers to achieve a more efficient and inexpensive
+    conductive medium for DNA electrophoresis (8,9). It is well established that heat
+    generation is a primary source of problems in TAE and TBE gels, causing sample
+    diffusion, convection, denaturation, and poor gel integrity, and limiting the
+    ability to run gels at a high voltage (10). Ohm''s law and the power law interrelate
+    voltage (V), current (I), and power (P) (11,12). Power consumed in the electrophoresis
+    system manifests as heat generation (P = VI). These interrelated variables are
+    affected by ionic conductance due to choice of salts and ionized components in
+    proportion to their particular concentrations in the media used in electrophoresis.
+    A thorough analysis of these critical properties of widely used buffered media
+    for DNA electrophoresis was performed. We found that TAE and TBE create a “runaway”
+    positive feedback loop of current and temperature, which results in poor gel resolution
+    at high voltage (Figure 1, lanes 3–4). This positive feedback loop makes low-voltage
+    (5–10 V/cm) runs necessary and highlights the limitations of using Tris as a cation
+    for DNA electrophoresis. Another component of currently used buffers, EDTA, is
+    now largely superfluous, since most DNA samples are readily soluble and since
+    commonly used enzymes today would not carry an undesirable enzymatic activity
+    under electrophoretic conditions. Figure 1.  Sodium boric acid (SB) performance
+    in agarose DNA electrophoresis as compared to commonly used conductive media.
+    Gels comprised 1.2% (lanes 1–4) and 0.7% (lanes 5–7) agarose (Type I Low EEO;
+    Sigma, St. Louis, MO, USA) and 0.1% ethidium bromide (Fisher Scientific, Fair
+    Long, NJ, USA). In lanes 1–4, SB and Tris-boric acid-disodium EDTA (TBE) gels
+    were run fast (350 V) for 16 min. A Tris-acetic acid-disodium EDTA (TAE) gel run
+    under the same conditions experienced poor gel integrity and melting (not shown).
+    In lanes 5–7, SB, TBE, and TAE gels were run at legacy conditions (125 V) for
+    75 min. The power source (Model FB 570; Fisher Biotech, Pittsburg, PA, USA) displayed
+    current flow at set voltage. All runs used a horizontal rig (MGU-500; CBS Scientific,
+    Del Mar, CA, USA) and had 700 mL total volume of medium in the reservoirs and
+    gels of 10 cm length. M, DNA marker (1 Kb Plus DNA Ladder™ Invitrogen, Carlsbad,
+    CA, USA). PCR, 280-bp PCR-generated product. We thereby explored alternative,
+    low-molarity, sodium-based conductive media that could mitigate this feedback
+    loop. Extensive studies established that sodium concentrations between 7.5 and
+    12.5 mM, with borate as the counterion, provided the best resolution (data not
+    shown). We therefore prepared a sodium boric acid (SB) conductive medium, where
+    1× SB consisted of 5 mM disodium borate decahydrate or 10 mM sodium hydroxide,
+    pH adjusted to 8.5 with boric acid. A 20× stock solution of pH 8.0 produces the
+    appropriate pH upon dilution to working strength; stock solutions of 10–50× can
+    also be prepared and stored without difficulty. Under high-voltage gel running
+    conditions, SB showed superior resolution compared to TBE, yielding high-resolution
+    separation on a 1.2% gel within 16 min (Figure 1). For the SB gel, current and
+    temperature increased only slightly; current increased from 200 to 287 mA, and
+    the final temperature was 41°C. By contrast, the current for the TBE gel doubled
+    from 306 to 600 mA, and the final temperature was 60°C. A TAE gel run under identical
+    conditions showed a current spike from 395 to 838 mA, and a final temperature
+    of 70°C, resulting in partial melting of the gel (data not shown). Under standard
+    electrophoretic conditions, SB provided resolution and separation as good as or
+    better than TBE and TAE gels (Figure 1, lanes 5–7). We next sought to address
+    the comparative conductive capacities of SB, TBE, and TAE. To monitor electrolyte
+    exhaustion, we presumed that an eventual drop in current over time was primary
+    evidence of one electrolyte having migrated enough that it could no longer serve
+    its full role as a transporter of the current from one electrode to the other,
+    as would be produced by a local depletion of an electrolyte. SB (pH 8–9) had a
+    delayed electrolyte exhaustion at constant voltage as compared to other media
+    tested (the pKa of borate is 9.2) (Figure 2). Electrolyte exhaustion occurred
+    at 3 h for SB, but at less than 1 h for TAE, as determined by observing the current
+    at a constant voltage (Figure 2). In this regard, SB outperformed TAE and TBE.
+    Indeed, TBE outperformed TAE, most likely due to the boric acid, which by buffering
+    the hydroxide production provides a continuing cathodic source of borate for conducting
+    current. Along similar lines of explanation, SB at pH 9 may exhaust slightly earlier
+    than SB at pH 8 (Figure 2). At the lower pH, boric acid represents a larger reserve
+    to replenish ions at the cathode. One would expect that boric acid-containing
+    media could be used for longer runs without recirculation. Figure 2.  Electrolyte
+    exhaustion. Conductive media were tested by plotting the current at constant voltage
+    (200 V). TAE, Tris-acetic acid-disodium EDTA; TBE, Tris-boric acid-disodium EDTA;
+    SB, sodium boric acid. Within our genetics laboratory, we have completely switched
+    over to SB media for routine DNA separation. In addition, we have performed gel
+    extraction of restriction-digested plasmid DNA from SB gels and successfully subcloned
+    the fragment (data not shown). SB also sufficed for DNA migration in vertical
+    polyacrylamide gels (data not shown). We have not encountered a situation in which
+    SB was not optimal. Upon a re-examination of some fundamental properties of conductive
+    media and a heightened attention to the self-amplifying nature of Joule heating,
+    we can now strongly recommend that SB could replace TAE and TBE for many if not
+    most standard DNA electrophoretic applications. It is possible to mitigate the
+    runaway positive feedback loop with SB conductive medium, along with considerable
+    savings in cost and time (Table 1). We estimate that SB could save over $30 million
+    annually in the United States, based on cost per gel and an estimated agarose
+    relevant consumption from a marketing survey of U.S. trends for 2002 (polyacrylamide
+    gel-associated cost contributions were not included due to limited source data).
+    SB is superior to conventional media in allowing better temperature control, improved
+    portability and convenience by reduced power and amperage requirements of the
+    power supply, an improved electrolyte exhaustion rate, and a decreased need for
+    heat dissipation in the electrophoretic device. SB simply outperforms existing
+    DNA electrophoretic media. Table 1.  Characteristics of Conductive Media for DNA
+    Electrophoresis Acknowledgments We thank Drs. Bert Vogelstein and William Studier
+    for their helpful suggestions and a critical reading of this manuscript. This
+    work was supported by grant no. 62924 CA from the National Institutes of Health.
+    FIGURES REFERENCES RELATED DETAILS  Vol. 36, No. 2 STAY CONNECTED Metrics Downloaded
+    10,150 times 255 278 0 175 0 History Received 7 November 2003 Accepted 10 December
+    2003 Published online 6 June 2018 Published in print February 2004 Information
+    © 2004 Author(s) Acknowledgments We thank Drs. Bert Vogelstein and William Studier
+    for their helpful suggestions and a critical reading of this manuscript. This
+    work was supported by grant no. 62924 CA from the National Institutes of Health.
+    PDF download Informa UK Limited, 5 Howick Place, London, United Kingdom, SW1P
+    1WG Information For Authors For Reviewers For Librarians For Advertisers Publishing
+    Solutions Digital Features Help & About Us News Help About Us Contact Us Links
+    & Resources Catalogue Submit an Article Reprints and Permissions Terms and conditions
+    Privacy policy Accessibility © 2024 Future Science Group'
+  inline_citation: '>'
+  journal: BioTechniques
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2004
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Sodium boric acid: a Tris-free, cooler conductive medium for DNA electrophoresis'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.1016/j.biosystemseng.2012.08.009
+  analysis: '>'
+  authors:
+  - D. J. Mulla
+  citation_count: 1259
+  full_citation: '>'
+  full_text: '>
+
+    Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Nomenclature 1. Introduction 2. Remote sensing applications
+    in agriculture 3. Knowledge gaps for remote sensing in precision agriculture Acknowledgement
+    References Show full outline Cited by (1290) Figures (3) Tables (4) Table 1 Table
+    2 Table 3 Table 4 Biosystems Engineering Volume 114, Issue 4, April 2013, Pages
+    358-371 Special Issue: Sensing in Agriculture Review Twenty five years of remote
+    sensing in precision agriculture: Key advances and remaining knowledge gaps☆ Author
+    links open overlay panel David J. Mulla Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.biosystemseng.2012.08.009
+    Get rights and content Precision agriculture dates back to the middle of the 1980''s.
+    Remote sensing applications in precision agriculture began with sensors for soil
+    organic matter, and have quickly diversified to include satellite, aerial, and
+    hand held or tractor mounted sensors. Wavelengths of electromagnetic radiation
+    initially focused on a few key visible or near infrared bands. Today, electromagnetic
+    wavelengths in use range from the ultraviolet to microwave portions of the spectrum,
+    enabling advanced applications such as light detection and ranging (LiDAR), fluorescence
+    spectroscopy, and thermal spectroscopy, along with more traditional applications
+    in the visible and near infrared portions of the spectrum. Spectral bandwidth
+    has decreased dramatically with the advent of hyperspectral remote sensing, allowing
+    improved analysis of specific compounds, molecular interactions, crop stress,
+    and crop biophysical or biochemical characteristics. A variety of spectral indices
+    now exist for various precision agriculture applications, rather than a focus
+    on only normalised difference vegetation indices. Spatial resolution of aerial
+    and satellite remote sensing imagery has improved from 100''s of m to sub-metre
+    accuracy, allowing evaluation of soil and crop properties at fine spatial resolution
+    at the expense of increased data storage and processing requirements. Temporal
+    frequency of remote sensing imagery has also improved dramatically. At present
+    there is considerable interest in collecting remote sensing data at multiple times
+    in order to conduct near real time soil, crop and pest management. Highlights
+    ► Rapid advances in remote sensing for precision agriculture have occurred. ►
+    Satellite imagery has improved in spatial resolution, return visit frequency and
+    spectral resolution. ► Aerial hyperspectral imagery has revolutionized precision
+    agriculture. ► Ground based sensors have been developed for on-the-go monitoring
+    of crop and soil characteristics. ► The future challenge is to develop approaches
+    that provide customized management for individual plants. Previous article in
+    issue Next article in issue Nomenclature ALI advanced land imager AVIRIS airborne
+    visible/infrared imaging spectrometer B blue DVI difference vegetation index EO
+    1 earth observing 1 EROS earth resources observation and science EVI enhanced
+    vegetation index G green GDVI green difference vegetation index GNDVI green normalised
+    difference vegetation index GOSAVI green optimised soil adjusted vegetation index
+    GPS global positioning system GRVI green red vegetation index GSAVI green soil
+    adjusted vegetation index HyspIRI hyperspectral infrared imager INSEY in season
+    estimated yield IRS Indian remote sensing LAI leaf area index LED light emitting
+    diode LiDAR light detection and ranging MCARI modified chlorophyll absorption
+    in reflectance index MSAVI modified soil adjusted vegetation index MSS multispectral
+    scanning system N nitrogen NASA National Aeronautics and Space Administration
+    NDI normalised difference index NDVI normalised difference vegetation index NG
+    normalised green NGNDVI normalised green normalized difference vegetation index
+    NIR near infrared NR normalised red NSI nitrogen sufficiency index OMNBR optimal
+    multiple narrow band reflectance OSAVI optimised soil adjusted vegetation index
+    PNSI plant nitrogen spectral index PSSR pigment specific simple ratio R red RI
+    response index RVI ratio vegetation index SPAD soil plant analysis development
+    SPOT système pour l''observation de la terre SR8 simple ratio 8 TCARI transformed
+    chlorophyll absorption in reflectance index TM thematic mapper 1. Introduction
+    Precision agriculture is one of the top ten revolutions in agriculture (Crookston,
+    2006), although it has only been practiced commercially since the 1990''s. Over
+    one-third of US Midwestern farmers already practice some form of precision agriculture.
+    Precision agriculture generally involves better management of farm inputs such
+    as fertilisers, herbicides, seed, fuel (used during tillage, planting, spraying,
+    etc.) by doing the right management practice at the right place and the right
+    time. Whereas large farm fields under conventional management receive uniform
+    applications of fertilisers, irrigation, seed, etc., with precision agriculture,
+    these fields can be divided into management zones that each receives customised
+    management inputs based on varying soil types, landscape position, and management
+    history. Precision agriculture offers to improve crop productivity and farm profitability
+    through improved management of farm inputs (Larson & Robert, 1991; Zhang, Wang,
+    & Wang, 2002), leading to better environmental quality (Mulla, 1993; Mulla et
+    al., 2002; Mulla, Perillo, & Cogger, 1996; Tian, 2002). Other benefits perceived
+    by farmers include more precise hybrid selection, rental agreements that are better
+    aligned with actual soil productivity, better matching of fertiliser applications
+    to crop yield potential, lower chemical bills and fuel costs, and reduced compaction.
+    Benefits to society include creation of high technology jobs (computer hardware,
+    computer software, machinery guidance, soil and crop sensors, information management,
+    decision support systems), and mitigation of environmental pollution arising from
+    over-application of nitrogen and phosphorus fertiliser. Precision agriculture
+    uses intensive data and information collection and processing in time and space
+    to make more efficient use of farm inputs, leading to improved crop production
+    and environmental quality (Harmon et al., 2005). Precision agriculture is beginning
+    to emphasise spatial-temporal data analysis and management rather than spatial
+    data analysis and management alone (Mamo, Malzer, Mulla, Huggins, & Strock, 2003;
+    Miao, Mulla, Randall, Vetsch, & Vintila, 2009; Varvel, Wilhelm, Shanahan, & Schepers,
+    2007). Crop yield and response to N fertiliser varies significantly across years
+    in response to changes in climate (Bakhsh, Jaynes, Colvin, & Kanwar, 2000), just
+    as it varies significantly across the landscape in response to variations in soil
+    type and landscape features. Precision agriculture involves both data collection/analysis
+    and information management, as well as technological advances in computer processing,
+    field positioning, yield monitoring, remote sensing, and sensor design (Mulla
+    & Schepers, 1997). More than 30% of the growth in US agribusiness (jobs, sales,
+    exports, etc.) in the future is expected to come from further adoption of precision
+    agriculture by farmers (Whipker & Akridge, 2006), including growth in demand for
+    both information management services and technological advances such as global
+    positioning system (GPS) autosteer guidance (e.g. Real Time Kinetic technology),
+    variable rate irrigation, fertiliser and sprayer controllers, robotics, and real
+    time decision making based on sensor networks and remote sensing. Adoption rates
+    are also significant in Australia, Japan, Canada and Europe, specifically in Germany,
+    Sweden, France, Spain, Denmark and the UK. Globally, there is little documented
+    information about rates of adoption for precision agriculture in the developing
+    world. Mondal and Basu (2009) state that countries such as Argentina, Brazil,
+    China, India and Malaysia have begun to adopt precision agriculture. Precision
+    agriculture is also widely used in the vineyards of Chile. The farms of the future
+    are likely to be managed with much greater spatial and temporal resolution than
+    they are with present approaches to precision agriculture. In Chilean vineyards,
+    each grape vine receives an individually customised fertiliser prescription that
+    varies with soil type, landscape position and hybrid. It is not unrealistic to
+    expect that crops on modern US farms of the future will be managed plant-by-plant,
+    a huge advance over farming by soil approaches of the past. This approach will
+    require massive data collection and analysis on a scale not considered feasible
+    today, involving stationary or mobile sensors that can measure characteristics
+    of individual plants in real time. Sensors of the future could be based on satellites
+    (Bausch & Khosla, 2010), airplanes (Goel et al., 2003; Haboudane, Miller, Pattey,
+    Zarco-Tejada, & Strachan, 2004; Haboudane, Miller, Tremblay, Zarco-Tejada, & Dextraze,
+    2002; Miao, Mulla, Randall, Vetsch, & Vintila, 2007), unmanned aerial vehicles
+    (Berni, Zarco-Tejada, Suárez, & Fereres, 2009; Herwitz et al., 2004), tractors
+    (Adamchuk, Hummel, Morgan, & Upadhyaya, 2004; Long, Engel, & Siemens, 2008), or
+    attached to mobile robots (Astrand & Baerveldt, 2002) to record weed densities,
+    crop height, leaf reflectance, moisture status and other properties important
+    for decisions about fertilizer and pest management. These sensors must be robust,
+    run on renewable energy sources, and be able to relay information using wireless
+    networks (O''Shaughnessy and Evett, 2010; Wang, Zhang, & Wang, 2006) to computers
+    that can perform data mining procedures and make complex management recommendations.
+    These recommendations can be transmitted to computers and controllers in the field
+    that are capable of varying the rates of irrigation, fertilisers, and herbicides
+    at fine spatial resolution, if not plant-by-plant. 2. Remote sensing applications
+    in agriculture Remote sensing applications in agriculture are based on the interaction
+    of electromagnetic radiation with soil or plant material. Typically, remote sensing
+    involves the measurement of reflected radiation, rather than transmitted or absorbed
+    radiation. Remote sensing refers to non-contact measurements of radiation reflected
+    or emitted from agricultural fields. The platforms for making these measurements
+    include satellites, aircraft, tractors and hand-held sensors. Measurements made
+    with tractors and hand-held sensors are also known as proximal sensing, especially
+    if they do not involve measurements of reflected radiation. In addition to reflectance,
+    transmittance and absorption, plant leaves can emit energy by fluorescence (Apostol
+    et al., 2003) or thermal emission (Cohen, Alchanatis, Meron, Saranga, & Tsipris,
+    2005). Thermal remote sensing for water stress in crops is based on emission of
+    radiation in response to temperature of the leaf and canopy, which varies with
+    air temperature and the rate of evapotranspiration. The amount of radiation reflected
+    from plants is inversely related to radiation absorbed by plant pigments, and
+    varies with the wavelength of incident radiation. Plant pigments such as chlorophyll
+    absorb radiation strongly in the visible spectrum from 400 to 700 nm (Pinter et
+    al., 2003), particularly at wavelengths such as 430 (blue or B) and 660 (red or
+    R) nm for chlorophyll a and 450 (B) and 650 (R) nm for chlorophyll b. Other plant
+    pigments such as anthocyanins and carotenoids are also important (Blackburn, 2007).
+    In contrast, plant reflectance is high in the near infrared (NIR 700–1300 nm)
+    region as a result of leaf density and canopy structure effects. This sharp contrast
+    in reflectance behaviour between the red and NIR portions of the spectrum is the
+    motivation for development of spectral indices that are based on ratios of reflectance
+    values in the visible and NIR regions (Sripada, Heiniger, White, & Weisz, 2006).
+    These spectral indices are often used to assess various attributes of plant canopies,
+    such as leaf area index (LAI), biomass, chlorophyll content or N content. The
+    amount of radiation reflected by bare soils is affected primarily by soil moisture
+    and organic matter content, but also by clay minerals and calcium carbonate or
+    iron oxides (Thomasson, Sui, Cox, & Al–Rajehy, 2001; Viscarra Rossel, Walvoort,
+    McBratney, Janik, & Skjemstad, 2006). Each soil constituent has a specific spectral
+    region where reflectance is strongest (Ben-Dor, 2010), and a specific spectral
+    signature. Bare soil and crop canopies are often both present in a remotely sensed
+    image, and the mixture of two spectral signatures often confounds the interpretation
+    of reflectance data (Fig. 1). Spectral unmixing algorithms (Huete & Escadafal,
+    1991), derivative spectra (Demetriades-Shah, Steven, & Clark, 1990) or spectral
+    indices that adjust for soil effects (Haboudane et al., 2002, 2004) are often
+    used to isolate information about plant characteristics when the reflectance is
+    affected by both sources. Download : Download full-size image Fig. 1. Reflectance
+    signatures of dry or wet soil in comparison to reflectance signatures of a Russet
+    Burbank potato canopy with low or high rates of N fertiliser application. Remote
+    sensing applications in agriculture are typically classified according to the
+    type of platform for the sensor, including satellite, aerial, and ground based
+    platforms. These platforms and their associated imaging systems can be differentiated
+    based on the altitude of the platform, the spatial resolution of the image, and
+    the minimum return frequency for sequential imaging. Spatial resolution affects
+    the area of the smallest pixel that can be identified. As spatial resolution improves,
+    the area of the smallest pixel decreases, and the homogeneity of soil or crop
+    characteristics within that pixel increases. Poor spatial resolution implies large
+    pixels with increased heterogeneity in soil or plant characteristics. Return frequency
+    is important for assessment of temporal patterns in soil or plant characteristics.
+    The availability of remote sensing images from satellite and aerial platforms
+    is often severely limited by cloud cover (Moran, Inoue, & Barnes, 1997), whereas
+    ground based remote sensing is less affected by this limitation. Remote sensing
+    applications in agriculture have focused on a wide range of endeavours (Adamchuk
+    et al., 2004; Moran et al., 1997; Pinter et al., 2003). These include crop yield
+    and biomass (Shanahan et al., 2001; Yang, Everitt, Bradford, & Escobar, 2000),
+    crop nutrient and water stress (Bastiaanssen, Molden, & Makin, 2000; Clay, Kim,
+    Chang, Clay, & Dalsted, 2006; Cohen et al., 2005; Moller et al., 2007; Tilling
+    et al., 2007), infestations of weeds (Lamb & Brown, 2001; Thorp & Tian, 2004),
+    insects and plant diseases (Seelan, Laguette, Casady, & Seielstad, 2003), and
+    soil properties such as organic matter, moisture and clay content, and pH (Christy,
+    2008), or salinity (Corwin & Lesch, 2003). 2.1. Soil sensing in precision agriculture
+    Precision agriculture started during the mid 1980''s with two contrasting philosophies.
+    The first was exemplified by the “farming by soil” school (Larson & Robert, 1991).
+    This school promoted the use of soil sampling and customised management of farm
+    inputs by soil mapping unit. The second was exemplified by the “Soil Sampling
+    Management Zone” school (Mulla, 1991, 1993; Mulla & Bhatti, 1997; Mulla, Bhatti,
+    Hammond, & Benson, 1992), which later became known as “site-specific crop management”.
+    Management zones are relatively homogeneous sub-units of farm fields that can
+    each be managed with a different, but uniform customised management practice.
+    This school became very popular when field comparisons of uniform versus variable
+    fertiliser applications showed that there was considerable variability at scales
+    finer than soil mapping units (Mulla et al., 1992). Bhatti, Mulla, and Frazier
+    (1991) were the first to demonstrate that Landsat remote sensing had significant
+    capabilities for estimating spatial patterns in soil organic matter, soil phosphorus
+    and crop yield potential for use in precision agriculture applications. A third
+    approach to precision agriculture began to emerge in the early 1990''s (Hummel,
+    Gaultney, & Sudduth, 1996), known as proximal soil sensing. This approach was
+    based on continuous real-time sensing of spatial variations in soil properties
+    using sensors mounted on tractors. The first application of this approach was
+    for soil organic matter sensing (Shonk, Gaultney, Schulze, & Van Scoyoc, 1991)
+    based on reflectance from multiple light emitting diode (LED) sensors emitting
+    radiation at 660 nm. The sensor was very accurate if calibrated for individual
+    soil catenas, but was affected by variations in soil moisture. Sudduth and Hummel
+    (1993) developed a portable NIR sensor which could simultaneously be used to estimate
+    soil organic matter content and soil moisture content. Other related technology
+    was developed by Christy (2008), allowing simultaneous measurements of soil organic
+    matter content, soil moisture, soil pH, soil carbon and soil phosphorus, potassium,
+    and calcium. A major breakthrough in precision agriculture occurred when Carter,
+    Rhoades, and Chesson (1993) introduced continuous real-time, non-contact proximal
+    sensing of soil apparent electrical conductivity using non-invasive electromagnetic
+    induction with the Geonics EM-38 (Geonics Ltd., Mississauga, Ontario, Canada).
+    Soil electrical conductivity measurements with the EM-38 have been used to map
+    spatial patterns in soil salinity (Corwin & Lesch, 2003), soil clay content (Doolittle,
+    Sudduth, Kitchen, & lndorante, 1994) and soil moisture content (Sudduth et al.,
+    2005). These patterns are often used to define management zones. 2.2. Satellite
+    remote sensing Satellites have been used for remote sensing imagery in agriculture
+    (Table 1) since the early 1970''s (Bauer & Cipra, 1973; Doraiswamy, Moulin, Cook,
+    & Stern, 2003; Jewel, 1989) when Landsat 1 (originally known as Earth Resources
+    Technology Satellite 1) was launched in 1972. Multispectral Scanner System (MSS)
+    sensors on Landsat 1 collected imagery in the green, red and two infrared bands
+    at a spatial resolution of 80 m and a return frequency of 18 days. Landsat 1 was
+    initially used by Bauer and Cipra (1973) to classify Midwestern US agricultural
+    landscapes into maize or soybean fields with an overall accuracy of 83%. Landsat
+    5 was launched in 1984 and collected Thematic Mapper (TM) imagery at a spatial
+    resolution of 30 m in the blue, green, red, near infrared, and three infrared
+    (including thermal) bands. France launched a comparable satellite (système pour
+    l''observation de la terre (SPOT) 1) in 1986, which collected 20 m imagery with
+    a return frequency of up to six days in the green, red and near infrared frequencies.
+    Jewel (1989) used four images collected between February and September in East
+    Anglia, UK to distinguish cereal crops, field crops, grassland and forest land
+    with an accuracy of 88%. India launched the Indian Remote Sensing (IRS-1A) satellite
+    in 1988, with coverage in the blue, green, red and NIR bands at a spatial resolution
+    of 72 m. Panigrahy and Sharma (1997) used reflectance in the red and NIR bands
+    collected on four dates between October and March to classify agricultural landscapes
+    in India into rice or rice–potato cropping systems with 95% accuracy. Table 1.
+    Satellite remote sensing platforms and their spectral or spatial resolution, return
+    frequency, and suitability for precision agriculture (PA). P refers to purple,
+    B to blue, G to green, R to red, IR to infrared, NIR to near infrared, MIR to
+    mid infrared, TIR to thermal infrared. Suitability class L refers to low, M to
+    medium and H to high. Satellite (year) Spectral bands (spatial resolution) Return
+    frequency (d) Suitability for PA Landsat 1 (1972) G, R, two IR (56 × 79 m) 18
+    L AVHRR (1978) R, NIR, two TIR (1090 m) 1 L Landsat 5 TM (1984) B, G, R, two NIR,
+    MIR, TIR (30 m) 16 M SPOT 1 (1986) G, R, NIR (20 m) 2–6 M IRS 1A (1988) B, G,
+    R, NIR (72 m) 22 M ERS-1 (1991) Ku band altimeter, IR (20 m) 35 L JERS-1 (1992)
+    L band radar (18 m) 44 L LiDAR (1995) VIS (vertical RMSE 10 cm) N/A H RadarSAT
+    (1995) C-band radar (30 m) 1–6 M IKONOS (1999) Panchromatic, B, G, R, NIR (1–4
+    m) 3 H SRTM (2000) X-band radar (30 m) N/A M Terra EOS ASTER (2000) G, R, NIR
+    and 6 MIR, 5 TIR bands (15–90 m) 16 M EO-1 Hyperion (2000) 400–2500 nm, 10 nm
+    bandwidth (30 m) 16 H QuickBird (2001) Panchromatic, B, G, R, NIR (0.61–2.4 m)
+    1–4 H EOS MODIS (2002) 36 bands in VIS-IR (250–1000 m) 1–2 L RapidEye (2008) B,
+    G, R, red edge, NIR (6.5 m) 5.5 H GeoEye-1 (2008) Panchromatic, B, G, R, NIR1,
+    NIR2 (1.6 m) 2–8 H WorldView-2 (2009) P, B, G, Y, R, red edge, NIR (0.5 m) 1.1
+    H These applications of remote sensing in conventional agriculture soon led to
+    applications in precision agriculture. The first application of remote sensing
+    in precision agriculture occurred when Bhatti et al. (1991) used Landsat imagery
+    of bare soil to estimate spatial patterns in soil organic matter content, which
+    were then used as auxiliary data along with ground based measurements to estimate
+    spatial patterns in soil phosphorus and wheat grain yield (Mulla, 1997). The spatial
+    resolution of Landsat, SPOT and IRS satellites is fairly coarse (20–30 m) for
+    current applications in precision agriculture. Efforts were subsequently started
+    to design satellite imaging systems that had the higher spatial resolution and
+    quicker revisit cycles required for precision agriculture (Table 1). IKONOS was
+    launched in 1999 by Satellite Imaging Corp, Magnolia, TX, USA in partnership with
+    Lockheed Martin, Bethesda, MD, USA. IKONOS collected 4 m resolution imagery in
+    the blue, green, red and near infrared bands at a return frequency of up to 5
+    days. Seelan et al. (2003) used IKONOS images to identify N deficiencies in sugarbeet,
+    fungicide performance efficiency in wheat and field sites that had inadequate
+    artificial drainage in wheat. In 2001, DigitalGlobe, Longmont, CO, USA launched
+    a satellite named QuickBird with capabilities similar to IKONOS. QuickBird had
+    a revisit frequency of 1–3 days and collected imagery in the blue, green, red
+    and near infrared at a spatial resolution of 0.6–2.4 m. Bausch and Khosla (2010)
+    showed that QuickBird estimates of normalised green normalised difference vegetation
+    index (NGNDVI) were strongly correlated with spatial patterns in nitrogen sufficiency
+    in irrigated maize. García Torres, Peña-Barragán, López-Granados, Jurado-Expósito,
+    and Fernández-Escobar (2008) showed that QuickBird images of olive orchards in
+    Spain could be used to estimate areas of olive plantations, numbers of trees,
+    and spatial patterns in projected area of tree canopies, and olive yields. These
+    two satellites have steadily gained a substantial base of commercial subscribers
+    interested in precision agriculture applications, in stark contrast to older satellite
+    technology such as Landsat or SPOT. The next major breakthrough in satellite remote
+    sensing for precision agriculture was the five-satellite constellation developed
+    by the RapidEye, Brandenburg_an_der_Havel, Germany in 2008 (Table 1). RapidEye
+    satellites provide daily coverage for any location on the globe, and collect data
+    with a 6.5 m spatial resolution. RapidEye is the first satellite to provide imagery
+    in the chlorophyll sensitive red-edge region of the spectrum (690–730 nm), along
+    with the more traditional blue, green, red and near infrared reflectance. In 2008,
+    GeoEye, Herndon, VA, USA launched a commercial satellite designed to provide services
+    similar to RapidEye. The GeoEye 1 satellite has a return visit frequency of less
+    than three days, and collects data at from 40 to 60 cm spatial resolution in the
+    blue, green, red and near infrared bands. One of the main uses for GeoEye 1 imagery
+    is providing Google Earth maps that are available through the Internet. This has
+    revolutionised the ability to visualise land use patterns around the world. DigitalGlobe
+    launched the WorldView 2 satellite in 2009, which collects imagery at 50 cm resolution
+    with a 1 day revisit cycle. WorldView 2 is significantly more advanced than DigitalGlobe''s
+    QuickBird satellite, as WorldView 2 collects imagery in the standard blue, green,
+    red, and near infrared bands, as well as bands in the purple (450–480 nm), yellow,
+    red-edge and a second near infrared frequency range. Several trends are apparent
+    in satellite based remote sensing (Table 1). Firstly, the spatial resolution of
+    imaging systems has improved from 80 m with Landsat to sub-metre resolution with
+    GeoEye and WorldView. Secondly, the return visit frequency has improved from 18
+    days with Landsat to 1 day with WorldView. Thirdly, the number of spectral bands
+    available for analysis has improved from four bands (bandwidths greater than 60
+    nm) with Landsat to eight or more bands (bandwidths greater than 40 nm) with WorldView.
+    Hyperspectral imaging systems such as Hyperion on the National Aeronautics and
+    Space Administration (NASA) earth observing 1 (EO 1) satellite provided even greater
+    spectral resolution, with imaging from 400 to 2500 nm in 10 nm increments. As
+    the spatial and spectral resolution of satellite imagery has improved, the suitability
+    of using reflectance data from these platforms for precision agriculture applications
+    has increased (Table 1). The most appropriate spatial and spectral resolution
+    for precision agriculture applications depends on factors such as crop management
+    objectives, capacity of farm equipment to vary farm inputs, and farm unit area.
+    Estimation of spatial patterns in crop biomass or yield requires better spatial
+    and spectral resolution (1–3 m) than variable rate application of fertiliser (5–10
+    m). Accuracy of variable rate application of fertiliser is often limited by fertiliser
+    spreader delay times (Chan, Schueller, Miller, Whitney, & Cornell, 2004). Variable
+    rate spraying of herbicides for spot weed control requires better spatial and
+    spectral resolution (0.5–1 m) than variable rate irrigation (5–10 m). Larger commercial
+    farms can often afford to pay for remote sensing data with higher spatial and
+    spectral resolution than smaller farms in developing countries. Satellite and/or
+    aerial imagery is frequently used to estimate spatial patterns in crop biomass
+    (Yang et al., 2000) and potential crop yield (Doraiswamy et al., 2003) using the
+    Normalised Difference Vegetation Index (NDVI). NDVI is calculated using reflectance
+    ratios in the NIR and red portion of the spectrum (Rouse, Hass, Schell, & Deering,
+    1973): (1) NDVI has several limitations, however, including potential interference
+    from soil reflectance at low canopy densities and insensitivity to changes in
+    leaf chlorophyll content in mature canopies with leaf area index values that exceed
+    2 or 3 (Thenkabail, Smith, & De Pauw, 2000). The advent of crop combines equipped
+    with yield monitors was a major advance in precision agriculture (Schueller &
+    Bae, 1987; Stafford, Ambler, Lark, & Catt, 1996). Yield monitors provided fine
+    scale resolution yield measurements across large spatial areas that could be used
+    to improve the capacity of remote sensing to predict crop structural characteristics
+    such as LAI, biomass, and yield. Many broadband spectral indices (Table 2) other
+    than NDVI are available for use in precision agriculture (Miao et al., 2009; Sripada
+    et al., 2006; Sripada, Schmidt, Dellinger, & Beegle, 2008). These indices reflect
+    two historical trends in remote sensing for crop characteristics; namely, the
+    prediction of ratios of reflectance in the red (R) and NIR bands versus ratios
+    in the green (G) and NIR bands. The normalised red (NR) index focuses on the portion
+    of the spectrum where chlorophyll strongly absorbs radiation. In contrast, the
+    normalised green (NG) index focuses on the portion of the spectrum where pigments
+    other than chlorophyll (carotenoids, anthocyanins, xanthophylls) absorb radiation.
+    Similarly, there are two forms of the ratio vegetation index (RVI), one that consists
+    of the ratio of NIR to R reflectance, the other green red vegetation index (GRVI)
+    that consists of the ratio of NIR to G reflectance. Two forms of the NDVI exist,
+    one that involves NIR and R reflectance, the other green normalized difference
+    vegetation index (GNDVI) involves NIR and G reflectance. The difference vegetative
+    index (DVI) was developed using the difference between reflectance in the NIR
+    and R bands to compensate for effects of soil reflectance (Tucker, 1979). Sripada
+    et al. (2006) found that economically optimum N rate in corn was better correlated
+    with green difference vegetation index (GDVI) (NIR − G) than DVI (NIR − R), and
+    these indices that compensated for soil effects performed better than NIR and
+    R ratio indices such as NDVI and RVI that did not compensate for soil effects.
+    A wide range of other indices have been developed to compensate for soil effects,
+    including soil adjusted vegetation index (SAVI), green soil adjusted vegetation
+    index (GSAVI), optimised soil adjusted vegetation index (OSAVI), green optimised
+    soil adjusted vegetation index (GOSAVI) and modified soil adjusted vegetation
+    index (MSAVI). A comparison of NDVI and simple ratio (SR8) vegetation indices
+    for an irrigated commercial Minnesota potato (Solanum tuberosum L.) farm is shown
+    in Fig. 2. Spatial patterns in N stress are identified more accurately with the
+    SR8 index than the NDVI index. Table 2. Multi-spectral broad-band vegetation indices
+    available for use in precision agriculture. G refers to green reflectance, NIR
+    to near infrared, and R to red reflectance. Index Definition Reference NG G/(NIR
+    + R + G) Sripada et al., 2006 NR R/(NIR + R + G) Sripada et al., 2006 RVI NIR/R
+    Jordan, 1969 GRVI NIR/G Sripada et al., 2006 DVI NIR − R Tucker, 1979 GDVI NIR
+    − G Tucker, 1979 NDVI (NIR − R)/(NIR + R) Rouse et al., 1973 GNDVI (NIR − G)/(NIR
+    + G) Gitelson et al., 1996 SAVI 1.5*[(NIR − R)/(NIR + R + 0.5)] Huete, 1988 GSAVI
+    1.5*[(NIR − G)/(NIR + G + 0.5)] Sripada et al., 2006 OSAVI (NIR − R)/(NIR + R
+    + 0.16) Rondeaux, Steven, & Baret, 1996 GOSAVI (NIR − G)/(NIR + G + 0.16) Sripada
+    et al., 2006 MSAVI2 0.5*[2*(NIR + 1) − SQRT((2*NIR + 1)2 − 8*(NIR − R))] Qi, Chehbouni,
+    Huete, Keer, & Sorooshian, 1994 Download : Download full-size image Fig. 2. Comparison
+    between a) NDVI and b) SR8 spectral indices in a commercial Russet Burbank potato
+    field. Moran et al. (1997) and Yao et al. (2010) summarised the major challenges
+    for using satellite remote sensing for precision agriculture. Satellite imagery
+    in the visible and NIR bands are limited to cloud free days, and are most usable
+    when irradiance is relatively consistent across time. Only radar imagery collected
+    using satellites or airplanes is unaffected by cloud cover. Other challenges include
+    calibrating raw digital numbers to true surface reflectance, correcting imagery
+    for atmospheric interferences and/or off-nadir view angles, and geo-rectifying
+    pixels using GPS-based ground control locations. 2.3. Proximal remote sensing
+    of crops for precision agriculture Given the limitations of satellite remote sensing
+    for precision agriculture, there has been significant interest in proximal remote
+    sensing techniques to assess crop growth and crop stress (Table 3). Proximal remote
+    sensing involves sensors mounted on tractors, spreaders, sprayers or irrigation
+    booms. Proximal sensing allows real time site specific management of fertiliser,
+    pesticides or irrigation. The foundation for a transition from remote sensing
+    to proximal sensing based assessment of crop status was established by Schepers,
+    Francis, Vigil, and Below (1992), who used a Minolta soil plant analysis development
+    (SPAD) meter to measure leaf greenness (chlorophyll) in maize crops at the silking
+    stage under a range of applied N fertiliser rates. SPAD meter readings of leaf
+    reflectance at 650 and 940 nm were found to be correlated with applied rate of
+    N fertiliser as well as independent measurements of leaf N concentration. Schepers
+    et al. (1992) suggested that proximal chlorophyll readings could be used to estimate
+    N stress in maize by referencing the SPAD readings for stressed crops with the
+    readings in a reference strip that received adequate rates of N fertiliser. Chlorophyll
+    content of crop leaves is strongly affected by crop N status, but can also be
+    affected to a lesser degree by other factors, such as crop variety and growth
+    stage, pest infestations, water stress, and nutrient deficiencies other than N.
+    Table 3. Innovations in remote and proximal leaf sensing in precision agriculture.
+    Year Innovation Citation 1992 SPAD meter (650, 940 nm) used to detect N deficiency
+    in corn Schepers et al., 1992 1995 Nitrogen sufficiency indices Blackmer & Schepers,
+    1995 1996 Optical sensor (671, 780 nm) used for on-the-go detection of variability
+    in plant nitrogen stress Stone et al., 1996 2002 Yara N sensor Link et al., 2002,
+    TopCon industries 2002 GreenSeeker (650, 770 nm) Raun et al., 2002, NTech industries
+    2004 Crop Circle (590, 880 nm or 670, 730, 780 nm) Holland et al., 2004, Holland
+    scientific 2002 CASI hyperspectral sensor based index measurements of chlorophyll
+    Haboudane et al., 2002, 2004 2002 MSS remote sensing of ag fields with UAV Herwitz
+    et al., 2004 2003 Fluorescence sensing for N deficiencies Apostol et al., 2003
+    Blackmer and Schepers (1995) introduced the concept of a nitrogen sufficiency
+    index (NSI) to assess the degree of N stress in maize. The NSI was defined as
+    the ratio of SPAD meter greenness readings for crops in a given field location
+    relative to SPAD readings for the same crop in a well-fertilised reference strip
+    with no N deficiencies. NSI values less than 0.95 were used to indicate areas
+    with N stress that required additional N fertiliser. Varvel, Schepers, and Francis
+    (1997) showed that SPAD meters and NSI values could be used for in-season correction
+    of N deficiency in maize. Bausch and Duke (1996) showed that the SPAD meter could
+    be replaced with a boom-mounted radiometer to estimate spatial patterns in NIR/G
+    ratio and NSI across an irrigated maize field based on comparisons with a well-fertilised
+    reference strip. They observed that this approach could detect N deficiencies
+    in the V6 growth stage (Ritchie, Hanway, & Benson, 1993, p. 21), but results were
+    confounded by interference with reflectance patterns from bare soil. Stone et
+    al. (1996) measured spectral radiance in the red (671 nm) and NIR (780 nm) bands
+    in wheat with a sensor mounted on a mobile lawn tractor. They used these data
+    to estimate a spectral index known as the plant nitrogen spectral index (PNSI),
+    which was the absolute value of the inverse of NDVI. Results showed that PNSI
+    was strongly correlated with crop N uptake. Sensor readings were used to vary
+    N fertiliser rates using an algorithm that increased exponentially with PNSI values
+    (Solie, Raun, Whitney, Stone, & Ringer, 1996). This was the beginning of technology
+    to variably apply N fertiliser “on-the-go” in response to proximal crop sensing,
+    and was the basis for commercial development of the GreenSeeker NDVI active sensor
+    marketed by NTech Industries, Ukiah, CA, USA in 2001. Raun et al. (2002) subsequently
+    developed a seven step response index (RI)-based algorithm to estimate crop N
+    fertiliser needs for maize and wheat based on in-season sensing of crop reflectance
+    relative to check plots with no added fertiliser and reference plots with sufficient
+    fertiliser. This algorithm accounted for both season-to-season temporal variability
+    in crop growth using the concept of in-season estimated yield (INSEY) as well
+    as within-field spatial variability in N supply. Algorithms for estimating potential
+    crop yield and N uptake are available for many crops and locations around the
+    world (Shanahan, Kitchen, Raun, & Schepers, 2008). The RI is estimated as the
+    ratio of NDVI values in the crop relative to those in a reference strip with sufficient
+    fertiliser. Link, Panitzki, and Reusch (2002) and Reusch, Link, and Lammel (2002)
+    developed a tractor based passive sensor to determine crop N status based on NDVI.
+    This was originally known as the Hydro-N sensor, but has since become known as
+    the Yara-N sensor (Yara, Olso, Norway) (Table 3). A version of the Yara-N sensor
+    is also available that uses active sensors (Link & Reusch, 2006), which reduces
+    the errors caused by varying cloud cover, and allows the tractor operator to work
+    at night. Holland, Schepers, Shanahan, and Horst (2004) developed an active crop
+    sensor known as Crop Circle (Table 3). This sensor initially used reflectance
+    in the green and NIR bands to estimate crop N deficiencies. The rationale behind
+    using green rather than red reflectance with Crop Circle was that as crop LAI
+    increases beyond 2.0, the green NDVI is more sensitive to changes in chlorophyll
+    concentration and potential crop yield than NDVI (Gitelson, Kaufmann, & Merzlyak,
+    1996; Shanahan et al., 2001; Sripada et al., 2006, 2008). This overcomes the limitation
+    of using the GreenSeeker sensor at advanced crop growth stages. Solari, Shanahan,
+    Ferguson, Schepers, and Gitelson (2008) used the Crop Circle sensor to show that
+    N deficiencies could be better predicted using a green chlorophyll index defined
+    as (NIR880/VIS590) − 1 in comparison with the green NDVI. Sripada et al. (2008)
+    showed that the performance of spectral indices could be improved using ratios
+    with the corresponding index values in reference strips receiving sufficient N
+    fertiliser. Kitchen et al. (2010) and Scharf et al. (2011) showed that producers
+    using the Crop Circle sensor could reduce N fertiliser applications by making
+    in-season correction, while increasing crop yield and farm profitability. One
+    limitation of the chlorophyll meter, GreenSeeker, Yara N and Crop Circle sensors,
+    however, is that they cannot directly estimate the amount of N fertiliser needed
+    to overcome crop N stress (Samborski, Tremblay, & Fallon, 2009). To overcome this,
+    scientists have conducted comparisons of sensor readings with readings in reference
+    strips receiving sufficient N fertiliser (Blackmer & Schepers, 1995; Kitchen et
+    al., 2010; Raun et al., 2002; Sripada et al., 2008). They have used these data
+    to develop N fertiliser response functions that relate sensor readings to the
+    amount of N fertiliser needed to overcome crop N stress (Scharf et al., 2011).
+    Even with this approach, reference strips with adequate fertiliser have to be
+    strategically placed in representative soils and landscapes because yield response
+    to N fertiliser exhibits significant spatial variability across production fields
+    (Mamo et al., 2003). Also, reference strips have limitations for other crops like
+    wheat (subject to lodging) and potato (subject to excessive vine growth at the
+    expense of tuber growth). 2.4. Hyperspectral remote sensing in precision agriculture
+    Hyperspectral remote sensing collects reflectance data over a wide spectral range
+    at small spectral increments (typically 10 nm). It provides the ability to investigate
+    spectral response of soils and vegetated surfaces in narrow spectral bands (10
+    nm wide) across a wide spectral range. This is not possible with multispectral
+    imaging that traditionally collects reflectance data in broadbands (greater than
+    40 nm wide) centred in the B, G, R and NIR regions of the spectrum. When collected
+    across large spatial extents at fine spatial resolution, hyperspectral imaging
+    provides powerful insight into the spatial and spectral variability in reflectance
+    for a bare or vegetated surface. This information is traditionally visualised
+    using a three-dimensional hyperspectral data cube, with two spatial dimensions
+    (x,y) and one spectral dimension (wavelength). An example of a hyperspectral data
+    cube is shown in Fig. 3 for a commercial potato field in Minnesota, USA. The field
+    shows significant spatial and spectral variability in reflectance. Download :
+    Download full-size image Fig. 3. Hyperspectral data cube for a commercial Russet
+    Burbank potato field in Minnesota. The face of the cube is a red–green–blue image
+    of the same area shown in Fig. 2. The first hyperspectral sensor was the airborne
+    visible/infrared imaging spectrometer (AVIRIS), launched in 1987. This sensor
+    provides continuous imagery from 380 to 2500 nm in bands that have a spectral
+    resolution of 10 nm and a spatial resolution of 20 m. The satellite based Hyperion
+    sensor, launched aboard EO-1 by NASA in 2000, has hyperspectral imaging capabilities
+    similar to AVIRIS. Hyperspectral imagery collected by EO-1 Hyperion via the advanced
+    land imager (ALI) sensor continues to be collected and is available for public
+    use through the US Geological Survey, Center for Earth Resources Observation and
+    Science (EROS). Datt, Jupp, McVicar, and Van Niel (2003) showed that ALI hyperspectral
+    data could be used to more accurately predict spatial patterns in rice yield grown
+    in Australia with derivative indices and red edge position in comparison with
+    predictions based on NDVI. Miglani, Ray, Pandey, and Parihar (2008) showed that
+    20 hyperspectral bands from ALI were necessary for agricultural remote sensing
+    studies in the Meerut district of India. Wu, Wang, Niu, Gao, and Wu (2010) showed
+    that vegetative indices based on red edge reflectance from hyperspectral ALI data
+    could be used to accurately estimate canopy chlorophyll content and leaf area
+    index for a broad range of agricultural crops in China. An aerial hyperspectral
+    imaging system, the compact airborne spectrographic imager (CASI), has also been
+    widely used (Haboudane et al., 2002, 2004). There are also hand-held or boom-mounted
+    hyperspectral and multispectral imaging systems, including the CropScan (CropScan
+    Inc, Rochester, MN, USA) sensor. Hyperspectral imaging differs from multispectral
+    imaging in the continuity, range and spectral resolution of bands. In theory,
+    it offers the capability of sensing a wide variety of soil and crop characteristics
+    simultaneously, including moisture status, organic matter, nutrients, chlorophyll,
+    carotenoids, cellulose, leaf area index and crop biomass (Goel et al., 2003; Haboudane
+    et al., 2002; Zarco-Tejada et al., 2005). Specific wavelengths are most sensitive
+    to each type of soil or crop characteristic. A red band centred at 687 nm is sensitive
+    to crop leaf area index and biomass, while a near infrared band centred at 970
+    nm is sensitive to crop moisture status (Thenkabail, Lyon, & Huete, 2010). Further
+    examples of linking specific soil and crop characteristics with reflectance are
+    given for 33 hyperspectral bands by Thenkabail et al. (2010). In contrast, multispectral
+    imaging is often limited to analysis of single broadband combinations such as
+    NDVI, which become insensitive to chlorophyll and other plant characteristics
+    at LAI values exceeding 3.0 (Thenkabail et al., 2000), and are strongly interfered
+    with by bare soil reflectance at low LAI values. Thenkabail et al. (2000) showed
+    that hyperspectral data can be used to construct three general categories of predictive
+    spectral indices, including 1) optimal multiple narrow band reflectance indices
+    (OMNBR), 2) narrow band NDVI, and 3) SAVI. Only two to four narrow bands were
+    needed to describe plant characteristics with OMNBR. The greatest information
+    about plant characteristics in OMNBR includes the longer red wavelengths (650–700
+    nm), shorter green wavelengths (500–550 nm), red-edge (720 nm), and two NIR (900–940
+    nm and 982 nm) spectral bands. The information in these bands is only available
+    in narrow increments of 10–20 nm, and is easily obscured in broad multispectral
+    bands that are available with older satellite imaging systems. The best combination
+    of two narrow bands in NDVI-like indices was centred in the red (682 nm) and NIR
+    (920 nm) wavelengths, but varied depending on the type of crop (corn, soybean,
+    cotton or potato) as well as the plant characteristic of interest (LAI, biomass,
+    etc.). Advanced statistical methods for chemometric analysis of reflectance spectra
+    have been used to interpret hyperspectral remote sensing data, including partial
+    least squares (Lindgren, Geladi, & Wold, 1994; Viscarra Rossel et al., 2006),
+    principal components analysis (Geladi, 2003), and pattern classification and recognition
+    techniques (Stuckens, Coppin, & Bauer, 2000), including object oriented (Frohn,
+    Reif, Lane, & Autrey, 2009) and decision tree (Wright & Gallant, 2007) classification
+    techniques. Partial least squares (PLS) regression is perhaps more powerful than
+    principal components analysis (PCA) in that PLS (like PCA) not only identifies
+    factors that describe spectral variance, but also eliminates spectral bands that
+    contain redundant information (Alchanatis & Cohen, 2010). Jain, Ray, Singh, and
+    Panigrahy (2007) explored hyperspectral remote sensing for identification of N
+    stress in potatoes grown in India. They used three techniques to identify bands
+    that were optimal for detection of N stress, namely; 1) lambda–lambda plots, 2)
+    principal component analysis, and 3) discriminant analysis. Lambda–lambda plots
+    involve calculating, for example, the coefficient of determination (r2) for leaf
+    N content at all hyperspectral reflectance bands. A graph of r2 for all possible
+    combinations of band 1 on the x-axis and band 2 on the y-axis results in a lambda–lambda
+    plot. The lambda–lambda plot is useful for identifying which combinations of two
+    bands contain redundant information about N stress. Spectral bands or narrow band
+    indices should be selected with low r2 to eliminate redundancy and maximise information
+    about crop characteristics (such as N stress). Principal component analysis was
+    used by Jain et al. (2007) to identify which combinations of bands account for
+    a majority of the variance in crop reflectance characteristics. This technique
+    is used to eliminate hyperspectral bands that do not contain useful information
+    about the crop characteristics of interest. Stepwise discriminant analysis uses
+    a ratio of treatment sums of squares to total sums of squares to find spectral
+    regions with distinctly different mean values of reflectance. A variety of narrow
+    band hyperspectral indices (Table 4) are available for use in precision agriculture
+    (Haboudane et al., 2002, 2004; Li et al., 2010; Miao et al., 2007, 2009). Many
+    of these have the same form as broadband spectral indices (Table 1), but differ
+    in that the reflectance bands for hyperspectral indices are narrow (10–20 nm wide)
+    bands centred around a single specific wavelength. These indices variously respond
+    to canopy or leaf scale effects of leaf area index, chlorophyll, specific pigments,
+    or nitrogen stress. Simple ratios (SR) 1 through 7 and normalized difference indices
+    (NDI) 1 through 3 typically respond to leaf level changes in chlorophyll. In contrast,
+    NDVI responds to canopy scale changes in leaf area index and chlorophyll. GNDVI,
+    modified chlorophyll absorption in reflectance index (MCARI), transformed chlorophyll
+    absorption in reflectance index (TCARI), MCARI2, OSAVI, and MSAVI respond to canopy
+    scale changes in chlorophyll, with the latter two indices being designed to compensate
+    for soil reflectance effects. PSSRa and PSSRb were designed specifically to respond
+    to changes in chlorophyll a and chlorophyll b, respectively. New hyperspectral
+    indices are continuously being tested and developed (Li et al., 2010) using techniques
+    involving lambda–lambda plots where reflectance signatures are compared for all
+    possible combinations of two reflectance bands. Table 4. Hyperspectral narrow-band
+    vegetation indices available for use in precision agriculture. R refers to reflectance
+    at the wavelength (nm) in subscript. NIR refers to near infrared reflectance.
+    Index Definition Reference Greenness index (G) R554/R677 Smith, Adams, Stephens,
+    & Hick, 1995 SR1 NIR/red = R801/R670 Daughtry, Walthall, Kim, de Colstoun, & McMurtrey,
+    2000 SR2 NIR/green = R800/R550 Buschman & Nagel, 1993 SR3 R700/R670 McMurtrey,
+    Chappelle, Kim, Meisinger, & Corp, 1994 SR4 R740/R720 Vogelmann, Rock, & Moss,
+    1993 SR5 R675/(R700*R650) Chappelle at al., 1992 SR6 R672/(R550*R708) Datt, 1998
+    SR7 R860/(R550*R708) Datt, 1998 DI1 R800 − R550 Buschman & Nagel, 1993 NDVI (R800
+    − R680)/(R800 + R680) Lichtenthaler, Lang, Sowinska, Heisel, & Mieh, 1996 Green
+    NDVI (GNDVI) (R801 − R550)/(R800 + R550) Daughtry et al., 2000 PSSRa R800/R680
+    Blackburn, 1998 PSSRb R800/R635 Blackburn, 1998 NDI1 (R780 − R710)/(R780 − R680)
+    Datt, 1999 NDI2 (R850 − R710)/(R850 − R680) Datt, 1999 NDI3 (R734 − R747)/(R715
+    + R726) Vogelmann et al., 1993 MCARI [(R700 − R670) − 0.2(R700 − R550)](R700/R670)
+    Daughtry et al., 2000 TCARI 3*[(R700 − R670) − 0.2*(R700 − R550)(R700/R670)] Haboudane
+    et al., 2002 OSAVI (1 + 0.16)(R800 − R670)/(R800 + R670 + 0.16) Rondeaux et al.,
+    1996 TCARI/OSAVI Haboudane et al., 2002 TVI 0.5*[120*(R750 − R550) − 200*(R670
+    − R550)] Broge & Leblanc, 2000 MCARI/OSAVI Zarco-Tejada, Miller, Morales, Berjón,
+    & Agüera, 2004 RDVI (R800 − R670)/SQRT(R800 + R670) Rougean & Breon, 1995 MSR
+    (R800/R670 − 1)/SQRT(R800/R670 + 1) Chen, 1996 MSAVI 0.5[2R800 + 1 − SQRT((2R800
+    + 1)2 − 8(R800 − R670))] Qi et al., 1994 MTVI 1.2*[1.2*(R800 − R550) − 2.5*(R670
+    − R550)] Haboudane et al., 2004 MCARI2 Haboudane et al., 2004 Potential applications
+    of hyperspectral remote sensing in precision agriculture have recently been reviewed
+    by Yao et al. (2010). These applications include 1) bare soil imaging for management
+    zone delineation, 2) weed mapping, 3) crop N stress detection, 4) crop yield mapping,
+    and 5) pest and disease detection. Perhaps of greatest interest for precision
+    agriculture is using hyperspectral remote sensing for variable rate, in-season
+    management of nitrogen fertiliser based on spatial patterns in chlorophyll content.
+    Wu, Han, Niu, and Dong (2010) used hyperspectral data from the Hyperion EO-1 satellite
+    to study chlorophyll content in a variety of agricultural canopy types in China,
+    including flax, chestnuts, corn, bamboo, potato, pine, saccharose and tea. Chlorophyll
+    content of leaves were estimated using a variety of vegetation indices derived
+    from red edge reflectance bands located at 705 and 750 nm. The MCARI/OSAVI705
+    index performed better than all other vegetation indices evaluated, with an r2
+    value of 0.71. Wu, Wang et al. (2010) estimated chlorophyll content of maize in
+    China using Hyperion hyperspectral reflectance data. The Enhanced Vegetation Index
+    (EVI) was more accurate (r2 = 0.81) at predicting maize chlorophyll contents than
+    MSAVI or NDVI. 3. Knowledge gaps for remote sensing in precision agriculture Rapid
+    advances in remote sensing for precision agriculture have occurred over the last
+    twenty five years. Satellite imagery has improved in spatial resolution, return
+    visit frequency and spectral resolution. Aerial hyperspectral imagery has revolutionised
+    the ability to distinguish multiple crop characteristics, including nutrients,
+    water, pests, diseases, weeds, biomass and canopy structure. Ground-based sensors
+    have been developed for on-the-go monitoring of crop and soil characteristics
+    such as N stress, water stress, soil organic matter and moisture content. Precision
+    farming has progressed through many stages. It began with farming by soil and
+    progressed to site-specific crop management based on grid sampling and management
+    zones. More recently there has been increasing emphasis on real-time on-the-go
+    monitoring with ground based sensors. The challenge for the future is to develop
+    precision farming approaches that can provide customized management of farm inputs
+    for individual plants. There is a significant potential in precision agriculture
+    for combining archived remote sensing data with real-time data for improved agricultural
+    management (Thenkabail, 2003). Historical archives of satellite remote sensing
+    data are available at many locations for Landsat, SPOT, IRS, IKONOS, and QuickBird.
+    These data typically include reflectance in the B, G, R and NIR bands, at spatial
+    resolutions of from 0.6 to 30 m spatial resolution. Images at a fixed location
+    could be analysed across multiple crop growth stages, seasons and years in order
+    to identify relatively homogeneous sub-regions of fields that differ from one
+    another in leaf area index, NDVI, and potential yield. Auxiliary data at these
+    same sites, including crop yield maps, digital elevation models and soil series
+    maps could be combined with historical remote sensing data to identify potential
+    management zones where precision agricultural input operations can be implemented.
+    Real time remote sensing with high spatial and spectral resolution satellites
+    such as EO-1 Hyperion or the upcoming (2016) NASA Hyperspectral Infrared Imager
+    (HyspIRI) satellite (or comparable data collected with aerial platforms) could
+    then be used for real time precision agricultural decision making and to refine
+    the location of management zones identified using historical imaging and auxiliary
+    data. With this in mind, there are several needs for future research in precision
+    farming. These include the following: • More emphasis is needed on chemometric
+    or spectral decomposition/derivative methods of analysis since spatial and spectral
+    resolution of hyperspectral sensing systems are now adequate for most precision
+    agriculture applications • Sensors are needed for direct estimation of nutrient
+    deficiencies without the use of reference strips • Spectral indices should continue
+    to be developed that simultaneously allow assessment of multiple crop characteristics
+    (e.g. LAI, biomass, etc.) and stresses (e.g. water and N; weeds and insects, etc.)
+    • Historical archives of satellite remote sensing data at moderate to high spatial
+    resolution and traditional spectral resolution should be integrated with real-time
+    remote sensing data at high spatial and spectral resolution for improved decision
+    making in precision agriculture. Acknowledgement Support by the USDA-BARD fund
+    through Research Grant Award No. IS-4255-09 is acknowledged. The assistance of
+    Mr. Tyler Nigon in preparing figures is acknowledged. References Adamchuk et al.,
+    2004 V.I. Adamchuk, J.W. Hummel, M.T. Morgan, S.K. Upadhyaya On-the-go soil sensors
+    for precision agriculture Computers and Electronics in Agriculture, 44 (2004),
+    pp. 71-79 View in ScopusGoogle Scholar Alchanatis and Cohen, 2010 V. Alchanatis,
+    Y. Cohen Spectral and spatial methods of hyperspectral image analysis for estimation
+    of biophysical and biochemical properties of agricultural crops. Ch. 13 P.S. Thenkabail,
+    J.G. Lyon, A. Huete (Eds.), Hyperspectral remote sensing of vegetation, CRC Press,
+    Boca Raton, FL (2010), p. 705 Google Scholar Apostol et al., 2003 S. Apostol,
+    A.A. Viau, N. Tremblay, J.-M. Briantais, S. Prasher, L.-E. Parent, et al. Laser-induced
+    fluorescence signatures as a tool for remote monitoring of water and nitrogen
+    stresses in plants Canadian Journal of Remote Sensing, 29 (2003), pp. 57-65 CrossRefView
+    in ScopusGoogle Scholar Astrand and Baerveldt, 2002 B. Astrand, A.-J. Baerveldt
+    An agricultural mobile robot with vision-based perception for mechanical weed
+    control Autonomous Robots, 13 (2002), pp. 21-35 View in ScopusGoogle Scholar Bakhsh
+    et al., 2000 A. Bakhsh, D.B. Jaynes, T.S. Colvin, R.S. Kanwar Spatio-temporal
+    analysis of yield variability for a corn-soybean field in Iowa Transactions of
+    the ASAE, 43 (1) (2000), pp. 31-38 View in ScopusGoogle Scholar Bastiaanssen et
+    al., 2000 W.G.M. Bastiaanssen, D.J. Molden, I.W. Makin Remote sensing for irrigated
+    agriculture: examples from research and possible applications Agricultural Water
+    Management, 46 (2000), pp. 137-155 View PDFView articleView in ScopusGoogle Scholar
+    Bauer and Cipra, 1973 Bauer, M. E., & Cipra, J. E. (1973). Identification of agricultural
+    crops by computer processing of ERTS MSS data. LARS Technical Reports. Paper 20.
+    http://docs.lib.purdue.edu/larstech/20. W. Lafayette, IN: Purdue Univ. Google
+    Scholar Bausch and Duke, 1996 W.C. Bausch, H.R. Duke Remote sensing of plant nitrogen
+    status in corn Transactions of the ASAE, 39 (1996), pp. 1869-1875 View in ScopusGoogle
+    Scholar Bausch and Khosla, 2010 W.C. Bausch, R. Khosla QuickBird satellite versus
+    ground-based multi-spectral data for estimating nitrogen status of irrigated maize
+    Precision Agriculture, 11 (2010), pp. 274-290 CrossRefView in ScopusGoogle Scholar
+    Ben-Dor, 2010 E. Ben-Dor Characterization of soil properties using reflectance
+    spectroscopy. Ch. 22 P.S. Thenkabail, J.G. Lyon, A. Huete (Eds.), Hyperspectral
+    remote sensing of vegetation, CRC Press, Boca Raton, FL (2010), p. 705 Google
+    Scholar Berni et al., 2009 J.A.J. Berni, P.J. Zarco-Tejada, L. Suárez, E. Fereres
+    Thermal and narrowband multispectral remote sensing for vegetation monitoring
+    from an unmanned aerial vehicle IEEE Transactions on Geoscience and Remote Sensing,
+    47 (2009), pp. 722-738 View in ScopusGoogle Scholar Bhatti et al., 1991 A.U. Bhatti,
+    D.J. Mulla, B.E. Frazier Estimation of soil properties and wheat yields on complex
+    eroded hills using geostatistics and thematic mapper images Remote Sensing of
+    Environment, 37 (1991), pp. 181-191 View PDFView articleView in ScopusGoogle Scholar
+    Blackburn, 1998 G.A. Blackburn Quantifying chlorophylls and carotenoids at leaf
+    and canopy scales: an evaluation of some hyperspectral approaches Remote Sensing
+    of Environment, 66 (3) (1998), pp. 273-285 View PDFView articleView in ScopusGoogle
+    Scholar Blackburn, 2007 G.A. Blackburn Hyperspectral remote sensing of plant pigments
+    Journal of Experimental Botany, 58 (2007), pp. 855-867 View in ScopusGoogle Scholar
+    Blackmer and Schepers, 1995 T.M. Blackmer, J.S. Schepers Use of a chlorophyll
+    meter to monitor nitrogen status and schedule fertigation for corn Journal of
+    Production Agriculture, 8 (1995), pp. 56-60 CrossRefView in ScopusGoogle Scholar
+    Broge and Leblanc, 2000 N.H. Broge, E. Leblanc Comparing prediction power and
+    stability of broadband and hyperspectral vegetation indices for estimation of
+    green leaf area index and canopy chlorophyll density Remote Sensing of Environment,
+    76 (2000), pp. 156-172 Google Scholar Buschman and Nagel, 1993 C. Buschman, E.
+    Nagel In vivo spectroscopy and internal optics of leaves as a basis for remote
+    sensing of vegetation International Journal of Remote Sensing, 14 (1993), pp.
+    711-722 Google Scholar Carter et al., 1993 L.M. Carter, J.D. Rhoades, J.H. Chesson
+    Mechanization of soil salinity assessment for mapping ASAE Paper no. 931557 ASAE,
+    St. Joseph, MI, USA (1993) Google Scholar Chan et al., 2004 C.W. Chan, J.K. Schueller,
+    W.M. Miller, J.D. Whitney, J.A. Cornell Error sources affecting variable rate
+    application of nitrogen fertilizer Precision Agriculture, 5 (2004), pp. 601-616
+    CrossRefView in ScopusGoogle Scholar Chappelle et al., 1992 E.W. Chappelle, M.S.
+    Kim, J.E. McMurtrey III Ratio analysis of reflectance spectra (RARS): an algorithm
+    for the remote estimation of the concentrations of chlorophyll a, chlorophyll
+    b and carotenoids in soybean leaves Remote Sensing of Environment, 39 (3) (1992),
+    pp. 239-247 View PDFView articleView in ScopusGoogle Scholar Chen, 1996 J. Chen
+    Evaluation of vegetation indices and modified simple ratio for boreal applications
+    Canadian Journal of Remote Sensing, 22 (1996), pp. 229-242 CrossRefView in ScopusGoogle
+    Scholar Christy, 2008 C.D. Christy Real-time measurement of soil attributes using
+    on-the-go near infrared reflectance spectroscopy Computers and Electronics in
+    Agriculture, 61 (2008), pp. 10-19 View PDFView articleView in ScopusGoogle Scholar
+    Clay et al., 2006 D.E. Clay, K.-I. Kim, J. Chang, S.A. Clay, K. Dalsted Characterizing
+    water and nitrogen stress in corn using remote sensing Agronomy Journal, 98 (2006),
+    pp. 579-587 CrossRefView in ScopusGoogle Scholar Cohen et al., 2005 Y. Cohen,
+    V. Alchanatis, M. Meron, Y. Saranga, J. Tsipris Estimation of leaf water potential
+    by thermal imagery and spatial analysis Journal of Experimental Botany, 56 (2005),
+    pp. 1843-1852 CrossRefView in ScopusGoogle Scholar Corwin and Lesch, 2003 D.L.
+    Corwin, S.M. Lesch Application of soil electrical conductivity to precision agriculture:
+    theory, principles, and guidelines Agronomy Journal, 95 (2003), pp. 455-471 View
+    in ScopusGoogle Scholar Crookston, 2006 K. Crookston A top 10 list of developments
+    and issues impacting crop management and ecology during the past 50 years Crop
+    Science, 46 (2006), pp. 2253-2262 CrossRefView in ScopusGoogle Scholar Datt, 1998
+    B. Datt Remote sensing of chlorophyll a, chlorophyll b, chlorophyll a+b and total
+    carotenoid content in eucalyptus leaves Remote Sensing of Environment, 66 (2)
+    (1998), pp. 111-121 View PDFView articleView in ScopusGoogle Scholar Datt, 1999
+    B. Datt Visible/near infrared reflectance and chlorophyll content in eucalyptus
+    leaves International Journal of Remote Sensing, 20 (14) (1999), pp. 2741-2759
+    View in ScopusGoogle Scholar Datt et al., 2003 B. Datt, D. Jupp, T. McVicar, T.
+    Van Niel Time series analysis of EO-1 Hyperion data for yield estimation at an
+    agricultural site Geoscience and Remote Sensing Symposium IGARSS Proceedings IEEE
+    International, 1 (2003), pp. 564-566 View in ScopusGoogle Scholar Daughtry et
+    al., 2000 C.S.T. Daughtry, C.L. Walthall, M.S. Kim, E.B. de Colstoun, J.E. McMurtrey
+    III Estimating corn leaf chlorophyll concentration from leaf and canopy reflectance
+    Remote Sensing of Environment, 74 (2000), pp. 229-239 View PDFView articleView
+    in ScopusGoogle Scholar Demetriades-Shah et al., 1990 T.H. Demetriades-Shah, M.D.
+    Steven, J.A. Clark High resolution derivative spectra in remote sensing Remote
+    Sensing of Environment, 33 (1990), pp. 55-56 View in ScopusGoogle Scholar Doolittle
+    et al., 1994 J.A. Doolittle, K.A. Sudduth, N.R. Kitchen, S.J. lndorante Estimating
+    depths to claypans using electromagnetic induction methods Journal of Soil and
+    Water Conservation, 49 (1994), pp. 572-575 View in ScopusGoogle Scholar Doraiswamy
+    et al., 2003 P.C. Doraiswamy, S. Moulin, P.W. Cook, A. Stern Crop yield assessment
+    from remote sensing Photogrammetric Engineering and Remote Sensing, 69 (2003),
+    pp. 665-674 View in ScopusGoogle Scholar Frohn et al., 2009 R. Frohn, M. Reif,
+    C. Lane, B. Autrey Satellite remote sensing of isolated wetlands using object-oriented
+    classification of LANDSAT-7 data Wetlands, 29 (2009), pp. 931-941 CrossRefGoogle
+    Scholar García Torres et al., 2008 L. García Torres, J.M. Peña-Barragán, F. López-Granados,
+    M. Jurado-Expósito, R. Fernández-Escobar Automatic assessment of agro-environmental
+    indicators from remotely sensed images of tree orchards and its evaluation using
+    olive plantations Computers and Electronics in Agriculture, 61 (2008), pp. 179-191
+    View PDFView articleView in ScopusGoogle Scholar Geladi, 2003 P. Geladi Chemometrics
+    in spectroscopy. Part 1. Classical chemometrics Spectrochimica Acta Part B, 58
+    (2003), pp. 767-782 View PDFView articleView in ScopusGoogle Scholar Gitelson
+    et al., 1996 A.A. Gitelson, Y.J. Kaufmann, M.N. Merzlyak Use of a green channel
+    in remote sensing of global vegetation from EOS-MODIS Remote Sensing of Environment,
+    58 (1996), pp. 289-298 View PDFView articleView in ScopusGoogle Scholar Goel et
+    al., 2003 P.K. Goel, S.O. Prasher, J.A. Landry, R.M. Patel, R.B. Bonnell, A.A.
+    Viau, et al. Potential of airborne hyperspectral remote sensing to detect nitrogen
+    deficiency and weed infestation in corn Computers and Electronics in Agriculture,
+    38 (2003), pp. 99-124 View PDFView articleView in ScopusGoogle Scholar Haboudane
+    et al., 2004 D. Haboudane, J.R. Miller, E. Pattey, P.J. Zarco-Tejada, I.B. Strachan
+    Hyperspectral vegetation indices and novel algorithms for predicting green LAI
+    of crop canopies: modeling and validation in the context of precision agriculture
+    Remote Sensing of Environment, 90 (2004), pp. 337-352 View PDFView articleView
+    in ScopusGoogle Scholar Haboudane et al., 2002 D. Haboudane, J.R. Miller, N. Tremblay,
+    P.J. Zarco-Tejada, L. Dextraze Integrated narrow-band vegetation indices for prediction
+    of crop chlorophyll content for application to precision agriculture Remote Sensing
+    of Environment, 81 (2002), pp. 416-426 View PDFView articleView in ScopusGoogle
+    Scholar Harmon et al., 2005 T. Harmon, C. Kvien, D. Mulla, G. Hoggenboom, J. Judy,
+    J. Hook, et al. Precision agriculture scenario P. Arzberger (Ed.), NSF workshop
+    on sensors for environmental observatories, World Tech. Evaluation Center, Baltimore,
+    MD, USA (2005) Google Scholar Herwitz et al., 2004 S.R. Herwitz, L.F. Johnson,
+    S.E. Dunagan, R.G. Higgins, D.V. Sullivan, J. Zheng, et al. Imaging from an unmanned
+    aerial vehicle: agricultural surveillance and decision support Computers and Electronics
+    in Agriculture, 44 (2004), pp. 49-61 View PDFView articleView in ScopusGoogle
+    Scholar Holland et al., 2004 K.H. Holland, J.S. Schepers, J.F. Shanahan, G.L.
+    Horst Plant canopy sensor with modulated polychromatic light D.J. Mulla (Ed.),
+    Proc. 7th intl. conf. precision agriculture. (CD-ROM), Univ. Minnesota, Minneapolis,
+    MN (2004) Google Scholar Huete, 1988 A. Huete A soil adjusted vegetation index
+    (SAVI) Remote Sensing of Environment, 25 (1988), pp. 295-309 View PDFView articleView
+    in ScopusGoogle Scholar Huete and Escadafal, 1991 A.R. Huete, R. Escadafal Assessment
+    of biophysical soil properties through spectral decomposition techniques Remote
+    Sensing of Environment, 35 (1991), pp. 149-159 View PDFView articleView in ScopusGoogle
+    Scholar Hummel et al., 1996 J.W. Hummel, L.D. Gaultney, K.A. Sudduth Soil property
+    sensing for site-specific crop management Computers and Electronics in Agriculture,
+    14 (1996), pp. 121-136 View PDFView articleView in ScopusGoogle Scholar Jain et
+    al., 2007 N. Jain, S.S. Ray, J.P. Singh, S. Panigrahy Use of hyperspectral data
+    to assess the effects of different nitrogen applications on a potato crop Precision
+    Agriculture, 8 (2007), pp. 225-239 CrossRefView in ScopusGoogle Scholar Jewel,
+    1989 N. Jewel An evaluation of multi-date SPOT data for agriculture and land use
+    mapping in the United Kingdom International Journal of Remote Sensing, 10 (1989),
+    pp. 939-951 Google Scholar Jordan, 1969 C.F. Jordan Derivation of leaf area index
+    from quality of light on the forest floor Ecology, 50 (1969), pp. 663-666 CrossRefGoogle
+    Scholar Kitchen et al., 2010 N.R. Kitchen, K.A. Sudduth, S.T. Drummond, P.C. Scharf,
+    H.L. Palm, D.F. Roberts, et al. Ground-based canopy reflectance sensing for variable-rate
+    nitrogen corn fertilization Agronomy Journal, 102 (2010), pp. 71-84 CrossRefView
+    in ScopusGoogle Scholar Lamb and Brown, 2001 D.W. Lamb, R.B. Brown Remote-sensing
+    and mapping of weeds in crops Journal of Agricultural Engineering Research, 78
+    (2001), pp. 117-125 View PDFView articleView in ScopusGoogle Scholar Larson and
+    Robert, 1991 W.E. Larson, P.C. Robert Farming by soil R. Lal, F.J. Pierce (Eds.),
+    Soil management for sustainability, Soil and Water Conserv. Soc, Ankeny, IA, USA
+    (1991), pp. 103-112 View in ScopusGoogle Scholar Li et al., 2010 F. Li, Y. Miao,
+    S.D. Hennig, M.L. Gnyp, X. Chen, L. Jia, et al. Evaluating hyperspectral vegetation
+    indices for estimating nitrogen concentration of winter wheat at different growth
+    stages Precision Agriculture, 11 (2010), pp. 335-357 CrossRefGoogle Scholar Lichtenthaler
+    et al., 1996 H.K. Lichtenthaler, M. Lang, M. Sowinska, F. Heisel, J.A. Mieh Detection
+    of vegetation stress via a new high resolution fluorescence imaging system Journal
+    of Plant Physiology, 148 (1996), pp. 599-612 View PDFView articleView in ScopusGoogle
+    Scholar Lindgren et al., 1994 F. Lindgren, P. Geladi, S. Wold Kernal based PLS
+    regression; cross-validation and application to spectral data Journal of Chemometrics,
+    8 (1994), pp. 377-389 CrossRefView in ScopusGoogle Scholar Link and Reusch, 2006
+    A. Link, S. Reusch Implementation of site-specific nitrogen application-status
+    and development of the YARA N-sensor NJF seminar 390, precision technology in
+    crop production implementation and benefits, Norsk Jernbaneforbund, Stockholm,
+    Sweden (2006), pp. 37-41 CrossRefGoogle Scholar Link et al., 2002 A. Link, M.
+    Panitzki, S. Reusch Hydro N-sensor: tractor-mounted remote sensing for variable
+    nitrogen fertilization P.C. Robert (Ed.), Precision agriculture [CD-ROM]. Proc.
+    6th int. conf. on precision agric, ASA, CSSA, and SSSA, Madison, WI, USA (2002),
+    pp. 1012-1018 Google Scholar Long et al., 2008 D.S. Long, R.E. Engel, M.C. Siemens
+    Measuring grain protein concentration with in-line near infrared reflectance spectroscopy
+    Agronomy Journal, 100 (2008), pp. 247-252 View in ScopusGoogle Scholar Mamo et
+    al., 2003 M. Mamo, G.L. Malzer, D.J. Mulla, D.J. Huggins, J. Strock Spatial and
+    temporal variation in economically optimum N rate for corn Agronomy Journal, 95
+    (2003), pp. 958-964 View in ScopusGoogle Scholar McMurtrey et al., 1994 J.E. McMurtrey
+    III, E.W. Chappelle, M.S. Kim, J.J. Meisinger, L.A. Corp Distinguish nitrogen
+    fertilization levels in field corns (Zea mays L.) with actively induced fluorescence
+    and passive reflectance measurements Remote Sensing of Environment, 47 (1994),
+    pp. 36-44 View PDFView articleView in ScopusGoogle Scholar Miao et al., 2007 Y.
+    Miao, D.J. Mulla, G.W. Randall, J.A. Vetsch, R. Vintila Predicting chlorophyll
+    meter readings with aerial hyperspectral remote sensing for in-season site-specific
+    nitrogen management of corn J.V. Stafford (Ed.), Precision agriculture ''07, Wageningen
+    Acad. Publ, The Netherlands (2007), pp. 635-641 View in ScopusGoogle Scholar Miao
+    et al., 2009 Y. Miao, D.J. Mulla, G. Randall, J. Vetsch, R. Vintila Combining
+    chlorophyll meter readings and high spatial resolution remote sensing images for
+    in-season site-specific nitrogen management of corn Precision Agriculture, 10
+    (2009), pp. 45-62 CrossRefView in ScopusGoogle Scholar Miglani et al., 2008 A.
+    Miglani, S. Ray, R. Pandey, J. Parihar Evaluation of EO-1 Hyperion data for agricultural
+    applications Journal of Indian Society of Remote Sensing, 36 (2008), pp. 255-266
+    CrossRefView in ScopusGoogle Scholar Moller et al., 2007 M. Moller, V. Alchanatis,
+    Y. Cohen, M. Meron, J. Tsipris, A. Naor, et al. Use of thermal and visible imagery
+    for estimating crop water status of irrigated grapevine Journal of Experimental
+    Botany, 58 (2007), pp. 827-838 View in ScopusGoogle Scholar Mondal and Basu, 2009
+    P. Mondal, M. Basu Adoption of precision agriculture technologies in India and
+    in some developing countries: scope, present status and strategies Progress in
+    Natural Science, 19 (2009), pp. 659-666 View PDFView articleView in ScopusGoogle
+    Scholar Moran et al., 1997 M.S. Moran, Y. Inoue, E.M. Barnes Opportunities and
+    limitations for image-based remote sensing in precision crop management Remote
+    Sensing of Environment, 61 (1997), pp. 319-346 View PDFView articleView in ScopusGoogle
+    Scholar Mulla, 1991 D.J. Mulla Using geostatistics and GIS to manage spatial patterns
+    in soil fertility G. Kranzler (Ed.), Automated agriculture for the 21st century,
+    ASAE, St. Joseph, MI, USA (1991), pp. 336-345 Google Scholar Mulla, 1993 D.J.
+    Mulla Mapping and managing spatial patterns in soil fertility and crop yield P.
+    Robert, W. Larson, R. Rust (Eds.), Soil specific crop management, ASA, Madison,
+    WI, USA (1993), pp. 15-26 Google Scholar Mulla, 1997 D.J. Mulla Geostatistics,
+    remote sensing and precision farming A. Stein, J. Bouma (Eds.), Precision agriculture:
+    Spatial and temporal variability of environmental quality. Ciba foundation symposium
+    210, Wiley, Chichester, UK (1997), pp. 100-119 View in ScopusGoogle Scholar Mulla
+    and Bhatti, 1997 D.J. Mulla, A.U. Bhatti An evaluation of indicator properties
+    affecting spatial patterns in N and P requirements for winter wheat yield J.V.
+    Stafford (Ed.), Precision agriculture ''97: Spatial variability in soil and crop,
+    Vol. 1, BIOS Sci. Publ, Oxford, UK (1997), pp. 145-154 Google Scholar Mulla et
+    al., 1992 D.J. Mulla, A.U. Bhatti, M.W. Hammond, J.A. Benson A comparison of winter
+    wheat yield and quality under uniform versus spatially variable fertilizer management
+    Agriculture, Ecosystems & Environment, 38 (1992), pp. 301-311 View PDFView articleView
+    in ScopusGoogle Scholar Mulla et al., 2002 D.J. Mulla, P. Gowda, W.C. Koskinen,
+    B.R. Khakural, G. Johnson, P.C. Robert Modeling the effect of precision agriculture:
+    pesticide losses to surface waters. Ch. 20 E. Arthur, A. Barefoot, V. Clay (Eds.),
+    Terrestrial field dissipation studies. ACS symp. ser. no. 842, ACS, Washington,
+    DC, USA (2002), pp. 304-317 CrossRefGoogle Scholar Mulla et al., 1996 D.J. Mulla,
+    C.A. Perillo, C.G. Cogger A site-specific farm-scale GIS approach for reducing
+    groundwater contamination by pesticides Journal of Environmental Quality, 25 (1996),
+    pp. 419-425 CrossRefView in ScopusGoogle Scholar Mulla and Schepers, 1997 D.J.
+    Mulla, J.S. Schepers Key processes and properties for site-specific soil and crop
+    management F.J. Pierce, E.J. Sadler (Eds.), The state of site specific management
+    for agriculture, ASA/CSSA/SSSA, Madison, WI, USA (1997), pp. 1-18 Google Scholar
+    O''Shaughnessy and Evett, 2010 S.A. O''Shaughnessy, S.R. Evett Developing wireless
+    sensor networks for monitoring crop canopy temperature using a moving sprinkler
+    system as a platform Applied Engineering in Agriculture, 26 (2010), pp. 331-341
+    View in ScopusGoogle Scholar Panigrahy and Sharma, 1997 S. Panigrahy, S.A. Sharma
+    Mapping of crop rotation using multidate Indian remote sensing satellite digital
+    data ISPRS Journal of Photogrammetry and Remote Sensing, 52 (1997), pp. 85-91
+    View PDFView articleView in ScopusGoogle Scholar Pinter et al., 2003 P.J. Pinter
+    Jr., J.L. Hatfield, J.S. Schepers, E.M. Barnes, M.S. Moran, C.S.T. Daughtry, et
+    al. Remote sensing for crop management Photogrammetric Engineering and Remote
+    Sensing, 69 (2003), pp. 647-664 View in ScopusGoogle Scholar Qi et al., 1994 J.
+    Qi, A. Chehbouni, A.R. Huete, Y.H. Keer, S. Sorooshian A modified soil vegetation
+    adjusted index Remote Sensing of Environment, 48 (1994), pp. 119-126 View PDFView
+    articleView in ScopusGoogle Scholar Raun et al., 2002 W.R. Raun, J.B. Solie, G.V.
+    Johnson, M.L. Stone, R.W. Mullen, K.W. Freeman, et al. Improving nitrogen use
+    efficiency in cereal grain production with optical sensing and variable rate application
+    Agronomy Journal, 94 (2002), pp. 815-820 View in ScopusGoogle Scholar Reusch et
+    al., 2002 S. Reusch, A. Link, J. Lammel Tractor-mounted multispectral scanner
+    for remote field investigation P.C. Roberts (Ed.), Proc. of the 6th int. conf.
+    on precision agriculture and other precision resources management, ASA, CSSA,
+    and SSSA, Madison, WI, USA (2002), pp. 1385-1393 Google Scholar Ritchie et al.,
+    1993 Ritchie, S. W., Hanway, J. J., & Benson, G. O. (1993). How a corn plant develops.
+    Iowa State University. CES Special Report No. 48. Google Scholar Rondeaux et al.,
+    1996 G. Rondeaux, M. Steven, F. Baret Optimization of soil-adjusted vegetation
+    indices Remote Sensing of Environment, 55 (1996), pp. 95-107 View PDFView articleView
+    in ScopusGoogle Scholar Rougean and Breon, 1995 J.L. Rougean, F.M. Breon Estimating
+    PAR absorbed by vegetation from bidirectional reflectance measurements Remote
+    Sensing of Environment, 51 (1995), pp. 375-384 Google Scholar Rouse et al., 1973
+    J.W. Rouse Jr., R.H. Hass, J.A. Schell, D.W. Deering Monitoring vegetation systems
+    in the great plains with ERTS Proceedings 3rd Earth Resources Technology Satellite
+    (ERTS) symposium, Vol. 1, NASA SP-351, NASA, Washington, DC, USA (1973), pp. 309-317
+    Google Scholar Samborski et al., 2009 S.M. Samborski, N. Tremblay, E. Fallon Strategies
+    to make use of plant sensors-based diagnostic information for nitrogen recommendations
+    Agronomy Journal, 101 (2009), pp. 800-816 View in ScopusGoogle Scholar Scharf
+    et al., 2011 P.C. Scharf, D.K. Shannon, H.L. Palm, K.A. Sudduth, S.T. Drummond,
+    N.R. Kitchen, et al. Sensor-based nitrogen applications out-performed producer-chosen
+    rates for corn in on-farm demonstrations Agronomy Journal, 103 (2011), pp. 1683-1691
+    CrossRefView in ScopusGoogle Scholar Schepers et al., 1992 J.S. Schepers, D.D.
+    Francis, M. Vigil, F.E. Below Comparison of corn leaf nitrogen concentration and
+    chlorophyll meter readings Communications in Soil Science and Plant Analysis,
+    23 (1992), pp. 2173-2187 CrossRefView in ScopusGoogle Scholar Schueller and Bae,
+    1987 J.K. Schueller, Y.H. Bae Spatially attributed automatic combine data acquisition
+    Computers and Electronics in Agriculture, 2 (1987), pp. 119-127 View PDFView articleView
+    in ScopusGoogle Scholar Seelan et al., 2003 S.K. Seelan, S. Laguette, G.M. Casady,
+    G.A. Seielstad Remote sensing applications for precision agriculture: a learning
+    community approach Remote Sensing of Environment, 88 (2003), pp. 157-169 View
+    PDFView articleView in ScopusGoogle Scholar Shanahan et al., 2008 J.F. Shanahan,
+    N.R. Kitchen, W.R. Raun, J.S. Schepers Responsive in-season nitrogen management
+    for cereals Computers and Electronics in Agriculture, 61 (2008), pp. 51-62 View
+    PDFView articleView in ScopusGoogle Scholar Shanahan et al., 2001 J.F. Shanahan,
+    J.S. Schepers, D.D. Francis, G.E. Varvel, W.W. Wilhelm, J.M. Tringe, et al. Use
+    of remote sensing imagery to estimate corn grain yield Agronomy Journal, 93 (2001),
+    pp. 583-589 CrossRefView in ScopusGoogle Scholar Shonk et al., 1991 J.L. Shonk,
+    L.D. Gaultney, D.G. Schulze, G.E. Van Scoyoc Spectroscopic sensing of soil organic
+    matter content Transactions of the ASAE, 34 (1991), pp. 1978-1984 View in ScopusGoogle
+    Scholar Smith et al., 1995 R.C.G. Smith, J. Adams, D.J. Stephens, P.T. Hick Forecasting
+    wheat yield in a Mediterranean-type environment from the NOAA satellite Australian
+    Journal of Agricultural Research, 46 (1995), pp. 113-125 View in ScopusGoogle
+    Scholar Solari et al., 2008 F. Solari, J. Shanahan, R. Ferguson, J. Schepers,
+    A. Gitelson Active sensor reflectance measurements of corn nitrogen status and
+    yield potential Agronomy Journal, 100 (2008), pp. 571-579 CrossRefView in ScopusGoogle
+    Scholar Solie et al., 1996 J.B. Solie, W.R. Raun, R.W. Whitney, M.L. Stone, J.D.
+    Ringer Optical sensor based field element size and sensing strategy for nitrogen
+    Transactions of the ASAE, 39 (1996), pp. 1983-1992 View in ScopusGoogle Scholar
+    Sripada et al., 2006 R.P. Sripada, R.W. Heiniger, J.G. White, R. Weisz Aerial
+    color infrared photography for determining late-season nitrogen requirements in
+    corn Agronomy Journal, 97 (2006), pp. 1443-1451 Google Scholar Sripada et al.,
+    2008 R.P. Sripada, J.P. Schmidt, A.E. Dellinger, D.B. Beegle Evaluating multiple
+    indices from a canopy reflectance sensor to estimate corn N requirements Agronomy
+    Journal, 100 (2008), pp. 1553-1561 CrossRefView in ScopusGoogle Scholar Stafford
+    et al., 1996 J.V. Stafford, B. Ambler, R.M. Lark, J. Catt Mapping and interpreting
+    the yield variation in cereal crops Computers and Electronics in Agriculture,
+    14 (1996), pp. 101-119 View PDFView articleView in ScopusGoogle Scholar Stone
+    et al., 1996 M.L. Stone, J.B. Solie, W.R. Raun, R.W. Whitney, S.L. Taylor, J.D.
+    Ringer Use of spectral radiance for correcting in-season fertilizer nitrogen deficiencies
+    in winter wheat Transactions of the ASAE, 39 (1996), pp. 1623-1631 View in ScopusGoogle
+    Scholar Stuckens et al., 2000 J. Stuckens, P.R. Coppin, M.E. Bauer Integrating
+    contextual information with per-pixel classification for improved land cover classification
+    Remote Sensing of Environment, 71 (2000), pp. 282-296 View PDFView articleView
+    in ScopusGoogle Scholar Sudduth and Hummel, 1993 K.A. Sudduth, J.W. Hummel Soil
+    organic matter, CEC, and moisture sensing with a portable NIR spectrophotometer
+    Transactions of the ASAE, 36 (1993), pp. 1571-1582 View in ScopusGoogle Scholar
+    Sudduth et al., 2005 K.A. Sudduth, N.R. Kitchen, W.J. Wiebold, W.D. Batchelor,
+    G.A. Bollero, D.G. Bullock, et al. Relating apparent electrical conductivity to
+    soil properties across the north-central USA Computers and Electronics in Agriculture,
+    46 (2005), pp. 263-283 View PDFView articleView in ScopusGoogle Scholar Thenkabail,
+    2003 P.S. Thenkabail Biophysical and yield information for precision farming from
+    near-real-time and historical Landsat TM images International Journal of Remote
+    Sensing, 24 (2003), pp. 2879-2904 View in ScopusGoogle Scholar Thenkabail et al.,
+    2010 P.S. Thenkabail, J.G. Lyon, A. Huete Hyperspectral remote sensing of vegetation
+    and agricultural crops: knowledge gain and knowledge gap after 40 years of research.
+    Ch. 28 P.S. Thenkabail, J.G. Lyon, A. Huete (Eds.), Hyperspectral remote sensing
+    of vegetation, CRC Press, Boca Raton, FL (2010), p. 705 Google Scholar Thenkabail
+    et al., 2000 P.S. Thenkabail, R.B. Smith, E. De Pauw Hyperspectral vegetation
+    indices and their relationships with agricultural crop characteristics Remote
+    Sensing of Environment, 71 (2000), pp. 158-182 View PDFView articleView in ScopusGoogle
+    Scholar Thomasson et al., 2001 J.A. Thomasson, R. Sui, M.S. Cox, A. Al–Rajehy
+    Soil reflectance sensing for determining soil properties in precision agriculture
+    Transactions of the ASAE, 44 (2001), pp. 1445-1453 View in ScopusGoogle Scholar
+    Thorp and Tian, 2004 K.R. Thorp, L.F. Tian A review on remote sensing of weeds
+    in agriculture Precision Agriculture, 5 (2004), pp. 477-508 View in ScopusGoogle
+    Scholar Tian, 2002 L. Tian Development of a sensor-based precision herbicide application
+    system Computers and Electronics in Agriculture, 36 (2002), pp. 133-149 View PDFView
+    articleView in ScopusGoogle Scholar Tilling et al., 2007 S.K. Tilling, G.J. O''Leary,
+    J.G. Ferwerda, S.D. Jones, G.J. Fitzgerald, D. Rodriguez, et al. Remote sensing
+    of nitrogen and water stress in wheat Field Crops Research, 104 (2007), pp. 77-85
+    View in ScopusGoogle Scholar Tucker, 1979 C.J. Tucker Red and photographic infrared
+    linear combinations for monitoring vegetation Remote Sensing of Environment, 8
+    (1979), pp. 127-150 View PDFView articleGoogle Scholar Varvel et al., 1997 G.E.
+    Varvel, J.S. Schepers, D.D. Francis Ability for in-season correction of nitrogen
+    deficiency in corn using chlorophyll meters Soil Science Society of America Journal,
+    61 (1997), pp. 1233-1239 CrossRefView in ScopusGoogle Scholar Varvel et al., 2007
+    G.E. Varvel, W.W. Wilhelm, J.F. Shanahan, J.S. Schepers An algorithm for corn
+    nitrogen recommendations using a chlorophyll meter based sufficiency index Agronomy
+    Journal, 99 (2007), pp. 701-706 CrossRefView in ScopusGoogle Scholar Viscarra
+    Rossel et al., 2006 R.A. Viscarra Rossel, D.J.J. Walvoort, A.B. McBratney, L.J.
+    Janik, J.O. Skjemstad Visible, near infrared, mid infrared or combined diffuse
+    reflectance spectroscopy for simultaneous assessment of various soil properties
+    Geoderma, 131 (2006), pp. 59-75 View PDFView articleView in ScopusGoogle Scholar
+    Vogelmann et al., 1993 J.E. Vogelmann, B.N. Rock, D.M. Moss Red edge spectral
+    measurements from sugar maple leaves International Journal of Remote Sensing,
+    14 (1993), pp. 1563-1575 CrossRefView in ScopusGoogle Scholar Wang et al., 2006
+    N. Wang, N. Zhang, M. Wang Wireless sensors in agriculture and food industry—recent
+    development and future perspective Computers and Electronics in Agriculture, 50
+    (2006), pp. 1-14 View PDFView articleCrossRefView in ScopusGoogle Scholar Whipker
+    and Akridge, 2006 L.D. Whipker, J.D. Akridge Precision agricultural services dealership
+    survey results Staff paper Dept. Agricultural Economics, Purdue University, W.
+    Lafayette, IN, USA (2006) Google Scholar Wright and Gallant, 2007 C. Wright, A.
+    Gallant Improved wetland remote sensing in Yellowstone National Park using classification
+    trees to combine TM imagery and ancillary environmental data Remote Sensing of
+    Environment, 107 (2007), pp. 582-605 View PDFView articleView in ScopusGoogle
+    Scholar Wu et al., 2010a C. Wu, X. Han, Z. Niu, J. Dong An evaluation of EO-1
+    hyperspectral Hyperion data for chlorophyll content and leaf area index estimation
+    International Journal of Remote Sensing, 31 (2010), pp. 1079-1086 CrossRefView
+    in ScopusGoogle Scholar Wu et al., 2010 C. Wu, L. Wang, Z. Niu, S. Gao, M. Wu
+    Nondestructive estimation of canopy chlorophyll content using Hyperion and Landsat/TM
+    images International Journal of Remote Sensing, 31 (2010), pp. 2159-2167 CrossRefView
+    in ScopusGoogle Scholar Yang et al., 2000 C. Yang, J.H. Everitt, J.M. Bradford,
+    D.E. Escobar Mapping grain sorghum growth and yield variations using airborne
+    multispectral digital imagery Transactions of the ASAE, 43 (2000), pp. 1927-1938
+    View in ScopusGoogle Scholar Yao et al., 2010 H.L. Yao, L. Tang, Tian, R.L. Brown,
+    D. Bhatnagar, T.E. Cleveland Using hyperspectral data in precision farming applications.
+    Ch. 25 P.S. Thenkabail, J.G. Lyon, A. Huete (Eds.), Hyperspectral remote sensing
+    of vegetation, CRC Press, Boca Raton, FL (2010), p. 705 CrossRefView in ScopusGoogle
+    Scholar Zarco-Tejada et al., 2005 P. Zarco-Tejada, A. Berjón, R. López-Lozano,
+    J. Miller, P. Martín, V. Cachorro, et al. Assessing vineyard condition with hyperspectral
+    indices: leaf and canopy reflectance simulation in a row-structured discontinuous
+    canopy Remote Sensing of Environment, 99 (2005), pp. 271-287 View PDFView articleView
+    in ScopusGoogle Scholar Zarco-Tejada et al., 2004 P.J. Zarco-Tejada, J.R. Miller,
+    A. Morales, A. Berjón, J. Agüera Hyperspectral indices and model simulation for
+    chlorophyll estimation in open-canopy tree crops Remote Sensing of Environment,
+    90 (2004), pp. 463-476 View PDFView articleView in ScopusGoogle Scholar Zhang
+    et al., 2002 N. Zhang, M. Wang, N. Wang Precision agriculture: a worldwide overview
+    Computers and Electronics in Agriculture, 36 (2002), pp. 113-132 View PDFView
+    articleView in ScopusGoogle Scholar Cited by (1290) Tackling sustainable development
+    goals through new space 2024, Project Leadership and Society Show abstract Economic
+    and environmental benefits of digital agricultural technologies in crop production:
+    A review 2024, Smart Agricultural Technology Show abstract Predicting early mycotoxin
+    contamination in stored wheat using machine learning 2024, Journal of Stored Products
+    Research Show abstract Effects of different nitrogen fertilization systems on
+    crop yield and nitrogen use efficiency – Results of a field experiment in southern
+    Germany 2024, Heliyon Show abstract Quantifying canopy nitrogen of Aman rice utilizing
+    multi-temporal unmanned aerial systems 2024, Remote Sensing Applications: Society
+    and Environment Show abstract Application of precision agriculture technologies
+    in Central Europe-review 2024, Journal of Agriculture and Food Research Show abstract
+    View all citing articles on Scopus ☆ Developed from a presentation at AGRI-SENSING
+    2011 – International Symposium on Sensing in Agriculture in Memory of Dahlia Greidinger,
+    Haifa, Israel. View Abstract Copyright © 2012 IAgrE. Published by Elsevier Ltd.
+    All rights reserved. Part of special issue Special Issue: Sensing Technologies
+    for Sustainable Agriculture Edited by Victor Alchanatis, Yafit Cohen Download
+    full issue Other articles from this issue Field partition by proximal and remote
+    sensing data fusion April 2013 Daniela De Benedetto, …, Rosanna Tamborrino View
+    PDF Spatial–spectral processing strategies for detection of salinity effects in
+    cauliflower, aubergine and kohlrabi April 2013 Ronit Rud, …, Victor Alchanatis
+    View PDF Examination of the Bowen ratio energy balance technique for evapotranspiration
+    estimates in screenhouses April 2013 Uri Dicken, …, Josef Tanny View PDF View
+    more articles Recommended articles Article Metrics Citations Citation Indexes:
+    1217 Patent Family Citations: 1 Policy Citations: 14 Captures Readers: 2191 Mentions
+    References: 1 Social Media Shares, Likes & Comments: 1 View details About ScienceDirect
+    Remote access Shopping cart Advertise Contact and support Terms and conditions
+    Privacy policy Cookies are used by this site. Cookie settings | Your Privacy Choices
+    All content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply.'
+  inline_citation: '>'
+  journal: Biosystems engineering
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2013
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Twenty five years of remote sensing in precision agriculture: Key advances
+    and remaining knowledge gaps'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.2136/sssaj1997.03615995006100010001x
+  analysis: '>'
+  authors:
+  - Douglas L. Karlen
+  - M. J. Mausbach
+  - John W. Doran
+  - Richard G. Cline
+  - R. F. Harris
+  - G. E. Schuman
+  citation_count: 1630
+  full_citation: '>'
+  full_text: '>
+
+    UNCL: University Of Nebraska - Linc Acquisitions Accounting Search within Login
+    / Register JOURNALS MAGAZINES OTHER PUBLICATIONS BOOKS Membership Soil Science
+    Society of America Journal Article Full Access Soil Quality: A Concept, Definition,
+    and Framework for Evaluation (A Guest Editorial) D. L. Karlen,  M. J. Mausbach,  J.
+    W. Doran,  R. G. Cline,  R. F. Harris,  G. E. Schuman First published: 01 January
+    1997 https://doi.org/10.2136/sssaj1997.03615995006100010001xCitations: 1,211 PDF
+    TOOLS SHARE Abstract This essay summarizes deliberation by the Soil Science Society
+    of America (SSSA) Ad Hoc Committee on Soil Quality (S-581) and was written to
+    spur discussion among SSSA members. Varying perceptions of soil quality have emerged
+    since the concept was suggested in the early 1990s, and dialogue among members
+    is important because, unlike air and water quality, legislative standards for
+    soil quality have not been and perhaps should not be defined. In simplest terms,
+    soil quality is “the capacity (of soil) to function”. This definition, based on
+    function, reflects the living and dynamic nature of soil. Soil quality can be
+    conceptualized as a three-legged stool, the function and balance of which requires
+    an integration of three major components — sustained biological productivity,
+    environmental quality, and plant and animal health. The concept attempts to balance
+    multiple soil uses (e.g., for agricultural production, remediation of wastes,
+    urban development, forest, range, or recreation) with goals for environmental
+    quality. Assessing soil quality will require collaboration among all disciplines
+    of science to examine and interpret their results in the context of land management
+    strategies, interactions, and trade-offs. Society is demanding solutions from
+    science. Simply measuring and reporting the response of an individual soil parameter
+    to a given perturbation or management practice is no longer sufficient. The soil
+    resource must be recognized as a dynamic living system that emerges through a
+    unique balance and interaction of its biological, chemical, and physical components.
+    We encourage SSSA members to consider the concept of soil quality (perhaps as
+    a marketing tool) and to debate how it might enable us to more effectively meet
+    the diverse natural resource needs and concerns of our rural, urban, and suburban
+    clientele of today and tomorrow. Citing Literature Volume61, Issue1 January-February
+    1997 Pages 4-10 Related Information Recommended A Soil Management Assessment Framework
+    (SMAF) Evaluation of Brazilian Sugarcane Expansion on Soil Quality Maurício R.
+    Cherubin,  Douglas L. Karlen,  André L.C. Franco,  Carlos E. P. Cerri,  Cássio
+    A. Tormena,  Carlos C. Cerri Soil Science Society of America Journal Soil Quality
+    Information Sheets Gary B. Muckel,  Maurice J. Mausbach Methods for Assessing
+    Soil Quality, [1] Defining and Assessing Soil Quality John W. Doran,  Timothy
+    B. Parkin Defining Soil Quality for a Sustainable Environment, [1] Download PDF
+    © 2024 American Society of Agronomy, Crop Science Society of America, and Soil
+    Science Society of America AGRONOMY.ORG, CROPS.ORG, SOILS.ORG MEMBERSHIP: AGRONOMY,
+    CROPS, SOILS MEETINGS CCA SITE CAREERPLACEMENT.ORG Advertising Submit an article
+    Author Resources Editorial Policies Librarian Resources Contact Publications Additional
+    links ABOUT WILEY ONLINE LIBRARY Privacy Policy Terms of Use About Cookies Manage
+    Cookies Accessibility Wiley Research DE&I Statement and Publishing Policies HELP
+    & SUPPORT Contact Us Training and Support DMCA & Reporting Piracy OPPORTUNITIES
+    Subscription Agents Advertisers & Corporate Partners CONNECT WITH WILEY The Wiley
+    Network Wiley Press Room Copyright © 1999-2024 John Wiley & Sons, Inc or related
+    companies. All rights reserved, including rights for text and data mining and
+    training of artificial technologies or similar technologies.'
+  inline_citation: '>'
+  journal: Soil Science Society of America journal
+  limitations: '>'
+  pdf_link: null
+  publication_year: 1997
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Soil Quality: A Concept, Definition, and Framework for Evaluation (A Guest
+    Editorial)'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.1287/orsc.1030.0054
+  analysis: '>'
+  authors:
+  - Jason Owen‐Smith
+  - Walter W. Powell
+  citation_count: 1894
+  full_citation: '>'
+  full_text: '>
+
+    This website stores cookies on your computer. These cookies are used to collect
+    information about how you interact with our website and allow us to remember you.
+    We use this information in order to improve and customize your browsing experience
+    and for analytics and metrics about our visitors both on this website and other
+    media. To find out more about the cookies we use, see our Privacy Policy. If you
+    decline, your information won’t be tracked when you visit this website. A single
+    cookie will be used in your browser to remember your preference not to be tracked.
+    Accept Decline INFORMS.org Certified Analytics Professional INFORMS Connect Career
+    Center INFORMS Analytics Conference 2024 brought to you byUniversity of Nebraska
+    Log In Help Skip main navigation JOURNALS MAGAZINES PUBLICATIONS PRICING & SUBSCRIPTIONS  Advanced
+    Search JOURNAL HOMEARTICLES IN ADVANCECURRENT ISSUEARCHIVESABOUT SUBMIT SUBSCRIBE
+    Full Access View PDF Tools Share Go to Section Abstract HomeOrganization ScienceVol.
+    15, No. 1 Knowledge Networks as Channels and Conduits: The Effects of Spillovers
+    in the Boston Biotechnology Community Jason Owen-Smith, Walter W. Powell Published
+    Online:1 Feb 2004https://doi.org/10.1287/orsc.1030.0054 Abstract We contend that
+    two important, nonrelational, features of formal interorganizational networks—geographic
+    propinquity and organizational form—fundamentally alter the flow of information
+    through a network. Within regional economies, contractual linkages among physically
+    proximate organizations represent relatively transparent channels for information
+    transfer because they are embedded in an ecology rich in informal and labor market
+    transmission mechanisms. Similarly, we argue that the spillovers that result from
+    proprietary alliances are a function of the institutional commitments and practices
+    of members of the network. When the dominant nodes in an innovation network are
+    committed to open regimes of information disclosure, the entire structure is characterized
+    by less tightly monitored ties. The relative accessibility of knowledge transferred
+    through contractual linkages to organizations determines whether innovation benefits
+    accrue broadly to membership in a coherent network component or narrowly to centrality.
+    We draw on novel network visualization methods and conditional fixed effects negative
+    binomial regressions to test these arguments for human therapeutic biotechnology
+    firms located in the Boston metropolitan area. Previous Back to Top Next Figures
+    References Related Information Volume 15, Issue 1 January-February 2004 Pages
+    1-132 Article Information Metrics Downloaded 238 times in the past 12 months Cited
+    1405 times Information Published Online:February 01, 2004 © 2004 INFORMS Cite
+    as Jason Owen-Smith, Walter W. Powell, (2004) Knowledge Networks as Channels and
+    Conduits: The Effects of Spillovers in the Boston Biotechnology Community. Organization
+    Science 15(1):5-21. https://doi.org/10.1287/orsc.1030.0054 Keywords knowledge
+    networks economic geography spillovers biotechnology patenting PDF download Sign
+    Up for INFORMS Publications Updates and News SIGN UP Partners The Institute for
+    Operations Research and the Management Sciences 5521 Research Park Drive, Suite
+    200 Catonsville, MD 21228 USA phone 1 443-757-3500 phone 2 800-4INFORMS (800-446-3676)
+    fax 443-757-3515 email informs@informs.org Get the Latest Updates Discover INFORMS
+    Explore OR & Analytics Get Involved Impact Join Us Recognizing Excellence Professional
+    Development Resource Center Meetings & Conferences Publications About INFORMS
+    Communities PubsOnLine Regional Analytics 2023 Certified Analytics Professional
+    Career Center INFORMS Connect Copyright 2024 INFORMS. All Rights Reserved INFORMS
+    Code of Conduct Terms of Use Privacy Contact INFORMS Sitemap Follow INFORMS on:
+    Share on Twitter Facebook Linked In INFORMS site uses cookies to store information
+    on your computer. Some are essential to make our site work; Others help us improve
+    the user experience. By using this site, you consent to the placement of these
+    cookies. Please read our Privacy Statement to learn more. Agree'
+  inline_citation: '>'
+  journal: Organization Science
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2004
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Knowledge Networks as Channels and Conduits: The Effects of Spillovers in
+    the Boston Biotechnology Community'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

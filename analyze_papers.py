@@ -2,7 +2,7 @@ from misc_utils import get_api_keys
 import asyncio
 import re
 from llm_api_handler import LLM_APIHandler
-from prompts import get_prompt
+from prompt_loader import get_prompt
 import aiohttp
 import json
 
@@ -20,15 +20,18 @@ class PaperRanker:
     async def process_query(self, query_key, query_data, point_context):
         retry_count = 0
         while retry_count < self.max_retries:
+            kwargs = {
+                "full_text": query_data.get("full_text", ""),
+                "query_rationale": query_data.get("query_rationale", ""),
+                "point_context": query_data.get("point_context", ""),
+            }
             prompt = get_prompt(
                 template_name="rank_papers",
-                full_text=query_data.get("full_text", ""),
-                point_context=point_context,
-                query_rationale=query_data.get("query_rationale", ""),
+                **kwargs,
             )
             try:
                 print(f"Processing queries for {point_context}...")
-                response = await self.llm_api_handler.generate_cohere_content(prompt)
+                response = await self.llm_api_handler.generate_gemini_content(prompt)
                 print(f"Response: {response}")
                 if response is None:
                     logger.warning(

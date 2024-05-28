@@ -1,0 +1,1007 @@
+- DOI: https://doi.org/10.5937/jaes0-35224
+  analysis: '>'
+  authors:
+  - Irfan Ardiansah
+  - Nurpilihan Bafdal
+  - Awang Bono
+  - Edy Suryadi
+  - Siti Nurhasanah
+  citation_count: 1
+  full_citation: '>'
+  full_text: ">\nIstraživanjaiprojektovanjazaprivredu \nJournal of Applied Engineering\
+    \ Science \nReview Paper \nDOI:10.5937/jaes0-35224 \nPaper number: 20(2022)3,\
+    \ 973, 657-672 \nwww.engineeringscience.rs * ISSN 1451-4117 * Vol.20, No 3, 2022\
+    \ \nAN OVERVIEW OF IOT BASED INTELLIGENT IRRIGATION \nSYSTEMS FOR GREENHOUSE:\
+    \ RECENT TRENDS AND \nCHALLENGES \nIrfan Ardiansah1,*, Nurpilihan Bafdal2, Awang\
+    \ Bono3, Edy Suryadi2, Siti Nurhasanah4 \n1Department of Agro-Industrial Technology,\
+    \ Faculty of Agro-Industrial Technology, Universitas Padjadjaran, \nIndonesia\
+    \ \n2Department of Agriculture Engineering and Biosystem, Faculty of Agro-Industrial\
+    \ Technology, Universitas \nPadjadjaran, Indonesia \n3Department of Chemical Engineering,\
+    \ Faculty of Engineering, Universiti Malaysia Sabah, Malaysia \n4Department of\
+    \ Food-Industrial Technology, Faculty of Agro-Industrial Technology, Universitas\
+    \ Padjadjaran, \nIndonesia \n*irfan@unpad.ac.id\nFood security is an issue that\
+    \ arises as a result of the rising population since population growth decreases\
+    \ \nagricultural land, leading to water scarcity. Agriculture requires large amounts\
+    \ of water, but water scarcity forces \nfarmers to irrigate their crops with little\
+    \ or low-quality water, leading to the idea of developing smart irrigation. The\
+    \ \nchallenge is how to manage the interactions between plants, growing media,\
+    \ microclimate, and water using \nmanufactured systems. Good irrigation management\
+    \ will minimize the occurrence of poor irrigation design. This \nreview is a way\
+    \ to present various methods and approaches for using sensors, controllers, the\
+    \ Internet of Things, \nand artificial intelligence in irrigation systems with\
+    \ a focus on improving water use efficiency. The study uses \nSCOPUS indexed publications\
+    \ and proceedings to study the evolution of irrigation information technology\
+    \ over the \nlast eleven years. We hope this review can serve as a source of information\
+    \ to broaden the validity of the findings \nof irrigation monitoring and control\
+    \ technologies and help researchers identify future research directions on this\
+    \ \nsubject. \nKeywords: intelligent irrigation, water efficiency, smart greenhouse,\
+    \ internet of things, monitoring and control \n1 \nINTRODUCTION \nDue to rising\
+    \ food demand and a growing human population, agriculture is the primary food\
+    \ supplier and the most \nprominent labor user. It is also one of the essential\
+    \ areas in a country's economy, according to gross domestic \nproduct (GDP) [1],\
+    \ [2]. Water availability is an essential factor in optimizing the growth of crops\
+    \ so that water \nscarcity can threaten food security. This reason makes water\
+    \ conservation an essential factor in overcoming water \nshortages while increasing\
+    \ yields. [3, 4]. Moreover, the development of agricultural technology and more\
+    \ efficient \nagricultural management can produce productive crops and quality\
+    \ harvests through greenhouse technology. \nDeveloping greenhouses for agriculture\
+    \ can increase crop yields and improve water use efficiency [5].  \nAround 3.5%\
+    \ of the world's agricultural land uses greenhouse and hydroponic systems to conserve\
+    \ water use and \nother benefits such as crop protection and quality yields. A\
+    \ greenhouse is a building with a wooden or metal \nfoundation covered with nets\
+    \ or transparent material. Since 1960 the greenhouse has evolved from a building\
+    \ that \nonly protects plants into a system for studying plant growth in a controlled\
+    \ environment [6, 7]. Changes in \nagricultural land usage, lower irrigation water\
+    \ output in primary, secondary, and tertiary canals, and global \nmicroclimate\
+    \ changes contribute to the rising use of greenhouses in world agriculture [8].\
+    \  \nAgricultural ecosystems (soil, nutrients, temperature, humidity, sunlight,\
+    \ wind, and air composition) can be adapted \nto the needs of the plants planted\
+    \ in greenhouses to extend productive plant life, change planting seasons, \n\
+    increase crop yields and improve harvest quality. [9, 10]. Moving crops from their\
+    \ natural environment to \ngreenhouses protect plants from weather and microclimate\
+    \ uncertainties. On the downside, a greenhouse is a \nplace that can store solar\
+    \ heat and requires resources to manage the microclimate according to plant needs,\
+    \ \nespecially in countries with tropical climates. [4, 11]. Crop growth problems\
+    \ arise in agriculture that depends on rain \nand drought; runoff and erosion\
+    \ problems also arise during heavy rains. Water control is needed to meet crop\
+    \ \nwater needs while conserving water [12]. The water control system functioned\
+    \ as a regulator for water flow \naccording to the plant's needs in its growth\
+    \ phase [13, 14]. \nConventional irrigation systems use a uniform amount of water\
+    \ to fields from one corner to another during their \ngrowth period regardless\
+    \ of the type of plant and its water needs. The result is water-wasting, where\
+    \ one side of \nthe land has sufficient water, while the other can have excess\
+    \ or lack of water [15]. Therefore, a control system \nknown as an intelligent\
+    \ irrigation system is needed to support plants' water needs while saving water.\
+    \ The way the \nsystem works, in general, is to adapt to the type of plant and\
+    \ then automatically calculate the water needs of the \n657 \n \nIrfan Ardiansah,\
+    \ et al. - An overview of IOT based intelligent irrigation systems for greenhouse:\
+    \ recent trends and \nchallenges \n \nJournal of Applied Engineering Science-\
+    \ Vol.20, No 3, 2022 -www.engineeringscience.rs \n \nplant and schedule water\
+    \ supply based on the plant growth phase [16]. Intelligent irrigation systems\
+    \ are suitable for \nuse in a greenhouse because a greenhouse has an enclosed\
+    \ structure to reduce or eliminate parameters affecting \nplant growth, such as\
+    \ seasons, rainfall, climate change, plant pests and diseases, and environmental\
+    \ changes [17, \n18]. \nIntelligent irrigation systems are part of precision agriculture,\
+    \ also known as smart farming, which integrates \ninformation technology, communication\
+    \ technology, and control technology to automate various agricultural \nactivities\
+    \ that humans initially did. With an intelligent irrigation system, the irrigation\
+    \ process can run optimally in \nmanaging water to meet the needs of plants [19].\
+    \ Intelligent irrigation systems can manage water needs based on \nvarious parameters\
+    \ such as microclimate conditions, weather, sunlight, water quality such as acidity\
+    \ (pH), turbidity \n(TDS), and electrical conductivity (EC), along with plant\
+    \ growth phases through the Internet of Things (IoT) devices. \nAn intelligent\
+    \ irrigation system can improve irrigation decisions to achieve water savings\
+    \ and increased yields [20–\n22]. \nThe intelligent irrigation system is one of\
+    \ the best systems in managing and saving water while maximizing \nharvests; water\
+    \ is distributed evenly to each plant according to its needs and minimizes wasted\
+    \ water [23]. This \nsystem can also mix nutrients and water and help deliver\
+    \ them directly to the root zone, ensuring it is always in \noptimal moist conditions,\
+    \ minimizing surface runoff, preventing root rot, and eliminating percolation.\
+    \ The advantage \nis increased crop productivity, and better harvest quality also\
+    \ ensures optimal water efficiency. Nevertheless, good \nintegration between IoT\
+    \ devices, monitoring, control, and data acquisition can be done automatically\
+    \ with minimum \nintervention to get an optimal and efficient, intelligent irrigation\
+    \ system [24, 25]. \nIn the intelligent irrigation system, the controller can\
+    \ process input data, present information, and manage irrigation \nbased on greenhouse\
+    \ conditions, especially crop conditions to prevent water deficit. Nevertheless,\
+    \ in addition to \nsystem automation, it is necessary to present current and past\
+    \ system conditions to users, both plant responses to \nthe system and vice versa.\
+    \ This method ensures that water management runs smoothly, and users can study\
+    \ \nhistorical data as a reference for the next planting period and ensure optimal\
+    \ farming [26–29]. This process \nrequires real-time monitoring, sophisticated\
+    \ control systems, and precise instruments. The difference between a \nmonitoring\
+    \ system and a control system is that the control system regulates the hardware\
+    \ according to conditional \nconstraints. The control system manages the hardware\
+    \ and software by defining the output and input parameters \nprecisely. The input\
+    \ is microclimate parameters, plant properties, weather conditions, water quality,\
+    \ and other \nsensors collect helpful information [30–33]. \nMany articles published\
+    \ on IoT focus on agriculture, as discussed by [30, 34]. IoT is one of the best\
+    \ inventions of \nthe 21st century in agriculture. In addition, review articles\
+    \  [21], [35] discuss IoT opportunities in agriculture or \nintelligent farming\
+    \ and how the connection between IoT, data mining, data science, and machine learning\
+    \ \nsustainability supports agriculture. [36] describes the automation model for\
+    \ monitoring and controlling the \nagricultural sector and predicting information\
+    \ based on past data. There are currently no review studies that explore \nthe\
+    \ monitoring and control strategy of intelligent irrigation systems in greenhouses,\
+    \ necessitating the formation of \nintelligent irrigation system review articles\
+    \ that focus on integrating various monitoring and control materials. As a \n\
+    result, this study will cover intelligent irrigation system monitoring and control\
+    \ mechanisms and their relevance to \ngreenhouses and irrigation. \nThis study\
+    \ aims to classify the results of previous research, identify the results, and\
+    \ bridge them with future trends \nto identify future research. Chapter 2 discusses\
+    \ research methodology, and Chapter 3 discusses various irrigation \nmethods used\
+    \ by intelligent irrigation systems. In contrast, Chapter 4 discusses monitoring\
+    \ and controlling \nstrategies for IoT and then continues to Chapter 5, discussing\
+    \ the integration of artificial intelligence. The last \nchapter discusses future\
+    \ directions and trends in intelligent irrigation. \n2 REVIEW METHODOLOGY \nThe\
+    \ methodology applied in selecting published literature with the theme of intelligent\
+    \ farming focuses on the topic \nof intelligent irrigation systems and their control\
+    \ systems by using an extensive search on several online libraries of \nmultidisciplinary\
+    \ journals as Google Scholar, ScienceDirect, Springer, MDPI, and IOP, as well\
+    \ as online \nengineering libraries as Agricola and IEEE Xplore. This technique\
+    \ produces many research articles relevant to \nintelligent farming and irrigation\
+    \ systems and their relationship to monitoring and control. That is why it is\
+    \ essential \nto check the reputation of the publisher's journal before using\
+    \ the article through the SCOPUS and ScimagoJR \nwebsites. This review's selection\
+    \ of relevant articles emphasizes the latest journal articles in the last eleven\
+    \ years \n(2011 - 2021); it can be seen in Figure 1a that in 2020 there was a\
+    \ surge in articles discussing monitoring, control, \nand artificial intelligence\
+    \ in agriculture. Other conditions are that all articles must be published in\
+    \ SCOPUS indexed \njournals and conference proceedings. As shown in Figure 1b,\
+    \ which shows the percentage of articles indexed by \nSCOPUS with articles with\
+    \ Quartile 1 dominating research in this field means that the research is internationally\
+    \ \nrecognized and has the best quality content. All articles used are smart farming,\
+    \ intelligent irrigation system, and \nprecision agriculture. Articles are carefully\
+    \ selected by reading and summarizing them to ensure continuity of ideas.  \n\
+    658 \nIrfan Ardiansah, et al. - An overview of IOT based intelligent irrigation\
+    \ systems for greenhouse: recent trends \nand challenges \n \nJournal of Applied\
+    \ Engineering Science - Vol.20, No 3, 2022 - www.engineeringscience.rs \n \n \n\
+    \ \n \n(a)    \n \n \n   \n \n \n(b) \nFig 1. IoT based intelligent irrigation\
+    \ systems papers distribution based on (a) publication years, and (b) Quartile\
+    \ \npositions \n3 TYPES OF IRRIGATION \nPlants need water at regular intervals\
+    \ to grow and develop; in agriculture, this watering technique is called \nirrigation.\
+    \ Irrigation has two methods, namely conventional and modern. Conventional agriculture\
+    \ usually uses rain \nand surface irrigation to irrigate its land [37, 38]. The\
+    \ problem is how to predict rain accurately, and surface \nirrigation does not\
+    \ continuously irrigate the entire land with a uniform discharge. Surface irrigation,\
+    \ classified as \nconventional irrigation, works by distributing water from springs\
+    \ or rivers to the ground surface following gravity; \nmonitoring is done manually\
+    \ by looking at the water level without IoT and automation [37].  \nDeveloping\
+    \ countries generally use surface irrigation, for example, Indonesia. It uses\
+    \ it to irrigate paddy fields by \nconstructing furrows that connect water sources\
+    \ with rice fields and irrigate them. However, this method requires a \nlevel\
+    \ ground surface to ensure adequate water distribution [39]. On the other hand,\
+    \ surface irrigation results in high \nlevels of water loss due to evaporation,\
+    \ uncontrolled water discharge, and percolation, which can reduce soil \nnutrient\
+    \ levels resulting in sub-optimal crop yields [37]. There are two commonly used\
+    \ surface irrigations: (1) \nFurrow irrigation is interpreted as water flowing\
+    \ through small furrows made on the land slope. Water enters the soil \nfrom the\
+    \ bottom and sides of the furrow and moves laterally and downwards to moisten\
+    \ the soil and simultaneously \ncarry dissolved salts, fertilizers, and herbicides\
+    \ [40]. Good tillage with uniform slopes can give better results from \nthis method.\
+    \ Furrow irrigation is suitable for various soils, slopes, and crops especially\
+    \ row crops. Crops that will be \ndamaged if water covers the stems or crowns\
+    \ should use furrow irrigation [40, 41]. Furrow irrigation is also suitable \n\
+    for tree crops. In the early stages of tree planting, using one furrow beside\
+    \ the tree row may be sufficient, but as the \ntree grows, creating two or more\
+    \ new furrows is necessary to provide sufficient water [42]. (2) Flooding Irrigation\
+    \ is \nan irrigation method commonly used to provide water in lowland rice cultivation\
+    \ and generally, water carried out \ncontinuously. Flooding is carried out continuously\
+    \ at the same height throughout plant growth, starting from planting \nuntil several\
+    \ days before harvest [43]. The use of flooding irrigation depends on sufficient\
+    \ water to flood the land \nsurface with 10 cm of water. The disadvantage is inhibiting\
+    \ plant growth and water wastage [44]. Because flooding \nirrigation uses water\
+    \ excessively, flooding irrigation evolved into intermittent irrigation by flooding\
+    \ and drying the \nland alternately from planting season until one week before\
+    \ the flowering. The water level is maintained at 3 to 5 \ncm during flowering.\
+    \ Giving water this way can reduce water usage up to 30 percent without reducing\
+    \ crop yields \n[43–45] \n Modern irrigation offers uniform discharge for each\
+    \ plant, including nutrients and saving water, mainly when \nplanting is carried\
+    \ out in a greenhouse, making it easier to monitor water quantity and quality\
+    \ and regulate water \nsupply schedules [46, 47]. The amount of water delivered\
+    \ is determined by the plant's demands, irrigation method, \nand type of growing\
+    \ medium. The choice of irrigation method influences the type of nutrients, the\
+    \ number of \nnutrients, the rate of infiltration, evaporation, water absorption,\
+    \ and drainage [12]. \nModern irrigation uses less water and is more efficient\
+    \ than conventional irrigation, and this method saves more \nenergy and water.\
+    \ It is an effective method for use in areas where water is scarce or has irregular\
+    \ rains. This \nmethod allows farmers to cultivate crops consistently, creating\
+    \ a reliable food supply [3, 11]. Modern irrigation relies \non water from wells,\
+    \ lakes, and reservoirs stored in water tanks and then irrigates plants using\
+    \ gravity or water \npumps [12]. The method of giving water is even more specific,\
+    \ such as spraying water through a sprinkler or \ndripping water through an emitter\
+    \ onto plants. [39] developed an automatic irrigation data communication system\
+    \ \n3\n2\n9\n9\n10\n4\n10\n11\n17\n18\n12\n0\n2\n4\n6\n8\n10\n12\n14\n16\n18\n\
+    20\n2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021\nNumber of Papers\n\
+    Year\n42%\n31%\n9%\n6%\n12%\nQ1\nQ2\nQ3\nQ4\nProceeding\n659 \n \nIrfan Ardiansah,\
+    \ et al. - An overview of IOT based intelligent irrigation systems for greenhouse:\
+    \ recent trends and \nchallenges \n \nJournal of Applied Engineering Science-\
+    \ Vol.20, No 3, 2022 -www.engineeringscience.rs \n \nthrough the General Packet\
+    \ Radio Service (GPRS) and Zigbee module and built a microprocessor-based gateway\
+    \ \nto better control water discharge with water efficiency than conventional\
+    \ irrigation systems, with the difference \nbetween conventional and modern irrigation\
+    \ can be seen in Figure 2. \n \nFig 2. Types of irrigation \n3.1 \nSprinkler Irrigation\
+    \ \nFarmers use sprinkler irrigation to mimic precipitation patterns. They used\
+    \ small sprinkler nozzles connected to an \nextensive piping system to ensure\
+    \ comprehensive irrigation coverage and used pumps to spray high-pressure \nwater\
+    \ onto the air [48]. The advantage of sprinkler is that it minimizes runoff, is\
+    \ suitable for all types of soil, and has \na water-saving rate of between 30\
+    \ - 50%. Sprinkles can be mixed with fertilizer solutions and used in close \n\
+    cropping and high plant population [28]. However, this method has high operating\
+    \ costs for cleaning sprinkler \nnozzles and maintaining high-pressure pumps and\
+    \ pipes. In addition, sprinkler irrigation is unsuitable for use in \nwindy areas\
+    \ because wind gusts and evapotranspiration cause high water loss rates. Moreover,\
+    \ regular \nmaintenance of the pipes and their connections to avoid leaks or clogs\
+    \ can reduce the water spray pressure, \nreducing water distribution to the plants\
+    \ [37, 48]. \n3.2 \nDrip Irrigation \nIn drip irrigation, the water source moistens\
+    \ the soil or planting media through the holes in the pipes and flows \nthrough\
+    \ a hose connected to the emitter with low pressure. The focus of water droplets\
+    \ is a small part of the soil or \ngrowing medium that covers the root zone by\
+    \ adjusting it to get water droplets [49]. Drip irrigation is the most \nefficient\
+    \ irrigation because it can distribute water and nutrients simultaneously to the\
+    \ root zone, which results in \nbetter nutrient uptake. Due to the circulation\
+    \ of water in the roots through the capillary principle, the pores of the \nsoil\
+    \ or planting medium remain dry so that air circulation is maintained and soil\
+    \ moisture is at field capacity. \nProduces a root zone capable of breathing more\
+    \ intensely during its growth cycle [25, 37, 50]. \nDrip irrigation uses dripping\
+    \ water delivered at a rate of between 2 - 20 liters per hour. The application\
+    \ of this \nmethod is to place an emitter on each plant. It is suitable for use\
+    \ on vegetables and fruit, but farmers usually only \nconsider high-value plants\
+    \ because the investment value is relatively high [37, 49]. This method supports\
+    \ various \ntypes of soil by adjusting the speed of water application. Hefty porous\
+    \ sandy soils need a fast drip-rate; conversely, \nclay soil needs a slow drip\
+    \ rate to avoid water logging and runoff [25, 37]. \n4 MONITORING AND CONTROLLING\
+    \ STRATEGIES \nA total of 30 papers were used to examine the irrigation system's\
+    \ monitoring and control method. These \npublications provide ways for regulating\
+    \ irrigation by employing sensors to measure changes in microclimate, water \n\
+    quality, and soil moisture values. The paper's distribution is represented in\
+    \ Figure 3 below. \nAn effective and efficient monitoring system is needed to\
+    \ collect different plant growth parameters. Monitoring in an \nintelligent irrigation\
+    \ system involves collecting data representing the latest microclimate data and\
+    \ water and soil \nconditions around the irrigation area through a microcontroller\
+    \ connected to the IoT [51], shown in Figure 4. The \ndevelopment of real-time\
+    \ monitoring devices was made possible due to the rapid development of microcontrollers\
+    \ \nand sensors, low-cost hardware (Arduino UNO, ESP8266, Raspberry Pi), and fast\
+    \ internet, which enhanced the \nperformance of monitoring and control systems\
+    \ [17, 52]. There are two types of internet connections: wired and \nwireless;\
+    \ Wired connections make the internet connection stable, but with fixed hardware\
+    \ location. Wireless \nconnection makes flexible hardware placement but has signal\
+    \ interference [53]. \n \n660 \nIrfan Ardiansah, et al. - An overview of IOT based\
+    \ intelligent irrigation systems for greenhouse: recent trends \nand challenges\
+    \ \n \nJournal of Applied Engineering Science - Vol.20, No 3, 2022 - www.engineeringscience.rs\
+    \ \n \n \n \nFig 3. Distribution of papers on monitoring and controlling strategies\
+    \ \n \nFig 4. Block diagram of IoT based Smart Farming \nAll devices and sensors\
+    \ are connected directly to the server via a cabling system in a wired connection\
+    \ case. This \nsystem is only effective when a few parameters are measured and\
+    \ use a small greenhouse; it is crucial because \nthe more connected devices,\
+    \ the more cables are used. So, the wired greenhouse system is not suitable for\
+    \ large \nor commercial greenhouses. The advantage is that data transactions are\
+    \ safe and have minimal interference [51, \n53, 54]. WSN is the latest technology\
+    \ in intelligent farming that can be expanded and scaled up without modifying\
+    \ \nthe greenhouse infrastructure. Its wireless form makes it easy to receive\
+    \ and transmit data between nodes using \nlow-power frequencies. Unfortunately,\
+    \ interference and signal loss are common problems because of the high \nfrequency\
+    \ in the air. However, the increase in greenhouse size, the number of parameters,\
+    \ sensors variety, node \nsize, and devices distant is not a problem because an\
+    \ additional WSN only needs to be attached to an existing \nnetwork. Another advantage\
+    \ is Wireless Sensor Networks (WSN) technology, wirelessly connected sensor nodes\
+    \ \nnetwork to sense and send various data, and extensible [36, 54, 55]. \nThe\
+    \ implementation of WSN in agriculture itself is extensive, with sensors, RFID,\
+    \ cameras, drones, and cloud \nservices connected seamlessly for data acquisition\
+    \ and transmission. Cloud computing serves data collection and \nanalysis to generate\
+    \ visualizations, decision support, and commands; system users (farmers or researchers)\
+    \ can \nthen access data remotely via their devices to gain real-time insights\
+    \ [19, 56]. Thus, monitoring and controlling the \nintelligent irrigation system\
+    \ can be effective, efficient, convenient, and optimal yields. [55] proposed the\
+    \ approach \nwith WSN and gateway node to collect soil moisture values in plants\
+    \ by taking soil and cultivated plants images. \nThe challenges in building a\
+    \ system that can accommodate these two technologies are sensor coverage, \ncommunication\
+    \ between devices, computational process efficiency, and electricity usage. [57]\
+    \ also offers UAVs for \naerial monitoring of vegetation and irrigation areas.\
+    \ \nAppropriate control techniques in intelligent irrigation systems can increase\
+    \ crop water supply precisely to improve \nthe efficiency of water use, energy\
+    \ savings, harvest optimization, proper use of nutrients, and effective use of\
+    \ labor. \n11\n5\n14\n0\n5\n10\n15\nMicroclimate\nWater Quality\nSoil Moisture\n\
+    661 \n \nIrfan Ardiansah, et al. - An overview of IOT based intelligent irrigation\
+    \ systems for greenhouse: recent trends and \nchallenges \n \nJournal of Applied\
+    \ Engineering Science- Vol.20, No 3, 2022 -www.engineeringscience.rs \n \nTherefore,\
+    \ a control system can manipulate several irrigation parameters, like air circulation,\
+    \ air temperature, \nrelative humidity, wind speed, and solar radiation [58–60].\
+    \ A technology that can analyze the surface temperature \nof agricultural land\
+    \ without touching it using thermal imaging was proposed by [61] to determine\
+    \ which areas of \nland are in dire need of water because the non-uniformity of\
+    \ soil moisture can inhibit spinach growth. Studies by \n[56, 62–64] also state\
+    \ that it is possible to use thermal imaging for nurseries, forecasting crop yields,\
+    \ pest and \ndisease disturbances, maintenance of agricultural machinery, and\
+    \ irrigation scheduling. \n4.1 \nMicroclimate based  \nMonitoring and controlling\
+    \ the microclimate in the greenhouse is a critical factor to account for water\
+    \ loss due to \nevaporation. Air temperature, relative humidity, solar radiation,\
+    \ and wind speed need precision measurements to \nmeet crop water requirements\
+    \ [30, 65]. The Raspberry Pi, various Arduino models, connected to WSN, and cloud\
+    \ \nservers are popular hardware. WSN implementation is an efficient way to interconnect\
+    \ various sensors placed far \napart in the greenhouse. The system performs accurate\
+    \ system monitoring, collects data, and presents charts, and \ncontrol devices\
+    \ are activated, referring to predefined threshold values compared with real-time\
+    \ data [30, 36, 66]. \n[59] presented a technique for evaluating microclimate\
+    \ parameters in two tropical greenhouses before planting \ntomatoes using LoRa\
+    \ wireless and IoT sensors. The comfort ratio model (CftM) and scenario analysis\
+    \ show that \nenvironmental conditions can adapt to the growth phase of tomato\
+    \ plants. The microclimate before and during \nplanting was analyzed using the\
+    \ Simulink app. Also, a study by [67] showed that a microclimate parameter \n\
+    measurement device in a greenhouse could yield comprehensive data for temperature,\
+    \ humidity, CO2 levels, \nlighting levels, soil moisture, acidity, irrigation\
+    \ water conductivity, and airflow velocity. In winter, the greenhouse \nbehavior\
+    \ was studied by [68] using fuzzy logic control (FLC) due to uncertainty in the\
+    \ greenhouse environment. The \nfuzzy set was developed based on experts in greenhouse\
+    \ thermal behavior. Fuzzy control manages decisions \nbased on weather forecasts\
+    \ and user interactions. [54] also took a similar approach to measure leaf temperature,\
+    \ \nair temperature, and soil moisture using three connected sensors to assess\
+    \ the level of microclimate in a \ngreenhouse and use Zigbee to transmit sensor\
+    \ data. \nControlling the microclimate in the greenhouse by using fan ventilation\
+    \ and fan-pad ventilation can also be an \noption. This forced ventilation can\
+    \ prevent plants from overheating even if the greenhouse does not use an \nevaporative\
+    \ cooling system. Greenhouses can produce good harvests in the spring, and the\
+    \ data show a \nrelationship between the greenhouse microclimate and water uptake\
+    \ that minimizes drainage [69]. [70] built a \nmonitoring system using an open-source\
+    \ platform to collect microclimate variables (air temperature, humidity, soil\
+    \ \ntemperature, and soil moisture). Communication between devices uses Bluetooth\
+    \ and obtain electricity supply \nthrough solar panels. [71] has proposed improvements\
+    \ to the greenhouse IoT-based system by adding color \nspectrum monitoring using\
+    \ a camera system to get photos of the plant canopies translated into color (RGB,\
+    \ HSL, \nand brightness), plant texture, thermal (plant temperature), and plant\
+    \ morphology. The system works with NFT to \nirrigate lettuce plants in the greenhouse,\
+    \ automatically recording data and identifying plant stress levels. \n4.2 \nWater\
+    \ Quality-based \nWater quality safety is a challenge in the 21st century because\
+    \ of the many pollutants, which are predominantly \nartificial such as environmental\
+    \ damage, packaging waste, or chemical waste. Overexploitation of natural \nresources,\
+    \ rapid industrial development, and agricultural expansion are the leading causes\
+    \ of the problem. [72]. \nWater quality is affected by direct and indirect sources\
+    \ of pollution such as sewage, factory waste, agricultural and \nurban runoff.\
+    \ The need for human involvement in water quality management is essential [73,\
+    \ 74]. Water quality \nmanagement is a way to regularly collect water quality\
+    \ information in a location to find out its current condition. \nWater quality\
+    \ management aims to measure water quality variables such as microbial content\
+    \ physical and \nchemical properties, provide an early warning system and provide\
+    \ decision support for further treatment [75, 76]. \nWSN and IoT are inevitable\
+    \ to manage variables over a wide area for larger areas such as lakes or oceans.\
+    \ \n[75] has proposed a system that assesses irrigation water quality with IoT\
+    \ by detecting potential hydrogen (pH), \nelectrical conductivity (EC), turbidity,\
+    \ and salinity in real-time using different sensors to maintain plant health status.\
+    \ \nAlso, [77] undertook a study to build a continuous water quality monitoring\
+    \ system using open-source hardware \nand low-cost sensors. Preliminary results\
+    \ show that the device can produce accurate results at a lower cost than \nexisting\
+    \ technologies with proper calibration. \n4.3 \nSoil Moisture-based \nFarmers\
+    \ need to consider soil conditions because moist soil means the plant still has\
+    \ enough water for growth [11]. \nMonitoring soil moisture content becomes vital\
+    \ as the basis for irrigation scheduling. Raspberry Pi and Arduino \nUNO have\
+    \ commonly used devices in developing low-cost IoT-based soil moisture management\
+    \ interfaced using \nvarious sensors [30, 60, 75]. The sensor used is a capacitive\
+    \ type and transmits electricity without conduction; it \ncan measure soil moisture\
+    \ changes by planting them into the soil and measuring its volumetric water content.\
+    \ The \nTime Domain Reflectometry (TDR) sensor is a more precise option for measuring\
+    \ soil moisture, consisting of two \nmetal rods embedded at the depth at which\
+    \ the humidity is to be measured. Works by sending pulses to the soil \nand then\
+    \ calculating the response of the soil as soil moisture content. Due to its good\
+    \ quality in measuring soil \nmoisture, this TDR sensor is quite expensive to\
+    \ use in large-scale greenhouses [78, 79]. \n662 \nIrfan Ardiansah, et al. - An\
+    \ overview of IOT based intelligent irrigation systems for greenhouse: recent\
+    \ trends \nand challenges \n \nJournal of Applied Engineering Science - Vol.20,\
+    \ No 3, 2022 - www.engineeringscience.rs \n \n \n[80] proposed a soil moisture\
+    \ control system for measuring water content in soil at different soil depths,\
+    \ soil types, \nand air temperatures using various sensors integrated with Arduino\
+    \ UNO. The ESP8266 wireless module is then \nlinked to the Arduino to upload data\
+    \ to the cloud server. A similar study by [81] succeeded in developing an IoT-\n\
+    based field control system integrated with cloud-based data monitoring and analysis.\
+    \ The analysis results help \npredict water consumption for better crop yields.\
+    \ [82] approach to controlling soil moisture uses wireless technology \nutilizing\
+    \ GSM networks and push notifications to automate water supply for plants. A system\
+    \ proposed by [83] \npresents an Android application-based humidity monitoring\
+    \ method, where an Arduino interface sensor connected \nto Wi-Fi sends state data\
+    \ to a smartphone. Another monitoring approach is carried out by [60] using IoT\
+    \ and soil \nnutrient sensors to detect nutrient adequacy for plants. The decision\
+    \ support system then receives the data \nparameters and processes them as a farming\
+    \ decision. \n[84] implemented a user-friendly system, representing the soil moisture\
+    \ level with colors. These colors have helped \nfarmers visually identify and\
+    \ manage soil moisture content without understanding the values displayed. Likewise,\
+    \ \n[85] proposed a soil nutrient control system that can manage the concentration\
+    \ of nutrients in the soil by planting \nsensors in the soil to map nutrient variability.\
+    \ Also, [86] developed an innovative device that uses a camera-\nintegrated drone\
+    \ for field mapping. Images are analyzed to generate soil moisture and nutrient\
+    \ values and use \nthem for irrigation planning and scheduling. \n5 ARTIFICIAL\
+    \ INTELLIGENCE IN IRRIGATION SYSTEM \nArtificial intelligence in intelligent irrigation\
+    \ systems was the subject of 25 papers. These studies concentrate on \ndeveloping\
+    \ decision support systems, fuzzy logic models, and artificial neural network\
+    \ models that can take \ndecisions automatically in response to changes in field\
+    \ conditions. The distribution of articles based on the theme \nof artificial\
+    \ intelligence is shown in Figure 5 below. \n \nFig 5. Distribution of papers\
+    \ on artificial intelligence in irrigation system \nArtificial intelligence (AI)\
+    \ is a branch of science concerned with creating machines that can understand\
+    \ and act in \nthe same way as humans. Machine learning is a burgeoning sub-domain\
+    \ of AI that explores patterns in large \namounts of data [58, 87]. The popularity\
+    \ of machine learning is due to more and more data generated by various \napplications\
+    \ and IoT. The system can generate helpful information for making decisions or\
+    \ becoming input to other \nsystems by studying data patterns. The need for agricultural\
+    \ products is directly proportional to the increase in the \nearth's population,\
+    \ so agroindustry and innovative agriculture technology get the spotlight in the\
+    \ industrial revolution \n4.0 [16, 46].  \nAI has the potential to solve nonlinear,\
+    \ multiparameter, and time-varying problems in managing intelligent irrigation\
+    \ \nsystems. By applying AI algorithms to specific problem areas, the system tries\
+    \ to imitate human logic, thought \nprocesses, and decision making through the\
+    \ application of Fuzzy Logic, Support Vector Machine (SVM), k-Nearest \nNeighbor\
+    \ (kNN), Decision Tree and Random Forest by using past data to feed AI and provides\
+    \ new knowledge to \nthe system [58, 61]. [88] has researched by applying different\
+    \ regression and machine learning algorithms to \nseveral sensor datasets to develop\
+    \ weekly irrigation plan predictions. \nA study implementing an intelligent irrigation\
+    \ system shows many advantages, such as minimizing soil stress to \nchanging microclimate\
+    \ conditions, efficient water use, and reducing human interaction. This solar\
+    \ panel-powered \nsystem has a Sensor Layer, Central Layer, and Valve Layer running\
+    \ together. The function of the Central Layer is \nto control the process that\
+    \ produces input (sensor layer detects moisture content) and output (valve layer\
+    \ opens to \nprovide water). The system also enables fertilizers and pesticides\
+    \ by calibrating other sensors according to the \nrequired input [89]. \n5.1 \n\
+    Decision Support System \nWater management for irrigation requires extensive and\
+    \ comprehensive data on dispersed and spatial agriculture. \nIn general, farmers\
+    \ have difficulty processing their data because they do not have the experience\
+    \ and expertise to \n11\n6\n8\n0\n2\n4\n6\n8\n10\n12\nDecision Support\nFuzzy\
+    \ Logic\nArtificial Neural Network\n663 \n \nIrfan Ardiansah, et al. - An overview\
+    \ of IOT based intelligent irrigation systems for greenhouse: recent trends and\
+    \ \nchallenges \n \nJournal of Applied Engineering Science- Vol.20, No 3, 2022\
+    \ -www.engineeringscience.rs \n \nmake irrigation management decisions; this is\
+    \ where the decision support system (DSS) comes in [76, 90]. DSS \nhas a framework\
+    \ that can represent complex systems with an efficient and robust approach that\
+    \ is easy to \nunderstand generates additional information and new perspectives\
+    \ to improve the quality of irrigation management. \nDSS is an information system\
+    \ that analyzes data and represents it to make decisions quickly. The primary\
+    \ purpose \nof DSS is to support and improve decision-making [28, 76]. Figure\
+    \ 6 shows a DSS logic diagram that consists of \nfour connected components: Database,\
+    \ model base, knowledge base, and user interface. \n \nFig 6. Block diagram of\
+    \ Decision Support System \nThe Database in irrigation DSS collects and manages\
+    \ air temperature, relative humidity, crop water requirements, \nirrigation records,\
+    \ and solar radiation. The knowledge base has three parts: fact base, rule base,\
+    \ and inference \nengine used to analyze data, solve uncertain problems and draw\
+    \ conclusions. The model base creates optimization \nmodels, integrates numerous\
+    \ decision models, analyzes them to create crop water simulations, and offers\
+    \ farmers \nirrigation scheduling. [71, 76]. \nDeveloping and utilizing a decision\
+    \ support system in irrigation management is essential for scheduling water \n\
+    delivery based on crop needs. The main problem is how moist the soil is and how\
+    \ much water the plants need \nbased on the type of plant, planting technique,\
+    \ availability of water, amount of fertilizer applied, microclimate \nconditions,\
+    \ and stage of plant development [91]. With DSS, farmers can manage their farms\
+    \ daily using plant \ndatabases and water supply strategies to perform irrigation\
+    \ calculations and fertilization adjustments to obtain \noptimal yields. There\
+    \ are times when a system has a crop suggestion feature that advises farmers to\
+    \ plant a crop \nthat yields the highest profit under certain constraints [92].\
+    \ \nThe problem is that the characteristics of crops, soils, and microclimatic\
+    \ conditions in agriculture are dynamic and \nnot linear, varying with seasons.\
+    \ Therefore, setting the proper irrigation schedule will directly influence plant\
+    \ growth. \nThe core of DSS includes monitoring different parameters using different\
+    \ sensors and configuring their rules. DSS \nmanages sensor readings stored in\
+    \ the cloud to adjust irrigation scheduling to maintain irrigation system efficiency\
+    \ \nroutinely [76, 90]. An intelligent irrigation DSS must have the ability to\
+    \ adapt to changes in transient and spatial \nplant dynamics, such as uncertainties\
+    \ in microclimate conditions, nutrient requirements, and environmental \nchanges.\
+    \ Researchers have proposed many studies on DSS applied to irrigation systems,\
+    \ such as [93], who \ndeveloped an automated irrigation system using a single\
+    \ lateral pipe covering a large area to manage water at \nvarying speeds. \nSprinkler\
+    \ irrigation developed by [94] uses an automatic linear moving sprinkler system\
+    \ with WSN based DSS. The \nsystem can adapt to crop types, irrigation requirements,\
+    \ and planting locations to command individual sprinkler \nheads how and where\
+    \ water must be applied. Similarly, [76] built a DSS integrated fertigation simulator\
+    \ for \ndesigning drip or sprinkler irrigation for on-site olives and grapes farms.\
+    \ The system has a database, simulation \nmodel, and user interface that shows\
+    \ the ranking of design alternatives through multicriteria decision-making \n\
+    (MCDM). The scope of the calculation of this system includes land analysis, water\
+    \ requirements, and plant \nnutrition. \n664 \nIrfan Ardiansah, et al. - An overview\
+    \ of IOT based intelligent irrigation systems for greenhouse: recent trends \n\
+    and challenges \n \nJournal of Applied Engineering Science - Vol.20, No 3, 2022\
+    \ - www.engineeringscience.rs \n \n \n5.2 \nFuzzy Logic Model \nA fuzzy logic\
+    \ model is a data-driven technique with easy-to-understand logical rules. [50,\
+    \ 68, 95] proposed a fuzzy \nlogic-based irrigation scheduling by enforcing control\
+    \ rules to microclimate data, evaporation data, and soil \nconditions. The process\
+    \ flow can be seen in Figure 7. \n[96] succeeded in building and testing a rule-based\
+    \ Fuzzy Logic application to assess the water stress index of \nplants in a greenhouse;\
+    \ the application accepts three input variables, namely air temperature, solar\
+    \ radiation, and \nwater pressure. Results show that Fuzzy Logic eliminates the\
+    \ need for air aerodynamic resistance data, making \nthis system more straightforward.\
+    \ \n[95] developed fuzzy logic using the LabVIEW application to create a graphical\
+    \ user interface (GUI) for a drip \nirrigation control system in a greenhouse.\
+    \ The input parameters used are air temperature and soil moisture and \nprocess\
+    \ them using fuzzy rules to produce information of irrigation duration. The test\
+    \ results show that fuzzy logic \ncontrol can efficiently estimate irrigation\
+    \ schedules in an automated system, and greenhouse managers can \nmonitor real-time\
+    \ data and devices that are easy to manage, even for ordinary users. [97] research\
+    \ also designed \nan irrigation control based on fuzzy logic applying the Penman-Monteith\
+    \ equation for rice cultivation with a \nparameter model in the difference between\
+    \ actual and target evapotranspiration following the plant growth phase. \nEach\
+    \ phase has its water requirement. The research aims to develop an intelligent\
+    \ system that helps irrigation \nmanagement and produces a system that can work\
+    \ better than conventional irrigation systems. The results showed \nthat the control\
+    \ system saves water, improves irrigation performance, improves crop quality,\
+    \ and saves labor.  \n \nFig 7. Fuzzy Logic-based Intelligent Irrigation System\
+    \ \nAlso, [50] developed a fuzzy logic system that evaluates the irrigation system\
+    \ based on the variable availability of \nirrigation water during the planting\
+    \ period on the level of farmers' income which results in the efficiency of the\
+    \ \nirrigation system performance. To assist in making decisions on irrigation\
+    \ distribution. [98] conducted similar \nresearch by developing an intelligent\
+    \ irrigation system to turn on and off the irrigation system using input \nparameters\
+    \ of water use, water and air temperature, and soil moisture. They implement WSN-based\
+    \ monitoring to \nsend data on fuzzy logic, which then performs irrigation scheduling\
+    \ by applying fuzzy rules. The system can \nmaintain soil moisture content at\
+    \ the specified limit to save the use of electrical energy, water, and runoff.\
+    \ \n5.3 \nArtificial Neural Network Model \nOne application of AI in agriculture\
+    \ is Artificial Neural Networks (ANN) algorithms, which can predict using elements\
+    \ \ninterconnected and work in parallel. The advantage of neural networks is that\
+    \ they can be trained, for example, to \ndistinguish grass from rice or to compare\
+    \ tomatoes to peppers [71]. The ANN system can predict with high \naccuracy when\
+    \ fed reliable and precise data. A trained ANN is considered an expert in a category\
+    \ of data. This \nexpert can then predict possible future conditions and prepare\
+    \ what-if scenarios [73, 87]. Other advantages of ANN \nare (1) Adaptive learning,\
+    \ the ability to learn and carry out tasks based on the data provided, (2) Self-organization,\
+    \ \nthe system can independently compile and build information representations\
+    \ during the learning process, and (3) \nReal-time operations, computations are\
+    \ carried out in parallel, so it is faster to get calculation results [99]. \n\
+    The ANN model is a simple model consisting of three primary neurons distributed\
+    \ in the input layer, multiples of the \nhidden layer, and the output layer. ANN\
+    \ development requires necessary basic steps, namely datasets, ANN \nmodel training\
+    \ data, and ANN model test data for evaluation. Using quality data, the ANN model\
+    \ has a mechanism \nfor self-study and solving complex problems. Input neurons\
+    \ receive parameters, then hidden neurons perform \n665 \n \nIrfan Ardiansah,\
+    \ et al. - An overview of IOT based intelligent irrigation systems for greenhouse:\
+    \ recent trends and \nchallenges \n \nJournal of Applied Engineering Science-\
+    \ Vol.20, No 3, 2022 -www.engineeringscience.rs \n \ncomputations, and output\
+    \ neurons send signals to other network layers; and interconnect neurons using\
+    \ linear and \nnonlinear functions [26, 87, 99, 100]. \nThe following Figure 8\
+    \ shows the ANN process flow. In general, the use of ANN includes problem-solving\
+    \ in system \noptimization, process control, pattern classification, forecasting,\
+    \ and prediction. The main components of an ANN \nmodel consist of neuron nodes,\
+    \ a hidden layer containing weights between parameters and distribution rules\
+    \ to \ngenerate information for learning rules and independent learning skills\
+    \ through experience. There are two types of \nANN models based on their input\
+    \ choices: feed-forward and feed-backward networks [99]. \n \nFig 8. The flow\
+    \ of feed-forward artificial neurons \nEvapotranspiration is essential information\
+    \ that needs to be known to optimize plant growth, especially in water \nmanagement\
+    \ and sustainable irrigation systems. Knowledge of the parameters of air temperature,\
+    \ relative \nhumidity, wind speed, hours of sunshine, and latitude can optimize\
+    \ the management of ET0 in a greenhouse [97]. \nANN research on intelligent irrigation\
+    \ systems is applied to scheduling and irrigation discharge to achieve savings\
+    \ \nin irrigation water use. [87] conducted a study to estimate the value of soil\
+    \ moisture in rice farming land using \nminimal micro and macro climate data by\
+    \ applying two ANN models. The first model predicts the value of ET0 \nusing the\
+    \ minimum, maximum and average air temperature variables. The second model does\
+    \ the same thing but \nuses air temperature, precipitation, and solar radiation.\
+    \ The test results show that both models produce reliable and \naccurate soil\
+    \ moisture estimates. \nA study by [101] has developed an ANN model to calculate\
+    \ evapotranspiration (ET0). After testing, they concluded \nthat the ANN model\
+    \ predicts evapotranspiration better than the conventional ET0 equation. Similarly,\
+    \ [90] \ndeveloped an ANN to calculate ET0 and compared it with the Penman-FAO\
+    \ equation and Penman-Monteith model \nusing four and six microclimate variables\
+    \ as inputs. The test indicates that the three models provide accurate \nresults\
+    \ using six input parameters. In contrast, the test results with four parameters\
+    \ show that only the ANN model \ncan accurately predict the ET0 value. This research\
+    \ shows that building an ANN model is possible even with limited \nmicroclimate\
+    \ data.  \nIn addition, irrigation control system automation was also proposed\
+    \ by [102] using the ANN cluster and closed-loop \ncontrol, which resulted in\
+    \ better performance than time-based irrigation control. However, they did not\
+    \ provide \ninformation regarding the irrigation method used and the percentage\
+    \ of water savings. [100] developed an \nintelligent irrigation system for evapotranspiration\
+    \ using the ANN model and a photovoltaic system to predict \nirrigation scheduling\
+    \ based on cropping moisture distribution data; this study reported better daily\
+    \ water and \nelectrical energy savings also better crop yields. The application\
+    \ of ANN in irrigation water management has also \ndiscussed prediction of water\
+    \ salinity, water quality, rain runoff, and forecasting of surface irrigation\
+    \ infiltration,  \n[73] proposed two ANN models to predict Biochemical Oxygen\
+    \ Demand (BOD) and Dissolved Oxygen (DO) for \nirrigation water originating from\
+    \ rivers; the conclusion is that water quality management in other areas can also\
+    \ use \nthis ANN model. Similarly, [103] uses the ANN model to design an intelligent\
+    \ system to manage water systems for \nagriculture and fisheries. [104] explained\
+    \ that the greenhouse environment has dynamic and complex \ncharacteristics, making\
+    \ it difficult to use conventional control methods as a solution. Radial Basis\
+    \ Function Neural \nNetworks (RBF) algorithm and nonlinear adaptive controllers\
+    \ become solutions to control greenhouse microclimate. \n[74] discusses the use\
+    \ of ANN in drip irrigation systems to predict the distribution of subsurface\
+    \ irrigation water. \nThe development of the ANN is to model the continuous wetting\
+    \ pattern after the water droplets from the emitter \ntouch the ground surface.\
+    \ \n6 FUTURE OPPORTUNITIES AND CHALLENGES \nThis review explored the various studies\
+    \ and progress to improve irrigation water use efficiency, nutrient \noptimization,\
+    \ and crop yields. The aim is to improve and increase food availability by implementing\
+    \ IoT-based \nmonitoring and control on agricultural land, especially greenhouses.\
+    \ The review results show that researchers and \n666 \nIrfan Ardiansah, et al.\
+    \ - An overview of IOT based intelligent irrigation systems for greenhouse: recent\
+    \ trends \nand challenges \n \nJournal of Applied Engineering Science - Vol.20,\
+    \ No 3, 2022 - www.engineeringscience.rs \n \n \nfarmers can maximize the use\
+    \ of the latest IoT technologies for environmental conditions monitoring, data-driven\
+    \ \ncontrol, and artificial intelligence. Nowadays, there is an increase in research\
+    \ that develops techniques and models \nfor developing irrigation control systems.\
+    \ The trend is due to the emergence of various sensors and controls on the \n\
+    market; this provides vast opportunities for the development of precision agriculture,\
+    \ especially for making \nintelligent predictions of agricultural processes such\
+    \ as crop yields, crop water requirements, and microclimate \nconditions. Researchers\
+    \ also need to explore other factors that influence irrigation scheduling planning,\
+    \ especially \nin large agricultural areas, because researchers generally conduct\
+    \ studies on a laboratory scale. Research from \ndifferent perspectives will enrich\
+    \ intelligent irrigation systems and result in inaccurate predictions that can\
+    \ advise \nfarmers regarding their farming activities and notify them when anomalies\
+    \ occur. \nFurthermore, researchers need to test various control systems in the\
+    \ irrigation systems discussed, focus on \nadaptive control, and combine it with\
+    \ real-time monitoring. It is essential to build systems that can adapt to dynamic\
+    \ \nparameters of microclimate, soil, and plant. At the same time, ensure the\
+    \ intelligent irrigation system runs optimally. \nIn addition, it is essential\
+    \ to develop intelligent irrigation systems that are increasingly complex and\
+    \ digital-based so \nthat the technology is suitable, affordable, and stable for\
+    \ smallholders. The hope is to increase water use efficiency \nand solve water\
+    \ scarcity. \n7 CONCLUSION \nLimited water has become the biggest challenge for\
+    \ farmers, and efficiency must solve water scarcity in irrigation \nmanagement.\
+    \ The main objective is to control the amount and frequency of irrigation so that\
+    \ the amount of water \nreceived by plants is sufficient to keep the root zone\
+    \ moist. Farmers who are generally ignorant about the \ncomplexity of optimal\
+    \ irrigation management need a system that can facilitate big data processing\
+    \ analysis tools \nand transmit quality information quickly and efficiently. The\
+    \ system must be able to provide recommendations \naccording to the conditions\
+    \ of the agricultural environment to increase the experience and decision-making\
+    \ of \nfarmers. \nThis problem challenges researchers to increase efforts to develop\
+    \ sophisticated monitoring and control strategies \nfor intelligent farming that\
+    \ minimize irrigation water use. This review draws on previous relevant studies\
+    \ on \nagriculture water saving. The review results describe research trends in\
+    \ intelligent irrigation systems monitoring \nand control strategies and assess\
+    \ research opportunities to ensure water availability and savings. We hope this\
+    \ \nreview provides insight and inspiration for researchers to continue research\
+    \ on irrigation monitoring and control to \nachieve food security and water savings.\
+    \ \n8 REFERENCES \n[1] Gillespie, S., & van den Bold, M. (2017). Agriculture,\
+    \ Food Systems, and Nutrition: Meeting the Challenge. \nGlobal Challenges, 1(3),\
+    \ 1600002. https://doi.org/10.1002/gch2.201600002 \n[2] Ayres, R. U., van den\
+    \ Bergh, J. C. J. M., Lindenberger, D., & Warr, B. (2013). The underestimated\
+    \ \ncontribution of energy to economic growth. Structural Change and Economic\
+    \ Dynamics, 27, 79–88. \nhttps://doi.org/10.1016/j.strueco.2013.07.004 \n[3] Dagnino,\
+    \ M., & Ward, F. A. (2012). Economics of Agricultural Water Conservation: Empirical\
+    \ Analysis and \nPolicy Implications. International Journal of Water Resources\
+    \ Development, 28(4), 577–600. \nhttps://doi.org/10.1080/07900627.2012.665801\
+    \ \n[4] Olayide, O. E., Tetteh, I. K., & Popoola, L. (2016). Differential impacts\
+    \ of rainfall and irrigation on agricultural \nproduction in Nigeria: Any lessons\
+    \ for climate-smart agriculture? Agricultural Water Management, 178, 30–\n36.\
+    \ https://doi.org/10.1016/j.agwat.2016.08.034 \n[5] Tierno, R., Carrasco, A.,\
+    \ Ritter, E., & de Galarreta, J. I. R. (2014). Differential Growth Response and\
+    \ \nMinituber Production of Three Potato Cultivars Under Aeroponics and Greenhouse\
+    \ Bed Culture. American \nJournal of Potato Research, 91(4), 346–353. https://doi.org/10.1007/s12230-013-9354-8\
+    \ \n[6] Sambo, P., Nicoletto, C., Giro, A., Pii, Y., Valentinuzzi, F., Mimmo,\
+    \ T., … Cesco, S. (2019). Hydroponic \nSolutions for Soilless Production Systems:\
+    \ Issues and Opportunities in a Smart Agriculture Perspective. \nFrontiers in\
+    \ Plant Science. Retrieved from https://www.frontiersin.org/article/10.3389/fpls.2019.00923\
+    \ \n[7] Sisodia, G. S., Alshamsi, R., & Sergi, B. S. (2021). Business valuation\
+    \ strategy for new hydroponic farm \ndevelopment – a proposal towards sustainable\
+    \ agriculture development in United Arab Emirates. British Food \nJournal, 123(4),\
+    \ 1560–1577. https://doi.org/10.1108/BFJ-06-2020-0557 \n[8] Vadiee, A., & Martin,\
+    \ V. (2014). Energy management strategies for commercial greenhouses. Applied\
+    \ \nEnergy, 114, 880–888. https://doi.org/https://doi.org/10.1016/j.apenergy.2013.08.089\
+    \ \n[9] Liu, H., Li, H., Ning, H., Zhang, X., Li, S., Pang, J., … Sun, J. (2019).\
+    \ Optimizing irrigation frequency and \namount to balance yield, fruit quality\
+    \ and water use efficiency of greenhouse tomato. Agricultural Water \nManagement,\
+    \ 226, 105787. https://doi.org/https://doi.org/10.1016/j.agwat.2019.105787 \n\
+    667 \n \nIrfan Ardiansah, et al. - An overview of IOT based intelligent irrigation\
+    \ systems for greenhouse: recent trends and \nchallenges \n \nJournal of Applied\
+    \ Engineering Science- Vol.20, No 3, 2022 -www.engineeringscience.rs \n \n[10]\
+    \ Chen, J., Kang, S., Du, T., Qiu, R., Guo, P., & Chen, R. (2013). Quantitative\
+    \ response of greenhouse tomato \nyield and quality to water deficit at different\
+    \ growth stages. Agricultural Water Management, 129, 152–162. \nhttps://doi.org/https://doi.org/10.1016/j.agwat.2013.07.011\
+    \ \n[11] Saccon, P. (2018). Water for agriculture, irrigation management. Applied\
+    \ Soil Ecology, 123(October), 793–\n796. https://doi.org/10.1016/j.apsoil.2017.10.037\
+    \ \n[12] Bafdal, N., & Dwiratna, S. (2018). Water harvesting system as an alternative\
+    \ appropriate technology to supply \nirrigation on red oval cherry tomato production.\
+    \ International Journal on Advanced Science, Engineering and \nInformation Technology,\
+    \ 8(2), 561–566. https://doi.org/10.18517/ijaseit.8.2.5468 \n[13] Pasika, S.,\
+    \ & Gandla, S. T. (2020). Smart water quality monitoring system with cost-effective\
+    \ using IoT. \nHeliyon, 6(7), e04096. https://doi.org/10.1016/j.heliyon.2020.e04096\
+    \ \n[14] Kamienski, C., Soininen, J. P., Taumberger, M., Dantas, R., Toscano,\
+    \ A., Cinotti, T. S., … Neto, A. T. (2019). \nSmart water management platform:\
+    \ IoT-based precision irrigation for agriculture. Sensors (Switzerland), \n19(2).\
+    \ https://doi.org/10.3390/s19020276 \n[15] Matyakubov, B., Begmatov, I., Raimova,\
+    \ I., & Teplova, G. (2020). Factors for the efficient use of water \ndistribution\
+    \ facilities. IOP Conference Series: Materials Science and Engineering, 883(1).\
+    \ \nhttps://doi.org/10.1088/1757-899X/883/1/012025 \n[16] Nawandar, N. K., & Satpute,\
+    \ V. R. (2019). IoT based low cost and intelligent module for smart irrigation\
+    \ \nsystem. Computers and Electronics in Agriculture, 162(May), 979–990. \nhttps://doi.org/10.1016/j.compag.2019.05.027\
+    \ \n[17] Ardiansah, I., Bafdal, N., Bono, A., Suryadi, E., & Husnuzhan, R. (2021).\
+    \ Impact Of Ventilations In Electronic \nDevice Shield On Micro-climate Data Acquired\
+    \ In A Tropical Greenhouse. INMATEH - Agricultural \nEngineering, 63(1), 397–404.\
+    \ https://doi.org/10.35633/INMATEH-63-40 \n[18] Angelopoulos, C. M., Filios, G.,\
+    \ Nikoletseas, S., & Raptis, T. P. (2020). Keeping data at the edge of smart \n\
+    irrigation networks: A case study in strawberry greenhouses. Computer Networks,\
+    \ 167, 107039. \nhttps://doi.org/10.1016/j.comnet.2019.107039 \n[19] Edet, U.,\
+    \ & Mann, D. (2020). Visual information requirements for remotely supervised autonomous\
+    \ \nagricultural machines. Applied Sciences (Switzerland), 10(8). https://doi.org/10.3390/APP10082794\
+    \ \n[20] Vera, J., Conejero, W., Mira-García, A. B., Conesa, M. R., & Ruiz-Sánchez,\
+    \ M. C. (2021). Towards irrigation \nautomation based on dielectric soil sensors.\
+    \ Journal of Horticultural Science and Biotechnology, 00(00), 1–\n12. https://doi.org/10.1080/14620316.2021.1906761\
+    \ \n[21] Yuan, Z., Olsson, G., Cardell-Oliver, R., van Schagen, K., Marchi, A.,\
+    \ Deletic, A., … Jiang, G. (2019). \nSweating the assets – The role of instrumentation,\
+    \ control and automation in urban water systems. Water \nResearch, 155, 381–402.\
+    \ https://doi.org/10.1016/j.watres.2019.02.034 \n[22] Nageswara Rao, R., & Sridhar,\
+    \ B. (2018). IoT based smart crop-field monitoring and automation irrigation \n\
+    system. Proceedings of the 2nd International Conference on Inventive Systems and\
+    \ Control, ICISC 2018, \n(Icisc), 478–483. https://doi.org/10.1109/ICISC.2018.8399118\
+    \ \n[23] Uddin, J., Smith, R. J., Gillies, M. H., Moller, P., & Robson, D. (2018).\
+    \ Smart Automated Furrow Irrigation of \nCotton. Journal of Irrigation and Drainage\
+    \ Engineering, 144(5), 04018005. \nhttps://doi.org/10.1061/(asce)ir.1943-4774.0001282\
+    \ \n[24] Taneja, K., & Bhatia, S. (2017). Automatic irrigation system using Arduino\
+    \ UNO. Proceedings of the 2017 \nInternational Conference on Intelligent Computing\
+    \ and Control Systems, ICICCS 2017, 2018-Janua, 132–\n135. https://doi.org/10.1109/ICCONS.2017.8250693\
+    \ \n[25] Millán, S., Casadesús, J., Campillo, C., Moñino, M. J., & Prieto, M.\
+    \ H. (2019). Using soil moisture sensors for \nautomated irrigation scheduling\
+    \ in a plum crop. Water (Switzerland), 11(10), 1–18. \nhttps://doi.org/10.3390/w11102061\
+    \ \n[26] Karasekreter, N., Başçiftçi, F., & Fidan, U. (2013). A new suggestion\
+    \ for an irrigation schedule with an \nartificial neural network. Journal of Experimental\
+    \ and Theoretical Artificial Intelligence, 25(1), 93–104. \nhttps://doi.org/10.1080/0952813X.2012.680071\
+    \ \n[27] Ferrarezi, R. S., Dove, S. K., & Van Iersel, M. W. (2015). An automated\
+    \ system for monitoring soil moisture \nand controlling irrigation using low-cost\
+    \ open-source microcontrollers. HortTechnology, 25(1), 110–118. \nhttps://doi.org/10.21273/horttech.25.1.110\
+    \ \n[28] Almarshadi, M. H., & Ismail, S. M. (2011). Effects of precision irrigation\
+    \ on productivity and water use \nefficiency of Alfalfa under different irrigation\
+    \ methods in arid climates. Journal of Applied Sciences Research, \n7(3), 299–308.\
+    \ \n[29] Kumar Sahu, C., & Behera, P. (2015). A low cost smart irrigation control\
+    \ system. In 2015 2nd International \nConference on Electronics and Communication\
+    \ Systems (ICECS) (pp. 1146–1152). IEEE. \nhttps://doi.org/10.1109/ECS.2015.7124763\
+    \ \n668 \nIrfan Ardiansah, et al. - An overview of IOT based intelligent irrigation\
+    \ systems for greenhouse: recent trends \nand challenges \n \nJournal of Applied\
+    \ Engineering Science - Vol.20, No 3, 2022 - www.engineeringscience.rs \n \n \n\
+    [30] Ardiansah, I., Bafdal, N., Suryadi, E., & Bono, A. (2021). Design of micro-climate\
+    \ data monitoring system for \ntropical greenhouse based on arduino UNO and raspberry\
+    \ pi. IOP Conference Series: Earth and \nEnvironmental Science, 757(1). https://doi.org/10.1088/1755-1315/757/1/012017\
+    \ \n[31] Stambouli, T., Faci, J. M., & Zapata, N. (2014). Water and energy management\
+    \ in an automated irrigation \ndistrict. Agricultural Water Management, 142, 66–76.\
+    \ https://doi.org/10.1016/j.agwat.2014.05.001 \n[32] Mason, B., Rufí-Salís, M.,\
+    \ Parada, F., Gabarrell, X., & Gruden, C. (2019). Intelligent urban irrigation\
+    \ systems: \nSaving water and maintaining crop yields. Agricultural Water Management,\
+    \ 226(September), 105812. \nhttps://doi.org/10.1016/j.agwat.2019.105812 \n[33]\
+    \ Munir, M. S., Bajwa, I. S., Naeem, M. A., & Ramzan, B. (2018). Design and implementation\
+    \ of an IoT system \nfor smart energy consumption and smart irrigation in tunnel\
+    \ farming. Energies, 11(12). \nhttps://doi.org/10.3390/en11123427 \n[34] Castrignanò,\
+    \ A., Buttafuoco, G., Khosla, R., Mouazen, A. M., Moshou, D., & Naud, O. (2020).\
+    \ Agricultural \ninternet of things and decision support for precision smart farming.\
+    \ \n[35] Bafdal, N., & Dwiratna, S. (2018). Water Harvesting System As An Alternative\
+    \ Appropriate Technology To \nSupply Irrigation On Red Oval Cherry Tomato Production.\
+    \ International Journal on Advanced Science, \nEngineering and Information Technology,\
+    \ 8(2), 561–566. https://doi.org/10.18517/ijaseit.8.2.5468 \n[36] Banerjee, A.,\
+    \ Mitra, A., & Biswas, A. (2021). An Integrated Application of IoT‐Based WSN in\
+    \ the Field of \nIndian Agriculture System Using Hybrid Optimization Technique\
+    \ and Machine Learning. Agricultural \nInformatics, 171–187. https://doi.org/10.1002/9781119769231.ch9\
+    \ \n[37] Finkel, H. J. (2019). Handbook of Irrigation Technology: Volume 1. CRC\
+    \ press. \n[38] Pfeiffer, L., & Lin, C. Y. C. (2014). Does efficient irrigation\
+    \ technology lead to reduced groundwater \nextraction? Empirical evidence. Journal\
+    \ of Environmental Economics and Management, 67(2), 189–208. \nhttps://doi.org/10.1016/j.jeem.2013.12.002\
+    \ \n[39] Wang, F., & Feng, P. (2015). Design of Intelligent Irrigation Monitoring\
+    \ System Based on GPRS and Zigbee. \nAsian Agricultural Research, 7(6), 97–100.\
+    \ https://doi.org/http://dx.doi.org/10.22004/ag.econ.208127 \n[40] Ebrahimian,\
+    \ H. (2014). Soil infiltration characteristics in alternate and conventional furrow\
+    \ irrigation using \ndifferent estimation methods. KSCE Journal of Civil Engineering,\
+    \ 18(6), 1904–1911. \nhttps://doi.org/10.1007/s12205-014-1343-z \n[41] Abd El-Halim,\
+    \ A. (2013). Impact of alternate furrow irrigation with different irrigation intervals\
+    \ on yield, water \nuse efficiency, and economic return of corn. Chilean journal\
+    \ of agricultural research. scielocl. \n[42] Golzardi, F., Baghdadi, A., & Afshar,\
+    \ R. K. (2017). Alternate furrow irrigation affects yield and water-use \nefficiency\
+    \ of maize under deficit irrigation. Crop and Pasture Science, 68(8), 726–734.\
+    \ Retrieved from \nhttps://doi.org/10.1071/CP17178 \n[43] Qiu, P., Cui, Y., Han,\
+    \ H., & Liu, B. (2015). Effect of flooding irrigation and intermittent irrigation\
+    \ patterns on \nweed community diversity in late rice fields. Transactions of\
+    \ the Chinese Society of Agricultural Engineering, \n31(22). \n[44] Massey, J.\
+    \ H., Walker, T. W., Anders, M. M., Smith, M. C., & Avila, L. A. (2014). Farmer\
+    \ adaptation of \nintermittent flooding using multiple-inlet rice irrigation in\
+    \ Mississippi. Agricultural Water Management, 146, \n297–304. https://doi.org/https://doi.org/10.1016/j.agwat.2014.08.023\
+    \ \n[45] Chlapecka, J. L., Hardke, J. T., Roberts, T. L., Mann, M. G., & Ablao,\
+    \ A. (2021). Scheduling rice irrigation \nusing soil moisture thresholds for furrow\
+    \ irrigation and intermittent flooding. Agronomy Journal, 113(2), 1258–\n1270.\
+    \ https://doi.org/https://doi.org/10.1002/agj2.20600 \n[46] van Iersel, M. W.,\
+    \ Chappell, M., & Lea-Cox, J. D. (2013). Sensors for improved efficiency of irrigation\
+    \ in \ngreenhouse and nursery production. HortTechnology, 23(6), 735–746. \nhttps://doi.org/10.21273/horttech.23.6.735\
+    \ \n[47] Phogat, V., Mallants, D., Cox, J. W., Šimůnek, J., Oliver, D. P., & Awad,\
+    \ J. (2020). Management of soil \nsalinity associated with irrigation of protected\
+    \ crops. Agricultural Water Management, 227(July 2019). \nhttps://doi.org/10.1016/j.agwat.2019.105845\
+    \ \n[48] Zhang, L., Merkley, G. P., & Pinthong, K. (2013). Assessing whole-field\
+    \ sprinkler irrigation application \nuniformity. Irrigation Science, 31(2), 87–105.\
+    \ https://doi.org/10.1007/s00271-011-0294-0 \n[49] Kandelous, M. M., Šimůnek,\
+    \ J., van Genuchten, M. T., & Malek, K. (2011). Soil Water Content Distributions\
+    \ \nbetween Two Emitters of a Subsurface Drip Irrigation System. Soil Science\
+    \ Society of America Journal, 75(2), \n488–497. https://doi.org/10.2136/sssaj2010.0181\
+    \ \n[50] Jonathan, R. C., Chavarro, J. I., Garrido, A., & Guzman, H. A. (2014).\
+    \ Performance evaluation of irrigation \ntechniques through the implementation\
+    \ of a fuzzy logic system. ARPN Journal of Engineering and Applied \nSciences,\
+    \ 9(7), 1087–1093. \n669 \n \nIrfan Ardiansah, et al. - An overview of IOT based\
+    \ intelligent irrigation systems for greenhouse: recent trends and \nchallenges\
+    \ \n \nJournal of Applied Engineering Science- Vol.20, No 3, 2022 -www.engineeringscience.rs\
+    \ \n \n[51] Wang, J., Chen, M., Zhou, J., & Li, P. (2020). Data communication\
+    \ mechanism for greenhouse environment \nmonitoring and control: An agent-based\
+    \ IoT system. Information Processing in Agriculture, 7(3), 444–455. \nhttps://doi.org/10.1016/j.inpa.2019.11.002\
+    \ \n[52] Tarjan, L., Šenk, I., Obúcina, J. E., Stankovski, S., & Ostojić, G. (2020).\
+    \ Extending legacy industrial machines \nby a low-cost easy-to-use iot module\
+    \ for data acquisition. Symmetry, 12(9). \nhttps://doi.org/10.3390/sym12091486\
+    \ \n[53] Pisanu, T., Garau, S., Ortu, P., Schirru, L., & Macciò, C. (2020). Prototype\
+    \ of a low-cost electronic platform for \nreal time greenhouse environment monitoring:\
+    \ An agriculture 4.0 perspective. Electronics (Switzerland), 9(5). \nhttps://doi.org/10.3390/electronics9050726\
+    \ \n[54] Zeng, Z., Zeng, F., Han, X., Elkhouchlaa, H., Yu, Q., & Lü, E. (2021).\
+    \ Real‐time monitoring of environmental \nparameters in a commercial gestating\
+    \ sow house using a zigbee‐based wireless sensor network. Applied \nSciences (Switzerland),\
+    \ 11(3), 1–17. https://doi.org/10.3390/app11030972 \n[55] Popescu, D., Stoican,\
+    \ F., Stamatescu, G., Ichim, L., & Dragana, C. (2020). Advanced UAV–WSN System\
+    \ for \nIntelligent Monitoring in Precision Agriculture. Sensors, 20(3), 817.\
+    \ https://doi.org/10.3390/s20030817 \n[56] Quebrajo, L., Perez-Ruiz, M., Pérez-Urrestarazu,\
+    \ L., Martínez, G., & Egea, G. (2018). Linking thermal \nimaging and soil remote\
+    \ sensing to enhance irrigation management of sugar beet. Biosystems Engineering,\
+    \ \n165, 77–87. https://doi.org/10.1016/j.biosystemseng.2017.08.013 \n[57] Difallah,\
+    \ W., Benahmed, K., Bounnama, F., Draoui, B., & Saaidi, A. (2018). Intelligent\
+    \ irrigation management \nsystem. International Journal of Advanced Computer Science\
+    \ and Applications, 9(9), 429–433. \nhttps://doi.org/10.14569/ijacsa.2018.090954\
+    \ \n[58] Jung, J., Maeda, M., Chang, A., Bhandari, M., Ashapure, A., & Landivar-Bowles,\
+    \ J. (2021). The potential of \nremote sensing and artificial intelligence as\
+    \ tools to improve the resilience of agriculture production systems. \nCurrent\
+    \ Opinion in Biotechnology, 70, 15–22. https://doi.org/10.1016/j.copbio.2020.09.003\
+    \ \n[59] Shamshiri, R. R., Bojic, I., van Henten, E., Balasundram, S. K., Dworak,\
+    \ V., Sultan, M., & Weltzien, C. (2020). \nModel-based evaluation of greenhouse\
+    \ microclimate using IoT-Sensor data fusion for energy efficient crop \nproduction.\
+    \ Journal of Cleaner Production, 263, 121303. https://doi.org/10.1016/j.jclepro.2020.121303\
+    \ \n[60] Kapse, S., & Kale, S. (2020). IOT Enable Soil Testing & NPK Nutrient\
+    \ Detection. Jac : a Journal of \nComposition Theory, XIII(V), 310–318. \n[61]\
+    \ Raza, S. E. A., Smith, H. K., Clarkson, G. J. J., Taylor, G., Thompson, A. J.,\
+    \ Clarkson, J., & Rajpoot, N. M. \n(2014). Automatic detection of regions in spinach\
+    \ canopies responding to soil moisture deficit using combined \nvisible and thermal\
+    \ imagery. PLoS ONE, 9(6), 1–10. https://doi.org/10.1371/journal.pone.0097612\
+    \ \n[62] Yu, M. H., Ding, G. D., Gao, G. L., Zhao, Y. Y., Yan, L., & Sai, K. (2015).\
+    \ Using plant temperature to evaluate \nthe response of stomatal conductance to\
+    \ soil moisture deficit. Forests, 6(10), 3748–3762. \nhttps://doi.org/10.3390/f6103748\
+    \ \n[63] Hsu, W. L., & Chang, K. T. (2019). Cross-estimation of soil moisture\
+    \ using thermal infrared images with \ndifferent resolutions. Sensors and Materials,\
+    \ 31(1), 387–398. https://doi.org/10.18494/SAM.2019.2090 \n[64] Crusiol, L. G.\
+    \ T., Nanni, M. R., Furlanetto, R. H., Sibaldelli, R. N. R., Cezar, E., Mertz-Henning,\
+    \ L. M., … \nFarias, J. R. B. (2020). UAV-based thermal imaging in the assessment\
+    \ of water status of soybean plants. \nInternational Journal of Remote Sensing,\
+    \ 41(9), 3243–3265. https://doi.org/10.1080/01431161.2019.1673914 \n[65] Laktionov,\
+    \ I. S., Vovna, O. V., Zori, A. A., & Lebedev, V. A. (2018). Results of simulation\
+    \ and physical \nmodeling of the computerized monitoring and control system for\
+    \ greenhouse microclimate parameters. \nInternational Journal on Smart Sensing\
+    \ and Intelligent Systems, 11(0), 1–15. https://doi.org/10.21307/IJSSIS-\n2018-017\
+    \ \n[66] Singh, R., Gehlot, A., Gupta, L. R., Singh, B., & Swain, M. (2019). Internet\
+    \ of Things with Raspberry Pi and \nArduino. Internet of Things with Raspberry\
+    \ Pi and Arduino. CRC Press. \nhttps://doi.org/10.1201/9780429284564 \n[67] Laktionov,\
+    \ I., Vovna, O., & Zori, A. (2017). Copncept of low cost computerized measuring\
+    \ system for \nmicroclimate parameters of greenhouses. Bulgarian Journal of Agricultural\
+    \ Science, 23(4), 668–673. \n[68] Azaza, M., Tanougast, C., Fabrizio, E., & Mami,\
+    \ A. (2016). Smart greenhouse fuzzy logic based control \nsystem enhanced with\
+    \ wireless data monitoring. ISA Transactions, 61, 297–307. \nhttps://doi.org/10.1016/j.isatra.2015.12.006\
+    \ \n[69] Nikolaou, G., Neocleous, D., Katsoulas, N., & Kittas, C. (2019). Effects\
+    \ of Cooling Systems on Greenhouse \nMicroclimate and Cucumber Growth under Mediterranean\
+    \ Climatic Conditions. Agronomy, 9(6), 300. \nhttps://doi.org/10.3390/agronomy9060300\
+    \ \n[70] Mesas-Carrascosa, F. J., Verdú Santano, D., Meroño, J. E., Sánchez de\
+    \ la Orden, M., & García-Ferrer, A. \n(2015). Open source hardware to monitor\
+    \ environmental parameters in precision agriculture. Biosystems \nEngineering,\
+    \ 137, 73–83. https://doi.org/10.1016/j.biosystemseng.2015.07.005 \n670 \nIrfan\
+    \ Ardiansah, et al. - An overview of IOT based intelligent irrigation systems\
+    \ for greenhouse: recent trends \nand challenges \n \nJournal of Applied Engineering\
+    \ Science - Vol.20, No 3, 2022 - www.engineeringscience.rs \n \n \n[71] Story,\
+    \ D., & Kacira, M. (2015). Design and implementation of a computer vision-guided\
+    \ greenhouse crop \ndiagnostics system. Machine Vision and Applications, 26(4),\
+    \ 495–506. https://doi.org/10.1007/s00138-015-\n0670-5 \n[72] Abinaya, T., Ishwarya,\
+    \ J., & Maheswari, M. (2019). A Novel Methodology for Monitoring and Controlling\
+    \ of \nWater Quality in Aquaculture using Internet of Things (IoT). 2019 International\
+    \ Conference on Computer \nCommunication and Informatics, ICCCI 2019, 1–4. https://doi.org/10.1109/ICCCI.2019.8821988\
+    \ \n[73] Najafzadeh, M., & Ghaemi, A. (2019). Prediction of the five-day biochemical\
+    \ oxygen demand and chemical \noxygen demand in natural streams using machine\
+    \ learning methods. Environmental Monitoring and \nAssessment, 191(6), 380. https://doi.org/10.1007/s10661-019-7446-8\
+    \ \n[74] Karimi, B., Mohammadi, P., Sanikhani, H., Salih, S. Q., & Yaseen, Z.\
+    \ M. (2020). Modeling wetted areas of \nmoisture bulb for drip irrigation systems:\
+    \ An enhanced empirical model and artificial neural network. \nComputers and Electronics\
+    \ in Agriculture, 178(September), 105767. \nhttps://doi.org/10.1016/j.compag.2020.105767\
+    \ \n[75] Pappu, S., Vudatha, P., Niharika, A. V., Karthick, T., & Sankaranarayanan,\
+    \ S. (2017). Intelligent IoT based \nwater quality monitoring system. International\
+    \ Journal of Applied Engineering Research, 12(16), 5447–5454. \n[76] Moreira Barradas,\
+    \ J. M., Matula, S., & Dolezal, F. (2012). A Decision Support System-Fertigation\
+    \ Simulator \n(DSS-FS) for design and optimization of sprinkler and drip irrigation\
+    \ systems. Computers and Electronics in \nAgriculture, 86(August 2012), 111–119.\
+    \ https://doi.org/10.1016/j.compag.2012.02.015 \n[77] Khoa, T. A., Man, M. M.,\
+    \ Nguyen, T. Y., Nguyen, V. D., & Nam, N. H. (2019). Smart agriculture using IoT\
+    \ \nmulti-sensors: A novel watering management system. Journal of Sensor and Actuator\
+    \ Networks, 8(3). \nhttps://doi.org/10.3390/jsan8030045 \n[78] Leão, T. P., da\
+    \ Costa, B. F. D., Bufon, V. B., & Aragón, F. F. H. (2020). Using time domain\
+    \ reflectometry to \nestimate water content of three soil orders under savanna\
+    \ in Brazil. Geoderma Regional, 21. \nhttps://doi.org/10.1016/j.geodrs.2020.e00280\
+    \ \n[79] Yadav, D. K., Karthik, G., Jayanthu, S., & Das, S. K. (2019). Design\
+    \ of Real-Time Slope Monitoring System \nUsing Time-Domain Reflectometry With\
+    \ Wireless Sensor Network. IEEE Sensors Letters, 3(2), 1. \nhttps://doi.org/10.1109/LSENS.2019.2892435\
+    \ \n[80] Singh, P., & Saikia, S. (2017). Arduino-based smart irrigation using\
+    \ water flow sensor, soil moisture sensor, \ntemperature sensor and ESP8266 WiFi\
+    \ module. IEEE Region 10 Humanitarian Technology Conference \n2016, R10-HTC 2016\
+    \ - Proceedings. https://doi.org/10.1109/R10-HTC.2016.7906792 \n[81] Ashifuddinmondal,\
+    \ M., & Rehena, Z. (2018). IoT Based Intelligent Agriculture Field Monitoring\
+    \ System. \nProceedings of the 8th International Conference Confluence 2018 on\
+    \ Cloud Computing, Data Science and \nEngineering, Confluence 2018, 625–629. https://doi.org/10.1109/CONFLUENCE.2018.8442535\
+    \ \n[82] Muhammad F. Obead, A.Taha, I., & Salman, A. H. (2021). Design and implement\
+    \ of irrigation prototype \nsystem based GSM. International Journal of Computing\
+    \ and Digital Systems, 1–7. \n[83] Porselvi, T., Tresa Sangeetha, S. V, Elavarasu,\
+    \ R., Archana, V., Gowshni, K., & Sanmuga Piriya, T. (2021). \nAutomatic Control\
+    \ And Monitoring Of Greenhouse System Using Iot. Turkish Journal of Computer and\
+    \ \nMathematics Education, 12(11), 2870–2878. \n[84] Han, P., Dong, D., Zhao,\
+    \ X., Jiao, L., & Lang, Y. (2016). A smartphone-based soil color sensor: For soil\
+    \ type \nclassification. Computers and Electronics in Agriculture, 123, 232–241.\
+    \ \nhttps://doi.org/https://doi.org/10.1016/j.compag.2016.02.024 \n[85] Burton,\
+    \ L., Jayachandran, K., & Bhansali, S. (2020). Review—The “Real-Time” Revolution\
+    \ for In situ Soil \nNutrient Sensing. Journal of The Electrochemical Society,\
+    \ 167(3), 037569. https://doi.org/10.1149/1945-\n7111/ab6f5d \n[86] Meivel, S.,\
+    \ & Maheswari, S. (2021). Remote Sensing Analysis of Agricultural Drone. Journal\
+    \ of the Indian \nSociety of Remote Sensing, 49(3), 689–701. https://doi.org/10.1007/s12524-020-01244-y\
+    \ \n[87] Tyagi, A., Reddy, A. A., Singh, J., & Chowdhury, S. R. (2011). A low\
+    \ cost portable temperature-moisture \nsensing unit with artificial neural network\
+    \ based signal conditioning for smart irrigation applications. \nInternational\
+    \ Journal on Smart Sensing and Intelligent Systems, 4(1), 94–111. https://doi.org/10.21307/ijssis-\n\
+    2017-428 \n[88] Goldstein, A., Fink, L., Meitin, A., Bohadana, S., Lutenberg,\
+    \ O., & Ravid, G. (2018). Applying machine \nlearning on sensor data for irrigation\
+    \ recommendations: revealing the agronomist’s tacit knowledge. Precision \nAgriculture,\
+    \ 19(3), 421–444. https://doi.org/10.1007/s11119-017-9527-4 \n[89] Zhang, P.,\
+    \ Zhang, Q., Liu, F., Li, J., Cao, N., & Song, C. (2017). The Construction of\
+    \ the Integration of Water \nand Fertilizer Smart Water Saving Irrigation System\
+    \ Based on Big Data. Proceedings - 2017 IEEE \nInternational Conference on Computational\
+    \ Science and Engineering and IEEE/IFIP International Conference \non Embedded\
+    \ and Ubiquitous Computing, CSE and EUC 2017, 2, 392–397. https://doi.org/10.1109/CSE-\n\
+    EUC.2017.258 \n671 \n \nIrfan Ardiansah, et al. - An overview of IOT based intelligent\
+    \ irrigation systems for greenhouse: recent trends and \nchallenges \n \nJournal\
+    \ of Applied Engineering Science- Vol.20, No 3, 2022 -www.engineeringscience.rs\
+    \ \n \n[90] Hashemi, M., & Sepaskhah, A. R. (2020). Evaluation of artificial neural\
+    \ network and Penman–Monteith \nequation for the prediction of barley standard\
+    \ evapotranspiration in a semi-arid region. Theoretical and \nApplied Climatology,\
+    \ 139(1), 275–285. https://doi.org/10.1007/s00704-019-02966-x \n[91] Chen, X.,\
+    \ Qi, Z., Gui, D., Sima, M. W., Zeng, F., Li, L., … Gu, Z. (2020). Evaluation\
+    \ of a new irrigation \ndecision support system in improving cotton yield and\
+    \ water productivity in an arid climate. Agricultural Water \nManagement, 234(October\
+    \ 2019), 106139. https://doi.org/10.1016/j.agwat.2020.106139 \n[92] Yang, G.,\
+    \ Liu, L., Guo, P., & Li, M. (2017). A flexible decision support system for irrigation\
+    \ scheduling in an \nirrigation district in China. Agricultural Water Management,\
+    \ 179, 378–389. \nhttps://doi.org/10.1016/j.agwat.2016.07.019 \n[93] Carrión,\
+    \ F., Tarjuelo, J. M., Carrión, P., & Moreno, M. A. (2013). Low-cost microirrigation\
+    \ system supplied by \ngroundwater: An application to pepper and vineyard crops\
+    \ in Spain. Agricultural Water Management, 127, \n107–118. https://doi.org/10.1016/j.agwat.2013.06.005\
+    \ \n[94] G. Evans, R., M. Iversen, W., & Kim, Y. (2011). Integrated Decision Support,\
+    \ Sensor Networks, and Adaptive \nControl for Wireless Site-Specific Sprinkler\
+    \ Irrigation. Applied Engineering in Agriculture, 28(3), 377–387. \nhttps://doi.org/https://doi.org/10.13031/2013.41480\
+    \ \n[95] Shu, J., Liao, H. H., & Xu, Y. F. (2015). Water-Saving Monitoring System\
+    \ Design Based on LabView \nSimulation Platform. Applied Mechanics and Materials,\
+    \ 742, 582–585. \nhttps://doi.org/10.4028/www.scientific.net/AMM.742.582 \n[96]\
+    \ Ramos-Fernández, J. C., Balmat, J. F., Márquez-Vera, M. A., Lafont, F., Pessel,\
+    \ N., & Espinoza-Quesada, E. \nS. (2016). Fuzzy Modeling Vapor Pressure Deficit\
+    \ to Monitoring Microclimate in Greenhouses. IFAC-\nPapersOnLine, 49(16), 371–374.\
+    \ https://doi.org/10.1016/j.ifacol.2016.10.068 \n[97] Seenu, N., Chetty, R. M.\
+    \ K., Srinivas, T., Krishna, K. M. A., & Selokar, A. (2019). Reference \nEvapotranspiration\
+    \ Assessment Techniques for Estimating Crop Water Requirement. International Journal\
+    \ of \nRecent Technology and Engineering, 8(4), 1094–1100. https://doi.org/10.35940/ijrte.d6738.118419\
+    \ \n[98] Villarrubia, G., De Paz, J. F., De La Iglesia, D. H., & Bajo, J. (2017).\
+    \ Combining multi-agent systems and \nwireless sensor networks for monitoring\
+    \ crop irrigation. Sensors (Switzerland), 17(8). \nhttps://doi.org/10.3390/s17081775\
+    \ \n[99] Ding, S., Li, H., Su, C., Yu, J., & Jin, F. (2013). Evolutionary artificial\
+    \ neural networks: a review. Artificial \nIntelligence Review, 39(3), 251–260.\
+    \ https://doi.org/10.1007/s10462-011-9270-6 \n[100] Dursun, M., & Özden, S. (2014).\
+    \ An efficient improved photovoltaic irrigation system with artificial neural\
+    \ \nnetwork based modeling of soil moisture distribution - A case study in Turkey.\
+    \ Computers and Electronics in \nAgriculture, 102, 120–126. https://doi.org/10.1016/j.compag.2014.01.008\
+    \ \n[101] Baba, A. P. A., Shiri, J., Kisi, O., Fard, A. F., Kim, S., & Amini,\
+    \ R. (2013). Estimating daily reference \nevapotranspiration using available and\
+    \ estimated climatic data by adaptive neuro-fuzzy inference system \n(ANFIS) and\
+    \ artificial neural network (ANN). Hydrology Research, 44(1), 131–146. \nhttps://doi.org/10.2166/nh.2012.074\
+    \ \n[102] Poyen, F. Bin, Roy, S., Ghosh, A., & Bandyopadhyay, R. (2015). Automated\
+    \ irrigation by an ANN \ncontroller. Procedia Computer Science, 46(Icict 2014),\
+    \ 257–267. https://doi.org/10.1016/j.procs.2015.02.019 \n[103] Dela Cruz, J. R.,\
+    \ Magsumbol, J. A. V., Dadios, E. P., Baldovino, R. G., Culibrina, F. B., & Lim,\
+    \ L. A. G. \n(2017). Design of a fuzzy-based automated organic irrigation system\
+    \ for smart farm. HNICEM 2017 - 9th \nInternational Conference on Humanoid, Nanotechnology,\
+    \ Information Technology, Communication and \nControl, Environment and Management,\
+    \ 2018-Janua, 1–6. https://doi.org/10.1109/HNICEM.2017.8269500 \n[104] Wang, Y.,\
+    \ Lu, Y., & Xiao, R. (2021). Application of nonlinear adaptive control in temperature\
+    \ of chinese \nsolar greenhouses. Electronics (Switzerland), 10(13). https://doi.org/10.3390/electronics10131582\
+    \ \n \nPaper submitted: 04.12.2022. \nPaper accepted: 28.02.2022.  \nThis is an\
+    \ open access article distributed under the CC BY 4.0 terms and conditions. \n\
+    \ \n \n \n \n \n \n672 \n"
+  inline_citation: '>'
+  journal: Istraživanja i projektovanja za privredu
+  limitations: '>'
+  pdf_link: https://aseestant.ceon.rs/index.php/jaes/article/download/35224/20739
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'An overview of IoT based intelligent irrigation systems for greenhouse:
+    Recent trends and challenges'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

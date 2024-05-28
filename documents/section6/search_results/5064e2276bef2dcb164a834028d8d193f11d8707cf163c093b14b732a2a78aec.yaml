@@ -1,0 +1,1054 @@
+- analysis: '>'
+  authors:
+  - Backman J.
+  - Linkolehto R.
+  - Koistinen M.
+  - Nikander J.
+  - Ronkainen A.
+  - Kaivosoja J.
+  - Suomi P.
+  - Pesonen L.
+  citation_count: '8'
+  description: The agricultural machinery produces an increasing number of measurements
+    during operations. The primary use of these measurements is to control agricultural
+    operations on the farm. Data that describes the in-field variation in plant growth
+    potential and growing conditions is the basis for precision farming. The secondary
+    use for the gathered information is documentation of work and work performance
+    for business purposes. Researcher also benefits from the increasing measurement
+    capabilities. Biologists and agronomists can model the crops and agronomic phenomena.
+    Work scientists can analyse the agricultural work processes. And finally, machines
+    with additional accurate sensors can be used for agricultural machine product
+    development and technological research purposes. This paper concentrates on an
+    independent research data collection platform (Cropinfra) which can be used to
+    collect data for all above mentioned purposes. Data can be collected both from
+    ISOBUS (ISO 11783) compliant machines as well as older and proprietary systems
+    and stored to database for further analysis. The farm machines in Cropinfra are
+    supplemented with extra sensors that are more accurate than existing in commercial
+    machines. Therefore, the Cropinfra can be used as a reference measurement system
+    to verify the correct operation of the machines as well as to produce data for
+    biological research purposes. This paper will also present how the cloud connection
+    of the data collection system can be realized. The solution was designed to be
+    compatible with the existing ISO 11783-10 standard. The examples presented in
+    this paper verify that the solution works in real farming environment. The data
+    has been used in numerous research projects already, and in the future the data
+    will be an important asset when machine learning and other artificial intelligence
+    methods will be studied and utilized.
+  doi: 10.1016/j.compag.2019.105008
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Keywords 1. Introduction 2. Methods 3. Results 4.
+    Discussion and conclusions Appendix A: CSV-file format Appendix B: DDOP References
+    Show full outline Cited by (10) Figures (19) Show 13 more figures Tables (5) Table
+    1 Table 2 Table 3 Table 4 Table 5 Computers and Electronics in Agriculture Volume
+    166, November 2019, 105008 Cropinfra research data collection platform for ISO
+    11783 compatible and retrofit farm equipment Author links open overlay panel Juha
+    Backman a, Raimo Linkolehto a, Markku Koistinen a, Jussi Nikander b, Ari Ronkainen
+    a, Jere Kaivosoja a, Pasi Suomi a, Liisa Pesonen a Show more Add to Mendeley Share
+    Cite https://doi.org/10.1016/j.compag.2019.105008 Get rights and content Under
+    a Creative Commons license open access Highlights • This paper concentrates on
+    an independent research data collection platform. • Both ISO 11783 compliant machines
+    as well as proprietary systems are supported. • How the data collection can be
+    realized in order to support research is presented. • How the cloud connection
+    of the data collection system can be realized is presented. • The examples verify
+    that the solution works in real farming environment. Abstract The agricultural
+    machinery produces an increasing number of measurements during operations. The
+    primary use of these measurements is to control agricultural operations on the
+    farm. Data that describes the in-field variation in plant growth potential and
+    growing conditions is the basis for precision farming. The secondary use for the
+    gathered information is documentation of work and work performance for business
+    purposes. Researcher also benefits from the increasing measurement capabilities.
+    Biologists and agronomists can model the crops and agronomic phenomena. Work scientists
+    can analyse the agricultural work processes. And finally, machines with additional
+    accurate sensors can be used for agricultural machine product development and
+    technological research purposes. This paper concentrates on an independent research
+    data collection platform (Cropinfra) which can be used to collect data for all
+    above mentioned purposes. Data can be collected both from ISOBUS (ISO 11783) compliant
+    machines as well as older and proprietary systems and stored to database for further
+    analysis. The farm machines in Cropinfra are supplemented with extra sensors that
+    are more accurate than existing in commercial machines. Therefore, the Cropinfra
+    can be used as a reference measurement system to verify the correct operation
+    of the machines as well as to produce data for biological research purposes. This
+    paper will also present how the cloud connection of the data collection system
+    can be realized. The solution was designed to be compatible with the existing
+    ISO 11783-10 standard. The examples presented in this paper verify that the solution
+    works in real farming environment. The data has been used in numerous research
+    projects already, and in the future the data will be an important asset when machine
+    learning and other artificial intelligence methods will be studied and utilized.
+    Previous article in issue Next article in issue Keywords ISOBUSDocument databaseDevelopment
+    platformData captureData transfer 1. Introduction Agricultural machinery has gone
+    through significant changes during last decades. The introduction of electronic
+    control units (ECU) has opened up new ways for carrying out agricultural operations
+    (Stone et al., 2008). Especially the GNSS (Global Navigation Satellite System)
+    based solutions enable position based precision farming (Thomasson et al., 2019).
+    At the same time the sensors and other measurement devices have also developed
+    tremendously and their unit price has come down (SACHS, 2014). Agricultural machinery
+    produces an increasing number of measurements during operations. This information
+    can be used for many purposes. One primary purpose is to use data gathered to
+    control agricultural operations. Soil conditions, crop growth and health can be
+    monitored and used to make fertilization and plant protection decisions and prescription
+    maps for precision farming operations (Söderström et al., 2016). Another use for
+    the information is documentation of work and work performance for business purposes.
+    For example, an agricultural contractor can verify the work they have carried
+    out by showing the measurement data to the customer (Suonentieto, 2019, Dataväxt,
+    2019). In addition to the land owners and farmers, researchers can also benefit
+    from the increasing measurement capabilities. Biologists and agronomists can model
+    crops and agronomic phenomena, verify hypotheses and produce new knowledge (Kaivosoja
+    et al., 2013). Machinery data is an important source of so called big data in
+    agriculture (Wolfert et al., 2017). Also work scientists can analyse the agricultural
+    work processes in more detail. And finally, machines with additional and accurate
+    sensors can be used for Product development of agricultural machinery and technological
+    research purposes (Öhman et al., 2004, Suomi and Oksanen, 2015) Data can be collected
+    from the machinery using a number of different ways. The existing electronic control
+    units (ECUs) can create their own proprietary logs, which can be downloaded to
+    USB stick or, in some cases, to cloud servers. Another way is to use an independent
+    logging unit which does the same, but is not directly bundled with any manufacturer’s
+    control units. In both cases, the data collection includes four phases: measurement
+    devices or sensors, data capture, data transfer, and data storage. However, the
+    last two phases of the process can be fundamentally different depending on the
+    technology used. Farms can be very heterogeneous, as the history of the farm,
+    the geography of the land used by the farm, the crops and livestock grown on the
+    farm, as well as technological capability and business strategy of the farm all
+    affect how the farm works. The type of production and the size of the farm define
+    the type and size of machinery required. Furthermore, farm’s machinery is often
+    a mixture of older and newer machines from a number of manufacturers. Rarely any
+    manufacturer can provide all machines, devices and software that the farmer needs.
+    Therefore there is a strong need for compatibility between different brands. In
+    agriculture the communication between different components in tractor-implement
+    system is defined by the commonly agreed standard ISO 11783 (ISO, 2017a, ISO,
+    2017b) – marketed under the name ISOBUS (AEF, 2019a). The Agricultural Electronic
+    Industry Foundation (AEF) develops and markets the ISOBUS system. In the previous
+    research projects the information management of farm machinery and the data transfer
+    from the machinery to farm management information systems (FMIS) and various on–
+    and off-site services has been studied. Fountas et al. (2015) have proposed a
+    Farm Machinery Management Information System based on interviews of tractor operators
+    and farm managers. The solution was presented as a rich picture from which a conceptual
+    model for conventional farm machinery and agricultural robots was developed. Steinberger
+    et al. (2009) have presented a prototype implementation of ISO 11783 task controller
+    without user interface for data logging. The data was stored in ISO XML format
+    in a PDA and transferred to a local storage using WLAN. For telemetry purposes
+    feasibility of OPC Unified Architecture (OPC UA) technology to transfer ISO 11783
+    related process data between farm machinery and the internet was studied by Oksanen
+    et al. (2015). Oksanen et al. presented also an approach to convert ISO 11783
+    DDOP (Device Description Object Pool) to OPC UA information model. In the experiments
+    the latency and bandwidth usage of communication were measured and found feasible.
+    Commercial solutions for data collection exist from all major farm machinery manufacturers.
+    For example AGCO has AgCommand, John Deere has JDLink, CLAAS has TONI, etc. There
+    exist also retrofittable fleet management and telemetry solutions from different
+    manufacturers, for example Suonentieto AgriSmart, Wapice IoT-Ticket, etc. Currently
+    the ISOBUS working group at AEF is working on a standard for data transfer between
+    ISOBUS-compatible machinery and farm management systems (AEF, 2019b). The standard
+    is expected to be ready for use during the year 2019. This paper concentrates
+    on an independent research data collection platform (Cropinfra) which can be used
+    to collect data both form ISOBUS compliant machines as well as old and proprietary
+    systems and store the data to database for further analysis. The farm machines
+    in Cropinfra are supplemented with extra sensors that are more accurate than those
+    existing in commercial machines. Therefore the Cropinfra can be used as a reference
+    measurement system to verify the correct operation of the machine. The Cropinfra
+    has developed in many national and international research projects starting from
+    2003 (Fig. 1). The Cropinfra platform is a concept for future farm’s data collection
+    and management structure that is capable to serve also research purposes, and
+    which has been verified by implementing it in a real scale experimental farm for
+    technology development. The research farm was located in Southern Finland, in
+    Vihti. It included 151 ha of field, all necessary buildings for farm activities,
+    four tractors, a combine harvester and all necessary implements to operate the
+    farm. The results of Cropinfra based research projects have recently been reported
+    in Nikander et al., 2017, Nikander et al., 2015, Pesonen et al., 2014. Download
+    : Download high-res image (258KB) Download : Download full-size image Fig. 1.
+    The Cropinfra concept and research platform has developed in many research projects
+    during 15 years. In this paper we report the methods and means used to develop
+    Cropinfra into a framework that can be used as a general agricultural data collection
+    and exploitation system for research purposes. The primary objective of this paper
+    is to depict how the existing technology on agricultural data collection can be
+    integrated into an open research system. A secondary objective is to present the
+    experiences and results of different ways to realize the cloud connection of data
+    collection system that is at the moment crucial improvement to be included in
+    the ISOBUS standard. The rest of this paper is organized as follows. In Section
+    2, methods, we describe how the information management and software environment
+    in a modern farm can be organized, focusing on the parts that are vital to this
+    paper. In Section 3 we describe how the CropInfra platform implements farm information
+    management infrastructure, and how the system has been used for data capturing
+    and management using examples. Section 4 contains the discussion and conclusions
+    of our work. 2. Methods This work is based on data collection from agricultural
+    machinery, as well as the analysis, and exploitation of that data both in cloud
+    systems and in the machinery. In this work, we concentrate on the four phases
+    of data collection: measurement, capture, transfer, and storage. In the measurement
+    phase, the various sensors take readings and provide values that can be stored.
+    In the capturing phase, the sensor values are combined and given semantics by
+    assigning each value to a specific variable. In the transfer phase the data created
+    in the capturing phase is transferred from the field machine to a cloud service.
+    Finally, in the storage phase the data is stored in a cloud service for further
+    analysis and exploitation. Data collection from tractors, implements, and other
+    agricultural machinery is primarily based on previous development carried out
+    for digital systems in heavy machinery and vehicles in general. These systems
+    have then been adapted to use in agriculture, and extended in order to best serve
+    the specific needs of the agricultural sector. The cloud systems and other software
+    used outside the machinery mostly use standard data exchange methods. The data
+    formats and analysis methods used are, of course, agriculture-specific in order
+    to both capture the nature of the data being used as well as providing useful
+    information to act as basis for managing farm, i.e. planning and executing specific
+    agricultural operations. 2.1. Farm information management The digital environment
+    of a modern farm can already be extremely complex and is becoming increasingly
+    so. Fig. 2 shows an example of a farm digital environment, in which the parts
+    that are relevant to this study are emphasized. The Figure has been adapted from
+    one originally published in Nikander et al. (2015). The elements of the Figure
+    that are out of scope for this work are shown in order to provide context for
+    the reader how the data transfer in this work would fit into the overall software
+    environment of a future farm. In the bottom of the Fig. 2 are depicted the measurement
+    and capturing phases of data collection that are carried out in the tractor-implement.
+    The transfer phase is represented by the arrow between the tractor-implement and
+    the cloud, and the storage phase is in the cloud environment at the top of the
+    Figure. As can be seen in Fig. 2, the data transfer infrastructure described above
+    is only small part of the overall digital environment of a modern farm. The rest
+    of the farm digital environment is described in the original publication in Nikander
+    et al. (2015). Download : Download high-res image (343KB) Download : Download
+    full-size image Fig. 2. The software environment of a modern farm, adapted from
+    Nikander et al. (2015). 2.2. Tractor and implement data Currently, data management
+    and transfer in tractors and implements are, in practice, based on one of three
+    methods. The first is the ISO 11783 (ISOBUS) standard (ISO, 2017a, ISO, 2017b),
+    the second are proprietary systems, typically used in older machinery that do
+    not conform to ISOBUS, and the third are analog systems, where the data first
+    needs to be converted to a digital signal in order to be transferred for permanent
+    storage. ISOBUS defines the communication protocol used between different components
+    of the tractor-implement system. Data transfer is in specified form, and therefore
+    the data created by an ISOBUS system can easily be read and understood by any
+    interface conforming to the standard. The majority of machine-related data (such
+    as implement status, engine performance, or speed) are covered by the standard.
+    There is also a part where manufacturers can add data not currently included in
+    ISOBUS. Oksanen et al. (2005) has published an informative article about the standard
+    in its use. In addition, ISOBUS defines a set of functionalities and devices required
+    from the machinery. The simplest ISOBUS system consists of a tractor ECU (T-ECU),
+    an implement ECU (I-ECU) and a universal user interface called universal terminal
+    (UT) or virtual terminal (VT) (AEF, 2019b). These devices form the basic structure
+    used to control the tractor and implement combination. There can be additional
+    devices attached to the system, such as a positioning device (GNSS), or a task
+    controller (TC). The task controller can be used to control the implement, as
+    well as to store the data logged in an executed field operation (ISO, 2015). A
+    TC that is capable of location-specific control and logging is called TC-GEO and
+    a TC that is capable only of data logging is called TC-LOG. Not all the machines
+    in the agriculture are compatible with the ISOBUS standard. There are also numerous
+    proprietary solutions for implement control. There is no single solution for capturing
+    data from these systems. Instead, each system needs an interface to adapt the
+    data provided by the proprietary system to the farm software infrastructure. Should
+    the data be used to control the device, the conversion needs to be done the other
+    way around. However, it can be difficult to use farm data as input into a proprietary
+    system unless the control software of the system has an open input method. In
+    the systems where digital controllers are not used, signals between controls,
+    sensors and actuators use only voltage or current signals. In this case, the system
+    needs a setup similar to proprietary systems, where the signal is first converted
+    to a digital form, and then adapted to the needs of the larger farm infrastructure.
+    As analog systems seldom are able to take input except through the analog controllers,
+    it can be difficult to use data to control such a system. 2.3. Back-end technologies
+    in cloud interfaces Although the ISO 11783 standard will eventually cover the
+    data transfer from the tractor to cloud services (AEF, 2019b), these technologies
+    have already been used elsewhere. In essence, there are two different technologies
+    needed: a data transfer method and a data format. Possible data transfer technologies
+    are, for example, REST and MQTT. JSON and Protobuf are potential candidates for
+    data format. 2.3.1. REST REST (Representational State Transfer) is an architectural
+    style, not a standard, that describes a set of constrains over the HTTP (Leach,
+    1999a) application protocol for designing distributed client/server related information
+    systems that provide interoperability between computer systems on the Internet.
+    Web services following the REST architectural style are called as RESTful web
+    services. The objects provided by the RESTful web services (sometimes referred
+    as RESTful API) are called resources. The resources are typically identified by
+    using URIs. The role of the application server is to provide access to resources
+    and the client accesses, and in some cases it modifies the resources (Fielding,
+    2000). A client uses HTTP methods for reading a resource (GET), for creating a
+    new resource (POST), to update an existing resource or create a new resource (PUT)
+    and for removing a resource (DELETE) (IETF Trust, 2007). 2.3.2. MQTT MQTT (Message
+    Queuing Telemetry Transport) is a simple and lightweight publish/subscribe-based
+    messaging protocol running over TCP/IP, or other similar protocols like Bluetooth
+    (ISO/IEC 20922, 2016). MQTT is designed for devices in Machine-to-Machine communication
+    and IoT context with limited capabilities and networks with low-bandwidth, high-latency
+    and possibly unreliable connectivity. In attempt to assure some degree of delivery
+    in constrained environments the standard describes three qualities of service:
+    at most once, where occasional message loss is allowed, at least once, where message
+    delivery is guaranteed but duplicates can occur and exactly once, where messages
+    are assured to arrive and only once. The underlying publish/subscribe messaging
+    paradigm means that the system requires a message broker. The broker operates
+    between publishers and subscribers taking incoming messages from data provider
+    and routing them to relevant destinations. The information (published data) is
+    organized in a hierarchy of topics and the broker distributes the information
+    to subscribers according to the subscribed topics. Public/subscribe model implements
+    decoupling: on the general level publishers and subscribers have no need to know
+    anything about each other’s systems (ISO/IEC 20922, 2016). 2.3.3. JSON JSON (JavaScript
+    Object Notation) is a programming language independent, open-standard data-interchange
+    file format for structuring and sharing data. It is based on subset of the JavaScript
+    programming language and it can represent any serializable data. The format can
+    be generated and parsed programmatically, and is human-readable at the same time.
+    JSON is used as a data exchange format in asynchronous web applications and as
+    a natural data exchange format in interfaces that are bound to document oriented
+    database management system (Bray, 2015, Bray, 2017). 2.3.4. PROTOBUF Protocol
+    buffers offer a programming langue neutral and platform-neutral mechanism for
+    serializing structured data as well as an interface description language in the
+    inter-machine communication domain (Google, 2018). A data structure in Protobuf
+    is defined using three types of variables: required fields, repeated fields, and
+    optional fields. Data is compiled into data access classes for automated reading
+    and writing for a variety of data streams. For data transfer the Protobuf text
+    format messages are encoded into a binary format, which reduces the message size
+    up to 40% and speeds up the parsing time up to 50 times when compared to the size
+    and processing time of a text based format like XML. Protocol buffers are well
+    suited to the environments with time critical computing requirements. (Google,
+    2018) 3. Results Fig. 3 depicts the overall structure and the different devices
+    and services of the Cropinfra research data collection system on a conceptual
+    level. At the bottom of the picture there is the measurement level, which contains
+    the physical sensors that are either commercial ones, or reference sensors added
+    for research purposes. Sensors are connected to ECUs on the data capturing level
+    that transform the analog signals and transmit those to ISOBUS communication (CAN)
+    bus. Above the ISOBUS CAN in Fig. 3, there are control and logging devices that
+    capture, utilize and store the measurements locally. Finally, at the top of the
+    Figure are the data transfer and storage means. The data itself is stored either
+    directly in the file system, or in a database. The different phases of the data
+    collection process are explained in further detail in the following sections.
+    In the following, we will first discuss how legacy machines that provide only
+    analog readings need to be modified in order to fit into the Cropinfra framework.
+    Then we will discuss data capturing, data transfer in both bulk and real-time
+    modes, and data storage. After that, we will discuss the data capturing and transfer
+    results using examples where the Cropinfra framework has been successfully used.
+    Download : Download high-res image (226KB) Download : Download full-size image
+    Fig. 3. The structure of the data collection system. 3.1. Measuring legacy machines
+    and using reference measurements To support all different implements in Cropinfra,
+    analog sensors and I/O device (Axiomatic, 2008) are used to provide measurements
+    from non-ISOBUS implements to the CAN-bus. The I/O device sends the machine identifier
+    that is the same as the globally unique NAME-identifier used in ISOBUS (ISO, 2019).
+    The identification and the measurements messages from I/O device can be read similarly
+    as from the ISOBUS machines. In another words, the old and proprietary tractors
+    and implements are modified to provide limited ISOBUS-like functionality (see
+    Fig. 4). Download : Download high-res image (311KB) Download : Download full-size
+    image Fig. 4. I/O module and additional electronic wirings are mounted inside
+    the side panel of the cabin. For example Valtra 8950 tractor measurements were
+    transmitted to ISOBUS using the I/O device which measured the signals from ISO
+    11786 signal connector. The ISO 11786 defines a signal connector where the ground
+    speed, linkage position and PTO speed are provided using pulses and analog signals.
+    The fuel consumption was measured using two FLOWMATE OVAL M-III (Oval, 2016) flowmeters
+    (Fig. 5). Download : Download high-res image (122KB) Download : Download full-size
+    image Fig. 5. The fuel consumption has to be measured with external sensors in
+    old tractors. The implements without proprietary ECU were also equipped with Axiomatic
+    I/O device. For example the Potila Magnum 540 harrow does not have any electric
+    control (see Fig. 6). All the functions are directly hydraulically controlled.
+    The I/O device was used to measure whether the implement is in working position
+    or not. In other implements the I/O device was also used to provide reference
+    measurements to validate correct operation of the commercial controllers. Download
+    : Download high-res image (197KB) Download : Download full-size image Fig. 6.
+    In figure I/O module fitted to Potila Magnum 540 harrow. 3.2. Data capturing As
+    explained in Section 2.2, the data can be captured from the ISOBUS CAN-bus using
+    standard ISOBUS TC-GEO or TC-LOG device. However, if such device is used for research
+    purposes, it restricts the use of a parallel device with the same functionality.
+    By the TC protocol definition in the standard, the implement can communicate with
+    only one TC at a time. These kinds of conflicting situations may occur when technological
+    research projects are conducted and ISOBUS prototype devices are tested. Thus,
+    a data capturing device that only listen the other ECUs and doesn’t send anything
+    to the can-bus was developed. Furthermore, the requirements for data capturing
+    in different research projects and in different machines can vary. To meet the
+    requirements, the data capturing software had to modify in different research
+    project. The National Instruments LabVIEW system engineering software (National
+    Instruments, 2018) was selected to be used to program the data capturing software.
+    LabVIEW based software are fast to program, flexible and self-documenting. The
+    data capturing software was designed to be user friendly and reliable. First,
+    the program identifies all the devices in the ISOBUS network using the address
+    claim functionality (ISO, 2019). All the devices have to claim their own address
+    in the bus using globally unique ISOBUS NAME. The data capturing program is able
+    to identify the machines that are connected based on this NAME. Next, the user
+    is asked to complete the rest of the information before the data capturing is
+    started. The user interface is described more detailed in the next subsection.
+    When all the initial information is completed and user has started the data capturing,
+    the program stores all essential data from the ISOBUS network. The data capturing
+    system does not send any request message to the can bus or use the task controller
+    protocol to communicate with the implement. However, the software stores the process
+    data messages between the TC and the Implement as well as all other messages that
+    are in the bus. 3.2.1. User interface The user interface of the data capturing
+    software is shown in Fig. 7 and in Fig. 8. The first picture is from the initial
+    data input tab, which is used at the beginning of the work. The second picture
+    is from the driving tab, which is used during the work. Download : Download high-res
+    image (341KB) Download : Download full-size image Fig. 7. Data capturing user
+    interface at the beginning of the work. Download : Download high-res image (388KB)
+    Download : Download full-size image Fig. 8. Data capturing user interface during
+    the work. As described above, the data capturing software automatically detects
+    the machines that are connected in the bus. Those are set to be default values
+    in the dropdown boxes in Fig. 7 (“Traktori” [tractor in English] and “Työkone”
+    [implement]). The user can also manually select the machinery. In addition, the
+    user has to select the correct worker (“Suorittaja”), operation (“Työtehtävä”),
+    parcel (“Lohko”), plant type (“Viljelykasvi”) and variety (“Siemenlajike”) and
+    also the targeted seed (“Siemenmäärä”) and fertilization rate (“Lannoitemäärä”)
+    as well as corresponding calibration values (“Kiertokoe”). In the bottom of the
+    page, there are also place for free comment (“kommentti”) that will be added in
+    the log file. The comment can be added any time during the operation. The user
+    interface is slightly different when different types of implements are used. For
+    example when capturing data from a ploughing task, there is no need to select
+    the plant or rate values and in plant protection tasks there is a selection menu
+    for pesticides instead of seeds and fertilizers. Fig. 8 shows the tab used during
+    a field operation when data capturing from the sensors has been started. During
+    the work, the user interface is used to monitor that all ECUs in the ISOBUS network
+    are working and sensors produce the correct data. For example, the GPS-box and
+    TC-box are green if those produce data to the bus, otherwise they are red. The
+    current field parcel based on the GPS-location is also show in the text box to
+    verify that the worker is in a correct parcel. The tractor and implement measurements
+    are show as meters for visual verification of correct measurement values. 3.2.2.
+    Hardware for data capturing The data capturing software was made using the National
+    Instruments LabVIEW system engineering software, so the executable-version of
+    the software could be run in any device that has a LabVIEW runtime. In Cropinfra,
+    Panasonic Toughbook CF-19 rugged laptop computer was used. The system was used
+    in tractors and in a combine harvester. A docking station was mounted in each
+    machine to which power supply, CAN adapter and 3G/4G router (ASUS 4G-N12) was
+    connected. The basic setup of the hardware is shown in Figs. 9 and 10. The initial
+    device setup was selected at the beginning of the Cropinfra-related projects in
+    2003. However, additional devices were used in different research projects. Download
+    : Download high-res image (147KB) Download : Download full-size image Fig. 9.
+    Rugged computer for data capturing is mounted in the tractor. Download : Download
+    high-res image (222KB) Download : Download full-size image Fig. 10. Wireless 4G
+    router is used to cloud connection and national instruments CAN-adapter for ISOBUS
+    connection. 3.3. Bulk data transfer The Cropinfra data capturing software stores
+    all the collected information internally in a csv-type text file. Another option
+    would have been to use the ISO 11783-10 XML format. The example of the structure
+    of the data file is in the attachments (Table 3). The data file consists of two
+    parts: header and data. The header stores the information that describes the agricultural
+    operation and is constant during the process (initial data input tab in user interface).
+    In the data section, the process data produced by the machinery and sensors are
+    stored using 5 Hz logging frequency. The file is created when the user starts
+    the data capturing and the data is flushed to the disk in every iteration cycle
+    to ensure that there will not be any loss of data even if the system crashes during
+    a field operation. The final log file is transferred to the database either manually
+    using an USB-stick or automatically using FTP. When using FTP, a file transfer
+    daemon monitors the local folder that is used to store the log files. If the daemon
+    notices that a new log file is created or data capturing software has been closed,
+    it is concluded that previous log file is completed and the transfer of the previous
+    log file can be started. The file transfer daemon keeps track of all the log files
+    that are created and transferred. If the network is disconnected or the computer
+    shutdown, the data transfer is tried again after the computer is started and connection
+    resumed. 3.4. Real-time data transfer The Real-time data transfer is integrated
+    to the data capturing software. Unlike the bulk data transfer, the real-time data
+    transfer attempts to follow the ISO 11783-10/11 standard. The ISO 11783-10 XML
+    schema for the data is used in the system (ISO, 2015). The REST (W3C, 2011)/JSON
+    (ECMA International, 2017) API (Application Programming Interface) was selected
+    to be used, because the JSON is human readable and XML is easy to convert to JSON
+    objects. There are at least two different ways to implement the online data transfer
+    using REST/JSON communication protocol adapting the ISO 11783-10 standard: 1.
+    Using ISO 11783-10 XML structure as it is and converting all the root elements
+    to own JSON objects. These objects are requested and sent to and from the cloud
+    database, in order to get all the needed ids. New task is started by sending a
+    new TSK element (element structure is explained later) with correct references.
+    2. Simplify the ISO 11783-10 XML structure by removing the references inside the
+    XML and moving all the elements inside the TSK element. All information is sent
+    once inside the TSK JSON, which starts the new task. Both approaches have advantages
+    and disadvantages, but the first option was chosen because it follows the existing
+    standard more closely. 3.4.1. Backend The backend application stack is built on
+    REST/JSON API with MongoDB document oriented Data Base Management System (MongoDB,
+    2008). The interface is implemented using Java and deployed on GlassFish application
+    server, the open source Java EE (Oracle, 2018) reference implementation, and published
+    using representational state transfer architectural style that provides a set
+    of operations that a remote client can invoke over a network using the HTTP protocol
+    (Leach, 1999a). The backend data storage solution is built on MongoDB, a document
+    oriented non-relational database management system. MongoDB implements a flexible
+    data model that supports storing the JSON data as it is, enabling agile prototyping
+    and efficient client-to-backend data processing. 3.4.2. Data operations The prototype
+    REST/JSON API provides simple resources for online data transfer from mobile unit
+    to data storage and for requesting data from that storage. The API implements
+    HTTP Basic Authentication (Leach, 1999b) for authentication and authorization.
+    The data transfer sequence starts with authentication handshake between mobile
+    unit and back-end (Fig. 11). The client accesses the authenticate resource using
+    POST HTTP method and sends BASE64 (Josefsson, 2006) encoded credentials (username
+    and password) as Authorization header. Also a valid client id is required. In
+    case of successful authentication sequence the authorization is granted by assigning
+    an access token to be used in further requests. Download : Download high-res image
+    (227KB) Download : Download full-size image Fig. 11. Authentication process. After
+    successful authentication and authorization process the client requests a task
+    identifier using GET/taskid resource (Fig. 12). The task identifier is used by
+    the back-end system as a data set join key to identify the task specific documents
+    in the database. The task identifier is required as a path parameter whenever
+    the data is posted to the resource. Download : Download high-res image (179KB)
+    Download : Download full-size image Fig. 12. Getting a task identifier. Data is
+    sent to POST/data/[tasked] resource using the HTTP POST method (see Fig. 13).
+    The resource accepts application/json mime type and the payload JSON array can
+    contain TSK or TLG type documents, or both. The back-end stores each document
+    in received array as an individual object into database (Table 1). Download :
+    Download high-res image (168KB) Download : Download full-size image Fig. 13. Posting
+    data. Table 1. Examples of TSK and TLG documents in a collection. 3.4.3. Beginning
+    of the work The work is started by creating a new task, including the header information
+    of the work that is meant to be done. The database returns the task id that is
+    used as a reference in communication with the database after the beginning of
+    the work. Download : Download high-res image (361KB) Download : Download full-size
+    image 3.4.4. Definition of captured data It is supposed that each machine has
+    a device description according to ISO 11783 standard. The device description defines
+    the structure of the TLG elements. In this example two different device descriptions
+    are used: one for the tractor and one for the implement. In the attachments, device
+    description of the ISOBUS compatible Valtra T-163 tractor and also ISOBUS compatible
+    Junkkari Maestro 4000 seed drill are presented. Both produce measurement messages
+    to the ISOBUS which can be logged by the data capturing software. The tractor
+    T-ECU sends the wheel and ground speed, engine RPM, PTO RPM, Rear hitch position
+    and diesel consumption. For the urea consumption, a separate ECU is used to transfer
+    the message from the tractor bus to the ISOBUS. The seed drill sends fertilizer
+    and seed rates as a response to the TC message. An external I/O device was used
+    to send the reference measurements from the fertilizer and seed rates. Position,
+    speed, direction and GNSS quality information is received from the GPS. 3.4.5.
+    Calibration data The calibration data is send only when the task is started or
+    when the calibration is changed. This kind of data is for example seed and fertilizer
+    rates when prescription control is not used. Template for the calibration data
+    is: Download : Download high-res image (115KB) Download : Download full-size image
+    Note! In the standard, there is not G-attribute to specify the device; instead
+    it is supposed that device element numbers (DET) are unique. For example, the
+    seed rate and fertilizer rate are sent using: Download : Download high-res image
+    (150KB) Download : Download full-size image 3.4.6. Process data Process data is
+    sent similarly to calibration data. However, there can be multiple TLG-elements
+    in the same data frame to allow burst sending of measurements from different time
+    stamps. In addition to that, the TLG-element also includes the PTN-element which
+    defines the geographical location of the machine when the measurement has taken
+    place. Template for the process data: Download : Download high-res image (172KB)
+    Download : Download full-size image In this example the process data consist of
+    TIME_PC, Seed_r, Fertilizer_r, Position, PTO, Hitch, Diesel, Urea, Tr_rpm, Tr_dir,
+    Tr_W_Speed, Tr_R_Speed, LAT, LON, GPS_Speed, Dir, Alt, Qality, Sat_num. Those
+    values are originally used in the proprietary data format and mapped to corresponding
+    device description elements. The JSON frame is hence: Download : Download high-res
+    image (375KB) Download : Download full-size image 3.4.7. Requesting data Prototype
+    provides simple resources for requesting data from process data collection. Client
+    can request all the TSK documents in collection or alternatively a TSK document
+    or a TLG document matching a given task identifier. The resources are: – GET/data/tsk
+    – GET/data/tsk/[taskid] – GET/data/tlg/[taskid] If successful, the response mime
+    type is application/json and the body is formatted as JSON array with 1 − n JSON
+    documents ([ { } ( , … )]). All the POST and GET methods require client id and
+    access token fields in HTTP request header (Fig. 14). Download : Download high-res
+    image (197KB) Download : Download full-size image Fig. 14. Requesting data. 3.5.
+    Results of data capturing and real-time data transfer In the presented examples
+    in Section 3.4.6 Process data, the payload size for the process data (TLG message)
+    is 570 bytes if only measurements from one time instance are sent. The measurements
+    are updated 5 times per second, which means that the bandwidth requirement is
+    2850 bps plus 10% overhead from HTTP-frames producing totally 3.1 kbps bandwidth
+    requirement. The upload data rate in 2G EGDE is 60 kbps, in 3G 2 Mbps and in 4G
+    LTE 75 Mbps. Even though the upload data rate varies according to the load of
+    the network, the required bandwidth is only fraction of the available capacity.
+    However, the latency of the mobile network and HTTP server makes it impossible
+    to post messages with 5 Hz data rate. The solution was to pack several TLG messages
+    together and send those in one http message. In the Cropinfra, the default was
+    to pack 5 TLG messages together, and if the network is disconnected, all messages
+    after the last successful sent are packed together. The data transfer was tested
+    during sowing operations in Luke’s experiment farm in Vihti that is located in
+    Southern Finland. There are no big cities near the farm, so the mobile network
+    is typical to countryside. The sizes of the transmission buffers (TLG message
+    queue length) in different tests are listed in Table 2 together with the field
+    area and total number of TLG messages. Table 2. The sizes of the transmission
+    buffers in different tests. Name of the parcel Area (ha) number of TLG messages
+    Buffer size (number of TLG messages) Empty Cell Empty Cell Empty Cell Min Max
+    AVG Pumppulohko A 2.99 23,939 0 303 4.07 Heikkilä A 2.86 45,614 0 26 2.139 Uutela
+    A 11.29 112,268 0 139 2.226 Kaupanpelto A 1.84 25,614 0 14 2.126 Tientaus A 4.09
+    44,537 0 44 2.205 Uutela A 11.29 27,443 0 14 2.150 Kirjava Pohj. A 3.09 37,734
+    0 35 2.194 Kirjava Etel. A 7.56 81,124 0 94 2.198 Pelto A (part 1) 12.30 134,545
+    0 512 4.261 Pelto A (part 2) 12.30 185,123 0 451 2.846 Pelto A (part 3) 12.30
+    166,510 0 503 2.927 Pelto A (part 4) 12.30 52,942 0 11,767 1938 Hovin Luhta A
+    (part 1) 4.66 70,303 0 24 2.213 Hovin Luhta A (part 2) 4.66 32,846 0 24 2.140
+    Luhta A 8.02 69,209 0 20 2.150 Riihipelto A 5.26 37,251 0 24 2.176 Kirjava Länt.
+    A 5.85 55,441 0 556 6.238 Kirjava Länt. A 5.85 55,441 0 556 6.238 Totally, 1,202,443
+    TLG messages were sent during the data transfer tests, which means 653 Mbytes
+    payload or 18,036,645 individual sensor readings. The total area of the parcels
+    were 81.1 ha, which means that the average raw data production density is 8 Mbytes/ha.
+    The buffer size was typically less than five TLG messages in queue and in average
+    about two, which means that the TLS messages were usually sent successfully once
+    per second. However, the network connection was lost occasionally and in every
+    parcel the maximum size of the buffer is at least 14. The biggest buffer size
+    is in last part of “Pelto A”, when the buffer size was 11,767. The connection
+    was lost twice in that test. In the first time, the buffer size grew up to 8125
+    before the TLG messages were successfully sent. In the second time, the connection
+    did not recover before the computer was shut down. That was the only occasion
+    when data was lost during the tests. 4. Discussion and conclusions This paper
+    has presented how data collection from field operations can be implemented to
+    support research. The system supports both state-of-the-art ISOBUS (ISO 11783)
+    compatible tractors and implements as well as old proprietary machinery. The provided
+    examples verify that the solution can be used in real scale farm. The data captured
+    using the system has been used for example in following research; yield maps and
+    in the combined seed drilling applied fertilizer rates were used as source data
+    for generating new fertilizer application task (Kaivosoja et al., 2013b, Kaivosoja
+    et al., 2017); data from different field operations to determine the spatial overlapping
+    of working widths (Kaivosoja and Linkolehto, 2016), where 140 different complete
+    field operations were analysed to found out that in driving lines are overlapping
+    10% in average; the positioning data was also used to analyse GNSS positioning
+    error (Kaivosoja and Linkolehto, 2015). In the work of Kaivosoja et al. (2014),
+    application of real time web services were adapted to the platform. In the future
+    the collected data is even more valuable when machine learning and other artificial
+    intelligence methods will be utilized (Kamilaris and Prenafeta-Boldú, 2018, Liakos
+    et al., 2018). This paper has also presented how cloud connection can be implemented
+    in the data collection system. The solution was designed to be compatible with
+    the existing ISO 11783-10 standard. The connection was tested and found to be
+    working in the sowing operations of a real scale farm. There was one case of significant
+    data loss, which happened when the computer used for data capturing was shut down
+    before all data was transferred to the cloud service. The loss could have been
+    prevented by saving the buffer to non-volatile memory. It was also found out that
+    the payload size does not matter. The latency of the mobile network and the response
+    time of the HTTP server as well as the reliability of the connection are the primary
+    restrictions in the data transfer. The FMIS working group in AEF is preparing
+    the guideline to implement the cloud connection manufacturer independently. After
+    the AEF has published the guideline, the work is started in the ISO to standardise
+    the solution. Based on the prototypes implemented so far among the AEF community,
+    it seems that the solution will be based on the MQTT publish-subscribe-based messaging
+    protocol and protobuf data serializing solution developed by the Google. The solutions
+    presented in this paper are alternative but still not conflicting solutions. The
+    POST message used in this paper could be changed to send messages in MQTT with
+    the topic being the same as the URL in POST. The JSON format used in this paper
+    is conducted from the ISO 11783 standard and it is possible to convert the JSON
+    to the protocol buffer. Appendix A: CSV-file format See Table 3. Table 3. Example
+    from the beginning of the datafile. Appendix B: DDOP See Table 4, Table 5. Table
+    4. Device description of the tractor. Table 5. Device description of the implement.
+    References AEF, 2019a AEF, 2019a. ISOBUS. Retrieved July 29, 2019, from https://www.aef-online.org/the-aef/isobus.html.
+    Google Scholar AEF, 2019b AEF, 2019b. Think ISOBUS, AEF Presskit. Retrived July
+    29, 2019, from https://www.aef-online.org/fileadmin/user_upload/Content/pdfs/AEF-com-pack.zip
+    https://www.aef-online.org/fileadmin/user_upload/Content/pdfs/AEF-com-pack.zip.
+    Google Scholar Axiomatic, 2008 Axiomatic, 2008. Press Release. Retrieved May 5,
+    2018, from http://www.axiomatic.com/pr-AX030100-may08.pdf. Google Scholar Bray,
+    2015 Bray, T., 2015. RFC 7493 – The I-JSON Message Format. Retrieved October 9,
+    2018, from https://tools.ietf.org/html/rfc7493. Google Scholar Bray, 2017 Bray,
+    T., 2017. RFC 8259 – The JavaScript Object Notation (JSON) Data Interchange Format.
+    Retrieved October 9, 2018, from https://tools.ietf.org/html/rfc8259. Google Scholar
+    Dataväxt, 2019 Dataväxt, 2019. LOGMASTER. Retrieved July 24, 2019, from https://www.datavaxt.se/logmaster/.
+    Google Scholar ECMA International, 2017 ECMA International, 2017. Standard ECMA-404,
+    The JSON Data Interchange Syntax. Retrieved June 11, 2018, from http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf.
+    Google Scholar Fielding, 2000 R.T. Fielding Architectural Styles and the Design
+    of Network-based Software Architectures Doctoral dissertation University of California
+    (2000) Google Scholar Fountas et al., 2015 S. Fountas, C.G. Sorensen, Z. Tsiropoulos,
+    C. Cavalaris, V. Liakos, T. Gemtos Farm machinery management information system
+    Comput. Electron. Agric., 110 (2015), pp. 131-138 View PDFView articleView in
+    ScopusGoogle Scholar Google, 2018 Google, 2018. Protocol Buffers, Retrieved October
+    9, 2018, from https://developers.google.com/protocol-buffers/. Google Scholar
+    IETF Trust, 2007 IETF Trust, 2007. Hypertext Transfer Protocol – HTTP/1.1. Retrieved
+    October 9, 2018, from https://www.w3.org/Protocols/HTTP/1.1/rfc2616bis/draft-lafon-rfc2616bis-03.html.
+    Google Scholar ISO/IEC, 2016 ISO/IEC 20922, 2016. Information technology – Message
+    Queuing Telemetry Transport (MQTT) v3.1.1. Retrieved October 9, 2018, from https://www.iso.org/standard/69466.html.
+    Google Scholar ISO, 2019 ISO, 2019. ISO 11783-5:2019. Tractors and machinery for
+    agriculture and forestry – Serial control and communications data network – Part
+    5: Network management. Retrieved July 29, 2019, from https://www.iso.org/standard/74366.html.
+    Google Scholar ISO, 2017a ISO, 2017. ISO 11783-1:2017 – Tractors and machinery
+    for agriculture and forestry – Serial control and communications data network
+    – Part 1: General standard for mobile data communication. Retrieved November 21,
+    2018, from https://www.iso.org/standard/57556.html. Google Scholar ISO, 2017b
+    ISO, 2017. ISO 11783-7:2015 - Tractors and machinery for agriculture and forestry
+    – Serial control and communications data network – Part 7: Implement messages
+    application layer. Retrieved April 29, 2019, from https://www.iso.org/standard/59380.html.
+    Google Scholar ISO, 2015 ISO, 2015. ISO 11783-10:2015 – Tractors and machinery
+    for agriculture and forestry – Serial control and communications data network
+    – Part 10: Task controller and management information system data interchange.
+    Retrieved November 21, 2018, from https://www.iso.org/standard/61581.html. Google
+    Scholar Josefsson, 2006 Josefsson, S., 2006. RFC 4648 – The Internet Society,
+    2006. The Base16, Base32, and Base64 Data Encodings. Retrieved June 11, 2018,
+    from https://tools.ietf.org/html/rfc4648. Google Scholar Kaivosoja et al., 2013a
+    J. Kaivosoja, L. Pesonen, J. Kleemola, I. Pölönen, H. Salo, E. Honkavaara, H.
+    Saari, J. Mäkynen, A. Rajala A case study of a precision fertilizer application
+    task generation for wheat based on classified hyperspectral data from UAV combined
+    with farm history data Remote Sensing for Agriculture, Ecosystems, and Hydrology
+    XV. SPIE Remote Sensing, Proceedings (2013), p. 8887 Google Scholar Kaivosoja
+    et al., 2017 J. Kaivosoja, R. Näsi, T. Hakala, N. Viljanen, E. Honkavaara Applying
+    different remote sensing data to determine relative biomass estimations of cereals
+    for precision fertilization task generation Michail Salampasis, Alexandros Theodoridis,
+    Thomas Bournaris (Eds.), Proceedings of the 8th International Conference on Information
+    and Communication Technologies in Agriculture, Food and Environment (HAICTA 2017),
+    Chania, Crete Island, Greece, September 21–24, 2017 (2017) Google Scholar Kaivosoja
+    and Linkolehto, 2016 J. Kaivosoja, R. Linkolehto Spatial overlapping in crop farming
+    works Agron. Res., 14 (2016), pp. 41-53 View in ScopusGoogle Scholar Kaivosoja
+    and Linkolehto, 2015 J. Kaivosoja, R. Linkolehto GNSS error simulator for farm
+    machinery navigation development Comput. Electron. Agric., 119 (2015), pp. 166-177
+    View PDFView articleView in ScopusGoogle Scholar Kaivosoja et al., 2014 J. Kaivosoja,
+    M. Jackenkroll, R. Linkolehto, M. Weis, R. Gerhards Automatic control of farming
+    operations based on spatial web services Comput. Electron. Agric., 100 (2014),
+    pp. 110-115 View PDFView articleView in ScopusGoogle Scholar Kaivosoja et al.,
+    2013b J. Kaivosoja, L. Pesonen, J. Kleemola, I. Pölönen, H. Salo, E. Honkavaara,
+    H. Saari, J. Mäkynen, A. Rajala A case study of a precision fertilizer application
+    task generation for wheat based on classified hyperspectral data from UAV combined
+    with farm history data Christopher M.U. Neale, Antonino Maltese (Eds.), Proceedings
+    of SPIE 8887, Remote Sensing for Agriculture, Ecosystems, and Hydrology XV, 88870H,
+    October 16, 2013 (2013) Google Scholar Kamilaris and Prenafeta-Boldú, 2018 A.
+    Kamilaris, F.X. Prenafeta-Boldú Deep learning in agriculture: a survey Comput.
+    Electron. Agric., 147 (2018), pp. 70-90 View PDFView articleView in ScopusGoogle
+    Scholar Leach, 1999a Leach, P. J., 1999. RFC 2616 – Hypertext Transfer Protocol
+    – HTTP/1.1. Retrieved June 11, 2018, from https://tools.ietf.org/html/rfc2616.
+    Google Scholar Leach, 1999b Leach, P. J., 1999b. RFC 2617 – HTTP Authentication:
+    Basic and Digest Access Authentication. Retrieved June 11, 2018, from https://tools.ietf.org/html/rfc2617.
+    Google Scholar Liakos et al., 2018 K.G. Liakos, P. Busato, D. Moshou, S. Pearson,
+    D. Bochtis Machine learning in agriculture: a review Sensors, 18 (8) (2018), p.
+    2674 View in ScopusGoogle Scholar MongoDB, 2008 MongoDB, 2008. Introduction to
+    MongoDB. Retrieved June 11, 2018, from https://docs.mongodb.com/manual/introduction/.
+    Google Scholar National Instruments, 2018 National Instruments, 2018. What Is
+    LabVIEW. Retrieved May 5, 2018, from http://www.ni.com/fi-fi/shop/labview.html.
+    Google Scholar Nikander et al., 2017 J. Nikander, R. Linkolehto, M. Jäger, L.
+    Pesonen, A. Ronkainen, A. Suokannas Prototype environment for integrating and
+    sharing farm things and associated data Adv. Anim. Biosci., 8 (2) (2017), pp.
+    645-649 View PDFView articleGoogle Scholar Nikander et al., 2015 J. Nikander,
+    M. Koistinen, M. Laajalahti, L. Pesonen, A. Ronkainen, P. Suomi Farm information
+    management infrastructures in the future 26th International Workshop on Database
+    and Expert Systems Applications (DEXA) Valencia 2015 (2015), pp. 104-107 View
+    in ScopusGoogle Scholar Oval, 2016 Oval, 2016. Super Micro Flowmate General Specification.
+    Retrieved May 5, 2018, from http://www.oval.co.jp/english/gs_home/gbb340e-14c.pdf.
+    Google Scholar Oksanen et al., 2015 T. Oksanen, P. Piirainen, I. Seilonen Remote
+    access of ISO 11783 process data by using OPC Unified Architecture technology
+    Comput. Electron. Agric., 117 (2015), pp. 141-148 View PDFView articleView in
+    ScopusGoogle Scholar Oksanen et al., 2005 T. Oksanen, M. Öhman, M. Miettinen,
+    A. Visala ISO 11783 –Standard and its Implementation IFAC Proc. Vol., 38 (1) (2005),
+    pp. 69-74 View PDFView articleView in ScopusGoogle Scholar Oracle, 2018 Oracle,
+    2018. Java EE – Documentation. Retrieved June 11, 2018, from http://www.oracle.com/technetwork/java/javaee/documentation/index.html.
+    Google Scholar Pesonen et al., 2014 L. Pesonen, F. Teye, A. Ronkainen, M. Koistinen,
+    J. Kaivosoja, P. Suomi, R. Linkolehto Cropinfra – an internet-based service infrastructure
+    to support crop production in future farms Biosyst. Eng., 120 (2014), pp. 92-101
+    View PDFView articleView in ScopusGoogle Scholar Sachs and Goldman, 2014 Goldman
+    Sachs The Internet of Things: Making sense of the next mega-trend Technical report
+    Goldman Sachs (2014) Google Scholar Steinberger et al., 2009 G. Steinberger, M.
+    Rothmund, H. Auernhammer Mobile farm equipment as a data source in an agricultural
+    service architecture Comput. Electron. Agric., 65 (2009), pp. 238-246 View PDFView
+    articleView in ScopusGoogle Scholar Stone et al., 2008 M.L. Stone, R.K. Benneweis,
+    J. Van Bergeijk Evolution of electronics for mobile agricultural equipment Trans.
+    ASABE, 51 (2) (2008), pp. 385-390 View in ScopusGoogle Scholar Suonentieto, 2019
+    Suonentieto, 2019. Lohkokirjanpito ja täsmäviljely – AgriSmart. Retrived July
+    24, 2019, from https://www.suonentieto.fi/tuotteet/agrismart/. Google Scholar
+    Suomi and Oksanen, 2015 P. Suomi, T. Oksanen Automatic working depth control for
+    seed drill using ISO 11783 remote control messages Comput. Electron. Agric., 116
+    (2015), pp. 30-35 View PDFView articleView in ScopusGoogle Scholar Söderström
+    et al., 2016 M. Söderström, G. Sohlenius, L. Rodhe, K. Piikki Adaptation of regional
+    digital soil mapping for precision agriculture Precis. Agric., 17 (2016), pp.
+    588-607 CrossRefView in ScopusGoogle Scholar Thomasson et al., 2019 J. Thomasson,
+    C. Baillie, D. Antille, C. Lobsey, C. McCarthy Autonomous technologies in agricultural
+    equipment: a review of the state of the art ASABE Distinguished Lecture No. 40
+    Agricultural Equipment Technology Conference, 11–13 February 2019, Louisville,
+    Kentucky, USA (2019), pp. 1-17 Google Scholar W3C, 2011 W3C, 2011. REST – Semantic
+    Web Standards. Retrieved June 11, 2018, from https://www.w3.org/2001/sw/wiki/REST.
+    Google Scholar Wolfert et al., 2017 S. Wolfert, L. Ge, C. Verdouw, M. Bogaardt
+    Big data in smart farming – a review Agric. Syst., 153 (2017) (2017), pp. 69-80
+    View PDFView articleView in ScopusGoogle Scholar Öhman et al., 2004 M. Öhman,
+    T. Oksanen, M. Miettinen, A. Visala Remote maintenance of agricultural machines
+    Proceedings of the 1st IFAC Symposium on Telematics Applications in Automation
+    and Robotics 2004, Helsinki, Finland (2004) Google Scholar Cited by (10) Agricultural
+    process data as a source for knowledge: Perspective on artificial intelligence
+    2023, Smart Agricultural Technology Show abstract CANBUS-enabled activity-based
+    costing for leveraging farm management 2022, Computers and Electronics in Agriculture
+    Citation Excerpt : In fact, the use of CANBUS and ISOBUS technologies can pave
+    the way to improving cost allocation to farm output products or activities, creating
+    an opportunity for the application of direct costing approaches. These approaches
+    can also fit particularly well with site-specific operations in the context of
+    precision agriculture, which is characterised by its substantial potential to
+    improve agricultural performance (Backman et al., 2019; Pedersen et al., 2019).
+    Based on these considerations, this work aims to develop a novel methodology for
+    cost calculations of field operations based on real-world CANBUS data and the
+    ABC approach to achieve more precise monitoring and allocation of farm costs and
+    production costs. Show abstract Smart Farming Technologies Adoption Process: Plan,
+    Design, Evaluate 2023, SSRN Artificial intelligence and new business models in
+    agriculture: a structured literature review and future research agenda 2023, British
+    Food Journal Development of Robust Communication Algorithm between Machine Vision
+    and Boom Sprayer for Spot Application Via Iso11783 2022, SSRN Internet of Things
+    Applications in Precision Agriculture: A Review 2022, Journal of Robotics and
+    Control (JRC) View all citing articles on Scopus © 2019 The Authors. Published
+    by Elsevier B.V. Recommended articles A novel tool for simulating brittle borehole
+    breakouts Computers and Geotechnics, Volume 107, 2019, pp. 80-88 Eleni Gerolymatou
+    View PDF Cellular access multi-tenancy through small-cell virtualization and common
+    RF front-end sharing Computer Communications, Volume 133, 2019, pp. 59-66 Jose
+    Mendes, …, Ingrid Moerman View PDF Elastic optical bypasses for traffic bursts
+    Computer Communications, Volume 146, 2019, pp. 95-102 Edyta Biernacka, …, Jerzy
+    Domżał View PDF Show 3 more articles Article Metrics Citations Policy Citations:
+    1 Citation Indexes: 8 Captures Readers: 74 View details About ScienceDirect Remote
+    access Shopping cart Advertise Contact and support Terms and conditions Privacy
+    policy Cookies are used by this site. Cookie settings | Your Privacy Choices All
+    content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply."'
+  inline_citation: '>'
+  journal: Computers and Electronics in Agriculture
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Cropinfra research data collection platform for ISO 11783 compatible and
+    retrofit farm equipment
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Katamreddy S.
+  - Walsh J.
+  - Ward S.
+  - Riordan D.
+  citation_count: '9'
+  description: The emergence of advanced technologies has helped in solving specific
+    problems in agriculture. In many sectors, interoperability of new technologies
+    has helped in solving much bigger problems on a large scale and has eventually
+    led to widespread automation, but this automation wouldn't have been possible
+    without openness in communication protocols. These standard protocols have evolved
+    over time to cater to industry needs, from partial to fully automated manufacturing
+    processes. The overall system obtained by the integration of these technologies
+    for automated process control and management is commonly referred to as Industry
+    4.0. This paper discusses the protocols and technologies used in precision farming
+    analogous to Industry 4.0. This paper also addresses the gaps to fill by exploring
+    the technologies and standards and by proposing a unified architecture. It is
+    hoped that addressing these gaps will help to create a solution for fully automated
+    process control in an Agriculture 4.0 perspective and race towards more advanced
+    Agriculture 5.0.
+  doi: 10.1109/ISSC.2019.8904938
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2019 30th Irish Signals and S...
+    Closed loop process control for precision farming: An Agriculture 4.0 perspective
+    Publisher: IEEE Cite This PDF Sukumar Katamreddy; Joseph Walsh; Shane Ward; Daniel
+    Riordan All Authors 8 Cites in Papers 376 Full Text Views Abstract Document Sections
+    I. Introduction II. The Success of Industry 4.0 III. Process in An Agricultural
+    Context IV. Challenges in Agriculture 4.0 V. Agronomic Benchmarking and Sensor
+    Standardization Show Full Outline Authors Figures References Citations Keywords
+    Metrics Abstract: The emergence of advanced technologies has helped in solving
+    specific problems in agriculture. In many sectors, interoperability of new technologies
+    has helped in solving much bigger problems on a large scale and has eventually
+    led to widespread automation, but this automation wouldn''t have been possible
+    without openness in communication protocols. These standard protocols have evolved
+    over time to cater to industry needs, from partial to fully automated manufacturing
+    processes. The overall system obtained by the integration of these technologies
+    for automated process control and management is commonly referred to as Industry
+    4.0. This paper discusses the protocols and technologies used in precision farming
+    analogous to Industry 4.0. This paper also addresses the gaps to fill by exploring
+    the technologies and standards and by proposing a unified architecture. It is
+    hoped that addressing these gaps will help to create a solution for fully automated
+    process control in an Agriculture 4.0 perspective and race towards more advanced
+    Agriculture 5.0. Published in: 2019 30th Irish Signals and Systems Conference
+    (ISSC) Date of Conference: 17-18 June 2019 Date Added to IEEE Xplore: 21 November
+    2019 ISBN Information: ISSN Information: DOI: 10.1109/ISSC.2019.8904938 Publisher:
+    IEEE Conference Location: Maynooth, Ireland SECTION I. Introduction The important
+    elements for any closed -loop process control can be simplified to the following
+    blocks which are; input, processor, feedback and output, simply illustrated in
+    Fig 1. Fig 1: Elements in a closed-loop process control Show All The control blocks
+    (elements) shown in Fig 1 can be assumed as different technologies from different
+    manufacturers. Controlling these completely different systems without a standard
+    communicating protocol is highly difficult. This concept can be applied to any
+    process and in any domain. This problem has been acknowledged by international
+    professional societies who have over time standardized some of the communication
+    protocols to leverage the benefits of interoperability. When adopted, these standard
+    protocols not only work with different subsystems of the same vendor but with
+    different vendors subsystems as well. This has led to flexible and tailored automated
+    process controls. This idea has been adopted in precision farming for more sustainable
+    and profitable farming practices. However, due to the vast number of unpredictable
+    and uncontrollable factors like climate, soil and crop health, the control is
+    limited. Currently, the control is especially limited for mobile farm machinery
+    used for seeding/planting, variable rate spraying/spreading and harvesting. For
+    seamless farm management, factors like plant and soil health, nutrients, moisture,
+    climate etc. should also be considered for continuous adaption with a feedback
+    mechanism. Though there are technologies available to monitor these factors, they
+    are not unified or integrated, which is a shortcoming in Agriculture 4.0. Scope
+    of This Paper This paper discusses the technologies, standards and their adoption
+    which have paved the way for Industry 4.0. Also discussed are the advancements
+    in precision farming and the challenges to fill the gap in closing the loop for
+    automated control. The benefits of agronomic benchmarking when the standard technologies
+    are adopted are discussed. Finally, standardization of protocols and unified architecture
+    for Agriculture 4.0 to monitor and control the processes are proposed. SECTION
+    II. The Success of Industry 4.0 The evolved term ‘Industry 4.0’ refers to any
+    industrial manufacturing or assembly plant/factory of any domain which has adopted
+    some level of automation in their processes using cyber-physical systems. This
+    dates back to the early 1970s where pneumatic and hydraulic actuators were controlled
+    by programmable logic controllers (PLCs) [1]. As companies scaled up, it became
+    difficult to manage the individual PLCs and other control interfaces. This problem
+    has been solved with SCADA (Supervisory Control and Data Acquisition) and DCS
+    (Distributed Control System) which represents the data and control at a higher
+    level or HMI (Human Machine Interface) [2]. The intermediate layer between HMI
+    and controlled surfaces is the communication layer. The communication between
+    controlled surfaces and the controlling units forms a network. The lower part
+    of the network (shown in Fig 2) which interacts with controlled devices is called
+    the Fieldbus (in an industrial context). Fig 2: Connecting various networks in
+    an industry setup [2] Show All The development of OSI (Open System Interconnect)
+    has encouraged the industrial protocol developers to adhere to the standard communication
+    protocols which have led to cable redundancy cost cuts. Various European countries
+    like Germany, France and Denmark have developed their own industrial protocols
+    which can be deployed in industrial automation. Their protocols are different
+    from each other which has made it tough to standardize into one single standard.
+    This resulted in maintaining different types of fieldbuses namely PROFIBUS [3],
+    FIP [4], P-NET [5], WFIP [6]–[8], etc. as their national standards. The International
+    Electrotechnical Commission published IEC 61158 with the above protocols as the
+    standard protocols [9]. Companies themselves have come to devise innovative protocols
+    which access the medium with a single set of cables. These include CSMA-CA (Carrier
+    Sense Multiple Access - Collision Avoidance) [10], CAN (Control Area Network)
+    [11] etc. Later, the development of wireless technologies like the WLAN (Wireless
+    Local Area Network) standard, industrial sensor vendors have modified the OSI
+    Model''s physical layer and kept the network layer and medium access layers similar.
+    This has helped to modify different types of fieldbuses to adopt wireless technology.
+    Similarly, the adoption of other wireless standards like Bluetooth and ZigBee
+    have given rise to many wireless communication options to the industry. The adoption
+    of these converged technologies by the vendors and end users has led to flexible,
+    decentralized and cost-effective end-to-end automation in the industry today.
+    In addition, adoption of IoT to help connect manufacturing plants in separate
+    geographic locations as a single entity is a reality [12], [13]. This can be considered
+    a success of ‘Industry 4.0’ technology. SECTION III. Process in An Agricultural
+    Context In analogy to industry, the process in agriculture is viewed as the product
+    undergoing changes in various stages from the primary stage to the final stage
+    as a consumable product. Here the product can be seen as a seed in the primary
+    stage, developing into a final consumable entity cultivated through intermediary
+    stages. This is shown in Fig 3. Fig 3: Process stages in agriculture Show All
+    As in industry, these stages require a lot of human intervention to monitor and
+    supply adequate nutrients and care is taken to ensure proper crop growth. To increase
+    yield, the fertilizers are spread. However, in order to efficiently manage the
+    crop, the health of the soil and plants must be considered. This can be done if
+    the plants and soil are closely monitored. Precision Farming mostly makes use
+    of GPS (Global Positioning System), remote sensing, soil mapping, and variable
+    rate technology (VRT) [14], which have enabled farm machinery to guide and precisely
+    (up to a few centimetres accuracy) spray/spread fertilizer/nutrients. Similarly,
+    in the Harvest stage, yield mapping and other parameters are considered and analysed.
+    This is shown in Fig 4. Currently, precision farming is limited to only certain
+    stages in the whole process. For continuous monitoring of the crop, sensors which
+    constantly monitor soil parameters like moisture, pH, nutrient contents and plant
+    health must be installed. Once the user is aware of these parameters, better control
+    can be achieved. Currently, soil sampling and measuring plant nutrition (measuring
+    chlorophyll) are done manually with the sensors in between the stages and these
+    data are correlated with the fertilizer/nutrient spread/spray. Fig 4: Dry yield
+    data overlay on a map Show All Currently, the process monitoring is also not seamless
+    in agriculture, which hinders progress in achieving the ‘Agriculture 4.0’ scenario.
+    SECTION IV. Challenges in Agriculture 4.0 In the Industry 4.0 ecosystem ‘almost’
+    every stage can be controlled with human intervention. In analogy, the bio-ecosystem
+    depends on various uncontrollable factors like climate. The only way to control
+    the process is to adapt to these factors and maintain productivity. In addition,
+    getting the process feedback or tracing is extremely difficult because of the
+    vast spatio temporal nature of the farms. Unlike an industrial setting, conditions
+    in agriculture can be very harsh. Due to extreme open weather conditions and soil
+    nature, it is difficult to procure and install sensors which are rugged and able
+    to measure key indicators of crop growth. This is vital for a feedback mechanism
+    to adapt to the conditions. Industry standards are not compatible with this scenario.
+    There are no sensor vendors who exclusively solve this problem and no standards
+    like Fieldbus exist. However, processes can be monitored in some of the stages
+    like fertilizer/nutrient spread/spray season. The nitrogen sensor or NDVI sensor
+    mounted on farm machinery helps in variable rate application in real-time. Satellite
+    imagery helps to monitor the vegetation index but is not always suitable for real-time
+    monitoring because of cloud cover and poor signals [15]. Lack of integrated systems,
+    interoperable skills and basic information about the land and nutrient spread
+    [16] add up to challenges which make crop management extremely difficult. These
+    challenges are relevant research and engineering areas. Once these gaps are bridged,
+    there is a good possibility for seamless adaptive control over the farms. SECTION
+    V. Agronomic Benchmarking and Sensor Standardization To overcome the challenges
+    mentioned in section IV, agronomic benchmarking is necessary as a reference. Benchmarking
+    on the use of nutrients on the field exists today as a compliance/regulation in
+    some countries for accountability [17]. Similarly, an economic benchmarking on
+    crop productivity and health is needed to compare the benefits of a fully-integrated
+    system against conventional farm practices. To achieve this, farms are divided
+    and cultivated separately with the fully-integrated method and conventional method
+    throughout the crop seasons (up to crop yield) and compared against soil reusability,
+    quality of the produce, quantity of the produce and economic savings. This helps
+    farmers and contractors compare methodologies and view potential ways to adapt
+    to these integrated systems. Studies have shown that some farmers violate the
+    regulations in nutrient management despite the efforts put in place by the regulatory
+    authorities [18]. Tracking these violations is very difficult as they have to
+    rely on statistical analysis of administrative data. Using an integrated system
+    will aid the regulatory agencies and food safety authorities [19], [20] to easily
+    track and trace the nutrients and other toxic substances and enforce permissible
+    limits. Similar to industrial sensors, agri based sensors, farm machinery and
+    communication protocols (like ISOBUS) have to be standardized and reviewed once
+    every five years and certified similar to other industrial standards. This encourages
+    and enables sensor, machinery manufacturers and protocol stack developers to develop
+    suitable devices, machines and other agri based communication protocols respectively
+    to create a competitive scenario. SECTION VI. Unified Architecture There is a
+    need for a full-fledged Management Information System (MIS) exclusively for Crop
+    management similar to FMIS (Farm Management Information Systems) [21], [22]. This
+    includes monitoring from the primary stage to the final consumable stage and external
+    factors like weather forecasting. This will provide better adaptive control (decision
+    making) over crops. There are some farm simulator packages like GRAZPLAN [23]
+    for pasture simulation, APSIM [24] agricultural production simulation and decision
+    support system like GPFARM [25] which help in getting rough estimations and decision
+    support but, it is very difficult to generalize these systems for all types of
+    farm practices. Farm-specific models are much easier for farmers to adopt [26]
+    as they need less configuration. Similarly, a real-time unified architecture is
+    needed which takes the seasonal information and attributes affecting crop yield
+    and have control on the agricultural production. Currently, the systems we have
+    on farm machinery log data of particular operations like spreading, spraying and
+    harvesting but there is no mechanism to co-relate these data. Manual testing for
+    plant and soil data, aerial imagery and other sources are not integrated because
+    of various factors such as differences in data formats, incompatible device ports
+    and differences in communication protocols from different vendors. This makes
+    monitoring and analyzing of agricultural data very difficult. Research and development
+    is needed from the lowest layer, investigating water and dirt proof rugged sensors
+    which sense soil quality and plant health. A new type of scouting system (aerial
+    or land-based) with suitable sensors will help. A new type of fieldbus is required
+    to cater to the requirements of open crop cultivation. To integrate different
+    types of data streams, a unified architecture is needed which represents data
+    in a simple meaningful manner relating to crop growth. These data streams include
+    continuous soil sampling which monitors pH, moisture and nutrient content. Continuous
+    plant health analysis like chlorophyll content, nutrient intake, insect or disease
+    manifestations. Variable Fertilizer/Nutrient spread/spray data, weather data,
+    overall vegetation index from the satellite imagery, harvest data, etc. All these
+    data streams should be linked to the geographical coordinates of where the sampling
+    took place. This can act as a complete feedback mechanism in the agricultural
+    process but this can only be possible if all the data streams are integrated into
+    one single software platform. Various studies have acknowledged the benefits of
+    a unified architecture or framework for agriculture and IoT. Some of them have
+    presented the architecture layer by layer [27] [28]. Some agri-IoT [29] frameworks
+    are adopted from smart city framework concepts [30]. This integrated farm data
+    (Big Data) [31], [32] can be used for analyzing the trends with respect to factors
+    affecting the yield over time (hindsight). A wide variety of robust database systems
+    are available today. A selection of databases which support a wide variety of
+    scalable data formats is crucial in any decision support system. Machine Learning
+    models can be trained with these myriad data and predict the optimum parameters
+    for the next season. These predictions are evaluated against the ground truth
+    to improve the accuracy of predictions. A real-time adaptation testing is also
+    conducted to evaluate how these models adapt to the dynamic changes. This unified
+    architecture will bridge the gaps in the loop and eventually the whole process
+    can be automated in compliance with agronomic benchmarking. The proposed unified
+    architecture is shown in figure 5. Data collected from a suite of on-farm sensors,
+    weather stations, farm machinery sensor data, etc. are stored locally corresponding
+    to one farm. These data can be linked to an internet gateway which links to a
+    central crop database or cloud infrastructure. This central database or cloud
+    platform may integrate with other useful information sources to share or retrieve
+    data. These sources may include Food and Safety Authorities database, National
+    census database, etc. Relevant information from different sources is combined
+    and visualized to get meaningful insights into the farm in terms of crop health,
+    quality, regulatory compliance and economy. The data from the central database
+    consisting of a variety of data formats (structured, semi -structured, unstructured)
+    are retrieved to develop machine learning/predictive models. In recent years,
+    machine learning models have proved to be good in classifying, recommending and
+    predicting multi-model entities [33], [34]. These machine learning models are
+    evaluated and the recommended farm tasks are ranked. The highly ranked farm recommender
+    setting will be sent to the specific farm controller network for initialising
+    specific equipment. The controller network communicates with the local on-farm
+    gateway and control unit. The control unit makes sure the farm equipment are safe
+    and ready to proceed. These on-farm control actions may include water sprinkler
+    systems to maintain moisture, drone/land-based scouting to check crop/plant health,
+    commanding autonomous farm machinery [35], [36] to spray/spread pesticides/fertilizers
+    at the right location and right amount. Fig 5: A proposed unified architecture.
+    Show All This creates a data-driven loop in an agricultural context which can
+    deliver great value for farmers and government bodies in terms of traceable, sustainable
+    and profitable farming. SECTION VII. Conclusion This paper highlighted the success
+    of industry 4.0 by discussing the technology and factors for wide adoption. It
+    had attempted to compare the processes in agriculture to those in an industrial
+    context and has highlighted the challenges. It is better to have a reference model
+    to compare agricultural dynamics. This paper has discussed the agronomic benchmarking
+    from regulation enforcement and food safety authorities to be taken as a reference
+    for any ethical agricultural practice. Finally, a unified architecture has been
+    proposed. It is really hard to predict outcomes and maintain control required
+    in the wildly changing agricultural dynamics of the real world. Though there are
+    IoT enabled smart farms which gather data about crop affecting factors, the decision
+    making is still at a human level which varies greatly in terms of productivity,
+    quality, re-usability and economy. The proposed architecture will bridge the gap
+    in collecting relevant data as a feedback mechanism and controlling the factors
+    affecting the output. The trends are analytically evaluated (also including historical
+    data if available) and visualized for better insights. Additionally, the control/process
+    tasks are recommended by the machine learning predictive models. It is envisaged
+    that the proposed architecture will bridge the loop of the agricultural process
+    by adapting to the changes, tactically predicting the outcomes and recommending
+    control measures. As a long-term plan, with some add-ons to this proposed architecture,
+    it is possible to gather data from similar crops at multiple locations to a central
+    (national) food census repository. The exciting part starts from that point to
+    train the machine learning models and control multiple farms from a single control
+    centre. With some research and development, it is possible to connect this service
+    to autonomous agricultural machinery and drones paving a way for advanced agriculture
+    5.0 This research creates a new dimension in the field of engineering and a wide
+    variety of opportunities to achieve ethical, sustainable and profitable farming.
+    ACKNOWLEDGMENTS This research is being supported by Science Foundation Ireland
+    (SFI) under SFI LERO Ph.D. Scheme, Grant Number: 13/RC/2094. Authors Figures References
+    Citations Keywords Metrics More Like This Analysis of Fog Computing: An Integrated
+    Internet of Things (IoT) Fog Cloud Infrastructure for Big Data Analytics and Cyber
+    Security 2023 International Conference on Artificial Intelligence and Smart Communication
+    (AISC) Published: 2023 Role and Significance of Internet of Things (IoT) in Industry
+    4.0 2024 3rd International conference on Power Electronics and IoT Applications
+    in Renewable Energy and its Control (PARC) Published: 2024 Show More IEEE Personal
+    Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED
+    DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION
+    TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732
+    981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help | Accessibility
+    | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap |
+    IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
+    technical professional organization dedicated to advancing technology for the
+    benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 30th Irish Signals and Systems Conference, ISSC 2019
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Closed loop process control for precision farming: An Agriculture 4.0 perspective'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

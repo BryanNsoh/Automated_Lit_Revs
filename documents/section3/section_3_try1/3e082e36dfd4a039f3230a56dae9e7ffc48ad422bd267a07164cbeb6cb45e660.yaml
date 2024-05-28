@@ -1,0 +1,934 @@
+- analysis: '>'
+  authors:
+  - Aburasain R.Y.
+  citation_count: '0'
+  description: 'Agriculture has played a significant role in the lifespan of human
+    beings for their survival and the better economic growth of the country. Due to
+    its intensified growth, smart agriculture has been a popular domain recently.
+    This aggregates the benefits of any computing technologies, like wireless sensor
+    networks (WSN), drones, Internet of Things (IoT), remote sensing, etc. The IoT
+    system places sensors on agricultural areas to accumulate critical information
+    for the crops and fields to increase the overall rate of productivity. While broadcasting
+    the sensed information in the domains to the target, there is a chance of the
+    existence of cyber-threats, which intruders design to attain access to the content
+    being transferred. Intrusion detection in IoT-based smart farming using deep learning
+    (DL) leverages the power of deep neural networks (DNN) to safeguard agricultural
+    systems from cyber threats. DL algorithms can autonomously detect unauthorized
+    and anomalies activities by analyzing data streams from sensors, IoT devices,
+    and farm management systems. With this motivation, this study designs an Enhanced
+    Black Widow Optimization with Hybrid Deep Learning Enabled Intrusion Detection
+    (EBWO-HDLID) technique in the IoT-based Smart Farming environment. The proposed
+    EBWO-HDLID technique captures complex patterns and detects significant intrusions,
+    assuring the security and reliability of smart farming. In the presented EBWO-HDLID
+    approach, the bald eagle search (BES) algorithm can be used for the feature selection
+    process. For the intrusion detection and classification process, the EBWO-HDLID
+    technique applies the HDL classification model. Finally, the EBWO algorithm can
+    be used for the parameter tuning of the HDL technique. The experimental validation
+    process demonstrates the satisfactory performance of the EBWO-HDLID model on two
+    benchmark datasets: ToN-IoT, and Edge-IIoTset datasets.'
+  doi: 10.1109/ACCESS.2024.3359043
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Journals & Magazines >IEEE Access >Volume: 12 Enhanced
+    Black Widow Optimization With Hybrid Deep Learning Enabled Intrusion Detection
+    in Internet of Things-Based Smart Farming Publisher: IEEE Cite This PDF Rua Y.
+    Aburasain All Authors 191 Full Text Views Open Access Comment(s) Under a Creative
+    Commons License Abstract Document Sections I. Introduction II. Related Works III.
+    The Proposed Model IV. Performance Validation V. Conclusion Authors Figures References
+    Keywords Metrics Abstract: Agriculture has played a significant role in the lifespan
+    of human beings for their survival and the better economic growth of the country.
+    Due to its intensified growth, smart agriculture has been a popular domain recently.
+    This aggregates the benefits of any computing technologies, like wireless sensor
+    networks (WSN), drones, Internet of Things (IoT), remote sensing, etc. The IoT
+    system places sensors on agricultural areas to accumulate critical information
+    for the crops and fields to increase the overall rate of productivity. While broadcasting
+    the sensed information in the domains to the target, there is a chance of the
+    existence of cyber-threats, which intruders design to attain access to the content
+    being transferred. Intrusion detection in IoT-based smart farming using deep learning
+    (DL) leverages the power of deep neural networks (DNN) to safeguard agricultural
+    systems from cyber threats. DL algorithms can autonomously detect unauthorized
+    and anomalies activities by analyzing data streams from sensors, IoT devices,
+    and farm management systems. With this motivation, this study designs an Enhanced
+    Black Widow Optimization with Hybrid Deep Learning Enabled Intrusion Detection
+    (EBWO-HDLID) technique in the IoT-based Smart Farming environment. The proposed
+    EBWO-HDLID technique captures complex patterns and detects significant intrusions,
+    assuring the security and reliability of smart farming. In the presented EBWO-HDLID
+    approach, the bald eagle search (BES) algorithm can be used for the feature selection
+    process. For the intrusion detection and classification process, the EBWO-HDLID
+    technique applies the HDL classification model. Finally, the EBWO algorithm can
+    be used for the parameter tuning of the HDL technique. The experimental validation
+    process demonstrates the satisfactory performance of the EBWO-HDLID model on two
+    benchmark datasets: ToN-IoT, and Edge-IIoTset datasets. This article designs an
+    Enhanced Black Widow Optimization with Hybrid Deep Learning Enabled Intrusion
+    Detection technique in the Internet of Things based Smart Farming en...View more
+    Published in: IEEE Access ( Volume: 12) Page(s): 16621 - 16631 Date of Publication:
+    26 January 2024 Electronic ISSN: 2169-3536 DOI: 10.1109/ACCESS.2024.3359043 Publisher:
+    IEEE Funding Agency: SECTION I. Introduction Agriculture and farming are considered
+    two of the major and essential industries that help people significantly and improve
+    a country’s GDP. Enhanced farming and agriculture management needs technical help
+    and innovations [1]. A collection of strategies called “smart agriculture” is
+    employed to improve the value and productivity of farming goods at a lesser price
+    and with less human participation. Smart farming is completely based upon IoT
+    skills, because of the nonstop surveillance of several components in the agrarian
+    segment, with several abilities comprising water table and the enhancement of
+    soil and plant possessions [2]. As incorporating skills in smart farming provides
+    certain paybacks to agrarians, this incorporation comes along with various complications
+    and troubles. Between those contests, the major frightening one is interruptions
+    purposefully presented in fixed skills to advance admittance to the gathered information
+    [3]. Major safety tasks are because of the weakness of the systems combined in
+    smart farming and because of their limited control. For the efficient elimination
+    of tasks like reserve waste and food deficiency, techniques such as deep learning
+    (DL), Internet of Things (IoT), artificial intelligence (AI), and so on were utilized
+    [4]. Electricity management, Labour cost reduction, and water and the agriculturalists
+    can retain a list of their harvests are major compensations of IoT-based smart
+    farming [5]. The strategies involved in the domains gather essential information
+    about the cultivated lands and transfer them to the waiters for scarcity. While
+    the transmission of the information to the target, there is a greater chance of
+    several safety threats that need rapid solutions. The most frequent threat in
+    smart farming is the DDoS threat which creates false traffic on the network [6].
+    This threat increases by negotiating numerous devices into the network to create
+    false traffic to devastate the network. A thoughtful safety problem for intrusion
+    detection systems is to confront spiteful software differences that cause network
+    safety violations and severe errors [7]. Cyber-attacks are further complex and
+    disputable in strange malware threat classification because of the growth of progressive
+    elusion approaches to take serious data and avoid IDS from recognition [8]. Moreover,
+    there are cybersecurity attacks in internetworks communication. Consequently,
+    new methods and results are vital for threat avoidance and appropriate intrusion
+    detection approaches. ML and DL methods have just been established and used for
+    intrusion detection and classification of unusual conduct in networks and their
+    deterrence [9]. DL contains several networks like Convolutional Neural Network
+    (CNN), Deep Belief Network (DBN), Recurrent Neural Networks (RNN), and Restricted
+    Boltzmann Machines (RBMs) each of them has various abilities and possessions.
+    These networks can perform the learning method in supervised, unsupervised, or
+    semi-supervised behaviors [9]. Also, they aid from the categorized layers meant
+    to discover appropriate important features from the fresh input information rather
+    than utilizing physical features. This study designs an Enhanced Black Widow Optimization
+    with a Hybrid Deep learning-enabled intrusion Detection (EBWO-HDLID) technique
+    in the IoT-based Smart Farming environment. The proposed EBWO-HDLID technique
+    captures complex patterns and detects significant intrusions, assuring the security
+    and reliability of smart farming. In the presented EBWO-HDLID approach, the bald
+    eagle search (BES) algorithm can be used for the feature selection process. For
+    the intrusion detection and classification process, the EBWO-HDLID technique applies
+    the HDL classification model. Finally, the EBWO algorithm has been employed for
+    the parameter tuning of the HDL technique. The simulation analysis of the EBWO-HDLID
+    model occurs on two benchmark datasets: ToN-IoT and Edge-IIoTset databases. The
+    key contributions of the study are listed as follows. An intelligent EBWO-HDLID
+    approach comprising BES-based feature subset selection, HDL-based classification,
+    and EBWO-based hyperparameter tuning has been developed for intrusion detection
+    in the smart farming environment. To the best of our knowledge, the EBWO-HDLID
+    approach never existed in the literature. The design of the BES algorithm helps
+    to choose relevant features and reduce the dimensionality of the dataset. Present
+    HDL model comprising BiGRU-CNN for the detection and classification of the intrusions.
+    Hyperparameter optimization of the HDL model using the EBWO algorithm using cross-validation
+    helps to boost the predictive outcome of the proposed model for unseen data. SECTION
+    II. Related Works The author in [10], a new and efficient DL-related architecture,
+    including three levels. This method contains an attached CNN technique by using
+    a BiGRU approach for identifying organized invaders. A consideration tool is comprised
+    inside the BiGRU approach. Similarly, the precision is enhanced by a nature-inspired
+    meta-heuristic maximization model known as the Wild Horse Optimization (WHO) technique.
+    The authors at [11] proposed an IDS-based DL method for finding IoT-DDoS Botnet
+    threats. The traffic information integrated includes a mixture of common and threatening
+    traffic information. An extremely expandable Deep Neural Network (DNN) is projected
+    to IoT networks which is proficient in headstrong recognition of the IoT botnet
+    threats. In [12], an ID hyper-parameter control system (HyConSys) which systematizes
+    the IDS employing Proximal Policy Optimization (PPO) is projected. ID-HyConSys
+    consists of a DNN features separator that separates effective features. A k-means
+    gathers the removed information, and then the PPO mediator mechanizes the IDS
+    via control & study. The author in [13] presents a DL-related anticipatory artificial
+    neural network method that allows accurate estimation for k-barrier computation
+    for efficient intrusion detection and modification. The sensor sensing, sensing
+    transmission region of interest, etc., devices are the four latent features that
+    were employed to acquire and evaluate the anticipatory ANN method. The different
+    characteristics are removed through the Monte Carlo model. In [14], a deep multilayer
+    identification method for intrusion recognition is projected relating two stages
+    of recognition reality and kind of intrusion, in addition to an oversampling method
+    for guaranteeing a good feature of the identification outcomes. Widespread trials
+    are prepared for various situations of the primary phase and the secondary phase
+    besides two various approaches for the oversampling methods. The authors at [15]
+    proposed a convincing IDS known as DDoSNet. The intellect method of PSO has been
+    presented for the feature. In [16], a DL and Computer vision-based, cost-efficient,
+    robust cross-camera, scalable, and circulated recognition system for animal intrusion
+    recognition is planned. A sample of the plan is built utilizing Raspberry Pi systems
+    linked to a computer by Raspberry Pi systems which works on image recognition.
+    The MobileNetv2-SSD method was employed to identify the existence of animals,
+    ResNet50 method and trained Triplet Loss were utilized for animal detection. The
+    authors at [17] projected an approach using improvements in DL method techniques.
+    This research contains an auto-animal classification by utilizing an alert unit,
+    CNN, and an animal disgusting circuit plan. Deep CNN is employed to eliminate
+    these features from the mixed-up images. Cross-CNN methods were used. Lastly,
+    CNN characteristics were delivered to the upper classification DL method. SECTION
+    III. The Proposed Model In this study, we have designed and developed an automated
+    intrusion detection approach named EBWO-HDLID technique in the IoT-based Smart
+    Farming environment. The proposed EBWO-HDLID technique captures complex patterns
+    and detects significant intrusions, assuring the security and reliability of smart
+    farming. In the presented EBWO-HDLID approach, three processes are involved namely
+    BES-based feature subset selection, HDL-based intrusion detection, and EBWO-based
+    hyperparameter tuning. Fig. 1 denotes the entire procedure of EBWO-HDLID methodology.
+    FIGURE 1. Overall procedure of EBWO-HDLID algorithm. Show All A. Design of Bes
+    Algorithm for Feature Selection The BES algorithm can be used for electing an
+    optimal set of features. Alsattar et al proposed BES a novel metaheuristic algorithm.
+    The bald eagles are widespread in North America, with excellent observation ability
+    and keen vision during flight [18]. In the case of salmon prey, they first choose
+    the search region according to the density of populations and salmon individuals,
+    and later explore the water surface within that search range. Lastly, the vultures
+    slowly lower their flight height and quickly plunge to catch the prey. Each stage
+    of the BES algorithm can be mathematically modeled as follows: Selecting a search
+    space: In this stage, the vultures will randomly choose a search range and find
+    the optimum search space by evaluating the prey amount. In this stage, the updating
+    position of vultures can be defined by multiplying prior data from the random
+    search, and it is mathematically modeled as follows: L i,new = L best +p∗q( L
+    mean − L i ) (1) View Source In Eq. (1), the random number q ranges between zero
+    and one; the parameter p refers to the control position variation in (1.5, 2);
+    the average distribution of vultures position after the earlier search is L mean
+    ; the optimum location to search for vultures is L best ; L i corresponds to the
+    i th vultures. Searching the space for prey (exploration stage): In the selected
+    search range, the vultures pursue prey in a spiral shape, which speeds up the
+    searching method to attain the optimum dive catch location. The mathematical modeling
+    of spiral flight that implements polar coordinates for updating the position.
+    θ(i) d(i) d X (i) x(i) =s∗pi∗q =θ(i)+t∗q =d(i)∗sin(θ(i)) ,d y (i)=d(i)∗cos(θ(i))
+    = d X (i) max(| d X |) ,y(i)= d y (i) max(| d y |) (2) (3) (4) (5) View Source
+    where the spiral formulas polar angle and diameter are, θ(i) and d(i) correspondingly;
+    the spiral trajectory’s control parameters are s and t , the variation range is
+    (5, 10), and (0.5,2), correspondingly; the coordinates position of bald eagles
+    are x(i) and y(i) , and the values are (−1,1) . The location of the vulture can
+    be updated by: L i,new = L i +x(i)∗( L i − L mean )+y(i)∗( L i − L i+1 ) (6) View
+    Source In Eq. (6), the next updated position of i th bald eagles is L i+1 [19].
+    Swooping to capture the prey (utilization stage): In the previous phase, a bald
+    eagle quickly flies toward the prey from a particular location while other vultures
+    in the population travel towards the fittest location and simultaneously attack
+    the target, and the movement can be defined by the polar equation as follows:
+    θ(i) d X (i) x 1 (i) =s∗pi∗q,d(i)=θ(i) =d(i)∗sinh(θ(i)), d y (i)=d(i)∗cosh(θ(i))
+    = d x (i) max(|dx|) , y 1 (i)= d y (i) max(|dy|) (7) (8) (9) View Source The updating
+    equation of vulture location in the dive is: L i,new =q∗ L best + x 1 (i)∗( L
+    i − c 1 ∗ L mean ) + y 1 (i)∗( L i − c 2 ∗ L best ) (10) View Source In Eq. (10),
+    the intensity of the vulture’s movement near the optimum and central locations,
+    are c 1 and c 2 correspondingly, ranges from one to two. The FF considers the
+    number of attributes selected and the classification accuracy. It reduces the
+    set size of attributes selected and increases the classifier performance. Thus,
+    as shown in Eq. (11), the subsequent FF is used for evaluating each solution,
+    Fitness=α∗ErrorRate+(1−α)∗ #SF #All_F (11) View Source where α controls the significance
+    of classifier quality and subset length, the value of α is 0.9. The classifier
+    error rate using the attributes selected can be represented as ErrorRate and it
+    is evaluated as several incorrect classified to the number of classifications
+    made, ranging from zero to one. ( ErrorRate is the complement of classifier performance),
+    the total amount of features in the original dataset is #All_F and the amount
+    of selected attributes is #SF . B. Intrusion Detection Using HDL Model At this
+    stage, the HDL model incorporating BiGRU-CNN is applied for the detection of intrusions.
+    Through their multiplicative gates, the GRU and LSTM models are capable of resolving
+    the problems of gradient disappearing [20]. However, the GRU network is more effective
+    at updating the internal weight and achieving convergence during training. A standard
+    cell or unit of the GRU network structure is made up of two gates namely the reset
+    and update gates. The reset gate (first port) filters irrelevant data on the hidden
+    layer (HL); the lesser its value, the higher the quantity of data that can be
+    disregarded. In contrast, the update gate (second port) decides the quantity of
+    data that is transmitted to the resultant layer; the greater its value, the further
+    data in the prior state can be employed. The architecture of the GRU-NN cell is
+    governed by Eqs. (12)–(15), where the activation sigmoid function is ρ , the update
+    gate is z t , the reset gate is r t , the weighted for every input is w , and
+    the existing HL is h t , the candidate HL of an existing hidden node is h ~ ,
+    the HL of prior time instant is h t−1 , the weights for HL of the prior time instant
+    is u and the existing input of the ANN is x t , z t r t h ~ t h t =σ( w zx x t
+    + u zh h t−1 ) =σ( w rx x t + u rh h t−1 ) =tan( w hx x t + r t ⊙ u hh h t−1 )
+    =(1− z t )⊙ h ~ t + z t ⊙h t−1 (12) (13) (14) (15) View Source It is interesting
+    to access the present and past data for the sequential modeling task. However,
+    the typical GRU-NN chronologically processes the temporal sequence and, thus,
+    is incapable of attaining present context data. On the other hand, the Bi-GRU
+    (bi-directional GRU) can perform these operations, meanwhile, it includes two
+    typical GRUs that procedure the input series in 2 different directions (anti-chronological
+    and chronological) and are then combined into a single parameter. This allows
+    us to explore present and past datasets. Consecutively, it provides more effective
+    prediction outcomes results. Eqs. (16)–(20), represents a two-intermediate layer
+    Bi-GRU-NN. Where the concurrent output of the 1 st and 2 nd backward layers of
+    the network t are ← h 1 t and← h 2 t . the GRU-NN processing is f , the activation
+    function is g , and the resultant vector of the forward layer of the 1 st and
+    2 nd layers of the network at t time instant is h ⃗  and h ⃗  , correspondingly;
+    the weighted matrix and bias are w and b , correspondingly. h 1 t → h 1 t ← h
+    2 t ← h 2 t ← y t =f( w x h 1 → x t + w h 1 → h 1 → h 1 t+1 ← − − + b h 1 → )
+    =f( w x h 1 ← x t + w h 1 ← h 1 ← h 1 t+1 ← − − + b h 1 ← ) =f( w h 1 → h 2 →
+    h 1 t ← + w h → 2 h → 2 h 2 t−1 − → − + b h → 2 ) =f( w h 2 ← h 2 ← h 1 t ← +
+    w h 2 ← h 2 ← h 2 t+1 ← − − + b h 2 ← ) =g( w h 2 y ← − − h 2 t ← + w h 2 y ←
+    − − h 2 t ← + b y ) (16) (17) (18) (19) (20) View Source Different from recurrent
+    networks of GRU and BiGRU architectures, CNN is a kind of feedforward network
+    that cannot created by cyclic connection. CNN has a good generalizability map
+    and a more complex nonlinear relationship compared to classification models. In
+    addition to classifying, the CNN network is extensively applied for resource extraction
+    by the filter, kernel, or matrix that slides within the input to produce a resource
+    map and carry out the convolution function, where dissimilar kernels create dissimilar
+    resource maps and all these are combined, thereby generating the output of convolutional
+    layer. The architecture of CNN is encompassed by a convolutional layer, a pooling
+    layer, and an FC layer. Where the activation function is f i the input of the
+    i th convolutional layer is x i , the output of thei th convolutional layer is
+    y i , offset vector, and the weights of the ith-convolution layer are the b i
+    and w i variables correspondingly, and the output of the i th max -pooling layer
+    is y ′ , y i y ′ = f i ( x i w i + b i ) =max( y i , j ) (21) (22) View Source
+    C. Hyperparameter Tuning Using EBWO Algorithm Lastly, the EBWO algorithm can be
+    employed for the optimal selection of the hyperparameter related to the HDL model.
+    The black widow spider (BWS) moves inside the spider web in a spiral and linear
+    pattern [21]. These behaviors are mathematically modeled by the subsequent expression:
+    x i → (t+1) x i → (t+1) = x ⃗  ∗ (t)−m x ⃗  r1 (t) = x ∗ → (t)−cos(2πβ) x i →
+    (t) (23) (24) View Source where the randomly selected location r 1 is x r1 − →
+    (t) , and the present location of an individual is x i → (t) . The individual
+    position after the upgrade is x i (t − → − +1) and the current optimal individual
+    position is x ∗ → (t) . m refers to a random floating-point number within [0.4,
+    0.9]. r 1 is an arbitrary value that ranges between the maximum population size
+    and 1. An arbitrary number is indirectly or directly created through the rand
+    function (create arbitrary integers within [0 1]). β is a random number within
+    [−1,1]. The random numbers define the way BWS moves. If the arbitrary number created
+    by the rand function is lower than or corresponding to 0.3, then the movement
+    mode chooses Eq. (23). Sex pheromone played a major role during the mating process
+    of BWS. The sex pheromones rate value of the BWS is described as follows: pheromone(i)=
+    fitnes s max −fitness() fitnes s max −fitnes s min (25) View Source In Eq. (25),
+    The sex pheromones vector has normalization fitness within zero and one. The worst
+    and best fitness values from the existing population are fitnes s max and fitnes
+    s min , the fitness values of the i th individuals is fitness(i) . x i → (t)=
+    x ∗ → (t)+ 1 2 [ x r1 − → (t)− (−1) σ x r2 − → (t)] (26) View Source In Eq. (26),
+    the position of female BWS with lesser sex pheromone levels is x ⃗  i (t). r 1
+    ≠ r 2 , the random values in 1 to the higher population size are r 1 and r 2 .σ
+    is a random binary integer within [0 1]. To initialize the population, the BWO
+    technique directly uses the rand function. We introduced a Gauss chaotic mapping
+    to enhance the diversity of the algorithm and initialized the population. It allows
+    the model to quickly discover the position of superior performances, thus enhancing
+    the convergence accuracy and accelerating the convergence rate of the model and
+    it is described as follows: z n+1 1 z n mod(1) = ⎧ ⎩ ⎨ 0, z n =0 1 z n mod(1)
+    , z n ≠0 = 1 z n −[ 1 z n ] (27) (28) View Source where the residual function
+    can be represented by mod and [] indicates rounding and z 1 , z 2 ,…, andz n are
+    the chaotic sequences produced by the Gauss mapping. Fig. 2 depicts the steps
+    involved in BWO. The EBWO methodology develops an FF to obtain the higher solution
+    of classification. It defines a positive integer to describe the superior outcome
+    of the candidate outcome. As shown in Eq. (29), the decline of the classifier
+    errors is assumed as FF. fitness( x i ) =ClassifierErrorRate( x i ) = No.ofmisclassifiedsamples
+    TotalNo.ofsamples ∗100 (29) View Source FIGURE 2. Steps involved in BWO. Show
+    All SECTION IV. Performance Validation In this section, the simulation validation
+    of the EBWO-HDLID approach can be tested using the ToN-IoT database [22] and Edge-IIoTset
+    [23] database. The ToN-IoT dataset has 119957 samples under 9 classes as demonstrated
+    in Table 1. In addition, the proposed model has chosen 29 features from the ToN-IoT
+    database. Similarly, the Edge-IIoTset database has 81737 samples under 8 classes
+    as defined in Table 2. In addition, the proposed model has chosen 39 features
+    from the Edge-IIoTset dataset. TABLE 1 Details on ToN-IoT Dataset TABLE 2 Details
+    on Edge-IIoTset Dataset Fig. 3 shows the classifier analysis of the EBWO-HDLID
+    method on the ToN-IoT database. Figs. 3a-3b reveals the confusion matrices given
+    by the EBWO-HDLID approach at 70:30 of the TR Phase/TS Phase. The simulation value
+    states that the EBWO-HDLID algorithm has accurately recognized and classified
+    nine classes. Furthermore, Fig. 3c illustrates the PR performance of the EBWO-HDLID
+    system. The outcome illustrates that the EBWO-HDLID model attained enhanced PR
+    values with each 9 class. But, Fig. 3d shows the ROC analysis of the EBWO-HDLID
+    system. This outcome described that EBWO-HDLID methodology leads to efficient
+    and greater ROC values on each 9 class. FIGURE 3. ToN-IoT database (a-b) Confusion
+    matrices, (c) PR curve, and (d) ROC. Show All The IDS results of the EBWO-HDLID
+    system on the ToN-IoTdatabase are given in Table 3 and Fig. 4. The simulated values
+    highlighted that the EBWO-HDLID model appropriately categorized nine types of
+    attacks. Similarly, based on 70% of the TR Phase, the EBWO-HDLID method accomplishes
+    average acc u y , pre c n , rec a l , F score , and AU C score values of 98.79%,
+    87.90%, 78.72%, 79.34%, and 88.89% individually. Besides, with 30% of the TS phase,
+    the EBWO-HDLID methodology attains model average acc u y , pre c n , rec a l ,
+    F score , and AU C score values of 98.81%, 90.84%, 78.95%, 79.49%, and 89.01%
+    respectively. TABLE 3 IDS Outcome of EBWO-HDLID Approach on ToN-IoT Database FIGURE
+    4. Average of EBWO-HDLID approach on ToN-IoT database. Show All To calculate the
+    analysis of the EBWO-HDLID technique on the ToN-IoTdatabase, TR and TS acc u y
+    curves are determined, as exhibited in Fig. 5. The TR and TS acc u y curves show
+    the performance of the EBWO-HDLID methodology over various epochs. The figure
+    offers meaningful details about the learning tasks and generalization potentiality
+    of the EBWO-HDLID model. With an improvement in epoch count, it is noticed that
+    the TR and TS acc u y curves attain enriched. It is observed that the EBWO-HDLID
+    system accomplishes improved testing accuracy which can be the ability to recognize
+    the patterns in the TR and TS data. FIGURE 5. Accu y curve of EBWO-HDLID system
+    on ToN-IoT database. Show All Fig. 6 illustrates the overall TR and TS loss values
+    of the EBWO-HDLID method on the ToN-IoTdatabase over epochs. The TR loss denotes
+    the model loss acquired diminished over epochs. Generally, the loss values decreased
+    as the model modified the weight to reduce the predicted error on the TR and TS
+    data. The loss curves exhibit the extent to which the model fits the training
+    data. It is evidenced that the TR and TS loss is gradually diminishing and defined
+    that the EBWO-HDLID technique effectively learns the patterns exhibited in the
+    TR and TS data. It is also considered that the EBWO-HDLID algorithm changes the
+    parameters to minimize the variation among the predicted and original training
+    labels. FIGURE 6. Loss curve of EBWO-HDLID method on ToN-IoT database. Show All
+    In detailed comparison analysis of the EBWO-HDLID methodology with recent approaches
+    with the ToN-IoT database is stated in Table 4 and Fig. 7 [24]. The simulated
+    values specify that the GRU and IDS-EESAEE systems show poorer performance. Simultaneously,
+    the LSTM method has acquired slightly increased outcomes. While the RF algorithm
+    has managed to report considerable performance, the EBWO-HDLID technique extents
+    improved performance with higher acc u y , pre c n , rec a l , and F 1 score values
+    of 98.81%, 90.84%, 78.95%, and 79.49% correspondingly. TABLE 4 Comparative Outcome
+    of EBWO-HDLID Method with Other Algorithms on the ToN-IoT Database FIGURE 7. Comparative
+    outcome of EBWO-HDLID approach on the ToN-IoT database. Show All Fig. 8 shows
+    the classifier analysis of the EBWO-HDLID method under the Edge-IIoTset database.
+    Figs. 8a-8b exhibits the confusion matrices simulated by the EBWO-HDLID technique
+    at 70:30 of the TR Phase/TS Phase. The outcome value states that the EBWO-HDLID
+    technique has accurately recognized and classified eight class labels. Additionally,
+    Fig. 8c illustrates the PR performance of the EBWO-HDLID methodology. The simulation
+    value illustrates that the EBWO-HDLID model has achieved improved PR performance
+    on each 8 class. Besides, Fig. 8d represents the ROC analysis of the EBWO-HDLID
+    technique. This simulation result described that EBWO-HDLID methodology leads
+    to effectual and greater ROC values on each 8 class. FIGURE 8. Edge-IIoTset database
+    (a-b) Confusion matrices, (c) PR curve, and (d) ROC. Show All The IDS results
+    of the EBWO-HDLID technique with the Edge-IIoTset dataset are mentioned in Table
+    5 and Fig. 9. The simulated values considered that the EBWO-HDLID methodology
+    properly considered eight types of attacks. According to 70% of the TR Phase,
+    the EBWO-HDLID approach achieves average acc u y , pre c n , rec a l , F score
+    , and AU C score values of 98.27%, 84.49%, 80.60%, 82.45%, and 89.48% individually.
+    Also, based on 30% of the TS phase, the EBWO-HDLID system gets average acc u y
+    , pre c n , rec a l , F score , and AU C score values of 98.35%, 84.85%, 80.95%,
+    82.79%, and 89.69% correspondingly. TABLE 5 IDS Outcome of EBWO-HDLID Approach
+    on Edge-IIoTset Database FIGURE 9. Average of EBWO-HDLID system on Edge-IIoTset
+    database. Show All To determine the analysis of the EBWO-HDLID technique on the
+    Edge-IIoTsetdatabase, TR and TS acc u y curves are defined, as shown in Fig. 10.
+    The TR and TS acc u y curves exhibit the performance of the EBWO-HDLID system
+    over numerous epochs. The figure gives meaningful details about the learning tasks
+    and generalization capabilities of the EBWO-HDLID technique. With a rise in epoch
+    count, it is observed that the TR and TS acc u y curves get improved. It is observed
+    that the EBWO-HDLID methodology accomplishes enriched testing accuracy that can
+    have the potential to recognize the patterns in the TR and TS data. FIGURE 10.
+    Accu y curve of EBWO-HDLID system on Edge-IIoTset database. Show All Fig. 11 shows
+    the overall TR and TS loss values of the EBWO-HDLID technique on the Edge-IIoTsetdatabase
+    over epochs. The TR loss represents the model loss decreased over epochs. Primarily,
+    the loss values become reduced as the model adjusts the weight to reduce the predicted
+    error on the TR and TS data. The loss curves reveal the level where the model
+    fits the training data. It is verified that the TR and TS loss is progressively
+    lessening and described that the EBWO-HDLID approach successfully learns the patterns
+    exhibited in the TR and TS data. It is also measured that the EBWO-HDLID model
+    varies the parameters to reduce the difference between the original and predicted
+    training label. FIGURE 11. Loss curve of EBWO-HDLID system on Edge-IIoTset database.
+    Show All An overall comparison outcome of the EBWO-HDLID methodology with other
+    approaches with the Edge-IIoTsetdataset is stated in Table 6 and Fig. 12. The
+    simulated values determine that the RF system has shown lower performance. Concurrently,
+    LSTM and GRU methodologies have moderately increased outcomes. While the IDS-EESAEE
+    system has managed to account for noticeable performance, the EBWO-HDLID model
+    attains excellent performance with higher acc u y , pre c n , rec a l , and F
+    1 score values of 98.35%, 84.85%, 80.95%, and 82.79% respectively. TABLE 6 Comparative
+    Outcome of EBWO-HDLID System with Other Methods on the Edge-IIoTset Database FIGURE
+    12. Comparative outcome of EBWO-HDLID method on Edge-IIoTset database. Show All
+    SECTION V. Conclusion In this study, we have developed and designed an automated
+    ID approach named EBWO-HDLID technique in the IoT-based Smart Farming environment.
+    The major intention. The proposed EBWO-HDLID technique captures complex patterns
+    and detects significant intrusions, assuring the security and reliability of smart
+    farming. In the presented EBWO-HDLID approach, three processes are involved namely
+    BES-based feature subset selection, HDL-based intrusion detection, and EBWO-based
+    hyperparameter tuning. For the intrusion detection and classification process,
+    the EBWO-HDLID technique applies the HDL classification model. Finally, the EBWO
+    algorithm has been used for the parameter tuning of the HDL methodology. The simulation
+    validation process demonstrates the best solution of the EBWO-HDLID system on
+    two benchmark datasets: ToN-IoT, and Edge-IIoTset databases. Therefore, the EBWO-HDLID
+    methodology has been applied for automated ID and accomplished security from the
+    smart farming environment. ACKNOWLEDGMENT The author extends her appreciation
+    to the Deputyship for Research & Innovation, Ministry of Education in Saudi Arabia
+    for funding this research work through project number ISP-2024. Authors Figures
+    References Keywords Metrics More Like This Anomaly detection in Internet of Things
+    using feature selection and classification based on Logistic Regression and Artificial
+    Neural Network on N-BaIoT dataset 2021 5th International Conference on Internet
+    of Things and Applications (IoT) Published: 2021 Artificial Neural Networks-Based
+    Intrusion Detection System for Internet of Things Fog Nodes IEEE Access Published:
+    2020 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details
+    PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES
+    PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678
+    4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact
+    Us | Help | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics
+    Reporting | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE
+    is the world''s largest technical professional organization dedicated to advancing
+    technology for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: IEEE Access
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Enhanced Black Widow Optimization With Hybrid Deep Learning Enabled Intrusion
+    Detection in Internet of Things-Based Smart Farming
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Singhal G.
+  - Singh A.
+  citation_count: '0'
+  description: Population growth, climate change, and sustainable farming practices
+    drive the demand for smart agriculture. To meet the projected 60% increase in
+    food demand by 2050, efficient production and sustainable practices are crucial.
+    Smart technologies like sensors and drones address climate change's impact on
+    agriculture by monitoring crops and adapting to changing conditions. However,
+    smart agriculture generates vast amounts of data that traditional methods struggle
+    to handle. As probabilistic data structures, Bloom filters offer efficient solutions
+    for data management by enabling quick identification and retrieval without extensive
+    computational resources. They are particularly useful in crop disease detection,
+    aiding prompt management and prevention. Scalable Bloom Filters (SBF) address
+    limitations like false positives and dataset size by dynamically expanding the
+    filter as the dataset grows. SBF improves efficiency, reliability, data security,
+    and transmission by limiting access to authorized nodes, reducing congestion and
+    costs. Using SBF in smart agriculture makes the data storage, collection, and
+    transmission process less time-consuming, space efficient, and with higher accuracy.
+  doi: 10.1109/ICCCNT56998.2023.10306975
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2023 14th International Confe... Data Storage,
+    collection, and Transmission in Smart Agriculture Using Bloom Filter Publisher:
+    IEEE Cite This PDF Gourav Singhal; Amritpal Singh All Authors 15 Full Text Views
+    Abstract Document Sections 1 Introduction 2 Related Work 3 Scalable Bloom Filter
+    4 Proposed Methodology 5 Result And Analysis Show Full Outline Authors Figures
+    References Keywords Metrics Abstract: Population growth, climate change, and sustainable
+    farming practices drive the demand for smart agriculture. To meet the projected
+    60% increase in food demand by 2050, efficient production and sustainable practices
+    are crucial. Smart technologies like sensors and drones address climate change’s
+    impact on agriculture by monitoring crops and adapting to changing conditions.
+    However, smart agriculture generates vast amounts of data that traditional methods
+    struggle to handle. As probabilistic data structures, Bloom filters offer efficient
+    solutions for data management by enabling quick identification and retrieval without
+    extensive computational resources. They are particularly useful in crop disease
+    detection, aiding prompt management and prevention. Scalable Bloom Filters (SBF)
+    address limitations like false positives and dataset size by dynamically expanding
+    the filter as the dataset grows. SBF improves efficiency, reliability, data security,
+    and transmission by limiting access to authorized nodes, reducing congestion and
+    costs. Using SBF in smart agriculture makes the data storage, collection, and
+    transmission process less time-consuming, space efficient, and with higher accuracy.
+    Published in: 2023 14th International Conference on Computing Communication and
+    Networking Technologies (ICCCNT) Date of Conference: 06-08 July 2023 Date Added
+    to IEEE Xplore: 23 November 2023 ISBN Information: ISSN Information: DOI: 10.1109/ICCCNT56998.2023.10306975
+    Publisher: IEEE Conference Location: Delhi, India SECTION 1 Introduction Population
+    growth, climate change, and the urgency to adopt sustainable farming practices
+    are some of the factors through which the need for smart agriculture is increasing
+    day by day. A projection suggests that the demand for food will increase by roughly
+    60% as the world’s population is anticipated to reach 9.7 billion by 2050 [1].
+    Implementation of smart agriculture techniques can assist farmers in meeting the
+    rising demand for food by improving production efficiency, minimizing waste, and
+    promoting sustainable farming practices. Agriculture is significantly impacted
+    by climate change, which leads to more frequent and intense weather phenomena
+    like floods and droughts, posing a major challenge for farmers [2]. The changing
+    environmental conditions pose significant challenges for farmers, but they can
+    rely on smart agriculture technologies such as sensors and drones to monitor their
+    crops and adapt to the changing climate. By optimizing the use of resources like
+    water and fertilizer, as well as reducing greenhouse gas emissions, smart agriculture
+    can not only reduce the environmental impact of farming but also enhance farmers''
+    resilience to extreme weather events [3]. The utilization of new technologies
+    like sensors, drones, and robots in smart agriculture is contributing to an increase
+    in the generation of data [4]. The vast quantity of data generated in smart agriculture
+    cannot be managed effectively by conventional methods and data structures. Probabilistic
+    data structures offer significant advantages in managing vast amounts of data
+    efficiently, due to the efficient utilization of space and time resources [5].
+    Bloom filters were created by Burton H. Bloom in 1970 and have since become a
+    widely used probabilistic data structure in computer science. The primary purpose
+    of sets is to verify the membership of elements within them [6]. Fig. 1 shows
+    insertion and querying in BF. When there are limitations on resources such as
+    memory and processing power, and there is a need for quick data access, Bloom
+    filters prove to be particularly useful. Bloom filters are applicable in smart
+    agriculture to optimize data storage, retrieval, and authentication. To detect
+    growth patterns, monitor plant health, and identify possible issues at an early
+    stage, crop monitoring, and analysis play a critical role for farmers [7]. Analyzing
+    the substantial amount of data generated by monitoring technologies and sensors
+    to detect trends and patterns can be computationally intensive and time-consuming.
+    Using Bloom filters for data indexing and filtering allows for quick and efficient
+    identification and retrieval of critical information by farmers and researchers
+    without substantial computational resources. Bloom filters offer a significant
+    advantage in identifying crop diseases. Different diseases have distinctive patterns
+    in plants and soil, so Bloom filters can be trained to recognize specific markers
+    or patterns associated with a particular disease. This allows farmers to quickly
+    test and detect the presence of disease in their crops, enabling them to take
+    prompt and effective measures to manage its spread and minimize damage. Moreover,
+    this technology can be particularly beneficial in situations where rapid disease
+    identification is critical to prevent further contamination. Fig. 1. Insertion
+    and Querying in Bloom Filter [8]. Show All Offering several benefits, the Bloom
+    Filter is a technology that has been optimized specifically for data storage,
+    collection, and transmission in the field of smart agriculture. However, it can
+    also generate redundant data due to its false positive rate. Additionally, a prerequisite
+    of the Bloom Filter is a predefined dataset size before processing can start.
+    In scenarios where data is dynamically increasing, a Probabilistic Data Structure
+    is essential to manage it. This is where the Scalable Bloom Filter becomes useful
+    as it can expand the capacity of the Bloom Filter as the dataset dimension grows.
+    This paper is organized as follows: Section 2 presents an overview of the related
+    work on the usage of BF in Wireless Sensor Networks (WSN). Section 3 introduces
+    Scalable Bloom Filters (SBF). In Section 4, the proposed methodology is elaborated.
+    Section 5 presents the acquired experimental results and a comprehensive comparison
+    with existing technologies is presented. Lastly, Section 7 offers the concluding
+    remarks for the paper, summarizing the key findings and insights. SECTION 2 Related
+    Work The agriculture sector has experienced significant advancements with the
+    growing use of sensors, drones, and other technologies. Nevertheless, this has
+    led to the to handle data transmission, collection, and storage using conventional
+    data structures. To overcome this issue, probabilistic data structures have been
+    developed. Notably, Bloom Filters have made significant progress in their application
+    to efficiently store, collect, and transmit large amounts of data in networks.
+    In the paper [9], the authors have provided an in-depth account of the BFAN mechanism
+    that utilizes Bloom filters to authenticate messages transmitted between nodes
+    operating in a wireless sensor network (WSN). The authors describe how Bloom filters
+    can be employed to establish the origin of a message in a secure manner and to
+    identify any unauthorized alterations that might have been introduced to the message
+    during its transmission. The authors showcase the efficacy of BFAN in detecting
+    various types of attacks, including but not limited to node replication, message
+    tampering, and replay attacks. Additionally, the authors conduct a comparative
+    analysis of BFAN with PKI-based authentication mechanisms and present evidence
+    that BFAN outperforms PKI-based approaches with respect to communication and computational
+    overhead. The paper [10] introduces a new methodology to enhance the effectiveness
+    of data collection in wireless sensor networks. The paper suggests employing Bloom
+    filters, which are a type of probabilistic data structure, as a solution to lessen
+    the transmission overhead in the network. The paper presents an elaborate description
+    of the proposed algorithm and assesses its performance through simulations. Employing
+    Bloom filters is a compelling and pertinent strategy to tackle the issue of data
+    collection in wireless sensor networks. The author exhibits that the proposed
+    algorithm produces considerable reduction in transmission overhead and energy
+    consumption, establishing it as a promising solution for practical applications.
+    In the paper [11], Utilizing Bloom filters, the authors suggest an optimized caching
+    system for distributing content in vehicular networks. The main goal of the scheme
+    is to tackle the obstacles that come with content distribution in vehicular networks,
+    thereby enhancing content delivery to vehicles at a faster rate. The authors show
+    that the proposed caching scheme results in a decrease in content delivery delay
+    and an improvement in the content hit ratio. The results strongly suggest that
+    employing Bloom filters in caching can greatly boost the performance of content
+    distribution in vehicular networks. In the paper [12], Singh et al. introduced
+    a compelling method to tackle the obstacles related to the management of massive
+    data in IoT environments. The proposed method in the paper suggests employing
+    a Bloom filter-based optimization strategy that enables effective storage and
+    retrieval of data, while concurrently decreasing the storage and processing needs.
+    This paper highlights the proposed approach’s noteworthy improvements in storage
+    and processing efficiency, demonstrating its effectiveness in optimizing data
+    handling in IoT environments. This research paper offers a significant contribution
+    to the field of IoT data handling by presenting a practical approach to addressing
+    the challenges associated with the management of vast amounts of data in IoT environments.
+    The proposed approach provides a valuable solution for researchers and practitioners
+    who seek to optimize data handling in IoT applications. The paper [8] offers a
+    thorough and informative analysis of how Bloom filters can be applied to network
+    security. In their work, the author provides an in-depth explanation of the diverse
+    uses of Bloom filters in network security, such as spam filtering, malware detection,
+    intrusion detection, content filtering, and denial of service prevention. The
+    author covers a range of strategies for boosting the accuracy of Bloom filters
+    in their work, such as utilizing multiple filters and integrating them with other
+    security techniques. In the papers we reviewed, traditional Bloom filters were
+    commonly employed for the task, but they do possess limitations. The primary challenges
+    associated with traditional Bloom filters are scalability and false positive rates.
+    As the dataset expands, the false positive rate tends to increase, leading to
+    decreased performance. However, in our paper, we propose the utilization of a
+    scalable Bloom filter, which effectively addresses the issues of scalability and
+    false positive rates. SECTION 3 Scalable Bloom Filter A bloom filter is a probabilistic
+    data structure employed to determine the membership of an element in a particular
+    set. By utilizing multiple hash functions, bloom filters assign elements to a
+    set of bits within a predetermined, fixed-sized array [6]. By applying identical
+    hash functions to an element, the Bloom filter can probabilistically determine
+    the likelihood of its membership in a set by examining if all the corresponding
+    bits in the bit array are set. The scalable bloom filter, an enhanced iteration
+    of the standard bloom filter, offers dynamic flexibility in adding or removing
+    elements from the set. This attribute makes it an invaluable asset for applications
+    that necessitate frequent updates and alterations to the set of elements [13].
+    Fig. 2 Shows insertion in SBF. The scalable bloom filter is commonly employed
+    in situations where the size of the set is unpredictable or subject to change,
+    enabling efficient set membership testing for dynamically evolving data structures.
+    The SBF is developed to overcome the limitation of needing to set a predetermined
+    maximum size for a set and instead allows for the set to grow arbitrarily [14].
+    This is achieved through two main concepts: Firstly, the Scalable Bloom Filter
+    consists of one or more basic Bloom filters, with additional filters being added
+    as required when the current filters hit their fill ratio threshold. To verify
+    set membership, each filter is checked for presence. Secondly, to increase the
+    flexibility of the set representation while maintaining a low error rate, a geometric
+    progression is used to tighten the maximum error probability of each additional
+    bloom filter in the series. As a result, even if an infinite number of filters
+    are used, they will eventually converge to the desired probability value [11].
+    Fig 3 Showing the insertion in SBF. The SBF is comprised of multiple BFs of different
+    sizes that guarantee the lowest acceptable false positive probability, P0. As
+    the dataset size expands, an additional slice with a larger capacity is incorporated
+    into the SBF to manage the escalation of the false positive rate [15]. SBF integrates
+    several parameters, including the tightening ratio of the error probability (ρ)
+    where 0 < ρ < 1, the anticipated growth rate (s), the initial bit size (m), and
+    the targeted false positive probability (P0). Once the filter reaches full capacity,
+    an additional filter is introduced with a size of m1, and its error probability
+    (P1) is calculated by multiplying the initial error probability (P0) with the
+    tightening ratio (ρ). For a total of i filters at any given time, the error probabilities
+    are determined as: P 0 , P 0 ρ, P 0 ρ 2 ,…, P 0 ρ (i−1) (1) View Source Fig. 2.
+    Insertion in Scalable Bloom Filter [13]. Show All To ascertain the cumulative
+    probability of errors SBF, the following calculation is utilized: P SBF =1− ∏
+    x=1 i (1− P o ρ x−1 ) (2) View Source The cumulative probability of errors of
+    SBF considers the error probabilities of all the filters in use. The overall probability
+    of SBF converges to P0 due to each subsequent BF having a stricter minimum error
+    probability on a geometric progression. m 1 = m 0 + s i s i = m k m i = log 2
+    P −1 i = m o +i× log 2 ρ −1 (3) (4) (5) View Source If the collision threshold
+    is surpassed, an additional filter containing m1 slices is introduced. The value
+    of m1 is determined using equation (3). To determine the size of the supplementary
+    slice (mi), equation (5) is employed to factor in the maximum false positive threshold.
+    The addition of an exponential growth factor (s) facilitates the flexible expansion
+    of SBF. Specifically, the size of the additional slice is scaled up by a factor
+    of s in relation to the initial filter size (m0). f SBF i = (1− e −k N 0 m i )
+    k f SBF ℓ = (1− e −k N 0 m ℓ ) k F SBF =1−{ ∏ j=0 j=i−1 (1− f SBF j )}×(1− f SBF
+    ℓ ) (6) (7) (8) View Source The false positive rate (FPR) of SBF is determined
+    by the false positive rate of each individually, where j ranges from 0 to i. Equation
+    (6) is used to calculate the false positive rate (FPR) for the ith SBF, while
+    equation (7) is utilized to determine the FPR for the most recently added slice.
+    Equation (8) is employed to compute the overall false positive rate (FSBF) of
+    SBF, which considers the false positive rate of all filters. During the process
+    of searching for elements in SBF, the algorithm initially verifies whether the
+    element exists within the active filter. If the element is not found, subsequent
+    filters are examined in descending order. Nevertheless, the larger the capacity
+    of the filter, the higher the computational overhead of SBF becomes. The optimal
+    value of s is determined based on the specific application’s needs and experimental
+    results. To optimize SBF parameters for various data types, it is advisable to
+    utilize a value of 2 for data that grows gradually and a value of 4 for data that
+    experiences rapid growth. To attain improved average space utilization across
+    a broad range of growth scenarios, it is suggested to employ a range of 0.8-0.9
+    for the parameter r [13]. SECTION 4 Proposed Methodology The Scalable Bloom Filter
+    presents a highly efficient and superior solution for the collection, storage,
+    and transmission of data in the field of smart agriculture. We will use SBF to
+    first authenticate the nodes so that some malicious nodes are not able to corrupt
+    data. After the Authentication of nodes, Authorized nodes can only access or transmit
+    data. After that, we will use SBF to remove the redundant data so that noise-free
+    data can be collected and transmitted. 4.1 Authentication of nodes Scalable Bloom
+    Filters (SBFs) facilitate node authentication during agricultural data acquisition.
+    SBFs can establish a trusted whitelist of nodes authorized for agricultural data
+    acquisition. Within smart agriculture systems, nodes including sensors and devices
+    are deployed to acquire agricultural-related information encompassing crop development,
+    soil conditions, meteorological patterns, and various aspects affecting crop productivity
+    and quality [16]. The distributed deployment of nodes across the farm in smart
+    agriculture makes them susceptible to unauthorized access and tampering. The authentication
+    of nodes is crucial in smart agriculture to guarantee the security and integrity
+    of the collected and transmitted data, limiting access to only trusted nodes.
+    By storing unique identifiers (e.g. MAC addresses) of trusted nodes in the filter,
+    SBFs enable the creation of a whitelist for these nodes in smart agriculture.
+    Here’s how you can use a scalable Bloom filter to authenticate nodes while collecting
+    data from smart agriculture: Create a list of authorized nodes that are allowed
+    to transmit data. This list should be stored in a database and create an SBF with
+    an optimal count of hash functions and an initial size. For each authorized node,
+    generate a unique identifier, such as a MAC address or an IP address, calculate
+    the hash of the identifier using the Bloom filter’s hash functions and add the
+    resulting value to the scalable Bloom filter. If a node wants to transmit data
+    to the server, Server will get a request from the nodes, and the server will store
+    the request and pass it to the hash function. Server query for the authentication
+    of the nodes to the scalable Bloom filter by calculating the identifier of the
+    node and calculating its hash employing identical hash functions used to create
+    the SBF. Check if the resulting value is there in the BF. If it is, then the node
+    is authenticated, and the data can be processed. If it is not, then the node is
+    not authorized, and the data should be discarded. Periodically check the dimension
+    of the SBF and resize it if necessary to have a reasonable FPR. Fig. 3. Procedure
+    for Authentication of nodes. Show All Utilizing SBFs for node authentication in
+    smart agriculture can prevent system tampering and unauthorized access while safeguarding
+    the data’s security and integrity. SBFs enhance the accuracy and dependability
+    of smart agriculture systems by limiting data collection and transmission to trustworthy
+    nodes through the creation of a whitelist. 4.2 Removal of redundant data: Employing
+    Scalable Bloom Filters (SBF) in smart agriculture can minimize the collection
+    and transmission of redundant data. One way to reduce network congestion and save
+    on transmission costs is by eliminating duplicate data at the network’s edge.
+    By doing so, less data will need to be transmitted to the cloud or central server,
+    resulting in a more efficient use of network resources. Using an SBF (Scalable
+    Bloom Filter) is an effective way to minimize the collection and transmission
+    of redundant data. It works by checking if a data point has already been collected
+    and stored. If it has, then the data point can be discarded as it does not provide
+    any new information. This method ensures that only unique data is stored and transmitted,
+    resulting in more efficient use of resources. By implementing the use of an SBF
+    to eliminate redundant data, the amount of data that needs to be transmitted to
+    the cloud or central server can be reduced. This not only minimizes network congestion
+    but also results in lower transmission costs. Apart from eliminating redundant
+    data, SBFs can also enhance data quality by identifying and filtering out incorrect
+    or erroneous data points. This ensures that only accurate and useful data is stored
+    and transmitted, leading to better decision-making and more reliable outcomes.
+    Suppose a sensor begins to produce inaccurate data due to a malfunction. In that
+    case, the SBF can identify and remove these incorrect data points, preventing
+    them from negatively impacting the overall data analysis. This helps ensure that
+    the data being used for decision-making is accurate and reliable, leading to better
+    outcomes. To use a Scalable Bloom Filter (SBF) to remove redundant data while
+    collecting and transmitting data from smart agriculture, we have to follow these
+    steps: Collect data from sensors deployed on the farm. Each data point should
+    be uniquely identifiable by a key. This key can be a combination of the location
+    and the timestamp of the data point. The data will be sent to store in the cloud
+    for transmission to the server. Create an instance of the SBF data structure with
+    an initial base filter size and a desired number of filters. The base filter size
+    should be selected according to the anticipated number of elements to be incorporated
+    into the SBF. The number of filters should be chosen derived from the upper limit
+    of elements that the SBF is expected to store. Before adding each data point to
+    the SBF, check if it already exists in the SBF. Use the SBF’s `contains` method
+    to check if the key is already present in the SBF. If it is, then the data point
+    is redundant and can be discarded. For each non-redundant data point, add it to
+    the SBF using the SBF’s `add` method. The Collected data from the different fogs
+    after checking in Scalable Bloom Filter Stored in a table format in the database
+    and Cloud. Periodically check the size of the SBF and resize it if necessary to
+    have a reasonable FPR. Then Finally transmit the non-redundant data points to
+    the destination. The destination could be a centralized server or another device
+    on the farm. Fig. 4. Procedure for Removal of Redundant Data. Show All In a nutshell,
+    the implementation of Scalable Bloom Filters in smart agriculture can contribute
+    to minimizing the collection and transmission of redundant and inaccurate data.
+    This can lead to improved efficiency and cost-effectiveness of the system. By
+    eliminating erroneous data points and minimizing data redundancy, these filters
+    contribute to ensuring the uniqueness of the data and accuracy, thereby enhancing
+    decision-making and fostering more successful outcomes within the realm of smart
+    agriculture. SECTION 5 Result And Analysis The SBF offers significant advantages
+    in terms of space and time efficiency when compared to the traditional Bloom Filter
+    and other data structures. One notable advantage is its capability to dynamically
+    expand its size, leading to improved efficiency. Unlike the traditional BF, the
+    SBF has a consistent FPR even as the dataset grows larger. In our comparative
+    analysis, we will assess the complexities associated with the SBF and other data
+    structures used in WSN. With a thorough assessment of these intricacies, our objective
+    is to attain a holistic comprehension of the merits and limitations associated
+    with each approach. This analysis will enable us to determine the most appropriate
+    option for specific scenarios, considering factors such as performance, space
+    utilization, time taken, and error rates. The implemented solution focuses on
+    minimizing broadcast overhead while ensuring reliable packet transfer in WSNs.
+    By reducing overhead, the solution achieves energy-efficient transmission, thus
+    extending the battery life of sensor nodes. 5.1 Authentication Performance To
+    assess the authentication performance of SBFs, we conducted experiments by simulating
+    a smart agriculture network with a varying number of nodes. We measured the time
+    taken for node authentication using SBFs and compared it with other authentication
+    mechanisms such as Public Key Infrastructure (PKI) and Staggered Authentication.
+    The experiments were performed on a network with 100 nodes. From Fig. 6, it can
+    be observed that SBF authentication outperforms PKI and staggered authentication
+    in terms of time taken. SBFs provide faster authentication, making them suitable
+    for real-time data collection in smart agriculture systems. 5.2 Accuracy To assess
+    the accuracy of SBF to remove redundant data, we analyze the number of duplicated
+    data removed by SBF with the use of different hash functions. In an ideal scenario,
+    there should be only one copy of a data packet. However, in practical situations,
+    achieving this ideal is not possible with the use of SBF because of Probabilistic
+    Component. Fig. 7 presents a comparison between the number of hash functions.
+    The graph clearly demonstrates that with the increase in the number of hash functions
+    the number of redundant data is decreasing. This reduction leads to a considerable
+    decrease in overhead and packet duplication, decreasing from hundreds of copies
+    to tens or even ones. 5.3 Query Time To assess the query time taken to remove
+    redundant data, we calculate the time taken by SBF and other techniques to remove
+    redundant data. We will compare the time taken by each technique such as set,
+    hash table, and indexing with SBF, to query an element while removing the redundant
+    data. Fig. 8 depicts that the time taken by SBF to query is less than by all other
+    methods. We can clearly see from the result the time taken by SBF to query an
+    element is much less than all others while removing the redundant data. By removing
+    the redundant data, there is a reduction in the network overhead in terms of space
+    and time. We can clearly say that with the increase in the number of elements
+    the time taken by SBF is comparatively less than other methods. 5.4 Space Complexity
+    To assess the space complexity, we calculate the space required to store the dataset
+    by all methods. We will compare the space required by each technique such as set,
+    hash table, and indexing with SBF. Fig. 9 shows that the space required by SBF
+    is less than by all other methods. Using SBF space is constant and increases,
+    if there is a large dataset, will be there. SBF is an efficient data structure
+    for space utilization that is ideal for data collection and transmission in smart
+    agriculture due to its flexible growth in size and low space complexity. It requires
+    less space than traditional Bloom filters and other data-storing methods making
+    it a suitable choice for storing and retrieving large volumes of data. 5.5 False
+    Positivity rate SBF and traditional BF have a non-zero FPR, which means there
+    is a chance that a query may return a false positive result. SBF addresses the
+    memory issue by allowing for flexible growth, and the false positive rate will
+    be constant while more slices are added. Overall, an SBF has a higher potential
+    for a lower FPR as compared to a traditional Bloom filter because it can dynamically
+    adjust its size to accommodate changes in data size and growth. The FPR of SBF
+    will decrease as we increase the number of hash functions. Fig. 10 shows the false
+    positive rate of SBF with different hash functions. Fig. 6. Time taken to Authenticate
+    nodes. Show All Fig. 7. Accuracy with Increasing Hash Functions. Show All Fig.
+    8. Query time. Show All Fig. 9. Space Complexity. Show All Fig. 10. False Positive
+    Rate. Show All SECTION 6 Conclusion In conclusion, this paper highlights the utilization
+    of Scalable Bloom Filters (SBFs) in smart agriculture for data collection, storage,
+    and transmission by node authentication and data reduction. The experimental findings
+    demonstrate that SBFs outperform traditional methods in terms of authentication
+    speed. Moreover, SBFs effectively minimize the collection and transmission of
+    redundant data, leading to more efficient utilization of network resources. The
+    adoption of SBFs in smart agriculture provides several advantages, including improved
+    data storage and transmission efficiency, enhanced data quality, and reduced network
+    congestion. By ensuring secure and reliable data collection while minimizing resource
+    wastage, SBFs contribute to the optimization of smart agriculture systems. Future
+    research should focus on optimizing the parameters and performance of SBFs specifically
+    for agricultural applications to further advance the application of SBFs in smart
+    agriculture. Additionally, exploring the integration of SBFs with other technologies
+    such as machine learning and artificial intelligence can unlock new possibilities
+    for data analysis and decision-making in the agricultural domain. In summary,
+    Scalable Bloom Filters offer a promising solution for managing data in smart agriculture,
+    addressing authentication and data reduction challenges. By leveraging the benefits
+    of SBFs, smart agriculture can enhance productivity, sustainability, and resilience
+    in response to the growing global food demand and environmental challenges. In
+    our paper, we acknowledge limitations associated with the size of the dataset
+    and its impact on the scalable Bloom filter (SBF). As the dataset size increases,
+    the SBF’s size and complexity overhead also grow, resulting in increased processing
+    time. Authors Figures References Keywords Metrics More Like This Optimizing the
+    reliability, maintainability and safety data collection process through lifecycle
+    2017 Annual Reliability and Maintainability Symposium (RAMS) Published: 2017 Characterizing
+    Application Memory Error Vulnerability to Optimize Datacenter Cost via Heterogeneous-Reliability
+    Memory 2014 44th Annual IEEE/IFIP International Conference on Dependable Systems
+    and Networks Published: 2014 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 2023 14th International Conference on Computing Communication and Networking
+    Technologies, ICCCNT 2023
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Data Storage, collection, and Transmission in Smart Agriculture Using Bloom
+    Filter
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors: []
+  citation_count: '0'
+  description: 'The proceedings contain 292 papers. The topics discussed include:
+    remote monitoring of energy meter using cloud storage; design and fabrication
+    of adhesive application system for magnets in motors; study on implementation
+    of electronic health records using blockchain technology; blockchain integrated
+    intelligent monitoring system for wireless sensor network; an efficient high throughput
+    block chain specification; security of electronic health record using attribute
+    based encryption on cloud; the smart performance analysis of reliability based
+    optimization service for secured cloud servers using priority based scheduling;
+    security and privacy enabled framework for online social networks using blockchain;
+    generative adversarial networks for anomaly detection in cyber security: a review;
+    an improved agriculture farming through the role of digital twin; cloud migration
+    meets targeted deadlines; an advanced keyword searching model with data security
+    in cloud computing; web application for use in companies in the internal training
+    process of their personnel; design of fire extinguisher drone; and artificial
+    intelligence-based energy management system for renewable energy sources.'
+  doi: null
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: '>'
+  journal: 2023 4th International Conference on Electronics and Sustainable Communication
+    Systems, ICESC 2023 - Proceedings
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 2023 4th International Conference on Electronics and Sustainable Communication
+    Systems, ICESC 2023 - Proceedings
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Mahajan H.B.
+  - Badarla A.
+  citation_count: '54'
+  description: 'Nowadays there is significant growth in the Internet of Things (IoT)
+    enabled applications in connection with cloud computing is a framework that enables
+    IoT users to access computing resources on-demand. IoT provides a new dimension
+    in the area of the smart farming domain from the last decade. In such precision
+    farming applications, the on-field sensor node collects the periodic data and
+    transmits it to the remote station over the wireless channels. Data collected
+    at the wireless station is huge and hence they are stored into the cloud servers.
+    Further in the cloud computing environment, various data processing related operations
+    performed based on dynamic demands for the decision-making process. The cloud
+    computing communications established using the HTTP protocol and hence various
+    HTTP vulnerabilities introduced to harm farming data. There are various methods
+    are introduced for the detection of such attacks with drawbacks less accuracy
+    rate and higher detection errors. Thus applying such traditional methods to detect
+    the attack is nightmare and required efficient approach for detection in IoT connected
+    cloud computing domain. This paper proposed the detecting HTTP vulnerabilities
+    in a Cloud computing based on Artificial Intelligence (AI). The proposed system
+    comprises the following phases: data gathering, data cleaning, feature selection
+    and computation, and classification. In the data cleaning stage, the acquired
+    cloud traffic is cleaned to remove the unwanted noisy data. In the features extraction
+    phase, the key features selected and normalized using the statistical methods.
+    In the classification, stage data is grouped into normal and attack using the
+    J48 Decision tree classifier. The experimental result shows the proposed approach
+    achieved superior performance over the previous methods.'
+  doi: null
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: '>'
+  journal: International Journal of Advanced Science and Technology
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Detecting http vulnerabilities in iot-based precision farming connected with
+    cloud environment using artificial intelligence
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

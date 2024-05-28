@@ -1,0 +1,1016 @@
+- analysis: '>'
+  authors:
+  - Tufeanu L.M.
+  - Martian A.
+  - Vochin M.C.
+  - Paraschiv C.L.
+  - Li F.Y.
+  citation_count: '0'
+  description: Automating software orchestration and service development represents
+    the newest trend in the development of fifth generation (5G) core network (CN)
+    as it enables flexible and scalable service deployment. The building blocks for
+    such a trend include Containers, Docker, Kubernetes, and other orchestration methods
+    that facilitate easy scaling, management and control, load balancing, and personalized
+    quality of service. In this paper, we develop a containerized 5G standalone (SA)
+    network, building two types of network topologies for 5G SA deployment based on
+    the concepts of 5G cloud network functions, Docker containers and Linux virtualization.
+    Based on our implementation of both Minimalist Deployment and Basic Deployment,
+    an assessment on the attach procedure is performed through next generation application
+    protocol (NGAP) filtering along with subscriber information. Moreover, emulated
+    transmission control protocol (TCP)/user datagram protocol (UDP) traffic is injected
+    into the network and its performance is evaluated based on metrics such as traffic
+    volume and data rate for both uplink and downlink.
+  doi: 10.1109/WPMC55625.2022.10014753
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2022 25th International Sympo...
+    Building an Open Source Containerized 5G SA Network through Docker and Kubernetes
+    Publisher: IEEE Cite This PDF Larisa-Mihaela Tufeanu; Alexandru Martian; Marius-Constantin
+    Vochin; Constantin-Laurentiu Paraschiv; Frank Y. Li All Authors 1 Cites in Paper
+    227 Full Text Views Abstract Document Sections I. Introduction II. Introduction
+    To 5g Core Network III. Containers, Docker, and Kubernetes IV. Openair-Cn-5g Platform
+    V. Implementations and Experimental Results Show Full Outline Authors Figures
+    References Citations Keywords Metrics Abstract: Automating software orchestration
+    and service development represents the newest trend in the development of fifth
+    generation (5G) core network (CN) as it enables flexible and scalable service
+    deployment. The building blocks for such a trend include Containers, Docker, Kubernetes,
+    and other orchestration methods that facilitate easy scaling, management and control,
+    load balancing, and personalized quality of service. In this paper, we develop
+    a containerized 5G standalone (SA) network, building two types of network topologies
+    for 5G SA deployment based on the concepts of 5G cloud network functions, Docker
+    containers and Linux virtualization. Based on our implementation of both Minimalist
+    Deployment and Basic Deployment, an assessment on the attach procedure is performed
+    through next generation application protocol (NGAP) filtering along with subscriber
+    information. Moreover, emulated transmission control protocol (TCP)/user datagram
+    protocol (UDP) traffic is injected into the network and its performance is evaluated
+    based on metrics such as traffic volume and data rate for both uplink and downlink.
+    Published in: 2022 25th International Symposium on Wireless Personal Multimedia
+    Communications (WPMC) Date of Conference: 30 October 2022 - 02 November 2022 Date
+    Added to IEEE Xplore: 20 January 2023 ISBN Information: ISSN Information: DOI:
+    10.1109/WPMC55625.2022.10014753 Publisher: IEEE Conference Location: Herning,
+    Denmark SECTION I. Introduction The concepts of network function virtualization
+    (NFV), software defined networking, and software development containerization
+    have facilitated the transition of service provisioning from dedicated hardware
+    based deployment to a flexible software enabled procedure. Such a transition leads
+    to much shorter service development cycles and reduced business costs [1]. From
+    the perspective of fifth generation (5G) service provisioning, various network
+    components and nodes can be virtualized as part of the NFV infrastructure, running
+    on commercially available servers. Considering the diversity of various services
+    and vertical applications, the architectural implementations of 5G networks vary
+    from component options/deployment types to operation system (OS)-level virtualization
+    platforms, or/and orchestrator selection. These variations are enabled based on
+    containerized network function (CNF) particularization. Furthermore, it is expected
+    that container based techniques and methodologies performed in a cloud-native
+    manner [2] bring significant benefits of virtualization and containerization to
+    5G applications, supporting better flexibility and scalability. Recently, there
+    is surge of research and development activities towards network softwarization,
+    containerization, and cloudification for 5G and beyond 5G (B5G) networks [3] [4].
+    In line with various ongoing activities following this trend, it is of great interest
+    to experiment how to build an open source based containerized 5G standalone (SA)
+    network with various number of required network functions and components as well
+    as to investigate the performance of such a network. In this paper, we present
+    an experimental implementation of containerized 5G core (5GC) network which supports
+    two types of 5GC deployment, namely, Minimalist Deployment and Basic Deployment,
+    each consisting of different number of CNFs involved. The objective of this paper
+    is to first implement these two types of 5GC deployment and then evaluate the
+    performance of them. The implementation is developed based on the OpenAir-CN-5G
+    platform [5] and in our implementation each Linux Ubuntu container emulates a
+    5G CNF with individual functionalities within the same network subnet. Such a
+    containerized solution ensures proper connectivity and ease of parameter configurations
+    for 5G operators. To assess the performance of our implementation with respect
+    to both session establishment and data transfer, emulated transmission control
+    protocol (TCP)/user datagram protocol (UDP) user data traffic flows are injected
+    into the experimental 5G network. With further enhancement through container orchestration
+    by Kubernetes, it is expected that the number of CNFs could be adjusted (i.e.,
+    scaling up or down) automatically according to resource and service requirements.
+    The rest of the paper is structured as follows. We first give an introduction
+    on 5GC network in Sec II and then present the concepts of Docker and Kubernetes
+    in Sec III. Afterwards, an overview of a 5GC platform, OpenAir-CN-5G, as well
+    as our implementation steps are given in Sec IV. The experiments performed based
+    on our implementations are presented in Sec V. Finally, conclusions are drawn
+    in Sec VI. SECTION II. Introduction To 5g Core Network In this section, we give
+    a brief introduction on 5GC with respect to its constituent components, network
+    functions, and deployment modes. 5 g Network Components 5GC is designed based
+    on the concept of service based architecture (SBA) and it provides flexibility
+    for service development by defining multiple network components which form the
+    building blocks for service provisioning. One of the primary features of the core
+    is ensuring the connection to the Internet and the public switched telephone network
+    (PSTN). Fig. 1: An overview of the 5G core network architecture. Show All • Access
+    and mobility function (AMF) handles processes describing user equipment (UE) mobility
+    through the network, from authentication and authorization to security and signaling.
+    • Session management function (SMF) handles tasks including Internet protocol
+    (IP) address allocation to UE attachment to the network, based on a set of parameters
+    (e.g., international mobile subscriber identity (IMSI) and access point names
+    (APNs)). • User plane function (UPF) is the anchor point for packet data unit
+    (PDU) session establishment. Its main feature is connecting user data from the
+    radio access network (RAN) to the external data network (e.g., the Internet).
+    • Unified data management (UDM) acts like a database and ensures that operators
+    are able to fetch user information, such as subscriber profiles, to permit or
+    deny access to various services. • Policy control function (PCF) is essential
+    in implementing policy control within specific dynamic processes, based on particular
+    time decisions. As shown in Fig. 1, interconnections among these network components
+    have been specified by the 3rd generation partnership project (3GPP) through reference
+    points N (1–59) [6]. Furthermore, the control plane (CP) and user plane (UP) deal
+    with signaling and session management among network components and user data traffic
+    respectively. Accordingly, a PDU session could be established when a UE is active
+    within the home or a visiting network. To ensure quality of service (QoS), various
+    resource allocation mechanisms need to be adopted since Internet protocol (IP)
+    services are initially based on Best Effort. In Fig. 2, we illustrate two basic
+    cases for PDU session establishment between a UE and a data network with individual
+    and multiple flows respectively, where QoS is achieved through default QoS flow
+    or traffic prioritization. 5 Gc Functions Considering the availability of interconnections
+    and network function components, the main 5GC roles are outlined below. Routing
+    user traffic - from source (the initiating UE) to destination (the external data
+    network) and vice versa; Fig. 2: Illustration of single and multiple PDU sessions.
+    Show All Table I: UP/CP allocation in 5G NSA and 5G SA solutions Providing QoS
+    - Enforcing QoS policies, traffic prioritization, and resource reservation for
+    specific services; Ensuring security and confidentiality; Supporting roaming functionalities
+    from a tracking and management perspective; 5) Identification and service of visiting
+    devices; 6) Ensuring voice services (e.g., voice over new radio (VoNR) and voice
+    mail); 7) Providing accounting and billing services. 5 g Architecture: Non-Standalone
+    Versus Standalone To ease the transition from fourth generation (4G) to 5G, two
+    deployment architectures are specified by the 3GPP [7]. Non-standalone (NSA) deploys
+    a complete end-to-end (E2E) 5G network by taking the advantage of virtualization
+    processes, CP and UP separation (CUPS), and software defined networking (SDN).
+    This architecture delivers 5G services with greater data rates than the ones obtained
+    in 4G, by using an evolved packet core (EPC) core combined with a 5G new radio
+    (NR) RAN. Standalone. Unlike the NSA architecture, an NR RAN in the 5G SA solution
+    is connected directly to the 5G core network. As such, SA supports the full set
+    of 5G services. Although 5G NSA has indeed an advantage in terms of faster deployment
+    and a lower cost of implementation, it comes at the expense of network performance.
+    On the other hand, 5G SA delivers full 5G benefits, such as ultra-high Internet
+    access speed, and ultra-low latency. Another major difference between NSA and
+    SA is CUPS, as in NSA networks UP is using the 5G stack and the CP is using the
+    4G stack, whereas in 5G SA networks the 5G stack is used for both UP and CP, as
+    shown in Tab. I. SECTION III. Containers, Docker, and Kubernetes Containers, virtually
+    seen as synonymous with cloud-native development as a process, represent software
+    tools that provide more feasible packaging and isolation of applications within
+    the runtime environment. Developing applications locally does not only involve
+    hardware costs but also creates dependency issues in operations like migrations
+    or reproduction. Consequently, emulators have gained popularity within the development
+    stages, by enabling successful run of applications across various environments
+    with minimal quality assurance degradation [8]. Considering migrations of applications,
+    containers provide the advantage of bundling together all necessary files and
+    dependences. The concept is very similar to a Linux distribution [9], where the
+    Redhat package manager (RPM) packages and configures files. Although visual machines
+    rely on virtualization at the hardware level, containers operate only at software
+    layers above the OS level for resource allocation of central processing unit (CPU),
+    random-access memory (RAM), disk space, etc. [8]. The main difference between
+    container based and OS specific application development is shown in Fig. 3. Fig.
+    3: Container versus standard OS differences [8]. Show All Fig. 4: Life cycle management
+    of a container. Show All Furthermore, the life cycle management (LCM) tasks of
+    a container involve various stages of development and they are rarely built from
+    scratch. Inside LCM, public or private registries enabled operations are performed
+    with container images in a database format, making more accessible their pulling,
+    distribution, and storage. With OS-level virtualization impact, Docker is one
+    of the most popular platform as a service (PaaS) product suites. While containers
+    introduce isolation, Docker not only enhances an economical resource allocation
+    within a network but also packages applications and all stated dependencies into
+    a container environment at a high scalability level, making them available from
+    various locations and operating systems (Linux, Windows, MacOS devices). Fig.
+    4 illustrates the application encapsulation procedure according to LCM. Fig. 5:
+    5GC network deployment implementation steps. Show All Furthermore, Docker does
+    not only contribute to the delivery of applications and services to end users
+    (through the deployment and operation frame) but also provides a key component
+    of the DevOps community. It takes part in a bigger automation picture by planning
+    (Git, Jira), building (Gradle, Maven), testing (Selenium), and monitoring (Nagios).
+    On the other hand, Kubernetes is a strong representative of orchestration processes,
+    running in container based applications. This tool brings capabilities of auto-scaling,
+    life cycle management, declarative models, resilience and selfhealing, persistent
+    storage, and efficient distribution of workloads across clusters [8]. Although
+    there is a common misconception that either Kubernetes or Docker should be used
+    in a network infrastructure, they are indeed fundamentally distinct and complementary
+    from each other for building enhanced containerized application capabilities [10].
+    SECTION IV. Openair-Cn-5g Platform OpenAir-CN-5G [5] is a 3GPP specification compliant
+    5GC implementation developed by the OpenAirInterface (OAI) Software Alliance which
+    is lead by EURECOM and it provides a platform for our implementation and experiments.
+    A. Overview and Prerequisites OpenAir-CN-5G is distributed under OAI Public License
+    v1.1 containing a 5G SA architecture, and it is built on Linux containers using
+    Docker. A Type-2 hypervisor for x86 virtualization and Oracle virtual machine
+    (VM) VirtualBox was used for deploying a Linux Ubuntu 18.04 long term support
+    (LTS) (Bionic Beaver) image. Fig. 5 offers an overview over the implementation
+    steps required to implement a 5GC network. The prerequisites for implementation
+    include installing Linux open source networking packages and Docker installation
+    & repository setup, allowing proper connections among apt hypertext transfer protocol
+    (HTTP) components and adding Dockers gnu privacy guard (GPG) key. Creating a Docker
+    Hub account is mandatory for command line interface (CLI) login and image pull
+    activities, directly onto the Linux VM. Furthermore, a Linux Ubuntu distribution
+    will be used as a container based image and MySQL database instances will store
+    subscription information required for the authentication and authorization processes.
+    Based on the recommendation from [12], packet forwarding should be enabled to
+    facilitate connectivity between Docker Containers and an external data network
+    (EDN), which is the Internet. To enable forwarding, Linux Kernel needs to be configured
+    to allow IP forwarding by modifying the policy for iptables from DROP to ACCEPT.
+    The purpose is to create a fully functional emulated 5G network instance, using
+    specific CNFs as the core elements based on Docker images configured corresponding
+    to each of the required functionalities. The images are hosted under an OAI account:
+    oaisoftwarealliance [13]. To pull them from the Docker Hub, a valid user account
+    is required. The images are experimental and refer to a 5G SA architecture. Table
+    II: Deployment types and functions for the 5G SA network After the images are
+    pulled, they will be re-tagged to match the configuration scripts. As recommended
+    by [13], the set of configuration files was initially pulled from (Gitlab) cn5g/oai-cn5
+    g repository and then other necessary configuration data, such as the public land
+    mobile network (PLMN) code, tracking area code (TAC), mobile country code (MCC),
+    mobile network code (MNC), are appended according to each implementation. B. Deployment
+    Types The scripts support the implementation of two different deployment types
+    as explained below [13]. The functions that are supported by each deployment type
+    are listed in Tab. II. Minimalist Deployment consists of the minimum number of
+    network functions that are required to properly sustain the 5G infrastructure.
+    Basic Deployment contains three additional CNFs - with authentication and authorization
+    functionalities. The authentication server function (AUSF) seeks to offer UE authentication
+    assistance. AUSF is in charge of making decisions on authentication and it is
+    also connected to a service for calculating authentication data (keys, authentication
+    algorithms, such as 5G-AKA or EAP-AKA’) [14]. The AUSF, UDM, and UDR functions
+    comprise the home subscriber server (HSS) from 4G EPC networks (for stateless
+    architectures). Therein, the UDM represents a network function that is native
+    to the cloud and it stores, maintains, and controls network user data. Data for
+    various use cases, such as subscription, policies, applications, and structured
+    data, are stored in the UDR. C. Gnbsim Simulator for Ran and Ue Gnbsim is an open
+    source 5G SA simulator [15] compliant with the 3GPP Rel-16 standards and it is
+    used for testing 5G systems. It simulates RAN and UE with one gNB and one UE per
+    instance (per container). Fig. 6: Connectivity in the Minimalist Deployment Architecture.
+    Show All The gnbsim image is fetched from the oai-cn5g-fed workspace [16], and
+    the Docker service is launched. Status commands should display up and healthy
+    containers for both core and radio network deployment. Furthermore, initial results
+    point to a successful UE attach to the network and a correct IPv4 allocation from
+    the SMF. The subscriber information is fetched from the MySQL database and the
+    parameters match with the ones configured on Core. A match permits a user to access
+    the network, while a contradiction results in an access denial. SECTION V. Implementations
+    and Experimental Results Based on the OpenAir-CN-5G platform, we have built a
+    5G SA network with both 5GC deployment types included. To form an E2E network,
+    the gnbsim based container which functions as the RAN (including one gNB and one
+    UE) is concatenated to the 5GC. As an example, the connectivity among the main
+    components in the Minimalist Deployment architecture is shown in Fig. 6. In what
+    follows, we present an overview about our implementation and the experiments.
+    A. Overview of Implementation and Experiments Based on the implementation steps
+    introduced in Fig. 5, we have performed 5GC deployment installations, supporting
+    both container configuration and network prerequisites according to the deployment
+    type selected. Consequently, an experimental 5G SA network is built under the
+    oai-IP-range 192.168.70.128/26 and it represents a containerized solution ensuring
+    ease of parameter configuration from the perspective a mobile network operator
+    (MNO). To assess the performance of the implemented network, we adopt Wireshark
+    for protocol handshake validation and Iperf for data traffic performance evaluation.
+    Specifically, the UE attached to the network allows Ping tests based on the Internet
+    control message protocol (ICMP) for protocol handshake and traffic monitoring.
+    A subscriber can not only ping the EDN but also carry user traffic. Domain name
+    system (DNS) services are also functional as the UE has obtained an IPv4 address,
+    12.1.1.2, that is statically allocated by the SMF during the PDU session establishment
+    procedure. Through APN configuration, it ensures packet forwarding within the
+    UPF or on the Intranet. Interconnections under the same subnet support ICMP operations
+    (Ping) between the UE and the EDN (i.e., Google Server) based on the SMF configuration.
+    Fig. 7: NGAP messages in a 5GC Basic Deployment trace where authentication and
+    security are required. Show All Fig. 8: AUSF filtering in a 5GC basic deployment
+    trace. Show All Fig. 9: IMSI filtering in a 5GC Basic Deployment trace. Show All
+    B. Protocol Handshake and Session Establishment To filter the attach messages,
+    the next generation application protocol (NGAP) filter needs to be applied in
+    the captured trace. NGAP refers to the messages captured on the N2 reference point,
+    which lies between the gNB and the AMF, and it provides control plane signaling
+    information. As shown in Fig. 7, the following attach messages are deducted: A
+    UE registration request is sent to the AMF (Message No. 64749); The authentication
+    and security process resulted from the Authentication request and Authentication
+    response (Messages No. 64886-64888); The PDU session establishment request describes
+    the final Attach message (Message No. 65298). Other filters such as HTTP or GPRS
+    tunnel protocol (GTP) may also be used to filter other types of messages. In Fig.
+    8, we illustrate the POST-type message referring to the AUSF-authentication HTTP
+    request (to the complete request URI: http://192.168.70.138/nausf-auth/v1/ue-authentications)
+    contained in this procedure. Additionally, the message includes information on
+    the Serving Network name: mnc095.mcc.208.3gppnetwork.org, as well as the string
+    values MNC=095, MCC=208. The result validates the successful match between the
+    configured parameters delivered to the network through the UE request and the
+    configuration files of the CNFs based on the MySQL database information. Furthermore,
+    the ICMP packets related to the Ping queries from CLI are also visible in the
+    Wireshark trace through request and reply messages. C. Data Traffic Performance
+    Using Iperf, TCP/UDP data streams are generated for measuring network performance
+    in terms of throughput and data rate. Accordingly, we start one Iperf process
+    running in the server mode as the traffic receiver and then create another Iperf
+    process running in the client mode on another host as the traffic sender. The
+    sender and receiver are the gnbsim container (which represents the UE and gNB)
+    and the external data network container (a Linux Ubuntu container with Internet
+    connection) respectively. The experiments are performed consecutively in 7 seconds
+    and the throughput and data rate results are measured in an interval of every
+    second. The measured results are illustrated in Tabs. III and IV respectively.
+    To understand these values, let us take one example from the first interval, 0.00-1.00,
+    of Tab. III. When an amount of 30.2 MB user data is transferred in 1 sec, the
+    obtained throughput is 30.2×8/1=241.6 Mbps and this value is lower than the reported
+    data rate, 254 Mbps, which is shown in the same row. This is because protocol
+    overhead has been added when calculating data rates. The same interpretation applies
+    to the other results shown in this table and similar results have been obtained
+    for the second deployment type (illustrated in Tab. IV). Table III: Data transfer
+    performance: 5GC Minimalist Deployment Table IV: Data transfer performance: 5GC
+    Basic Deployment Table V: Mean values for uplink and downlink in 5GC Finally,
+    we present in Tab. V the average uplink and down-link data rates for each deployment
+    type (either Minimalist Deployment which includes AMF, SMF, UPF, NRF or Basic
+    Deployment which includes AMF, SMF, UPF, NRF, UDR, AUSFM and UDM). The values
+    are obtained based on the results shown in Tabs. III and IV, and they are fairly
+    appropriate (e.g., 30.05 MB versus 29.61 MB for the Minimalist Deployment, and
+    22.98 MB versus 22.65 MB for the Basic Deployment). It is worth highlighting that
+    the values obtained from the Minimalist Deployment are greater than those found
+    in the Basic Deployment. More specifically, the data rate is approximately 60
+    Mbps higher in the Minimalist Deployment and the mean transfer volume per sec
+    is approximately 7 MB larger. This is due to the fact that the Basic Deployment
+    requires more signaling messages to be exchanged during the registration and authentication
+    procedures caused by the additional cloud based network functions (AUSF, UDM,
+    UDR). SECTION VI. Conclusions and Future Work In this paper, we reported an open
+    source based containerized 5G SA network implementation which encompasses both
+    Minimalist and Basic Deployment, and is compliant with 3GPP Rel-16 specifications.
+    Various core network components are implemented based on the OAI 5GC platform
+    and deployed using Docker-compose. Based on the implementation, both protocol
+    handshake (including attach and session establishment) and data transfer (including
+    TCP/UDP traffic flows) are demonstrated. The network performance based on the
+    two deployment types is compared with each other through an E2E 5G network formed
+    by emulating RAN and UE based on gnbsim. Our implementations and experiments demonstrate
+    the significance of orchestration (through Kubernetes layering) as network size
+    increases and how automation can contribute to enhancing 5G SA functionalities
+    according to CNF components and services to be implemented. As our future work,
+    we will explore Kubernetes at an orchestration level within the existing 5G infrastructure
+    and trigger operations such as scaling and processes automation. ACKNOWLEDGMENT
+    The research leading to these results has received funding from the NO Grants
+    2014-2021, under project contract no. 42/2021, RO-NO-2019-0499 - “A Massive MIMO
+    Enabled IoT Platform with Networking Slicing for Beyond 5G IoV/V2X and Maritime
+    Services (SOLID-B5G)”. Authors Figures References Citations Keywords Metrics More
+    Like This The Issues of the Bandwidth Resource and Quality of Service Control
+    in the 5G Heterogeneous Networks with MFMAC-Protocol Using 2018 XIV International
+    Scientific-Technical Conference on Actual Problems of Electronics Instrument Engineering
+    (APEIE) Published: 2018 Improving Energy Efficiency and Quality of Service in
+    Wireless Body Area Sensor Network using Versatile Synchronization Guard Band Protocol
+    2019 IEEE International Conference on Clean Energy and Energy Efficient Electronics
+    Circuit for Sustainable Development (INCCES) Published: 2019 Show More IEEE Personal
+    Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED
+    DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION
+    TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732
+    981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help | Accessibility
+    | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap |
+    IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
+    technical professional organization dedicated to advancing technology for the
+    benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: International Symposium on Wireless Personal Multimedia Communications,
+    WPMC
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Building an Open Source Containerized 5G SA Network through Docker and Kubernetes
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Barnes H.
+  citation_count: '0'
+  description: This book covers everything a developer needs to know to hit the ground
+    running and get the most out of Windows Subsystem for Linux (WSL). Since its release,
+    Windows Subsystem for Linux (WSL) has been growing in popularity, moving from
+    curious early adopters to wide-scale interest, including enterprise development
+    teams using WSL in production. This authoritative guide to WSL covers the gamut,
+    introducing developers to WSL architecture, installation and configuration, the
+    WSL command line, all the way to advanced use cases and performance tunings. Practical
+    examples are sprinkled throughout to reinforce understanding. This book is designed
+    to efficiently and effectively get developers comfortable using this highly useful
+    platform for open-source development on Windows. WSL is uniquely suited to cloud
+    and cross-platform development, and system administrator workflows on Windows.
+    Windows developers will begin with the basics of installation and then be introduced
+    to the vast library of open source tools that they can integrate into their own
+    workflows, using their existing development tools, such as Code, Visual Studio,
+    and JetBrains IDEs. Readers will learn, hands on, about using WSL to develop cross-platform
+    and cloud-native applications, work with containers, and deploy a local Kubernetes
+    cluster on WSL. "Much of what WSL is, is what developers make of it" is expert
+    Barnes' guiding mantra, a theme that is reinforced throughout this valuable cross-platform
+    learning journey. Developers will get excited about the many new opportunities
+    at their fingertips and be astounded at what they can do and achieve with WSL.
+    What You Will Learn • Install and configure WSL, a unique and novel configuration
+    process • Receive an unbiased overview of WSL, its architecture, installation,
+    the command line, practical use cases, and advanced configuration • Create a development
+    workstation using WSL • Compare and contrast the differences between WSL 1 and
+    WSL 2 • Explore, in depth, some of the more popular workflows in WSL, including
+    Docker containers • Consider and plan key factors for a large scale enterprise
+    deployment of WSL Who This Book Is For Developers who need to know WSL and how
+    to build a development stack, integrating it with their preferred code editor
+    or IDE if they so choose; existing Windows and Linux system administrators who
+    want to learn how to install, deploy, and manage WSL; power users who are comfortable
+    in a command line, but may be new to Linux or WSL
+  doi: 10.1007/978-1-4842-6873-5
+  full_citation: '>'
+  full_text: '>
+
+    "Your privacy, your choice We use essential cookies to make sure the site can
+    function. We also use optional cookies for advertising, personalisation of content,
+    usage analysis, and social media. By accepting optional cookies, you consent to
+    the processing of your personal data - including transfers to third parties. Some
+    third parties are outside of the European Economic Area, with varying standards
+    of data protection. See our privacy policy for more information on the use of
+    your personal data. Manage preferences for further information and to change your
+    choices. Accept all cookies Skip to main content Advertisement Log in Find a journal
+    Publish with us Track your research Search Cart Book © 2021 Pro Windows Subsystem
+    for Linux (WSL) Powerful Tools and Practices for Cross-Platform Development and
+    Collaboration Home Book Authors: Hayden Barnes  An authoritative guide to WSL
+    from one of the best-known WSL experts in the field Moves beyond preconceived
+    notions of Linux to new and modern applications Covers how to transition to WSL
+    2, including backing up, testing, and upgrading 19k Accesses 4 Altmetric Sections
+    Table of contents About this book Keywords Authors and Affiliations About the
+    author Bibliographic Information Publish with us Table of contents (12 chapters)
+    Search within book Search Access provided by University of Nebraska-Lincoln Front
+    Matter Pages i-xxiii PDF WSL Architecture Hayden Barnes Pages 1-16 PDF Enabling
+    WSL Hayden Barnes Pages 17-42 PDF Managing WSL Distros Hayden Barnes Pages 43-72
+    PDF Linux Distro Maintenance Hayden Barnes Pages 73-100 PDF Configuring WSL Distros
+    Hayden Barnes Pages 101-127 PDF Configuring WSL 2 Hayden Barnes Pages 129-142
+    PDF Customizing WSL Hayden Barnes Pages 143-176 PDF Going Further with WSL 2 Hayden
+    Barnes Pages 177-208 PDF Maximizing Windows Interoperability Hayden Barnes Pages
+    209-231 PDF Using WSL for Enterprise Development Hayden Barnes Pages 233-256 PDF
+    Troubleshooting WSL Hayden Barnes Pages 257-266 PDF Deploying WSL at Scale Hayden
+    Barnes Pages 267-279 PDF Back Matter Pages 281-287 PDF Back to top About this
+    book This book covers everything a developer needs to know to hit the ground running
+    and get the most out of Windows Subsystem for Linux (WSL). Since its release,
+    Windows Subsystem for Linux (WSL) has been growing in popularity, moving from
+    curious early adopters to wide-scale interest, including enterprise development
+    teams using WSL in production. This authoritative guide to WSL covers the gamut,
+    introducing developers to WSL architecture, installation and configuration, the
+    WSL command line, all the way to advanced use cases and performance tunings. Practical
+    examples are sprinkled throughout to reinforce understanding. This book is designed
+    to efficiently and effectively get developers comfortable using this highly useful
+    platform for open-source development on Windows. WSL is uniquely suited to cloud
+    and cross-platform development, and system administrator workflows on Windows.
+    Windows developers will begin with the basics of installation and then be introduced
+    to the vast library of open source tools that they can integrate into their own
+    workflows, using their existing development tools, such as Code, Visual Studio,
+    and JetBrains IDEs. Readers will learn, hands on, about using WSL to develop cross-platform
+    and cloud-native applications, work with containers, and deploy a local Kubernetes
+    cluster on WSL. “Much of what WSL is, is what developers make of it” is expert
+    Barnes’ guiding mantra, a theme that is reinforced throughout this valuable cross-platform
+    learning journey. Developers will get excited about the many new opportunities
+    at their fingertips and be astounded at what they can do and achieve with WSL.  What
+    You Will Learn Install and configure WSL, a unique and novel configuration process
+    Receive an unbiased overview of WSL, its architecture, installation, the command
+    line, practical use cases, and advanced configuration Create a development workstation
+    using WSL Compare and contrast the differences between WSL 1 and WSL 2 Explore,
+    in depth, some of the more popular workflows in WSL, including Docker containers
+    Consider and plan key factors for a large scale enterprise deployment of WSL  Who
+    This Book Is For Developers who need to know WSL and how to build a development
+    stack, integrating it with their preferred code editor or IDE if they so choose;
+    existing Windows and Linux system administrators who want to learn how to install,
+    deploy, and manage WSL; power users who are comfortable in a command line, but
+    may be new to Linux or WSL  Back to top Keywords WSL WSL 2 Cross platform development
+    Windows subsystem for Linux Windows Microsoft Ubuntu and windows Windows on Linux
+    install and configure WSL Linux command line Create a development workstation
+    using WSL WSL 1 vs WSL 2 large scale deployment on WSL Windows developers IT administration
+    Back to top Authors and Affiliations Columbus, USA Hayden Barnes Back to top About
+    the author Hayden Barnes is Engineering Manager for Ubuntu on Windows Subsystem
+    for Linux (WSL) at Canonical, and a recognized Microsoft MVP. Hayden regularly
+    presents on the topic of WSL at conferences such as Microsoft Build and is the
+    founder of WSLConf. He has consulted for enterprises, academic institutions, and
+    government agencies to help them deploy WSL. Before joining Canonical, Hayden
+    founded Pengwin, the first company to create a custom Linux distribution built
+    specifically for Windows. He is passionate about WSL because it opens up a myriad
+    of opportunities for cross-platform development, open source development, and
+    collaboration between Linux and other communities. Back to top Bibliographic Information
+    Book Title Pro Windows Subsystem for Linux (WSL) Book Subtitle Powerful Tools
+    and Practices for Cross-Platform Development and Collaboration Authors Hayden
+    Barnes DOI https://doi.org/10.1007/978-1-4842-6873-5 Publisher Apress Berkeley,
+    CA eBook Packages Professional and Applied Computing, Apress Access Books, Professional
+    and Applied Computing (R0) Copyright Information Hayden Barnes 2021 Softcover
+    ISBN 978-1-4842-6872-8 Published: 08 June 2021 eBook ISBN 978-1-4842-6873-5 Published:
+    07 June 2021 Edition Number 1 Number of Pages XXIII, 287 Number of Illustrations
+    321 b/w illustrations Topics Microsoft and .NET, Open Source Back to top Publish
+    with us Policies and ethics Back to top Download book PDF Download book EPUB Buy
+    it now Buying options Softcover Book USD 59.99 MyCopy Softcover USD 39.99 Tax
+    calculation will be finalised at checkout Other ways to access Licence this eBook
+    for your library Learn about institutional subscriptions Discover content Journals
+    A-Z Books A-Z Publish with us Publish your research Open access publishing Products
+    and services Our products Librarians Societies Partners and advertisers Our imprints
+    Springer Nature Portfolio BMC Palgrave Macmillan Apress Your privacy choices/Manage
+    cookies Your US state privacy rights Accessibility statement Terms and conditions
+    Privacy policy Help and support 129.93.161.219 Big Ten Academic Alliance (BTAA)
+    (3000133814) - University of Nebraska-Lincoln (3000134173) © 2024 Springer Nature"'
+  inline_citation: '>'
+  journal: 'Pro Windows Subsystem for Linux (WSL): Powerful Tools and Practices for
+    Cross-Platform Development and Collaboration'
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Pro Windows Subsystem for Linux (WSL): Powerful Tools and Practices for
+    Cross-Platform Development and Collaboration'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Garg S.
+  - Lakshmi J.
+  citation_count: '9'
+  description: Virtualization facilitates provisioning of resources to multiple users
+    on the same physical machine while trying to maximize the resource utilization.
+    Depending upon the layer of abstraction different virtualization technologies
+    offer different advantages. Containers, abstracting Operating System (OS), offer
+    lightweight virtualization and have become a popular way to deploy microservices.
+    Containers proficiently bridge the gap between development and production environments
+    by enabling CI/CD (Continuous Integration / Continuous Deployment). On one hand
+    they provide some fine solutions for provision and management of resources, on
+    the other hand containers pose many challenges. Consolidation of workloads as
+    containers on a machine with the intent of maximizing utilization of all the resources
+    is one of those. Placement of containers without insights into workload might
+    lead to poor and unpredictable application performance particularly so if the
+    hostOS usage of resources is not accounted for. In this paper, we present experimental
+    results of exercising different workloads, specific to different shared resources
+    on Linux-Docker containers. This study indicates that containers also exhibit
+    interference on shared resources. This interference is due to hostOS support required
+    for containers and can be disruptive if the mix of containers hosted on a machine
+    is purely based on each container's resource use.
+  doi: 10.1109/UIC-ATC.2017.8397647
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2017 IEEE SmartWorld, Ubiquit...
+    Workload performance and interference on containers Publisher: IEEE Cite This
+    PDF Surya Kant Garg; J. Lakshmi All Authors 6 Cites in Papers 473 Full Text Views
+    Abstract Document Sections I. Introduction II. Related Work III. Containers''
+    Overhead IV. Experiments and Results V. Conclusion and Future Work Authors Figures
+    References Citations Keywords Metrics Abstract: Virtualization facilitates provisioning
+    of resources to multiple users on the same physical machine while trying to maximize
+    the resource utilization. Depending upon the layer of abstraction different virtualization
+    technologies offer different advantages. Containers, abstracting Operating System
+    (OS), offer lightweight virtualization and have become a popular way to deploy
+    microservices. Containers proficiently bridge the gap between development and
+    production environments by enabling CI/CD (Continuous Integration / Continuous
+    Deployment). On one hand they provide some fine solutions for provision and management
+    of resources, on the other hand containers pose many challenges. Consolidation
+    of workloads as containers on a machine with the intent of maximizing utilization
+    of all the resources is one of those. Placement of containers without insights
+    into workload might lead to poor and unpredictable application performance particularly
+    so if the hostOS usage of resources is not accounted for. In this paper, we present
+    experimental results of exercising different workloads, specific to different
+    shared resources on Linux-Docker containers. This study indicates that containers
+    also exhibit interference on shared resources. This interference is due to hostOS
+    support required for containers and can be disruptive if the mix of containers
+    hosted on a machine is purely based on each container''s resource use. Published
+    in: 2017 IEEE SmartWorld, Ubiquitous Intelligence & Computing, Advanced & Trusted
+    Computed, Scalable Computing & Communications, Cloud & Big Data Computing, Internet
+    of People and Smart City Innovation (SmartWorld/SCALCOM/UIC/ATC/CBDCom/IOP/SCI)
+    Date of Conference: 04-08 August 2017 Date Added to IEEE Xplore: 28 June 2018
+    ISBN Information: DOI: 10.1109/UIC-ATC.2017.8397647 Publisher: IEEE Conference
+    Location: San Francisco, CA, USA SECTION I. Introduction Containers offer a light-weight
+    faster deployment services as compared to system virtual machines [1]. This paper
+    explores how the container platforms support application workloads by making fine-grained
+    resource measurements across the usage from the application inside a container
+    and the supporting hostOS. Since on containers, hostOS plays a major role in the
+    provisioning and orchestration of application runtimes, it is important to quantify
+    the participation of the hostOS for the container workload. Also, since the same
+    hostOS supports all the containers on a platform, there is a need to account for
+    the contribution as well as the interference caused by this. The key contribution
+    of this paper is two-fold: highlight the need for measuring the contribution of
+    the hostOS to support a container workload provide insights into the cause of
+    performance interference for container deployments We have selected specific benchmarks
+    and designed the experiment to understand whether the overheads of container virtualization
+    mechanism is visible on application performance. The study in this paper provides
+    information on the metrics and means to measure the interference so that these
+    can be effectively used for placement algorithms that need to support application
+    performance specific service level agreements (SLAs) on container platforms. The
+    rest of the paper is organized as follows: Section 2 discusses the motivation
+    for this work; in section 3 we summarize the related research; section 4 describes
+    about the test setup, design of experiments, observed results and their discussion;
+    section 5 states the conclusion with view on how these results can be used for
+    cloud deployments, as future work. SECTION II. Related Work Containers leverage
+    the underlying OS kernel and have significantly lesser management and runtime
+    overhead than VMs. In [2], Linux VServer''s resource and security isolation aspects
+    are discussed and results thereof indicate that Linux VServer performance is comparable
+    to unvirtualized Linux and better than Xen-3 for different micro and system benchmarks
+    on both SMP and uni-processor kernels. In [3] X. Tang et. al. evaluated performance
+    of multiple benchmarks on open VZ, docker, lmctfy containers and KVM VMs. For
+    CPU intensive application same performance was observed on all platforms but for
+    memory and disk intensive applications there was significant performance degradation
+    for KVM VMs. The performance of network intensive applications was reduced for
+    KVM. In [4], detailed analysis of native, containers and VM performance for different
+    workloads is given. It shows how docker containers behave for network, disk, cpu
+    and memory intensive applications with respect to KVM (hypervisor) and native
+    OS. Docker has near native performance for CPU and memory intensive workloads.
+    For network intensive applications KVM outperforms docker (for bridge network
+    driver). [5] discusses issues at virtualization layer for storage and network
+    devices with docker and shows container scalability has bottlenecks at various
+    components. Authors focus more on Go language routines that are used by different
+    storage and network drivers in docker. It also shows that increasing the number
+    of containers affects the startup time for containers. [6] analyzes the performance
+    interference among containers for disk-intensive workloads running on the same
+    hardware. Authors place two containers on each machine such that total amount
+    of physical resources is partitioned evenly among the containers and then run
+    different database applications inside one container and inside second container
+    run application stressing on different resources one at a time. In [7] the authors
+    discuss about the impact of large number of containers on provision time and provides
+    solution for application partitioning and provisioning strategy to start containers
+    in parallel for single application across different physical machines. In [8],
+    authors have proposed a Workload aware Energy Efficient Container (WEEC) brokering
+    system which predicts the future resource utilization using the collected data
+    through a feedback module and tries to minimize the number of running servers.
+    Fixed resource utilization values of different workloads on heterogeneous servers
+    have been used as input to the system. [9] compares performance of two possible
+    implementations of microservices using containers: master-slave, or nested-container
+    for CPU and network benchmarks. For CPU workload, sysbench benchmark showed comparable
+    results for both the scenarios as well as as native environment and VMs. CPU observes
+    a slowdown when number of containers is increased beyond a limit. Startup time
+    for nested containers is higher and it increases with number of containers hosted.
+    In all these cases no one has considered the issue of the nature of workload and
+    the possibility of interference with increasing number of containers on the host.
+    This aspect plays a significant role in scenarios of workload consolidation using
+    containers. The impact on the host depends upon the type of workload. This work
+    explores these aspects and presents experimental results giving insights to the
+    cause and measure of this interference. SECTION III. Containers'' Overhead Fig.
+    1: Docker libraries interface Show All In this paper we have used Docker to study
+    the workload characterization for containers. Docker, by default, uses the libcontainer
+    library which exploits the linux kernel services like namespaces, cgroups and
+    selinux and allows to create containers and manage their lifecycle. Docker interacts
+    with libcontainer and gives a more simplified abstraction to deal with containers.
+    Figure 1 shows the interface between docker and linux kernel. Docker also gives
+    the REST API interface to be accessed over the network. Linux namespaces allow
+    to create isolated virtualized system resources like process IDs, network access,
+    file system etc. As the number of containers increases on a host, the interference
+    among processes running inside different containers while sharing the same resources
+    also increases leading to degradation in performance and more load on the host
+    OS kernel. This is more true for workloads that are significantly I/O bound like
+    memory, network and disk intensive. This poses some challenges to the consolidation
+    of containers on the server. The other aspect with regard to shared resources
+    is the issue of controlled use and constrained resource allocation. To illustrate,
+    if a platform hosts two containers sharing a single NIC it is possible that one
+    of the container workload can overwhelm the other by unrestricted bandwidth use.
+    Most container platforms adopt fair shared best effort based resource sharing
+    practice. Again this is true for all resources of the platform which do not have
+    support for concurrent use. These are exhibited as major bottlenecks in host OS
+    kernel because the concurrency for these resources is enabled and managed by the
+    host OS. This leads to serial access to devices inside the host OS as huge requests
+    queue sizes under high workload. Consequently, generation of very large number
+    of interrupts under such loads causes the other processes to be preempted more
+    frequently. This activity manifests as high CPU overload and large context switches
+    for the host OS for servicing interrupts, effectively reducing consolidation ratios.
+    A classic example here is the case where as the network workload increases for
+    container processes, the host OS kernel usage also increases due to increased
+    interrupts being generated. Input-output (I/O) bound applications have significantly
+    higher overhead, particularly network I/O intensive applications. For such workloads,
+    host OS kernel requirements also needs to be taken into consideration failing
+    which leads to unresponsiveness in some applications. SECTION IV. Experiments
+    and Results The experiments conducted for this study focus on understanding how
+    shared resources and host OS in container space affect application workload performance.
+    This study also exposes how the increased overheads on containerized platform
+    restricts use of complete resource bandwidth or capacity. This affects workload
+    consolidation ratios and can dramatically change application performance if not
+    accounted for. Fig. 2: Docker bridge networking interface Show All We choose well
+    known representative benchmarks to test each resource like CPU, memory, network
+    and disk on a container platform. For each of these benchmarks we illustrate how
+    application performance gets effected by consolidating more containers on the
+    platform sharing a specific resource and highlight the causes for the observations.
+    A. Experimental Setup The server used for experiments has two Intel Xeon E5-2609
+    v2 processor (total 8 cores) on two sockets, 16 GB RAM and hard disk with spindle
+    speed of 7200 rpm. CentOS 7 operating system is installed on the server with kernel
+    version 3.10.0 to host containers. Docker version 1.12 is used to create and manage
+    containers. By default docker uses the bridge driver to provide network access
+    to the containers which creates a virtual interface and assigns it to the container.
+    This interface can be thought of as one end point of a pipe and other end is the
+    physical interface on the machine as shown in Figure 2. Network address Translation
+    is done with the help of iptables whenever container sends or receives a packet.
+    The server is connected to network with 1 Gbps ethernet connection. Linux perf
+    utility is used to measure cpu utilization by different system layers and also
+    to measure counts of events like context switches or cache misses on a core. B.
+    Network Performance For network intensive application we use Apache httpd server
+    [10] with logging turned off. An Apache httpd server is installed inside each
+    container. The httpd server inside the container was tested with single core deployment
+    to enable easier measurement for resource use under single and multiple container
+    deployment. We tested with multiple number of containers by pinning each container
+    to one cpu core. We used httperf [11] to generate http requests. Httperf is a
+    robust web server performance tool which allows to specify number of requests
+    or connections per seconds to be sent to the server with timeout. We fixed the
+    timeout as 5 seconds and sent fixed number of requests per seconds for 180 seconds
+    with request rate from 500 to 2500. Httperf is set to retrieve 10KB file from
+    servers. Multiqueuing is enabled on the NIC and has 8 Rx-Tx queues combined. NIC
+    installed on server is Intel Ethernet Server Adapter I350. It helps in distributing
+    network load across multiple CPU cores. I350 uses hash function to identify packets
+    and delivers packets belonging to the same flow through the same queue on receiving
+    side. On sending side, it is the task of network driver to send packets of the
+    same flow through same queue. Binding these queues to different CPU cores enables
+    distribution of network load. It improves performance as binding queues to different
+    cores sets affinity between network flows and CPU caches and reduces load on each
+    cache. 1) Accounting for Containerization Overheads In first ex- periment we hosted
+    4 containers on the server, each pinned to a separate core, from core indexes
+    4–7. Docker allows to pin containers to one or more cores. 4 httperf clients were
+    installed on different machines each connected with l gbps network to send connection
+    requests to containers. We repeated this test with 4, 1 and 0 cores enabled out
+    of other 4 cores to which no container was pinned, logically leaving these cores
+    for host kernel processing. Although host kernel was free to use any core. Figure
+    3, 4 and 5 show the per core usage for all the enabled cores in each case i.e.
+    8, 5 and 4 respectively. For each request rate there are number of columns equal
+    to the number of enabled cores corresponding to cores in increasing index order
+    from left to right. In each of these cases we notice that the cpu utilization
+    of the host OS kernel increases more rapidly as the request rate increases, when
+    compared to the utilization by the http server inside the container. Fig. 3: CPU
+    usage across all the cores (0–8). 4 containers were pinned to last 4 cores Show
+    All Fig. 4: CPU usage across all the enabled cores (0, 4–8). 4 containers were
+    pinned to last 4 cores Show All Also we observe from /proc/interrupts file that
+    when all 8 cores are enabled, interrupt handling for each of the 8 Rx-Tx queues
+    is distributed across first 4 cores. It is internally done by irqbalance process
+    running inside linux kernel space. Irqbalance identifies and isolates the highest
+    volume interrupt sources to other idle cores, so that load is distributed across
+    all the available cores. For 5 cores, interrupts corresponding to all the Rx -
+    Tx queues were directed to core 0. Higher connection rate (2300 and beyond) in
+    this case results in increased interrupts at that core and hence high CPU usage.
+    The reason for sudden increase in number of soft interrupts is NAPI (New API)
+    extension of network driver which generates large number of interrupts though
+    _raise_softirq_irqoff function. Under high load, it allows driver to run with
+    some temporarily disabled interrupts. At significantly high connection rate, when
+    system is not able to process all the packets, napi starts dropping packets in
+    the network adapter itself. This reduces the cpu usage as one of the container
+    gets hit and goes down while other continue serving. Here 1st container on core
+    0 went down for 2500 connections/sec. For this case, Figure 8 depicts that response
+    time is also increasing as we increase the connection rate beyond 2200. Fig. 5:
+    CPU usage across all the enabled cores (cores 4–8, on 2nd cpu). Each of the 4
+    containers was pinned to one cores Show All Fig. 6: CPU usage of core 0 for 1,
+    2, 3 and 4 containers cases. From left to right for each request rate, each of
+    the 4 bars corresponds to 1, 2, 3 and 4 container case respectively. Show All
+    Fig. 7: Consolidated bandwidth at server when 1, 2, 3 and 4 containers are hosted.
+    Size of the file fetched form the server is 10 kb Show All Fig. 8: Response time
+    for 1, 2, 3 and 4 container cases. Show All Fig. 9: CPU usage for only enabled
+    core when httpd server is hosted on host OS (left) and container. Show All Fig.
+    10: Network bandwidth and response time when httpd server is hosted on host OS
+    and container. Show All For the last case, when 4 containers are pinned to 4 separate
+    cores and no extra core is enabled, all the interrupts were processed by core
+    4 and increases the CPU usage on that core. Irqbalance notices the interrupts
+    being generated at equal rate on all the cores and hence it directs all to the
+    first available core. Interrupt processing and http server contest for the CPU
+    and http server''s threads are preempted for interrupt handling hence increasing
+    the number of context switches for http server which ultimately increases the
+    CPU usage for http server as visible in Figure 5. As seen in Figure 5 and Figure
+    7, which reports consolidated bandwidth, container pinned to core 4 went down
+    for connection rate beyond 1600. This is an unexpected behaviour that is caused
+    due to consolidation scenario with shared resources. 2) Effect of Increasing Number
+    of Containers Figure 6 shows the cpu usage of core 0 for 1, 2, 3 and 4 containers
+    to which no container was pinned. In each case one more core is enabled than the
+    number of containers. For each request rate, there are four columns, from left
+    to right which refer to 1, 2, 3 and 4 container case. For 1, 2 and 3 containers
+    cpu usage is not high. Interference among containers is visible only when network
+    usage gets significantly high. Response time also gets affected for significantly
+    high consolidated workload (Figure 8). For 1, 2 and 3 containers, CPU requirement
+    on core 0 is very less and it can be neglected. Which shows that management overhead
+    doesn''t increase linearly with increasing number of containers. 3) Overhead of
+    Containerization When we host an appli- cation inside docker container with bridge
+    network driver then iptables incurs significant overhead in processing the packet.
+    Figure 9 shows that difference. At significantly high workload, interrupts generated
+    by the NIC can not be handled by the CPU and it starts affecting the performance
+    of the server. This clearly shows that an application performing well on native
+    host might not deliver the same results when hosted inside containers. It can
+    not utilize the same network bandwidth when run inside container as it can on
+    native host. Response Time also gets increased for higher connection rate as shown
+    in Figure 10. Results suggest that to support SLA driven network intensive applications
+    on containers, we need to account for extra resourced needed by the host kernel.
+    C. Disk Performance Fig. 11: Fio result: Total number of iops for containers.
+    Each container is pinned to separate core Show All We''ve used docker''s overlay
+    storage drive for containers. Overlay driver stores the docker image as a single
+    layer and container files into another layer. The unified view of both these layers
+    is visible in ‘merged’ directory which is container''s mount point. Fig. 12: Fio
+    result: Latencies for containers. Each container is pinned to separate core Show
+    All For disk workload we used fio [12] benchmark. It allows to set different parameters
+    for disk access like block size, number of jobs, queue depth etc. In our experiment
+    we used 4K block size for mix of random read and write operations with 75% read
+    operations. All operations were performed on 16GB file, different for all containers.
+    Each container is pinned to a separate core like previous experiment. Figure 11
+    shows that for fixed number of jobs, when we increase the number of containers
+    each with same work load, consolidated iops decrease slightly only for very less
+    number of jobs. For higher number of jobs, iops remains approximately similar
+    with increasing number of containers. Figure 12 depicts the average latencies
+    for the cumulative read and write requests. In case of 4 containers with 32 jobs
+    each, after 30% requests latency increases sharply for remaining requests. Also
+    it is noticed that as the number of containers increases, the contention on the
+    disk increases because of increase in io requests. This is observed as an increase
+    in the queue length. The impact on CPU of increasing number of containers is negligible.
+    We can conclude that disk based workloads show interference due to resource sharing
+    in the form of increased latency. D. CPU Performance Table I: Time taken (in seconds)
+    by each container to compute prime numbers till 30000 Using sysbench benchmark.
+    Values are averaged over several executions We generated cpu workload using sysbench
+    benchmark [13]. Sysbench checks the number of prime numbers in a given range.
+    In our case upper limit was 30000. In first case, sysbench was run inside each
+    container, pinned to separate core. In other two tests, all containers were pinned
+    to a single core with restricted equal cpu share and unrestricted cpu share. Docker
+    allows to restrict the usage through -cpu-share option. Table I depicts that there
+    is no significant difference in time taken when containers were pinned to separate
+    cores. With all containers pinned to single core, it is shared almost equally
+    by all other containers for both the cases. E. Memory Performance Table II: Stream
+    benchmark result total memory band-width (mb/s) received by containers when all
+    the containers were placed on single socket cores Server used for testing has
+    multiple memory channels. Theoretically each channel provides independent access
+    to memory multiplying memory access bandwidth. Stream benchmark was executed on
+    each container for different number of containers in each case. Table II shows
+    the bandwidth in MBls when 1, 2, 3 and 4 containers are hosted on 4 cores of a
+    single socket with each pinned to separate core. Values are averaged over multiple
+    executions. As we increase the number of containers, memory bandwidth reported
+    by the stream benchmark gets significantly decreased because of the high number
+    of cache misses particularly for LLC (last level cache). Table IV shows when containrs
+    are on the same socket cache misses are upto 30% more for 2 containers and upto
+    38.6% more for 4 containers. When we pin containers on different sockets, it significantly
+    improves bandwidth as shown in Table III. This is because each socket has a separate
+    LLC which reduces the total number of cache misses as compared to single socket
+    case. Table III: Stream benchmark result: Total memory band-width (mb/s) received
+    by containers when containers were equally divided between 2 sockets for 2 and
+    4 container case The performance of the stream benchmark under these two scenarios
+    indicates the fact that workloads that are sensitive to memory access need to
+    be placed appropriately to avoid such cache pollution effects and keeping up with
+    the SLA. Table IV: Stream benchmark result: Total number of cache misses when
+    containers are pinned to 1 and 2 sockets SECTION V. Conclusion and Future Work
+    Containers provide light weight virtualization by way of shared hostOS amongst
+    all containers on a platform. However, this sharing along-with the hardware causes
+    workload interference which can affect application performance on containerized
+    platforms. In this paper we expose the cause for such interference. The study
+    clearly indicates that CPU workloads are more or less isolated with regard to
+    interference. However, for memory and I/O intensive workloads hostOS effort is
+    required to support control and access to these resources. This effort, to a large
+    extent, causes the interference when multiple containers share the resources.
+    Hence through this study we convey that any consolidation exercise on containerized
+    platforms should consider this effort to choose the correct workload mix to host.
+    As future work, we propose to use these insights for establishing correct monitoring
+    metrics as well as the measurements to develop intelligent container placement.
+    Authors Figures References Citations Keywords Metrics More Like This Identifying
+    the Development Trend of ARM-based Server Ecosystem Using Linux Kernels 2020 IEEE
+    International Conference on Progress in Informatics and Computing (PIC) Published:
+    2020 Comparison of different Linux containers 2017 40th International Conference
+    on Telecommunications and Signal Processing (TSP) Published: 2017 Show More IEEE
+    Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW
+    PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION
+    AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE:
+    +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help
+    | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting
+    | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s
+    largest technical professional organization dedicated to advancing technology
+    for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 2017 IEEE SmartWorld Ubiquitous Intelligence and Computing, Advanced and
+    Trusted Computed, Scalable Computing and Communications, Cloud and Big Data Computing,
+    Internet of People and Smart City Innovation, SmartWorld/SCALCOM/UIC/ATC/CBDCom/IOP/SCI
+    2017 - Conference Proceedings
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Workload performance and interference on containers
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Julian S.
+  - Shuey M.
+  - Cook S.
+  citation_count: '10'
+  description: HPC environments have traditionally existed installed di-rectly on
+    hardware or through virtual machine environments. Linux Containers, and Docker
+    specifically, have gained extensive popularity; we believe this current trend
+    toward containers and microservices can be applied to HPC to improve efficiency
+    and quality of development and deployment. User interest in Docker is rising,
+    with several communities planning production deployments. We describe some of
+    our site's experiences, along with an autoscaling web cluster and an autoscaling
+    PBS-based computational cluster we have developed that are currently in a pre-production
+    testing phase. Some basic performance tests are covered, comparing network and
+    filesystem performance between a native Docker environment and a traditional Red
+    Hat-based environment. In our tests, we noticed negligible differences in computational
+    performance when run out of the box, approximately 0.4%, but we required some
+    minor tweaking in the form of additional docker plugins to achieve similar or
+    better performance in the network and filesystem tests. While additional testing
+    is needed for some aspects of computational clusters, particularly RDMA performance,
+    we believe initial testing indicates Docker containers are ready for broader adoption
+    at larger-scale production environments.
+  doi: 10.1145/2949550.2949562
+  full_citation: '>'
+  full_text: '>
+
+    "This website uses cookies We occasionally run membership recruitment campaigns
+    on social media channels and use cookies to track post-clicks. We also share information
+    about your use of our site with our social media, advertising and analytics partners
+    who may combine it with other information that you’ve provided to them or that
+    they’ve collected from your use of their services. Use the check boxes below to
+    choose the types of cookies you consent to have stored on your device. Use necessary
+    cookies only Allow selected cookies Allow all cookies Necessary Preferences Statistics
+    Marketing Show details       skip to main content University of Nebraska Lincoln
+    Browse About Sign in Register Journals Magazines Proceedings Books SIGs Conferences
+    People Search ACM Digital Library Advanced Search Conference Proceedings Upcoming
+    Events Authors Affiliations Award Winners HomeConferencesXSEDEProceedingsXSEDE16Containers
+    in Research: Initial Experiences with Lightweight Infrastructure RESEARCH-ARTICLE
+    SHARE ON Containers in Research: Initial Experiences with Lightweight Infrastructure
+    Authors: Spencer Julian , Michael Shuey , Seth Cook Authors Info & Claims XSEDE16:
+    Proceedings of the XSEDE16 Conference on Diversity, Big Data, and Science at ScaleJuly
+    2016Article No.: 25Pages 1–6https://doi.org/10.1145/2949550.2949562 Published:17
+    July 2016Publication History 19 citation 937 Downloads eReaderPDF XSEDE16: Proceedings
+    of the XSEDE16 Conference on Diversity, Big Data, and Science at Scale Containers
+    in Research: Initial Experiences with Lightweight Infrastructure Pages 1–6 Previous
+    Next ABSTRACT References Cited By Recommendations Comments ABSTRACT HPC environments
+    have traditionally existed installed directly on hardware or through virtual machine
+    environments. Linux Containers, and Docker specifically, have gained extensive
+    popularity; we believe this current trend toward containers and microservices
+    can be applied to HPC to improve efficiency and quality of development and deployment.
+    User interest in Docker is rising, with several communities planning production
+    deployments. We describe some of our site''s experiences, along with an autoscaling
+    web cluster and an autoscaling PBS-based computational cluster we have developed
+    that are currently in a pre-production testing phase. Some basic performance tests
+    are covered, comparing network and filesystem performance between a native Docker
+    environment and a traditional Red Hat-based environment. In our tests, we noticed
+    negligible differences in computational performance when run out of the box, approximately
+    0.4%, but we required some minor tweaking in the form of additional docker plugins
+    to achieve similar or better performance in the network and filesystem tests.
+    While additional testing is needed for some aspects of computational clusters,
+    particularly RDMA performance, we believe initial testing indicates Docker containers
+    are ready for broader adoption at larger-scale production environments. References
+    Matthew Heins. The Globalization of American Infrastructure: The Shipping Container
+    and Freight Transportation. Routledge, 2016. Paul B Menage. Adding generic process
+    containers to the linux kernel. In Proceedings of the Linux Symposium, volume
+    2, pages 45--57. Citeseer, 2007. Geoffrey Fox, Judy Qiu, Shantenu Jha, Saliya
+    Ekanayake, and Supun Kamburugamuve. Big data, simulations and hpc convergence.
+    Show All References Cited By View all Deng S, Zhao H, Huang B, Zhang C, Chen F,
+    Deng Y, Yin J, Dustdar S and Zomaya A. Cloud-Native Computing: A Survey From the
+    Perspective of Services. Proceedings of the IEEE. 10.1109/JPROC.2024.3353855.
+    112:1. (12-46). https://ieeexplore.ieee.org/document/10433234/ Thiyyakat M, Kalambur
+    S and Sitaram D. (2023). Scalable, High-Quality Scheduling of Data Center Workloads
+    2023 IEEE/ACM 23rd International Symposium on Cluster, Cloud and Internet Computing
+    Workshops (CCGridW). 10.1109/CCGridW59191.2023.00079. 979-8-3503-0208-0. (343-345).
+    https://ieeexplore.ieee.org/document/10181211/ Zhou N, Zhou H and Hoppe D. Containerization
+    for High Performance Computing Systems: Survey and Prospects. IEEE Transactions
+    on Software Engineering. 10.1109/TSE.2022.3229221. 49:4. (2722-2740). https://ieeexplore.ieee.org/document/9985426/
+    Show All Cited By Recommendations State machine replication in containers managed
+    by Kubernetes Computer virtualization brought fast resource provisioning to data
+    centers and the deployment of pay-per-use cost models. The system virtualization
+    provided by containers like Docker has improved this flexibility of resource provisioning.
+    Applications ... Read More A performance comparison of linux containers and virtual
+    machines using Docker and KVM Abstract Virtualization is a foundational element
+    of cloud computing. Since cloud computing is slower than a native system, this
+    study analyzes ways to improve performance. We compared the performance of Docker
+    and Kernel-based virtual machine (KVM). KVM ... Read More Power consumption of
+    visualization technologies: an empirical investigation UCC ''15: Proceedings of
+    the 8th International Conference on Utility and Cloud Computing Virtualization
+    is growing rapidly as a result of the increasing number of alternative solutions
+    in this area, and of the wide range of application field. Until now, hypervisor-based
+    virtualization has been the de facto solution to perform server ... Read More
+    Comments 28 References View Table Of Contents Footer Categories Journals Magazines
+    Books Proceedings SIGs Conferences Collections People About About ACM Digital
+    Library ACM Digital Library Board Subscription Information Author Guidelines Using
+    ACM Digital Library All Holdings within the ACM Digital Library ACM Computing
+    Classification System Digital Library Accessibility Join Join ACM Join SIGs Subscribe
+    to Publications Institutions and Libraries Connect Contact Facebook Twitter Linkedin
+    Feedback Bug Report The ACM Digital Library is published by the Association for
+    Computing Machinery. Copyright © 2024 ACM, Inc. Terms of Usage Privacy Policy
+    Code of Ethics"'
+  inline_citation: '>'
+  journal: ACM International Conference Proceeding Series
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Containers in research: Initial experiences with lightweight infrastructure'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Paraiso F.
+  - Challita S.
+  - Al-Dhuraibi Y.
+  - Merle P.
+  citation_count: '59'
+  description: With the emergence of Docker, it becomes easier to encapsulate applications
+    and their dependencies into lightweight Linux containers and make them available
+    to the world by deploying them in the cloud. Compared to hypervisorbased virtualization
+    approaches, the use of containers provides faster start-ups times and reduces
+    the consumption of computer resources. However, Docker lacks of deployability
+    verification tool for containers at design time. Currently, the only way to be
+    sure that the designed containers will execute well is to test them in a running
+    system. If errors occur, a correction is made but this operation can be repeated
+    several times before the deployment becomes operational. Docker does not provide
+    a solution to increase or decrease the size of container resources in demand.
+    Besides the deployment of containers, Docker lacks of synchronization between
+    the designed containers and those deployed. Moreover, container management with
+    Docker is done at low level, and therefore requires users to focus on low level
+    system issues. In this paper we focus on these issues related to the management
+    of Docker containers. In particular, we propose an approach for modeling Docker
+    containers. We provide tooling to ensure the deployability and the management
+    of Docker containers. We illustrate our proposal using an event processing application
+    and show how our solution provides a significantly better compromise between performance
+    and development costs than the basic Docker container solution.
+  doi: 10.1109/CLOUD.2016.98
+  full_citation: '>'
+  full_text: '>
+
+    "VISIT DOI.ORG DOI NOT FOUND 10.1109/CLOUD.2016.98 This DOI cannot be found in
+    the DOI System. Possible reasons are: The DOI is incorrect in your source. Search
+    for the item by name, title, or other metadata using a search engine. The DOI
+    was copied incorrectly. Check to see that the string includes all the characters
+    before and after the slash and no sentence punctuation marks. The DOI has not
+    been activated yet. Please try again later, and report the problem if the error
+    continues. WHAT CAN I DO NEXT? If you believe this DOI is valid, you may report
+    this error to the responsible DOI Registration Agency using the form here. You
+    can try to search again from DOI.ORG homepage REPORT AN ERROR DOI: URL of Web
+    Page Listing the DOI: Your Email Address: Additional Information About the Error:
+    More information on DOI resolution: DOI Resolution Factsheet The DOI Handbook
+    Privacy Policy Copyright © 2023 DOI Foundation. The content of this site is licensed
+    under a Creative Commons Attribution 4.0 International License. DOI®, DOI.ORG®,
+    and shortDOI® are trademarks of the DOI Foundation."'
+  inline_citation: '>'
+  journal: IEEE International Conference on Cloud Computing, CLOUD
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Model-driven management of docker containers
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

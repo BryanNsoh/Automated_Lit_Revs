@@ -1,0 +1,310 @@
+- analysis: '>'
+  authors:
+  - Raja Gopal S.
+  - Prabhakar V.S.V.
+  citation_count: '3'
+  description: 'Internet of Things (IoT) acts as an important role in the area of
+    farming to enhance quality and productivity. In this paper, an intelligent edge
+    based module with LoRa and IoT is proposed for smart farming. Smart farming consists
+    of five layered architecture including edge computing to improve quality of data
+    (QoD) and latency performance. For QoD, a Double selecting algorithm is used,
+    and performance is measured using the following parameters: communications latency,
+    data collecting time, energy consumption, and data quality. Quality of data is
+    100% for the implemented double selection approach and energy consumption, communication
+    latency, data collection time parameters are also minimum compared to other approaches.
+    A test-bed for smart farming and auto-irrigation is implemented using LoRa and
+    cloud. The proposed test-bed is evaluated in real-time, with temperature, humidity,
+    and soil moisture being relayed to the cloud on a regular basis using LoRa, and
+    the results assessed. With improved QoD and latency performance, the suggested
+    intelligent edge based smart farming test-bed with LoRa and IoT delivers good
+    acceptable results for smart farming and auto-irrigation.'
+  doi: 10.1007/s13198-021-01576-z
+  full_citation: '>'
+  full_text: '>
+
+    "Your privacy, your choice We use essential cookies to make sure the site can
+    function. We also use optional cookies for advertising, personalisation of content,
+    usage analysis, and social media. By accepting optional cookies, you consent to
+    the processing of your personal data - including transfers to third parties. Some
+    third parties are outside of the European Economic Area, with varying standards
+    of data protection. See our privacy policy for more information on the use of
+    your personal data. Manage preferences for further information and to change your
+    choices. Accept all cookies Skip to main content Log in Find a journal Publish
+    with us Track your research Search Cart Home International Journal of System Assurance
+    Engineering and Management Article Intelligent edge based smart farming with LoRa
+    and IoT Original article Published: 31 January 2022 Volume 15, pages 21–27, (2024)
+    Cite this article Download PDF Access provided by University of Nebraska-Lincoln
+    International Journal of System Assurance Engineering and Management Aims and
+    scope Submit manuscript S. Raja Gopal & V. S. V. Prabhakar  531 Accesses 4 Citations
+    Explore all metrics Abstract Internet of Things (IoT) acts as an important role
+    in the area of farming to enhance quality and productivity. In this paper, an
+    intelligent edge based module with LoRa and IoT is proposed for smart farming.
+    Smart farming consists of five layered architecture including edge computing to
+    improve quality of data (QoD) and latency performance. For QoD, a Double selecting
+    algorithm is used, and performance is measured using the following parameters:
+    communications latency, data collecting time, energy consumption, and data quality.
+    Quality of data is 100% for the implemented double selection approach and energy
+    consumption, communication latency, data collection time parameters are also minimum
+    compared to other approaches. A test-bed for smart farming and auto-irrigation
+    is implemented using LoRa and cloud. The proposed test-bed is evaluated in real-time,
+    with temperature, humidity, and soil moisture being relayed to the cloud on a
+    regular basis using LoRa, and the results assessed. With improved QoD and latency
+    performance, the suggested intelligent edge based smart farming test-bed with
+    LoRa and IoT delivers good acceptable results for smart farming and auto-irrigation.
+    Similar content being viewed by others Agriculture Management Based on LoRa Edge
+    Computing System Chapter © 2020 Smart Farming System Based on Fog Computing and
+    LoRa Technology Chapter © 2020 IoT-Based Agricultural Automation Using LoRaWAN
+    Chapter © 2022 1 Introduction Human resources required for farming may increase
+    operational costs and the impact on productivity and quality may not improve.
+    Integration of IoT with farming deploys remote management and monitoring systems
+    and leads to the concept of smart farming. IoT for smart farming relies on wireless-sensor-networks
+    (WSN). Further, the inclusion of intelligence and cloud computing along with IoT
+    offer online analytics, real time monitoring and remote management. To support
+    long distance communication with low power, LoRa technology can also be used in
+    smart farming. Due to limitations and local regulations, LoRa does not support
+    high data rates. In addition, the integration of Edge and Fog computing with LoRa
+    into IoT systems can help to achieve a high level of energy efficiency for sensor
+    nodes. When some abnormalities occur, Fog-assisted IoT systems can provide support
+    for latency-critical applications. Lot of research is being done for smart farming
+    to improve productivity and efficiency. Many researchers have proposed various
+    algorithms and approaches to collect data from sensor nodes in wireless sensor
+    networks meeting the current requirements (Xiong 2011; Pilloni 2013; Gao 2013;
+    Rodríguez 2015; Tomovic 2016; Hassani 2017). Significance of internet of things,
+    big data, cloud computing and fog computing, their opportunities and challenges
+    are well described by various authors in (Wolfert 2017; Morota 2018; Schepers
+    2018; Fleming 2018; Weersink 2018; Elijah 2018). Green house, smart farming effects
+    are presented in (Trinh, 2018; Pathak, 2019; Dalezios 2019; Li 2019). In (Gia
+    2019), author demonstrated edge AI based smart farming with IoT. The author, Xiaomin
+    Li et. al. illustrated edge-computing enabled smart agriculture where double selection
+    algorithm is used for multiple task data collection from sensor nodes in wireless
+    sensor networks.This paper implements five layered architecture for smart farming
+    using edge layer, LoRa and IoT. Double selection algorithm (Li, 2020) is used
+    for the improvement of quality of data (QoD) and latency performance in wireless
+    sensor networks. Because of its potential uses in a variety of fields, the Internet
+    of Things has gained a great deal of interest. Some deployment environments, on
+    the other hand, may be hostile, affecting the quality of data (QoD) and its accuracy.
+    An IoT system should be able to clean its own sensed data by eliminating instances
+    that are erroneous or incoherent in order to achieve a high level of reliability.
+    Managing a vast volume of data produced by sensors is one of the most important
+    difficulties for IoT. Latency, security, privacy, and excessive bandwidth use
+    will all be issues if this large volume of data is sent directly to the cloud.
+    Edge computing solves this problem (EC). In EC, data is processed at the network''s
+    edge, close to the embedded devices. (Muthukumaran et al. 2021) discussed a thorough
+    examination of smart systems based on IoT and EC. The study highlights the evolution
+    of emerging technologies, the framework for EC-IoT-based smart farming, and the
+    prerequisites for implementing the EC-IoT-based system. The framework for an EC-IoT-based
+    smart agricultural system is investigated, and key prerequisites for implementing
+    the system are specified. Further, test-bed is developed and smart farming parameters
+    and auto-irrigation application are investigated and analyzed. The paper is organized
+    as: Sect. 2 describes the five stage architecture for smart farming. Section 3
+    illustrates the implementation of double selection algorithm in WSN for data collection
+    and simulation results in comparison with traditional approaches are presented
+    in Sect. 4. Section 5 presents test-bed model for smart farming and the results
+    in cloud environment. Section 6 gives the conclusion of paper. 2 Edge based smart
+    farming architecture For effective implementation of farming with improved productivity
+    and quality, five layered smart farming architecture is proposed using edge layer,
+    IoT and LoRa as represented in Fig. 1. Layer-1 is sensor layer that consists of
+    several sensor node and actuator node clusters. This layer is connected with edge
+    computing layer to send sensed data or to receive control commands from LoRa gateway.
+    Fig. 1 Edge based smart farming architecture with IoT and LoRa Full size image
+    Layer-2 is edge computing layer, an intermediate layer that reduces data transmitted
+    over LoRa links. Egde gateways in edge computing layer receive and transmit data.
+    Better security can be provided by including encryption algorithms like AES-128,
+    256 or cryptography algorithms like ECDSA. Edge gateway can also use lossless
+    or lossy data compression techniques to reduce traffic over LoRa gateway. Layer-3
+    is a group of repeaters for the purpose of receiving data from edge layer and
+    forwarding the data to next layer i.e. cloud layer. This layer consists of LoRa
+    gateways. Layer-4 is cloud layer that offers big data analysis, data storage and
+    complex algorithms based data processing. Application specific cloud services
+    can be integrated in this layer. Layer-5 is end user layer which usually consists
+    of web browser and mobile applications to have access to real time data and based
+    on data to monitor or control the farm remotely. 3 Double selecting algorithm
+    In this section, a suitable data collection technique is used in edge computing
+    layer. This approach depends on data-type, nodes-position and other parameters.
+    It also ensures high quality of data (QoD) and real time execution. This data
+    acquisition method: Edge-Computing-Driven-for-Sensing-Control (ECDSC) using double
+    selecting for QoD algorithm is implemented in simulation environment and the results:
+    QoD, communication latency and energy consumption are investigated and compared
+    with traditional approaches Periodically-Sensing-with-All-Nodes (PSAN) and Effective-Node-Sensing
+    (ENS). Three performance parameters are used to investigate the performance of
+    proposed architecture. (1) Quality of data (QoD): the ratio of suitable (valid)
+    data to total sum of collected data. (2) Communication latency and data-collection-time
+    (DCT): It is the time point where multi-sensor node sensed the data to the time
+    when data server received all the data. (3) Energy-consumption (EC): It is the
+    energy consumed for sensing, valid data transmission, and waiting. Quality of
+    data (QoD): QoD index can be calculated mathematically as given in Eq. (1). $$
+    \\theta_{j} = \\frac{{D_{v} \\left( {ta_{j} } \\right)}}{{D_{g} \\left( {ta_{j}
+    } \\right)}} $$ (1) where, \\(\\theta_{j}\\) is QoD index for the task \\(ta_{j}\\).
+    \\(D_{v} \\left( {ta_{j} } \\right)\\) = valid data of task \\(ta_{j}\\). \\(D_{g}
+    \\left( {ta_{j} } \\right)\\) = sum of collected data of task \\(ta_{j}\\). The
+    total QoD index for multi-task WSN with “m” number of tasks is presented as Eq.
+    (2) $$ QoD\\left( {TA} \\right) = \\mathop \\sum \\limits_{j = 1}^{m} \\theta_{j}
+    $$ (2) Maximum QoD can be calculated using Eq. (3) $$ \\begin{gathered} \\max
+    QoD\\left( {TA} \\right) \\hfill \\\\ T_{g} \\left( {ta_{j} } \\right) \\le T_{{limit}}
+    \\left( {ta_{j} } \\right) \\hfill \\\\ S_{i} \\cap S_{j} = \\phi \\left( {1 \\le
+    i \\ne j \\le m} \\right)\\sum\\limits_{{i \\in m}} {S_{i} } \\le \\Delta \\hfill
+    \\\\ \\end{gathered} $$ (3) Data communication time is the summation of node sensing
+    time, queue waiting time and data transmission time. DCT of multiple tasks tg
+    is presented in Eq. (4). $$ t_{g} = t_{s} + t_{c} + t_{w} $$ (4) where, ts is
+    node sensing time, tc is data transmission time, and. tw is queue waiting time.
+    For any sensor node vl, DCT can be calculated as formulated in Eq. (5) $$ T_{g}
+    \\left( {ta_{j} ,v_{l} } \\right) \\leftarrow \\sum h_{i\\eta } t_{s} (v_{l} ,s_{\\eta
+    } ,ta_{j} ) + k\\left( {v_{l} } \\right)\\left( {\\frac{{D\\left( {ta_{j} ,v_{l}
+    } \\right)}}{{V_{c} }}} \\right) + t_{w} \\left( {ta_{j} ,v_{l} } \\right) $$
+    (5) where, Vc is WSN communication speed, \\(k\\left({v}_{l}\\right)\\) is network
+    route hop number. Energy consumption can be calculated by using Eq. (6) $$ E_{c}
+    = \\sigma t_{s} + \\zeta t_{c} + \\tau t_{w} $$ (6) where, Ec is energy consumption,
+    σ is power consumption of sensing time, ζ is power consumption of communication
+    time, τ is power consumption of waiting time. Algorithm-1 gives double selecting
+    algorithm implemented for enhancement of QoD and latency parameters. Algorithm-1.
+    Double selecting for QoD algorithm. Flowchart implemented [18] in simulation environment
+    is illustrated in Fig. 2. Simulation runs until the number of simulation count
+    is reached and collects data. Once count is reached, results are obtained. Table
+    1 tabulates the simulation parameters used to set-up simulation environment and
+    to obtain results. Fig. 2 Flow chart implemented in simulation environment Full
+    size image Table 1 Parameters in simulation environment Full size table 4 Results
+    and discussions QoD with respect to various valid sensor numbers and included
+    node numbers is illustrated in FigS. 3 and 4 respectively. These results show
+    the comparative results of ECDSC (double selection algorithm) with traditional
+    techniques PSAN and ESN. It can be observed from Fig. 3 that ECDSC achieved 100%
+    QoD for different sensor numbers where as ESN obtained 20, 40, 60, 80 and 100%
+    QoD. However, ESN performs better than PSAN approach. As observed from Fig. 4,
+    with increase in included node number, QoD of PSAN approach increases while QoD
+    of ESN and ECDSC is at stable value of 40 and 100% respectively. Therefore, ECDSC
+    collects more valid data compared to other approaches. Fig. 3 Quality of data
+    for different sensor numbers Full size image Fig. 4 Quality of data for different
+    cover node numbers Full size image To evaluate the latency of double selection
+    algorithm, communication latency and data collection time (DCT) are used. Figure
+    5 illustrates communication latency results at various data rates. It is observed
+    that communication latency decreases with increase in data rate as higher data
+    rates support less transmission time. Out of the three approaches ECDSC, ESN and
+    PSAN, ECDSC outperforms and ESN performs better than PSAN. At low data rates,
+    communication latency is very high in PSAN approach. Figure 6 shows the outcomes
+    of three approaches in terms of data collecting time for different numbers of
+    covering nodes. When compared to ESN and PSAN, ECDSC has a much lower DCT. Communication
+    latency and DCT are expected to be as low as feasible to improve performance.
+    As data is acquired from all, the PSAN approach depicts the highest DCT and communication
+    latency. In ESN technique, data is collected only from selected sensor nodes and
+    hence it exhibits better performance than PSAN in DCT and communication latency.
+    ECDSC achieved minimum DCT and communication latency. Fig. 5 Communication latency
+    at various data rates Full size image Fig. 6 DCT for different covering node numbers
+    Full size image Figure 7 shows the energy consumption data for three techniques
+    for varying valid sensor counts. The ECDSC approach uses a little amount of energy,
+    which increases as the number of good sensors grows. The adopted double selection
+    strategy produces the best results of the three possibilities. As PSAN and ESN
+    do not consider suitable sensors in their respective techniques, ECDSC outperforms
+    PSAN and ESN approaches in terms of energy consumption. The results (rounded values)
+    obtained for three approaches: ECDSC, ESN and PSAN for the parameters QoD, communication
+    latency, DCT and energy consumption are tabulated in Tables 2, 3, 4, 5 and 6 respectively.
+    Fig. 7 Energy consumption for different sensor numbers Full size image Table 2
+    QoD different sensor numbers Full size table Table 3 QoD different cover node
+    numbers Full size table Table 4 Communication latency (sec) at various data rates
+    (Mbps) Full size table Table 5 DCT (sec) for various cover node numbers Full size
+    table Table 6 For various valid sensor numbers, Energy consumption (J) Full size
+    table 5 Smart farming test-bed The DHT11 sensor, soil moisture sensor, controller
+    unit, and LoRa gateway are used to create a prototype test-bed for smart farming
+    applications. It is used in a small test farm to get the parameters temperature,
+    humidity, and soil moisture by connecting the test-bed to a cloud platform. Figure
+    8a and b present soil moisture before and after watering respectively. Temperature
+    and humidity results obtained through DHT11 sensor are demonstrated in Figs. 9
+    and 10 respectively. When soil moisture decreases below 50%, automatic watering
+    starts and when moisture level is 80%, watering stops. Figure 11 illustrates soil
+    moisture results for automatic watering. Fig. 8 a Before watering, checking the
+    soil using a soil moisture sensor. b After watering, soil with soil moisture sensor
+    Full size image Fig. 9 Cloud results of farm temperature Full size image Fig.
+    10 Cloud results of farm Humidity Full size image Fig. 11 Cloud results of farm
+    Soil moisture Full size image 6 Conclusion In this paper, edge based IoT test-bed
+    is implemented for smart farming application with five layered architecture. To
+    enhance the parameters: quality of data, communication latency, energy consumption
+    and data collection time double selecting algorithm is implemented. Quality of
+    data is 100% for the implemented double selection approach and energy consumption,
+    communication latency, data collection time parameters are also minimum compared
+    to ESN and PSAN approaches. The LoRa gateway and cloud platform are used to create
+    a test-bed for smart farming and auto-irrigation. In a cloud environment, farm
+    characteristics like as temperature, humidity, and soil moisture are measured
+    and results are obtained. The proposed test-bed with five layered architecture
+    shows good results in agreement for smart farming applications. Edge computing
+    layer reduces latency and energy consumption and achieved 100% QoD. References
+    Dalezios NR, Dercas N, Spyropoulos NV, Psomiadis E (2019) Remotely sensed methodologies
+    for crop water availability and requirements in precision farming of vulnerable
+    agriculture. Water Resour Manage 33(4):1499–1519 Article   Google Scholar   Elijah
+    O, Rahman TA, Orikumhi I, Leow CY, Hindia MN (2018) An overview of Internet of
+    Things (IoT) and data analytics in agriculture: Benefits and challenges. IEEE
+    Internet Things J 5(5):3758–3773 Article   Google Scholar   Fleming A, Jakku E,
+    Lim-Camacho L, Taylor B, Thorburn P (2018) Is big data for big farming or for
+    everyone? Perceptions in the Australian grains industry. Agron Sustain Dev 38(3):1–10
+    Article   Google Scholar   Gao H, Fang X, Li J, Li Y (2013) Data collection in
+    multi-application sharing wireless sensor networks. IEEE Trans Parallel Distrib
+    Syst 26(2):403–412 Article   Google Scholar   Gia TN, Qingqing L, Queralta JP,
+    Zou Z, Tenhunen H, Westerlund T (2019) Edge AI in smart farming IoT: CNNs at the
+    edge and fog computing with LoRa. In 2019 IEEE AFRICON (pp. 1–6). IEEE Hassani
+    A, Plata-Chaves J, Bahari MH, Moonen M, Bertrand A (2017) Multi-task wireless
+    sensor network for joint distributed node-specific signal enhancement, LCMV beamforming
+    and DOA estimation. IEEE J Sel Topics Signal Process 11(3):518–533 Article   Google
+    Scholar   Li X, Ma Z, Chu X, Liu Y (2019) A cloud-assisted region monitoring strategy
+    of mobile robot in smart greenhouse. Mob Inf Syst 2019:1–10 Google Scholar   Li
+    X, Zhu L, Chu X, Fu H (2020) Edge computing-enabled wireless sensor networks for
+    multiple data collection tasks in smart agriculture. J Sens 2020:1–9 Google Scholar   Morota
+    G, Ventura RV, Silva FF, Koyama M, Fernando SC (2018) Big data analytics and precision
+    animal agriculture symposium: Machine learning and data mining advance predictive
+    big data analysis in precision animal agriculture. J Anim Sci 96(4):1540–1550
+    Article   Google Scholar   Muthukumaran V, Kumar VV, Joseph RB, Munirathanam M,
+    Jeyakumar B (2021) Improving network security based on trust-aware routing protocols
+    using long short-term memory-queuing segment-routing algorithms. Int J Inf Technol
+    Project Manag 12(4):47–60. https://doi.org/10.4018/ijitpm.2021100105 Article   Google
+    Scholar   Pathak HS, Brown P, Best T (2019) A systematic literature review of
+    the factors affecting the precision agriculture adoption process. Precision Agric
+    20(6):1292–1316 Article   Google Scholar   Pilloni V, Navaratnam P, Vural S, Atzori
+    L, Tafazolli R (2013) TAN: a distributed algorithm for dynamic task assignment
+    in WSNs. IEEE Sens J 14(4):1266–1279 Article   Google Scholar   Rodríguez S, De
+    Paz JF, Villarrubia G, Zato C, Bajo J, Corchado JM (2015) Multi-agent information
+    fusion system to manage data from a WSN in a residential home. Inf Fusion 23:43–57
+    Article   Google Scholar   Schepers J (2018) Precision agriculture for sustainability.
+    Precision Agric 20(1):1–3 Article   Google Scholar   Tomovic S, Radusinovic I
+    (2016) Allocation algorithm for handling multiple applications in software-defined
+    WSN. In 2016 24th Telecommunications Forum (TELFOR) (pp. 1–4). IEEE Trinh DC,
+    Truvant TC, Bui TD (2018) Design of automatic irrigation system for greenhouse
+    based on LoRa technology. In 2018 International conference on advanced technologies
+    for communications (ATC) (pp. 72–77). IEEE Weersink A, Fraser E, Pannell D, Duncan
+    E, Rotz S (2018) Opportunities and challenges for big data in agricultural and
+    environmental analysis. Annu Rev Res Econ 10:19–37 Google Scholar   Wolfert S,
+    Ge L, Verdouw C, Bogaardt MJ (2017) Big data in smart farming–a review. Agric
+    Syst 153:69–80 Article   Google Scholar   Xiong S, Li J, Li M, Wang J, Liu Y (2011)
+    Multiple task scheduling for low-duty-cycled wireless sensor networks. In: 2011
+    Proceedings IEEE INFOCOM (pp. 1323–1331). IEEE Download references Funding No
+    funding. Author information Authors and Affiliations Department of ECE, Koneru
+    Lakshmaiah Education Foundation, Guntur, India S. Raja Gopal & V. S. V. Prabhakar
+    Corresponding author Correspondence to S. Raja Gopal. Ethics declarations Conflicts
+    of interest The writers claim that they have no conflicts of interest. Human participants
+    and/or animals No animals or humans were harmed, according to the authors. Additional
+    information Publisher''s Note Springer Nature remains neutral with regard to jurisdictional
+    claims in published maps and institutional affiliations. Rights and permissions
+    Reprints and permissions About this article Cite this article Raja Gopal, S.,
+    Prabhakar, V.S.V. Intelligent edge based smart farming with LoRa and IoT. Int
+    J Syst Assur Eng Manag 15, 21–27 (2024). https://doi.org/10.1007/s13198-021-01576-z
+    Download citation Received 01 September 2021 Revised 21 October 2021 Accepted
+    30 November 2021 Published 31 January 2022 Issue Date January 2024 DOI https://doi.org/10.1007/s13198-021-01576-z
+    Share this article Anyone you share the following link with will be able to read
+    this content: Get shareable link Provided by the Springer Nature SharedIt content-sharing
+    initiative Keywords Data-collection-time Edge computing Internet of Things Latency
+    Quality of data Smart farming Use our pre-submission checklist Avoid common mistakes
+    on your manuscript. Sections Figures References Abstract Introduction Edge based
+    smart farming architecture Double selecting algorithm Results and discussions
+    Smart farming test-bed Conclusion References Funding Author information Ethics
+    declarations Additional information Rights and permissions About this article
+    Advertisement Discover content Journals A-Z Books A-Z Publish with us Publish
+    your research Open access publishing Products and services Our products Librarians
+    Societies Partners and advertisers Our imprints Springer Nature Portfolio BMC
+    Palgrave Macmillan Apress Your privacy choices/Manage cookies Your US state privacy
+    rights Accessibility statement Terms and conditions Privacy policy Help and support
+    129.93.161.222 Big Ten Academic Alliance (BTAA) (3000133814) - University of Nebraska-Lincoln
+    (3000134173) © 2024 Springer Nature"'
+  inline_citation: '>'
+  journal: International Journal of System Assurance Engineering and Management
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Intelligent edge based smart farming with LoRa and IoT
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

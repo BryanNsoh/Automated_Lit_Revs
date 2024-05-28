@@ -1,0 +1,1658 @@
+- analysis: '>'
+  authors:
+  - Vuran M.C.
+  - Salam A.
+  - Wong R.
+  - Irmak S.
+  citation_count: '181'
+  description: The projected increases in World population and need for food have
+    recently motivated adoption of information technology solutions in crop fields
+    within precision agriculture approaches. Internet Of Underground Things (IOUT),
+    which consists of sensors and communication devices, partly or completely buried
+    underground for real-time soil sensing and monitoring, emerge from this need.
+    This new paradigm facilitates seamless integration of underground sensors, machinery,
+    and irrigation systems with the complex social network of growers, agronomists,
+    crop consultants, and advisors. In this paper, state-of-the-art communication
+    architectures are reviewed, and underlying sensing technology and communication
+    mechanisms for IOUT are presented. Moreover, recent advances in the theory and
+    applications of wireless underground communication are also reported. Finally,
+    major challenges in IOUT design and implementation are identified.
+  doi: 10.1016/j.adhoc.2018.07.017
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    View Open Manuscript Outline Abstract Keywords 1. Introduction 2. A new paradigm:
+    IOUT 3. IOUT architecture 4. Sensing 5. Wireless connectivity 6. An overview of
+    IOUT enabling technologies and testbeds 7. Research challenges 8. Conclusions
+    Acknowledgments References Vitae Show full outline Cited by (196) Figures (6)
+    Tables (2) Table 1 Table 2 Ad Hoc Networks Volume 81, December 2018, Pages 160-173
+    Internet of underground things in precision agriculture: Architecture and technology
+    aspects☆ Author links open overlay panel Mehmet C. Vuran a, Abdul Salam b, Rigoberto
+    Wong a, Suat Irmak c Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.adhoc.2018.07.017
+    Get rights and content Abstract The projected increases in World population and
+    need for food have recently motivated adoption of information technology solutions
+    in crop fields within precision agriculture approaches. Internet Of Underground
+    Things (IOUT), which consists of sensors and communication devices, partly or
+    completely buried underground for real-time soil sensing and monitoring, emerge
+    from this need. This new paradigm facilitates seamless integration of underground
+    sensors, machinery, and irrigation systems with the complex social network of
+    growers, agronomists, crop consultants, and advisors. In this paper, state-of-the-art
+    communication architectures are reviewed, and underlying sensing technology and
+    communication mechanisms for IOUT are presented. Moreover, recent advances in
+    the theory and applications of wireless underground communication are also reported.
+    Finally, major challenges in IOUT design and implementation are identified. Previous
+    article in issue Next article in issue Keywords Internet of thingsWireless underground
+    communicationsSensingPrecision agricultureSoil moisture 1. Introduction World
+    population will increase by 33% in 2050, doubling the need for food [124]. Yet
+    today, up to 70% of all water withdrawals are due to food production. This demands
+    novel technologies to produce more crop for drop. USDA Agricultural Resource Management
+    Survey (ARMS) is the primary source of information on the financial condition,
+    production practices, and resource use of America’s farm businesses and the economic
+    well-being of America’s farm households. ARMS data show that precision agriculture
+    has recently become a widespread practice nationwide. In Fig. 1, adoption rates
+    of major precision agriculture approaches (bars) along with the total precision
+    agriculture adoption rate (line) are shown for maize for each year of USDA ARMS
+    publication (USDA ARMS 2015 version was under development at the time of this
+    writing). It can be observed that adoption rate of precision agriculture for maize
+    increased from 17.29% in 1997 to 72.47% in 2010 with similar trends observed for
+    other crops such as soybean and peanuts. Aside from presenting a growing trend
+    in the usage of precision agriculture in maize production, it is evident that
+    as new technologies emerge, they are widely adopted by farmers. Download : Download
+    high-res image (321KB) Download : Download full-size image Fig. 1. Precision agriculture
+    technology adoption in maize production (USDA ARMS Data). Among the various precision
+    agriculture techniques, crop yield monitoring is the most widely adopted technique
+    (61.4%). In addition, guidance and auto-steering system adoption jumped from 5.34%
+    in 2001 to 45.16% in nine years. Use of equipment and crop location information
+    enables precise control with auto-steering systems which reduce production and
+    maintenance costs and reduces repetitive field work for farmers. Despite the drastic
+    increase in adoption rates of other techniques, Variable Rate Technology (VRT)
+    adoption has been relatively steady, where adoption rate increased from 8.04%
+    in 1998 to only 11.54% in 2005. Adaptive application of resources like fertilizers,
+    pesticide, and water promises significant gains in crop production but requires
+    accurate and timely information from the field. It can be observed that only after
+    the adoption of recent crop moisture sensing technology, VRT adoption doubled
+    to 22.44% in 2010. During the same period, crop moisture sensing adoption increased
+    from 36.21% in 2005 to 51.68% in 2010. It is clear that the success and adoption
+    of VRT depends on advancing soil monitoring approaches. Despite being the most
+    recent precision agriculture technology, crop moisture sensing has become one
+    of the most adopted practices. Yet techniques are still limited to manual data
+    collection or limited field coverage. 2. A new paradigm: IOUT Most recently, the
+    need for real-time in-situ information from agricultural fields have given rise
+    to a new type of IoT: Internet Of Underground Things (IOUT). IOUT represents autonomous
+    devices that collect any relevant information about the Earth and are interconnected
+    with communication and networking solutions that facilitate sending the information
+    out of fields to the growers and decision mechanisms. IOUT is envisioned to not
+    only provide in-situ monitoring capabilities (e.g., soil moisture, salinity, and
+    temperature), but when interconnected with existing field machinery (irrigation
+    systems, harvesters, and seeders) enable complete field autonomy and pave the
+    way for more efficient food production solutions. In IOUT, Communications can
+    be carried out through the soil and plants from underground devices, and information
+    acquired from the field can be sent to the cloud for real-time decision making.
+    IOUT applications have unique requirements; i.e., information from soil, operation
+    in remote crop fields, wireless communication through plants and soil, and exposure
+    to elements. Existing over-the-air (OTA) wireless communication solutions face
+    significant challenges because they were not designed for these circumstances.
+    As such, IOUT also gives rise to a new type of wireless communications: wireless
+    underground (UG) communications [68], [152], where radios are buried in soil and
+    wireless communication is conducted partly or completely through the soil. Integration
+    of UG communications with IOUT will help conserve water resources and improve
+    crop yields [143], [145]. Moreover, advances in IOUT will benefit other applications
+    including landslide monitoring, pipeline assessment, underground mining, and border
+    patrol [67], [69], [71], [84], [94], [102], [106], [115], [132], [138], [142],
+    [146], [150], [152], [159]. This paper presents IOUT for the design of precision
+    agriculture solutions. We first discuss functionalities, architecture, and components
+    of IOUT. In Section 4 and 5, we present sensing and communication technologies
+    of IOUT. In Section 6, we list IOUT testbeds and existing solutions. We conclude
+    by discussing challenges of IOUT. 3. IOUT architecture IOUT will consist of interconnected
+    heterogeneous devices tailored to the crop and field operations. Common desirable
+    functionalities of IOUT are: • In-situ sensing: On board soil moisture, temperature,
+    salinity sensors are required for accurate localized knowledge of the soil. These
+    sensors can be either integrated on the chip along-with other components of the
+    architecture, or they can be used as separate sensors that can be connected to
+    the main components. • Wireless communication in challenging environments: Communication
+    components of IOUT devices are either deployed on the field or within the soil.
+    For OTA communication, solutions should be tailored to the changing environment
+    due to irrigation and crop growth. Over the air communication is used to store
+    the data on a more secure and accessible service/device. In addition, any system
+    on the field is exposed to natural elements and should be designed to sustain
+    challenging conditions. Underground communication solutions, while mostly shielded
+    from the environment, require the ability to communicate through soil and adjust
+    its parameters to adapt to dynamic changes in soil. • Inter-connection of field
+    machinery, sensors, radios, and cloud: It is desirable that IOUT architecture
+    links a diverse multitude of devices on a crop field to the cloud for seamless
+    integration. Accordingly, IOUT architecture will not only provide collected information
+    but will also automate operations on the field based on this information. • Real-time
+    Decision Making: Information about soil and crop conditions should be available
+    to the managers and decision support systems for real-time decision making at
+    each level. • Mobility: IOUT will have seamless support for both fixed and mobile
+    devices with backing of short-term and long-term communications. Based on these
+    main required functionalities, a representative IOUT architecture is illustrated
+    in Fig. 2, with the following components. • Underground things (UTs): An UT consist
+    of an embedded system with communication and sensing components, where a part
+    of or the entire system resides underground. UTs are protected by weatherproof
+    enclosures and, in underground settings, watertight containers. Buried UTs are
+    protected from the farm equipment, wild rodents, and extreme weather conditions.
+    Sensors typically include soil temperature and moisture sensors, but a wide range
+    of other soil- or weather-related phenomena can be monitored which will be discussed
+    in detail on Section 4. Existing communication schemes include Bluetooth, ZigBee,
+    NFC, Wi-Fi, Sigfox, LoRa, LoRaWAN, satellite, cellular, and underground. A UT
+    using Bluetooth [105] or underground wireless [86] can communicate over 100 meters,
+    commercial products at ISM-band can cover three times larger distances, whereas
+    longer-distance connectivity is possible through cellular or satellite. Considering
+    the relatively large field sizes, nodes can be configured to form networks capable
+    of transferring all the sensed information to a collector sink and self-heal in
+    the event that nodes become unreachable (e.g., Irromesh [24]). Nodes are generally
+    powered by a combination of batteries and, if on field, solar panels. Cost of
+    UTs is expected to be relatively inexpensive as they are deployed by the multitude
+    [96]. • Base stations are used as gateways to transfer the collected data to the
+    cloud. They are installed in permanent structures such as weather stations or
+    buildings. Base stations are more expensive as they are better safe-guarded and
+    have higher processing powers and communication capabilities [96]. • Mobile sinks
+    are installed in equipment that move around the field periodically or as required,
+    such as tractors and irrigation systems [86]. Since irrigation machinery advance
+    at a slow pace, the soil data is received ahead of time allowing instant adjustment
+    on the water application rate. On the other hand, when weather conditions are
+    favorable, turning on the irrigation equipment only for data retrieval purpose
+    is expensive. An alternative is to use unmanned aerial vehicles (UAVs) such as
+    quadrotors or ground robots to retrieve the measurements. • Cloud services are
+    intended to use for permanent storage of the data collected, real-time processing
+    of the field condition, crop related decision making, and integration with other
+    databases (e.g., weather, soil). Download : Download high-res image (466KB) Download
+    : Download full-size image Fig. 2. IOUT paradigm in precision agriculture. Availability
+    of such a diverse range of communication architectures makes it challenging to
+    form a unified IOUT architecture with the ability to fulfill agricultural requirements
+    seamlessly. This is further complicated due to the lack of standard protocols
+    for sensing and communication tailored to the IOUT. In the following, we explain
+    in detail the sensing (Section 4) and communication (Section 5) mechanisms with
+    a focus on desired characteristics of IOUT for real-time sensing and effective
+    communications. 4. Sensing The main functionality of IOUT is real-time sensing.
+    Sensing has led to adoption of technology in the precision agriculture and it
+    also enables improved efficiency of agricultural production and practices [127].
+    An overview of sensing technologies is presented next. Soil moisture: Soil moisture
+    (SM) sensors have been used for decades in crop fields to measure water content.
+    Automated technologies have largely replaced the use of hand-held/manual soil
+    moisture technologies because of difficulties associated with taking manual soil
+    moisture readings in production fields in remote locations. In the last decade,
+    wireless data harvesting technologies have been developed that provide managers
+    and users real-time access to soil moisture data which has resulted in more effective
+    water management decision-making. Important SM measurement methods are described
+    below: • Gravimetric sampling is a direct and standard method of measuring SM.
+    It is used to determine the volumetric water content of the soil. This method
+    determines SM by a ratio of soil’s dry mass to the wet soil mass including the
+    pore spaces. It requires manual sampling and oven drying of soil samples taken
+    from the field [91]. • Resistive sensors [50] such as granular matrix sensors
+    work on the principal of electrical conductivity of water and measuring resistance
+    changes based on soil water content. This method requires calibration of sensors
+    for accurate SM reading. • Capacitive sensors measure SM based on changes in capacitance
+    of soil due to water content variations. Capacitive sensors, which are generally
+    of higher accuracy than resistive sensors but cost more, are being used by commercial
+    UTs. • Ground Penetrating Radars (GPR) [66], [98] are based on the absorption
+    and reflection of electromagnetic waves. Impulse, frequency sweep, and frequency
+    modulated technologies are used in SM sensing. This method is used to measure
+    near-surface soil moisture (up to 10 cm). • Neutron scattering probes [87], [92]
+    and gauges use radiation scattering techniques to measure SM by estimating changes
+    in neutron flux density due to the water content of the soil are the most accurate
+    soil moisture probes used in fields. They require specific licenses to be used.
+    • Gamma ray attenuation [90], time-domain reflectometry (TDR) [128], and frequency-domain
+    reflectometry (FDR) [139] are other popular SM measurement approaches. Common
+    SM sensors used in fields are shown in Fig. 3. SM sensors are buried at depths
+    of 5  cm to 75  cm in soil depending on the crop type and root depth. SM data
+    obtained from these sensors is used to create soil moisture maps which help real-time
+    decision making. SM sensors have been deployed in fields with increasing frequency.
+    For example, the Nebraska Agricultural Water Management Network [99], [101], was
+    established with only 20 growers in 2005 and currently serves over 1400 growers
+    to enable the adoption of water and energy conservation practices using SM sensors.
+    In addition to in-situ soil moisture sensors, other soil moisture data sources
+    are Soil Climate Analysis Network [49], US Climate Reference Network [60], TAMU
+    North American Soil Moisture Database [53], Soil Moisture and Ocean Salinity [48],
+    NASA North American Land Data Assimilation System [27], and NASA Soil Moisture
+    Active Passive [46]. These databases contain soil moisture and temperature informations
+    of vast geographical areas and augment the Web Soil Survey (WSS) [63], which collects
+    and classifies the US soil information by region. Download : Download high-res
+    image (149KB) Download : Download full-size image Fig. 3. Soil moisture sensors:
+    Top row: Gravimetric [91], resistive (Watermark) [50], capacitance [17], Bottom
+    Row: GPR [98], TDR [128], neutron probe [92]. Other soil physical properties:
+    In addition to soil moisture sensing, other soil properties can be measured to
+    populate the soil map such as the organic mater present in the soil, acidity (pH)
+    [135], percentage of sand, clay and silt particles [137], and nutrients such as
+    Mg, P, OM, Ca, base saturation Mg, base saturation K, base saturation Ca, CEC,
+    K/Mg, and Ca/Mg ratios [104], [110], [113]. In-situ, real-time measurement of
+    these properties still face challenges due to size, cost, and technology limitations.
+    Yield monitoring: Yield monitoring provides spatial distribution of crop yield
+    at the end of a growing season and is used make long-term decisions about agriculture
+    operations [108], [118]. Yield monitors are usually installed on farm equipment
+    and automatically collects yield data during harvesting. More specifically, mass
+    flow sensors are installed on grain containers to record grain inflow along with
+    location (e.g., Force Sensor by Ag Leader). The collected data is analyzed using
+    geographic information system (GIS) tools such as ArchInfo, Mapinfo, and Environment
+    System Research International tools. Electrical conductivity and topography surveys:
+    The ability of soil to conduct current is measured through soil electrical conductivity
+    (EC) [116]. Coupled with field topography (elevation and slope), EC data provides
+    an insight into the crop yield. EC (through contact and no-contact methods) is
+    used to determine the amount of nitrogen usage, water holding and cation-exchange
+    capacity, drainage, and rooting depth. EC maps are used to classify the field
+    into zones. Then, precision agriculture practices such as variable rate irrigation,
+    variable rate seeding, nitrogen, yield, and drainage management are applied based
+    on zoning. EC mapping can be done using apparent electrical conductivity (ECa)
+    [88], visible-near infrared reflectance spectroscopy (VNIR) [75], and electromagnetic
+    Induction (EMI) [141] approaches. An array of commercial tools are available,
+    e.g., Veris 3100 [61], EC400 sensors combined with GPS systems [107] are used
+    for EC mapping. Weather and environmental sensing: Weather and environmental sensors
+    are used to sense soil and air temperature, direction and speed of winds, and
+    other environmental effects such as rainfall, solar emissions and humidity. For
+    example, John Deere has introduced sensors to assess these phenomena in their
+    commercial Field Connect solution [25]. Availability of this information is useful
+    for real-time and fully informed precision agriculture decisions. A mesoscale
+    network (MesoNet), consists of nodes for weather and environment sensing, spanning
+    over a large geographic area. MesoNet [34] is used to observe major changes in
+    weather patterns, and when combined with IOUT sensing can be used to provide real-time
+    weather information at the farm level. Soil macro-nutrients sensing: Macro-Nutrients
+    such as nitrogen, potassium, and phosphorous are vital for the crop growth. The
+    assessment of these nutrients helps to determine the fertilizer impact and future
+    applications. Optical sensing is based on reflectance spectroscopy to measure
+    the reflection and absorption by these macrosimulation [104], [110], [113]. To
+    detect nitrate and sulfate concentration in natural water resources, a sensing
+    method using planar electromagnetic sensors has been developed in [121]. This
+    method is used to sense nitrate and sulfate levels by correlating the impedance
+    of the sensor array with the concentration of these pollutants. It has been shown
+    that sensor impedance decreases with increase in concentration of these chemicals
+    [121]. Electrochemical, VIS-NIRS spectroscopy, and ATR spectroscopy are the major
+    soil macro-nutrients sensing approaches. These soil macro-nutrients sensing approaches
+    are limited to sense one desired ion because membrane used in these methods only
+    responds to one ion [113]. To achieve concurrent multi-ion sensing, a major challenge
+    is to form a detector array for soil macro-nutrients sensing [104]. Remote sensing:
+    Remote sensing based approaches uses electromagnetic waves which interact with
+    soil and plants in precision agriculture. These approaches work on the measurement
+    of intensity of reflected components of the electromagnetic waves as these interact
+    with soil and plants [120]. Spatial resolution of remote sensing techniques is
+    a major issue; however, when combined with in-situ IOUT sensing approaches, they
+    may result in fine resolution, which can be used to produce field maps for analysis
+    and decision making in precision agriculture. Examples of these include soil moisture,
+    yield [72], texture [140], pesticides applications [95], and nutrient field maps
+    [2], [112], [120]. Remote sensing has also applications in satellite data fusion,
+    crop structure and condition monitoring. Other precision agriculture technologies:
+    A myriad of other technologies is playing vital role in the precision agriculture
+    practices. Here we briefly mention these technologies as useful IOUT tools. These
+    include precision planting, geolocation, GIS systems, soil sampling and field
+    analysis map generation, drones, auto-steering and VRT. In precision planting
+    [38], the seeding is done using a very fine predetermined inter plant distance,
+    and robots with lasers are used for automatic weed zapping. Farm devices in the
+    field are aligned automatically with robovator technology. With GPS, it has become
+    possible to divide a farm into different zones based on the field conditions [160].
+    Variable rate fertilizer application [2], [78], [95] is also important for crop
+    yield improvement. Wireless communications with drones also constitutes a major
+    component of the IOUT connectivity. GreenStar Lightbar [15] is a tool from Deere
+    & Co that is used to determine the location and width in the row crops. TK-GPS
+    [57] is another device used to perform real time soil mapping. The sensing technologies
+    discussed in this section present many opportunities for advancing the state of
+    precision agriculture through the IOUT. Availability of inexpensive sensors and
+    their ability to communicate wireless enables their integrations to control systems
+    in IOUT. Therefore, wireless communications, between heterogeneous equipment used
+    in these sensor technology, has an important role in realization of the real-time
+    decision making in IOUT. Moreover, adoption of sensor technology could be raised
+    by a well-connected, reliable, and secure IOUT, and it will also help in development
+    of improved sensing technologies in precision agriculture. Because, currently,
+    the lack of availability of robust connectivity in the field is hindering rapid
+    advancements in sensing technologies. Different approaches for wireless communications
+    in IOUT are discussed in the next section. 5. Wireless connectivity Connectivity
+    solutions for IOUT can be classified as in-field communications and cloud connectivity
+    as discussed next. 5.1. In-field communications In-field communication solutions
+    integrate UTs and other communication entities on the field. Most commercial solutions
+    utilize OTA communications, whereas IOUT are expected to feature wireless underground
+    communications. For short-range communication and networking, license-free standards
+    such as Bluetooth, ZigBee, and DASH7 are used in ISM bands. More recently, regulatory
+    restrictions are relaxed by the FCC through new rules that allow the use of TV
+    white space frequencies in farms [14] (Order No. DA 16-307 Dated: Mar 24, 2016),
+    where interference with other licensed devices is not expected. The major challenge
+    for OTA communications is the lack of studies about the impacts of crops and farm
+    environment on wireless propagation and associated tailored solutions to farms.
+    In the following, we discuss in-field communications in detail. UG communications:
+    UG communication solutions enable complete concealment of UTs, which decrease
+    operation costs and impacts from external elements [86]. For a buried UT radio,
+    two types of communication scenarios arise. Aboveground communications involve
+    communication between UTs and aboveground devices. Underground communication is
+    carried out between UTs. Furthermore, due to the soil-air interface, aboveground
+    communication links are not symmetric and need to be analyzed in terms of underground-to-aboveground
+    and aboveground-to-underground communication. In Fig. 4, the path loss of these
+    links are shown as a result of field experiments [86]. It can be observed that
+    practical underground link distances are still limited to 12  m to allow for practical
+    multi-hop connectivity. Yet, communication ranges of up to 200  m is possible
+    for aboveground communications. Download : Download high-res image (185KB) Download
+    : Download full-size image Fig. 4. Communication from soil. For UG communications,
+    the communication medium is soil, which impacts communication success in six main
+    ways: (1) Soil texture and bulk density: EM waves exhibit attenuation when incident
+    in soil medium. These variations vary with texture and bulk density of soil. Soil
+    is composed of pore spaces, clay, sand, and silt particles. Relative concentration
+    of these particles result in 12 soil textural classes [91]. Water holding capacity
+    of each soil type is different because of its pore size. For example, lower water
+    holding capacity of sandy soil leads to lower attenuation and high root mean square
+    delay spread, whereas higher water holding capacities of silt loam and silty clay
+    loam soils result in low root mean square delay spread and higher attenuation
+    [133], [134]. (2) Soil moisture: The effective permittivity of soil is a complex
+    number. Thus, besides diffusion attenuation, EM waves also suffer absorption by
+    soil water content and its variations. Soil dielectric spectra and its conductivity
+    depends on the soil moisture. The relative dielectric constant range of dry soil
+    is between 2 and 6 and its conductivity ranges from to   Si/m, where soils at
+    near-saturation level have a relative dielectric constant in the range of 5–15
+    and conductivity between to   Si/m [147]. Coherence bandwidth of the underground
+    channel is limited to a few hundred KHz range [129], [130], [131], which limits
+    data rates. Coherence bandwidth also varies with soil moisture, making design
+    of advanced techniques challenging. (3) Distance and depth variations: Sensors
+    in IOUT applications are usually buried in the top sub-meter layer. Thus, in addition
+    to distance, channel quality depends on deployment depth because of the impacts
+    of the soil-air interface, which causes refraction of EM waves. Nodes at higher
+    burial depths experience higher attenuation [129]. (4) Antennas in soil: When
+    an antenna is buried, its return loss characteristics change due to the high permittivity
+    of soil [85], [151]. Moreover, with the variation in soil moisture and hence soil
+    permittivity, the return loss of the antenna varies with time too. Changes in
+    return loss results in variations in resonant frequency, which is shifted to the
+    lower spectrum, and system bandwidth, creating additional challenges for UG communication.
+    (5) Frequency variations: The pathloss caused by attenuation is frequency dependent
+    because of dipole relaxation associated with water. Generally, lower frequency
+    spectrum has lower attenuation, because at higher frequencies, water absorption
+    plays a dominant role. In addition, when EM waves propagate in soil, their wavelength
+    shortens due to higher permittivity of soil than the air. Therefore, channel capacity
+    in soil is also a function of operation frequency [85]. (6) Lateral waves: For
+    two UTs, wireless underground communication is conducted through three major paths:
+    lateral, direct, and reflected (LDR) waves [86], [130], [133]. Direct and reflected
+    waves reside completely in soil and therefore, suffer from the challenges above.
+    On the other hand, lateral waves travel partly on the soil-air interface in air,
+    experiencing the lowest attenuation. Lateral waves plays an important role in
+    extending underground communication ranges. (7) Recent advances in wireless underground
+    communications: Recent developments in wireless underground communications include
+    the characterization of wireless UG channel and development of environment-aware,
+    cross-layer communication solutions to achieve high data rate, long range communications
+    with applications to precision agriculture. The impulse response of the wireless
+    UG channel is captured and analyzed through extensive experiments [133]. With
+    more than 1500 measurement in an underground greenhouse testbed, the effects of
+    soil moisture and soil texture on wireless underground communication channel are
+    analyzed. Through this analysis, the vital statistics of wireless UG channel impulse
+    response (e.g., coherence bandwidth, root mean square delay spread, and power
+    associated with multipath) are developed. The three main components of the UG
+    channel, direct wave, reflected wave, and the lateral wave are validated. The
+    coherence bandwidth of the UG channel has been shown to be less than 1.15  MHz
+    which further decreases to 418  kHz for the distances greater than 12  m in soil
+    [133]. Change in soil moisture also impacts the root mean square delay spread
+    which requires moisture-based dynamic adaptation techniques in UG communications.
+    The statistical model [134] is vital for tailored solutions for underground multi-carrier
+    communication and soil moisture adaptive beamforming. Based on impulse response
+    analysis, the multi-carrier modulation and wireless underground channel diversity
+    reception schemes have been developed for the realization of high data rate communications
+    [129]. The effects of soil type and moisture on the underground antenna, channel
+    and system capacity are highlighted. Based on this analysis, multi-carrier modulation
+    and wireless underground channel diversity reception schemes [131] have been developed.
+    The optimum maximum ratio combining (MRC-LDR) achieves the maximum gain. In this
+    approach, three times SNR enhancement is achieved as compared to the SNR of a
+    single antenna matched filter UG receiver. However, the interference from the
+    reflected components is still present. Adaptive combining (AC-LDR) uses adaptive
+    switching and selection process to suppresses undesired interference. Based on
+    the proximity of the LDR receiver, either the D-wave or L-Wave component is dominant
+    at the receiver. AC-LDR exploits this by adaptively switching and selecting the
+    strongest lateral, or the direct wave. The R-Wave is not considered because it
+    is the weakest component and results in performance degradation. In [131], the
+    performance analysis of different modulation schemes through simulations and experiments
+    has been carried out. The BER under equalization and diversity reception has been
+    reported. A 3 times increase in SNR and improvement in BER from to are shown in
+    wireless underground communication channel. Since use of sensing technologies
+    in precision agriculture depend on reliable UG communications, these is a demand
+    for high date rate, ubiquitous, reliable communications. These low error rate
+    communication techniques help to achieve that goal in precision agriculture. Moreover,
+    based on UG antenna analysis, soil moisture adaptive beamforming (SMABF) using
+    underground antenna arrays is also developed [130]. SMABF employs underground
+    antenna arrays at the transmitter and omni-directional antenna at the receiver.
+    The lateral wave is maximized if the energy from the UG antenna is radiated in
+    an optimum angle. In SMABF, beam steering is done to exploit the lateral wave
+    in the underground communication by sending the energy in the optimum angle which
+    maximizes lateral wave and leads to higher directivity. SMABF has complex array
+    structures and needs phase shifters. With these advancements in UG communications,
+    it has become possible to make progress from data collection to real-time processing
+    and decision making in precision agriculture. Magnetic induction (MI) and acoustic
+    UG communications: Magnetic Induction (MI) based communications is another approach
+    for UG communications. In magnetic induction [114], [143], the rate of decay of
+    received signal strength (RSS) is the inverse cube factor. Therefore, long range,
+    high data rates signaling can not be done using MI, which is vital for IOUT paradigm.
+    Moreover, the perpendicularity of transmitter and receiver coils (antennas) is
+    a prohibiting factor to establish communications in MI. Wavelengths in MI communications
+    tend to be large. Therefore, IOUT architecture can not scale with MI based UG
+    communications in IOUT. Hence, because of these limiting factors, and due to in-feasibility
+    of MI communications to establish communications with aboveground devices, MI
+    based communications is not a reliable option for IOUT. EM-based UG communications
+    are more suitable. There are also some common characteristics in underwater communication
+    [74] and UG communications. However, underwater communications can not utilize
+    electromagnetic (EM) waves because of higher degradation of signals and water
+    absorption. Therefore, other approaches (e.g., acoustic [74]) are used in underwater
+    communications. Moreover, the acoustic approach is infeasible in IOUT UG communications
+    because of vibration limitations. Underground to UAV communications: The unmanned
+    aerial vehicle (UAVs, also called drones) have recently emerged in the precision
+    agriculture practices for sensing and communications of the filed conditions [123],
+    [148], agricultural surveillance using imaging [97], [83], and decision support
+    [144]. Before the use of UAVs in precision agriculture, the satellite imagery
+    was obtained for the purpose of monitoring. Through the use of UAV imaging, a
+    detailed soil moisture map of the field can be produced in timely and inexpensive
+    manner. Moreover, the crop growth can also be monitored by using UAVs and accordingly
+    vegetation index is generated. The seed planting and pesticide applications are
+    other important applications of UAVs in precision agriculture. The UAVs, when
+    integrated with the IOUT in the field, will require reliable communications with
+    sensors and radio equipment for real-time decision making. There are many challenges
+    from UG to UAV communications (e.g., restrictions on UAV communications payloads
+    and antennas, limited flight times, low communication range from the UG to UAV
+    link, and specific operator skills and licenses required for UAV operation). Technology
+    and regulatory advances in these areas will lead to enhanced integration of UAVs
+    in precision agriculture IOUT. Low power wide area networks (LPWAN): Since IOUT
+    is designed for prolonged operation in the agricultural field, energy conservation
+    plays important role in long term functionality and connectivity. Low Power Wide
+    Area Networks (LPWAN) are designed not only to achieve energy conservation objective
+    but also to attain long-range connectivity [122]. Due to this, LPWAN is suitable
+    for IOUT communications where high data rate operations are not required and low
+    latency of data transfer can be accepted for some applications. According to LPWAN
+    Technical Workgroup, it has capacity to work over the time span of many years
+    and is specifically designed for applications which need to transmit small packets
+    intermittently. A brief overview of LPWAN technologies is given in the following:
+    (1) LoRa: Approaches designed to conserve energy like Long Range Wide Area Network
+    (LoRaWAN) favor one-hop star topology where end-devices transmit small packets
+    of information (0.290–50  kbps) over long distances (up to 45  km in rural areas)
+    [80]. This is more suitable for battery powered devices. Reliable communication
+    over long distance is possible because of techniques like adaptive data rate,
+    LoRa’s chord spread spectrum radio modulation scheme, and gateways that decode
+    data received on multiple channels modulated with different spreading factors
+    [111]. However, since LoRa uses unlicensed frequency, the channel utilization
+    is limited to 30 seconds per day by regulations. For application that requires
+    a QoS level, the download channel increase the probability of collisions [81].
+    In precision agriculture, LoRa technology provides low-cost low-power communication
+    solution for prolonged monitoring operations [29]. (2) Sigfox: Sigfox [44] is
+    the first LPWAN technology and highly efficient in spectrum usage. It uses ultra
+    narrow band (UNB) modulation. The communication range of Sigfox is up to 45  km
+    and 12  km in rural and urban areas respectively. Sigfox supports data rates of
+    up to 250  kbps, and also uses unlicensed spectrum (868  MHz and 902  MHz) for
+    communications. Consequently, the amount of data that can be transferred daily
+    is also limited by regulations [161]. Sigfox provides many opportunities in precision
+    agriculture IOUT to support connectivity among field equipment and UT sensors
+    [45]. (3) On-Ramp/Ingenu: On-Ramp developed the IEEE 802.15.4k [20] technical
+    standard for LWPAN. It only specifies the physical and MAC layer, and upper layers
+    are complimented by other standards which operates at the upper layers. It uses
+    higher bandwidth (1 MHz) as compared to other LWPAN technologies. IEEE 802.15.4k
+    uses 902–928  MHz unlicensed spectrum. Its communication range is up to 15  km.
+    Hence, it more suitable for communications agricultural forms spanning over large
+    geographical areas [35]. (4) NB-IoT: NB-IoT [154] is a new physical layer standard
+    by 3GPP LTE (Release 13). It can coexist with LTE and GSM. NB-IoT also uses narrowband
+    signal and is meant for low data rate applications. It only uses 180  KHz of its
+    200  KHz bandwidth. NB-IoT operates in licensed spectrum and uses same band as
+    of LTE. It supports standalone operation, broadband operation, and in-band operation.
+    NB-IoT is also being used in many commercial agricultural solutions in Europe
+    [32]. It also facilitates low-cost, long range, and prolonged battery life solutions
+    in precision agriculture. (5) Extended coverage GSM IoT: EC-GSM-IoT [12] is another
+    low power long range LWPAN standard based on software update to cellular eGPRS.
+    It can also co-exist with other mobile networks and designed to support battery
+    life of up to 10 years. It operates in 800  MHz to 900  MHz and 1800 to 1900  MHz
+    GSM bands. Many features of EC-GSM-IoT (e.g., inexpensive equipment, long range
+    and coverage) makes it suitable for IOUT communication in precision agriculture.
+    NWave [33], Platanus [36], Weightless [64], and Ingenu [20] are other major notable
+    LPWAN technologies, which can be used for IOUT communications depending on the
+    deployment, application, energy requirement, and equipment. These are also being
+    used in precision agriculture connected vineyards [11]. Wireless PAN/LAN: Wireless
+    PAN/LAN is also important for communications between farm machinery and equipment,
+    field workers and central base stations in the field. Use of Wireless LAN/PAN
+    enables high data rate, low latency communication in IOUT, which are not supported
+    by LPWAN. Wireless PAN/LAN include many technologies such as Bluetooth, ZigBee,
+    Thread, and Wi-Fi. In the following we present brief overview of these technologies:
+    (1) Bluetooth: Bluetooth [5] is standardized by Special Interest Group (SIG).
+    Communication can be done up to 100  m distances and it uses frequency hopping
+    spread spectrum technique. Bluetooth Smart is the low energy version and can operate
+    in broadcast and connected mode. Bluetooth uses 2.4  GHz ISM band and has bandwidth
+    up to 25  MHz. It is also being used in development of a low energy moisture-
+    and temperature sensor intended for use in an agricultural wireless sensor network
+    system [76]. (2) ZigBee: ZigBee [65] operates on the top of 802.15.4 MAC/PHY and
+    it consists of application and network layer protocols. It can operate in a star
+    and mesh topology with bandwidth up to 1  MHz and communication range of up to
+    10 to 30 meters. A smart agriculture system by using ZigBee technology has been
+    developed in [117]. (3) Thread: Thread [56], self-healing mesh network protocol,
+    functions on IEEE 802.15.4 MAC/PHY and is simple and secure battery friendly LAN
+    protocol. It can supports up to 250 devices and provides security at network and
+    application layers. (4) Wi-Fi: IEEE 802.11 [19] is high data rate communication
+    standard with support for data rates higher than 1  Gbps. It has physical layer
+    standards for different ISM bands (2.4  GHz, 5  GHz and 60  GHz) and used different
+    channel bandwidth up to 160  MHz. A remote monitoring system using WiFi, where
+    the wireless sensor nodes are based on WSN802G modules, has been developed in
+    [119]. Cellular technology in IOUT: As more and more IOUT applications are being
+    developed, the demand for cellular and broadband connectivity IOUT solutions is
+    reaching at critical levels. Lack of broadband cellular communication in rural
+    areas is a major challenge as it hinders instant access to big data being generated
+    from the field. Currently, data has to be collected and transmitted manually from
+    the deployed IOUT systems which is major bottleneck in adoption of precision agriculture
+    practices in remote rural areas. One main factor for non-existent or slow cellular
+    data communication speeds is the huge expenditure on commissioning of required
+    infrastructure rural communities. There are also many system and cost related
+    challenges in Machine-to-Machine (M2M) cellular communications [70] as main purpose
+    of cellular design was human communications. However, a recent release of LTE
+    cellular standard has the support for M2M communications and can be used for communication
+    in production fields being served with LTE networks. However, IOUT devices are
+    required to be compatible with the cellular standard and energy consumption challenges
+    restricts their use in battery powered devices for prolonged duration. To overcome
+    these challenges, low power devices can be connected through in-field communications
+    and subsequently data can be collected and transmitted to the cloud by using externally
+    powered gateways with cellular capabilities. Energy consumption in IOUT: In IOUT,
+    energy consumption is a vital issue because of the low power requirement for sensors
+    in order to operate for prolonged periods without battery replacement. Moreover,
+    the channel quality in UG communications is impacted by physical parameters of
+    the soil (e.g., soil moisture). In [84], a connectivity model of IOUT for different
+    soil physical parameters has been developed by designing the cluster size distribution
+    under sub-critical constraints. A novel aboveground communication coverage model
+    for underground clusters has been developed. To maintain connectivity while reducing
+    energy consumption the transmit power control and environment aware routing are
+    proposed. It is shown that these approaches can maintain network connectivity
+    under all soil moisture conditions while reducing energy consumption. Moreover,
+    it has also been shown that use of relaying nodes based on soil wetness conditions
+    can further decrease the energy consumption. 5.2. Cloud and big data in precision
+    agriculture Due to limited processing power and energy considerations, data processing
+    and decision making are not generally conducted locally. Depending on privacy
+    considerations, field information can be stored in a private database, provided
+    to the public databases, or shared with other users [157]. There are online marketplaces
+    where big data sets and agricultural apps are used to analyze a region and make
+    decisions to maximize crop yield [136]. Additionally, in-situ SM sensors can be
+    linked to national soil moisture databases for complete, accurate, and comprehensive
+    information of soil moisture [27], [46], [48], [49], [53], [60], [63]. With the
+    support of cloud services, real-time visualization and decision support can be
+    provided. Therefore, Cloud can be used as a hub of data storage and processing
+    applications in precision agricultural. Moreover, Cloud allows the scalability
+    of IOUT paradigm from the field level to bigger geographic areas by forming network
+    of farms. On the other hand, in the absence of storage or processing constraints,
+    base stations on the fields can pull meteorological data from a weather service
+    or soil information from a national service, fuse this information with in-situ
+    data from UTs, and control the farming equipment. To have a fully automated system,
+    farming equipment should include a controller that can be accessed remotely. The
+    integration of IOUT with creates new avenues to form robust stakeholders in precision
+    agriculture such as growers, industry, and trading companies and would results
+    in increased efficiency and sustainability of whole precision agriculture ecosystem.
+    In addition to integration of farm equipment data to soil and weather databases,
+    other examples include linking UAVs and robotics to precision agriculture paradigm.
+    Irrespective of in-situ or cloud processing, the main challenge is the integration
+    of heterogeneous systems. Moreover, reliable data transfer from field to cloud,
+    and cloud to farm, will constitute an important functionality of the IOUT cloud
+    architecture. This functionality will not only help connect fields over vast geographical
+    areas to the cloud, but will also facilitate local farms to use this data for
+    assessment and improvement of crop yield. Moreover, there is a need of development
+    of standardized interfaces for seamless connectivity and collaboration between
+    different components of the precision agriculture ecosystem. The IOUT paradigm
+    enables sensing and communications of even minor changes in the field including
+    change in physical properties of the soil and growth of plants. Major sources
+    of big data in precision agriculture are ESA satellite images, NDVI from drones,
+    user maps (yield, electrical conductivity, and others), and soil data. This process
+    generates big data and it becomes very important to extract meaningful information
+    from this huge amount of data. This is also crucial for real-time end user decision
+    making and in evaluation of return on investment. Therefore, it is necessary to
+    develop big data analytics in precision agriculture [156]. It is also essential
+    to analyze the reduction in input cost in water resources, energy consumption
+    and labor cost by adopting precision agriculture practices [73]. Other examples
+    of the big data analytics in precision agriculture are factors affecting crop
+    yield; and demarcation of field zones based on particular application such as
+    productivity, soil moisture, nutrients, harvesting. Farmers, as the biggest stakeholder
+    in the precision agriculture, need to use the technology to see the potential
+    benefits with out being overloaded with the data. Therefore, the big data analytics
+    to show increase in crop yield and improvement in overall production efficiencies,
+    which can deliver tangible benefits, are vital for success of the whole precision
+    agriculture ecosystem. 6. An overview of IOUT enabling technologies and testbeds
+    In this section, we present an overview of enabling technologies which facilitate
+    IOUT developments for system-wide and communication-specific challenges. 6.1.
+    Academic IOUT systems IOUTs can be used to ascertain the amount of water and fertilizer
+    to be applied using an irrigation control system. An IOUT testbed has been deployed
+    on the South Central Agricultural Lab (SCAL) in Clay Center, Nebraska [86]. The
+    testbed covers a 41 acres of research field where an advanced center pivot irrigation
+    system was installed in 2005 to research long-term dynamics of variable rate irrigation
+    and fertigation, crop water and nutrient uptake, water stress and yield relationships,
+    develop crop production functions, and associated numerous topics under full and
+    limited irrigation and rainfed settings [100]. In this testbed, a mobile sink
+    is installed on one of the controller towers of the center pivot irrigation system
+    [86]. The current configuration includes two antennas facing opposite directions
+    allowing the reception of data from nodes at a distance of 150  m–200  m. A solar
+    panel provides sustainable energy in the field. 10–16 buried UTs are deployed
+    in the field. Each UT is capable of measuring soil temperature and soil moisture
+    from four external sensors buried at depths of 1, 2, 3, and 4  ft. UTs are powered
+    by lithium-ion batteries and protected by a watertight enclosure. The spatio-temporal
+    real-time information from UT is fused at the mobile sink and sent to the cloud
+    using 4G communications. The cloud communicates with the center pivot controller
+    for automated irrigation control. This field testbed is fully functional system
+    developed to investigate IOUT sensing and communications capabilities in an agriculture
+    field using center pivot irrigation, sensors, aboveground and underground communication
+    devices. An indoor testbed has been designed and developed inside the greenhouse
+    which supports dynamic soil moisture control for wireless underground communication
+    experiments [133]. The testbed is made of 100  in. long, 36  in. wide and 48  in.
+    high wooden box with drainage system to hold 90 cubic feet of packed soil (Fig.
+    5). Antennas are buried at different depths and distances for controlled wireless
+    communication experiments. Download : Download high-res image (203KB) Download
+    : Download full-size image Fig. 5. The indoor testbed [133]. Moreover, a testbed
+    based on magnetic induction (MI) underground communications has been developed
+    in [143]. This testbed includes coils buried in the underground in lab settings.
+    MI wave guide effects and 3-D coils are investigated using this testbed in different
+    soil configurations. SoilBED [89], is another underground testbed developed for
+    cross-well radar experiments in soil. It is used for investigation of EM wave
+    propagation and for detection of presence of contaminated materials in soil. SoilBED
+    can also be used for underground channel and antenna characterization, and empirical
+    validations of underground communication channel models. Thoreau [161] is an IOUT
+    testbed on an university campus that collects and curates time and geo-tagged
+    data on an open platform on the cloud. It is based on Sigfox design and operates
+    in the 900  MHz unlicensed bands with frequency hopped and narrow-band operation.
+    It has very low data rates and soil properties including soil temperature, soil
+    moisture, electric conductivity, and water potential are measured. Another precision
+    agriculture testbed has been developed for real-time sensing in the field [79].
+    It is used to sense related soil properties for real-time decision making. BioSense
+    [4] Institute is an R&D institute for IT in biosystems. To achieve their vision
+    on the future of agriculture and food production, BioSense works on the areas
+    of machinery auto-steering and automation, EC probe & XRF scanner, electrical
+    conductivity map, normalized difference vegetation index (NDVI) map, yield map,
+    remote sensing, nano and micro-electronic sensors, big data, and Internet of things
+    aimed to food production. BioSense Institute, supported by University of Novi
+    Sad, Serbia, focuses on the design development of advanced ICT solutions in agriculture,
+    food, ecology, environmental protection, and forestry. Research results of BioSense
+    Institute are helping European countries and regions to improve agricultural and
+    environmental standards. It is also working in nano and microelectronics, communications
+    and signal processing, remote sensing and GIS, robotics and mechatronics, knowledge
+    discovery, and BIO-related research fields such as agriculture, ecology, environmental
+    sciences, and forestry. It consists of many researchers from various fields labs
+    from Europe. Their solution for Big Data is AgroSense [3], an agricultural platform
+    which store and present information to farmers, agri-companies, government, banks,
+    and insurance companies aimed toward improving crop yield while reducing costs.
+    Internet of Food and Farm (IoF2020) [22] is an European project that has 19 use
+    cases in 5 agri-food production sectors: arables, fruits, vegetables, dairy, and
+    meat. An example in arable is the combination of data from sensor networks for
+    smart wheat management with crop models and other data sources (e.g., disease,
+    crop stage detection, cultivar characterization from phenotyping, and others)
+    to generate high spatial-temporal resolution and to develop new models. In fruits,
+    a fresh table grapes chain project uses information from weather station and wired
+    sensor (soil moisture, soil temperature, electrical conductivity, and leaf wetness)
+    for disease forecasting and to control irrigation using flow meters and solenoid
+    valves. Solar powered data loggers transmit the data using GPRS network. A case
+    study in vegetable is the tracking of greenhouse tomato-crops chain by setting
+    the optimum ambient conditions to reduce the usage of resources (e.g., pesticide
+    application could be avoided completely) and increase energy efficiency. In dairy,
+    15 grazing cows are tracked on the pasture and inside the dairy barn using three
+    beacons. A case in meat is the tracking of pigs using RFID tags, which reduces
+    boar taint, health problems, and improve productivity. Sensor are also used for
+    climate monitoring, register weight gain, feeding and drinking patterns, and food
+    and water consumption. A ZigBee based IOUT has been developed in [158] with application
+    in precision agriculture. Related soil properties such as humidity and pH are
+    sensed using this architecture. An IOUT for soil moisture sensing at multiple
+    depths has been developed in [125]. It consists of wireless communications nodes,
+    sensors, data transfer gateways, and web modules for real time sensing, communication,
+    and visualization in the field. An IOUT testbed for snow and soil moisture monitoring
+    has been developed in Sierra Nevada, California [103] . With 300 sensors spanning
+    over an area of multiple kilometers, this IOUT sensing testbed is used to record
+    measurements of soil water content, snow depth, matric potential, and other related
+    parameters; and a detailed sensing, and communication performance analysis data
+    is also reported. A summary of the existing academic architectures is provided
+    in Table 1. Table 1. Academic IOUT systems. Architecture Sensors Comm. Tech. Node
+    Density Automated Irrigation System [96] DS1822 (temperature) VH400 (soil moisture)
+    OTA, ZigBee (ISM) One node per indoor bed Soil Scout [145] TMP122 (temperature)
+    EC-5 (soil moisture) UG, Custom (ISM) Eleven scouts on field and a control node
+    Remote Sensing and Irrigation Sys. [105] TMP107 (temperature) CS616 (soil moisture)
+    CR10 data logger OTA, Bluetooth (ISM) Five field sensing, one weather station
+    Autonomous Precision Agriculture [86] Watermark 200SS-15 (soil moisture) Data
+    logger UG, Custom (ISM) Up to 20 nodes per field SoilNet [77] ECHO TE (soil moisture)
+    EC20 TE (soil conductivity) OTA, ZigBee (ISM) 150 nodes covering 27 ha MOLES [143]
+    Magnetic Induction Communications Magnetic Induction Indoor Testbed Irrigation
+    Nodes in Vineyards [62] Yield NDVI Variable Rate Irrigation 140 irrigation nodes
+    per field Sensor Network for Irrigation Scheduling [43], [82] Capacitance (soil
+    moisture) Watermark soil moisture sensors OTA 6 nodes per acre Cornell’s Digital
+    Agriculture [7] E-Synch, Touch-sensitive soft robots Vineyard mapping technology,
+    RTK OTA Field Dependant Plant Water Status Network [126] Crop water stress index
+    (CWSI) Modified water stress index (MCWSI) OTA Two management zone - Two treatments
+    in each zone Real-Time Leaf Temperature Monitor System [28] Leaf temperature Ambient
+    temperature Relative humidity and Incident Solar radiation OTA Soil and plant
+    water status monitors, Thoreau [161] Temperature, Soil moisture Electric conductivity
+    and Water potential, OTA Based on Sigfox, FarmBeats [149] Temperature, Soil moisture
+    Orthomosaic and pH, OTA Field size of 100 acres Video-surveillance and Data-monitoring
+    WUSN [93] Agriculture data monitoring Motion detection, Camera sensor OTA In the
+    order of several kilometers Purdue University’s Digital Agriculture Initiative
+    [40] Adaptive weather tower PhenoRover sensor vehicle OTA Field Dependant Pervasive
+    Wireless Sensor Network [155] Soil Moisture, Camera OTA Field Dependant Pilot
+    Sensor Network [109] Sensirion SHT75 OTA 100 nodes in a field SoilBED [89] Contamination
+    detection UG Cross-Well Radar 6.2. Commercial IOUT solutions In most commercial
+    products, OTA wireless communication is utilized, where the UT includes a variety
+    of high-end sensors that measure properties like soil moisture, temperature, and
+    electrical conductivity. Consequently, measurements generally represent a single
+    point in the field. UT’s can interconnect to create a communication mesh, but
+    in most cases, they are connected directly to a tower in the field with cellular
+    or satellite communication capabilities. If the UT is not buried underground,
+    redeployment of the equipment is needed after planting and before harvesting in
+    each growing season to avoid damages to the equipment by the farming machinery.
+    A classification of the commercial IOUT solutions, companies, and their products
+    are presented in Fig. 6. Modularity in the design of IOUT devices is highly desirable
+    as the requirements can change over time and are tailored for a specific application.
+    For example, the transmission range influence the selection of a protocol and
+    the transceiver that can meet the communication demands. Solutions could be customized
+    for a specific application and ordered as a complete solution, so they will work
+    out-of-the box. There are companies that specialize in agricultural solutions.
+    In other cases, the architecture is required to be more specific and fast prototyping
+    using OEM components is more appropriate. Once data is collected, end-users need
+    networks to transmit the data, servers for storage and processing, and cloud-based
+    applications to display the information. A summary of the commercial solutions
+    is provided in Table 2. Major classes of the commercial solutions are highlighted
+    in the following. • Agricultural solutions.John Deere’s Field Connect uses 3G
+    connections to transmit information from eight sensor probes located a mile away
+    (three if satellite communication is used) that measure soil moisture at various
+    depth, temperature, humidity, wind speed and direction, rain, and leaf wetness.
+    MimosaTEK provides irrigation and fertigation solutions scaled to small, medium,
+    and large farms [31]. TempuTech [55] provide wireless solutions to monitor temperature
+    and humidity in grain elevators. Microsoft is developing FarmBeats which is an
+    AI & IoT based platform for Agriculture [13]. These commercial agricultural solutions
+    provide full support in precision agriculture including sensing, communications,
+    and the cloud. • Out-of-the-box packages.Smartrek Technologies develops wireless
+    nodes for different types of sensors and gateways that can be set up easily into
+    a network mesh [47]. Nodes are protected by weatherproof enclosures which is a
+    requirement for farm outdoor setting. Accessible ports allows the installation
+    of third-party soil moisture sensors and weather detection. Libelium has developed
+    a Plug & Sense Smart Agriculture solution [37] for temperature and humidity sensing,
+    rainfall, wind speed and direction, atmospheric pressure, soil water content,
+    and leaf wetness. Libelium provides platforms and end-user devices that encompass
+    communications standards such as LoRaWAN, LoRa, Sigfox, sub GHz, ZigBee, DigiMesh,
+    WiFi, RFID, NFC, Bluetooth/BLE, 3G, 4G, and GPRS. Sensor boards can be connected
+    to their Waspmote platform to attach 120 different sensors. Libelium also hosts
+    an IoT marketplace and provides cloud services to manage IoT devices and online
+    programming. Cropx’s [8] IOUT consists of hardware and software components used
+    to measure soil moisture, temperature, and EC for real time irrigation decision
+    making. PrecisionHawk has developed an IOUT platform [39] using drones, which
+    is used for sensing and field map generation. It supports visual imaging, thermal
+    and multi-spectral imaging for field map generation in precision agriculture.
+    These out-of-the-box packages are important component of the precision agriculture
+    to support different types of applications. • OEM components.OEM components are
+    commonly used in the manufacturing of nodes at a large scale. However, the prototyping
+    or small scale production of very specific UT will also required the selection
+    of OEM devices. ST [51] develops internal components for IoT devices like accelerometers,
+    gyroscope, and MEMS microphones. Semtech Corporation is a supplier of high-performance
+    semiconductors and advanced algorithms [41]. U-blox specialized in communication
+    and positioning components for IoT devices [59]. Telit is an M2M solutions company
+    with focus in IoT development [54]. Telit provides tailored hardware and software
+    solutions in small size modules. Products can transmit data using cellular, Bluetooth/BLE,
+    LoRa, Low Power Wide Area (LPWA), Positioning, SigFox, Sub GHz, Wi-Fi, and M-Bus
+    wireless technology. Herelab provides proof of concept deployment and rapid prototyping
+    service of IoT custom platforms [16]. For instance, in agriculture, sensor interfaces
+    can be rapidly attached to a template, and the corresponding instructions can
+    be adapted from the code library. Herelab also organizes labs and workshop to
+    introduce new tools and promote the usage of IoT devices. These components serve
+    as useful building blocks of IOUT sensing and communications paradigm. • Cloud-based
+    services.Cloud service allows worldwide access to the information collected by
+    IOUT devices without any previous web programming knowledge. Farmers and other
+    professionals do not need to spend time to hire another party in order to configure
+    a server to make use of the data collected; and can take decision right away.
+    LORIoT provides cloud services on a geographical distributed low latency network
+    of servers where users connect their LoRaWan gateways. Among the web services
+    they offer are the management of devices, cloud storage of data, safeguard of
+    encryption keys, and LoRaWan to IP/IPv6 translation [30]. MyDevices offers IoT
+    developers services to promote their solutions. One attractive feature of MyDevices
+    is that it offers Cayenne, a drag-and-drop IoT project builder. End-users can
+    create an account and use Cayenne web and mobile applications to register their
+    IoT devices and instantly display sensed data on a fully customizable dashboard
+    [6]. Senet operates two public cloud-based networks, Managed Network Services
+    for IoT (MNSi) and Low Power Wide Area Virtual Network (LVN), that provide secure,
+    efficient, and scalable connectivity to low-powered devices [42]. A proprietary
+    network operating system handles end-devices messages and LoRaWAN gateways, generation
+    of keys for encryption, decryption of messages, and hosting the portal for device
+    management, among other activities. Device Lynk offers an online dashboard for
+    data visualization of data captured using IoT industrial devices [9]. IntelliFarms
+    provides diverse agricultural solutions such as reporting weather conditions,
+    providing market crop pricing, and monitoring storage conditions in silos and
+    bins. It also host the IntelliFarms platform where customer can get access to
+    all their solutions in a centralized fashion [21]. 365FarmNet platform [1] is
+    an agricultural data management service that is currently offering free field
+    mapping for precision agriculture. Research challenges in IOUT are presented in
+    next section. Download : Download high-res image (617KB) Download : Download full-size
+    image Fig. 6. The classification of commercial IOUT solutions. Table 2. Commercial
+    IOUT systems. Architecture Sensors Comm. Tech. Node Density IRROmesh [24] 200TS
+    (temperature) Watermark 200SS-15 (soil moisture) OTA, Custom (ISM) OTA, Cellular
+    Up to 20 nodes network mesh Field Connect [26] Leaf wetness Temperature probe
+    Pyranometer Rain gauge Weather station OTA, Proprietary OTA, Cellular OTA, Satellite
+    Up to eight nodes per gateway SapIP Wireless Mesh Network [10] Plant water use
+    Measure plant stress Soil moisture profile Weather and ET OTA Up to 25 SapIP nodes
+    with 2 sap flow sensors each. Automated Irrigation Advisor [58] Tule Actual ET
+    sensor OTA Field Dependant Internet of Agriculture-BioSense [4] Machinery auto-steering
+    and automation EC probe & XRF scanner Electrical conductivity map NDVI map Yield
+    map Remote sensing Nano and micro-electronic sensors Big data, and Internet of
+    things OTA Field Dependant - Real-time irrigation decision making, EZ-Farm [18]
+    Water Usage Big data, and Internet of Things Terrain, Soil, Weather Genetics Satellite
+    info Sales OTA IBM Bluemix and IBM IoT Foundation Internet of Food and Farm (IoF2020)
+    [22] Soil moisture Soil temperature Electrical conductivity and Leaf wetness OTA
+    Field Dependant Cropx Soil Monitoring System [8] Soil moisture Soil temperature
+    and EC OTA Filed Dependant Plug & Sense Smart Agriculture [37] Temperature and
+    humidity sensing, Rainfall, Wind speed and direction, Atmospheric pressure, Soil
+    water content, and Leaf wetness OTA Field Dependant Grain Monitor-TempuTech [55]
+    Grain temperature and Humidity OTA Multiple Depths in Grain Elevator 365FarmNet
+    [1] Mobile device visualization tool for IOUT data OTA Field Dependant SeNet [42]
+    Sensing and control architecture OTA Field Dependant PrecisionHawk [39] Drones
+    for sensing Field map generation OTA Field Dependant HereLab [16] Soil moisture,
+    Drip line psi and rain OTA Field Dependant IntelliFarms [21] YieldFax Biological
+    BinManager OTA Field Dependant IoT Sensor Platform [23] IoT/M2M sensors OTA Field
+    Dependant Symphony Link[52] Long Range Communications OTA Field Dependant 7. Research
+    challenges Challenges in design and implementation of a precision agriculture
+    based IOUT are highlighted in this section. 1. Due to large area of deployment
+    in agricultural fields, low cost and low complexity IOUT devices are desirable
+    with ability to sustain rough terrains in all type of soil moisture regimes. 2.
+    Improving UTs with more complex functionalities will lead to higher energy consumption
+    and faster battery depletion. Thus, improvements in energy efficient operation,
+    sustainable energy sources, and energy harvesting are major challenges. 3. Due
+    to availability of different types of SM sensors, their integration with communication
+    equipment is a major challenge. A standard protocol is required for seamless integration
+    of different types of sensors to the communication devices in IOUT. 4. Low-cost
+    and multi-modal soil sensors that can sense soil physical properties in addition
+    to moisture are required. While moisture provides valuable information for irrigation
+    decisions, soil chemicals need to be sensed in-situ for variable rate fertigation
+    applications. 5. Advanced security mechanisms are required to protect information
+    transfer in the fields. Moreover, field-based privacy solutions are required such
+    that information from multiple fields can be fused for more accurate decisions
+    while preserving the privacy of growers. 6. Seasonal changes and crop growth cycles
+    need to be considered as they temporarily alter the conditions in which the equipment
+    typically works. Freezing temperature affects power consumption, but equipment
+    can be set to deep sleep as monitoring might not be necessary. The beginning of
+    the growing season or a crop rotation can introduce heavier equipment on the field
+    and UTs need to be buried deep enough to avoid damages. 7. Due to dynamic changes
+    in the communication medium in soil, UTs should be able to autonomously adjust
+    their operation parameters such as operation frequency, modulation schemes, error
+    coding schemes for adaptive operation. Due to the close interactions with soil,
+    these solutions should be tailored to UG communications instead of adopting existing
+    OTA solutions [86], [129], [130], [131], [133]. Impacts of soil physical properties,
+    soil moisture on UG communication should be modeled. A detailed insight into these
+    effects will help to realize a reliable, scalable IOUT architecture. 8. Impacts
+    of soil physical properties, soil moisture on UG communication should be modeled.
+    A detailed insight into these effects will help to realize a reliable, scalable
+    IOUT architecture. 9. Specialized link-layer and network layers protocols are
+    needed for UG communications for scalable, reliable, and robust data transfer
+    in IOUT. 8. Conclusions We introduced the Internet of Underground Things (IOUT)
+    for real-time decision making in agricultural fields. A complete architectures
+    for precision agriculture based IOUT has been presented. It has been shown that
+    the sensing and communications are the main component of the IOUT. A detailed
+    overview of sensing and communication technologies including academic and commercial
+    solutions is presented. In-field communications (UG, LPWAN, LAN, cellular) and
+    cloud are discussed in detail. Challenges to the realization of IOUT are highlighted,
+    and testbed designs for IOUT realization are presented. Recent advances in the
+    theory and applications of wireless UG communication are also reported. Acknowledgments
+    This work is supported in part by NSF grants NSF CNS-1619285, NSF DBI-1331895,
+    and NSF CNS-1423379. References [1] 365farmnet, https://www.365farmnet.com/en/.
+    Google Scholar [2] Adapt-N, http://www.adapt-n.com/. Google Scholar [3] Agrosense,
+    https://www.agrosense.eu/. Google Scholar [4] Biosense, www.biosens.rs. Google
+    Scholar [5] Bluetooth, https://www.bluetooth.com/bluetooth-technology. Google
+    Scholar [6] Cayenne features - mydevices.com, https://mydevices.com/cayenne/.
+    Google Scholar [7] Cornell Digital Agriculture, https://cuaes.cals.cornell.edu/digital-agriculture.
+    Google Scholar [8] Cropx soil monitoring system, https://www.cropx.com/. Google
+    Scholar [9] Devicelynk, https://devicelynk.com/. Google Scholar [10] Dynamax,
+    http://dynamax.com/products/data-loggers/sapip-wireless-mesh-network. Google Scholar
+    [11] Ec-gsm-iot applications, https://www.ericsson.com/en/press-releases/2016/2/ericsson-and-orange-in-internet-of-things-trial-with-ec-gsm-iot.
+    Google Scholar [12] Extended coverage gsminternet of things (ec-gsm-iot), https://www.gsma.com/iot/extended-coverage-gsm-internet-of-things-ec-gsm-iot/.
+    Google Scholar [13] Farmbeats: Ai and iot for agriculture, https://www.microsoft.com/en-us/research/project/farmbeats-iot-agriculture/.
+    Google Scholar [14] Fcc order no. da 16-307 dated: Mar 24, 2016, https://apps.fcc.gov/edocs_public/attachmatch/DA-16-307A1.pdf.
+    Google Scholar [15] Greenstar lightbar, https://www.deere.com/en_INT/products/equipment/agricultural_management_solutions/guidance_and_machine_control/greenstar_lightbar/greenstar_lightbar.page.
+    Google Scholar [16] Herelab, www.Herelab.io. Google Scholar [17] Honetwell, https://sensing.honeywell.com/sensors/.
+    Google Scholar [18] Ibm ez-farm, https://www.ibm.com/developerworks/community/blogs/dfa2dc54-5a14-4cf8-91e0-978bfd59d0d4/entry/IBM_Research_Africa_Enhancing_the_way_we_farm?lang=en.
+    Google Scholar [19] Ieee 802.11 technical standard - wireless local area networks,
+    http://www.ieee802.org/11/. Google Scholar [20] Ieee 802.15.4 technical standard,
+    http://www.ieee802.org/15/pub/TG4.html. Google Scholar [21] Intellifarms, www.intellifarms.com.
+    Google Scholar [22] Iof2020, https://www.iof2020.eu/. Google Scholar [23] Iot
+    sensor platform, http://zenseio.com/zenseio-platform. Google Scholar [24] Irromesh
+    wireless mesh system, http://www.irrometer.com/loggers.html#975. Google Scholar
+    [25] John deere field connect, https://www.deere.com/en/technology-products/precision-ag-technology/field-and-water-management/field-connect/.
+    Google Scholar [26] John deere field connect, https://www.deere.com/. Google Scholar
+    [27] Ldas land data assimilation systems, https://ldas.gsfc.nasa.gov/nldas/. Google
+    Scholar [28] Leaf monitor system, http://www.westernfarmpress.com/tree-nuts/uc-research-explores-continuous-leaf-monitor-system-maximize-irrigation-almonds.
+    Google Scholar [29] Lora in agriculture, https://www.semtech.com/uploads/technology/LoRa/WP-SEMTECH-LORA-SMART-AGRICULTURE.pdf.
+    Google Scholar [30] Loriot | lorawan services and software, www.loriot.io. Google
+    Scholar [31] Mimosatek, www.mimosatek.com. Google Scholar [32] Nb-iot in europe,
+    http://www.huawei.com/en/press-events/news/2016/12/Telia-Norway-Huawei-NB-IOT.
+    Google Scholar [33] Nwave, https://www.nwave.io/. Google Scholar [34] The Oklahoma
+    Mesonet, http://www.mesonet.org/. Google Scholar [35] On-ramp iot, https://www.ingenu.com/.
+    Google Scholar [36] Platanus, https://www.m2comm.co/front-page/technology/lan-platanus/.
+    Google Scholar [37] Plug and sense smart agriculture, http://www.libelium.com/products/plug-sense/models/#smart-agriculture.
+    Google Scholar [38] Precision planting, http://www.precisionplanting.com. Google
+    Scholar [39] Precisionhawks drone data platform, http://www.precisionhawk.com/agriculture.
+    Google Scholar [40] Purdue University’s Digital Agriculture Initiative, http://news.arubanetworks.com/press-release/purdue-universitys-digital-agriculture-initiative-advances-farming-and-food-production.
+    Google Scholar [41] Semtech, www.semtech.com. Google Scholar [42] Senet, www.senetco.com.
+    Google Scholar [43] Sensor network for irrigation scheduling, http://soilphysics.okstate.edu/research/moisst/2017-moisst-workshop/Taghvaeian%20MOISST%202017.pdf/at_download/file.
+    Google Scholar [44] Sigfox, https://www.sigfox.com/en. Google Scholar [45] Sigfox
+    in agriculture, https://www.sigfox.com/en/agriculture. Google Scholar [46] Smap
+    soil moisture active passive, https://smap.jpl.nasa.gov/. Google Scholar [47]
+    Smartrek technologies, www.smartrektechnologies.ca. Google Scholar [48] Smos,
+    www.esa.int/Our_Activities/Observing_the_Earth/SMOS. Google Scholar [49] Soil
+    climate analysis network (scan) data & products, www.wcc.nrcs.usda.gov/scan/.
+    Google Scholar [50] Soil mositure sesnor, http://www.irrometer.com/sensors.html.
+    Google Scholar [51] St, www.st.com. Google Scholar [52] Symphony link, https://www.link-labs.com/symphony.
+    Google Scholar [53] Tamu north american soil moisture database, soilmoisture.tamu.edu.
+    Google Scholar [54] Telit, www.telit.com. Google Scholar [55] Temputech wireless
+    sensor monitoring, http://www.temputech.com/. Google Scholar [56] Thread, https://www.threadgroup.org/technology/ourtechnology.
+    Google Scholar [57] Tk-gps, http://www.tk-star.com/. Google Scholar [58] Tule,
+    https://www.tuletechnologies.com/. Google Scholar [59] u-blox, www.u-blox.com.
+    Google Scholar [60] U.s. climate reference network, www.ncdc.noaa.gov/crn/. Google
+    Scholar [61] Veris technology, https://www.veristech.com/the-sensors/v3100. Google
+    Scholar [62] Vri study, http://proceedings.esri.com/library/userconf/proc15/papers/185_435.pdf.
+    Google Scholar [63] Web soil survey home,, https://websoilsurvey.sc.egov.usda.gov/.
+    Google Scholar [64] Weightless, http://www.weightless.org/. Google Scholar [65]
+    Zigbee alliance, www.zigbee.org. Google Scholar [66] V. Adamchuk, J. Hummel, M.
+    Morgan, S. Upadhyaya On-the-go soil sensors for precision agriculture Comput.
+    Electr. Agric., 44 (1) (2004), pp. 71-91, 10.1016/j.compag.2004.03.002 View PDFView
+    articleView in ScopusGoogle Scholar [67] M.A. Akkaş Channel modeling of wireless
+    sensor networks in oil Wireless Pers. Commun. (2017), pp. 1-19, 10.1007/s11277-017-4083-9
+    Google Scholar [68] I.F. Akyildiz, E.P. Stuntebeck Wireless underground sensor
+    networks: research challenges Ad Hoc Networks J. (Elsevier), 4 (2006), pp. 669-686
+    View PDFView articleView in ScopusGoogle Scholar [69] I.F. Akyildiz, Z. Sun, M.C.
+    Vuran Signal propagation techniques for wireless underground communication networks
+    Phys. Commun. J. (Elsevier), 2 (3) (2009), pp. 167-183 View PDFView articleView
+    in ScopusGoogle Scholar [70] A. Ali, W. Hamouda, M. Uysal Next generation m2m
+    cellular networks: challenges and practical considerations IEEE Commun. Mag.,
+    53 (9) (2015), pp. 18-24 View in ScopusGoogle Scholar [71] W. An, D. Wu, S. Ci,
+    H. Luo, V. Adamchuk, Z. Xu Chapter 25 - agriculture cyber-physical systems H.
+    Song, D.B. Rawat, S. Jeschke, C. Brecher (Eds.), Cyber-Physical Systems, Intelligent
+    Data-Centric Systems, Academic Press, Boston (2017), pp. 399-417 View PDFView
+    articleView in ScopusGoogle Scholar [72] B. Basso, M. Bertocco, L. Sartori, E.C.
+    Martin Analyzing the effects of climate variability on spatial pattern of yield
+    in a maize–wheat–soybean rotation Eur. J. Agron., 26 (2) (2007), pp. 82-91 View
+    PDFView articleView in ScopusGoogle Scholar [73] M. Bendre, R. Thool, V. Thool
+    Big data in precision agriculture: weather forecasting for future farming Next
+    Generation Computing Technologies (NGCT), 2015 1st International Conference on,
+    IEEE (2015), pp. 744-750 CrossRefView in ScopusGoogle Scholar [74] A. Bicen, A.
+    Sahin, O. Akan Spectrum-aware underwater networks: Cognitive acoustic communications
+    Veh. Technol. Mag., IEEE, 7 (2) (2012), pp. 34-40, 10.1109/MVT.2012.2190176 View
+    in ScopusGoogle Scholar [75] A.V. Bilgili, H. van Es, F. Akbas, A. Durak, W. Hively
+    Visible-near infrared reflectance spectroscopy for assessment of soil properties
+    in a semi-arid area of turkey J. Arid Environ., 74 (2) (2010), pp. 229-238, 10.1016/j.jaridenv.2009.08.011
+    Google Scholar [76] J. Bjarnason, Evaluation of bluetooth low energy in agriculture
+    environments (2017). Google Scholar [77] H.R. Bogena, et.al. Potential of wireless
+    sensor networks for measuring soil water content variability Vadose Zone J., 9
+    (4) (2010), pp. 1002-1013 CrossRefView in ScopusGoogle Scholar [78] R. Bramley
+    Lessons from nearly 20 years of precision agriculture research, development, and
+    adoption as a guide to its appropriate application Crop Pasture Sci., 60 (3) (2009),
+    pp. 197-217 View in ScopusGoogle Scholar [79] C. Buratti, A. Conti, D. Dardari,
+    R. Verdone An overview on wireless sensor networks technology and evolution Sensors,
+    9 (9) (2009), pp. 6869-6896, 10.3390/s90906869 View in ScopusGoogle Scholar [80]
+    J. de Carvalho Silva, J.J. Rodrigues, A.M. Alberti, P. Solic, A.L. Aquino Lorawana
+    low power wan protocol for internet of things: a review and opportunities Computer
+    and Energy Science (SpliTech), 2017 2nd International Multidisciplinary Conference
+    on, IEEE (2017), pp. 1-6 Google Scholar [81] M. Centenaro, L. Vangelista, R. Kohno
+    On the impact of downlink feedback on lora performance 2017 IEEE 28th Annual International
+    Symposium on Personal, Indoor, and Mobile Radio Communications (PIMRC) (2017),
+    pp. 1-6, 10.1109/PIMRC.2017.8292315 View in ScopusGoogle Scholar [82] K.C. DeJonge,
+    S. Taghvaeian, T.J. Trout, L.H. Comas Comparison of canopy temperature-based water
+    stress indices for maize Agric. Water Manage., 156 (2015), pp. 51-62, 10.1016/j.agwat.2015.03.023
+    View PDFView articleView in ScopusGoogle Scholar [83] J.R. Martinez-de Dios, K.
+    Lferd, A. de San Bernabé, G. Nunez, A. Torres-González, A. Ollero Cooperation
+    between UAS and wireless sensor networks for efficient data collection in large
+    environments J. Intell. Robotic Syst., 70 (1-4) (2013), pp. 491-508 View in ScopusGoogle
+    Scholar [84] X. Dong, M.C. Vuran, Environment aware connectivity for wireless
+    underground sensor networks, in: INFOCOM ’13, Turin, Italy, 2013a. Google Scholar
+    [85] X. Dong, M.C. Vuran, Impacts of soil moisture on cognitive radio underground
+    networks, in: Proc. IEEE BlackSeaCom, Batumi, Georgia, 2013b. Google Scholar [86]
+    X. Dong, M.C. Vuran, S. Irmak Autonomous precision agriculture through integration
+    of wireless underground sensor networks with center pivot irrigation systems Ad
+    Hoc Networks, 11 (7) (2013), pp. 1975-1987 View PDFView articleView in ScopusGoogle
+    Scholar [87] S. Evett, J. Steiner Precision of neutron scattering and capacitance
+    type soil water content gauges from field calibration Soil Sci. Soc. Am. J., 59
+    (4) (1995), pp. 961-968 CrossRefView in ScopusGoogle Scholar [88] H.J. Farahani,
+    R. Khosla, G. Buchleiter, Field ec mapping: a new tool to make better decisions,
+    Crop series. Soil; no. 0.568 Google Scholar [89] A. Farid, A. Alshawabkeh, C.
+    Rappaport Validation and calibration of a laboratory experimental setup for cross-well
+    radar in sand Am. Soc. Test. Mater. (ASTM) Geotech. Test. J., 29 (2) (2006) Google
+    Scholar [90] H. Ferguson, W. Gardner Water content measurement in soil columns
+    by gamma ray absorption Soil Sci. Soc. Am. J., 26 (1) (1962), pp. 11-14 CrossRefGoogle
+    Scholar [91] H.D. Foth Fundamentals of Soil Science (eight ed.), John Wiley and
+    Sons (1990) Google Scholar [92] T.E. Franz, A. Wahbi, M. Vreugdenhil, G. Weltin,
+    L. Heng, M. Oismueller, P. Strauss, G. Dercon, D. Desilets Using cosmic-ray neutron
+    probes to monitor landscape scale soil water content in mixed land use agricultural
+    systems Appl. Environ. Soil Sci., 2016 (2016) Google Scholar [93] A.-J. Garcia-Sanchez,
+    F. Garcia-Sanchez, J. Garcia-Haro Wireless sensor network deployment for integrating
+    video-surveillance and data-monitoring in precision agriculture over distributed
+    crops Comput. Electr. Agric., 75 (2) (2011), pp. 288-303 View PDFView articleView
+    in ScopusGoogle Scholar [94] E. Ghazanfari, S. Pamukcu, S.-U. Yoon, M.T. Suleiman,
+    L. Cheng Geotechnical sensing using electromagnetic attenuation between radio
+    transceivers Smart Mater. Struct., 21 (12) (2012), p. 125017 CrossRefView in ScopusGoogle
+    Scholar [95] R.D. Grisso, M.M. Alley, W.E. Thomason, D.L. Holshouser, G.T. Roberson,
+    Precision farming tools: variable-rate application(2011). Google Scholar [96]
+    J. Gutierrez, J.F. Villa-Medina, A. Nieto-Garibay, M.A. Porta-Gandara Automated
+    irrigation system using a wireless sensor network and gprs module IEEE Trans.
+    Instrum. Measur., 63 (1) (2014), pp. 166-176, 10.1109/TIM.2013.2276487 View in
+    ScopusGoogle Scholar [97] S. Herwitz, L. Johnson, S. Dunagan, R. Higgins, D. Sullivan,
+    J. Zheng, B. Lobitz, J. Leung, B. Gallmeyer, M. Aoyagi, R. Slye, J. Brass Imaging
+    from an unmanned aerial vehicle: agricultural surveillance and decision support
+    Comput. Electr. Agric., 44 (1) (2004), pp. 49-61, 10.1016/j.compag.2004.02.006
+    View PDFView articleView in ScopusGoogle Scholar [98] J. Huisman, S. Hubbard,
+    J. Redman, A. Annan Measuring soil water content with ground penetrating radar
+    Vadose Zone J., 2 (4) (2003), pp. 476-491 View in ScopusGoogle Scholar [99] S.
+    Irmak Nebraska Agricultural Water Management Demonstration Network (NAWMDN) USDA
+    Project Final Report (2006) Google Scholar [100] S. Irmak Inter-annual variation
+    in long-term center pivot-irrigated maize evapotranspiration and various water
+    productivity response indices: part I: Grain yield, actual and basal evapotranspiration,
+    irrigation-yield production functions, evapotranspiration-yield production functions,
+    and yield response factors J. Irrig. Drain. Eng., 141 (5) (2015), p. 04014068
+    CrossRefView in ScopusGoogle Scholar [101] S. Irmak, et al. Nebraska agricultural
+    water management demonstration network (NAWMDN): integrating research and extension/outreach
+    Appl. Eng. Agric., 26 (4) (2010), pp. 599-613 View in ScopusGoogle Scholar [102]
+    G. Jacobs, F. Schlüter, J. Schröter, A. Feldermann, F. Strassburger, Cyber-Physical
+    Systems for Agricultural and Construction Machinery—Current Applications and Future
+    Potential, Springer International Publishing, Cham, pp. 617–645. Google Scholar
+    [103] B. Kerkez, S.D. Glaser, R.C. Bales, M.W. Meadows Design and performance
+    of a wireless sensor network for catchment-scale snow and soil moisture measurements
+    Water Resour. Res., 48 (9) (2012), 10.1029/2011WR011214 Google Scholar W09515
+    [104] H.-J. Kim, K.A. Sudduth, J.W. Hummel Soil macronutrient sensing for precision
+    agriculture J. Environ. Monitor., 11 (10) (2009), pp. 1810-1824 CrossRefView in
+    ScopusGoogle Scholar [105] Y. Kim, R.G. Evans, W.M. Iversen Remote sensing and
+    control of an irrigation system using a distributed wireless sensor network IEEE
+    Trans. Instrum. Measur., 57 (7) (2008), pp. 1379-1387, 10.1109/TIM.2008.917198
+    View in ScopusGoogle Scholar [106] S. Kisseleff, I. Akyildiz, W. Gerstacker Digital
+    signal transmission in magnetic induction based wireless underground sensor networks
+    IEEE Trans. Commun., 63 (6) (2015), pp. 2300-2311, 10.1109/TCOMM.2015.2425891
+    View in ScopusGoogle Scholar [107] K. Krishna Push Button Agriculture: Robotics,
+    Drones, Satellite-Guided Soil and Crop Management Apple Academic Press (2016)
+    Google Scholar [108] M.S. Kukal, S. Irmak Spatial and temporal changes in maize
+    and soybean grain yield, precipitation use efficiency, and crop water productivity
+    in the us great plains Trans. ASABE, 60 (4) (2017), pp. 1189-1208 CrossRefView
+    in ScopusGoogle Scholar [109] K. Langendoen, A. Baggio, O. Visser Murphy loves
+    potatoes: Experiences from a pilot sensor network deployment in precision agriculture
+    Parallel and Distributed Processing Symposium, 2006. IPDPS 2006. 20th International,
+    IEEE (2006), pp. 8-pp Google Scholar [110] S. Laskar, S. Mukherjee Optical sensing
+    methods for assessment of soil macronutrients and other properties for application
+    in precision agriculture: a review ADBU J. Eng. Technol., 4 (2016) Google Scholar
+    [111] A. Lavric, V. Popa Internet of things and lora low-power wide-area networks:
+    a survey Signals, Circuits and Systems (ISSCS), 2017 International Symposium on,
+    IEEE (2017), pp. 1-5 Google Scholar [112] Z. Li, V. Isler Large scale image mosaic
+    construction for agricultural applications IEEE Rob. Autom. Lett., 1 (1) (2016),
+    pp. 295-302 View in ScopusGoogle Scholar [113] J. Lin, M. Wang, M. Zhang, Y. Zhang,
+    L. Chen Electrochemical sensors for soil nutrient detection: opportunity and challenge
+    International Conference on Computer and Computing Technologies in Agriculture,
+    Springer (2007), pp. 1349-1353 View in ScopusGoogle Scholar [114] S. Lin, I. Akyildiz,
+    P. Wang, Z. Sun Distributed cross-layer protocol design for magnetic induction
+    communication in wireless underground sensor networks Wireless Commun., IEEE Trans.,
+    14 (7) (2015), pp. 4006-4019, 10.1109/TWC.2015.2415812 View in ScopusGoogle Scholar
+    [115] G. Liu, Z. Wang, T. Jiang Qos-aware throughput maximization in wireless
+    powered underground sensor networks IEEE Transactions on Communications, 64 (11)
+    (2016), pp. 4776-4789, 10.1109/TCOMM.2016.2602863 View in ScopusGoogle Scholar
+    [116] E. Lund, C. Christy, P. Drummond Practical applications of soil electrical
+    conductivity mapping Precis. Agric., 99 (1999), pp. 771-779 View in ScopusGoogle
+    Scholar [117] E.E. Madura, V.V. Kumar Smart agriculture system by using zigbee
+    technology Int. J. Eng. Comput. Science, 6 (4) (2017), pp. 20880-20887 View in
+    ScopusGoogle Scholar [118] A. Magri, H.M. Van Es, M.A. Glos, W.J. Cox Soil test,
+    aerial image and yield data as inputs for site-specific fertility and hybrid management
+    under maize Precis Agric., 6 (1) (2005), pp. 87-110 CrossRefView in ScopusGoogle
+    Scholar [119] G.R. Mendez, M.A.M. Yunus, S.C. Mukhopadhyay A wifi based smart
+    wireless sensor network for an agricultural environment 2011 Fifth International
+    Conference on Sensing Technology (2011), pp. 405-410, 10.1109/ICSensT.2011.6137009
+    Google Scholar [120] D.J. Mulla Twenty five years of remote sensing in precision
+    agriculture: key advances and remaining knowledge gaps Biosyst. Eng., 114 (4)
+    (2013), pp. 358-371, 10.1016/j.biosystemseng.2012.08.009 View PDFView articleView
+    in ScopusGoogle Scholar Special Issue: Sensing Technologies for Sustainable Agriculture
+    [121] A.S.M. Nor, M. Faramarzi, M.A.M. Yunus, S. Ibrahim Nitrate and sulfate estimations
+    in water sources using a planar electromagnetic sensor array and artificial neural
+    network method IEEE Sensors J., 15 (1) (2015), pp. 497-504, 10.1109/JSEN.2014.2347996
+    View in ScopusGoogle Scholar [122] J. Petäjäjärvi, K. Mikhaylov, M. Hämäläinen,
+    J. Iinatti Evaluation of lora lpwan technology for remote health and wellbeing
+    monitoring Medical Information and Communication Technology (ISMICT), 2016 10th
+    International Symposium on, IEEE (2016), pp. 1-5 Google Scholar [123] J. Primicerio,
+    S.F. Di Gennaro, E. Fiorillo, L. Genesio, E. Lugato, A. Matese, F.P. Vaccari A
+    flexible unmanned aerial vehicle for precision agriculture Precis. Agric., 13
+    (4) (2012), pp. 517-523 CrossRefView in ScopusGoogle Scholar [124] U.N.W.W.A.
+    Programme, Water and jobs, The united nations world water development report,
+    2016. Google Scholar [125] C.J. Ritsema, et.al. A new wireless underground network
+    system for continuous monitoring of soil water contents Water Resour. Res. J.,
+    45 (2009), pp. 1-9 Google Scholar [126] F. Rojo, E. Kizer, S. Upadhyaya, S. Ozmen,
+    C. Ko-Madden, Q. Zhang A leaf monitoring system for continuous measurement of
+    plant water status to assist in precision irrigation in grape and almond crops
+    IFAC-PapersOnLine, 49 (16) (2016), pp. 209-215, 10.1016/j.ifacol.2016.10.039 View
+    PDFView articleView in ScopusGoogle Scholar 5th IFAC Conference on Sensing, Control
+    and Automation Technologies for Agriculture AGRICONTROL 2016 [127] R.A.V. Rossel,
+    J. Bouma Soil sensing: A new paradigm for agriculture Agric. Syst., 148 (2016),
+    pp. 71-74 Google Scholar [128] K. Roth, R. Schulin, H. Flühler, W. Attinger Calibration
+    of time domain reflectometry for water content measurement using a composite dielectric
+    approach Water Resour. Res., 26 (10) (1990), pp. 2267-2273 View in ScopusGoogle
+    Scholar [129] A. Salam, M.C. Vuran, Impacts of soil type and moisture on the capacity
+    of multi-carrier modulation in internet of underground things, in: Proc. of the
+    25th ICCCN 2016, Waikoloa, Hawaii, USA, 2016. Google Scholar [130] A. Salam, M.C.
+    Vuran, Smart underground antenna arrays: A soil moisture adaptive beamforming
+    approach, in: Proc. IEEE INFOCOM 2017, Atlanta, USA, 2017a. Google Scholar [131]
+    A. Salam, M.C. Vuran, Wireless underground channel diversity reception with multiple
+    antennas for internet of underground things, in: Proc. IEEE ICC 2017, Paris, France,
+    2017b. Google Scholar [132] A. Salam, M.C. Vuran EM-Based Wireless Underground
+    Sensor Networks S. Pamukcu, L. Cheng (Eds.), Underground Sensing, Academic Press
+    (2018), pp. 247-285, 10.1016/B978-0-12-803139-1.00005-9 View PDFView articleView
+    in ScopusGoogle Scholar [133] A. Salam, M.C. Vuran, S. Irmak, Pulses in the sand:
+    Impulse response analysis of wireless underground channel, in: Proc. IEEE INFOCOM
+    2016, San Francisco, USA, 2016. Google Scholar [134] A. Salam, M.C. Vuran, S.
+    Irmak, Towards internet of underground things in smart lighting: A statistical
+    model of wireless underground channel, in: Proc. 14th IEEE International Conference
+    on Networking, Sensing and Control (IEEE ICNSC), Calabria, Italy, 2017. Google
+    Scholar [135] M. Schirrmann, R. Gebbers, E. Kramer, J. Seidel Soil ph mapping
+    with an on-the-go sensor Sensors, 11 (1) (2011), pp. 573-598 CrossRefView in ScopusGoogle
+    Scholar [136] M.v. Schönfeld, R. Heil, L. Bittner, Big Data on a Farm—Smart Farming,
+    Springer International Publishing, Cham, pp. 109–120. 10.1007/978-3-319-62461-7_12
+    Google Scholar [137] A. Shamma’a, R. Tanner, A. Shaw, J. Lucas On line em wave
+    sand monitoring sensor for oil industry Microwave Conference, 2003. 33rd European,
+    vol. 2, IEEE (2003), pp. 535-538 View in ScopusGoogle Scholar [138] A.R. Silva,
+    M.C. Vuran, (CPS)2: integration of center pivot systems with wireless underground
+    sensor networks for autonomous precision agriculture, in: Proc. of ACM/IEEE International
+    Conf. on Cyber-Physical Systems, Stockholm, Sweden, 2010, pp. 79–88. 10.1145/1795194.1795206
+    Google Scholar [139] W. Skierucha, A. Wilczek A fdr sensor for measuring complex
+    soil dielectric permittivity in the 10–500 mhz frequency range Sensors, 10 (4)
+    (2010), pp. 3314-3329 CrossRefView in ScopusGoogle Scholar [140] M. Söderström,
+    G. Sohlenius, L. Rodhe, K. Piikki Adaptation of regional digital soil mapping
+    for precision agriculture Precis. Agric., 17 (5) (2016), pp. 588-607 CrossRefView
+    in ScopusGoogle Scholar [141] K.A. Sudduth, N. Kitchen, G. Bollero, D. Bullock,
+    W. Wiebold Comparison of electromagnetic induction and direct sensing of soil
+    electrical conductivity Agron. J., 95 (3) (2003), pp. 472-482 View in ScopusGoogle
+    Scholar [142] Z. Sun, I. Akyildiz Magnetic induction communications for wireless
+    underground sensor networks Antennas Propag., IEEE Trans., 58 (7) (2010), pp.
+    2426-2435, 10.1109/TAP.2010.2048858 View in ScopusGoogle Scholar [143] X. Tan,
+    Z. Sun, I.F. Akyildiz Wireless underground sensor networks: MI-based communication
+    systems for underground applications. IEEE Antennas Propag. Mag., 57 (4) (2015),
+    pp. 74-87, 10.1109/MAP.2015.2453917 View in ScopusGoogle Scholar [144] S.K. Teh,
+    L. Mejias, P. Corke, W. Hu, Experiments in integrating autonomous uninhabited
+    aerial vehicles (uavs) and wireless sensor networks (2008). Google Scholar [145]
+    M.J. Tiusanen Soil scouts: description and performance of single hop wireless
+    underground sensor nodes Ad Hoc Networks, 11 (5) (2013), pp. 1610-1618, 10.1016/j.adhoc.2013.02.002
+    Google Scholar [146] J. Tooker, M.C. Vuran Mobile data harvesting in wireless
+    underground sensor networks Proc. IEEE SECON ’12, Seoul, Korea (2012) Google Scholar
+    [147] F.T. Ulaby, D.G. Long Microwave Radar and Radiometric Remote Sensing University
+    of Michigan Press (2014) Google Scholar [148] J. Valente, D. Sanz, A. Barrientos,
+    J.d. Cerro, Á. Ribeiro, C. Rossi An air-ground wireless sensor network for crop
+    monitoring Sensors, 11 (6) (2011), pp. 6088-6108 CrossRefView in ScopusGoogle
+    Scholar [149] D. Vasisht, Z. Kapetanovic, J. Won, X. Jin, M. Sudarshan, S. Stratman,
+    Farmbeats: An iot platform for data-driven agriculture. Google Scholar [150] M.
+    Vuran, I. Akyildiz Cross-layer packet size optimization for wireless terrestrial,
+    underwater, and underground sensor networks INFOCOM 2008. The 27th Conference
+    on Computer Communications. IEEE (2008), pp. 226-230, 10.1109/INFOCOM.2008.54
+    View in ScopusGoogle Scholar [151] M. Vuran, X. Dong, D. Anthony, Antenna for
+    wireless underground communication, 2016, US Patent 9,532,118. Google Scholar
+    [152] M.C. Vuran, I.F. Akyildiz Channel model and analysis for wireless underground
+    sensor networks in soil medium Phys. Commun., 3 (4) (2010), pp. 245-254 View PDFView
+    articleView in ScopusGoogle Scholar [153] M.C. Vuran, A. Salam, R. Wong, S. Irmak,
+    Internet of underground things: Sensing and communications on the field for precision
+    agriculture, in: 2018 IEEE 4th World Forum on Internet of Things (WF-IoT) (WF-IoT
+    2018), Singapore, 2018. Google Scholar [154] Y.-P.E. Wang, X. Lin, A. Adhikary,
+    A. Grovlen, Y. Sui, Y. Blankenship, J. Bergman, H.S. Razaghi A primer on 3gpp
+    narrowband internet of things IEEE Commun. Mag., 55 (3) (2017), pp. 117-123 View
+    in ScopusGoogle Scholar [155] T. Wark, P. Corke, P. Sikka, L. Klingbeil, Y. Guo,
+    C. Crossman, P. Valencia, D. Swain, G. Bishop-Hurley Transforming agriculture
+    through pervasive wireless sensor networks IEEE Pervas. Comput., 6 (2) (2007)
+    Google Scholar [156] S. Wolfert, L. Ge, C. Verdouw, M.-J. Bogaardt Big data in
+    smart farming a review Agric. Syst., 153 (2017), p. 69, 10.1016/j.agsy.2017.01.023
+    View PDFView articleView in ScopusGoogle Scholar [157] Q. Yan, H. Yang, M.C. Vuran,
+    S. Irmak Spride: Scalable and private continual geo-distance evaluation for precision
+    agriculture IEEE Conference on Communications and Network Security (IEEE CNS),
+    Las Vegas, NV, USA (2017) Google Scholar [158] Y. Ye, L. Hao, M. Liu, H. Wu, X.
+    Zhang, Z. Zhao Design of farmland environment remote monitoring system based on
+    zigbee wireless sensor network J.C. Hung, N.Y. Yen, K.-C. Li (Eds.), Frontier
+    Computing, Springer Singapore, Singapore (2016), pp. 405-416 CrossRefView in ScopusGoogle
+    Scholar [159] S.U. Yoon, L. Cheng, E. Ghazanfari, S. Pamukcu, M.T. Suleiman A
+    radio propagation model for wireless underground sensor networks 2011 IEEE Global
+    Telecommunications Conference - GLOBECOM 2011 (2011), pp. 1-5, 10.1109/GLOCOM.2011.6133708
+    Google Scholar [160] C. Zhang, J.M. Kovacs The application of small unmanned aerial
+    systems for precision agriculture: a review Precis. Agric., 13 (6) (2012), pp.
+    693-712, 10.1007/s11119-012-9274-5 Google Scholar [161] X. Zhang, A. Andreyev,
+    C. Zumpf, M.C. Negri, S. Guha, M. Ghosh Thoreau: A subterranean wireless sensing
+    network for agriculture and the environment 2017 IEEE Conference on Computer Communications
+    Workshops (INFOCOM WKSHPS) (2017), pp. 78-84, 10.1109/INFCOMW.2017.8116356 Google
+    Scholar Cited by (196) Proposal for a framework to manage the barriers that hinder
+    the development of agriculture 4.0 in the agricultural production chain 2023,
+    Computers and Electronics in Agriculture Show abstract A Comprehensive review
+    of ‘Internet of Healthcare Things’: Networking aspects, technologies, services,
+    applications, challenges, and security concerns 2023, Computer Science Review
+    Show abstract A new deep boosted CNN and ensemble learning based IoT malware detection
+    2023, Computers and Security Show abstract A feasibility study of LoRaWAN-based
+    wireless underground sensor networks for underground monitoring 2023, Computer
+    Networks Show abstract Smart Irrigation Systems in Agriculture: An Overview 2024,
+    SSRN An Innovative Smart and Sustainable Low-Cost Irrigation System for Anomaly
+    Detection Using Deep Learning 2024, Sensors View all citing articles on Scopus
+    Mehmet C. Vuran received his B.Sc. degree in Electrical and Electronics Engineering
+    from Bilkent University, Ankara, Turkey, in 2002. He received his M.S. and Ph.D.
+    degrees in Electrical and Computer Engineering from the Georgia Institute of Technology,
+    Atlanta, in 2004 and 2007, respectively, under the guidance of Prof. Ian F. Akyildiz.
+    Currently, he is the Susan J. Rosowski Associate Professor of Computer Science
+    and Engineering at the University of Nebraska-Lincoln and Robert B. Daugherty
+    Water for Food Institute Fellow. He was awarded the Thomson Reuters Highly Cited
+    Researcher award in 2014, and 2015. He is the recipient of an NSF CAREER award
+    in 2010 and the co-author of Wireless Sensor Networks textbook. His current research
+    interests include wireless underground communications, cognitive radio networks,
+    cross-layer design, and correlation based communication. He is an Associate Editor
+    of IEEE Transactions on Wireless Communications, Computer Networks Journal (Elsevier)
+    and IEEE Communications Surveys and Tutorials. Abdul Salam is an Assistant Professor
+    in the Department of Computer & Information Technology at the Purdue University.
+    His research involves wireless underground sensor networks, underground channel
+    modeling, capacity analysis, and network protocols. He received his B.Sc. and
+    MS degrees in Computer Sciences from Bahauddin Zakariya University, Multan, Pakistan
+    in 2001 and 2004, respectively; and MS in Computer Engineering from UET, Taxila,
+    Pakistan in 2011. He received his Ph.D. degree in Computer Engineering from the
+    Cyber-Physical Networking Laboratory, Department of Computer Science and Engineering,
+    University of Nebraska-Lincoln, Lincoln, NE, in 2018, under the guidance of Prof.
+    Mehmet C. Vuran. Abdul Salam has served in the Pakistan Army for 9 years in a
+    number of command, staff, and field roles. He held the Principal position at the
+    Army Public School and College, Thal Cantonment. Prior to his service at Pakistan
+    Military, he was a lecturer at Department of Computer Science, Bahauddin Zakariya
+    University, Multan; and Department of Computer Science and Information Technology,
+    Islamia University, Bahawalpur, Pakistan. </span>He is the recipient of ICCCN
+    2016 Best Student Paper Award, Robert B. Daugherty Water for Food Institute Student
+    Fellowship, Gold Medal MS (CS) on securing first position in order of merit, and
+    2016-2017 Outstanding Graduate Student Research Award from Department of Computer
+    Science and Engineering (CSE), University of Nebraska-Lincoln. Rigoberto Wong
+    is a Ph.D. student in computer engineering at the University of Nebraska-Lincoln
+    and a research assistant at Cyber-Physical Networking Laboratory under the supervision
+    of Dr. Mehmet C. Vuran. He is working on the application of wireless underground
+    sensor networks in precision agriculture irrigation system. He received a B.S.
+    in Mechanical Industrial Engineering from Universidad Tecnologica de Panama, Panama
+    City, Panama and an AAS degree in Computer Information Technology from Southeast
+    Community College in Lincoln, NE. Suat Irmak has a doctorate in agricultural and
+    biological engineering from the University of Florida. He holds leadership roles
+    in the American Society of Civil Engineers-Environmental and Water Resources Institute,
+    for which he chairs the Evapotranspiration in Irrigation Hydrology Committee;
+    American Society of Agricultural and Biological Engineers (ASABE); United States
+    Committee on Irrigation and Drainage; and others. He has earned numerous awards
+    and honors, including the ASABE New Holland Young Researcher Award and the ASABE
+    Young Extension Worker Award. Suat Irmak’s research, extension and educational
+    programs apply engineering and scientific fundamentals in soil and water resources
+    engineering, irrigation engineering and agricultural water management, crop water
+    productivity, evapotranspiration and other surface energy fluxes for agro-ecosystems;
+    invasive plant species water use; and impacts of changes in climate variables
+    on water resources and agro-ecosystem productivity. Irmak leads the Nebraska Agricultural
+    Water Management Network, which aims to increase adoption of new tools, technologies
+    and strategies for increasing crop water productivity and reducing energy use
+    in agriculture. He established the Nebraska Water and Energy Flux Measurement,
+    Modeling and Research Network, made up of 12 water- and surface-energy flux towers
+    forming a comprehensive network that measures surface energy and water vapor fluxes,
+    microclimatic variables, plant physiological parameters and biophysical properties,
+    water use efficiency, soil water content, surface characteristics and their interactions
+    for various agro-ecosystems. ☆ A preliminary version of this article was presented
+    at the 2018 IEEE 4th World Forum on Internet of Things (WF-IoT 2018), Singapore,
+    Feb 2018 [153]. View Abstract © 2018 Elsevier B.V. All rights reserved. Part of
+    special issue Celebrating Dr. Mario Gerla’s 75h Birthday: A lifetime of Scientific
+    Contributions in Networking and Systems Edited by Tommaso Melodia, Giovanni Pau,
+    Dario Pompili View special issue Recommended articles Evaluating fidelity of lossy
+    compression on spatiotemporal data from an IoT enabled smart farm Computers and
+    Electronics in Agriculture, Volume 154, 2018, pp. 304-313 Aekyeung Moon, …, Seung
+    Woo Son View PDF Joint slice-based spreading factor and transmission power optimization
+    in LoRa smart city networks Internet of Things, Volume 14, 2021, Article 100121
+    Samir Dawaliby, …, Yannis Pousset View PDF UAV-Assisted Multi-path Parallel Routing
+    for mmWave-Based Wireless Networks Internet of Things, Volume 14, 2021, Article
+    100366 Mai A. Abdel-Malek, …, Kemal Akkaya View PDF Show 3 more articles Article
+    Metrics Citations Citation Indexes: 178 Patent Family Citations: 1 Captures Readers:
+    390 Mentions News Mentions: 23 View details About ScienceDirect Remote access
+    Shopping cart Advertise Contact and support Terms and conditions Privacy policy
+    Cookies are used by this site. Cookie settings | Your Privacy Choices All content
+    on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply."'
+  inline_citation: '>'
+  journal: Ad Hoc Networks
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Internet of underground things in precision agriculture: Architecture and
+    technology aspects'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Vuran M.C.
+  - Salam A.
+  - Wong R.
+  - Irmak S.
+  citation_count: '43'
+  description: The projected increases in World population and need for food have
+    recently motivated adoption of information technology solutions in crop fields
+    within precision agriculture approaches. Internet of underground things (IOUT),
+    which consists of sensors and communication devices, partly or completely buried
+    underground for real-time soil sensing and monitoring, emerge from this need.
+    This new paradigm facilitates seamless integration of underground sensors, machinery,
+    and irrigation systems with the complex social network of growers, agronomists,
+    crop consultants, and advisors. In this paper, state-of-the-art communication
+    architectures are reviewed, and underlying sensing technology and communication
+    mechanisms for IOUT are presented. Recent advances in the theory and applications
+    of wireless underground communication are also reported. Major challenges in IOUT
+    design and implementation are identified.
+  doi: 10.1109/WF-IoT.2018.8355096
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2018 IEEE 4th World Forum on ...
+    Internet of underground things: Sensing and communications on the field for precision
+    agriculture Publisher: IEEE Cite This PDF Mehmet C. Vuran; Abdul Salam; Rigoberto
+    Wong; Suat Irmak All Authors 46 Cites in Papers 914 Full Text Views Abstract Document
+    Sections I. Introduction II. IOUT Architecture III. Sensing IV. Wireless Connectivity
+    V. IOUT Testbeds Show Full Outline Authors Figures References Citations Keywords
+    Metrics Abstract: The projected increases in World population and need for food
+    have recently motivated adoption of information technology solutions in crop fields
+    within precision agriculture approaches. Internet of underground things (IOUT),
+    which consists of sensors and communication devices, partly or completely buried
+    underground for real-time soil sensing and monitoring, emerge from this need.
+    This new paradigm facilitates seamless integration of underground sensors, machinery,
+    and irrigation systems with the complex social network of growers, agronomists,
+    crop consultants, and advisors. In this paper, state-of-the-art communication
+    architectures are reviewed, and underlying sensing technology and communication
+    mechanisms for IOUT are presented. Recent advances in the theory and applications
+    of wireless underground communication are also reported. Major challenges in IOUT
+    design and implementation are identified. Published in: 2018 IEEE 4th World Forum
+    on Internet of Things (WF-IoT) Date of Conference: 05-08 February 2018 Date Added
+    to IEEE Xplore: 07 May 2018 ISBN Information: DOI: 10.1109/WF-IoT.2018.8355096
+    Publisher: IEEE Conference Location: Singapore SECTION I. Introduction World population
+    will increase by 32 percent in 2050, doubling the need for food. Yet today, up
+    to 70 percent of all water withdrawals are due to food production. This demands
+    novel technologies to produce more crop for drop. USDA Agricultural Resource Management
+    Survey (ARMS) is the primary source of information on the financial condition,
+    production practices, and resource use of America''s farm businesses and the economic
+    well-being of America''s farm households. ARMS data show that precision agriculture
+    has become a widespread practice nationwide. In Fig. 1, adoption rates of major
+    precision agriculture approaches (bars) along with the total precision agriculture
+    adoption rate (line) are shown for corn for each year of USDA ARMS publication
+    (USDA ARMS 2015 version was under development at the time of this writing). It
+    can be observed that adoption rate of precision agriculture for corn increased
+    from 17.29 percent in 1997 to 72.47 percent in 2010 with similar trends observed
+    for other crops such as soybean and peanuts. Aside from presenting a growing trend
+    in the usage of precision agriculture in corn production, it is evident that as
+    new technologies emerge, they are widely adopted by farmers. Among the various
+    precision agriculture techniques, crop yield monitoring is the most widely adopted
+    technique (61.4 percent). In addition, guidance and auto-steering system adoption
+    jumped from 5.34 percent in 2001 to 45.16 percent in nine years. Use of equipment
+    and crop location information enables precise control with auto-steering systems
+    which reduce production and maintenance costs and reduces repetitive field work
+    for farmers. Despite the drastic increase in adoption rates of other techniques,
+    variable rate technology (VRT) adoption has been relatively steady, where adoption
+    rate increased from 8.04 percent in 1998 to only 11.54 percent in 2005. Adaptive
+    application of resources like fertilizers, pesticide, and water promises significant
+    gains in crop production but requires accurate and timely information from the
+    field. It can be observed that only after the adoption of recent crop moisture
+    sensing technology, VRT adoption doubled to 22.44 percent in 2010. During the
+    same period, crop moisture sensing adoption increased from 36.21 percent in 2005
+    to 51.68 percent in 2010. Fig. 1: Precision agriculture technology adoption in
+    corn production (usda ARMS data). Show All It is clear that the success and adoption
+    of variable rate technology depends on advancing soil monitoring approaches. Despite
+    being the most recent precision agriculture technology, crop moisture sensing
+    has become one of the most adopted practices. Yet techniques are still limited
+    to manual data collection or limited field coverage. Most recently, the need for
+    real-time in-situ information from agricultural fields have given rise to a new
+    type of IoTs: Internet of underground Things (IOUT). IOUT represents autonomous
+    devices that collect any relevant information about the Earth and are interconnected
+    with communication and networking solutions that facilitate sending the information
+    out of fields to the growers and decision mechanisms. Fig. 2: IOUT paradigm in
+    precision agriculture. Show All IOUT is envisioned to not only provide in-situ
+    monitoring capabilities (e.g., soil moisture, salinity, and temperature), but
+    when interconnected with existing field machinery (irrigation systems, harvesters,
+    and seeders) enable complete field autonomy and pave the way for better food production
+    solutions. In IOUT, communications can be carried out through the soil and plants
+    from underground devices, and information acquired from the field can be sent
+    to cloud through the Internet for real-time decision making. Due to to the unique
+    requirements of the IOUT applications; i.e., information from soil, operation
+    in remote crop fields, wireless communication through plants and soil, and exposure
+    to elements; existing over-the-air (OTA) wireless communication solutions face
+    significant challenges because they were not designed for these circumstances.
+    As such, IOUT also gives rise to a new type of wireless communications: wireless
+    underground (UG) communications [1], [2], where radios are buried in soil and
+    wireless communication is conducted partly through the soil. Integration of UG
+    communications with IOUT will help conserve water resources and improve crop yields
+    [3], [4]. Moreover, advances in IOUT will benefit other applications including
+    landslide monitoring, pipeline assessment, underground mining, and border patrol
+    [2], [5]–[10]. This paper presents Internet of Underground Things for the design
+    of precision agriculture solutions. We first discuss functionalities, architecture,
+    and components of IOUT. Then, we present sensing and communication technologies
+    of IOUT along with existing solutions. We conclude by presenting IOUT testbeds
+    and discussing challenges of IOUT. SECTION II. IOUT Architecture IOUT will consist
+    of interconnected heterogeneous devices tailored to the crop and field operations.
+    Common desirable functionalities of IOUT are: In-situ Sensing: On board soil moisture,
+    temperature, salinity sensors are required for accurate localized knowledge of
+    the soil. These sensors can be either integrated on the chip along-with other
+    components of the architecture, or they can be used as separate sensors that can
+    be connected to the main components through wires. Wireless Communication in Challenging
+    Environments: Communication components of IOUT devices are either deployed on
+    the field or within the soil. For OTA communication, solutions should be tailored
+    to the changing environment due to irrigation and crop growth. In addition, any
+    system on the field is exposed to natural elements and should be designed to sustain
+    challenging conditions. Underground communication solutions, while mostly shielded
+    from the environment, require the ability to communicate through soil and adjust
+    its parameters to adapt to dynamic changes in soil. Inter-Connection of Field
+    Machinery, Sensors, Radios, and Cloud: IOUT architecture should link a diverse
+    multitude of devices on a crop field to the cloud for seamless integration. Accordingly,
+    IOUT architecture will not only provide collected information but will also automate
+    operations on the field based on this information. Based on these main required
+    functionalities, a representative IOUT architecture is illustrated in Fig. 2,
+    with the following components. Table I: Existing IOUT systems Underground Things
+    (UTs): An UT consist of an embedded system with communication and sensing components,
+    where a part of or the entire system resides underground. UTs are protected by
+    weatherproof enclosures and, in underground settings, watertight containers. Buried
+    UTs are protected from the farm equipment and extreme weather conditions. Sensors
+    typically include soil temperature and moisture sensors, but a wide range of other
+    soil-or weather-related phenomena can be monitored. Existing communication scheme
+    include Bluetooth, Zig-Bee, satellite, cellular, and underground. A UT using Bluetooth
+    [12] or underground wireless [6] can communicate over 100 meters, commercial products
+    at ISM-band can cover three times larger distances, whereas longer-distance connectivity
+    is possible through cellular or satellite. Considering the relatively large field
+    sizes, nodes can be configured to form networks capable of transferring all the
+    sensed information to a collector sink and selfheal in the event that nodes become
+    unreachable (e.g., Irromesh). Nodes are generally powered by a combination of
+    batteries and, if on field, solar panels. Cost of UTs is expected to be relatively
+    inexpensive as they are deployed by the multitude [11]. Base stations are used
+    as gateways to transfer the collected data to the cloud. They are installed in
+    permanent structures such as weather stations or buildings. Base stations are
+    more expensive as they are better safe-guarded and have higher processing powers
+    and communication capabilities [11]. Mobile sinks are installed in equipment that
+    move around the field periodically or as required, such as tractors and irrigation
+    systems [6]. When weather conditions are favorable, turning on an irrigation systems
+    only for data retrieval purpose is expensive. Alternatives unmanned vehicles such
+    as quadrotors or ground robots. Cloud services are intended to use for permanent
+    storage of the data collected, real-time processing of the field condition, crop
+    related decision making, and integration with other databases (e.g., weather,
+    soil). A summary of the existing academic and commercial architectures is provided
+    in Table I. In most commercial products, OTA wireless communication is utilized,
+    where the UT includes a high-end soil moisture and temperature sensor, connected
+    to a tower in the field with cellular or satellite communication capabilities.
+    Consequently, measurements generally represent a single point in the field and
+    redeployment of the equipment is needed after planting and before harvest each
+    season to avoid damages by the farming machinery. In addition, commercial products
+    based on OTA wireless mesh networks and academic approaches featuring underground
+    wireless communication have been emerging. Availability of such a diverse range
+    of communication architectures makes it challenging to form a unified IOUT architecture
+    with the ability to fulfill agricultural requirements seamlessly. This is further
+    complicated due to the lack of standard protocols for sensing and communication
+    tailored to the IOUT. In the following, we explain in detail the sensing (Sect.
+    III) and communication (Sect. IV) mechanisms with a focus on desired characteristics
+    of IOUT for real-time sensing and effective communications. SECTION III. Sensing
+    The main functionality of OUT is real-time sensing. An overview of sensing technologies
+    is presented next. 1) Soil Moisture Soil moisture (SM) sensors have been used
+    for decades in crop fields to measure water content. Important SM measurement
+    methods are described below: Gravimetric sampling is a direct and standard method
+    of measuring SM. It is used to determine the volumetric water content of the soil.
+    This method determines SM by a ratio of soil''s dry mass to the wet soil mass
+    including the pore spaces. It requires manual sampling and oven drying of soil
+    samples taken from the field. Resistive sensors such as granular matrix sensors
+    work on the principal of electrical conductivity of water and measuring resistance
+    changes based on soil water content. This method requires calibration of sensors.
+    Capacitive sensors measure SM based on changes in capacitance of soil due to water
+    content variations. Capacitive sensors, which are generally of higher accuracy
+    than resistive sensors but cost more, are being used by commercial UTs. Ground
+    Penetrating Radars (GPR) are based on the absorption and reflection of electromagnetic
+    waves. Impulse, frequency sweep, and frequency modulated technologies are used
+    in SM sensing. This method is used to to measure near-surface soil moisture (up
+    to 10 ern), Neutron scattering probes and gauges use radiation scattering techniques
+    to measure SM by estimating changes in neutron flux density due to the water content
+    of the soil and are the most accurate soil moisture probes used in fields. They
+    require specific licenses to be used. Gamma ray attenuation, time-domain reflectometry
+    (TDR), and frequency-domain reflectometry (FDR) are other popular SM measurement
+    approaches. Fig. 3: Soil moisture sensors: Top row: Gravimetric, resistive (watermark),
+    capacitance, bottom row: GPR, TDR, neutron probe. Show All Common SM sensors used
+    in fields are shown in Fig. 3. SM sensors are buried at depths of 5 cm to 75 cm
+    in soil depending on the crop type and root depth. SM data obtained from these
+    sensors is used to create soil moisture maps which help real-time decision making.
+    SM sensors have been deployed in fields with increasing frequency. For example,
+    the Nebraska Agricultural Water Management Network [14], [15], was established
+    with only 20 growers in 2005 and currently serves over 1, 400 growers to enable
+    the adoption of water and energy conservation practices using SM sensors. 2) Other
+    Soil Physical Properties In addition to soil moisture sensing, other soil properties
+    can be measured to populate the soil map such as the organic mater present in
+    the soil, acidity (pH), percentage of sand, clay and and silt particles, and nutrients
+    such as Mg, P, OM, Ca, base saturation Mg, base saturation K, base saturation
+    Ca, CEC, K/Mg, and Ca/Mg ratios. In-situ, real-time measurement of these properties
+    still face challenges due to size, cost, and technology limitations. 3) Electrical
+    Conductivity and Topography Surveys The ability of soil to conduct current is
+    described by soil electrical conductivity (EC). Coupled with field topography
+    (elevation and slope), EC data gives better insight into the crop yield. EC (through
+    contact and no-contact methods) is used to determine the amount of nitrogen usage,
+    water holding and cation-exchange capacity, drainage, and rooting depth. EC maps
+    are used to classify the field into zones. Then, precision agriculture practices
+    such as variable rate irrigation, variable rate seeding, nitrogen, yield, and
+    drainage management are applied based on zoning. SECTION IV. Wireless Connectivity
+    Connectivity solutions for IOUT can be classified as in-field communications and
+    cloud connectivity as discussed next. A. In-Field Communications In-field communication
+    solutions integrate UTs and other communication entities on the field. Most commercial
+    solutions utilize OTA communications, whereas lOUT are expected to feature wireless
+    underground communications. OTA Communications Existing communication devices
+    rely on LAN, cellular, and satellite technologies. For short-range communication
+    and networking, license-free standards such as Bluetooth, ZigBee, and DASH7 are
+    used in ISM bands. More recently, regulatory restrictions are relaxed by the FCC
+    through new rules that allow the use of TV white space frequencies in farms (Order
+    No. DA 16–307 Dated: Mar 24, 2016), where interference with other licensed devices
+    is not expected. The major challenge for OTA communications is the lack of studies
+    about the impacts of crops and farm environment on wireless propagation and associated
+    tailored solutions to farms. Most devices used on farms were not designed to be
+    used on agricultural fields and hence, suffer significantly. UG Communications
+    UG communication solutions enable complete concealment of UTs, which decrease
+    operation costs and impacts from external elements. For a buried UT radio, two
+    types of communication scenarios arise. Aboveground communications involve communication
+    between UTs and aboveground devices. Underground communication is carried out
+    between UTs. Furthermore, due to the soil-air interface, aboveground communication
+    links are not symmetric and need to be analyzed in terms of underground-to-aboveground
+    and aboveground-to-underground communication. In Fig. 4, the path loss of these
+    links are shown as a result of field experiments [6]. It can be observed that
+    practical underground link distances are still limited to allow for practical
+    multi-hop connectivity. Yet, communication ranges of up to 200 m is possible for
+    aboveground communications. For UG communications, the communication medium is
+    soil, which impact communication success in six main ways as discussed next. (1)
+    Soil Texture and Bulk Density EM waves exhibit attenuation when incident in soil
+    medium. These variations vary with texture and bulk density of soil. Soil is composed
+    of pore spaces, clay, sand, and silt particles. Relative concentration of these
+    particles result in 12 soil textural classes. Water holding capacity of each soil
+    type is different because of its pore. For example, lower water holding capacity
+    of sandy soil leads to lower attenuation and high RMS delay spread, whereas higher
+    water holding capacities of silt loam and silty clay loam soils result in low
+    RMS delay spread and higher attenuation [7]. (2) Soil Moisture The effective permittivity
+    of soil is a complex number. Thus, besides diffusion attenuation, EM waves also
+    suffer absorption by soil water content and its variations. Soil dielectric spectra
+    and its conductivity depends on the soil moisture. The relative dielectric constant
+    range of dry soil is between 2–6 and its conductivity ranges from 10−4 to 10−5
+    Si/m, where soils at near-saturation level have a relative dielectric constant
+    in the range of 5–15 and conductivity between 10−4 to 10−5 Si/m [16]. Coherence
+    bandwidth of the underground channel is limited to a few hundred KHz range [8],
+    which limits data rates. Coherence bandwidth also varies with soil moisture, making
+    design of advanced techniques challenging. Fig. 4: Communication from soil. Show
+    All (3) Distance and Depth Variations Sensors in IOUT applications are usually
+    buried in the top sub-meter layer. Thus, in addition to distance, channel quality
+    depends on deployment depth because of the impacts of the soil-air interface,
+    which causes refraction of EM waves. Nodes at higher burial depths experience
+    higher attenuation. (4) Antennas in Soil When an antenna is buried, its return
+    loss characteristics change due to the high permittivity of soil [17]. Moreover,
+    with the variation in soil moisture and hence soil permittivity, the return loss
+    of the antenna varies with time too. Changes in return loss results in variations
+    in resonant frequency, which is shifted to the lower spectrum, and system bandwidth,
+    creating additional challenges for UG communication. (5) Frequency Variations
+    The pathloss caused by attenuation is frequency dependent because of dipole relaxation
+    associated with water. Generally, lower frequency spectrum has lower attenuation,
+    because at higher frequencies, water absorption plays a dominant role. In addition,
+    when EM waves propagate in soil, their wavelength shortens due to higher permittivity
+    of soil than the air. Therefore, channel capacity in soil is also a function of
+    operation frequency [17]. (6) Lateral Waves For two UTs, wireless underground
+    communication is conducted through three major paths: direct, lateral, and reflected
+    waves [7], [6]. Direct and reflected waves reside completely in soil and therefore,
+    suffer from the challenges above. On the other hand, lateral waves travel partly
+    on the soil-air interface in air, experiencing the lowest attenuation. Lateral
+    waves plays an important role in extending underground communication ranges. B.
+    IOUT and Cloud Due to limited processing power and energy considerations, data
+    processing and decision making are not generally conducted locally. Depending
+    on privacy considerations, field information can be stored in a private database,
+    provided to the public databases, or shared with other users. There are online
+    marketplaces where big data sets and agricultural apps are used to analyze a region
+    and make decisions to maximize crop yield. Additionally, in-situ SM sensors can
+    be linked to national soil moisture databases for complete, accurate, and comprehensive
+    information of soil moisture. With the support of cloud services, real-time visualization
+    and decision support can be provided. On the other hand, in the absence of storage
+    or processing constraints, base stations on the fields can pull meteorological
+    data from a weather service or soil information from a national service, fuse
+    this information with in-situ data from UTs, and control the farming equipment.
+    To have a fully automated system, farming equipment should include a controller
+    that can be accessed remotely. Irrespective of in-situ or cloud processing, the
+    main challenge is the integration of heterogeneous systems. Moreover, reliable
+    data transfer from field to cloud, and cloud to farm will constitute an important
+    functionality of the IOUT cloud architecture. This functionality will not only
+    help link fields over vast geographical areas to the cloud, but will also facilitate
+    local farms to use this data for assessment and improvement of crop yield. SECTION
+    V. IOUT Testbeds In this section, we present an overview of testbeds which facilitate
+    IOUT developments for system-wide and communication-specific challenges. A. An
+    Agriculture Field Testbed IOUTs can be used to ascertain the amount of water and
+    fertilizer to be applied using an irrigation control system. An IOUT testbed has
+    been deployed on the South Central Agricultural Lab (SCAL) in Clay Center, Nebraska.
+    The testbed covers a 41 acres of research field where an advanced center pivot
+    irrigation system was installed in 2005 to research longterm dynamics of variable
+    rate irrigation and fertigation, crop water and nutrient uptake, water stress
+    and yield relationships, develop crop production functions, and associated numerous
+    topics under full and limited irrigation and rainfed settings [18]. In this testbed,
+    a mobile sink is installed on one of the controller towers. The current configuration
+    includes two antennas facing opposite directions allowing the reception of data
+    from nodes that are over 200 meters away. A solar panel provides sustainable energy
+    in the field. 10–16 UTs are deployed in the field. Each UT is capable of measuring
+    soil temperature and soil moisture from four external sensors buried at depths
+    of 1, 2, 3, and 4 feet. UTs are powered by lithium-ion batteries and protected
+    by a watertight enclosure. The spatio-temporal real-time information from UT is
+    fused at the mobile sink and sent to the cloud using 4G communications. The cloud
+    communicates with the center pivot controller for automated irrigation control.
+    Fig. 5: The indoor testbed [7]. Show All B. Wireless Underground Communication
+    Testbeds Agronomy and Horticulture Greenhouse in the University of Nebraska-Lincoln
+    east campus houses two wireless underground communication testbeds. An outdoor
+    testbed consist of a grid of 4 × 2 underground nodes with an above-ground node
+    that can be moved to any location to study aboveground-to-underground, underground-to-aboveground,
+    and underground-to-underground communications behavior. Underground nodes are
+    connected through power-over-Ethernet (POE) to reprogram and power the nodes.
+    This setup provides flexible underground experimentation by eliminating the need
+    for replacing the power sources, exposure of the equipment, and the constant removal
+    and burial of the node. An indoor testbed has been designed and developed inside
+    the greenhouse which supports dynamic soil moisture control for wireless underground
+    communication experiments [7]. The testbed is made of 100 inches long, 36 inches
+    wide and 48 inches high wooden box with drainage system to hold 90 cubic feet
+    of packed soil (Fig. 5). Antennas are buried at different depths and distances
+    for controlled wireless communication experiments. Moreover, testbed based on
+    magnetic induction (MI) underground communications has been developed in [3].
+    This testbed includes coils buried in the underground in lab settings. MI wave
+    guide effects and 3-D coils are investigated using this testbed in different soil
+    configurations. SECTION VI. Research Challenges Challenges in design and implementation
+    of a precision agriculture based IOUT are highlighted in this section. Due to
+    dynamic changes in the communication medium in soil, UTs should be able to cognitively
+    adjust their operation parameters such as operation frequency, modulation schemes,
+    error coding schemes for adaptive operation. Due to the close interactions with
+    soil, these solutions should be tailored to UG communications instead of adopting
+    existing OTA solutions [7], [8], [6]. Impacts of soil physical properties, soil
+    moisture on UG communication should be modeled. Improving UTs with more complex
+    functionalities will lead to higher energy consumption and faster battery depletion.
+    Thus, improvements in energy efficient operation, sustainable energy sources,
+    and energy harvesting are major challenges. Low-cost and multi-modal soil sensors
+    that can sense soil physical properties in addition to moisture are required.
+    While moisture provides valuable information for irrigation decisions, soil chemicals
+    need to be sensed in-situ for variable rate fertigation applications. SECTION
+    VII. Conclusions We introduced Internet of Underground Things (IOUT) for real-time
+    decision making in agricultural fields. We have presented complete architectures
+    for precision agriculture based IOUT. We have also analyzed the sensing and communications
+    as the main component of the Internet of Underground Things. Challenges to the
+    realization of IOUT are highlighted, and testbed designs for IOUT realization
+    are presented. Authors Figures References Citations Keywords Metrics More Like
+    This Cloud based Low-Power Long-Range IoT Network for Soil Moisture monitoring
+    in Agriculture 2020 IEEE Sensors Applications Symposium (SAS) Published: 2020
+    Leaf-Compatible Autonomous RFID-Based Wireless Temperature Sensors for Precision
+    Agriculture 2019 IEEE Topical Conference on Wireless Sensors and Sensor Networks
+    (WiSNet) Published: 2019 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: IEEE World Forum on Internet of Things, WF-IoT 2018 - Proceedings
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Internet of underground things: Sensing and communications on the field
+    for precision agriculture'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

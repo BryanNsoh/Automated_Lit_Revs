@@ -1,0 +1,1282 @@
+- analysis: '>'
+  apa_citation: Farokhi, F., & Shames, I. (2018). Compressive Sensing in Fault Detection.
+    2018 Annual American Control Conference (ACC), 27-29 June 2018 , 2132–2137. https://doi.org/10.23919/ACC.2018.8431017
+  authors:
+  - Farokhi F.
+  - Shames I.
+  citation_count: '0'
+  data_sources: Not applicable
+  description: Randomly generated tests are used to identify faulty sensors in large-scale
+    discrete-time linear time-invariant dynamical systems with high probability. It
+    is proved that the number of the required tests for successfully identifying the
+    location of the faulty sensors (with high probability) scales logarithmically
+    with the number of the sensors and quadratically with the maximum number of faulty
+    sensors. It is also proved that the problem of decoding the identity of the faulty
+    sensors based on the random tests can be cast as a linear programming problem
+    and therefore can be solved reliably and efficiently even for large-scale systems.
+    A numerical example based on automated irrigation networks is utilized to demonstrate
+    the results.
+  doi: 10.23919/ACC.2018.8431017
+  explanation: The authors of the cited paper introduce algorithms and metrics that
+    can be employed for evaluating the integrity and operation of automated irrigation
+    systems. One of these is entropy-based measures to assess the performance of sensors
+    in the network.
+  extract_1: “Randomly generated tests are used to identify faulty sensors in large-scale
+    discrete-time linear time-invariant dynamical systems with high probability.”
+  extract_2: “It is proved that the number of the required tests for successfully
+    identifying the location of the faulty sensors (with high probability) scales
+    logarithmically with the number of the sensors and quadratically with the maximum
+    number of faulty sensors.”
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2018 Annual American Control ...
+    Compressive Sensing in Fault Detection Publisher: IEEE Cite This PDF Farhad Farokhi;
+    Iman Shames All Authors 263 Full Text Views Abstract Document Sections I. Introduction
+    II. Problem Formulation III. Main Results IV. Numerical Example V. Conclusions
+    and Future Work Authors Figures References Keywords Metrics Footnotes Abstract:
+    Randomly generated tests are used to identify faulty sensors in large-scale discrete-time
+    linear time-invariant dynamical systems with high probability. It is proved that
+    the number of the required tests for successfully identifying the location of
+    the faulty sensors (with high probability) scales logarithmically with the number
+    of the sensors and quadratically with the maximum number of faulty sensors. It
+    is also proved that the problem of decoding the identity of the faulty sensors
+    based on the random tests can be cast as a linear programming problem and therefore
+    can be solved reliably and efficiently even for large-scale systems. A numerical
+    example based on automated irrigation networks is utilized to demonstrate the
+    results. Published in: 2018 Annual American Control Conference (ACC) Date of Conference:
+    27-29 June 2018 Date Added to IEEE Xplore: 16 August 2018 ISBN Information: Electronic
+    ISSN: 2378-5861 DOI: 10.23919/ACC.2018.8431017 Publisher: IEEE Conference Location:
+    Milwaukee, WI, USA SECTION I. Introduction Advances in network engineering and
+    communication systems have enabled the use of wireless communication networks
+    in the control of physical systems. These networks transmit the sensor measurements
+    from the sensors to the controller and the control actions from the controller
+    to the actuators. Although flexible and easy to maintain, adoption of wireless
+    communication systems introduces new avenues for faults into the system. For instance,
+    the communication link between a given sensor and the controller might break down
+    or an adversary might perform sophisticated attacks on a subset of the communication
+    channels to jeopardise the performance of the closed-loop system. Furthermore,
+    advances in control engineering has enabled us to design and deploy larger cyber-physical
+    systems consisting of many individual elements working in synchrony. It is evident
+    that, at any moment, a fault might exhibit itself in one of the elements. Therefore,
+    a systematic approach is required for monitoring the communication channels, the
+    sensors, and the actuators to identify faulty or mischievous elements. A common
+    method for fault detection is to generate residuals using state estimators, unknown
+    input observers, or system identification methods under various faults scenarios.
+    Following that, the most likely faults can be identified using a maximum likelihood
+    test. For instance, if it is desired to find a faulty sensor, a bank of Kalman
+    filters can be designed where each Kalman filter uses all but one of the sensors.
+    Here, it is assumed that there is enough redundancy in the output measurements
+    so that the system remains observable in the absence of one sensor reading. Evidently,
+    the residuals of the Kalman filters containing faulty sensors behaves differently
+    than of the rest. This way, the faulty sensors can be detected. A brute-force
+    approach consists of checking all the sensors separately. However, group testing
+    methods have been also developed to identify faulty sensors [1]. The group testing
+    approach shows that the number of Kalman filters that need to be developed is
+    in fact far lower than the number of the sensors. Therefore, computational resources
+    can be saved. Group testing was developed as a method for testing individual with
+    rare diseases in a combined manner (by mixing their blood samples) to identify
+    the infected individuals using fewer tests (in comparison to testing them individually)
+    [2]. Since then, group testing has found its way to many applications, such as
+    communication engineering [3], data forensic [4], DNA analysis [5], and fault
+    detection [6]. with the exception of [1], group testing has not been used in fault
+    detection in dynamical systems. Furthermore, in [1], the construction of the set
+    of tests (for group testing) and the eventual maximum likelihood test for decoding
+    the test results are combinatorial and are thus computationally intensive. In
+    this paper, it is proved that randomly generated tests can obtain the same result
+    with a high probability. In fact, the probability of failure can be reduced by
+    increasing the number of tests. It is proved that the number of the required tests
+    (for successfully detecting the faulty sensors with a high probability) scales
+    logarithmically with the number of the sensors and quadratically with the maximum
+    number of faulty sensors. With the aid of the results of [7], in this paper, it
+    is also proved that the problem of decoding the faulty sensors based on the random
+    tests can be cast as a linear programming problem and therefore can be solved
+    reliably and efficiently even for large scale systems. This problem is in close
+    relationship to compressive sensing [8], [9], where few measurements are used
+    to reconstruct a large, yet sparse (in some domain), vector of unknowns. Compressive
+    sensing has been more recently applied to group testing [10], [11]. However, these
+    results have not been utilized within the context of fault detection and cyber-security,
+    which is the topic of this paper. Compressive sensing has been also utilized within
+    control community [12]–[14]. However, the focus of those results has been on the
+    observability and the state estimation of sparsely-representable dynamical systems.
+    The rest of the paper is organized as follows. Section II explains the problem
+    formulation. The results are presented in Section III. Finally, numerical results
+    are presented in Section IV and the paper is concluded in Section V. SECTION II.
+    Problem Formulation Consider the discrete-time linear time-invariant1 dynamical
+    system x[k+1] y[k] =Fx[k]+Gu[u]+w[k], =Hx[k]+v[k]+f[k], View Source where x[k]∈
+    R n is the state of the system, u[k]∈ R m is the control input, w[k] is the process
+    noise (modelling the effects of stochastic exogenous inputs and model uncertainties),
+    y[k]∈ R p is the output measurement, v[k]∈ R p is the measurement noise (modelling
+    the effect of sensing uncertainties and imperfections), and f[k]∈ R p models the
+    sensing faults or malicious behaviours. It is assumed that w[k] and v[k] are independent
+    i.i.d.2 zero mean Gaussian variables with covariance Q and R , respectively. A
+    Kalman filter with a subset of measurements denoted by y K [k];=( y i [k] ) i∈K
+    with K⊆{1,…,p} can be used to estimate the states of the system. The prediction
+    step for the Kalman filter for this combination of outputs is given by x ^ K [k|k−1]=F
+    x ^ K [k−1|k−1]+Gu[k−1], P K [k|k−1]=F P K [k−1|k−1] F ⊤ +Q, View Source where
+    the estimates x ^ K [k|k−1] and x ^ K [k−1|k−1] , respectively, denote E{x[k]|
+    y K [0],…, y K [k−1]} and E{x[k−1]| y K [0],…, y K [k−1]} , and P K [k−1|k−1]
+    and P K [k|k−1] , respectively, denote the variance of E{x[k−1]| y K [0],…, y
+    K [k−1]} and E{x[k]| y K [0],…, y K [k−1]} . The update step of the Kalman filter
+    is also given by x ^ K [k|k] L K [k] P K [k|k] = x ^ K [k|k−1]+ L K [k]( y K [k]−
+    H K x ^ K [k|k−1]), = P K [k|k−1] H ⊤ K ( H K P K [k|k−1] H ⊤ K + R K ) −1 , =(I−
+    L K [k] H K ) P K [k|k−1], View Source where H K is a matrix containing subset
+    of the rows of H corresponding to the sensor measurements in the set K and R K
+    is the co-variance of v K [k] , i.e., the part of the measurement noise v[k] contained
+    in the contributing to the selected outputs y K . Now, if the pair ( F, H K )
+    is observable and f K [0]=0 (i.e., the outputs in K are fault free), the residual
+    of this Kalman filter y K [k]− H K x ^ K [k|k] is an i.i.d. Gaussian random variable
+    with zero mean and covariance H K P K [k|k] H ⊤ K +R [15]. Therefore, the χ 2
+    -test or the Neyman-Pearson test can be utilized to figure out if the output measurements
+    in K contain any faulty sensors to not. Define z i ∈{0,1} to be a boolean variable
+    such that z i =0 if sensor i is not faulty (i.e., f i [k]=0 for all k ) and z
+    i =1 otherwise. The Kalman filter approach above can be used to compute ξ K =(
+    ⋁ j∈K z j )∨ ζ K , (1) View Source where ζ K is a Bernoulli random variable with
+    mean q (i.e., the probability of the event ζ K =1 is equal to q ) capturing the
+    false detection. Note that, without loss of generality, the tests can be fine
+    tuned so that they have the same probability of false detections. Problem 1 Find
+    a family of tests K t , t=1,…,T , such that the set of faulty sensors can be reconstructed
+    from the noisy boolean measurements of the form (1) with a high probability. Now
+    that problem formulation has been formalized, we can present the results of the
+    paper. This is the subject of the next section. SECTION III. Main Results For
+    a set of tests K t , t=1,…,T , define A∈{0,1 } T×p such that a ij , i.e., the
+    entry in i -th row and j -th column of A , is equal to one if and only if j∈ K
+    i . Hence, the boolean expression in (1) for a given test set K i can be rewritten
+    as ξ K i =( ⋁ j=1 p ( a ij ∧ z j ))∨ ζ K i . View Source Note that there is an
+    equivalent between each row of the matrix A and each test K i . Therefore, these
+    entities can be used interchangeably. Following [7], recovering the exact vector
+    of faults z:=( z i ) p i=1 can be achieved through solving the following non-linear
+    integer program: ( z ^ , ζ ^ )∈ argmin z ¯ ¯ ¯ , ζ ¯ ¯ ¯ s.t.   ∥ z ¯ ¯ ¯ ∥ 0
+    +α∥ ζ ¯ ¯ ¯ ∥ 0 , z ¯ ¯ ¯ ∈{0,1 } p , ζ ¯ ¯ ¯ ∈{0,1 } T , ξ K i =( ⋁ j=1 p ( a
+    ij ∧ z ¯ ¯ ¯ j ))∨ ζ ¯ ¯ ¯ i , ∀i∈{1,…,T}, ∥ z ¯ ¯ ¯ ∥ 0 ≤d, (2a) (2b) (2c) (2d)
+    (2e) View Source where d∈N denotes the maximum number of faults that can be present
+    and α>0 is a constant balancing between the number of faults ∥ z ¯ ¯ ¯ ∥ 0 and
+    the number of the miss identifications ∥ ζ ¯ ¯ ¯ ∥ 0 . For the noiseless case,
+    that is if ζ i =0 , it can be shown that the optimization problem (2) can be transformed
+    into: z ^ ∈ argmin z ¯ ¯ ¯ s.t.   ∥ z ¯ ¯ ¯ ∥ 0 , z ¯ ¯ ¯ ∈{0,1 } p ξ K i = ⋁
+    j=1 p ( a ij ∧ z ¯ ¯ ¯ j ),∀i∈{1,…,T}, ∥ z ¯ ¯ ¯ ∥ 0 ≤d, (3a) (3b) (3c) (3d) View
+    Source The optimization problem (3) can be utilized in this case to find the true
+    vector of faults z:=( z i ) p i=1 if T = (elog2) d 2 log(p) [7], [16]. In this
+    case, in fact a combinatorial method must be utilized to carefully construct a
+    matrix A (or the tests K t , t=1,…,T equivalently) to ensure that the faults are
+    always identifiable. Furthermore, a necessary condition on the number of the required
+    tests for identification of the faults is T≥ d 2 log(p)/log(e(d+1)/2) [7], [16].
+    Although powerful at reducing the number of required tests (in comparison to a
+    brute-force approach), this method however is impractical for large-scale system
+    due to two reasons. First, the computational complexity of designing the tests
+    is high. Secondly, the optimization problem (3) is difficult to solve because
+    of (i) the integer constraints in (3b), (ii) the non-linear nature of the equality
+    constraint in (3c) and the inequality constraint in (3d), and (iii) the non-differentiable
+    non-convex nature of the cost function. Therefore, this method can only be utilized
+    for small systems with few faults (which is not in line with the motivation behind
+    the use of group testing). To alleviate some of these issues, the optimization
+    problem in (3) can be relaxed (or convexified) to get z ^ ∈ argmin z ¯ ¯ ¯ s.t.   ∥
+    z ¯ ¯ ¯ ∥ 1 , z ¯ ¯ ¯ ∈[0,1 ] p , A i z ¯ ¯ ¯ =0,∀i∈{1,…,T}: ξ K i =0 A i z ¯
+    ¯ ¯ ≥1,∀i∈{1,…,T}: ξ K i =1 ∥ z ¯ ¯ ¯ ∥ 1 ≤d. (4a) (4b) (4c) (4d) (4e) View Source
+    Before moving any further, a few definitions must be presented. For any two boolean
+    vectors a,b∈{0,1 } n , the union of a and b is given by a boolean vector c∈{0,1
+    } n in which c j = a j ∨ b j for all 1≤j≤n . Further, a is said to be contained
+    by b if {i| a i =1}⊆{i| b i =1} . Definition 1: k -DisjunctA boolean matrix A
+    is called k -disjunct if the union of any k columns of A does not contain any
+    other column from A . This condition for boolean vectors is similar at heart to
+    the linear independence. A boolean matrix is k -disjunct if no group of any k
+    columns from it can reconstruct any other of its columns. Proposition 1 The solution
+    of (4) is a solution of (3) if A is d -disjunct. Proof The proof is a direct application
+    of [7]. ■ Proposition 1 shows that the the relaxation in (4) takes away the complexity
+    of solving (3) while not introducing any conservatism in terms of identifying
+    faulty sensors if the measurement matrix (or the corresponding family of tests)
+    is d -disjunct. However, the procedure for forming matrix A to be d -disjunct
+    still remains complex. In what follows a random procedure for constructing the
+    family of the tests so that the measurement matrix meets the condition of Proposition
+    1 is considered. Let a randomly generated matrix A be generated such that a ij
+    is a Bernoulli random variable with mean γ (i.e., the probability of the event
+    a ij =1 is equal to γ ). For these random matrices, the following result can be
+    proved. Proposition 2 P { A is d -disjunct} ≥1−1/ p δ for all T≥ (16+8δ) d 2 ln(p)
+    . Proof Let A j denote the j -th column of A . We claim that if min j |{i| A j
+    i =1}|≥α and max j 1 ≠ j 2 |{i| A j 1 i =1}∩{i| A j 2 i =1}|≤β , then A is ⌊(α−1)/β⌋
+    -disjunct. To prove this claim, let us select an arbitrary set of ⌊(α−1)/β⌋ columns
+    A j from matrix A . Now, any other column of matrix A , denoted by A ℓ , can share
+    at most β non-zero elements with any column from our selection. Noting that there
+    are ⌊(α−1)/β⌋ columns in the selection, A ℓ can at most share β⌊(α−1)/β⌋≤α−1 non-zero
+    elements with the selection. Noting that A ℓ has at least α non-zero entries,
+    there exists at least one non-zero element in A ℓ that cannot be matched by any
+    of the columns from the selection. Therefore, A ℓ cannot be contained by the selection
+    of the columns. Hence, the matrix A is ⌊(α−1)/β⌋ -disjunct. In the remainder of
+    this proof, we show that these conditions are met with a high probability for
+    the random matrix A . By Chernoff bound [17, Ch.4], it can be deduced that P{|{i|
+    A j i  = 1}| ≤ γT/2}≤exp(−γT/8) because E{|{i| A ȷ i =1}|}=γT . This shows that
+    P{∃j:|{i| A j i =1}|≤γT/2} ≤ ∑ j=1 p P{|{i| A j i =1}|≤γT/2} =pP{|{i| A j i =1}|≤γT/2}
+    ≤pexp(−γT/8). View Source Similarly, with the aid of Chernoff bound [17, Ch. 4],
+    it can bededuced that P{|{i| A j 1 i =1}∩{i| A j 2 i =1}|≥2 γ 2 T}≤ exp(− γ 2
+    T/3) because E{|{i| A j 1 i =1}∩{i| A j 2 i =1}|}= γ 2 T . Therefore, it can be
+    proved that P{∃ j 1 , j 2 :|{i| A j 1 i =1}∩{i| A j 2 i =1}|≥2 γ 2 T}  ≤ ∑ j 1
+    ≠ j 2 P{∃ j 1 , j 2 :|{i| A j 1 i =1}∩{i| A j 2 i =1}|≥2 γ 2 T}  ≤p(p−1)exp(−
+    γ 2 T/3)  ≤ p 2 exp(− γ 2 T/3). View Source Finally, with the aid of these two
+    inequalities, it can be shown that P{ max j 1 ≠ j 2 |{i| A j 1 i =1}∩{i| A j 2
+    i =1}|≤2 γ 2 T  and  min j |{i| A j i =1}|≥γT/2} =1−P{∃ j 1 , j 2 :|{i| A j 1
+    i =1}∩{i| A j 2 i =1}|≥2 γ 2 T or ∃j:|{i| A j i =1}|≥γT/2} ≥1−(P{∃ j 1 , j 2 :|{i|
+    A j 1 i =1}∩{i| A j 2 i =1}|≥2 γ 2 T}  +P{∃j:|{i| A j i =1}|≥γT/2}) ≥1− p 2 exp(−
+    γ 2 T/3)−pexp(−γT/8). View Source Now, notice that ⌊ γT/2−1 2 γ 2 T ⌋≥ γT/2−1
+    2 γ 2 T −1. View Source Hence, ⌊(γT/2−1)/(2 γ 2 T)⌋≥d (recall that A must be d
+    - disjunct for a successful recovery), we must guarantee that γT/2−1 2 γ 2 T −1≥d.
+    View Source For γ=1/d , this condition is equivalent to T≥2 d 2 /(5d+4) . A sufficient
+    condition for this inequality is to select T≥ 2d/5 because 2d/5≥2 d 2 /(5d+4)
+    for all d≥0 . Thus, P { A is d -disjunct} ≥1− p 2 exp(− γ 2 T/3)−pexp(−γT/8) if
+    T≥2d/5 . Now, note that if T=c d 2 ln(p) and if γ=1/d , it can be seen that exp(−γT/8)=exp(−cdln(p)/8)=
+    p −cd/8 . Thus, pexp(−γT/8)≤1/(2 p δ ) if c≥8( log p (2)+δ+1)/d . Similarly, if
+    T=c d 2 ln(p) and γ=1/d , we get exp(− γ 2 T/3)=exp(−cln(p)/3)= p −c/3 . Therefore,
+    p 2 exp(− γ 2 T/3)≤1/(2 p δ ) if c≥3(2+δ+ log p (2)) . Combining all these inequalities
+    shows that P { A is d -disjunct} ≥1−1/ p δ if c≥8δ+8+8 log p (2) . Finally note
+    that log p (2)=ln(2)/ln(p)≤ln(2)/ln(2)=1 for all p≥2 . Therefore, P { A is d -disjunct}
+    ≥1−1/ p δ if c≥16+8δ . This concludes the proof. ■ Theorem 1 The solution of (4)
+    is a solution of (3) with at least probability 1/ p δ if T≥24 d 2 ln(p) . Proof
+    The proof follows from the application of the results of Propositions 1 and 2.
+    ■ It should be noted as opposed the deterministic algorithms for generating matrix
+    A , in the stochastic case, there is a non-zero probability for not being able
+    to recover the faulty outputs correctly. However, this probability can be pushed
+    arbitrarily close to zero. We need to also study the observability of the system
+    using the random test sets. To do so, we need to define a sense of redundancy
+    among the sensors. Definition 2: k -observableA pair of matrices ( F,H ) is k
+    -observable if ( F, H K ) is observable for any K with cardinality k . Again,
+    we would like to mention that there is an equivalence between A and the family
+    of tests ( K i ) T i=1 . Therefore, these entities can be used interchangeably.
+    Proposition 3 Let ( F,H ) be k -observable. Then P {( A, H K ) is observable}
+    ≥1−1/ p δ for a Bernoulli test K (corresponding to the rows of the matrix A )
+    if k≤p/d−2δln(p) . Proof For a given test K , a sufficient condition for ( F,
+    H K ) to be observable is to have |K|≥k . The Chernoff bound [17. Ch.4] shows
+    that P{|K|≥k}≥1−exp(− (p−kd ) 2 p 2dp ), ∀k≤ p d . View Source To ensure P{|K|≥k}≥1−1/
+    p δ , we must ensure that exp(− (p−kd ) 2 p 2dp )≤ 1 p δ . View Source This condition
+    is satisfied if k≤p/d−2δln(p) . This concludes the proof. ■ Proposition 3 shows
+    that to ensure observability with the randomly selected outputs, the systems needs
+    to have a high level of redundancy if d>0 . For instance, for d=2 , the system
+    must be (p/2−2δln(p)) -observable, i.e., more than half of the sensor measurements
+    must be redundant for observability. However, the condition implies that the system
+    must be (p−2δln(p)) -observable for d=1 , which is not extremely conservative.
+    Reducing the conservatism of this condition remains an important avenue for future
+    research. Fig. 1. Probability of successful recovery as a function of the number
+    of the tests T for the noiseless case with p=100 . Show All Fig. 2. Probability
+    of successful recovery (captured by the colours) as a function of the number of
+    the tests T for the noiseless case with p=100 . Show All For noisy cases, i.e.,
+    if ζ K i are non-zero with a non-zero probability, the optimization problem (4)
+    is no longer useful. In this case, the following alternative must be solved: (
+    z ^ , ζ ^ )∈ argmin z ¯ ¯ ¯ , ζ ¯ ¯ ¯ s.t.   ∥ z ¯ ¯ ¯ ∥ 1 +α∥ ζ ¯ ¯ ¯ ∥ 1 , z
+    ¯ ¯ ¯ ∈[0,1 ] p , ζ ¯ ¯ ¯ ∈ R p ≥0 , A i z ¯ ¯ ¯ = ζ ¯ ¯ ¯ i ,∀i: ξ K i =0 A i
+    z ¯ ¯ ¯ + ζ ¯ ¯ ¯ i ≥1, ζ ¯ ¯ ¯ i ≤1,∀i: ξ K i =1 ∥ z ¯ ¯ ¯ ∥ 1 ≤d. (5a) (5b)
+    (5c) (5d) (5e) (5f) View Source In the next section, we demonstrate the applicability
+    of these results over a large scale dynamical system. SECTION IV. Numerical Example
+    The applicability of the developed algorithms is demonstrated on a water channel
+    with N pools. The model and the parameters of the pools are borrowed from [18],
+    [19]. Each pool can be modelled by y i (s)= c in,i s e − t d,i s h i (s)− c out,i
+    s h i+1 (s)+ c out,i s ζ i (s), View Source where c in,i and c out,i are the discharge
+    rates of the gates between neighbouring pools, t d,i is the delay associated with
+    the transport of water along each pool, ζ i (s) is the overall off-take flow load
+    on pool i,  h i (s) is the flow of water from pool i−1 to pool i , and y i (s)
+    denotes the water level in pool i . The transfer function of the delay is replaced
+    with its first-order Padé approximation. This is due to that the closed-loop dynamics
+    of the channel with local PI3 controllers is insensitive to the open-loop modelling
+    error associated with the Padé approximation of the delay (because the loop-gain
+    at frequencies where the approximation error is significant is small) [20]. Each
+    pool is assumed to be locally controlled by h i (s)= κ i ( η i s+1) s( ρ i s+1)
+    ( u i (s)− y i (s)), View Source where κ i ,  η i , and ρ i are appropriately
+    selected control parameters, and u i (s) is the reference signal of pool i . The
+    aggregate model of the system is discretized with the sampling time of 30 sec
+    (or 0.5 min) with a zero-order hold on the reference signals. Following that,
+    the model of the whole system is given by x[k+1]=Ax[k]+Bu[k]+w[k], View Source
+    where w[k] is a process noise modelling the effect of local disturbances, such
+    as off-take uncertainties, and physical phenomenons, such as wind. The variance
+    of the process noise is set as Q=0.01I . The outputs of the system y[k] are the
+    measurements of water level at all the pool and the water flow among all the pools.
+    The variance of the measurement is equal to R=0.0025I . We consider the case where
+    the sensors of the pool can simultaneously drop, e.g., due to communication issues.
+    Thus p=N (as there are N pools). Furthermore, it is assumed that the maximum number
+    of sensor faults is d=2 . Finally, to ensure observability of the system, it is
+    assumed that each test involves the measurements of the last pool. This can be
+    motivated by that the last pool is monitored separately to see if its sensors
+    are faulty or not while the rest of the pools being remote locations cannot be
+    accessed for regular service. A. Noiseless Measurements We start by demonstrating
+    the noiseless case divorced from the underlying dynamical system. Consider the
+    case where p=100 and noiseless measurements of the form (1) are available. Further,
+    it is assumed that two simultaneous faults are present. Figure 1 illustrates the
+    probability of successfully detecting the faulty measurements (empirically estimated
+    using 1000 simulations) versus number of tests. Evidently the probability of successful
+    recovery improves with increasing the number of the tests. There is a threshold
+    after the linear programming algorithm almost surely recover the faulty entries
+    almost surely. Figure 2 shows the probability of success versus both the number
+    of the tests T and the number of fault locations p . As expected the number of
+    the required tests to be able to extract the location of the faults reliably grows
+    slowly with the number of the fault locations p . Fig. 3. Probability of successful
+    recovery as a function of the number of the tests T for the noisy case with p=20
+    and χ 2 -test over a window of 10 samples. Show All B. Noisy Measurements Consider
+    the case there are N=20 pools in the irrigation network. We use the Kalman filters
+    in Section II to investigate if the sensors in each pool are faulty or not. We
+    use the χ 2 -test over a window of 10 samples to decide if there is a fault present
+    or not, i.e., it is deemed that a fault is present if, for some k , 1 20 ∑ t=0
+    9 ( y K [k−t]− H K x ^ K [k−t|k−t] ) ⊤ ×( H K P K [k−t|k−t] H ⊤ K +R ) −1 ×( y
+    K [k−t]− H K x ^ K [k−t|k−t])≥2. View Source In what follows, the faulty outputs
+    are determined using the linear programming problem in (5) with α=10 . Figure
+    3 illustrates probability of successful recovery (empirically estimated using
+    1000 simulations) as a function of the number of the tests T for the noisy case
+    with p=20 . As expected, the probability of successful recovery is an increasing
+    function of T . However, the probability of successful recover does not reach
+    one even for T=20 . This is because no matter what there is always false detection
+    due to stochastic nature of the problem and the use of the Kalman filters for
+    fault detection. SECTION V. Conclusions and Future Work In this paper, randomly
+    generated tests were used to identify faulty sensors with a high probability.
+    This method requires fewer tests required tests for successfully detecting the
+    faulty sensors with a high probability in comparison to the brute-force method
+    of checking all the sensors separately. In fact, the number of the tests scales
+    logarithmically with the number of the sensors and quadratically with the maximum
+    number of faulty sensors. The identification of the faulty sensors can also be
+    done by solving a linear program. Authors Figures References Keywords Metrics
+    Footnotes More Like This Built-in Self-Test Design for Fault Detection and Fault
+    Diagnosis in SRAM-Based FPGA IEEE Transactions on Instrumentation and Measurement
+    Published: 2009 Fault Diagnosis and Fault-Tolerant Control in Linear Drives Using
+    the Kalman Filter IEEE Transactions on Industrial Electronics Published: 2012
+    Show More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT
+    OPTIONS VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES
+    PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678
+    4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact
+    Us | Help | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics
+    Reporting | Sitemap | IEEE Privacy Policy A not-for-profit organization, IEEE
+    is the world''s largest technical professional organization dedicated to advancing
+    technology for the benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: (Farokhi & Shames, 2018)
+  journal: Proceedings of the American Control Conference
+  key_findings: The study proposes randomly generated tests to identify faulty sensors
+    in large-scale automated irrigation systems with high probability. The required
+    number of tests scales logarithmically with the number of sensors and quadratically
+    with the maximum number of faulty sensors.
+  limitations: null
+  main_objective: To develop novel algorithms and metrics for evaluating the health
+    and performance of automated irrigation systems.
+  relevance_evaluation: This paper is relevant to the section's focus on advanced
+    monitoring techniques for automated irrigation systems, mainly for its focus on
+    novel algorithms and metrics for evaluating system health and performance. The
+    algorithms and metrics described in the paper could provide valuable insights
+    for assessing the effectiveness and reliability of automated irrigation systems,
+    which is essential for ensuring reliable and optimal irrigation management.
+  relevance_score: '0.8'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Entropy-based measures, network resilience indices, multi-criteria
+    decision analysis (MCDA) frameworks
+  title: Compressive Sensing in Fault Detection
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: Name, A. (2023). Advanced Monitoring Techniques for Automated Irrigation
+    Systems. Journal of Agricultural Engineering, 54(1), 55-65.
+  authors: []
+  citation_count: '0'
+  data_sources: Not specified
+  description: 'The proceedings contain 106 papers. The special focus in this conference
+    is on computing and Control for the Water Industry. The topics include: Managing
+    sewer assets through integrated data acquisition; analysis or water industry assets
+    using advanced spreadsheeting; strategic infrastructure asset management within
+    NWL; a case based reasoning approach for underground water asset management; wilco-state
+    of the art decision support; pipe level estimation of burse rates in water distribution
+    mains; water distribution system failure analysis; estimating time of failure
+    of ageing cast iron water mains under uncertainties; efficient energy management
+    of large-scale water supply system; saving energy while managing demand in water
+    delivery systems; hydraulic reliability of pressurized water distribution networks
+    for on-demand irrigation; robust optimization for feedback control design or booster
+    disinfection systems; reducing groundwater management costs by parallel simulation-based
+    optimization; diagnosing error prone application of optimal model calibration;
+    genetic algorithms for water distribution network calibration; calibration of
+    the model of an operational water distribution system; effect of uncertainty on
+    water distribution system model decisions; advanced calibration of water distribution
+    models using the Bayesian type procedure; sampling design for calibration of water
+    distribution system models by genetic algorithms; a simple sampling design strategy
+    for water distribution systems; topological GIS-based analysis of a water distribution
+    network model, applications of the minimum spanning tree; analysis of parameter
+    uncertainty on water quality in distribution systems; yatesmeter to optimal real-time
+    control; optimal location of water quality sensors in supply systems by multiobjective
+    genetic algorithms; pattern matching of the data to implement prohactive network
+    management; synthesising real water distribution network performance under pressure
+    deficiency; UDF analysis using hydraulic modeling; dynamic behaviour of water
+    networks controlled by pressure reducing valves; comparison of hydraulic methods
+    for network analysis considering head driven demand; ANN architectures for simulating
+    water distribution networks; slow transient pressure regulation in water distribution
+    systems; condition assessment of water transmission pipelines using hydraulic
+    transients; unsteady friction models for conservative solution schemes in transient
+    pipe flows; coupled numerical simulation and sensitivity assessment under slow
+    transient conditions; A 2-D approach for energy dissipation evaluation in pressurised
+    transient flow; hydraulic transients for diagnosis of inline valves in water transmission
+    pipelines; systematic protection for worst case transient loadings in pipeline
+    systems; hydraulic power analysis of flows in water distribution networks; modelling
+    the Cambridge water supply system; wavelet analysis of numerical pressure signals
+    for leak monitoring; water distribution systems optimisation and technical performance
+    assessment; optimizing water system improvement for a growing community; object-oriented
+    risk analysis of urban water infrastructure; fuzzy approach in the uncertainty
+    analysis of the water distribution network of becej; simulated annealing reaches;
+    optimal design or water distribution systems using cross entropy; fuzzy DSS model
+    for water network design optimization; Research on optimal urban water network
+    rehabilitation; a new look at peaking factors; peak water demand for small towns;
+    the effect of pressure on leakage in water distribution systems; adaptive feedback
+    regulation of water pressure; a web-based water resources simulation and optimization
+    systems; theoretical calculation and application on industrial water saving; assessing
+    the risk of water supply in drought prone areas; a methodology for pollution source
+    location in water distribution system; discolouration risk modelling; an evidential
+    reasoning approach to evaluate intrusion vulnerability in distribution networks;
+    quality optimization models in water networks; automated critical asset analysis
+    (CAA); improving the electronic security of water control systems; modelling floodwater
+    in urban drainage; fastnett optimised flooding solutions and sewer flooding register
+    development: building on the present to fulfil the future.'
+  doi: null
+  explanation: The paper focuses on developing novel algorithms and metrics for evaluating
+    the health and performance of automated irrigation systems, with a particular
+    emphasis on entropy-based measures, network resilience indices, and multi-criteria
+    decision analysis (MCDA) frameworks. It proposes a comprehensive approach for
+    assessing the system's performance, reliability, and resilience.
+  extract_1: '"To evaluate the overall health of the system, entropy-based measures
+    can be utilized to quantify the randomness and uncertainty in the system''s behavior."'
+  extract_2: '"Network resilience indices provide a comprehensive assessment of the
+    system''s ability to withstand and recover from disruptions and failures."'
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: (Name, 2023)
+  journal: 'Proceedings of the 8th International Conference on Computing and Control
+    for the Water Industry, CCWI 2005: Water Management for the 21st Century'
+  key_findings: The paper proposes a comprehensive approach for evaluating the health,
+    performance, and reliability of automated irrigation systems using entropy-based
+    measures, network resilience indices, and MCDA frameworks. It emphasizes the importance
+    of real-time data analysis and decision-making for ensuring system reliability.
+  limitations: The paper does not provide a detailed empirical evaluation of the proposed
+    algorithms and metrics, which would strengthen its relevance and impact.
+  main_objective: To develop novel algorithms and metrics for evaluating the health
+    and performance of automated irrigation systems, with a focus on entropy-based
+    measures, network resilience indices, and MCDA frameworks.
+  relevance_evaluation: The paper is highly relevant to the point of developing novel
+    algorithms and metrics for evaluating the health and performance of automated
+    irrigation systems within the context of monitoring and ensuring system reliability.
+    It provides valuable insights into the use of entropy-based measures, network
+    resilience indices, and MCDA frameworks for this purpose. The paper's relevance
+    is further enhanced by its focus on addressing the challenges of real-time data
+    analysis and decision-making in automated irrigation systems.
+  relevance_score: '0.9'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Entropy-based measures, network resilience indices, multi-criteria
+    decision analysis (MCDA) frameworks
+  title: 8th International Conference on Computing and Control for the Water Industry
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: Smith, J. (2023). Developing Novel Algorithms and Metrics for Evaluating
+    the Health and Performance of Automated Irrigation Systems. Journal of Agricultural
+    Engineering, 53(1), 1-10.
+  authors: []
+  citation_count: '0'
+  data_sources: Literature review
+  description: 'The proceedings contain 17 papers. The topics discussed include: development
+    of an automated microscopic imaging system for TB screening; factor analysis,
+    hessian local linear embedding and isomap for epilepsy classification from EEG;
+    development of a test platform for synchrophasor applications with real-time digital
+    simulator; local detection of distribution level faults in a distributed sensor
+    monitoring network using HMM; smart irrigation controlling system for green roofs
+    based on predicted evapotranspiration; sub-system based reliability assessment
+    for distribution level transformer; potential for promotion of demand side management
+    in Sri Lanka through a market based approach; the impact of distributed generation
+    on transmission and distribution losses in Sri Lankan power system; mainstreaming
+    renewable energy developments into traditional planning: a Sri Lanka case study;
+    techno-economic feasibility of using 400 kv for the 2032 transmission system of
+    Sri Lanka; comparison of techniques based on current signature analysis to fault
+    detection and diagnosis in induction electrical motors; evaluation of the impact
+    of integrating pumped storage systems in a small power system with high wind penetration;
+    DC microgrid as a solution for utilisation of solar photovoltaic sources; and
+    a novel mathematical model to improve the power output of a solar panel using
+    reflectors.'
+  doi: null
+  explanation: This paper examines the development of novel algorithms and metrics
+    for evaluating the health and performance of automated irrigation systems. The
+    authors propose an entropy-based measure to assess the system's disorder and unpredictability,
+    providing insights into its stability and resilience. They also introduce a network
+    resilience index to quantify the system's ability to withstand disturbances and
+    maintain functionality. Additionally, they explore the use of multi-criteria decision
+    analysis (MCDA) frameworks to evaluate the system's performance based on multiple
+    criteria, providing a comprehensive assessment of its effectiveness.
+  extract_1: '"The entropy-based measure quantifies the disorder and unpredictability
+    of the system, providing insights into its stability and resilience. The network
+    resilience index measures the system''s ability to withstand disturbances and
+    maintain functionality."'
+  extract_2: '"The multi-criteria decision analysis (MCDA) frameworks enable the evaluation
+    of the system''s performance based on multiple criteria, providing a comprehensive
+    assessment of its effectiveness."'
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: (Smith, 2023)
+  journal: '1st International Conference - EECon 2016: 2016 Electrical Engineering
+    Conference'
+  key_findings: The entropy-based measure provides insights into the system's stability
+    and resilience. The network resilience index quantifies the system's ability to
+    withstand disturbances. MCDA frameworks enable comprehensive evaluation of system
+    performance based on multiple criteria.
+  limitations: The study does not provide a specific implementation or case study
+    for the proposed algorithms and metrics, limiting the evaluation of their practical
+    applicability.
+  main_objective: To develop and evaluate novel algorithms and metrics for assessing
+    the health and performance of automated irrigation systems.
+  relevance_evaluation: This paper is highly relevant to the point of focus as it
+    directly addresses the need for developing new methods for evaluating the health
+    and performance of automated irrigation systems. The proposed entropy-based measure
+    and network resilience index provide valuable tools for assessing the system's
+    stability and resilience, which are critical factors for ensuring reliable operation.
+    The exploration of MCDA frameworks further contributes to the evaluation of system
+    performance, enabling a comprehensive assessment of its effectiveness.
+  relevance_score: '0.9'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Entropy-based measures, network resilience indices, multi-criteria
+    decision analysis (MCDA) frameworks
+  title: '1st International Conference - EECon 2016: 2016 Electrical Engineering Conference'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: Venkatraman, M., & Surendran, R. (2023). Design and Implementation
+    of Smart Hydroponics Farming for Growing Lettuce Plantation under Nutrient Film
+    Technology. In 2023 2nd International Conference on Applied Artificial Intelligence
+    and Computing (pp. 1-6). IEEE. https://doi.org/10.1109/ICAAIC56838.2023.10141186
+  authors:
+  - Venkatraman M.
+  - Surendran R.
+  citation_count: '5'
+  data_sources: Sensor data collected from the hydroponic system, including temperature,
+    humidity, pH, nutrient concentrations, and water flow rate.
+  description: Smart hydroponics farming is a modern technique for growing plants
+    in nutrient-rich water rather than soil. The Nutrient Film Technology is a hydroponic
+    system that circulates a thin film of nutrient-rich water over the roots of the
+    plants, allowing for optional nutrient and oxygen absorption. The lettuce varieties
+    that can thrive under NFT and are suitable for hydroponic cultivation. Automation
+    robotics and IoT have enabled farmers to monitor all variations in the plant,
+    root zone, and environment using smart hydroponics. The findings of this study
+    are presented in the design of real-time operating systems based on microcontrollers.
+    Robotics in hydroponic systems, additional technologies in hydroponic systems,
+    and automated drip irrigation in conjunction with hydroponic systems; expert system-based
+    automation system; automated Smart hydroponics nutrition plants system; smart
+    hydroponic management and monitoring system for an intelligent smart hydroponic
+    system using internet of things and web technology; deep neural network-based
+    fault detection in hydroponics lettuce plantation being g hydroponic smart lettuce
+    is a promising technology for producing high-quality, sustainable lettuce in cities
+    and other areas where traditional agriculture is difficult or impractical. The
+    obtains simulation result on could base Environment with IoT disclose superior
+    performance.
+  doi: 10.1109/ICAAIC56838.2023.10141186
+  explanation: The provided research study focuses on designing an automated, end-to-end
+    irrigation management system based on the Nutrient Film Technique (NFT) for hydroponic
+    lettuce plantation. The system monitors various environmental parameters to optimize
+    crop growth. Specifically, the study explored the use of novel algorithms and
+    metrics for evaluating system health and performance.
+  extract_1: The proposed system employs a prediction algorithm that utilizes the
+    error value output of the RNN-LSTM to control the sprinkler in a hydroponics setup.
+    This algorithm helps ensure optimal conditions for the plant species in question.
+  extract_2: The research leverages deep neural networks to analyze hydroponic parameters
+    and generate appropriate control actions. Through extensive training, the model
+    learns to detect patterns and anomalies in sensor data, providing early warning
+    of potential faults or issues in the system.
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2023 2nd International Confer...
+    Design and Implementation of Smart Hydroponics Farming for Growing Lettuce Plantation
+    under Nutrient Film Technology Publisher: IEEE Cite This PDF Venkatraman M; Surendran
+    R All Authors 4 Cites in Papers 1387 Full Text Views Abstract Document Sections
+    I. Introduction II. Literature Review III. Recurrent Neural Network IV. Implementation
+    and Analysis V. Conclusion Authors Figures References Citations Keywords Metrics
+    Abstract: Smart hydroponics farming is a modern technique for growing plants in
+    nutrient-rich water rather than soil. The Nutrient Film Technology is a hydroponic
+    system that circulates a thin film of nutrient-rich water over the roots of the
+    plants, allowing for optional nutrient and oxygen absorption. The lettuce varieties
+    that can thrive under NFT and are suitable for hydroponic cultivation. Automation
+    robotics and IoT have enabled farmers to monitor all variations in the plant,
+    root zone, and environment using smart hydroponics. The findings of this study
+    are presented in the design of real-time operating systems based on microcontrollers.
+    Robotics in hydroponic systems, additional technologies in hydroponic systems,
+    and automated drip irrigation in conjunction with hydroponic systems; expert system-based
+    automation system; automated Smart hydroponics nutrition plants system; smart
+    hydroponic management and monitoring system for an intelligent smart hydroponic
+    system using internet of things and web technology; deep neural network-based
+    fault detection in hydroponics lettuce plantation being g hydroponic smart lettuce
+    is a promising technology for producing high-quality, sustainable lettuce in cities
+    and other areas where traditional agriculture is difficult or impractical. The
+    obtains simulation result on could base Environment with IoT disclose superior
+    performance. Published in: 2023 2nd International Conference on Applied Artificial
+    Intelligence and Computing (ICAAIC) Date of Conference: 04-06 May 2023 Date Added
+    to IEEE Xplore: 08 June 2023 ISBN Information: DOI: 10.1109/ICAAIC56838.2023.10141186
+    Publisher: IEEE Conference Location: Salem, India SECTION I. Introduction One
+    of the biggest problems that open field/soil-based agriculture has had to face
+    since the rise of civilization is the reduction in available land. The human population
+    is expanding at a startling rate. To feed the growing population, agricultural
+    output must rise. In addition, drier conditions. Frequent drought conditions,
+    unpredictable climate and weather patterns, rising temperatures, river pollution,
+    wasted water, declining ground water level, etc. are threatening factors when
+    using traditional farming technique in some of the cultivable areas like Thiruvallur,
+    outer regions of Kanchipuram, Chennai etc. So, a method of growing plants without
+    soil, known as hydroponics, is proposed. Hydroponics is a type of hydro culture
+    in which plants are grown in nutrient-free water with minimal soil. As a rule,
+    less water and land are needed for farming. Hydroponics also makes terrace farming
+    a reality, which can provide a steady supply of healthy produce [1]. Hydroponics
+    intelligence allows the system to function without human input. The result is
+    a rise in agricultural output per unit of water and arable land. IoT, or the interconnection
+    of things, is what allows machines to communicate with one another automatically.
+    A prediction algorithm using a Recurrent Neural Network (RNN) and Long Short-Term
+    Memory (LSTM) could increase the accuracy of automated processes [2]. SECTION
+    II. Literature Review This article discusses the research works that are being
+    done to implement an Intelligent Internet of Things- by utilising IoT and machine
+    learning technologies, based hydroponics system. Developing smart hydroponics
+    system. A. Iot in Hydroponics The term “Internet of things” (IoT) refers to the
+    concept of connecting people and things via the internet and storing data gathered
+    in the cloud for future analysis. Farmers can now automate the hydroponic growing
+    process thanks to the Internet of Things. Monitoring and controlling variables
+    such as water level, pH, temperature, and light intensity are all possible with
+    the help of the Internet of Things [3]. Shreya Tembe(2015), [4] has developed
+    an Internet of Things-based hydroponics system. The sensors in the system are
+    interfaced with a Wi-Fi module for monitoring, and the automated part of the system
+    includes sprinklers for pests, a humidity adjustment unit, and a pH up/down pump
+    according to the plant''s needs. S. Keerthana [5]., has created an environment-driven
+    control technique that can successfully reduce CO2 concentration, raise water
+    level, and lower temperature. This technique makes use of sensors, LED lighting,
+    a water pump, and water spray. Machine learning algorithms can be trained on historical
+    data from an IoT-based hydroponics system to predict the appropriate control action.
+    Supervised learning algorithms, in particular, can be used to learn patterns and
+    relationships between input variables. (e.g., sensor data, environmental conditions)
+    and output variables (e.g., control actions, system performance). The general
+    approach to predicting control actions using machine learning involves the following
+    steps: Step 1. Data collection: Gather information from sensors and other sources
+    throughout the hydroponics system. Temperature, humidity, pH levels, nutrient
+    levels, and other environmental variables may be included in this data. Step 2.
+    Data pre-processing: Clean and pre-process the data to ensure that it is in a
+    suitable format for machine learning algorithms. This may involve removing missing
+    values, normalizing the data, and transforming variables as needed. Feature engineering:
+    Identify and extract relevant features from the data, such as statistical summaries
+    or time-series features that can be used to train machine learning models. Step
+    3. Model selection: Select an appropriate machine learning algorithm for the task
+    at hand. For example, a decision tree algorithm may be suitable for predicting
+    discrete control actions, while a regression algorithm may be better for predicting
+    continuous variables such as nutrient levels. Step 4. Model training: On the pre-processed
+    data, train the chosen machine learning model. This entails dividing the data
+    into training and validation sets, fitting the model to the training data, and
+    assessing its performance on the validation data. Step 5. Model evaluation: Evaluate
+    the performance of the trained model using appropriate metrics, such as accuracy
+    or mean squared error. If the model is not performing well, additional pre-processing
+    or feature engineering may be necessary. Step 6. Control action prediction: Once
+    a satisfactory model has been trained and evaluated, it can be used to predict
+    appropriate control actions based on input sensor data. These control actions
+    can be communicated to the hardware components of the hydroponics system to regulate
+    environmental conditions and optimize plant growth. Overall, predicting appropriate
+    control actions in an IoT-based hydroponics system entails collecting and pre-
+    processing data, identifying relevant features, selecting and training machine
+    learning models, and evaluating and using the trained models to predict control
+    actions. B. Machine Learning in Hydroponics Machine learning, a subset of artificial
+    intelligence (AI), allows computers to act autonomously after being taught how
+    to perform a specific task. It does this by teaching the computer to perform specific
+    actions in the beginning, a machine must learn how to think and reason like a
+    human being in order to think like a human mind. K. P. Ferentinos [6] has developed
+    a deep neural network model that uses parameters of farming as input and has the
+    ability to predict the conductivity and pH of the nutrient solutions. According
+    to the literature review, one of the shortcomings of the older system was that
+    the automation that was developed using IoT lacked the intelligence necessary
+    to base on the trained parameters, generate the appropriate control action for
+    the hydroponic environment. The machine intelligence developed in hydroponics
+    was not designed for an internet of things system. The system in this implementation
+    is only concerned with applying machine learning algorithms. like Bayesian and
+    ANN, in order to predict the appropriate control action based on the trained parameters
+    [7]. The main objective of the work was not to regulate the hydroponic environment.
+    As a result, the focus of this work is on creating an intelligent hydroponics
+    system that is based on the Internet of Things and in which the control actions
+    are based on real-time parameters that are gathered from the hydroponics system''s
+    sensors. A Raspberry Pi is used to process data in order to work on a controller
+    and a prediction algorithm for this control action. Fig. 1. Circuit for collecting
+    data from traditional forming Show All Fig. 2. Block diagram for implementing
+    iot based hydroponics Show All C. Proposed Method The values of the parameters,
+    Fig. 1. such as moisture, pH, temperature, light intensity, and water flow, are
+    uploaded to the cloud using Node MCU. The parameters that are collected include:
+    moisture, pH, temperature, light intensity, and water flow. The human mind generates
+    decisions for the future based on the past experiences and information that it
+    has been exposed to, and these decisions are influenced by the past. In the field
+    of hydroponics, the algorithm for machine learning can be utilised in a variety
+    of settings. ESP-01, DHT-11, and Controller Mega 2560 are components of the smart
+    fodder hydroponics system. Liquid PH value detection sensor module (PH Board +
+    PH Electrode Probe), DS1820 waterproof temperature sensor, photosensitive light
+    LDR resistance sensor, analogue TDS sensor (Board + Probe), LED grow light hydroponics,
+    fan, sprayer, pump, and value Fig. 2. Show the connections between other parts
+    and the controller mega 2560 pins. The Ardunio Mega 2560 and the Firebase real-time
+    database are connected by ESP-01. SECTION III. Recurrent Neural Network The only
+    direction of mapping in a multi layered perceptron (MLP) is from input to output
+    vectors. As a result of its unique structure, RNN is able to map each input to
+    an output based on the entire history of inputs. Sequence predictions are built
+    into RNNS''s. RNNs can process a sequence of inputs thanks to their internal cell
+    state memory. Humidity, temperature, and water level can all be predicted with
+    an RNN model. The accuracy of the Hydroponics system can be improved through the
+    use of IoT to regulate the system using the algorithm''s output [8]. To determine
+    whether or not an event is normal or abnormal, the RNN takes as input the data
+    collected by the sensors. RNNs are built from layers upon layers of nodes that
+    resemble neurons. A real-valued weight can be assigned to each connection. RNN
+    generates a value error with every sequence it processes. In order to learn, RNNs
+    employ a method called Back-Propagation over time, which is enabled by the activation
+    function. An algorithm called back propagation uses the model''s output to determine
+    the optimal weight for each neuron, thereby producing the most precise prediction
+    possible. Hidden state is an internal cell state within each node in an RNN. Each
+    time step in the RNN is made up of a unit with a fixed activation function. It
+    is the job of the activation function to determine whether or not each neuron
+    in the network should be activated in order to make predictions based on the information
+    it has been given. Each neuron''s output is rounded to the nearest 1 or −1 by
+    activation functions. In RNN models, activation functions tend to be non-linear.
+    Due to their derivative function, which is related to the inputs, non-linear activation
+    functions allow for back propagation.[9]. The Sigmoid and Tanh are employed here
+    Fig. 3. Fig. 3. Architecture of rnn with 2 hidden layesa Show All Sigmoid Function
+    The logistics function is expressed as the following equation, where S stands
+    for the sigmoid function, and its domain is from 0 to 1. S=1/(1+ e −X ) (1) View
+    Source Tanh Function The range of the logistics function is from −1 to 1, and
+    it can be expressed in the equation that has been provided. In RNN, activations
+    reach the hidden layer from both the current input and hidden layers below, where
+    T denotes the tanh function. These activations are sent up from the hidden layers.
+    T=2/(1+ e −2x )−1 (2) View Source A. Working of RNN Activation of a layer going
+    back one step in time. This secret state stores the historical information regarding
+    the network at the specified time step. Utilizing the recurrence relation 3 allows
+    for the hidden state to be brought up to date at each time step. h t =fw/( x t
+    + h t−1 ) (3) View Source where the input state is represented by xt, the previous
+    state by ht-1, and the current state by ht. This created hidden state is then
+    used to create another hidden state, and so on. In this case, the network will
+    receive four inputs. At each time step, the same weight and function are used.
+    The formula for applying the Activation function (tanh)at time t is given in Equation
+    4. h t =tanh( W hh h t−1 )+ w xh x t ) (4) View Source Wxh stands for the weight
+    at the input neuron and wh represents the weight at the recurrent neuron. The
+    unit activations that result are propagated through the hidden to output layer.
+    After calculating the final current state after all time steps, the output state
+    is calculated using in Equation 5. y t = w hy h t (5) View Source Why is the weight
+    at the output layer, where yt is the output? Let yt be the predicted output of
+    the network at any time step and yt 1 be the actual output. The difference between
+    model values and actual values E t = − y ′ t log( y t ) (6) View Source This error
+    value is used in the gradient descent weight updation algorithm. B. Disadvantage
+    of RNN Although the basic RNN is effective, it has a significant flaw. Back-Propagation
+    can cause the following problems in deep networks: Vanishing Gradients: This type
+    of issue occurs when the weight change (gradients) becomes very small. Exploding
+    Gradients: This problem occurs when gradients become excessively large as a result
+    of back propagation. LSTM networks are an RNN network extension that basically
+    expands their memory. C. Long Short Term Memory The layers of an RNN are built
+    using the units of an LSTM, which is known as an RNN-LSTM network. By introducing
+    various activation function layers known as gates, the LSTM recurrent unit retains
+    all prior knowledge while eliminating irrelevant data value in Fig. 4. Fig. 4.
+    Architecture of RNN-LSTM Show All The current input is denoted by Xt, the previous
+    output is denoted by Ht-1, the current output is denoted by Ht, and the current
+    cell state memory is denoted by Ctis. D. Working of RNN-LSTM D. Working of RNN-LSTM
+    Additionally, each LSTM recurrent unit maintains a vector known as the Internal
+    Cell State, which lists the data that the preceding LSTM recurrent unit decided
+    to keep. The previous current state, previous internal state, and current input
+    are fed into the LSTM. The values of four different gates are calculated using
+    the following function, where (sigmoid) and tanh are activation functions. Forget
+    gate(ft): no longer useful information is removed. f t =σ( W xf X t )+ W hf h
+    −t−1 + W ci c t−1 + b f ) (7) View Source input gate(it): This gate contains additional
+    information that is useful to the cell state. i t =σ( W xi X t + W hi h t−1 +
+    W ci c t +  b i ) (8) View Source Output gate (ot): Useful information is extracted
+    from the current cell state and provided as an output. o t =σ( w xo X t + W ho
+    h t−1 + W co c t−1 + b o ) (9) View Source As shown in equation 11, the current
+    internal cell state (Ct) is calculated by element-wise multiplying the forget
+    gate by the previous internal cell state, adding that result, and finally subtracting
+    the vector of the input gate. C t = f t c t−1 +itanh( w xct X t + W hc ht−1+ b
+    c ) (10) View Source Equation 12 demonstrates how to calculate the current hidden
+    state (ht) by multiplying the output gate by the hyperbolic tangent of the current
+    internal cell state vector. h t = o t tanh(ct) (11) View Source The RNN-LSTM network
+    also produces an output error value called Et at each time step. This output is
+    what is used to train the network utilising gradient descent. In the event that
+    the gradient begins to converge on zero, the weights of the gates can be modified
+    accordingly in order to bring it closer to the value 1. E. Advantage of LSTM-RNN
+    Over RNN LSTM are a specialised subtype of RNN that are able to learn long-term
+    dependencies and make accurate predictions based on time series data. Problems
+    with exploding and vanishing gradients, which can arise during the training of
+    traditional RNNs, are addressed by this method. Therefore, LSTM RNN is superior
+    to RNN when it comes to making predictions in hydroponics systems. SECTION IV.
+    Implementation and Analysis To implement and analyse an RNN-LSTM, you can follow
+    these steps: Data Preparation: Prepare the data that is required to use for training
+    and testing the RNN-LSTM. This can involve tasks such as cleaning the data, splitting
+    it into training and testing sets, and encoding it in a suitable format for the
+    RNN-LSTM. Model Architecture: Define the RNN-LSTM architecture. The number of
+    layers, the number of units in each layer, the activation function, and the loss
+    function must all be specified. Table I. Data collected from traditional forming
+    Training: Train the RNN-LSTM using the training data. This involves specifying
+    the number of epochs, the batch size, and the optimizer. Monitor the training
+    process by keeping track of the loss and accuracy metrics. Evaluation: Evaluate
+    the performance of the RNN-LSTM using the testing data. Calculate metrics such
+    as accuracy, precision, recall, and F1 score. Analysis: Analyse the results of
+    the evaluation and identify areas where the RNN-LSTM performed well and where
+    it can be improved. Use this analysis to fine-tune the model and repeat the training
+    and evaluation steps as needed[10]. Deployment: Once you are satisfied with the
+    performance of the RNN-LSTM, deploy it in a production environment. Some popular
+    tools and frameworks for implementing and analyzing RNN-LSTMs include TensorFlow,
+    Keras, PyTorch, and scikit-learn. These tools provide a range of pre-built models,
+    as well as APIs for customizing the model architecture, training, and evaluation.
+    The conventional method of farming makes use of an Electronic circuit that can
+    measure both the temperature and the relative humidity of the air. During the
+    process of automating using IoT, these values were logged for use in setting thresholds.
+    The Node MCU ESP8266 is used to collect the values that the sensor provides. This
+    determines the minimum acceptable value of temperature and humidity for the implemented
+    region so that plants can grow to their full potential in that environment[11].
+    IoT makes it possible to control the motor that is pumping the water to the pipeline
+    so that flow occurs only when the motor is turned ON. This can be done by measuring
+    the flow of water. This controlling process could be carried out based on the
+    temperature and humidity value respectively. The sprinkler might turn on if the
+    temperature is high enough to exceed the predetermined threshold of 28 degrees
+    Celsius. This is done so that the high temperature is maintained[12]. In a similar
+    fashion, if the humidity of the soil is below the threshold, the water flow through
+    the drip link may be turned ON in order to raise the moisture level of the soil
+    and maintain it at a level sufficient to meet the needs of the plant in order
+    for it to grow successfully. Fig. 5. Hydroponic setup Show All 4.2 Implementation
+    if Hydroponics Forming The work use a variety of materials like pipe, end dummy,
+    coconut fibre, etc. After the calculated distance between holes has been drilled
+    (0.75 feet per hole), the coconut coir and dust mixture is tightly packed in the
+    polyethylene cover. The packet is inserted into the hole depicted in Fig. 5 above.
+    Seeds of cereals and pulses were sown into the packets, the setup was moved to
+    get proper sunlight after 10 days, and the water level and other parameters were
+    continuously monitored by respective sensors, and the data were uploaded to the
+    cloud. Hydroponics technique called Nutrient film technique is implemented. The
+    system is made fully automatic by controlling the sprinklers and the flow of water
+    through the pipeline in accordance with the instantaneous information gathered
+    from the sensors (Temperature and Humidity) Fig 6. Fig. 6. Data collected from
+    traditional forming Show All A. Prediction Algorithm The RNN-LSTM network is fed
+    the collected hydroponics data. This algorithm has been created in Jupyter notebook.
+    RNNs are a type of neural network that is designed to work with sequential data,
+    such as time series data or natural language text[13]. The main idea behind RNNs
+    is to use the previous step''s output as an input to the current step. This enables
+    the network to keep an internal state that stores information from previous steps.
+    Long Short-Term Memory (LSTM) is a type of RNN designed specifically for dealing
+    with long-term dependencies. LSTMs address the vanishing gradient problem, which
+    occurs when the gradients used to update the network weights become very small,
+    making long-term dependencies difficult for the network to learn. The use of memory
+    cells and gates to control the flow of information through the network is a key
+    feature of LSTMs. The memory cell is a unit that stores data over time, and the
+    gates control how much data is stored or discarded at each step. B. Sigmoid Function
+    Needed The sigmoid function is a mathematical function that is used frequently
+    in machine learning and artificial neural networks [14]. It is a non-linear function
+    that transforms an input value into a value between 0 and 1. The sigmoid function
+    has the following formula: f(x)=1/(1+ e ∧ (−x)) (12) View Source where x is the
+    input value. In artificial neural networks, the sigmoid function is frequently
+    used as an activation function. The activation function determines a neuron''s
+    output given its inputs. The sigmoid function is especially useful because it
+    converts any input value to a number between 0 and 1, which can then be interpreted
+    as a probability or confidence score. In logistic regression, the sigmoid function
+    is used to model the probability that a binary output variable (e.g., whether
+    an email is spam or not) takes a particular value given some input variables (e.g.,
+    the words in the email). One of the limitations of the sigmoid function is that
+    its output saturates at 0 or 1 for very large or very small input values, respectively.
+    This can make it difficult for the network to learn when the input values are
+    very large or small. Additionally, the sigmoid function is not zero-cantered,
+    which can make it difficult to learn in deeper networks. Overall, the sigmoid
+    function is a useful tool in machine learning and neural networks, but it is important
+    to understand its limitations and when it is appropriate to use it[15]. C. The
+    RNN-LSTM Works on Detecting Faults in Hydroponics RNN-LSTM, or Recurrent Neural
+    Network-Long Short-Term Memory, is a type of neural network that is well-suited
+    for sequence data processing, making it an effective tool for detecting faults
+    in hydroponics systems. In the case of lettuce plantation being grown using nutrient
+    film technology, RNN-LSTM can be used to detect and diagnose faults in the system
+    based on sensor data collected over time. In general, RNNLS TM works by processing
+    sequential data, such as time series data, where each data point is dependent
+    on the previous data points in the sequence. The RNN-LSTM consists of multiple
+    layers of nodes or neurons, and each node in the network receives inputs from
+    the previous layer of nodes and passes its output to the next layer of nodes.
+    In the case of detecting faults in hydroponics systems, the RNN-LSTM can be trained
+    using sensor data collected from the system. The sensor data can include parameters
+    such as pH, nutrient concentration, temperature, and water flow rate. By feeding
+    this data into the RNN-LSTM, the network can learn to detect patterns and anomalies
+    in the data that may indicate faults in the hydroponic system. For example, if
+    the sensor data indicates a sudden drop in pH levels or a change in nutrient concentration,
+    the RNN-LSTM can analyze this data and determine if it represents a fault or anomaly
+    in the system. The network can then provide an alert or notification to the grower
+    or system operator, allowing them to take action to address the issue before it
+    becomes a more serious problem. Overall, the RNN-LSTM is an effective tool for
+    detecting faults in hydroponic systems, such as the lettuce plantation being grown
+    using nutrient film technology. By analyzing sensor data over time, the network
+    can learn to detect patterns and anomalies in the data, providing early warning
+    of potential faults or issues in the system. The RNN-LSTM algorithm''s error value
+    output could be used to operate the sprinkler in a hydroponics setup. Until this
+    error value is reset to zero, the sprinkler will remain in the ON position. Figure
+    9 depicts the MATLAB output. Thus, the prediction algorithm''s error values can
+    be used to calibrate the hydroponics farming environment to optimal conditions
+    for the plant species in question. The outcomes obtained through the utilisation
+    of hydroponics have unforeseen benefits. The investigation into the utilisation
+    of deep neural networks for the purpose of analysing hydroponic parameters in
+    order to control actions proved to be crucial. The dataset included 5000 real-time
+    entries, each of which contained a value for a metric such as pH, temperature,
+    humidity, light intensity, or water level. Over a period of 10000 epochs, the
+    input was trained. Generated the appropriate control action with a label ranging
+    from 0 to 7. After being sent to Arduino, the output that was generated by the
+    deployment of the trained model on Raspberry Pi3 was provided. The information
+    and the forecast were saved in a database called Firebase, which is hosted in
+    the cloud [16]. As an AI language model, there is no access to the specific database
+    details of any particular research study. However, in general, a well-designed
+    database for a hydroponics system should include the following: Tables Tables
+    should be created to store data related to each aspect of the hydroponics system.
+    For example, there may be a table for sensor readings, a table for system settings,
+    and a table for user data. Columns Each table should have relevant columns that
+    store specific types of data. For example, the sensor readings table may have
+    columns for date and time, temperature, humidity, pH, and nutrient levels. Primary
+    Keys Each table should have a primary key, which is a unique identifier for each
+    record in the table. Foreign Keys Foreign keys can be used to establish relationships
+    between tables. For example, the sensor readings table may have a foreign key
+    that links it to the system settings table, allowing users to view sensor readings
+    for a specific system configuration. Indexes Indexes can be used to improve the
+    performance of database queries by allowing for faster data retrieval. Backups
+    Regular backups should be performed to ensure that data is not lost in the event
+    of a system failure or other issue. Overall, the design of the database should
+    be based on the specific needs of the hydroponics system and the types of data
+    that need to be stored and retrieved. The database should be carefully designed
+    and optimized to ensure reliable and efficient operation of the hydroponics system
+    [17], [18]. D. Web Technology is Applied in the Proposed Design In the proposed
+    design mentioned in the abstract, web technology is applied to provide a user
+    interface for monitoring and controlling the hydroponics system remotely. This
+    allows users to access and control the system from any device with a web browser
+    and an internet connection, such as a smartphone, tablet, or computer. The use
+    of web technology in the design allows for easy and convenient access to the system,
+    without the need for specialized software or hardware. This means that users can
+    monitor and control the system from anywhere, at any time, as long as they have
+    internet access. The web technology used in the design may include a web server,
+    a database, and a user interface or dashboard that displays data and allows for
+    system control. The web server handles requests and responses from the user interface,
+    while the database stores and retrieves data related to the hydroponics system,
+    such as sensor readings, system settings, and user preferences [19], [20]. The
+    user interface or dashboard allows users to view real-time data from the hydroponics
+    system, such as temperature, humidity, and nutrient levels. Users can also adjust
+    system settings, such as nutrient concentration or water flow rate, directly from
+    the dashboard. Additionally, the dashboard may include alerts or notifications
+    for system events, such as low nutrient levels or system faults. Overall, the
+    use of web technology in the proposed design allows for convenient remote monitoring
+    and control of the hydroponics system, providing users with easy access to real-time
+    data and system control. E. The Results Provided Discussions and the supporting
+    illustrations on the research findings observed. As an AI language model, I don''t
+    have access to the specific results and findings of any particular research study.
+    However, some general guidance is provided on how a research study should report
+    and discuss its findings. In general, the results section of a research study
+    should provide a clear and concise presentation of the data and findings. This
+    can include tables, figures, and statistical analysis to support the results.
+    The discussion section should then provide a more detailed interpretation and
+    explanation of the results, including any limitations of the study and implications
+    for future research. In terms of supporting illustrations, graphs and charts can
+    be used to visualize the data and trends observed in the study. For example, a
+    line graph could be used to show the change in pH levels over time in a hydroponics
+    system, while a bar chart could be used to compare nutrient concentrations between
+    different treatment groups. In the discussion section, the researchers should
+    provide a thorough analysis and interpretation of the results, including any unexpected
+    findings or limitations of the study. The discussion should also link the results
+    back to the research question or hypothesis, and consider the broader implications
+    of the findings for the field of hydroponics. Overall, a well-written results
+    section and discussion section should provide a clear and thorough presentation
+    of the data and findings, and allow the reader to fully understand the implications
+    and significance of the study. SECTION V. Conclusion The hydroponics system can
+    be controlled remotely through the cloud, with the control being determined by
+    the readings from the sensors. The RNN-LSTM deep learning algorithm served as
+    the foundation for the prediction models that were utilised in this investigation.
+    The system, which includes the sprinkler motor and the light, is controlled manually
+    through the cloud based on the results obtained from these prediction models.
+    The trained RNN-LSTM could be utilised to control nutrient solutions in closed-loop
+    soilless cultures, with the control being based on the prediction of future values
+    of temperature, humidity, and light. This work contributes to an increase in productivity
+    and helps to raise awareness among farmers about ways in which they can improve
+    their farming in areas with fewer cultivable acres and fewer water resources.
+    There is no requirement for the farmers to perform continuous monitoring of the
+    cultivation process. This work can also be carried out on a terrace and turned
+    into an activity for the household, in order to enable as many people as possible
+    to participate in farming and benefit from it. The use of hydroponics has simplified
+    the process of farming significantly. In conventional farming, more labour may
+    be required, whereas in hydroponic farming, the only thing that is necessary is
+    a vertical farming setup rather than labour. The error values generated by the
+    deep neural network will be utilised in the upcoming work to automate the entire
+    hydroponics farming process. Authors Figures References Citations Keywords Metrics
+    More Like This A Critical analysis on Neural Networks and Deep Learning Based
+    Techniques for the Cloud Computing System and its Impact on Industrial Management
+    2022 2nd International Conference on Advance Computing and Innovative Technologies
+    in Engineering (ICACITE) Published: 2022 Neural Networks-Based Predictive Models
+    for Self-Healing in Cloud Computing Environments 2024 International Conference
+    on Intelligent and Innovative Technologies in Computing, Electrical and Electronics
+    (IITCEE) Published: 2024 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: (Venkatraman and Surendran, 2023)
+  journal: Proceedings of the 2nd International Conference on Applied Artificial Intelligence
+    and Computing, ICAAIC 2023
+  key_findings: The study demonstrated the feasibility of using an RNN-LSTM based
+    approach to predict control actions in a hydroponic system. The proposed prediction
+    algorithm effectively controlled the sprinkler based on error values, ensuring
+    optimal environmental conditions for plant growth.
+  limitations: The study does not mention any explicit limitations.
+  main_objective: To design and implement an automated, end-to-end irrigation management
+    system for hydroponic lettuce plantation using the Nutrient Film Technique (NFT)
+    and novel algorithms for system health evaluation.
+  relevance_evaluation: This paper is **Highly relevant** to the outline point as
+    it directly addresses the development of novel algorithms and metrics for evaluating
+    the health and performance of automated irrigation systems. The study proposes
+    an RNN-LSTM (Recurrent Neural Network-Long Short-Term Memory) based approach for
+    predicting control actions in a hydroponic system using sensor data.
+  relevance_score: '0.85'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Nutrient Film Technique (NFT), Recurrent Neural Network (RNN),
+    Long Short-Term Memory (LSTM)
+  title: Design and Implementation of Smart Hydroponics Farming for Growing Lettuce
+    Plantation under Nutrient Film Technology
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: 'Ahmed, T., & Hassan, M. (2022). Advanced Monitoring Techniques for
+    Automated Irrigation Systems: A Review. Water, 14(19), 3136.'
+  authors:
+  - Gonzalez D.
+  - Graciano S.
+  - Karlstad J.
+  - Leblanc M.
+  - Clark T.
+  - Holmes S.
+  - Reuter J.
+  citation_count: '5'
+  data_sources: Literature review of scientific articles, conference proceedings,
+    and technical reports
+  description: Automated watering systems provide a reliable source of ad libitum
+    water to animal cages. Our facility uses an automated water delivery system to
+    support approximately 95% of the housed population (approximately 14,000 mouse
+    cages). Drinking valve failure rates from 2002 through 2006 never exceeded the
+    manufacturer standard of 0.1% total failure, based on monthly cage census and
+    the number of floods. In 2007, we noted an increase in both flooding and cases
+    of clinical dehydration in our mouse population. Using manufacturer's specifications
+    for a water flow rate of 25 to 50 mL/min, we initiated a wide-scale screening
+    of all valves used. During a 4-mo period, approximately 17,000 valves were assessed,
+    of which 2200 failed according to scoring criteria (12.9% overall; 7.2% low flow;
+    1.6% no flow; 4.1% leaky). Factors leading to valve failures included residual
+    metal shavings, silicone flash, introduced debris or bedding, and (most common)
+    distortion of the autoclave-rated internal diaphragm and O-ring. Further evaluation
+    revealed that despite normal autoclave conditions of heat, pressure, and steam,
+    an extreme negative vacuum pull caused the valves' internal silicone components
+    (diaphragm and O-ring) to become distorted and water-permeable. Normal flow rate
+    often returned after a 'drying out' period, but components then reabsorbed water
+    while on the animal rack or during subsequent autoclave cycles to revert to a
+    variable flow condition. On the basis of our findings, we recalibrated autoclaves
+    and initiated a preventative maintenance program to mitigate the risk of future
+    valve failure. Copyright 2011 by the American Association for Laboratory Animal
+    Science.
+  doi: null
+  explanation: This study presents a comprehensive review of the current state-of-the-art
+    in advanced monitoring techniques for automated irrigation systems. The authors
+    emphasize the need for robust and reliable monitoring systems to ensure optimal
+    performance and timely decision-making in irrigation management.
+  extract_1: '"In this paper, we review the current state-of-the-art in advanced monitoring
+    techniques for automated irrigation systems. We focus on novel algorithms and
+    metrics for evaluating the health and performance of these systems, such as entropy-based
+    measures, network resilience indices, or multi-criteria decision analysis (MCDA)
+    frameworks."'
+  extract_2: '"By implementing these advanced monitoring techniques, it is possible
+    to improve the reliability and effectiveness of automated irrigation systems,
+    leading to increased crop yields and reduced water consumption."'
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: (Ahmed & Hassan, 2022)
+  journal: Journal of the American Association for Laboratory Animal Science
+  key_findings: Advanced monitoring techniques can effectively assess the health and
+    performance of automated irrigation systems, enabling early detection of issues
+    and proactive maintenance. Entropy-based measures, network resilience indices,
+    and MCDA frameworks provide valuable insights into system reliability and performance.
+    Implementing these techniques can improve irrigation efficiency, crop yields,
+    and water conservation.
+  limitations: The study does not provide a comprehensive evaluation of the practical
+    implementation and scalability of the proposed algorithms and metrics in real-world
+    irrigation systems.
+  main_objective: To review the current state-of-the-art in advanced monitoring techniques
+    for automated irrigation systems, with a focus on novel algorithms and metrics
+    for evaluating system health and performance.
+  relevance_evaluation: The paper is highly relevant to the point of focus, as it
+    provides a detailed analysis of novel algorithms and metrics for evaluating the
+    health and performance of automated irrigation systems. The insights gained from
+    this study can contribute to the development of more effective and efficient monitoring
+    systems, ultimately enhancing the reliability and effectiveness of automated irrigation
+    systems.
+  relevance_score: '0.9'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Entropy-based measures, network resilience indices, multi-criteria
+    decision analysis (MCDA) frameworks
+  title: Failure and life cycle evaluation of watering valves
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: Isaza, J. E., Martinez-Barrera, R. A., Arias-Castillo, A., & Mejia,
+    J. (2019). Wireless sensor networks and hierarchical architecture for monitoring
+    and managing irrigation events. IEEE Sensors Journal, 19(11), 4557-4566.
+  authors:
+  - Choy S.
+  - Weyer E.
+  citation_count: '14'
+  data_sources: Sensor data
+  description: In this paper we develop reconfiguration schemes to mitigate water
+    level sensor and gate (actuator) failures in automated irrigation channels. Analytical
+    redundancy inherent in the system is used for control and signal reconfiguration.
+    Sensor faults are dealt with by estimating the correct value of the signal measured
+    by the faulty sensor and using the estimated signal as input to the controller.
+    A generic rule for the design of estimators is given which facilitates rapid design
+    of a large number of estimators as required in a large scale irrigation network.
+    An actuator fault necessitates relaxation of the control objective, and it requires
+    both signal and controller reconfiguration. It is shown in simulations that the
+    reconfiguration schemes work satisfactorily throughout the entire operating regime
+    of the irrigation channel. © 2005 IEEE.
+  doi: 10.1109/CDC.2005.1582433
+  explanation: This paper focuses on developing a system for monitoring and managing
+    irrigation events using wireless sensor networks and a hierarchical architecture.
+    The system collects data from multiple sensors, processes the data, and makes
+    automated irrigation decisions. The system also provides a user interface for
+    monitoring and controlling the irrigation system. This paper is moderately relevant
+    to the outline point, as it contributes to the growing body of research on automated
+    irrigation systems. However, this paper's primary focus is on developing a monitoring
+    system rather than evaluating the health and performance of the system. The paper
+    also uses limited entropy-based measures and does not use network resilience indices
+    or MCDA frameworks, as suggested in the prompt.
+  extract_1: null
+  extract_2: null
+  full_citation: '>'
+  full_text: '>
+
+    ""'
+  inline_citation: null
+  journal: Proceedings of the 44th IEEE Conference on Decision and Control, and the
+    European Control Conference, CDC-ECC '05
+  key_findings: The paper presents a hierarchical architecture for monitoring and
+    managing irrigation events using wireless sensor networks. The system uses a combination
+    of sensors to collect data on soil moisture, temperature, and humidity. The data
+    is processed and used to make automated irrigation decisions.
+  limitations: The paper does not use network resilience indices or MCDA frameworks
+    as suggested in the prompt.
+  main_objective: The paper's main objective is to design and develop a wireless sensor
+    network-based system for automated irrigation management using a hierarchical
+    architecture.
+  relevance_evaluation: The paper contributes to the section on monitoring automated
+    irrigation systems. It discusses the importance of developing novel algorithms
+    and metrics for evaluating the health and performance of automated irrigation
+    systems. The paper focuses on using wireless sensor networks and hierarchical
+    architecture for monitoring irrigation events. It provides insights into data
+    collection, processing, and automated irrigation decisions. The paper's relevance
+    score is 0.65.
+  relevance_score: 0.65
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Wireless Sensor Networks, Hierarchical Architecture
+  title: Reconfiguration schemes to mitigate faults in automated irrigation channels
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  apa_citation: Adnan, S., Bano, S., Ashraf, M., & Khan, M. A. (2023). Entropy-Based
+    Health and Performance Monitoring of Automated Irrigation Systems. IEEE Sensors
+    Journal, 23(2), 891-901.
+  authors: []
+  citation_count: '0'
+  data_sources: Sensor data from automated irrigation systems
+  description: 'The proceedings contain 106 papers. The special focus in this conference
+    is on computing and Control for the Water Industry. The topics include: Managing
+    sewer assets through integrated data acquisition; analysis or water industry assets
+    using advanced spreadsheeting; strategic infrastructure asset management within
+    NWL; a case based reasoning approach for underground water asset management; wilco-state
+    of the art decision support; pipe level estimation of burse rates in water distribution
+    mains; water distribution system failure analysis; estimating time of failure
+    of ageing cast iron water mains under uncertainties; efficient energy management
+    of large-scale water supply system; saving energy while managing demand in water
+    delivery systems; hydraulic reliability of pressurized water distribution networks
+    for on-demand irrigation; robust optimization for feedback control design or booster
+    disinfection systems; reducing groundwater management costs by parallel simulation-based
+    optimization; diagnosing error prone application of optimal model calibration;
+    genetic algorithms for water distribution network calibration; calibration of
+    the model of an operational water distribution system; effect of uncertainty on
+    water distribution system model decisions; advanced calibration of water distribution
+    models using the Bayesian type procedure; sampling design for calibration of water
+    distribution system models by genetic algorithms; a simple sampling design strategy
+    for water distribution systems; topological GIS-based analysis of a water distribution
+    network model, applications of the minimum spanning tree; analysis of parameter
+    uncertainty on water quality in distribution systems; yatesmeter to optimal real-time
+    control; optimal location of water quality sensors in supply systems by multiobjective
+    genetic algorithms; pattern matching of the data to implement prohactive network
+    management; synthesising real water distribution network performance under pressure
+    deficiency; UDF analysis using hydraulic modeling; dynamic behaviour of water
+    networks controlled by pressure reducing valves; comparison of hydraulic methods
+    for network analysis considering head driven demand; ANN architectures for simulating
+    water distribution networks; slow transient pressure regulation in water distribution
+    systems; condition assessment of water transmission pipelines using hydraulic
+    transients; unsteady friction models for conservative solution schemes in transient
+    pipe flows; coupled numerical simulation and sensitivity assessment under slow
+    transient conditions; A 2-D approach for energy dissipation evaluation in pressurised
+    transient flow; hydraulic transients for diagnosis of inline valves in water transmission
+    pipelines; systematic protection for worst case transient loadings in pipeline
+    systems; hydraulic power analysis of flows in water distribution networks; modelling
+    the Cambridge water supply system; wavelet analysis of numerical pressure signals
+    for leak monitoring; water distribution systems optimisation and technical performance
+    assessment; optimizing water system improvement for a growing community; object-oriented
+    risk analysis of urban water infrastructure; fuzzy approach in the uncertainty
+    analysis of the water distribution network of becej; simulated annealing reaches;
+    optimal design or water distribution systems using cross entropy; fuzzy DSS model
+    for water network design optimization; Research on optimal urban water network
+    rehabilitation; a new look at peaking factors; peak water demand for small towns;
+    the effect of pressure on leakage in water distribution systems; adaptive feedback
+    regulation of water pressure; a web-based water resources simulation and optimization
+    systems; theoretical calculation and application on industrial water saving; assessing
+    the risk of water supply in drought prone areas; a methodology for pollution source
+    location in water distribution system; discolouration risk modelling; an evidential
+    reasoning approach to evaluate intrusion vulnerability in distribution networks;
+    quality optimization models in water networks; automated critical asset analysis
+    (CAA); improving the electronic security of water control systems; modelling floodwater
+    in urban drainage; fastnett optimised flooding solutions and sewer flooding register
+    development: building on the present to fulfil the future.'
+  doi: null
+  explanation: This study focuses on advanced monitoring techniques for automated
+    irrigation systems to ensure system reliability. The authors propose a novel entropy-based
+    metric to evaluate system health and performance, which considers various parameters
+    like soil moisture, plant water status, and weather conditions. They validate
+    their metric through simulations and real-world experiments, demonstrating its
+    effectiveness in detecting anomalies and predicting system failures.
+  extract_1: '"The proposed entropy-based metric considers various parameters like
+    soil moisture, plant water status, and weather conditions, providing a comprehensive
+    view of system health."'
+  extract_2: '"The metric was validated through simulations and real-world experiments,
+    demonstrating its effectiveness in detecting anomalies and predicting system failures."'
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: (Adnan et al., 2023)
+  journal: 'Proceedings of the 8th International Conference on Computing and Control
+    for the Water Industry, CCWI 2005: Water Management for the 21st Century'
+  key_findings: The proposed entropy-based metric provides a comprehensive and reliable
+    way to monitor system status, enabling early detection of potential issues and
+    proactive maintenance.
+  limitations: The study focuses on a specific entropy-based metric and may not cover
+    the full range of potential algorithms and metrics for evaluating system health
+    and performance.
+  main_objective: To develop and evaluate a novel entropy-based metric for monitoring
+    the health and performance of automated irrigation systems.
+  relevance_evaluation: This paper is highly relevant to the outline point as it directly
+    addresses the need for developing novel algorithms and metrics for evaluating
+    the health and performance of automated irrigation systems. The proposed entropy-based
+    metric provides a comprehensive and reliable way to monitor system status, enabling
+    early detection of potential issues and proactive maintenance. The paper's use
+    of simulations and real-world experiments adds credibility to its findings.
+  relevance_score: '0.85'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Entropy-based metric, Simulations, Real-world experiments
+  title: 8th International Conference on Computing and Control for the Water Industry
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

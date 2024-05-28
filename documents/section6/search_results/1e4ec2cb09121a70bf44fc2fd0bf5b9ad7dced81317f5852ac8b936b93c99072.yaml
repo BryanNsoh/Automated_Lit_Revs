@@ -1,0 +1,745 @@
+- DOI: https://doi.org/10.1109/ams.2015.17
+  analysis: '>'
+  authors:
+  - M. Amir Abas
+  - Nor Amalia Sapiee
+  - Maznah Dahlui
+  citation_count: 2
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Loading [MathJax]/extensions/MathMenu.js
+    IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2015 9th Asia Modelling Sympo...
+    Autonomous Irrigation Hours through Loop Signals of Weather Sensors Publisher:
+    IEEE Cite This PDF M. Amir Abas; N. Amalia Sapiee; Maznah Dahlui All Authors 2
+    Cites in Papers 116 Full Text Views Abstract Document Sections I. Introduction
+    II. Autonomous Irrigation System III. Measurement Exercise IV. Sampling Time V.
+    Discussion Show Full Outline Authors Figures References Citations Keywords Metrics
+    Abstract: This paper presents new technique of autonomous control for Greenhouse
+    irrigation system. The control is used to manage the irrigations hours with the
+    aim to reduce cost and increase plant growth performance. This unique control
+    involves with loop signals through weather sensors which monitors the changes
+    of weather condition. Three sensors namely temperature, humidity and pyranometer
+    are used to provide signals that are known as multiplying factor for the control
+    algorithm to perform autonomous adjustment for the next irrigation time. The algorithm
+    involves with a constant K which is applied as time setting for daily irrigation.
+    The time setting autonomously changed associated with the changes of weather such
+    as dry climax, raining and hot weather. The control algorithm has been tested
+    and the result shows the management of soil moisture through weather feedback
+    element is economically improved and would be possible to increase yearly crop
+    yield. Published in: 2015 9th Asia Modelling Symposium (AMS) Date of Conference:
+    07-09 September 2015 Date Added to IEEE Xplore: 31 October 2016 ISBN Information:
+    Electronic ISSN: 2376-1172 DOI: 10.1109/AMS.2015.17 Publisher: IEEE Conference
+    Location: Kuala Lumpur, Malaysia SECTION I. Introduction Systems for the future
+    will increasingly have the characteristics of the autonomous features. Autonomous
+    is described as independent system which runs with minimum supervision. In this
+    greenhouse application some parts of control are necessarily need autonomous features.
+    This could enhance the capability of the system that would improve the environment
+    for the healthy plants. Autonomous control is designed to perform for several
+    functions as follow Monitoring intruder e.g. monkeys. Watering plants Solar Power
+    control The new functions of the greenhouse was developed using small size of
+    control board. The board is a readymade board with microcontroller 18F4250. It
+    has 5 ports which are sufficient for small control application. Besides the board,
+    additional peripheral circuits are also required to facilitate the monitoring
+    functions such as Real time circuit (RTC), Humidity and Temperature sensor board
+    and relay board. Configuration of the board and the supporting circuits is done
+    through MicroC (compiler and debugger). In this article the focus is emphasized
+    on autonomous control for irrigation system of greenhouse. Systematic Irrigation
+    system is crucial for plantation particularly in tropical country. Tropical countries
+    like Malaysia have extreme phenomena against heat and high temperature on day
+    time. Over-heated through high ultra-violet could kill plants or promotes unhealthy
+    growth. Vegetable plant requires wet condition and scheduled irrigation time is
+    applied to ensure the plants are not dried. Irrigation through electronic timer
+    is not sufficient and not cost effective. Many researchers also introduce soil
+    monitoring through radio frequency to gather water contents of the soil [5] [10].
+    This technique is manned for monitoring a big plantation. However the limitation
+    of this technique is the maintenance cost is high. The sensors are planted in
+    the soil and transmits the soil information to the main controller. A new technique
+    is proposed with different strategies in controlling the irrigation time. The
+    mechanism of control is based on environment changes and feedback the changes
+    to the algorithm for calculating the irrigation time. SECTION II. Autonomous Irrigation
+    System Figure 1 shows the block diagram of the irrigation control system. The
+    system involves with three environment sensors namely ultra violet sensor, humidity
+    and temperature sensors. The sensors are used to measure the condition of the
+    greenhouse and feedback the data to watering algorithm. Figure 1. Block diagram
+    of autonomous watering system Show All The watering algorithm will process and
+    calculate the data for determining the next irrigation time. In short to generate
+    the next activation time first calibration, K is set to determine the regular
+    hours for activation. Secondly the inputs from the three sensors are calculated
+    to produce multiply factor for K. The result is used to add with the present activation
+    time which then produce the next activation time. A. Parameters in the Algorithm
+    One of the factors to promote healthy growth for plants is effective control watering
+    system and humidity control level during day time. In tropical country temperature
+    could rise up to 37°C during peak noon daily. This temperature level is not suitable
+    for some vegetables plant that could reduce crop yield. Simple autonomous solution
+    to monitor the temperature level is by using sensors and Real Time Device (RTC).
+    One wire sensor SLTH1 is used in the system to measure two environment parameters
+    namely humidity and temperature. Another sensor is pyranometer which is used to
+    measure sun intensity. The control algorithm use feedback mechanism from the three
+    sensors to decide the next activation time for water sprinkler. In general the
+    process of control is explained as shown in Figure 2. Figure 2. Flowchart of irrigation
+    hours Show All Measurements for the three parameters were carried out to generate
+    the next activation time. Once the time has been obtained it will be added with
+    RTC time to determine the actual Time for next activation. There are three values
+    involved in weather measurement for Green House. First is temperature parameter.
+    Temperature is induced from heat particularly from sun. During day time the heat
+    is increased especially during noon time. The higher the heat the more water from
+    soil is evaporated. As a result the higher frequency is required to watering the
+    plants. Second parameter is humidity. Humidity is defined as percentage of water
+    contents in air. Humidity is increasing after long raining and during night time.
+    In green house, water in soil is evaporated faster when heat is increased. This
+    causes humidity decreasing. In relation to watering frequency, the higher the
+    value of humidity means less number of watering frequency is applied. Figure 3.
+    Irradiance value for one day measurement Show All The third parameter in measurement
+    is irradiance. Irradiance is a measurement of solar power and is defined as the
+    rate at which solar energy falls onto a surface. The irradiance falling on a surface
+    can and does vary from moment to moment. The range of irradiance is within 0 to
+    1.6 kw/m2. A typical calibration factor C of pyranometer can be expressed as:
+    C=160 mV/(kw/ m 2 ) (1) View Source This value means that when the solar irradiance
+    Ee is 1 kw/m2 (typical for a clear, sunny day around noon) the pyranometer will
+    provide an output voltage around 160 mV. If the output voltage is found to be
+    80 mV, this indicates that the solar irradiance is about 0.5 kw/m2. Thus: Ee=V/C
+    (2) View Source where V is the signal voltage in millivolts and Ee is measured
+    in kw/m2. Normal day time at peak noon, irradiance is increased to 1.0 kw/m2.
+    The higher the irradiance indicates the weather is dry and hot. Therefore the
+    plants require more water per day. The range of irradiance is unique which becomes
+    multiply factor for calculating the next activation hours. The minimum reading
+    is zero that indicates night time while for day time it is slowly increased from
+    0 to 1.2 kw/m2 as shown in Figure 3. Apparently the total relation for the three
+    parameters with time activation could be described as follow: Time Activation∝
+    Humidity Temperature∗Irradiance (3) View Source The equation can be further justified
+    as Time Activation (H)=K∗ Humidity Temperature∗Irradiance    H=K∗ rh T∗Ee (4)
+    View Source Where K is a constant which related to the coefficient factor for
+    Time activation. The example of the calculation is shown as follow: E, g. During
+    hot time temperature = 37°C, irradiance = 1.2 kw/m2, Humidity = 37 % K in tropical
+    country → 1.2 (typical time setting value) H=1.2  ∗  37%/( 37 ∘ C  ∗  1.2)=1.0
+    or 1 hour 0 min View Source If the present time for activation is 10.00 am hence
+    the next activation will be 11.00 am. E.g. During raining season temperature =
+    29°C, irradiance = 0.6 kw/m2, humidity = 60 % Hours=1.2  ∗  60%/( 29 ∘ C  ∗  0.6)=4.1
+    or 4 hour 6 min View Source If the present time for activation is 10.00 am hence
+    the next activation will be 2.06 pm. B. Calibration K K is a constant which is
+    used to set the average hours for activating sprinkler. The range of K is from
+    0 to 5 (in volt 0 to 5 Vdc). The value is dependent on the location of country
+    and rain fall factor. In country which has low rain fall per year should apply
+    low K to increase the frequency of watering. Activation algorithm will use constant
+    K and weather data to calculate the suitable activation time for irrigation. There
+    are two situations where system will autonomously do adjustment according to the
+    sensor''s measurement. When the weather is changing to dry and hot, the algorithm
+    will calculate and shorten the next activation time for sprinkler. On the other
+    hand when the weather is changing to raining, the system will calculate and increase
+    the time for next activation. In the actual circuit K is set through simple potentiometer
+    to produce constant analog voltage. Simple analog level would be 0 to 5 Vdc. A
+    simple 3-Pot potential resistor (1KΩ) is used to vary the analog voltage. The
+    analog voltage is applied to Analog to Digital Converter (ADC) of microcontroller
+    for determining the digital value for K. The conversion of ADC extends the accuracy
+    of the calibration as the output of the ADC is in binary number from 0 to 255.
+    The algorithm for the simple calculation after ADC would be as follow: H= ADC
+    51 ∗ rh T∗Ee (5) View Source SECTION III. Measurement Exercise Measurement exercise
+    was carried out from 1st Dec 2010 until 31st Jan 2011 with the aim to evaluate
+    daily trend for temperature, humidity and irradiance. The location of the measurement
+    was conducted at Templer, Rawang, Selangor. Rawang area is considered small industrial
+    area and located nearby Genting Highlands. The weather is moderate at 20°C to
+    45°C throughout the year. The measurement graph as shown in Figure 6 is generated
+    from EDM system [4]. The graph shows the combination of the three measurements:
+    humidity, temperature and irradiance. The first day (31st Dec 2010) indicates
+    heavy rain causes the temperature raised to 35°C max while the humidity reading
+    is down to 54%. The irradiance is low 0.3 kw/m2 due to the sun was entirely covered
+    by the heavy clouds. The next day (1st Jan 2011) was totally different weather
+    condition where the sun was fully bright and this cause the irradiance swing to
+    1.2 kw/m2. SECTION IV. Sampling Time The graph of Figure 4 indicates that from
+    the three parameters, humidity and temperature are consistent while irradiance
+    has issue on cloudy which fluctuate the reading. There are several options to
+    decide on sampling time for control algorithm. The first option is by taking 10
+    readings within 20 minutes and the highest value is chosen and used for the algorithm.
+    The second option has similar method by taking 10 readings and an average for
+    the 10 readings is used in the sampling time. After considering the actual effect
+    of the cloudy condition which has minimum effect to the greenhouse condition,
+    the first option is chosen. Therefore sampling time for checking the condition
+    of greenhouse is 20 minutes and readings for humidity and temperature is taken
+    for every 20 minutes while reading for irradiance is sampled for 10 times within
+    20 minutes. The highest values will be taken and used in the algorithm. SECTION
+    V. Discussion Greenhouse project is a new concept of entrepreneurship for house
+    owners in Malaysia. The project involves with the design structure of the greenhouse,
+    control condition for plants, monitoring system, guarding system and etc. Part
+    of the system such as Environment Management System (EDM) has been designed and
+    presented [4]. Next the present works are related to autonomous control system
+    for power management and irrigation system. System dependent with solar energy
+    requires effective power management to ensure the system is running non-stop without
+    battery failure. Autonomous control for irrigation is in very productive progress.
+    The algorithm has been designed and formulated. The algorithm involves with a
+    new concept of monitoring the soil''s moisture. It uses weather changes that is
+    being read by three environment sensors. The response is feedback to the control
+    algorithm for calculating the new activation time. Techniques monitoring through
+    planted soil sensor is rigid in terms of the maintenance work. The new concept
+    using weather changes would improve the simplicity and it is very autonomous.
+    Figure 5 and 6 show two days activation graph for two days data measurement. Both
+    constant K have been set with 1.2. Day 1 indicates the transition of activation
+    hour is linearly shorten from 9.00 am to 12.00 pm. After 12.00 pm the graph changes
+    to irregularity condition where the transition of activation hours start to fluctuate.
+    This condition was due to the inconsistent irradiance values. In daily condition,
+    irradiance value is much affected by cloudy and raining. Day 2 (Figure 6) shows
+    worst irregularity condition than day 1. Irregularities causes inconsistency in
+    performing linear activation hours. What is the best solution to minimize the
+    inconsistency issue? As suggested in Section IV the solution is by increasing
+    the sampling time e.g. read 10 times irradiance values within 20 minutes (minimum
+    time frame) before the algorithm pick up the maximum value. The maximum value
+    apparently represents the actual value of irradiance. Other variables that also
+    cause inconsistency such as short raining, tick cloudy and etc. could also be
+    considered in the future for further improvement. In Figure 5 and 6 the straight
+    line indicate the ideal values for irrigation hours. This linear response would
+    help effective management of irrigation hours for greenhouse or big plantation.
+    SECTION VI. Conclusion Irrigation system in tropical countries is crucial because
+    it involves with cost and manpower. Tropical countries or two season countries
+    weather have high rain fall a year and high temperature during daytime. High temperature
+    is caused by heat from the sun and ultra violet ray. Therefore there are three
+    parameters involved in determining the weather condition which are temperature,
+    humidity and irradiance. The relation of the three parameters is interconnected
+    and the changes are used to relate with irrigation hours. Simple algorithm for
+    controlling irrigation hours comprise the three environment parameters and calibration
+    K. The algorithm is based on loop or feedback measurement from weather sensors
+    and the irrigation hours is respond to calculate the suitable hours for next activation
+    of sprinkler system. Figure 4. Measurement graph for two days using EDM Show All
+    Figure 5. Linear transition and irregularity condition of activation hours Show
+    All Figure 6. Irregularity condition throughout the whole day Show All ACKNOWLEDGMENT
+    This project is supported by STRG fund from UniKL and partly from e-science fund
+    01-02-13-SF0002. Although the fund was officially completed, the works are still
+    progressing for new findings. Special thanks to team members Maznah Dahlui from
+    Uni. Malaya for helping in structuring the contents of this article. Authors Figures
+    References Citations Keywords Metrics More Like This Inkjet printing on paper
+    for the realization of humidity and temperature sensors 2011 16th International
+    Solid-State Sensors, Actuators and Microsystems Conference Published: 2011 Variable
+    Waist-Diameter Mach–Zehnder Tapered-Fiber Interferometer as Humidity and Temperature
+    Sensor IEEE Sensors Journal Published: 2016 Show More IEEE Personal Account CHANGE
+    USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile
+    Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS
+    Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT
+    Follow About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use |
+    Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy
+    A not-for-profit organization, IEEE is the world''s largest technical professional
+    organization dedicated to advancing technology for the benefit of humanity. ©
+    Copyright 2024 IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: ''
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2015
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Autonomous Irrigation Hours through Loop Signals of Weather Sensors
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.14313/jamris_1-2019/5
+  analysis: '>'
+  authors:
+  - Lanre Daniyan
+  - Ezechi Nwachukwu
+  - Ilesanmi Daniyan
+  - Okere Bonaventure
+  citation_count: 2
+  full_citation: '>'
+  full_text: ">\nJournal of Automation, Mobile Robotics and Intelligent Systems\n\
+    VOLUME  13,      N°  1       2019\n37\nDevelopment and Optimization of an Automated\
+    \ Irrigation System\nLanre Daniyan, Ezechi Nwachukwu, Ilesanmi Daniyan, Okere\
+    \ Bonaventure\nSubmitted: 15 January 2019; accepted 23 February 2019\nDOI: 10.14313/JAMRIS_1-2019/5\n\
+    Abstract:\nThe deployment of appropriate technologies to enhance \nmodern agricultural\
+    \ practices and improve crop yields \nis imperative for sustainability. This paper\
+    \ presents the \ndevelopment of a standalone automated irrigation sys-\ntem. The\
+    \ system design features good automation and \ncontrol, which was achieved using\
+    \ an array of electronic \ntiming system, soil feedback sensor and wireless commu-\n\
+    nication system. Autonomous irrigation events are based \non the states of the\
+    \ timing system, the soil feedback sys-\ntem and the wireless communication system.\
+    \ The control \nand automation of these systems was done using an AVR \nmicrocontroller,\
+    \ which was programmed to trigger intelli-\ngent and independent farm irrigation\
+    \ operation through \na water pump attached to the system. The system also \n\
+    operates remotely via SMS command from mobile device \nand sends operational status\
+    \ feedback via SMS to pre-\nprogrammed mobile user(s). It also sends soil moisture\
+    \ \ncondition to a remote user upon query. The system pack-\nage was produced\
+    \ using additive manufacturing tech-\nnique. The power supply system was implemented\
+    \ using \nsolar power system in order to achieve a standalone, \nautonomous and\
+    \ reliable power supply necessary for an \nindependent operation. The performance\
+    \ evaluation of \nthe developed system show impressive response time, \ngood reliability\
+    \ and excellent stability. Furthermore, the \nnumerical experiment conducted using\
+    \ the Response \nSurface Methodology (RSM) produced a mathematical \nmodel for\
+    \ the optimization of the irrigation process for \noptimum performance and cost\
+    \ effectiveness. \nKeywords: \nAdditive \nmanufacturing, \nAutomation, \nIrrigation,\
+    \ Intelligent system, Microcontroller\n1. Introduction\nThe development of appropriate\
+    \ technologies in \nmodern agricultural practices have not only improved \ncrop\
+    \ yields but have also increased the ease with which \nfarming practices are being\
+    \ done especially with the \nadvent of robotic tools. With the increasing awareness\
+    \ \nand advocacy for round – the – year farming, and the \nneed to meet up with\
+    \ the challenge of global food de-\nmand, deploying appropriate technologies to\
+    \ increase \nproductivity and reduce the burden often associated \nwith farm practices\
+    \ has become inevitable. Since the \nrole of agriculture in the economic development\
+    \ of any \nnation cannot be overemphasized, there is need boost \nagricultural\
+    \ productivity with the use of intelligent sys-\ntems for increased food production\
+    \ and revenue gener-\nation [1–2]. One of such areas in agricultural practices\
+    \ \nthat has posed much burden, wasted useful times and \nresources is farm irrigation.\
+    \ Irrigation is the artificial \napplication of water to the land or soil which\
+    \ assist in \nthe growing of agricultural crops, maintenance of land-\nscapes,\
+    \ and revegetation of soils in dry areas as well \nas during periods of inadequate\
+    \ rainfall [3–5]. Mainly, \nthere are two types of irrigation systems namely;\
+    \ sprin-\nkler [6–7] and drip irrigation system [8–9]. The use of \nthe sprinkler\
+    \ irrigation system involves the spraying \nof water into the air with the aid\
+    \ of a pumping system \nand sprinkler, which falls on the crops in form of small\
+    \ \ndrops of water like the rain. It finds suitable applica-\ntion in farm rows\
+    \ or fields either uniform or undulating \n[10]. On the other hand, the drip irrigation\
+    \ involves the \npassage of water directly to the root of plants from or \nbelow\
+    \ the soil surface using pipes or tubes. This form \nof irrigation is highly effective\
+    \ and conservative and \nmost suitable in areas with acute shortage of water \n\
+    supply [11]. With regards to the challenges posed by \nconventional irrigation\
+    \ practices, the use of intelligent \nsystems for irrigation are better appreciated\
+    \ particu-\nlarly with large-scale farming. Conventional methods \nof irrigation\
+    \ are labour intensive, time-consuming, \nrelatively ineffective due to poor water\
+    \ distribution \nand lack of monitoring as well as smart control mech-\nanisms\
+    \ [12–13]. Its over-reliance on human control \nmakes it not suitable for large-scale\
+    \ farming [14–16]. \nAutomatic irrigation systems on the contrary are nei-\nther\
+    \ laborious nor time-consuming and can help meet \nthe ever increasing demand\
+    \ for food production all the \nyear round [17–18]. In addition, the process is\
+    \ cost ef-\nfective in the long run as the initial capital invested will \nbe\
+    \ offset via large scale farming to meet the increasing \ndemand for food production\
+    \ [19–20]. The burden the \nautomated irrigation system seeks to resolve is the\
+    \ abil-\nity to intelligently and independently irrigate the farm \nenvironment.\
+    \ As such, farmers can commit the time \nhitherto wasted on prolonged and laborious\
+    \ manual \nirrigation to other productive tasks while the system \nindependently\
+    \ executes the irrigation process. Accord-\ning to Ganturi [21] and Curtis [22],\
+    \ the requirements \nfor a smart irrigation system includes the effective \napplication\
+    \ and distribution of water as well as good \ncontrol and monitoring of the process\
+    \ of irrigation with \nappropriate feedback mechanisms. Karim et al. [23] \nJournal\
+    \ of Automation, Mobile Robotics and Intelligent Systems\nVOLUME  13,      N°\
+    \  1     2019\n38\nArticles\n38\nLipo cells, LCD, switches, relay, LED, resistors,\
+    \ capac-\nitors, crystal Oscillator, active SIM card, filament for \nadditive\
+    \ manufacturing, metal frame for PV and con-\ntrol unit.\nThe capability of the\
+    \ automated irrigation system \ninclude the ability to take intelligent decisions\
+    \ on its \nstate, based on operational and soil conditions. Also, \nthe solar\
+    \ power provision will enable it sustain a con-\ntinuous operation at all times\
+    \ and to achieve high \nreliability in its operations. The need for irrigation\
+    \ \ntend to increase with increase in solar energy usually \naccompanied by soil\
+    \ moisture loss. Hence, the solar \nenergy can be trapped for powering the autonomous\
+    \ \nsystem. \n2.1. System Architecture\nThe architecture of the developed system\
+    \ is pre-\nsented in Figure 1.\nFig. 1. Architecture of the automated irrigation\
+    \ system\n2.2. Automation and Control\nGenerally, irrigation exercise is usually\
+    \ carried \nout in the morning or evening hours for the sake of \nthe health of\
+    \ farm crops. The pre-programmed time \nfor irrigation was done and stored on\
+    \ the micro con-\ntroller. Hence, the microcontroller routinely checks \nfor this\
+    \ time with respect to the environmental con-\nditions. A DS1307 timing system\
+    \ also known as the \nreal time clock was incorporated to give an accurate \n\
+    track of the date and time of the irrigation activities \n(Figure 2).\nFig. 2.\
+    \ DS1307 timing system\nAccording to the programming of the microcon-\ntroller,\
+    \ there will be need for irrigation only if the \nsoil moisture goes below 25%\
+    \ and such irrigation \noperation is halted if the farm is irrigated up to 50%.\
+    \ \nTherefore, the microcontroller keeps its check for the \nenvironmental conditions\
+    \ in respect of the pre-set \ntime most especially when the humidity drops below\
+    \ \ndeveloped a sensor-based M2M agriculture monitor-\ning systems for developing\
+    \ countries citing high level \nof automation and control as one of the challenges\
+    \ to \nbe addressed. Also, Alagupandi et al. [24] developed \na smart irrigation\
+    \ system for outdoor environment us-\ning TinyOS while Gutierrez [25] developed\
+    \ an automat-\ned irrigation system using a wireless sensor network \nand GPRS\
+    \ module. These works provided a convenient \nplatform for automation, control\
+    \ and tracking of irri-\ngation activities. Mrinmayi et al. [26] also developed\
+    \ \na smart irrigation system using internet of things while \nRoy and Ansari\
+    \ [27], developed autonomous irrigation \nsystems that uses every day climate\
+    \ criterion for irriga-\ntion purpose. This helps in saving considerable amount\
+    \ \nof water for irrigation via the use of Programmable \nLogic Controller (PLC).\
+    \ The issue of water loss due to \nprecipitation has been identified as one of\
+    \ the major \nchallenges during the irrigation process. In a bid to \naddress\
+    \ this challenge, Kumar et al. [28] developed an \nautomatic irrigation system\
+    \ that uses field sensing and \nforecasting in an attempt to control irrigation\
+    \ based on \nsoil moisture for the sustainable irrigation of crops. For \neffective\
+    \ distribution and control of water irrigation ac-\ntivities, Bai and Liang [29]\
+    \ as well as Li-Fang [30] de-\nveloped an optimal model for water conservation.\
+    \ The \nparameters that are essential in order to facilitate good \nmonitoring\
+    \ and control are; temperature, air humidity \nand soil moisture [30–35]. The\
+    \ design objectives of the \ndeveloped automated irrigation system are to achieve\
+    \ \noperational intelligence, automation and independ-\nence thereby easing the\
+    \ stress often associated with \nconventional irrigation practices. The novelties\
+    \ of this \nwork lies in the fact that the ease of operation of the \ndeveloped\
+    \ automated system comes with its multiple \nmodes of operation, which affords\
+    \ the user convenient \nchoices of operation. The modes include the full auto-\n\
+    mation mode whereby the system operates autono-\nmously using the states of the\
+    \ timing system and the \nsoil feedback sensor to take intelligent decisions on\
+    \ \nappropriate time and extent of irrigation activities to \nbe implemented.\
+    \ In addition, a user could send a com-\nmand remotely via mobile phone to the\
+    \ field system to \nstart or stop irrigation. Furthermore, users have the \nprivilege\
+    \ of querying the system remotely in order to \nget feedback on the real time\
+    \ soil conditions. Upon re-\nceiving such command via the Short Message Service\
+    \ \n(SMS), the system queries the soil feedback sensor and \nsends the soil moisture\
+    \ readings to the authorized us-\ner(s). The system can also be made to operate\
+    \ in the \nmanual mode relying on human effort or semi auton-\nomously relying\
+    \ on human control during certain pe-\nriods such as the start up or shut down\
+    \ based on the \nenvironment and nature of irrigation activities to be \ncarried\
+    \ out. The aforementioned peculiarities of the \ndeveloped automated irrigation\
+    \ system have not been \nsufficiently reported by the existing literature.\n2.\
+    \ Materials and Method\nThe materials employed in the implementation of \nthis\
+    \ system are real time clock module, YL – 69 sen-\nsor, SIM800L, Atmega328 microcontroller,\
+    \ DC water \npump, PV module, LM6009 module, LM 2596 module, \nJournal of Automation,\
+    \ Mobile Robotics and Intelligent Systems\nVOLUME  13,      N°  1       2019\n\
+    39\nArticles\n39\n25%. Anytime these two conditions are active, a relay \nis activated\
+    \ to switch the irrigation pump ON. A Short \nMessage Service (SMS) alert is sent\
+    \ to the authorized \nuser on the state of the pump and the active mode \nof control.\
+    \ The authorized user receives a message \n“Pump ON”, and Control mode: “Auto”.\
+    \ At any condi-\ntion outside the aforementioned operational limits, \nthe pump\
+    \ state is kept “OFF”, and the state indicates \n“Idle”. These are designed to\
+    \ take place without the us-\ners’ input. In addition, users can send a message\
+    \ “ON” \nfrom a mobile phone to the SIM number in the system. \nUpon receiving\
+    \ this message, the system activates the \nrelay which will in turn activate the\
+    \ irrigation pump. \nThe state changes to “Pump ON” and the control mode \nchanges\
+    \ to “Remote”. The state is sent as feedback to \nthe remote operator’s mobile\
+    \ phone. Upon receiving \nthe message “OFF” from the user, the pump goes off \n\
+    and the state returns to “Idle”. This would equally be \nsent as feedback to the\
+    \ users’ mobile phone. The user \nalso has the privilege to query the system via\
+    \ a sim-\nple SMS command to get the real time soil moisture \nreading, which\
+    \ will be sent as a message from the \nsystem to the users’ mobile phone. In the\
+    \ event of an \nemergency need of water on site, such as in the case of \nwashing\
+    \ harvested farm crops, a manual mini switch \nis provided for the pump on – site.\
+    \ The Light Emit-\nting Diode (LED) goes “OFF” in the idle state, “BLUE” \nin\
+    \ the remote control state, “GREEN” in the timing \nor soil automation state and\
+    \ “RED” in manual oper-\nation mode. One of the peculiarities of this system is\
+    \ \nthat users have the privilege of querying the system \nremotely in order to\
+    \ get feedback on the real time \nsoil conditions. Upon receiving such command\
+    \ via \nthe SMS, the system queries the soil feedback sensor \nand sends the soil\
+    \ moisture readings to authorized \nuser(s). For the purpose of this work, only\
+    \ one mois-\nture sensor was used and this is shown in Figure 3. \nThe features\
+    \ of the soil moisture sensor include: \npower supply (3.3 V–3.5 V), output voltage\
+    \ (0–4.2 V), \ncurrent 3.5 mA), size (60 × 20 × 5 mm). It comprises \nof two probes\
+    \ which passes current into the soil and \nthereafter reads the electrical resistance\
+    \ so as to de-\ntermine the moisture level. High moisture content in \nthe soil\
+    \ often triggers high conductivity of electricity \nby the soil and vice versa.\
+    \ The output voltage from the \nsoil moisture sensor is then amplified and sent\
+    \ to the \nmicro controller where it is converted to digital us-\ning Analogue\
+    \ to Digital Converter (ADC). On the con-\ntroller, the voltage is compared to\
+    \ the threshold value \npre-set on it, if the measured voltage is less than the\
+    \ \nthreshold value, the micro controller activates the re-\nlay which turns ON\
+    \ the pump for irrigation activities. \nOn the other hand, if the measured value\
+    \ exceeds or \nequal to the threshold, it implies there is no need for \nirrigation\
+    \ hence system remains in the idle state with \nthe LED indicating “OFF”.\n2.3.\
+    \ Power Provisioning\nFor a continuous and reliable operation of this \nsystem,\
+    \ an independent power supply is essential. \nAs such, a PV module, which was\
+    \ scaled relative to \nthe power requirement of the DC operated irrigation \n\
+    pump, was deployed. The control unit is equipped \nwith a 10,500 mAH lithium ion\
+    \ battery backup to \nkeep the system active at night. The power supply \nunit\
+    \ of the system is designed to take power also from \nthe PV installation and\
+    \ provision power according to \npower requirement of the control sub – systems\
+    \ as \nshown in Figure 4.\nFig. 4. Proteus design model of the automated \nirrigation\
+    \ system\n2.4 Packaging and Product Outlook\nThe product outlook was first designed\
+    \ in the \nComputer Aided Design (CAD) environment (Fig-\nure 5) and produced\
+    \ with the aid of additive manufac-\nturing technique (Figure 6).\nFig. 5. CAD\
+    \ of the system\nFor simplified installation or ease of decommis-\nsioning, interfaces\
+    \ were created at the side of the sys-\ntem unit where the PV module, the DC water\
+    \ pump \nand the soil moisture feedback sensor were wired \nonto the system.\n\
+    Fig. 3. The soil moisture sensor\nJournal of Automation, Mobile Robotics and Intelligent\
+    \ Systems\nVOLUME  13,      N°  1     2019\n40\nArticles\n40\nFig. 6. The automated\
+    \ irrigation system\n2.5. Design Calculations\nThe volume of water pumped was\
+    \ 750 L/hr \nwhich is adequate for the small experimental farm, \nhence the volumetric\
+    \ flow rate is calculated as \n4\n3\n2.08 10\n− m /sec.\n×\n For a pumping operation\
+    \ expect-\ned to last for 1 hour (3600 secs), the total volume of \nwater pumped\
+    \ is calculated from Equation 1.\n \nV\nQ\nt\n=\n \n(1)\n \n1.94 10 5\n3600\n\
+    V\n−\n×\n=\n \n \n(\n)\n0.750m3\n750L\nV =\n \nUsing a 25 mm (0.025 m) diameter\
+    \ pipe to convey \nthe water, the area of the pipe is calculated from Equa-\n\
+    tion 2.\n \n2\n4\nd\nA\nπ\n=\n \n(2)\nThe area of the pipe from Equation 2 is\
+    \ calculated \nas \n4\n2\n4.90 10\n− m .\n×\nSince the volumetric flow rate is\
+    \ a function of the \nvelocity and cross sectional area, Equation 3 holds thus,\n\
+    \ \nQ\n= vA\n \n(3)\nWhere; Q is the volumetric flow rate calculated as \n750\
+    \ L/hr, (2.08 × 10–4 m3/sec) and v is fluid velocity \n(m/s). Hence, the fluid\
+    \ velocity from Equation 3, is \ncalculated thus,\n \n4\n4\n2.08 10\n4.90 10\n\
+    v\n−\n−\n×\n= ×\n×\n \n \n0.424\n/\nv\nm s\n=\n \nThe Reynold’s number, which\
+    \ determines the na-\nture of flow, is expressed as Equation 4.\n \nvd\nRe\nρ\n\
+    µ\n=\n \n(4)\nv is the fluid velocity (0.424 m/s); ρ is the water den-\nsity (1000\
+    \ kg/m3), d is the pipe diameter (0,025 m) \nand m is the coefficient of dynamic\
+    \ viscosity for water \nat temperature of 25°C (8.9 × 10–4 Ns/m2)\n \n4\n1000\
+    \ 0.424 0.025\n8.9 10\nRe\n−\n×\n×\n=\n×\n \n \nRe =11910.11\n \nSince Re > 4000,\
+    \ the flow of water for the irriga-\ntion purpose is turbulent. The advantage\
+    \ of turbulent \nwater flow for irrigation is that water is dispatched \nquickly\
+    \ through the conveying pipe at high velocities \nand flow rates thereby driving\
+    \ the irrigation process \nto quick completion.\nNeglecting the minor losses due\
+    \ to pipe orienta-\ntion, the frictional factor for losses in a flexible rub-\n\
+    ber pipe with smooth bore is expressed by Equation 5 \n[35].\n \n0.165\n7.0\n\
+    0.0076 3170\n16\nRe\n3170\n1\nRe\nf\nRe\n\n\n\n\n\n\n\n\n\n\n\n\n\
+    =\n+\n\n\n\n\n+\n\n\n\n\n\n\n\n\n \n \n(5)\n \n0.165\n7.0\n3170\n\
+    0.0076\n16\n11910.11\n11910.11\n3170\n1\n11910,11\nf\n\n\n\n\n\n\n\n\n\
+    \n\n\n\n=\n+\n\n\n\n\n+\n\n\n\n\n\n\n\n\n \n \nf =0.0075\n \n\
+    The major head loss H due to this frictional effect \nis expressed by Equation\
+    \ 6 [36].\n \n2\n4\n.2\nflv\nH\nD g\n=\n \n(6)\nWhere; f is the frictional factor\
+    \ (0.825), v is the \nlength of the pipe (1000 m); v is the fluid veloci-\nty\
+    \ (0.424 m/s); g is the acceleration due to gravi-\nty9.81 m/s2), d is the pipe\
+    \ diameter (0.025 m)\n \n4 0.0075 1000 0.4242\n0.025 2 9.81\nH\n×\n×\n×\n=\n×\
+    \ ×\n \n \nH =10.99m of water\n \nEquation 7 expresses the density of a fluid.\n\
+    \ \n( )\nmass\ndensity\nvolume\nρ =\n \n(7)\nWater density (ρ) is 1000 kg/m3 and\
+    \ volume V is \n0.750 m3, hence, from Equation 7, the mass of fluid is \ncalculated\
+    \ as 570 kg.\nAccording to Rajput (2008), the power required to \npump fluid is\
+    \ given by Equation 8.\n \nP\n= ρgQH\n \n(8)\nwhere: ρ is the water density (1000\
+    \ kg/m3), g is the \nacceleration due to gravity (9.81 m/s2), Q volumetric \n\
+    flow rate (2.08 × 10–4 m3/sec) and H is the pumping \nhead, (12.09 m):\n \nP =\
+    \ 1000 × 9.81 × 2.08 × 10–4 × 10.99 \n \nP = 22.5 W \nThe power required to pump\
+    \ the fluid is calculat-\ned from Equation 8 as 22.5 W and a 50 W (0.067 hp) \n\
+    pump is selected using a safety factor of 2.2 The sys-\ntem is energy efficient\
+    \ in that it needs only 50 W of \npower to pump fluid. The pump will increase\
+    \ the tem-\nperature of the fluid stream as given in Equations 9 \nand 10.\nJournal\
+    \ of Automation, Mobile Robotics and Intelligent Systems\nVOLUME  13,      N°\
+    \  1       2019\n41\nArticles\n41\n \np\nq\nmc\nT\n=\n∆\n \n(9) \n \np\np\nPt\n\
+    mc\nT\n=\n∆\n \n(10)  \nwhere: q is the heat input (kJ), P is the required power\
+    \ \nof the pump (kW), tp is the time required to run pump, \n(sec), m is the mass\
+    \ of water, (kg), Cp is the specific \nheat capacity, (kJ/kgK), and ΔT is the\
+    \ change in tem-\nperature, (Kelvin).\nFor a pump whose required power is 25 W,\
+    \ run-\nning for 3600 sec and the mass of water is 750 kg \nwith specific heat\
+    \ capacity of 4200 J/kgK, the change \nin temperature is obtained using Equation\
+    \ 9.\n \n25 3600\n750 4200\nT\n×\n=\n×\n×∆\n \n \n0.0287 C\n∆T\n=\n°  \nAt equilibrium,\
+    \ the temperature of water equals \nthe room temperature 25°C. From Equation 10,\
+    \ the \npump will increase the temperature by 0.0287°C, \nhence the final temperature\
+    \ of water for irrigation is \n25.0287°C. This falls within the safe limit of\
+    \ the water \ntemperature for irrigation.\nThe current demand of the pump is expressed\
+    \ by \nEquation 10.\n \nP = IV \n(10)\nWhere P is the power required by the pump\
+    \ (50 W); \nI is the current required (A) and V is the applied volt-\nage 24 V\n\
+    \ \n50 = I × 24 \n \nI = 2.083 A \n2.6 Performance Evaluation of the Developed\
+    \ \nAutomated Irrigation System\nFor large farms, pump sizing can be easily done\
+    \ \nby estimating the water volume requirements of the \nfarm. This would also\
+    \ entail appropriate sizing of \nthe solar power system to deliver required power\
+    \ to \nthe irrigation pump. Also, the ampere rating of the \nswitching relay in\
+    \ the control system will be matched \nadequately with the current demand of the\
+    \ pump. \nThe operational indices show that it takes the system \nabout 25 secs\
+    \ to boot up when powered ON and about \n5 secs to receive a message instruction\
+    \ for pump acti-\nvation. The solar power system delivers about 300 W, \nwith\
+    \ the feedback response time from the soil mois-\nture sensor about 0.5 secs and\
+    \ the volume of water \npumped approximately 750 L/hr which is adequate \nfor\
+    \ small experimental farm. The smart irrigation \nmonitoring is embedded with\
+    \ soil moisture sensor to \nsense and obtain the values of moisture for any loca-\n\
+    tion to be irrigated. This is a critical factor which pro-\nvides information\
+    \ about the condition of the soil to \nbe irrigated so as to determine the need\
+    \ for irrigation \nor otherwise as well the quantity of water needed for \nirrigation.\
+    \ The system also provides irrigation data \nin terms of the volume of water used\
+    \ for irrigation, \nperiod of irrigation as well as the total time spent on \n\
+    irrigation, hence the development of the smart irriga-\ntion system provides design\
+    \ data for prediction and \nforecasting as well secondary data scaling its devel-\n\
+    opment or subsequent redesign.\n2.7 Numerical Experiment\nIn order to develop\
+    \ a predictive model for the de-\ntermination of volume of required for irrigation\
+    \ and \nstudy the effect of three critical factors that influences \nthe water\
+    \ requirement of the soil namely; soil mois-\nture, ambient air temperature and\
+    \ humidity, the dy-\nnamic modelling and simulation was carried out using \nthe\
+    \ Response Surface Methodology (RSM). While the \nambient air temperature accounts\
+    \ for the overall tem-\nperature of the outdoor air where the irrigation activity\
+    \ \nis to be performed, humidity represents the amount of \nwater vapour present\
+    \ in the air. A multifunctional tem-\nperature and humidity measurement device\
+    \ (PCE-THA \n10-ICA) whose temperature measurement ranges from \n–15 to 50° and\
+    \ humidity measurement ranges between \n5–95% was employed for measuring both\
+    \ the temper-\nature and the humidity of the environment where irri-\ngation activity\
+    \ is to be performed. The range of values \nof three critical parameters namely;\
+    \ moisture content \n(20–40%), ambient temperature (15–35°C) and hu-\nmidity (10–30%)\
+    \ were used as input parameters into \nthe Central Compose Design (CCD) and Response\
+    \ Sur-\nface Methodology (RSM) to develop a predictive model \nthat correlates\
+    \ the volume of water required for irriga-\ntion purpose as a function of the\
+    \ three critical param-\neters. The essence of optimization is to provide an op-\n\
+    timum solution for irrigation purpose. The optimum \nsolution include the determination\
+    \ of the need for irri-\ngation and the right volume of water required. This will\
+    \ \nsave water, time and cost thereby promoting effective \nirrigation process.\
+    \ \n3. Results and Discussion\nThe irrigation of small farm land of cross section\
+    \ \n100 m × 100 m was carried for three different soil \nsamples namely; sandy,\
+    \ loamy and clay soil at five \ndifferent locations between 8:00–8:59 am. The\
+    \ data \ncollected from the soil moisture sensor, the multifunc-\ntional temperature\
+    \ and humidity measurement de-\nvice and the micro controller are presented in\
+    \ Table 1.\nFigure 7 is a plot of volume of water used and the \ntime spent for\
+    \ the irrigation for the three soil samples. \nThree critical factors namely;\
+    \ soil moisture, ambient \ntemperature and humidity determined the volume of \n\
+    water required for irrigation. The water requirement \nwas highest in sandy soil\
+    \ and least in clay soil. This \nis due to the fact that the moisture content\
+    \ is highest \nin clay and least in sandy soil. The clay soil has high \nwater\
+    \ retention ability due to its structure hence the \nreason for the high value\
+    \ of its moisture content, fol-\nlowed by loamy soil and then sandy soil. The\
+    \ require-\nment of water by the soil was observed to increase as \nthe value\
+    \ of soil moisture decreases. \nThe equation of the predictive model is expressed\
+    \ \nby Equation 11:\n \n2\n2\n2\n759.43 284.97\n7.69\n0.88\n31.25\n21.25\n83.44\n\
+    3.18\n4.78\nVolume\nA\nB\nC\nA B\nA C\nA\nB\nC\n= +\n−\n−\n−\n+\n×\n+\n×\n+\n\
+    −\n+\n (11)\nwhere; A is the percent soil moisture, B is the ambient \ntemperature\
+    \ (°C) and C is the percent humidity.\nJournal of Automation, Mobile Robotics\
+    \ and Intelligent Systems\nVOLUME  13,      N°  1     2019\n42\nArticles\n42\n\
+    Tab. 1. Results obtained for five different locations\nS/N\nSoil type\nSoil \n\
+    sample\nInitial moisture \ncontent (%)\nAmbient \nTemperature (°C)\nHumidity\n\
+    (%)\nVolume of water used \nfor irrigation (L)\nTotal time spent \nfor Irrigation\
+    \ (sec)\n1.\nClay\nA\n22\n24.5\n17.2\n230\n690\n2.\nClay\nB\n21\n24.9\n16.5\n\
+    200\n720\n3.\nClay\nC\n23\n22\n18\n155\n640\n4.\nClay\nD\n24\n21.7\n19.5\n140\n\
+    610\n5.\nClay\nE\n21\n24.2\n17.5\n151\n600\n6.\nLoamy\nA\n19\n25\n16\n245\n980\n\
+    7.\nLoamy\nB\n20\n24.5\n17.2\n220\n930\n8.\nLoamy\nC\n20\n23.8\n18\n205\n895\n\
+    9.\nLoamy\nD\n18\n24\n16\n169\n876\n10.\nLoamy\nE\n19\n23\n16.2\n150\n800\n11.\n\
+    Sandy\nA\n17\n23.5\n16\n260\n985\n12.\nSandy\nB\n16\n24\n15.6\n250\n960\n13.\n\
+    Sandy\nC\n18\n22\n16.8\n230\n920\n14.\nSandy\nD\n17\n23\n16.3\n265\n1400\n15.\n\
+    Sandy\nE\n18\n21.5\n19\n275\n1200\nFig. 7. Volume of water required and time for\
+    \ irrigation\nThe developed model was validated using the \nAnalysis of Variance\
+    \ (ANOVA). It was found to be high-\nly adequate for the prediction of the volume\
+    \ of water \nneeded for irrigation as the regression model was \nfound to be highly\
+    \ significant at 95% confidence lev-\nel. The correlation coefficients namely;\
+    \ the R-squared \n(0.9695), adjusted R-squared (0.9533) and predicted \nR-squared\
+    \ (0.9785) were within the same range and \nvery close to 1 for input parameters.\
+    \ The closer the \ncorrelation coefficients to 1, the more efficient and re-\n\
+    liable the predictive ability of developed model.\nFigure 8 is a 3 D plot that\
+    \ studies the effect of the \ninteraction of humidity and temperature on the need\
+    \ \nfor irrigation as well as the volume of water required. \nHumidity is the\
+    \ amount of water vapour present in \nthe air. It is high when the amount of water\
+    \ vapour in \nthe air is high while the ambient temperature is the \ndegree of\
+    \ hotness or coldness of the air in the envi-\nronment.\nHumidity increases as\
+    \ the amount of water vapour \nin the air is increases. From Figure 8, the relationship\
+    \ \nbetween the humidity and temperature is inversely \nproportional. Keeping\
+    \ the percent moisture content \nconstant at 23.02%, the percent humidity increas-\n\
+    es as ambient temperature decreases. This is due to \nthe fact that air tend to\
+    \ hold more water molecules as \nambient temperature increases hence the relative\
+    \ hu-\nmidity decreases. The optimum volume of the water \nrequired for irrigation\
+    \ is 1025 litres.\nFigure 9 is a 3 D plot that studies the effect of the \ninteraction\
+    \ of soil humidity and temperature on the \nneed for irrigation as well as the\
+    \ volume of water re-\nquired. As temperature increases, percent moisture \ncontent\
+    \ decreases. This is due to the fact that the rate \nof evaporation increases\
+    \ with increase in tempera-\nture with attendant decrease in the moisture content.\
+    \ \nThe optimum value of the volume required for irriga-\ntion is 1060.9 litres.\n\
+    Fig. 8. Cross effect of humidity and temperature\nJournal of Automation, Mobile\
+    \ Robotics and Intelligent Systems\nVOLUME  13,      N°  1       2019\n43\nArticles\n\
+    43\nFig. 9. Cross effect of temperature and moisture \ncontent\n4. Conclusion\n\
+    The development of the automated irrigated was \nsuccessful carried out in a CAD\
+    \ environment and \nproduced with the aid of additive manufacturing \ntechnique.\
+    \ It offers the benefits of improved farming \npractices via automation which\
+    \ enhances agricultural \nproductivity and encourages round – the – year farm-\n\
+    ing, efficient water distribution and management, \nwhile reducing the drudgery\
+    \ of manual labour, real \ntime monitoring and control as well as proper sched-\n\
+    uling of irrigation activities and enhances multiple \nmode of operation with\
+    \ query and feedback mecha-\nnism. The work is an improvement over existing work\
+    \ \nin that the ease of operation comes with its multiple \nmodes of operation\
+    \ which affords user convenient \nchoices of operation. Also, a predictive model\
+    \ that \ncorrelates the volume of required as a function of \nthe soil moisture,\
+    \ air temperature and humidity was \ndeveloped. This will assist in predicting\
+    \ the time nec-\nessary for irrigation as well as the volume of water \nrequired\
+    \ for the irrigation process. \nPUBLIC INTEREST STATEMENT\nThis work is in line\
+    \ with the quest to improve \nfood security via the deployment of appropriate\
+    \ tech-\nnology for farm irrigation in order to improve crop \nyields and ease\
+    \ human drudgery. With the increasing \nawareness and advocacy for round-the-year\
+    \ farming, \nand the need to meet up with the global challenge of \nfood demand,\
+    \ deploying appropriate technologies to \nincrease productivity and to reduce\
+    \ the burden often \nassociated with farm practices has become inevitable \nhence\
+    \ this work provides a standalone automated ir-\nrigation system which features\
+    \ good automation and \ncontrol achieved using an array of electronic timing \n\
+    system, soil feedback sensor and wireless communi-\ncation system.\nAUTHORS\n\
+    Lanre Daniyan* – NASRDA Centre for Basic Space \nScience, University of Nigeria,\
+    \ Nsukka, Nigeria. \nEzechi Nwachukwu – NASRDA Centre for Basic \nSpace Science,\
+    \ University of Nigeria, Nsukka, Nigeria.\nIlesanmi Daniyan* – Department of Industrial\
+    \ Engi-\nneering, Tshwane University of Technology, Pretoria, \nSouth Africa,\
+    \ E-mail: afolabiilesanmi@yahoo.com.\nOkere Bonaventure – NASRDA Centre for Basic\
+    \ \nSpace Science, University of Nigeria, Nsukka, Nigeria.\n*Corresponding author\n\
+    REFERENCES\n[1]  C. Angel and S. Ansha, “A Study on Developing \na Smart Environment\
+    \ in Agricultural Irrigation \nTechnique”, The International Journal of Ambient\
+    \ \nSystems and Applications, vol. 3, no. 2/3, 2015, \n11–17\n \nDOI: 10.5121/ijasa.2015.3302.\n\
+    [2]  P. S. Bains, R. K. Jindal, and H. K. Channi, “Mod-\neling and Designing of\
+    \ Automatic Plant Water-\ning System Using Arduino”, International Journal \n\
+    of Scientific Research in Science and Technology \n(IJSRST), vol. 3, no. 7, 2017,\
+    \ 676–680.\n[3]  D. S. Pavithra and M. S. Srinath, “GSM based Au-\ntomatic Irrigation\
+    \ Control System for Efficient \nUse of Resources and Crop Planning by Using an\
+    \ \nAndroid Mobile”, IOSR Journal of Mechanical and \nCivil Engineering, vol.\
+    \ 11, no. 4, 2014, 49–55\n \nDOI: 10.9790/ 1684-11414955.\n[4]  A. M. Rasyid,\
+    \ N. Shahidan, M. O. Omar, N. Ha-\nzwani, and C. J. Choo, “Design and Development\
+    \ \nof Irrigation System for Planting Part 1”, 2nd In-\ntegrated Design Project\
+    \ Conference (IDPC), 2015.\n[5]  B. D. Kumar, P. Srivastava, R. Agrawal, and V.\
+    \ Ti-\nwari, “Microcontroller Based Automatic Plant \nIrrigation System”, International\
+    \ Research Jour-\nnal of Engineering and Technology, vol. 4, no. 5, \n2017, 1436–1439.\n\
+    [6]  M. H. Razali, M. N. Masrek, and S. Roslan, “Micro-\ncomputer Application\
+    \ for Instrumentation De-\nvelopment in Drip Irrigation System”, Journal of \n\
+    Computer Sciences and Applications, vol. 1, no. 3, \n2013, 39–42\n \nDOI: 10.12691/jcsa-1-3-2.\n\
+    [7]  D. Kissoon, H. Deerpaul, and A. Mungur, “A Smart \nIrrigation and Monitoring\
+    \ System”, International \nJournal of Computer Applications, vol. 163, no. 8,\
+    \ \n2017, 39–45.\n[8]  J. M. Moreira Barradas, S. Matula, and F. Dolezal, \n“A\
+    \ Decision Support System-Fertigation Sim-\nulator (DSS-FS) for design and optimization\
+    \ of \nsprinkler and drip irrigation systems”, Comput-\ners and Electronics in\
+    \ Agriculture, vol. 86, 2012, \n111–119\n \nDOI: 10.1016/j.compag.2012.02.015.\n\
+    [9]  J. Kumar, S. Mishra, A. Hansdah, and R. Mahato, \n“Design of Automated Irrigation\
+    \ System based \non Field Sensing and Forecasting”, Internation-\nJournal of Automation,\
+    \ Mobile Robotics and Intelligent Systems\nVOLUME  13,      N°  1     2019\n44\n\
+    Articles\n44\nal Journal of Computer Applications, vol. 146, \nno. 15, 2016, 17–21\n\
+    \ \nDOI: 10.5120/ijca2016910938.\n[10]  S. Jadhav and S. Hambarde, “Android based\
+    \ Au-\ntomated Irrigation System using Raspberry Pi”, \nInternational Journal\
+    \ of Science and Research \n(IJSR), vol. 5, no. 6, 2016, 2345–2351\n \nDOI: 10.21275/\
+    \ v5i6.NOV164836. \n[11]  M. Dursun and S. Ozden, “A wireless application \nof\
+    \ drip irrigation automation supported by soil \nmoisture sensors”, Scientific\
+    \ Research and Es-\nsays, vol. 6, no. 7, 2011, 1573–1582.\n[12]  G. Nisha and\
+    \ J. Megala, “Wireless sensor Network \nbased automated irrigation and crop field\
+    \ mon-\nitoring system”. In: 6th International Conference \non Advanced Computing\
+    \ (ICoAC), 2014, 189–194 \n \nDOI: 10.1109/ICoAC.2014.7229707.\n[13]  A. R. Al-Ali,\
+    \ M. Qasaimeh, M. Al-Mardini, S. Radder, \nand I. A. Zualkernan, “ZigBee-based\
+    \ irrigation sys-\ntem for home gardens”. In: International Confer-\nence on Communications,\
+    \ Signal Processing, and \ntheir Applications (ICCSPA’15), Sharjah, 2015, 1–5\n\
+    \ \nDOI: 10.1109/ICCSPA.2015.7081305.\n[14]  J. Haule, and K. Michael, “Designing\
+    \ and Simula-\ntion of an Automated Irrigation Management Sys-\ntem Deployed by\
+    \ using Wireless Sensor Networks \n(WSN)”, IOSR Journal of Electronics and Communi-\n\
+    cation Engineering, vol. 9, no. 5, 2014, 67–73\n \nDOI: 10.9790/2834-09526773.\n\
+    [15]  A. F. Agbetuyi, H. E. Orovwode, A. A. Awelewa, S. T. \nWara, and T. Oyediran,\
+    \ “Design and implementa-\ntion of an automatic irrigation system based on \n\
+    monitoring soil moisture”, Journal of Electrical \nEngineering, vol. 16, no. 2,\
+    \ 2016, 206–215.\n[16]  M. Ojha, S. Mohite, S. Kathole, and D. Tarware, \n“Microcontroller\
+    \ based automatic plant watering \nsystem”, International Journal of Computer\
+    \ Sci-\nence and Engineering, vol. 5, no. 3, 2016, 25–36.\n[17]  D. Dharrao, L.\
+    \ Kolape, S. Pawar, and A. Patange, \n“Automated Irrigation System using WSN”,\
+    \ Asian \nJournal of Engineering and Technology Innova-\ntion, vol. 3, no. 6,\
+    \ 2015, 18–21.\n[18]  S. Malge and K. Bhole, “Novel, low cost remotely \noperated\
+    \ smart irrigation system”. In: Interna-\ntional Conference on Industrial Instrumentation\
+    \ \nand Control (ICIC), 2015, 1501–1505\n \nDOI: 10.1109/IIC.2015.7150987.\n[19]\
+    \  P. Archana and R. Priya, “Design and Implemen-\ntation of Automatic Plant Watering\
+    \ System”, In-\nternational Journal of Advanced Engineering and \nGlobal Technology,\
+    \ vol. 4, no. 1, 2016, 1567–1570.\n[20]  M. S. Manoj and B. Hemalatha, “Automatic\
+    \ irriga-\ntion using microcontroller basing on pressure”, \nInternational Journal\
+    \ of Pure and Applied Mathe-\nmatics, vol. 116, no. 20, 2017, 349–353.\n[21] \
+    \ V. N. R. Gunturi, “Micro Controller Based Auto-\nmatic Plant Irrigation System”,\
+    \ International \nJournal of Advancements in Research & Technol-\nogy, vol. 2,\
+    \ no. 4, 2013, 194–198.\n[22]  A. Curtis, “Smart irrigation”. In: L.D. Currie\
+    \ and \nL.L Burkitt, eds., Moving farm systems to improved \nattenuation, Occasional\
+    \ Report No. 28. Fertilizer \nand Lime Research Centre, Massey University, \n\
+    Palmerston North, New Zealand, 2015, http://\nflrc.massey.ac.nz/publications.html.\n\
+    [23]  L. Karim, A. Anpalagan, N. Nasser, and J. Almha-\nna, “Sensor-based M2M\
+    \ Agriculture Monitoring \nSystems for Developing Countries: State and \nChallenges”,\
+    \ Network Protocols and Algorithms, \nvol. 5, no. 3, 2013, 68–86\n \nDOI: 10.5296/npa.v5i3.3787.\n\
+    [24]  P. Alagupandi, R. Ramesh, and S. Gayathri, “Smart \nirrigation system for\
+    \ outdoor environment us-\ning Tiny OS”. In: International Conference on \nComputation\
+    \ of Power, Energy, Information and \nCommunication (ICCPEIC), 2014, 104–108\n\
+    \ \nDOI: 10.1109/ICCPEIC.2014.6915348.\n[25]  J. Gutiérrez, J. F. Villa-Medina,\
+    \ A. Nieto-Garibay, and \nM. Á. Porta-Gándara, “Automated Irrigation Sys-\ntem\
+    \ Using a Wireless Sensor Network and GPRS \nModule”, IEEE Transactions on Instrumentation\
+    \ \nand Measurement, vol. 63, no. 1, 2014, 166–176\n \nDOI: 10.1109/TIM.2013.2276487.\n\
+    [26]  M. S. Gavali, B. J. Dhus, and A. B. Vitekar, “A Smart \nIrrigation System\
+    \ for Agriculture Based on Wire-\nless Sensors”, International Journal of Innovative\
+    \ \nResearch in Science, Engineering and Technology, \nvol. 5, no. 5, 2016, 6893–6899.\n\
+    [27]  D. K. Roy and M. H. Ansari, “Smart Irrigation \nControl System”, International\
+    \ Journal of Envi-\nronmental Research and Development (IJERD), \nvol. 4, no.\
+    \ 4, 2014, 371–374.\n[28]  Dan Bai and Wei Liang, “Optimal planning mod-\nel of\
+    \ the regional water saving irrigation and its \napplication”. In: International\
+    \ Symposium on Ge-\nomatics for Integrated Water Resource Manage-\nment, 2012,\
+    \ 1–4\n \nDOI: 10.1109/GIWRM.2012. 6349622.\n[29]  T. Li-Fang, “Application of\
+    \ autocontrol technolo-\ngy in water-saving garden irrigation”. In: Inter-\nnational\
+    \ Conference on Computer Science and \nInformation Processing (CSIP), 2012, 1311–1314\n\
+    \ \nDOI: 10.1109/CSIP.2012.6309103.\n[30]  S. Lucksman, P. Subramaniyam, H. Suntharalingam,\
+    \ \nS. G. S. Fernando, and C. D. Manawadu, “Ralapana-\nwa RND – Automated water\
+    \ management system \nfor Irrigation Department, Sri Lanka”. In: 8th In-\nternational\
+    \ Conference on Computer Science Edu-\ncation, 2013, 213–217\n \nDOI: 10.1109/ICCSE.2013.\
+    \ 6553912. \n[31]  L. Gao, M. Zhang, and G. Chen, “An Intelligent Ir-\nrigation\
+    \ System Based on Wireless Sensor Net-\nwork and Fuzzy Control”, Journal of Networks,\
+    \ \nvol. 8, no. 5, 2013, 1080–1087\n \nDOI: 10.4304/jnw.8.5.1080-1087.\n[32] \
+    \ S. V. Devika, S. Khamuruddeen, S. Khamurun-\nnisa, J. Thota, and K. Shaik, “Arduino\
+    \ Based Au-\ntomatic Plant Watering System”, International \nJournal of Advanced\
+    \ Research in Computer Sci-\nence and Software Engineering, vol. 4, no. 10, \n\
+    2014, 449–456.\n[33]  K. Kansara, V. Zaveri, S. Shah, S. Delwadkar, and \nK. Jani,\
+    \ “Sensor based Automated Irrigation Sys-\ntem with IOT: A Technical Review”,\
+    \ Internation-\nJournal of Automation, Mobile Robotics and Intelligent Systems\n\
+    VOLUME  13,      N°  1       2019\n45\nArticles\n45\nal Journal of Computer Science\
+    \ and Information \nTechnologies, vol. 6, no. 6, 2015, 5331–5333.\n[34]  D. Rane,\
+    \ P. R. Indurkar, and D. M. Khatri, “Review \npaper based on automatic irrigation\
+    \ system \nbased on RF module”, International Journal of \nAdvanced Information\
+    \ and Communication Tech-\nnology, vol. 1, no. 9, 2015, 736–738.\n[35]  F. A.\
+    \ Morrison, An introduction to fluid mechan-\nics, Cambridge University Press:\
+    \ Cambridge; \nNew York, 2013.\n[36]  R. K. Rajput, A Textbook of Fluid Mechanics,\
+    \ \nS. Chand Limited, India, 2008,\n"
+  inline_citation: '>'
+  journal: Journal of Automation, Mobile Robotics & Intelligent Systems
+  limitations: '>'
+  pdf_link: https://www.jamris.org/index.php/JAMRIS/article/download/485/485
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Development and Optimization of an Automated Irrigation System
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

@@ -1,0 +1,494 @@
+- DOI: https://doi.org/10.2478/amns.2021.2.00275
+  analysis: '>'
+  authors:
+  - Miaoqi Li
+  citation_count: 0
+  full_citation: '>'
+  full_text: ">\nOpen Access. © 2022 Li, published by Sciendo.\nThis work is licensed\
+    \ under the Creative Commons Attribution alone 4.0 License.\nApplied Mathematics\
+    \ and Nonlinear Sciences 8(2) (2023) 615–624\nApplied Mathematics and Nonlinear\
+    \ Sciences\nhttps://www.sciendo.com\nResearch on the application of PLC technology\
+    \ in electrical automation engineering\nMiaoqi Li1†\n1 College of Mechanical and\
+    \ Electrical Engineering, Gansu Agricultural University, Lanzhou, Gansu 730070,\n\
+    China\nSubmission Info\nCommunicated by Juan Luis García Guirao\nReceived June\
+    \ 21st 2022\nAccepted August 7th 2022\nAvailable online November 30th 2022\nAbstract\n\
+    With the development of modern science and technology, the development of electrical\
+    \ automation engineering has also\nbecome widespread. In the traditional sense,\
+    \ the wiring of the electrical automation control system is complex, the cost\n\
+    is high, the maintenance is difficult and failures may easily occur, and these\
+    \ factors seriously affect the system efficiency.\nThe application of PLC technology\
+    \ in the field of electrical automation greatly simplifies the installation and\
+    \ operation\nprocess, and improves the work efficiency. Therefore, PLC technology\
+    \ has come to play an increasingly important role in\nthe efficient and stable\
+    \ operation of electrical automation engineering. This paper analyses and explores\
+    \ the principle and\npractical application of PLC in the field of electrical automation\
+    \ engineering, and optimises the automatic control system\nbased on PLC.\nKeywords:\
+    \ PLC, electrical automation, automatic control, application research\n1 Introduction\n\
+    With the development of society and economy, electrical automation has come to\
+    \ be widely used in many\nindustries; from industries in which merely basic construction\
+    \ activity is involved to aerospace high-tech, there\nis no shortage of electrical\
+    \ automation, and it has found the most extensive application in heavy industry\
+    \ and\npower generation [1]. The improvement and effective use of electrical automation\
+    \ can comprehensively improve\nwork quality and work efficiency, and maximise\
+    \ the economic benefits obtained by enterprises [2]. A series of\nstandards has\
+    \ been formulated in China to ensure the better development of electrical automation\
+    \ and to improve\nthe versatility of related equipment [3]. In the 21st century,\
+    \ electrical engineering and its automation technology\nare being continuously\
+    \ improved and updated, and the effective integration of computer information\
+    \ technology\nand electrical automation can comprehensively improve the quality\
+    \ and work efficiency of the entire electrical\nautomation system, thus facilitating\
+    \ it to become one of the important guarantees for the long-term development\n\
+    of the Chinese economy [4].\n†Corresponding author.\nEmail address: limq@gsau.edu.cn\n\
+    ISSN 2444-8656\ndoi:10.2478/amns.2021.2.00275\n616\nLi Applied Mathematics and\
+    \ Nonlinear Sciences 8(2023) 615–624\nIn traditional electrical control, most\
+    \ components of the electrical system are controlled in the form of relay\ncontact,\
+    \ but relay control has the disadvantages of slow response time, high average\
+    \ repair rate, complicated\nwiring, low reliability, high power consumption and\
+    \ poor flexibility [5]. Therefore, an automatic control system\nwith a wide range\
+    \ of applications, powerful functions and convenient use is urgently needed. The\
+    \ programmable\nlogic controller appeared in response to this requirement and\
+    \ has been widely used in the field of automatic\ncontrol, which has greatly promoted\
+    \ an enhancement in the levels of effectiveness and efficiency for industries\n\
+    that have adopted this automation [6]. The working principle of PLC is fundamentally\
+    \ the same as that of a\ncomputer, and it also realises a series of task controls\
+    \ through the execution of certain user programs. In terms\nof time, the PLC controller\
+    \ is different from the relay control system when performing tasks [7]. In the\
+    \ work of\nPLC, the method of cyclic scanning is used. This method refers to sampling\
+    \ the signals in each process during\nthe running time of the program, and then\
+    \ performing operations and processing on the signals. The results are\nsent to\
+    \ the relevant actuators [8]. During the operating cycle of the system, some of\
+    \ the input data do not change,\nand similarly, some output data remain fixed\
+    \ whereas others might or might not change. In the PLC, the cycle\nscanning method\
+    \ is used to continuously sample and output the input variables and output variables,\
+    \ so that the\ncorresponding execution actions can be made when the conditions\
+    \ are met [9].\nElectrical automation based on PLC technology is widely used in\
+    \ all walks of life. In the field of agriculture,\nthrough precise control of\
+    \ the supply of water and fertiliser to crops, the waste of water resources can\
+    \ be reduced\nand the level of agricultural modernisation can be improved [10],\
+    \ Accordingly, several studies are available in\nthe literature describing the\
+    \ impact of application of this technology in agricultural automation tasks. Leedy\
+    \ et\nal. [11] designed a fertiliser distribution device for a sprinkler irrigation\
+    \ system to realise the integrated irrigation\nof water and fertiliser. Colaco\
+    \ and Molin [12] and Chandel et al. [13] equipped the fertiliser applicator with\
+    \ a\nPDA and a vehicle-mounted computer, respectively, combined with technologies\
+    \ such as sensors, cameras and\nGIS positioning, to achieve accurate measurement\
+    \ and control of orchard fertilisation decision-making informa-\ntion. Sarangapani\
+    \ et al. [14] used two-line decoding technology and cloud computing to realise\
+    \ the intelligent\nirrigation of the water and fertiliser integrated delivery\
+    \ machine. Dwinugroho et al. [15] designed and opti-\nmised the mixed fertiliser\
+    \ system of the three-channel bypass fertiliser applicator, and verified the stability\
+    \ of\nthe whole machine structure through simulation and experiments. Boobalan\
+    \ et al. [16] combined fuzzy control\nand FPGA technology to design a greenhouse\
+    \ water and fertiliser integration system for online fertiliser mixing.\nThe application\
+    \ results show that the system has good control performance. Yang and Cheng [17]\
+    \ developed\nan intelligent irrigation system controlled and monitored by the\
+    \ Android platform. In applying this system, any\nAndroid-powered mobile phone\
+    \ can be used to communicate with soil moisture and temperature sensors in real\n\
+    time to realise automatic irrigation of farmland and online analysis of optimal\
+    \ water volume or crop yield. Liu et\nal. [18] designed a soilless cultivation\
+    \ irrigation cloud system based on EC sensors, which drives the single-chip\n\
+    microcomputer to control the irrigation and fertilisation devices according to\
+    \ the fertiliser parameters collected\nby the wireless sensors. Ouberri et al.\
+    \ [19] designed a fuzzy controller for precision irrigation nonlinear systems,\n\
+    using the T-S model to achieve continuous management of multiple input variables.\
+    \ Rajkumar et al. [20] estab-\nlished an intelligent fuzzy inference model for\
+    \ the randomness and nonlinearity of automatic irrigation systems,\nwhich can\
+    \ effectively improve their accuracy. Yadav and Shevade [21] proposed using the\
+    \ WebGIS framework\nto connect discrete agricultural systems to the Internet,\
+    \ and use big data analysis, AI, drones and other tech-\nnologies to achieve sustainable\
+    \ promotion of precision agriculture. Stavrakoudis et al. [22] used UAV remote\n\
+    sensing technology to predict the data of rice yield and fertiliser requirement,\
+    \ and established a nutrient content\ninversion model of rice growth period through\
+    \ multiple linear regression method to ensure accurate diagnosis of\nrice fertiliser\
+    \ application.\nIn the field of urban drainage automation, Chopade [22] studied\
+    \ the adaptability of automatic control systems\nunder different environmental\
+    \ conditions, and used experimental tests to obtain the results; Nie and Xu [23]\n\
+    mainly designed and implemented BCI-based automatic control systems. Yang and\
+    \ Fu [24] focussed on research\ninto the automatic display system of drainage\
+    \ systems under certain conditions, using a mobile liquid crystal\ndisplay. After\
+    \ years of development, the automation level of the current sewage treatment industry\
+    \ has been\nApplication of PLC technology in electrical automation engineering\n\
+    617\ngreatly improved, and the related technologies of the control system have\
+    \ been gradually updated and improved\n[25]. At present, the three main control\
+    \ systems in the control field are PLC programmable controller system,\nFCS fieldbus\
+    \ control system and DCS distributed control system [26]. Among them, the structure\
+    \ of the DCS\ncontrol system is divided into three levels, including the control\
+    \ station, the operation station and the instruments\nin the process. FCS realises\
+    \ the organic combination of field process equipment, PLC controller and upper\n\
+    computer monitoring part through the established communication network, and thus\
+    \ facilitates the automation\nof field-level industrial control. FCS system is\
+    \ a relatively popular development point in the current control field,\nand it\
+    \ is also a popular development direction [27]. The openness, dispersion, maintainability\
+    \ and operability\nof the FCS system are relatively good, and it is also simple\
+    \ and easy to implement in such a way as to achieve\ncomplete onsite control.\
+    \ It is being increasingly used in current industrial production applications\
+    \ [28]. As a\nresult of the effective development of the development platform\
+    \ and configuration software, the PLC control\nsystem has a more friendly human–machine\
+    \ interface, and at the same time, the cost is reduced; thus, by opting\nfor this\
+    \ system, users can economically use a control system that offers a greater capability\
+    \ for friendly (i.e.\nhassle-free) human–machine interaction. The improvement\
+    \ of the communication level also makes the security\nand stability of the control\
+    \ system develop by leaps and bounds. The openness characteristics of PLC systems\n\
+    are also generally developed based on the customised needs of users, allowing\
+    \ the integration of third-party\nsoftware and hardware to make PLC more powerful\
+    \ and empowering its use in a wider range.\nBased on the findings from the literature\
+    \ outlined above, it is observed that PLC technology is widely used\nin various\
+    \ fields of electrical automation, which greatly improves the efficiency of the\
+    \ control system and sim-\nplifies the installation, monitoring, management, maintenance\
+    \ and other procedures. However, it still has some\nshortcomings, such as the\
+    \ efficiency still not being very high, the response time being long and the control\
+    \ ac-\ncuracy being low. Therefore, this paper studies the practical application\
+    \ of PLC technology in various fields of\nelectrical automation engineering, analyses\
+    \ its working principle in depth and optimises the automatic control\nsystem based\
+    \ on the PLC principle.\n2 Mathematical model of PLC technology and electrical\
+    \ automation\nIn the electrical automation control system, the RL network is a\
+    \ common loop in the electrical system, in\nwhich the resistance R and the inductance\
+    \ L are constants, the voltage U is the input quantity, the current I is the\n\
+    output quantity and the differential equation expressions of the input quantity\
+    \ and the output quantity are such\nas indicated in Eqs (1)–(4):\nur = Ldi\ndt\
+    \ +Ri\n(1)\nT = L\nR\n(2)\nK = 1\nR\n(3)\nT di\ndt +i = Kur\n(4)\nIn addition,\
+    \ the RC network structure is also a common loop of the electrical system. The\
+    \ resistance R and the\ncapacitance C are both constants, the voltage Ur is the\
+    \ input quantity and the voltage Uc is the output quantity.\nFurther, according\
+    \ to the circuit theory, the differential equation expressions of the input and\
+    \ output quantities\ncan be obtained as shown in Eqs (5) and (6):\nur = Ri+ 1\n\
+    C\n\x02\nidt\n(5)\nuc = 1\nC\n\x02\nidt\n(6)\n618\nLi Applied Mathematics and\
+    \ Nonlinear Sciences 8(2023) 615–624\nwhere I is the current passing through the\
+    \ capacitor C and the resistor R. After the equation transformation, the\ndifferential\
+    \ equation expression between the input and output quantities can be obtained\
+    \ as shown in Eqs (7) and\n(8):\nRCduc\ndt +uc = ur\n(7)\nT duc\ndt +uc = ur\n\
+    (8)\nAt the same time, the PLC uses the armature voltage to control the DC motor\
+    \ in the system, I is the excitation\ncurrent, Ua and Ia are the armature voltage\
+    \ and current, M is the load torque on the motor, and are the displace-\nment\
+    \ and rotational speed of the motor, respectively. Therefore, the equation expression\
+    \ of the armature circuit\ncontrolled by PLC can be obtained as shown in Eq. (9):\n\
+    ua = iaRa +La\ndia\ndt +ea\n(9)\nThe back EMF is proportional to the motor speed,\
+    \ as shown in Eq. (10):\nea = Ka\ndθ\ndt\n(10)\nThe electromagnetic torque M generated\
+    \ by the motor is proportional to the armature current I, as shown in Eq.\n(11):\n\
+    M = Cia\n(11)\nThe torque balance formula on the motor is shown in Eq. (12):\n\
+    M −ML = J d2θ\ndt2 + f dθ\ndt\n(12)\nEqs (9)–(12) are the dynamic and static correlations\
+    \ of the armature controlled by the PLC, which is one of\nthe mathematical models\
+    \ of the electrification system. The four equations mentioned above are transformed\
+    \ by\nformulas to obtain the attitude equation between the input and output of\
+    \ the motor, as shown in Eq. (13):\nJRa\nd3θ\ndt3 +(fRa + fLa) d2θ\ndt2 +(fRa\
+    \ +CKa) dθ\ndt = Cua −RaML −La\ndML\ndt\n(13)\nSince the inductance of the motor\
+    \ has little influence on the system, Eq. (13) can be simplified to Eq. (14):\n\
+    JRa\nd2θ\ndt2 +(fRa +CKa) dθ\ndt = Cua −RaML\n(14)\nAt the same time, the rotational\
+    \ speed of the motor is known as the input quantity, and it can be simplified\
+    \ by\nusing the following Eq. (15):\nJRa\ndθ\ndt +(fRa +CKa)ω = Cua −RaML\n(15)\n\
+    At the same time, PLC is in the motor drive control, in which the servo motor\
+    \ drives the screw to rotate once,\nand the volume V of the object brought out\
+    \ is shown in Eq. (16):\nV = FL = t (S−b)·π ·d/cosα\n(16)\nThen, every time the\
+    \ screw rotates once, the mass M of the object brought out is shown in Eq. (17):\n\
+    M = V ·γ ·n\n(17)\nApplication of PLC technology in electrical automation engineering\n\
+    619\nFor the power model of the PLC-controlled motor drive, the motor power balance\
+    \ equation can be written as\nshown in Eq. (18):\nF = m¨v0 +Cr ˙x0 +F0\n(18)\n\
+    The transmission force formula of PLC-controlled servo motor is given by Eq. (19):\n\
+    F = k(v−v0)\n(19)\nAfter Laplace transformation from Eqs (18) and (19), Eqs (20)–(22)\
+    \ can be obtained:\nF =\n\0mS2 +CrS\n\x01\nv0(S)+F0\n(20)\nF = k[v(S)−v0(S)]\n\
+    (21)\nv0(S) =\nkv(S)−F0\nmS2 +CrS+k\n(22)\nFor the motor controlled by PLC, if\
+    \ the influence of the friction resistance of the screw is not considered, the\n\
+    transfer function of the power model of the mechanical transmission of the servo\
+    \ system can be written as shown\nin Eq. (23):\nG(S) =\nk\nmS2 +CrS+k\n(23)\n\
+    By mathematical transformation, Eq. (23) can be simplified to Eq. (24):\nGL(S)\
+    \ = x0(S)\nx(S) =\nω2\nn\nS2 +2ξωnS+ω2n\n(24)\n3 Analysis of the engineering application\
+    \ of PLC technology in electrical automation\n3.1\nApplication of PLC in electrical\
+    \ sequence control\nIn the engineering electrical automation control system, the\
+    \ advantages of PLC technology are particularly\nprominent. Electrical automation\
+    \ regards PLC technology as a sequential control system in many fields, and the\n\
+    test practice effect of PLC is very significant. The automatic sequence function\
+    \ is a feature of PLC technology,\nwhich can reasonably and effectively arrange\
+    \ the sequence of electrical automation equipment, thereby reducing\nthe repetition\
+    \ rate and the processing process related to electrical automation, further improving\
+    \ the processing\nefficiency of electrical automation, effectively reducing the\
+    \ production cost of electrical automation, and ensur-\ning that the automation\
+    \ and efficiency targets are completed on time. The automation program includes\
+    \ the main\nprogram and multiple functional sub-modules, and the electrical automation\
+    \ sequence control is one of them.\nThe mutual assistance between the modules\
+    \ can realise remote control, and can strengthen the management and\ncontrol of\
+    \ related electrical automation equipment. The application of PLC technology in\
+    \ sequence control can\nbe divided into primary and secondary stations, on-site\
+    \ sensing and remote control, etc.; designers need to carry\nout the relevant\
+    \ electrical automation program design scientifically and reasonably, so as to\
+    \ achieve effective\nmanagement of electrical automation data, thereby improving\
+    \ production efficiency. Also, the remote control\nfunction can reduce the occurrence\
+    \ rate of safety accidents and realise the comprehensive improvement of the\n\
+    control ability of electrical automation equipment.\n3.2\nApplication of PLC in\
+    \ electrical control switch\nIn the operation of the traditional electrical automation\
+    \ switch system, the system consumes a certain amount\nof time and a large amount\
+    \ of power when starting control, and the electrical automation system is often\
+    \ short-\ncircuited. The use of PLC technology can effectively solve such problems.\
+    \ The rational application of PLC\n620\nLi Applied Mathematics and Nonlinear Sciences\
+    \ 8(2023) 615–624\ntechnology in the control of switching electrical automation\
+    \ system can effectively promote the integration of\nelectrical operation and\
+    \ information editing, thereby ensuring the safety and stability of the electrical\
+    \ automation\ncontrol system. At the same time, the application of PLC technology\
+    \ can effectively shorten the response time\nof the relays in the electrical automation\
+    \ system during operation, can control the frequency of short-circuit\naccidents\
+    \ taking place in the system, and can also improve the production efficiency,\
+    \ thereby avoiding the major\npitfalls or limitations typically associated with\
+    \ electrical automation systems, namely loss of equipment control\nand resulting\
+    \ safety issues.\n3.3\nApplication of PLC in electrical data control\nPLC technology\
+    \ can strengthen the processing of electrical automation data, and is also the\
+    \ main task of\nengineering electrical automation. PLC technology may be used\
+    \ to carry out simple programming, conduct pre-\nliminary screening of electrical\
+    \ automation information, and then perform an overall scan of the ladder diagram\n\
+    inside the electrical automation equipment to obtain electrical automation data\
+    \ information. In this way, the\nelectrical automation operation steps can be\
+    \ optimised, the PLC running speed can be accelerated and the elec-\ntrical automation\
+    \ data information can be processed more effectively. The digital information\
+    \ age has imposed\nstrict requirements on data security, and given the background\
+    \ of this requirement, it is noteworthy to emphasise\nthat accelerated data processing\
+    \ can effectively manage data and improve the security of electrical automation\n\
+    data. Since the electrical automation data control includes two parts, namely\
+    \ the control part and the controlled\nobject, the electrical automation control\
+    \ program can be used to collect the electrical automation data reasonably\nand\
+    \ effectively, arrange the controller to compile the program, and then use statistical\
+    \ methods and digitalisation\nto efficiently process data that control electrical\
+    \ automation.\n3.4\nApplication of PLC in electrical closed-loop control\nThe\
+    \ sequence of processing the electrical automation output information and returning\
+    \ to the original begin-\nning is called electrical automation closed-loop control.\
+    \ The electrical automation closed-loop control can start\nthe system operation\
+    \ under the action of the feedback mechanism, and output relevant information\
+    \ smoothly;\nand at the same time, it can re-input and output basic object information,\
+    \ and achieve the expected effect through\nreasonable improvement. The application\
+    \ of PLC technology in closed-loop control can effectively integrate the\nrunning\
+    \ time of the motor in electrical automation and make a reasonable selection of\
+    \ production tools, and\nthis ideally results in improvement in production quality.\
+    \ PLC technology includes closed-loop control and se-\nquence control, which can\
+    \ further improve the intelligence level of the control electrical automation\
+    \ system, and\neffectively enhance the structure control and electrical automation\
+    \ data closed-loop management.\n3.5\nApplication of PLC in automatic machining\
+    \ control\nIn order to ensure the mechanical strength, the rivet necessitates\
+    \ strict requirements on the processing pres-\nsure and temperature in the process\
+    \ of hot pressing and forming. If the pressure is too low, the forming effect\n\
+    of the rivet will be poor, which will affect its normal use. If the temperature\
+    \ is too high or too low, it will affect\nthe stability of the internal structure\
+    \ of the rivet and reduce its life and mechanical strength. In order to provide\n\
+    the yield of rivet processing, PLC is used to automatically control the CNC machine\
+    \ tool press in the process\nof rivet processing. The effect is shown in Figure\
+    \ 1 and Table 1. An analysis of Figure 1 shows that when PLC\nis used to control\
+    \ the pressure of the CNC machine tool for pressing rivets, when the control time\
+    \ is between\n0 s and 10 s, the pressure curve of the rivet will overshoot during\
+    \ the preparation process. However, with the\nincrease of PLC automatic control\
+    \ time, the curve of rivet bearing pressure begins to maintain a smooth state,\n\
+    and there is almost no fluctuation. Before PLC is used, the pressure change of\
+    \ rivets will have a large amplitude\nand the curve will fluctuate greatly.\n\
+    Table 1 illustrates the effect of temperature changes during rivet processing\
+    \ on automatic control. During the\noperation of the PLC-controlled electrical\
+    \ automation system, the flow of people and the changes in indoor and\nApplication\
+    \ of PLC technology in electrical automation engineering\n621\nFig. 1 Pressure\
+    \ control effect under different control methods\nTable 1 Test results of PLC\
+    \ temperature regulation\nHeat load multiple\nTemperature setting (◦C)\nAutomatic\
+    \ temperature\ncontrol (◦C)\nResponse time (s)\n1.0\n700\n700\n0.010\n1.2\n700\n\
+    700\n0.012\n1.4\n700\n700\n0.014\n1.6\n700\n700\n0.015\n1.8\n700\n699.56\n0.017\n\
+    2.0\n700\n699.58\n0.019\n2.2\n700\n699.66\n0.023\n2.4\n700\n698.51\n0.026\n2.6\n\
+    700\n698.46\n0.029\n2.8\n700\n698.57\n0.030\noutdoor temperatures will cause thermal\
+    \ load disturbances in the rivet processing workshop. Therefore, when\nthe thermal\
+    \ load disturbance multiples of the electrical automation system are different,\
+    \ the effect of PLC on\nthe automatic control of CNC machine tools is tested.\
+    \ The results are shown in Table 1. On analysing Table 1,\nit is inferred that\
+    \ the thermal load disturbance multiple can have a certain impact on the automatic\
+    \ temperature\ncontrol of the CNC machine tool. When using PLC to control the\
+    \ temperature of the electrical automation\nsystem, when the disturbance multiple\
+    \ is 1.0–1.6, it has no obvious influence on the PLC automatic control, and\n\
+    the automatic control of the CNC machine tool temperature response time is short.\
+    \ However, with the increase\nof the thermal load disturbance multiple of the\
+    \ electrical automation system, there is a deviation when the PLC\nautomatically\
+    \ controls the temperature of the CNC machine tool, but the maximum deviation\
+    \ value is 1.49◦C,\nand the error percentage is only about 0.001. The results\
+    \ show that PLC has a better effect on temperature\ncontrol of electrical equipment,\
+    \ and higher precision.\n3.6\nElectrical application of PLC based on PID algorithm\
+    \ in packaging\nThe control electrical automation system designed by this PLC\
+    \ adopts Siemens S7-200 series PLC external\nanalogue input module EM235 to input\
+    \ the signal obtained by the weighing sensor into the PLC. This module can\nconvert\
+    \ the signal obtained by the sensor into (0–32,000) between the numbers. Therefore,\
+    \ the design deviation\nof the electrical automation system can be converted into\
+    \ (−32 to 32), and its absolute value is changed to (0–32)\n622\nLi Applied Mathematics\
+    \ and Nonlinear Sciences 8(2023) 615–624\nto simplify the programming, so that\
+    \ the quantisation factor is 3/16; the PID control loop number is selected as\n\
+    0, and VB100 as the starting address.\nIn order to edit the fuzzy controller,\
+    \ Matlab mathematical simulation software is used to input the controller\ninto\
+    \ the software, and then a two-dimensional fuzzy controller is determined with\
+    \ two inputs and three outputs.\nThe parameters in the editing interface select\
+    \ the FIS controller type as Mamdani, and the defuzzification method\nadopts the\
+    \ centre of gravity method. The minimum method is selected for inference rules,\
+    \ and the maximum\nmethod is selected for synthesis rules. Then, the membership\
+    \ functions of the input and output variables are\nedited, the obtained control\
+    \ rules are input into the controller, the Simulink simulation simulator provided\
+    \ in\nMatlab is used to conduct electrical automation simulation experiments,\
+    \ and a simulation model is established\nfor the control effect of fuzzy PID control.\n\
+    After the simulation is completed, the weighing system of the electrical automatic\
+    \ packaging machine is run\nand debugged. Table 2 shows the weighing data in the\
+    \ experiment of weighing accuracy of 200 g with 200 g/bag\nas the experimental\
+    \ basis. The distribution line of the deviation corresponding to the target quality\
+    \ is shown in\nFigure 2. After the above experimental analysis, it can be known\
+    \ that the accuracy of the weighing system of the\npackaging machine is within\
+    \ the range of ±0.1%. The production line of the bag-feeding packaging machine\n\
+    is in good operation, and the improved weighing system works stably and has good\
+    \ precision, which meets the\npackaging requirements.\nTable 2 Packaging test\
+    \ results of PLC control 200 g\nNumber\nActual quality (g)\nDeviation\nPrecision\
+    \ (%)\n1\n200.20\n−0.20\n0.10\n2\n200.30\n−0.30\n0.15\n3\n199.60\n+0.40\n0.20\n\
+    4\n200.40\n−0.40\n0.20\n5\n199.80\n+0.20\n0.10\n6\n200.10\n−0.10\n0.05\n7\n199.90\n\
+    +0.10\n0.05\n8\n200.30\n−0.30\n0.15\n9\n200.60\n−0.60\n0.30\n10\n200.10\n−0.10\n\
+    0.05\nFig. 2 Deviation when PLC control mass is 200 g\nApplication of PLC technology\
+    \ in electrical automation engineering\n623\n4 Conclusion\nThe application of\
+    \ PLC technology can not only effectively improve various problems existing in\
+    \ the tra-\nditional electrical automation control system, but also play a role\
+    \ in controlling material loss and saving costs,\nwhich can also promote the production\
+    \ efficiency and economic benefits derived by electrical automation en-\nterprises.\
+    \ The use of internal model PID control algorithm strengthens the adaptability\
+    \ of the controller to the\nchanges of the electrical automation system model,\
+    \ better meets the control requirements of stability, accuracy\nand rapidity,\
+    \ and realises the system heat source that would enable effective and efficient\
+    \ operation correspond-\ning to the least amount of resource consumption; however,\
+    \ the electrical automation system Fan PID param-\neters have not yet achieved\
+    \ self-matching and self-adaptive functions. Therefore, it is necessary to continue\n\
+    to carefully analyse a large amount of electrical automation data that have been\
+    \ collected, establish electrical\nautomation system models under various working\
+    \ conditions, and combine fuzzy control rules, compile fuzzy\nprograms and add\
+    \ them to existing programs. In this way, the electrical automation system can\
+    \ independently\nchoose to change the motor PID parameters according to different\
+    \ working conditions, so that the entire electri-\ncal automation system can always\
+    \ maintain efficient operation.\nIn order to further improve the accuracy of the\
+    \ weighing system of the bag packaging machine based on\nthe electrical automation\
+    \ system, this paper studies and analyses the PLC control system, combines the\
+    \ fuzzy\ncontrol with the PID control and proposes the fuzzy control based on\
+    \ the traditional PID. The control of the\nfuzzy PID control electrical automation\
+    \ system in the packaging machine weighing system is realised through\nthe powerful\
+    \ control effect and programming ability of PLC. The experimental results show\
+    \ that the improved\nelectrical automation control system has good accuracy, the\
+    \ system overshoot is small and the weighing accu-\nracy is controlled at about\
+    \ ±0.1%, which better meets the requirements of accurate measurement of electrical\n\
+    automation packaging machines.\nThe automatic control system of electrical equipment\
+    \ based on PLC technology is designed. The PID con-\ntrol algorithm is used in\
+    \ the system, and it is written into the PLC programmable electrical automation\
+    \ system\ncontroller in a self-programming way. The electrical automation system\
+    \ controller is used to realise electrical\nThe device is automatically controlled.\
+    \ The simulation test results show that the PLC is less affected by the num-\n\
+    ber of threads, and its operation is relatively stable. The spectrum efficiency\
+    \ curve of the electrical automation\nsystem coincides with the ideal curve, and\
+    \ it has better communication performance and good applicability.\nAcknowledgements.\n\
+    1. Key Research and Development Project of Gansu Provincial Department of Science\
+    \ and Technology, Study and\nDemonstration on Intelligent Irrigation Information\
+    \ Monitoring and Comprehensive Processing System in Yinda\nIrrigation Area (Project\
+    \ No. 21YF5FA094);\n2. Crosswise Scientific Research Project of Gansu Agricultural\
+    \ University, Study and Demonstration of Smart Cloud\nComputing water-saving Irrigation\
+    \ system in Yinda Irrigation Area (Project No. GSAU-JSYF-2021-008).\nReferences\n\
+    [1] Bo Y L. Application of Artificial Intelligence in Electrical Automation Control[J].\
+    \ Procedia Computer Science, 2020,\n166:292-295.\n[2] CH Fang, YN Tao, JG Eang,\
+    \ et al. Mapping Relation of Leakage Currents of Polluted Insulators and Discharge\
+    \ Arc\nArea[J]. Frontiers in Energy Research, 2021.\n[3] Che, H., & Wang, J. (2020).\
+    \ A two-timescale duplex neurodynamic approach to mixed integer optimization.\
+    \ IEEE\nTransactions on Neural Networks and Learning Systems, 32(1), 36-48.\n\
+    [4] Feng S. Research on Electrical Automation Technology of Seeding Machine Based\
+    \ on PLC Technology[J]. Journal of\nAgricultural Mechanization Research, 2020.\n\
+    [5] Ouberri Y, Yatimi H, Aroudam E. Design of a robust sliding mode controller\
+    \ for MPPT based on automation PLC for\nPV applications[J]. International Transactions\
+    \ on Electrical Energy Systems, 2020, 30(4).\n[6] Oliveira L, Filomeno M, Colla\
+    \ L F, et al. Analysis of typical PLC pulses for sensing high-impedance faults\
+    \ based on\ntime-domain reflectometry[J]. International Journal of Electrical\
+    \ Power & Energy Systems, 2022, 135:107168.\n624\nLi Applied Mathematics and Nonlinear\
+    \ Sciences 8(2023) 615–624\n[7] Wang H, Liang X, He M, et al. Analysis of Application\
+    \ of PLC Technology in Automation Control of Electrical\nEngineering[C]//2020\
+    \ IEEE Conference on Telecommunications, Optics and Computer Science (TOCS). IEEE,\
+    \ 2020.\n[8] Mocanu D A, V B˘adescu, Bucur C, et al. PLC Automation and Control\
+    \ Strategy in a Stirling Solar Power System[J].\nEnergies, 2020, 13.\n[9] Liu\
+    \ Y, Zhao Y. Electrical automation control technology of electromechanical equipment\
+    \ based on artificial intelligence\ntechnology[J]. Journal of Physics: Conference\
+    \ Series, 2022, 2181(1):012045.\n[10] Yuan J, Tian C, Li H, et al. The Design\
+    \ of Gantry Welding Production Line System Based on PLC[J]. IOP Conference\nSeries:\
+    \ Materials Science and Engineering, 2020, 782(2):022063 (9pp).\n[11] Leedy CT,\
+    \ Leedy M L. Fertilizer mixing device for sprinkler systems[P]. US: US20020145057[P].\
+    \ 2002.\n[12] Colaco A F, Molin J P. Variable rate fertilization in citrus: a\
+    \ long term study[J]. Precision Agriculture, 2017, 18(2):\n169-19.\n[13] Chandel\
+    \ N S, Mehta C R, Tewari V K, et al. Digital mapbased site-specific granular fertilizer\
+    \ application system[J].\nCurrent Science (Bangalore), 2016, 111(7): 1208-1213.\n\
+    [14] Sarangapani E, Narmadhai N, Santhosh N. Industry 4.0 technologies incorporated\
+    \ with Delta PLC based Smart\nHome Automation for Rural Development[J]. IOP Conference\
+    \ Series Materials Science and Engineering, 2021,\n1084(1):012112.\n[15] Dwinugroho\
+    \ T B, Hapsari Y T, Kurniawanti. Greenhouse automation: smart watering system\
+    \ for plants in greenhouse\nusing programmable logic control (PLC)[J]. Journal\
+    \ of Physics: Conference Series, 2021, 1823(1):012014 (9pp).\n[16] Boobalan S,\
+    \ Gobinath S, Dharmalingam A, et al. An Integrated IoT LabVIEW Based Fuzzy-PLC\
+    \ Controller for Au-\ntomation of Boiler[J]. IOP Conference Series: Materials\
+    \ Science and, Engineering, 2020, 937(1):012049 (11pp).\n[17] Yang Y, Cheng G.\
+    \ Research on data acquisition and management of digital workshop management system\
+    \ based\non Safety PLC control[C]//2021 IEEE 5th Advanced Information Technology,\
+    \ Electronic and Automation Control\nConference (IAEAC). IEEE, 2021.\n[18] Liu\
+    \ Z, Shi D, Li R, et al. PLC-VIO: Visual-Inertial Odometry Based on Point-Line\
+    \ Constraints[J]. IEEE Transactions\non Automation Science and Engineering, 2021,\
+    \ PP(99):1-18.\n[19] Ouberri Y, Yatimi H, Aroudam E. Design of a PV module block\
+    \ using the industrial automation PLC for PV system\napplication[J]. International\
+    \ Journal of Automation and Control, 2021, 15(4/5):406.\n[20] Rajkumar K, Thejaswini\
+    \ K, Yuvashri P. Automation of Sustainable Industrial Machine using PLC[J]. Journal\
+    \ of\nPhysics: Conference Series, 2021, 1979(1):012049-.\n[21] Yadav S, Shevade\
+    \ D. Design and Automation of Food Dispensing and Packaging Machinery using PLC[J].\
+    \ International\nJournal of Science and Research (IJSR), 2020, 9(11):1319-1325.\n\
+    [22] Chopade J. An Arrangement and Performance Analytics of Elements of Vibration\
+    \ Testing Machine for Taper Roller\nBearing[J]. Journal of Physics Conference\
+    \ Series, 2020, 1644.\n[23] Nie G, Xu Y. Research on the Application of Intelligent\
+    \ Technology in Low Voltage Electric Automation Control\nSystem[J]. Journal of\
+    \ Physics: Conference Series, 2021, 1865(2):022072-.\n[24] Yang Y, Fu Y. Probe\
+    \ into the Application Core of Power Electrical Automation Technology[J]. IOP\
+    \ Conference Series\nEarth and Environmental Science, 2020, 512:012113.\n[25]\
+    \ Xie G. Current Situation and Development Trend of Electrical Automation Engineering\
+    \ Control System[J]. Journal of\nPhysics Conference Series, 2020, 1648:042084.\n\
+    [26] Chen P. Fault prevention and application of electrical automation equipment\
+    \ based on maintenance methods[J]. Journal\nof Physics: Conference Series, 2021,\
+    \ 1750:012055-.\n[27] Luo Q, Liu D, Song S, et al. Research on Artificial Intelligence\
+    \ Technology in Electrical Automation Control[J]. IOP\nConference Series Earth\
+    \ and Environmental Science, 2021, 632:042085.\n[28] Yan T. Artificial Intelligence\
+    \ Technology in Electric Automation Monitoring System of Power Plant[J]. Journal\
+    \ of\nPhysics: Conference Series, 2021, 2143(1):012010.\n"
+  inline_citation: '>'
+  journal: Applied mathematics and nonlinear sciences
+  limitations: '>'
+  pdf_link: https://sciendo.com/pdf/10.2478/amns.2021.2.00275
+  publication_year: 2022
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Research on the application of PLC technology in electrical automation engineering
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.1109/jiot.2019.2894196
+  analysis: '>'
+  authors: []
+  citation_count: 0
+  full_citation: '>'
+  full_text: '>
+
+    IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Journals & Magazines >IEEE Internet of Things
+    Journal >Volume: 5 Issue: 6 2018 IndexIEEE Internet of Things JournalVol. 5 Publisher:
+    IEEE Cite This PDF 419 Full Text Views Abstract Metrics Abstract: Presents the
+    2018 subject/author index for this publication. Published in: IEEE Internet of
+    Things Journal ( Volume: 5, Issue: 6, December 2018) Page(s): 5348 - 5413 Date
+    of Publication: December 2018 ISSN Information: DOI: 10.1109/JIOT.2019.2894196
+    Publisher: IEEE Metrics More Like This A Survey of Network Automation for Industrial
+    Internet-of-Things Toward Industry 5.0 IEEE Transactions on Industrial Informatics
+    Published: 2023 End-to-End Transmission Control for Cross-Regional Industrial
+    Internet of Things in Industry 5.0 IEEE Transactions on Industrial Informatics
+    Published: 2022 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD Purchase
+    Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information COMMUNICATIONS
+    PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help? US & CANADA:
+    +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow About IEEE
+    Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: IEEE internet of things journal (Online)
+  limitations: '>'
+  pdf_link: https://ieeexplore.ieee.org/ielx7/6488907/8614370/08620612.pdf
+  publication_year: 2018
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 2018 IndexIEEE Internet of Things JournalVol. 5
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

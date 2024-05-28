@@ -1,0 +1,1056 @@
+- DOI: https://doi.org/10.3390/s19173796
+  analysis: '>'
+  authors:
+  - Uferah Shafi
+  - Rafia Mumtaz
+  - José García-Nieto
+  - Syed Ali Hassan
+  - Syed Ali Raza Zaidi
+  - Naveed Iqbal
+  citation_count: 309
+  full_citation: '>'
+  full_text: ">\nsensors\nReview\nPrecision Agriculture Techniques and Practices:\n\
+    From Considerations to Applications\nUferah Shaﬁ 1\n, Raﬁa Mumtaz 1,*\n, José\
+    \ García-Nieto 2\n, Syed Ali Hassan 1\n,\nSyed Ali Raza Zaidi 3 and Naveed Iqbal\
+    \ 1\n1\nNational University of Science and Technology (NUST), School of Electrical\
+    \ Engineering and Computer\nScience, Islamabad 44000, Pakistan\n2\nDepartment\
+    \ of Languages and Computer Sciences, Ada Byron Research Building, University\
+    \ of Málaga,\n29016 Málaga, Spain\n3\nSchool of Electronic and Electrical Engineering,\
+    \ University of Leeds, Leeds LS2 9JT, UK\n*\nCorrespondence: raﬁa.mumtaz@seecs.edu.pk\n\
+    Received: 14 July 2019; Accepted: 27 August 2019; Published: 2 September 2019\n\
+    \x01\x02\x03\x01\x04\x05\x06\a\b\x01\n\x01\x02\x03\x04\x05\x06\a\nAbstract: Internet\
+    \ of Things (IoT)-based automation of agricultural events can change the agriculture\n\
+    sector from being static and manual to dynamic and smart, leading to enhanced\
+    \ production with\nreduced human efforts. Precision Agriculture (PA) along with\
+    \ Wireless Sensor Network (WSN) are the\nmain drivers of automation in the agriculture\
+    \ domain. PA uses speciﬁc sensors and software to ensure\nthat the crops receive\
+    \ exactly what they need to optimize productivity and sustainability. PA includes\n\
+    retrieving real data about the conditions of soil, crops and weather from the\
+    \ sensors deployed in the\nﬁelds. High-resolution images of crops are obtained\
+    \ from satellite or air-borne platforms (manned\nor unmanned), which are further\
+    \ processed to extract information used to provide future decisions.\nIn this\
+    \ paper, a review of near and remote sensor networks in the agriculture domain\
+    \ is presented\nalong with several considerations and challenges. This survey\
+    \ includes wireless communication\ntechnologies, sensors, and wireless nodes used\
+    \ to assess the environmental behaviour, the platforms\nused to obtain spectral\
+    \ images of crops, the common vegetation indices used to analyse spectral\nimages\
+    \ and applications of WSN in agriculture. As a proof of concept, we present a\
+    \ case study\nshowing how WSN-based PA system can be implemented. We propose an\
+    \ IoT-based smart solution\nfor crop health monitoring, which is comprised of\
+    \ two modules. The ﬁrst module is a wireless sensor\nnetwork-based system to monitor\
+    \ real-time crop health status. The second module uses a low altitude\nremote\
+    \ sensing platform to obtain multi-spectral imagery, which is further processed\
+    \ to classify\nhealthy and unhealthy crops. We also highlight the results obtained\
+    \ using a case study and list the\nchallenges and future directions based on our\
+    \ work.\nKeywords: smart agriculture; precision agriculture; vegetation index;\
+    \ Internet of Things\n1. Introduction\nThe rapidly-growing human population has\
+    \ increased food demands for human survival on\nthe Earth. Meeting the food requirements\
+    \ with limited resources of the planet is a big challenge [1].\nSeveral state-of-the-art\
+    \ technologies are being incorporated in the agriculture domain to enhance\nthe\
+    \ productivity to cope with this challenge. Precision Agriculture (PA) is comprised\
+    \ of near and\nremote sensing techniques using IoT sensors, which help to monitor\
+    \ crop states at multiple growth\nlevels. PA involves the acquisition and processing\
+    \ of a large amount of data related to crop health.\nMultiple parameters are involved\
+    \ in plants health, including water level, temperature and others.\nPA enables\
+    \ a farmer to know precisely what parameters are needed for healthy crop, where\
+    \ these\nparameters are needed and in what amount at a particular instance of\
+    \ time. This requires collecting\nSensors 2019, 19, 3796; doi:10.3390/s19173796\n\
+    www.mdpi.com/journal/sensors\nSensors 2019, 19, 3796\n2 of 25\nmassive information\
+    \ from different sources and different parts of the ﬁeld such as soil nutrients,\
+    \ the\npresence of pests and weeds, chlorophyll content in plants and some weather\
+    \ conditions. All collected\ninformation needs to be analysed to produce agronomic\
+    \ recommendations. For instance, given the\ndevelopmental stage of plants, their\
+    \ level of greenness (chlorophyll content) reveals the nutrients\nneeded. This\
+    \ information is combined with the characteristics of the soil where the plant\
+    \ is located\nalong with weather forecast. All collected information is further\
+    \ used to determine how much of a\ncertain fertilizer should be applied to that\
+    \ plant on the next day. The delivery of agronomic information\non the right time\
+    \ to farmer and ensuring that he/she applies these recommendations are key to\n\
+    enhancing the yields.\nThe foremost driver of PA is a WSN, which is a network\
+    \ of multiple wireless nodes connected\ntogether to monitor the physical parameters\
+    \ of environment. Each wireless node is comprised of a\nradio transceiver, a micro-controller,\
+    \ sensor(s), an antenna, along with other circuitry that enables it\nto communicate\
+    \ with some gateway to transmit information collected by the sensor(s) [2]. Sensors\n\
+    measure the physical parameters and send the collected information to the controller,\
+    \ which further\ntransmits this information to the cloud or a portable device.\
+    \ The agriculture sector has multiple\nrequirements comprised of soil statistics,\
+    \ crops’ nature, weather conditions, fertilizer types and water\nrequirements.\
+    \ Crops have diverse requirements depending on different crops on the same land\
+    \ and the\nsame plant on different lands with different weather conditions. Sensors\
+    \ monitor the varying behaviour\nof these crop parameters. Due to rapid advancement\
+    \ in WSN technologies, the size and the cost of\nsensors have reduced, which make\
+    \ it feasible to implement them in many sectors of life including\nagriculture.\
+    \ The most common sensors used in the agriculture domain that capture environmental\n\
+    parameters related to crops [3] are listed in Table 1.\nIn general, a WSN consists\
+    \ of one or more wireless nodes that are further connected with sensors.\nThese\
+    \ nodes are tiny devices that are responsible for collecting data. Nodes are divided\
+    \ into two types,\na source node that collects the data, and the other is sink\
+    \ or gateway node, which receives data from the\nsource nodes. A sink node has\
+    \ more computational power compared to a source node. However, there\nare energy,\
+    \ memory, power, size, data rate and price constraints when choosing wireless\
+    \ nodes. Table 2\nshows a comparison of wireless nodes along with their common\
+    \ speciﬁcations [3]. Among all wireless\nnodes presented in Table 2, MICA2 is\
+    \ considered to be more suitable as compared to others because of\nits large number\
+    \ of expansion connectors, which makes it suitable to connect with several sensors.\n\
+    Many applications using WSN have been proposed since the last decade to monitor\
+    \ crops’ health\nremotely. In [4], a cyber-physical system was presented for monitoring\
+    \ of a potato crop. Cyber physical\nsystems can be expressed as smart systems\
+    \ that are comprised of software, hardware and physical\ncomponents, integrated\
+    \ together to sense the varying states of the real world. The proposed system\n\
+    consists of three layers: the ﬁrst layer is the physical layer, in which all sensory\
+    \ data are collected;\nthe second layer is the network layer in which data are\
+    \ transmitted to the cloud; the third layer is\nthe decision layer in which the\
+    \ data are analysed and processed to make decisions according to the\nobservations.\n\
+    There are several challenges in IoT-based systems due to exponential increasing\
+    \ devices. As in\na typical IoT network, every node transmits data to the remote\
+    \ cloud, which results in cloud\ncongestion, and the main challenges underlying\
+    \ the IOT-based system are latency with minimum\npower requirements, better usage\
+    \ of bandwidth and intermittent Internet connectivity. Fog computing\nand edge\
+    \ computing are the state-of-the-art techniques to overcome these issues; which\
+    \ reduce the\ncomputational burden of cloud. The main goal of fog computing is\
+    \ to conserve energy and bandwidth,\nwhich helps to increase the quality of service\
+    \ to the end users. In [5], an energy-efﬁcient architecture of\nthe Fog of Everything\
+    \ was presented, which was comprised of six layers. The ﬁrst layer was an Internet\n\
+    Of Everything (IOE) layer, where things (could be ﬁxed, mobile or nomadic) functioned\
+    \ under multiple\nspatially-distributed clusters. The second was a wireless access\
+    \ network that supported Thing to Fog\n(T2F) and Fog to Thing (F2T) communication\
+    \ over the wireless channel. In the third layer, the connected\nfog nodes behaved\
+    \ such as a virtualized cluster. There was an inter-fog backbone in the fourth\
+    \ layer,\nSensors 2019, 19, 3796\n3 of 25\nwhich was responsible for connectivity\
+    \ among fog nodes. The next layer was the virtualization layer,\nwhich provided\
+    \ each connected thing with the ability to augment its limited resource set, exploiting\n\
+    the computation capability at the virtual clone. In the last layer, there was\
+    \ an overlay inter-clone\nvirtual network that empowered Peer to Peer (P2P) communication.\
+    \ Then, a protocol stack for FOE\nwas presented, which was further tested by creating\
+    \ a small prototype named as V-FOE and simulated\non the iFogsim toolkit. The\
+    \ results provided strong evidence for the effectiveness of the proposed\nframework\
+    \ and more energy efﬁciency with reduced failure rate and delay.\nTable 1. Wireless\
+    \ nodes used in the agriculture domain.\nSr #\nSensor Name\nParameters Captured\n\
+    1\nECH2O soil moisture sensor\nSoil Temperature, Soil Moisture, Conductivity\n\
+    2\nHydra probe II soil sensor\nSoil Temperature, Salinity level, Soil Moisture,\n\
+    Conductivity\n3\nMP406 Soil moisture sensor\nSoil Temperature, Soil Moisture\n\
+    4\nEC sensor (EC250)\nSoil Temperature, Salinity level, Soil Moisture,\nConductivity\n\
+    5\nPogo portable soil sensor\nSoil Temperature, Soil Moisture\n6\n107-L temperature\
+    \ Sensor (BetaTherm 100K6A1B\nPlant Temperature\nThermistor)\n7\n237 leaf wetness\
+    \ sensor\nPlant Moisture, Plant Wetness, Plant\nTemperature\n8\nSenseH2TM hydrogen\
+    \ sensor\nHydrogen, Plant Wetness, CO2, Plant\nTemperature\n9\nField scout CM1000TM\n\
+    Photosynthesis\n10\nYSI 6025 chlorophyll sensor\nPhotosynthesis\n11\nLW100, leaf\
+    \ wetness sensor\nPlant Moisture, Plant Wetness, Plant\nTemperature\n12\nTT4 multi-sensor\
+    \ thermocouple\nPlant Moisture, Plant Temperature\n13\nTPS-2 portable photosynthesis\n\
+    Photosynthesis, Plant Moisture, CO2,\n14\nLT-2 M (leaf temperature sensor)\nPlant\
+    \ Temperature\n15\nPTM-48A photosynthesis monitor\nPhotosynthesis, Plant Moisture,\
+    \ Plant Wetness,\nCO2, Plant Temperature\n16\nCl-340 hand-held photosynthesis\n\
+    Photosynthesis, Plant Moisture, Plant Wetness,\nCO2, Plant Temperature, Hydrogen\
+    \ level in\nPlant\n17\nCM-100 Compact Weather Sensor\nAir Temperature, Air Humidity,\
+    \ Wind Speed,\nAir Pressure\n18\nHMP45C (Vaisala’s HUMICAP R⃝ H-chip)\nAir Temperature,\
+    \ Air Humidity, Air Pressure\n19\nMet Station One (MSO)\nAir Humidity, Air Temperature,\
+    \ Wind Speed,\nAir Pressure\n20\nXFAM-115KPASR\nAir Temperature, Air Pressure,\
+    \ Air Humidity\n21\nSHT71, SHT75 (Humidity and temperature\nsensor)\nHumidity\
+    \ and Temperature Sensor\n22\n107-L Temperature Sensor (BetaTherm 100K6A1B\nthermistor)\n\
+    Air Temperature\n23\nCl-340 hand-held photosynthesis\nAir Temperature, Air Humidity\n\
+    The energy efﬁciency is the most serious consideration while developing any fog\
+    \ architecture.\nIn [6], an energy-efﬁcient protocol for a fog-supported wireless\
+    \ sensor network was presented, which\nmaximized the lifetime of the network by\
+    \ uniformly distributing the energy among connected nodes.\nThe performance of\
+    \ the proposed algorithm was compared with the existing state-of-the-art algorithms\n\
+    Sensors 2019, 19, 3796\n4 of 25\nin MATLAB. The results showed that the proposed\
+    \ algorithm was highly energy efﬁcient with a\nprolonged network lifetime.\nRegardless\
+    \ of all the advancements in the IoT domain, the adoption of PA has been limited\
+    \ to\nsome developed countries. Because of the lack of resources, remote sensing-based\
+    \ techniques to\nmonitor crop health are not common in under-developed countries\
+    \ such as Pakistan, which results in\na loss of yield. Pakistan is an agricultural\
+    \ country due to is large arable land and climatic variations,\nwhich make it\
+    \ suitable to cultivate multiple types of crops. Despite all these natural resources,\
+    \ Pakistan\nis still unable to produce massive yields [7]. The main reason behind\
+    \ the low production is traditional\nfarming practices, which are used for crop\
+    \ health monitoring and yield estimation. These techniques\nare completely based\
+    \ on farmer’s intuition and experience. Farmers visit the ﬁelds in order to monitor\n\
+    the crop, which is very laborious and quite challenging in the case of large arable\
+    \ land. In this case, the\narea under insect/pest attack is inaccurately measured,\
+    \ which can result in over spraying of insecticide\nand pesticide, which adversely\
+    \ affects the nutrition in crops.\nKeeping in mind all these issues, our motivation\
+    \ is to provide the industry and research\ncommunities with a survey of technologies,\
+    \ metrics and current practices concerning communication\ndevices, sensors and\
+    \ platforms used to monitor and analyse multiple sources of data (spectral images,\n\
+    IoT, etc.) used in environmental and agriculture applications. As the main contribution,\
+    \ we generated\na technological taxonomy for PA, which was driven by an IoT-based\
+    \ architecture to monitor the crops’\nhealth. The developed system had two modules\
+    \ including wireless sensor network-based crop heath\nmonitoring in which multiple\
+    \ sensors were used to get the real-time heath status of crop; the other\none\
+    \ was NDVI-based analysis of spectra images captured by a drone to assess the\
+    \ chlorophyll content,\nwhich was further used to monitor the health of the crop.\n\
+    The rest of the paper is organized as follows: Section 2 presents the most common\
+    \ wireless\ncommunication technologies used in the agriculture domain; Section\
+    \ 3 explains the spectral\nimage-based remote sensing techniques, platforms and\
+    \ vegetation indices; Section 4 describes remote\nsensing applications in the\
+    \ agriculture sector; Section 5 presents a case study on IoT-based and\nUAV-based\
+    \ PA; Section 6 explains the experiments and results; challenges are discussed\
+    \ in Section 7;\nand conclusions and future directions are presented in Section\
+    \ 8.\nTable 2. Common wireless nodes used in the agriculture domain.\nSr #\nWN1\n\
+    MC2\nExpansion\nConnector\nAvailable Sensors\nData Rate\n1\nMICA2DOT\nATmega128L\n\
+    19 Pins\nGPS, Light, Humidity, Barometric Pressure,\nTemperature, Accelerometer,\
+    \ Acoustic, RH\n38.4 K Baud\n2\nImote2\nMarvell/XScalePXA271\n40 Pins and 20 Pins\n\
+    Light, Temperature, Humidity, Accelerometer\n250 Kbps\n3\nIRIS\nATmega128L\n51\
+    \ Pins\nLight, Barometric Pressure, RH, Acoustic,\nAcceleration/ Seismic, Magnetic\
+    \ and Video\n250 Kbps\n4\nMICAz\nATmega128L\n51 Pins\nLight, Humidity, Temperature,\
+    \ Barometric\nPressure, GPS, RH, Accelerometer, Acoustic, Video\nSensor, Sounder,\
+    \ Magnetometer, Microphone\n250 Kbps\n5\nTelosB\nTIMSP430\n6 Pins and 10 Pins\n\
+    Light, Temperature, Humidity\n250 Kbps\n6\nCricket\nATmega128L\n51 Pins\nAccelerometer,\
+    \ Light, Temperature, Humidity,\nGPS, RH, Acoustic, Barometric Pressure,\nUltrasonic,\
+    \ Video Sensor, Microphone,\nMagnetometer, Sounder\n38.4 K Baud\n7\nMICA2\nATmega128L\n\
+    51 Pin\nTemperature, Light, Humidity, Accelerometer,\nGPS, Barometric Pressure,\
+    \ RH, Acoustic, Sounder,\nVideo, Magnetometer\n38.4 K Baud\nWN1: wireless node,\
+    \ MC2: Micro-Controller.\n2. Wireless Communication Technologies\nVarious communication\
+    \ protocols have been introduced in the last few decades due to the rapid\nincrease\
+    \ in IoT devices and WSN technologies. Each protocol has its own speciﬁcations\
+    \ depending on\nthe bandwidth, number of free channels, data rate, battery timing,\
+    \ price and other factors [8]. The most\ncommonly-used protocols for wireless\
+    \ communication in IoT-based applications in agriculture are:\nSensors 2019, 19,\
+    \ 3796\n5 of 25\n2.1. Cellular\nCellular technology is most suitable for applications\
+    \ that require an extraordinary data rate.\nIt can utilize GSM, 3G and 4G cellular\
+    \ communication capabilities by providing reliable high-speed\nconnectivity to\
+    \ the Internet, requiring higher power consumption.\nIt requires infrastructure\
+    \ to\nbe deployed and operation cost and back up staff for it with a centralized\
+    \ managed authority.\n4G cellular technology requires more battery power, but\
+    \ cellular technology is a good option in\nunderground wireless sensor networks,\
+    \ such as security systems in smart home projects and agriculture\napplications\
+    \ [9]. A smart irrigation systems was presented in [10], in which several soil\
+    \ moisture\nsensors were deployed in the ﬁeld in the ZigBee mesh network. The\
+    \ reading captured from the ﬁelds\nwere transmitted over the cloud using the cellular\
+    \ 4G LTE network.\n2.2. 6LoWPAN\n6LoWPAN is an IP-based communication protocol,\
+    \ which was the ﬁrst protocol used for IoT\ncommunication. 6LoWPAN is also low\
+    \ cost because of the low bandwidth and low power consumption.\n6LoWPAN supports\
+    \ multiple topologies such as star and mesh topologies. To handle interoperability\n\
+    between IPv6 and IEEE 802.15.4, there is an adaptation layer between the network\
+    \ layer and the\nMAC layer [8]. The applications for 6LoWPAN are monitoring the\
+    \ health equipment, environment\nmonitoring and in security and home automation\
+    \ systems. In [11], a 6LoWPAN-enabled wireless sensor\nnetwork was presented to\
+    \ monitor the soil properties of crops. The 6LoWPAN system architecture\nfor precision\
+    \ agriculture application was discussed in [12] where the performance evaluation\
+    \ of this\nprotocol was discussed with several baud rates and power constraints.\n\
+    2.3. ZigBee\nZigBee is a wireless communication protocol widely used in precision\
+    \ agriculture to monitor\nenvironmental conditions related to crops’ health [13].\
+    \ It is based on the wireless 802.15.4 standard.\nBasically, it was developed\
+    \ for personal area networks by the ZigBee alliance [8]. It has a ﬂexible\nnetwork\
+    \ structure, long battery life, supports mesh, star and tree topology with multi-hop\
+    \ data\ntransmission, is easily installed and supports large nodes. It has a short\
+    \ range with limited data speed\nand is less secure compared to Wi-Fi-based systems.\
+    \ ZigBee is very common in smart agriculture\napplications such as smart green\
+    \ houses and smart irrigation systems [14]. In [15], a smart irrigation\nsystem\
+    \ was presented based on the ZigBee communication protocol. This system consisted\
+    \ of two\nnodes, i.e., a sensor node and an actuator node. The sensor node was\
+    \ comprised of soil moisture\nsensors, which monitored the water level in the\
+    \ soil. The actuator module was responsible for taking\nactions according to the\
+    \ water level of the soil. All communication was carried out by means of\nZigBee\
+    \ protocol.\n2.4. BLE\nBLE is as famous as the Bluetooth smart technology, which\
+    \ is a suitable protocol for IoT\napplications including agriculture [16]. It\
+    \ is particularly designed for low bandwidth, low latency and\nshort range for\
+    \ IoT applications. The main advantages of BLE over typical Bluetooth include\
+    \ lower\nsetup time, lower power consumption and unlimited support for nodes in\
+    \ a star topology. It has a\nvery limited range of 10 meters. However, the drawbacks\
+    \ are that it can only provide communication\nbetween two devices, it presents\
+    \ low security, and it can lose connection during communication. In [17],\na BLE-based\
+    \ infrastructure was presented to collect the sensors’ data. The proposed system\
+    \ utilized a\nsmart phone to collect the data of sensors using BLE, where sensors\
+    \ were deployed in the plants, i.e.,\nsoil moisture sensors and soil temperature\
+    \ sensor.\nSensors 2019, 19, 3796\n6 of 25\n2.5. RFID\nRFID systems consist of\
+    \ a reader and a transponder, which have a very small radio frequency,\ncalled\
+    \ the RF tag. This tag is programmed electronically with distinctive information\
+    \ that has a reading\ncharacteristic. RFID has two technologies for the tag system\
+    \ the ﬁrst is the active reader tag system,\nand the other is the passive reader\
+    \ tag. Active reader tag systems are more expensive, as they utilize\nmore battery\
+    \ power and use high frequencies. However, passive reader tag systems are low\
+    \ powered.\nSome IoT applications using RFID include smart shopping, healthcare,\
+    \ national security and smart\nagriculture applications. An IoT-based smart irrigation\
+    \ system based on RFID was presented in [18].\nThe system was comprised of soil\
+    \ moisture and soil temperature sensors along with a water control\nsystem, so\
+    \ it collected the reading of the sensors and sent these readings to the cloud\
+    \ using RFID\ncommunication protocols, where the user controlled a water pump\
+    \ based on the water level of the soil.\n2.6. Wi-Fi\nWi-Fi is the most common\
+    \ communication protocol that enables devices to communicate over\na wireless\
+    \ signal. Wi-Fi provides Wireless Local Area Network (WLAN) connectivity to millions\
+    \ of\nlocations, i.e., homes, ofﬁces and public locations such as cafes, hotels\
+    \ and airports with high speed.\nThe Wi-Fi protocol supports IEEE 802.11, 802.11a,\
+    \ 802.11b, 802.11g and 802.11n. Wi-Fi is widely used\nin IoT-based applications\
+    \ including agriculture systems, i.e., smart irrigation, crop health monitoring\n\
+    and greenhouses. In [19], an infrastructure was presented to monitor environmental\
+    \ parameters\ninside the greenhouse such as temperature, light intensity and soil\
+    \ moisture level. This platform\nwas comprised of sensors that collected the data\
+    \ related to the environmental variation and sent to\nthe cloud using Wi-Fi. Similarly,\
+    \ another smart agriculture system based on Wi-Fi communication\nprotocols was\
+    \ presented in [20]. This last one consisted of a Raspberry Pi connected with\
+    \ multiple\nsensors, which collected the data. The collected data were further\
+    \ transmitted to the cloud using Wi-Fi\ncommunication protocols.\n2.7. LoRaWAN\n\
+    LoRaWAN operates on the LoRa network. LoRaWAN deﬁnes the system architecture and\n\
+    communication protocol of the network, while the physical layer of LoRa enables\
+    \ the link for\nlong-range communication. LoRaWAN manages the frequencies in communication,\
+    \ data rate and\npower consumption for all devices. LoRaWAN is common in agricultural\
+    \ applications because of\nits large coverage area and low power consumption [21].\
+    \ In [14], a smart irrigation system based on\nLoRaWAN was presented. Table 3\
+    \ shows the comparison of all mentioned wireless communication\nprotocols [8].\
+    \ Among all wireless communication technologies, 6LoWPAN and ZigBee are considered\n\
+    to be more suitable for PA application because both are based on mesh networking,\
+    \ which makes them\nsuitable to cover large area.\nTable 3. Wireless communication\
+    \ protocols used in Precision Agriculture (PA).\nCommunication Protocols\nData\
+    \ Rate\nTopology\nStandard\nPhysical Range\nPower\n6LoWPAN\n0.3–50 Kb/s\nStar,\
+    \ Mesh\nIEEE 802.15.4\n2–5 km urban,\n15 km suburban\nLow\nZigBee\n250 Kb/s\n\
+    Star, Mesh Cluster\nIEEE 802.15.4\n10–100 m\nLow\nBluetooth\n1–2 Mb/s\nStar, Bus\n\
+    IEEE 802.15.1\n30 m\nLow\nRFID\n50 tags/s\nP2P\nRFID\n10–20 cm\nUltra low\nLoRa\
+    \ WaAN\n27–50 Kb/s\nP2P, Star\nIEEE 802.11ah\n5–10 km\nVery low\nWi-Fi\n1–54 Mb/s\n\
+    Star\nIEEE 802.11\n50 m\nMedium\nSensors 2019, 19, 3796\n7 of 25\n3. Spectral\
+    \ Image-Based Remote Sensing\nRemote sensing has been widely used in PA to monitor\
+    \ crops’ health for the last two decades.\nRemote sensing is a phenomenon in which\
+    \ physical conditions of the Earth are observed remotely by\ncalculating the emitted\
+    \ and reﬂected radiation from some distance. There are special cameras that\n\
+    are used to capture images for further analysis to ﬁnd the characteristics of\
+    \ a speciﬁc area. Multiple\nplatforms are used to mount these cameras that capture\
+    \ images of the objects.\n3.1. Spectral Image Platforms\nRemote sensing platform\
+    \ considerations for spectral images are airborne-based, satellite-based\nand\
+    \ Unmanned Aerial Vehicle (UAV)-based [22]. Each platform has its own coverage\
+    \ range, which\nis determined by three factors: (i) Ground Sampling Distance (GSD),\
+    \ which is computed in terms of\nspatial resolution, (ii) data collection rate\
+    \ or frequency and (iii) average distance between the object\nand sensor. Apart\
+    \ from coverage range, several factors [23] affect the performance of platforms,\n\
+    as mentioned in Table 4.\nTable 4. Key differences between spectral image platforms.\n\
+    Applicability Aspect\nAirborne\nUAV\nSatellite\nObservation Area\nRegional\nLocal\n\
+    Worldwide\nGround Coverage\n1 km (Medium)\n100 m (Small)\n10 km (Large)\nField\
+    \ of View\nWider\nWide\nNarrow\nGSD (Spatial Resolution)\n5–25 cm\n10–5 cm\n0.30–300\
+    \ m\nDeployability\nComplex\nEasy\nDifﬁcult\nSpatial Accuracy\n1–25 cm\n5–10 cm\n\
+    1–3 m\nRepeat Time\nHour(s)\nMinute(s)\nDay(s)\nOperational Risk\nHigh\nLow\n\
+    Moderate\n3.1.1. Satellite-Based Platforms\nSpace-borne platforms for remote sensing\
+    \ are considered to be the most stable platforms among\nall others. These platforms\
+    \ consist of satellites, rockets and space shuttles. Space borne platforms are\n\
+    categorized based on the orbits and timing. The advantages of satellite-based\
+    \ remote sensing include\nhigh spatial resolution, which makes it promising to\
+    \ extract extensive time-series data. The images\nobtained by satellite platforms\
+    \ cover large area and are stable without noise, which is normally induced\ndue\
+    \ to interference while image capturing. However, the main problem with satellite-based\
+    \ platforms\nis their high cost in the case of high spatial resolution images.\
+    \ The second problem is their strictly ﬁxed\ntime schedule, so data cannot be\
+    \ collected at critical timings. The re-visitation times vary from twice\nin one\
+    \ day to 16 days, depending on the orbit of the satellite. The other big problem\
+    \ is that satellite\nplatforms are highly sensitive to weather conditions, so\
+    \ if the weather is cloudy, the captured image will\nhave less detailed information.\
+    \ Table 5 shows the main types of satellites with their speciﬁcations [22].\n\
+    Among all satellite platforms presented in Table 5, some satellite data are freely\
+    \ available,\nwhile others provide a commercial solution. The commercial solutions\
+    \ such as Pleiades-1 provide\nimages with a high resolution and a revisit time\
+    \ of one day. QuickBird, Landsat-8 and Sentinel are\nfrequently-used satellite\
+    \ platforms used to obtain hyperspectral imagery. QuickBird was launched\nin 2001\
+    \ by USA. The Panchromatic (PAN) and four Multi-Spectral (MS) imagery sensors\
+    \ are used in\nQuickBird with a GSD of 0.7 × 0.7–2.6 × 2.6 m with a revisit time\
+    \ 1–3.5 days. QuickBird provides a\nsmall revisit time, but it is a commercial\
+    \ solution. In contrast to QuickBird, Landsat-8 and Sentinel\nprovide free solutions.\
+    \ Landsat-8 was launched in 2013 by the USA. Landsat-8 provides a GSD of\n16 days\
+    \ with PAN and 11-MS imagery sensors. Though revisit time of Landsat-8 is much\
+    \ higher\ncompared to QuickBird, but it provides images with 11 different multi-spectral\
+    \ bands.\nSentinel is another broadly-used satellite launched by the EU. It currently\
+    \ has three missions,\ni.e., Sentinel-1, Sentinel-2 and Sentinel-3. These missions\
+    \ provide images with 21 MS bands with\nSensors 2019, 19, 3796\n8 of 25\nrevisit\
+    \ times of 5–10 days depending on which Sentinel mission is used. However, Sentinel-2\
+    \ is a\ncommonly-used platform in precision agriculture as it provides data freely\
+    \ at a 10-m spatial resolution\nand covers a swath width of 290 km. By combining\
+    \ Sentinel-2A and Sentinel-2B, the revisit time is\nfurther reduced to ﬁve days,\
+    \ which helps in change detection. The complete details of all satellite\nplatforms\
+    \ with their speciﬁcations are listed in Table 5, where other platforms such as\
+    \ SAT, MODIS\nand WordView are also considered.\nTable 5. Satellite platforms\
+    \ for RS.\nName\nLaunch\nSensor\nCountry\nSwath\nWidth (km)\nGSD 1 Range (m)\n\
+    Revisit Time (day)\nRapidEye\n2008\n5 MS2\nGermany\n77\n6.5 × 6.5\n1–5.5\nQuickBird-2\n\
+    2001\nPAN3\nUSA\n16.8–18\n0.7 × 0.7\n1–3.5\n4 MS2\n2.6 × 2.6\nPleiades 1\n2011\n\
+    PAN3\nFrance\n20\n0.5 × 0.5\n1\n2012\n4 MS2\n2 × 2\nSentinel-1\n2014\nC-band\n\
+    EU\n80\n5 × 5\n12\n2016\nSAR6\n250\n5 × 20\n6 (dual)\n400\n25 × 40\nWorldView-3\n\
+    2014\nPAN3, 8 MS2, 8 MS2\nUSA\n13.1\n0.3 × 0.3\n1–4.5\n(SWIR4), 12 MS2\n1.2 ×\
+    \ 1.2\n3.7 × 3.7\nLandsat-8\n2013\nPAN3, 11 MS2\nUSA\n185\n15 × 15\n16\n30 × 30\n\
+    Sentinel-2\n2015\n13 MS2\nEU\n290\n10 × 10\n10\n20 × 20\n2016\n60 × 60\n5 (dual)\n\
+    EnMap\n2017\n232 HSI5\nGermany\n30\n30 × 30\n4\nICESat\n2003\n2 HSI5\nUSA\nN/A\n\
+    70\n8\n(footprint)\nTanDEM-X\n2007\nX-band\nGermany\n5 × 10\n1 × 1\n11\nSAR6\n\
+    1500 × 30\n3 × 3\n1500 × 100\n16 × 16\nSkySat\n2013\nPAN3\nUSA\n2 × 1\n1.1 × 1.1\n\
+    0.5 (2015)\nVideo\n2014\nPAN3\n8\n0.9 × 0.9\n0.12 (2017)\n2015\n4 MS2\n2 × 2\n\
+    ICESat-2\n2018\n1 HSI5\nUSA\nN/A\n10\nN/A\n(9-beam)\n(footprint)\nSentinel-3\n\
+    2015\n21 MS2\nEU\n1270\n300 × 300\n0.25\n2017\n11 MS2\n1420\n500 × 500\n(IR)\n\
+    750 (nadir)\n1000 × 1000\nRADARSAT-2 2007\nC-band\nCanada\n20\n3 × 3\n24 (orbit\
+    \ repetition)\nSAR6\n500\n100 × 100\nSPOT 6\n2012\nPAN3\nFrance\n60\n1.5 × 1.5\n\
+    1–5\nSPOT 7\n2014\n4 MS2\n6 × 6\nTerraSAR-X\n2007\nX-band\nGermany\n5 × 10\n1\
+    \ × 1\n11\nSAR6\n1500 × 100\n16 × 16\nDMC-3\n2015\nPAN3\nU.K.\n23\n1 × 1\n1\n\
+    4 MS2\n4 × 4\nGSD1: Ground Sampling Rate, MS2: Multi-Spectral, PAN3: Panchromatic,\
+    \ SWIR4: Short Wave Infrared, HSI5:\nHyperspectral Imagery, SAR6: Synthetic Aperture\
+    \ Radar\n3.1.2. Airborne-Based Platforms\nAirborne platform are ﬂexible compared\
+    \ to satellite platforms, but still are expensive. The revisit\ntime is in human\
+    \ control, which can be changed any time. The coverage area by this platform is\n\
+    much smaller than satellite-based ones, but relatively greater than the UAV platforms.\
+    \ Some common\nairborne platforms used for remote sensing [22] are given in Table\
+    \ 6.\nSensors 2019, 19, 3796\n9 of 25\nTable 6. Airborne/aircraft platforms for\
+    \ RS.\nAircraft Type\nTypical Models\nRS Sensors\nMax Flying Height (ft)\nFixed\
+    \ wing (jet)\nLearJet 35A\nInSAR,\n45,000\nCamera,\nGeoSAR\nFixed wing (propeller\
+    \ engine)\nCessna 402\nCamera\n26,900\nCommander 690\nLiDAR\n19,400\nCessna 208\n\
+    Camera\nLiDAR\n25,000\nCessna 206\nCamera\nDHC-6 Twin\nCamera\n15,700\nOtter 300\n\
+    LIDAR\n25,000\nDiamond\nCamera\nDA42\nLiDAR\n18,000\nPilatus PC-6\nCamera\nPorter\n\
+    Camera\n25,000\nPiper Navajo\nLiDAR\n26,000\nPartenavia\nCamera\nP.68\nLiDAR\n\
+    19,200\nVulcanair P68\nCamera\nObserver\nCamera\n18,000\nGyroplan\nAutoGyro\n\
+    LiDAR\n10,000\nCavalon\nCamera\nHelicopter\nEurocopter\nLiDAR\n15,000\nAS350\n\
+    Camera\nRobinson R44\nLiDAR\n14,000\nCamera\nBell 206\nLiDAR\n13,000\nCamera\n\
+    Schweizer\nLiDAR5\n13,000\nCamera\n3.1.3. UAV-Based Platforms\nUAV platforms are\
+    \ a vibrant alternative to satellite and airborne, which are quite ﬂexible and\
+    \ cost\neffective. A typical UAV platform consists of a communication and navigation\
+    \ system that incorporates\na set of sensors mounted on it. Among UAV platforms,\
+    \ there are mainly ﬁxed-wing platforms. and\nmultirotor options are available.\
+    \ The ﬂying time is based on the payload weight. In general, a longer\nﬂying time\
+    \ is achieved by ﬁxed-wing systems, which demands lighter weight payloads. For\
+    \ example,\nhigh-deﬁnition cameras weighing less than 300 grams as the payload\
+    \ of a ﬁxed-wing UAV allow it to ﬂy\nfor around two hours using currently available\
+    \ battery power [24]. On the contrary, battery-powered\nmultirotor UAV with higher\
+    \ payload capacity have a reduced ﬂying time, i.e., around 15–25 min.\nTable 7\
+    \ shows UAV platforms commonly used in the agriculture domain and concretely to\
+    \ monitor\nthe health of crops remotely [22]. Among these platforms, DJI/Phantom-2\
+    \ is a more suitable choice\nfor intermediate agricultural land because of its\
+    \ low cost and ease of use. The other advantage of this\nplatform is that it provides\
+    \ support for mounting multiple cameras, which helps to monitor the crop in\n\
+    multiple electro-magnetic bands. The American Aerospace/RS-16 is also an option\
+    \ because of its ﬂight\ntime and large are coverage, but due to its high cost,\
+    \ this platform is not common.\nIn [25], the ESAFLY A2500_WH helicopter was used\
+    \ to implement the platform of the UAV\nwith Tetra cam ADC Micro as the camera\
+    \ to capture hyper-spectral images of two different types of\ncultivation, i.e.,\
+    \ vineyard and tomato. The images captured by the UAV platform are very high in\n\
+    resolution, so more information can be extracted as compared to satellite images.\
+    \ To assess the health\nof a crop, three types of Vegetation Index (VI) maps have\
+    \ been computed.\nSensors 2019, 19, 3796\n10 of 25\nTable 7. UAV platforms for\
+    \ RS.\nWeight (kg)\nAircraft Power/Type\nManufacturer/Model\nFlying Time (min)\n\
+    Flying Speed (m/s)\nRS Sensors\n0.7\nFixed-wing/electric\nsenseFly/eBee RTK\n\
+    40\n11–25\nCamera\n6.1\nFixed-wing/electric\nAeroVironment/Puma AE\n210\n23\n\
+    Camera\n6.0\nQuadro copter/electric\nMicrodrones/MD4-1000\n90\n12\nCamera/LiDAR\n\
+    4.6–6.6\nHexacopter/electric\nAibotix/Aibot X6\n30\n14\nCamera\n5\nFixed-wing/electric\n\
+    Trigger\nComposites/Pteryx\n120\n12.5–15\nCamera\n1.3\nQuadrocopter/electric\n\
+    DJI/Phantom 2\n25\n15\nCamera\n2.5\nFixed-wing/electric\nTrimble/UX5\n50\n22\n\
+    Camera\n2.7\nFixed-wing/electric\nTopcon/SIRIUS PRO\n50\n18\nCamera\n5.1–5.8\n\
+    Fixed-wing/electric\nHawkeye\nUAV/AeroHawk\n90\n16.5–19.5\nCamera\n6.9–9.5\nHexacopter/electric\n\
+    TRGS/Li-AIR\n15\n8\nLiDAR\n9.5\nOctocopter/electric\nAltus UAS/Delta X8\n10–14\n\
+    12\nCamera/LiDAR\n25\nOctocopter/electric\nRiegl/Ricopter\n30\n22\nLiDAR/camera\n\
+    77\nHelicopter/gas\nAeroscout/Scout B1-100\n90\nLiDAR\n90\nHelicopter/gas\nIGI/geocopter\n\
+    120–180\nCamera/LiDAR\n9.2\nOctocopter/electric\nAltigator/OnyxStar\nFOX-C8 HD\
+    \ LiDAR\n20\nLiDAR\n38\nFixed-wing/gas\nAmerican\nAerospace/RS-16\n720–960\n33\n\
+    Camera\n3.2. Vegetation Indices\nUsing multi-spectral images from the remote sensors\
+    \ described above, a series of Vegetation\nIndices (VIs) can be computed. Vegetation\
+    \ Indices (VIs) obtained from remote sensing-based canopies\nare effective algorithms\
+    \ for quantitative and qualitative evaluations of vigour, vegetation cover and\n\
+    growth dynamics, among other applications [26]. Hitherto, no uniﬁed mathematical\
+    \ expression exists\nthat deﬁnes all VIs due to the complexity of the several\
+    \ light spectra combinations, instrumentation,\nresolutions and platforms used.\
+    \ In particular, this section focuses on vegetation indices NDVI, GDVI\nand SAVI,\
+    \ as they are widely used in PA.\n3.2.1. NDVI\nThe Normalized Difference Vegetation\
+    \ Index (NDVI) is the most popular VI that is extensively\nused to ﬁnd the content\
+    \ of green in PA applications [27,28]. It uses Red (R) and Near Infrared (NIR)\n\
+    channels to compute the NDVI index. More NIR light is absorbed by healthy vegetation;\
+    \ however,\nabsorption ratio is very small for red light. NDVI is computed by\
+    \ Equation (1) and returns a value\nbetween −1 and 1 [29].\nNDVI = NIR − R\nNIR\
+    \ + R\n(1)\nHigher NDVI value indicate healthy vegetation, while smaller values\
+    \ of NDVI show that vegetation is\nvery small at that speciﬁc region. There is\
+    \ another form of NDVI, i.e., the Green Normalized Vegetation\nIndex (GNDVI),\
+    \ which uses the green channel instead of red. GNDVI is computed by Equation (2):\n\
+    GNDVI = NIR − G\nNIR + G\n(2)\nSensors 2019, 19, 3796\n11 of 25\n3.2.2. Difference\
+    \ Vegetation Index\nThe DVI was proposed to reduce the effect of soil reﬂectance,\
+    \ which is not covered by NDVI [30].\nDVI is different between the reﬂectance\
+    \ of the NIR band to the reﬂectance of the red band. DVI is also\ncomputed with\
+    \ the green band, i.e., GDVI. Both DVI and GDVI are computed by Equations (3)\
+    \ and (4):\nDVI = NIR − R\n(3)\nGDVI = NIR − G\n(4)\n3.2.3. SAVI\nNDVI and DVI\
+    \ do not compensate the background effect of soil. Therefore, many vegetation\n\
+    indices were introduced to compensate the effect of soil reﬂectance. The Soil\
+    \ Adjusted Vegetation Index\n(SAVI), the Green Soil Adjusted vegetation Index\
+    \ (GSAVI), the Optimized Soil Adjusted Vegetation\nIndex (OSAVI), the Green Optimized\
+    \ Soil Adjusted Vegetation Index (OGSAVI) and the Modiﬁed\nSoil Adjusted Vegetation\
+    \ Index (MSAVI) [31–33] are common among them, which are computed by\nEquations\
+    \ (5)–(9):\nSAVI =\n1.5(NIR − R)\n(NIR + R + 0.5)\n(5)\nGSAVI = 1.5(NIR − G)\n\
+    NIR + G + 0.5\n(6)\nOSAVI =\n(NIR − G)\nNIR + R + 0.16\n(7)\nGOSAVI =\n(NIR −\
+    \ G)\nNIR + G + 0.16\n(8)\nMSAVI = 0.5[2(NIR + 1) −\nq\n(2NIR + 1)2 − 8(NIR −\
+    \ R)]\n(9)\n3.2.4. NR and NG:\nNormalized Red (NR) and Normalized Green (NG) are\
+    \ two other famous vegetation indices being\nused in PA [33]. NR focuses on the\
+    \ part of spectrum where radiation is absorbed by chlorophyll, while\nNG focuses\
+    \ on the part of the spectrum where radiation is absorbed by other pigments, excluding\n\
+    chlorophyll. NR and NG are computed by Equations (10) and (11):\nNR =\nR\nNIR\
+    \ + R + G\n(10)\nNG =\nG\nNIR + R + G\n(11)\n4. Wireless Sensor Network Applications\
+    \ in Agriculture\nMultiple applications of wireless sensor networks are being\
+    \ utilized today in the agriculture sector.\nSome very common applications are\
+    \ smart irrigation, smart fertilization, smart pest control and green\nhouse monitoring.\n\
+    4.1. Smart Irrigation Systems\nSmart irrigation is an artiﬁcial irrigation application\
+    \ that controls the quantity of water by making\na decision about where water\
+    \ is needed. It is the most signiﬁcant constituent in agriculture, which has\n\
+    a great impact on crops’ health, cost and productivity. One major aspect of smart\
+    \ irrigation is to avoid\nSensors 2019, 19, 3796\n12 of 25\nthe wastage of water\
+    \ since most countries in the world are facing water scarcity problems. A smart\n\
+    irrigation system was presented in [34] in which a Raspberry Pi was used along\
+    \ with two sensors:\na soil moisture sensor was used to assess the water level\
+    \ in the soil, while a temperature and humidity\nsensor was used to monitor the\
+    \ environmental condition. The Raspberry Pi was connected to these\nsensors and\
+    \ the water supply network. A mobile application was developed for remote monitoring\n\
+    and remote water ﬂow control enabling both manual and automatic water ﬂow control.\
+    \ In automatic\nmode, water ﬂow was automatically turned ON/OFF based on the water\
+    \ level of the soil without\nhuman intervention. In manual mode, the user was\
+    \ able to monitor the soil moisture level. An alert\nwas generated when the water\
+    \ level of soil was getting below a speciﬁc threshold, and the user turned\nit\
+    \ ON/OFF using a mobile application.\nPower is a big concern in IoT-based platforms,\
+    \ so many researchers have developed power-\nefﬁcient systems. A power-efﬁcient\
+    \ water irrigation system was presented using solar power [35]\nin which the controller\
+    \ was connected to the soil sensor and water supply valve. The water valve\nwas\
+    \ turned ON/OFF based on the water level monitored by the moisture sensor. The\
+    \ power was\nsupplied by the solar panel, so the system was independent of any\
+    \ external power module. Another\nsensor-based IoT system for water irrigation\
+    \ was presented in [36] in which the controller controlled\nthe opening and closing\
+    \ of a solenoid valve based on the water level of the soil. In addition, a series\
+    \ of\nweather alerts were sent to the user via a mobile application to update\
+    \ the temperature and humidity of\nthe environment, which had a direct inﬂuence\
+    \ on the water level of the soil. In [37], an energy-efﬁcient\nirrigation system\
+    \ for cultivated crops was presented using a wireless sensor network in which\
+    \ water\nwas effectively controlled based on environmental conditions. This system\
+    \ estimated the quantity of\nwater needed for normal irrigation based on the humidity,\
+    \ temperature and wind speed collected by\nsensors along with historical data.\n\
+    In [38], an IoT-based irrigation system was presented using soil moisture sensors\
+    \ controlled by\nATMEGA 328P on an Arduino UNO board along with a GPRS module.\
+    \ The data collected from the\nsensors were sent to the cloud, i.e., Things Speak,\
+    \ where graphs were generated to visualize the data\ntrends. A web portal was\
+    \ also designed where the farmer was able to check the status of water, if it\n\
+    was ON/OFF. Similarly, a real-time prototype for an irrigation system was presented\
+    \ in [39] in which\nsoil moisture sensors and soil temperature sensors were used\
+    \ to assess the water status of the soil.\nRFID was used to transmit data to the\
+    \ cloud for further data analysis. Using ATMEGA 328, a water\nsprinkler system\
+    \ for smart irrigation was presented in [40] using temperature, humidity and soil\n\
+    moisture sensors. The water sprinkler was controlled based on the soil moisture\
+    \ level to save water\nand reduce human effort. In [41], a cost-effective drip\
+    \ irrigation system for a home was proposed in\nwhich a Raspberry Pi, Arduino,\
+    \ electronic water control valve and relay were used. ZigBee protocols\nwere used\
+    \ for communication. The user turned ON/OFF the water valve by sending commands\
+    \ to the\nRaspberry Pi, which further processed the commands through the Arduino.\n\
+    The sensors placement is a big issue that affects the accuracy of sensors. A detailed\
+    \ discussion of\nsoil moisture positioning in the ﬁeld and their accuracy was\
+    \ presented in [42]. For real-time irrigation\nsystems, complete software and\
+    \ hardware requirements, problems and challenges and advantages\nwere discussed\
+    \ in [43] where a big picture of the complete system was provided.\n4.2. Smart\
+    \ Fertilization System\nFertilizer is an artiﬁcial or natural substance having\
+    \ some chemical elements used to enhance\nthe growth and productivity of plants.\
+    \ Manual spraying is a common technique used for fertilization.\nHowever, the\
+    \ optimal way of fertilization requires sensing capabilities to ﬁnd the exact\
+    \ place where\nfertilizer is needed, which chemical components are missing and\
+    \ the amount of fertilizer needed.\nIt is important to provide fertilizers in\
+    \ a very precise amount in order to improve productivity [44].\nMultiple fertilization\
+    \ techniques have been presented by researchers since the last decade using WSN\n\
+    and IoT.\nSensors 2019, 19, 3796\n13 of 25\nAn automated fertilization system\
+    \ was presented in [45] using real-time sensors to measure the\nsoil fertility.\
+    \ The system consisted of three modules including input, output and decision support.\n\
+    The decision support module measured the optimal amount of fertilizers needed\
+    \ for the growth of the\nplants based on the real-time sensory data captured by\
+    \ the sensors. A mechanical sensor named the\n“Pendulum Meter” was introduced\
+    \ in [46], which was used for optimal fertilization. This sensor was\nmounted\
+    \ on the tractor to measure the density of the crop, so the corresponding fertilizer\
+    \ spreader\nwas controlled based on the readings of this sensor. The IEEE 802.11\
+    \ Wi-Fi module was used for\ncommunication along with GPS. Real-time data of soil\
+    \ were collected by several sensors, i.e., soil\nmoisture, temperature, conductivity,\
+    \ NO2, CO2, etc. A Geographical Information System (GIS) server\nwas used to interpolate\
+    \ sensory data.\n4.3. Smart Pest Control and Early Disease Detection System\n\
+    Pest attacks are the root cause of low productivity in the agriculture sector.\
+    \ These pests result in\nseveral serious diseases in plants that affect the plant’s\
+    \ growth. However, disease prediction provides\nearly warning to the farmers,\
+    \ which enables them to make appropriate decisions to control the disease\non\
+    \ time. Pest control systems are comprised of electronic devices that enable humans\
+    \ to identify traps\nin a speciﬁc range of these electronic devices [47]. These\
+    \ electronic devices are sensors capable of\ncalculating the environmental parameters\
+    \ for further analysis.\nMuch research has been done in the agriculture sector\
+    \ for early disease detection and pest control\nsystems using more advanced and\
+    \ sophisticated technologies [48,49]. Multiple imagery sensors have\nbeen used\
+    \ by different researchers to collect imagery data, such as: RGB sensors, ﬂuorescence\
+    \ imagery\nsensors, spectral sensors and thermal sensors [50]. The thermal sensors\
+    \ are used to measure the water\nstatus in the plant by measuring the temperature,\
+    \ since this parameter has a direct inﬂuence on the\nwater level in the plants.\
+    \ RGB images have three colour channels, i.e., red, green and blue, which\ncan\
+    \ be used to perceive the biometric effect in the plants. Multi- and hyper-spectral\
+    \ sensors capture\nimages containing the spatial information of objects in multiple\
+    \ wavebands. The spatial resolution is\ndependent on the distance between the\
+    \ object and the sensor. That is why satellite images contain less\nspatial resolution\
+    \ as compared to low altitude platforms such as drones. The ﬂuorescence sensors\
+    \ are\nused to distinguish the photosynthetic activities in the plants. Various\
+    \ image processing techniques\nare applied to these imagery data to identify the\
+    \ diseases in plants.\nIn [50], an IoT-based plants disease and pest prediction\
+    \ system was presented to minimize the\nexcessive use of fungicides and insecticides.\
+    \ Weather condition monitoring sensors, i.e., temperature,\ndew, humidity and\
+    \ wind speed, are used to monitor weather parameters to ﬁnd a correlation between\n\
+    pest growth with weather. The sensors have been deployed in orchards, and data\
+    \ collected from these\nsensors are sent to the cloud. The farmer is informed\
+    \ about the alarming condition of the pest attack\non the crops.\nFrom a different\
+    \ point of view, hyper-spectral images are used to analyse crops’ health and pest\n\
+    attack using manned or unmanned vehicles on which spectral cameras are mounted.\
+    \ The captured\nimages are analysed in depth using machine learning techniques\
+    \ to identify the disease in the plants.\nAdvance Neural Networks (ANNs) are more\
+    \ common for processing imagery data due to their ability\nto learn complex structures\
+    \ and patterns. Using hyper-spectral images, a system was presented [51] to\n\
+    identify disease or pest attack in crops. The proposed system for disease detection\
+    \ used an ANN with\nmultiple layers.\nEarly disease detection in sugar beet plants\
+    \ was presented in [52]. For early detection, four\nsupervised classiﬁcation algorithms\
+    \ were applied on spectral images. Spectral images were then\ncollected for each\
+    \ image, and multiple vegetation indices were calculated to be used in predictive\n\
+    and perspective analysis. The vegetation indices used were NVDI, SR, SIPI, PSSRaand\
+    \ PSSRb, ARI,\nREP, mCAIand RRE. These vegetation indices values were used as\
+    \ features in the dataset. Support\nVector Machine (SVM), ANN, and decision tree\
+    \ were used for classiﬁcation. A comparative analysis\nwas performed which, showed\
+    \ that SVM outperformed other classiﬁers for disease detection with an\nSensors\
+    \ 2019, 19, 3796\n14 of 25\naccuracy of 97.12%. In [53], a data mining technique\
+    \ was applied on the already collected dataset of\ntwo types of crops, i.e., wheat\
+    \ and paddy (rice), in India. For dimension reduction, Sammon’s mapping\nwas used\
+    \ for multi-dimension scaling, i.e., to reduce the dimension also for unsupervised\
+    \ learning.\nFor high dimensional data, dimension reduction is required prior\
+    \ to performing further data analysis\nfor better data visualization and accuracy,\
+    \ since redundant dimensions reduce the effectiveness of\nany data analysis algorithms.\
+    \ Principle Component Analysis (PCA) is a very often-used technique\nalong with\
+    \ Sammon’s mapping. Data from multi-dimensions were reduced to two or three dimensions.\n\
+    Then, the Self-Organized Maps (SOM) algorithm for clustering was used to ﬁnd correlations\
+    \ between\nthe data. The accuracy comparison of SOM and Sammon’s mapping was presented,\
+    \ which showed\nthat SOM performed better on a large dataset, while Sammon’s mapping\
+    \ was suitable for small ones.\nSmart phones played important role in data acquisition,\
+    \ which were further used to monitor the crops’\nhealth. In [54], the health of\
+    \ wheat crop was monitored using near surface imagery captured by a smart\nphone.\
+    \ The crop was classiﬁed as healthy or unhealthy based on the green level by computing\
+    \ Gcc.\nMost of the applications in PA have been either IoT-based in which multiple\
+    \ sensors are used to\nassess the health of the crop or remote sensing-based in\
+    \ which crop health is assessed by performing\nsome computation on spectral images.\
+    \ We can compare crop health monitoring application based\non some attributes\
+    \ such as which sensors are used in particular applications, whether web or mobile\n\
+    services are provided or not, etc. The comparative analysis of some existing crop\
+    \ health monitoring\napplications is presented in Table 8 based on some attributes.\n\
+    To precisely monitor the crop health, both IoT-based techniques and remote sensing\
+    \ techniques\nshould be used together to provide more reliable and accurate information\
+    \ about the crop. As a\nproof of concept, we present a case study in which a crop\
+    \ health monitoring system based on IoT and\nremote sensing techniques is proposed.\
+    \ We provide a complete end-to-end solution in the agriculture\ndomain by facilitating\
+    \ the agricultural user with web and mobile services so that he/she could be\n\
+    informed about the latest condition of the crop in a timely manner. In this way,\
+    \ remedy actions could\nbe performed in time, which will result in enhanced production.\n\
+    Sensors 2019, 19, 3796\n15 of 25\nTable 8. Comparison among existing PA applications.\n\
+    PA\nEdge\nData\nSoil\nSoil\nAir\nAir\nVegetation\nWeb\nMobile\nLight\nWind\nApplication\n\
+    Computing\nAnalytic\nMoisture\nTemperature\nMoisture\nTemperature\nIndex\nServices\n\
+    Services\nIntensity\nVelocity\n[1]\nN\nY\nN\nN\nN\nY\nY\nN\nN\nN\nN\n[4]\nN\n\
+    Y\nN\nN\nN\nN\nN\nY\nY\nN\nN\n[28]\nN\nY\nN\nN\nN\nN\nY\nN\nN\nN\nN\n[29]\nN\n\
+    Y\nN\nN\nN\nN\nY\nN\nN\nN\nN\n[41]\nN\nN\nY\nN\nN\nN\nN\nN\nN\nN\nN\n[52]\nN\n\
+    Y\nN\nN\nN\nN\nY\nN\nN\nN\nN\n[55]\nN\nN\nY\nN\nY\nY\nN\nN\nY\nN\nN\n[56]\nY\n\
+    N\nY\nY\nY\nY\nN\nN\nN\nY\nN\n[57]\nN\nY\nY\nY\nY\nY\nN\nN\nN\nY\nN\n[58]\nN\n\
+    N\nN\nY\nN\nN\nN\nN\nN\nN\nN\n[59]\nN\nY\nN\nN\nN\nN\nY\nN\nN\nN\nN\n[60]\nY\n\
+    Y\nY\nN\nY\nY\nN\nY\nY\nY\nN\n[61]\nY\nY\nY\nY\nY\nY\nN\nY\nY\nY\nY\n[62]\nN\n\
+    Y\nN\nN\nN\nY\nN\nY\nN\nN\nN\n[63]\nN\nY\nY\nY\nY\nY\nN\nY\nN\nN\nN\n[64]\nN\n\
+    Y\nY\nN\nY\nY\nN\nY\nN\nN\nN\n[65]\nN\nY\nY\nY\nN\nY\nN\nN\nN\nN\nN\n[66]\nN\n\
+    Y\nN\nN\nN\nN\nY\nN\nN\nN\nN\n[67]\nN\nY\nY\nY\nN\nY\nY\nY\nY\nN\nN\n[68]\nN\n\
+    Y\nN\nN\nN\nN\nY\nN\nN\nN\nN\nProposed system\nY\nY\nY\nY\nY\nY\nY\nY\nY\nN\n\
+    N\nSensors 2019, 19, 3796\n16 of 25\n5. A Case Study on UAV-Based and IoT-Based\
+    \ Precision Agriculture\nWe developed a complete solution for crop health monitoring\
+    \ based on IoT and remote sensing.\nIn the proposed system, crop health is monitored\
+    \ using data collected from multiple IoT sensors,\nas well as NDVI mapping of\
+    \ spectral images captured by a drone. The architecture of the proposed\nsystem\
+    \ is shown in Figure 1, which was designed according to two main modules. The\
+    \ ﬁrst module\nwas a wireless sensor network-based system in which multiple wireless\
+    \ nodes were developed. Each\nwireless node was comprised of a soil moisture sensor\
+    \ used to monitor the water level of the soil,\na soil temperature sensor used\
+    \ to check the temperature of the soil and air temperature and humidity\nsensors.\
+    \ These nodes were deployed across the ﬁeld in a star topology fashion where the\
+    \ master node\ncollected readings from all slave nodes and transmitted the captured\
+    \ reading to the back-end server for\nfurther processing. The master node acted\
+    \ as a gateway node, which received data from all slave nodes\nusing NRF communication\
+    \ module. After performing initial processing, the master node transmitted\nthe\
+    \ data to the cloud using GSM communication technology. In the case of the unavailability\
+    \ of the\nGSM network, this node stored the captured data and transmitted to the\
+    \ cloud upon the availability\nof network.\nThe second module was used to monitor\
+    \ crop health using multi-spectral imagery, which was\ncollected by a multi-spectral\
+    \ camera mounted on a drone. The NDVI was computed using Equation (1)\nto classify\
+    \ between healthy and unhealthy plants by measuring the chlorophyll content in\
+    \ the crops,\nwhich was further used to localize the area under stress precisely.\n\
+    All collected data were sent to the cloud where further analysis was performed.\
+    \ The web portal\nwas designed to help the farmer monitor the crop proﬁle over\
+    \ the whole life cycle. Currently, we are\nmonitoring soil moisture, soil temperature,\
+    \ air moisture and air temperature readings in real time\nalong with NDVI mapping\
+    \ of spectral imagery. Multiple web services were provided on the web\nportal\
+    \ including historical/real data visualization using graphs, weather monitoring,\
+    \ NDVI mapping\nand the correlation among measured parameters. Figure 2 shows\
+    \ the snapshots of the web portal\nalong with different services.\nFigure 1. System\
+    \ architecture.\nSensors 2019, 19, 3796\n17 of 25\nFigure 2. User interface of\
+    \ the web portal.\nFor portability and remote monitoring, a mobile application\
+    \ was also developed to facilitate the\nfarmer/agronomist/landlord with all the\
+    \ web services that are available on web portal. The alerts\nare generated when\
+    \ an abnormal behaviour is observed in the crop, which help the farmer to take\n\
+    remedy actions in a timely manner. The user interfaces of the mobile application\
+    \ are shown in Figure 3.\nTherefore, the web portal along with mobile applications\
+    \ provides a complete solution, which enables\nagricultural users monitor the\
+    \ current status of the crop, as well as previous details.\nFigure 3. User interface\
+    \ of the mobile application.\nSensors 2019, 19, 3796\n18 of 25\n6. Results and\
+    \ Discussion\n6.1. Analysis of the Data Collected by IoT Nodes\nThe developed\
+    \ IoT nodes were deployed across the wheat ﬁelds of an area of 1.4375 hectare.\n\
+    The selected area was located in Islamabad, Pakistan. The wheat ﬁelds are shown\
+    \ in Figure 4 along\nwith the IoT node and sensors. We deployed the system across\
+    \ the wheat ﬁeld in March 2019 when\nwheat was in the grain ﬁlling and grain ripening\
+    \ stage.\nFigure 4. System deployed across the wheat ﬁelds.\nWe collected the\
+    \ sensors’ readings such as air temperature, air humidity, soil temperature and\n\
+    soil moisture. We compared the observed crop parameters with the ideal wheat temperature\
+    \ proﬁle\nas shown in Figure 5. Extreme variation in the weather of Islamabad\
+    \ was observed in that particular\ntime period, which can be seen by how the actual\
+    \ temperature for wheat crop deviated from the ideal\ntemperature proﬁle of the\
+    \ wheat crop.\nFigure 5. Deviation of observed temperature from the ideal temperature\
+    \ proﬁle.\nAdditionally, we performed linear regression to ﬁnd the correlation\
+    \ between observed parameters,\nwhich provided insight into how changes in one\
+    \ parameter can effect the other parameter. The linear\nregression found a relation\
+    \ between the two parameters by ﬁtting the equation of the line using the\nobserved\
+    \ dataset [69]. Equation (12) represents an equation of the line where mrepresents\
+    \ the slope of\nline, while c indicates the y-intercept. The variables m and c\
+    \ were learned from the data.\ny = mx + c\n(12)\nFigure 6A shows the correlation\
+    \ between the observed air temperature and air humidity, which showed\nthat both\
+    \ were negatively correlated. The correlation between air temperature and soil\
+    \ temperature is\nshown in Figure 6B, which shows that both were positively correlated.\n\
+    Sensors 2019, 19, 3796\n19 of 25\n(A)\n(B)\nFigure 6. (A) Correlation b/wair temperature\
+    \ and air humidity. (B) Correlation b/w air temperature\nand soil temperature.\n\
+    The rise in air temperature caused the air humidity to reduce, while it resulted\
+    \ in an increase in\nsoil temperature and vice versa.\n6.2. Analysis of Multi-spectral\
+    \ Images Captured by Drone\nTo collect multi-spectral imagery, we used the DJI-Phantom\
+    \ Pro Advanced drone with the Sentera\nMulti-spectral-imaging sensor. The drone\
+    \ had its own optical camera, while the multi-spectral camera\nwas mounted on\
+    \ it to obtain spectral images. Multiple ﬂights of the drone were carried out\
+    \ at the\nspeciﬁc growing stages of the crop, i.e., grain ripening and grain ﬁlling\
+    \ stage. After collecting these\nimages, they were transferred to the cloud for\
+    \ NDVI mapping. Figure 7A shows the optical image\nthat was captured on 16 May\
+    \ 2019 when wheat was in the harvesting stage, while Figure 7B is its\nspectral\
+    \ image, and Figure 7C is the NDVI mapping. Since wheat was at a mature stage,\
+    \ its NDVI\nshould be very small, i.e., ideally there should be no green region\
+    \ in the ﬁeld. However, in NDVI\nmapping, a large green region indicated the abnormal\
+    \ behaviour of the crop. The green region was\ndue to naturally growing plants.\
+    \ This information can be visualized on the web portal.\n(A)\n(B)\n(C)\nFigure\
+    \ 7. Wheat crop. (A) Optical image; (B) spectral image; (C) NDVI mapping.\nThe\
+    \ same process was performed in a maize ﬁeld when maize was in the grain ripening\
+    \ stage.\nFigure 8A shows the optical image that was captured on 24 July 2019\
+    \ when maize was in the grain\nripening stage, while Figure 8B is its spectral\
+    \ image, and Figure 8C is the NDVI mapping. The same\nbehaviour can be observed\
+    \ with the maize crop, i.e., there should be a minimal green region in the\nﬁeld.\
+    \ However, in NDVI mapping, a large green region indicated the abnormal behaviour\
+    \ of the crop.\nSensors 2019, 19, 3796\n20 of 25\n(A)\n(B)\n(C)\nFigure 8. Maize\
+    \ crop. (A) Optical image; (B) spectral image; (C) NDVI mapping.\n7. Challenges\n\
+    PA has been used since the last few decades to enhance crops’ yield with reduced\
+    \ costs and\nhuman effort, although the adoption of these novel techniques by\
+    \ farmers is still very limited owing to\nthe following reasons or challenges.\n\
+    7.1. Hardware Cost\nPA relies mostly on hardware such as sensors, wireless nodes,\
+    \ drones, spectral imaging sensors,\netc., which are used to assess multiple parameters\
+    \ in real time. These sensors have multiple limitations\nincluding high development,\
+    \ maintenance and deployment cost. Some systems in PA are cost effective\nand\
+    \ are suitable for small arable land, i.e., smart irrigation systems that require\
+    \ low-cost hardware\ncomponents and sensors. However, drone-based systems for\
+    \ crops’ health monitoring are feasible for\nlarge arable land due to high installation\
+    \ cost.\n7.2. Weather Variations\nEnvironmental variation is one of the major\
+    \ challenges that affects the accuracy of data collected\nby sensors. Sensor nodes\
+    \ deployed in the ﬁeld are sensitive to environmental variations, i.e., rain,\n\
+    ﬂuctuation in temperature, wind speed, sun light, etc. Communication between wireless\
+    \ nodes\nand the cloud can be interrupted due interference induced in wireless\
+    \ communication channels by\natmospheric disturbance. The satellite, air borne\
+    \ and drone platforms are also sensitive to weather\nvariations. Imagery acquired\
+    \ by these platforms is affected by contamination of clouds and other\nnatural\
+    \ aerosols. The development of advanced techniques for atmospheric correction,\
+    \ cloud detection\nand noise interpolation is a current open challenge, which\
+    \ requires hard efforts from the research\ncommunity.\n7.3. Data Management\n\
+    The sensors in PA constantly generate data. To ensure the integrity of data, some\
+    \ data security\nmeasures needs to be in place, which will in turn enhance the\
+    \ cost of the system. The readings from\nthe sensors have to be accurate in order\
+    \ to take appropriate actions precisely when and where required.\nAn intruder\
+    \ can corrupt the readings, and false readings will adversely reduce the effectiveness\
+    \ of\nthe system. PA systems generate immense amounts of data, which require enough\
+    \ resources to\nperform data analysis. Real-time data collected from sensors deployed\
+    \ across the ﬁelds after a few\nminutes and spectral imagery acquired from high-altitude\
+    \ or low-altitude platforms produce the bulk\nof the data, which increase the\
+    \ storage and processing requirements. New software platforms and\nfacilities\
+    \ for scalable management of Big Data sources are demanded. In this regard, the\
+    \ generation\nof software-as-a-service solutions is focused on merging data management\
+    \ and IoT thorough cloud\ncomputing platforms.\nSensors 2019, 19, 3796\n21 of\
+    \ 25\n7.4. Literacy Rate\nLiteracy is an important factor that inﬂuences the adoption\
+    \ ratio in PA. In developing countries\nwhere the illiteracy rate is high, farmers\
+    \ grow crops based on their experience. They do not utilize the\nstate-of-the-art\
+    \ technologies in agriculture, which results in loss of production. Farmers need\
+    \ to be\neducated in order to understand the technology or they have to trust\
+    \ a third party for technical support.\nTherefore, in underdeveloped areas where\
+    \ the literacy rate is not high, PA is not very common due to\nthe limitations\
+    \ of resources and education.\n7.5. Connectivity\nNext-generation 5G networks\
+    \ can be 100-times faster than 4G ones, making communication\nbetween devices\
+    \ and servers much quicker. 5G can also carry much more data than other networks,\n\
+    which makes it an ideal technology for transmitting information from remote sensors\
+    \ and drones, key\ntools that are being tested in PA environments. The adoption\
+    \ of new communication networks based\non 5G is a must in current applications\
+    \ where secure and rapid data transfer enables real-time data\nmanagement and\
+    \ support for decision making.\n7.6. Interoperability\nOne of the biggest problems\
+    \ PA faces is the interoperability of equipment due to different digital\nstandards.\
+    \ This lack of interoperability is not only obstructing the adoption of new IoT\
+    \ technologies\nand slowing down their growth, but it also inhibits the gain of\
+    \ production efﬁciency through smart\nagriculture applications. New methods and\
+    \ protocols to integrate different machine communication\nstandards to unlock\
+    \ the potential of efﬁcient machine-to-machine communication and data sharing\n\
+    between machines and management information systems are required in the current\
+    \ scenario of PA.\n8. Conclusion and Future Directions\nPrecision agriculture\
+    \ is a modern practice used to enhance crops’ productivity using latest\ntechnologies,\
+    \ i.e., WSN, IoT, cloud computing, Artiﬁcial Intelligence (AI) and Machine Learning\n\
+    (ML). Most of the research done so far indicates that PA-based practices have\
+    \ a great inﬂuence on\nsustainability and productivity. The objective of PA is\
+    \ to provide decision support systems based\non multiple parameters of crops,\
+    \ i.e., soil nutrients, water level of the soil, wind speed, intensity of\nsunlight,\
+    \ temperature, humidity, chlorophyll content, etc. However, several challenges\
+    \ are involved\nin the development and deployment phase of these systems. This\
+    \ article was aimed at providing a\nsurvey of modern technologies involving current\
+    \ PA platforms, with the goal of supporting industry\nand research communities\
+    \ on the development of modern applications for smart agriculture. A case\nstudy\
+    \ was presented to prove the effectiveness of the PA in the agriculture domain.\n\
+    Since the main objective of precision agriculture is to produce surplus yield\
+    \ by optimizing the\nresources such as water, pesticides, fertilizers, etc., for\
+    \ resource optimization, prescription maps play\nan important role, which enables\
+    \ farmers to quantify resources required for healthy crops at any\nparticular\
+    \ growth stage. Most of the research accomplished in the agriculture domain focuses\
+    \ on the\nremote sensing platforms to collect imagery, which reﬂects only Vegetation\
+    \ Indices (VIs) such as NDVI.\nThe prescription maps cannot be generated by only\
+    \ using VIs; instead, multiple other factors need to\nbe considered such as soil\
+    \ properties, soil moisture level, meteorological behaviour, etc.\nFunding: This\
+    \ work is funded by the Research England’s QR Global Challenges Research Fund\
+    \ (GCRF) under\nProject “GrITS: Green IoT for Climate Smart Agriculture”.\nAcknowledgments:\
+    \ We extend our sincere thanks and gratitude to National Agriculture Research\
+    \ Centre (NARC)\nIslamabad, Pakistan for allowing us to ﬂy drone in their premises\
+    \ and capture spectral imagery to monitor crop\nhealth. We are also indebt to\
+    \ NUST-SEECS for providing the administrative and technical support to IoT lab\
+    \ for\nconducting this research work.\nConﬂicts of Interest: The authors declare\
+    \ no conﬂict of interest.\nSensors 2019, 19, 3796\n22 of 25\nReferences\n1.\n\
+    Mumtaz, R.; Baig, S.; Fatima, I. Analysis of meteorological variations on wheat\
+    \ yield and its estimation using\nremotely sensed data. A case study of selected\
+    \ districts of Punjab Province, Pakistan (2001–14). Ital. J. Agron.\n2017, 12.\
+    \ [CrossRef]\n2.\nWang, N.; Zhang, N.; Wang, M. Wireless sensors in agriculture\
+    \ and food industry—Recent development and\nfuture perspective. Comput. Electron.\
+    \ Agric. 2006, 50, 1–14. [CrossRef]\n3.\nAbbasi, A.Z.; Islam, N.; Shaikh, Z.A.\
+    \ A review of wireless sensors and networks’ applications in agriculture.\nComput.\
+    \ Stand. Interfaces 2014, 36, 263–270.\n4.\nRad, C.R.; Hancu, O.; Takacs, I.A.;\
+    \ Olteanu, G. Smart monitoring of potato crop: A cyber-physical system\narchitecture\
+    \ model in the ﬁeld of precision agriculture. Agric. Agric. Sci. Procedia 2015,\
+    \ 6, 73–79. [CrossRef]\n5.\nBaccarelli, E.; Naranjo, P.G.V.; Scarpiniti, M.; Shojafar,\
+    \ M.; Abawajy, J.H. Fog of everything: Energy-efﬁcient\nnetworked computing architectures,\
+    \ research challenges, and a case study. IEEE Access 2017, 5, 9882–9910.\n[CrossRef]\n\
+    6.\nNaranjo, P.G.V.; Shojafar, M.; Mostafaei, H.; Pooranian, Z.; Baccarelli, E.\
+    \ P-SEP: A prolong stable election\nrouting algorithm for energy-limited heterogeneous\
+    \ fog-supported wireless sensor networks. J. Supercomput.\n2017, 73, 733–755.\
+    \ [CrossRef]\n7.\nKirby, M.; Mainuddin, M.; Khaliq, T.; Cheema, M. Agricultural\
+    \ production, water use and food availability\nin Pakistan: Historical trends,\
+    \ and projections to 2050. Agric. Water Manag. 2017, 179, 34–46. [CrossRef]\n\
+    8.\nAl-Sarawi, S.; Anbar, M.; Alieyan, K.; Alzubaidi, M. Internet of Things (IoT)\
+    \ communication protocols.\nIn Proceedings of the 2017 8th International Conference\
+    \ on Information Technology (ICIT), Amman, Jordan,\n17–18 May 2017; pp. 685–690.\n\
+    9.\nZhang, X.; Andreyev, A.; Zumpf, C.; Negri, M.C.; Guha, S.; Ghosh, M. Thoreau:\
+    \ A subterranean wireless\nsensing network for agriculture and the environment.\
+    \ In Proceedings of the 2017 IEEE Conference on\nComputer Communications Workshops\
+    \ (INFOCOM WKSHPS), Atlanta, GA, USA, 1–4 May 2017; pp. 78–84.\n10.\nKhelifa,\
+    \ B.; Amel, D.; Amel, B.; Mohamed, C.; Tarek, B.\nSmart irrigation using internet\
+    \ of things.\nIn Proceedings of the 2015 Fourth International Conference on Future\
+    \ Generation Communication\nTechnology (FGCT), Luton, UK, 29–31 July 2015; pp.\
+    \ 1–6.\n11.\nPaventhan, A.; Allu, S.K.; Barve, S.; Gayathri, V.; Ram, N.M. Soil\
+    \ property monitoring using 6lowpan-enabled\nwireless sensor networks. In Proceedings\
+    \ of the Agro-Informatics and Precision Agriculture, Hyderabad,\nIndia, 1–3 August\
+    \ 2012.\n12.\nSuryady, Z.; Shaharil, M.H.M.; Bakar, K.A.; Khoshdelniat, R.; Sinniah,\
+    \ G.R.; Sarwar, U. Performance\nevaluation of 6LoWPAN-based precision agriculture.\
+    \ In Proceedings of the International Conference on\nInformation Networking 2011\
+    \ (ICOIN2011), Barcelona, Spain, 26–28 January 2011; pp. 171–176.\n13.\nSarode,\
+    \ K.; Chaudhari, P. Zigbee based Agricultural Monitoring and Controlling System.\
+    \ Int. J. Eng. Sci.\n2018, 8, 15907–15910.\n14.\nZhou, Y.; Yang, X.; Guo, X.;\
+    \ Zhou, M.; Wang, L. A design of greenhouse monitoring & control system\nbased\
+    \ on ZigBee wireless sensor network.\nIn Proceedings of the 2007 International\
+    \ Conference on\nWireless Communications, Networking and Mobile Computing, Shanghai,\
+    \ China, 21–25 September 2007;\npp. 2563–2567.\n15.\nChikankar, P.B.; Mehetre,\
+    \ D.; Das, S. An automatic irrigation system using ZigBee in wireless sensor\n\
+    network. In Proceedings of the 2015 International Conference on Pervasive Computing\
+    \ (ICPC), Pune, India,\n8–10 January 2015; pp. 1–5.\n16.\nXue-fen, W.; Xing-jing,\
+    \ D.; Wen-qiang, B.; Le-han, L.; Jian, Z.; Chang, Z.; Ling-xuan, Z.; Yu-xiao,\
+    \ Y.P.; Yi, Y.\nSmartphone accessible agriculture IoT node based on NFC and BLE.\
+    \ In Proceedings of the 2017 IEEE\nInternational Symposium on Consumer Electronics\
+    \ (ISCE), Kuala Lumpur, Malaysia, 14–15 November 2017;\npp. 78–79.\n17.\nTanaka,\
+    \ K.; Murase, M.; Naito, K. Prototype implementation of BLE based automated data\
+    \ collection\nscheme in agricultural measurement system.\nIn Proceedings of the\
+    \ 2018 15th IEEE Annual Consumer\nCommunications & Networking Conference (CCNC),\
+    \ Las Vegas, NV, USA, 12–15 January 2018; pp. 1–2.\n18.\nWasson, T.; Choudhury,\
+    \ T.; Sharma, S.; Kumar, P. Integration of RFID and sensor in agriculture using\n\
+    IOT.\nIn Proceedings of the 2017 International Conference On Smart Technologies\
+    \ For Smart Nation\n(SmartTechCon), Bangalore, India, 17–19 August 2017; pp. 217–222.\n\
+    Sensors 2019, 19, 3796\n23 of 25\n19.\nLiang, M.H.; He, Y.F.; Chen, L.J.; Du,\
+    \ S.F. Greenhouse Environment dynamic Monitoring system based on\nWIFI. IFAC-PapersOnLine\
+    \ 2018, 51, 736–740. [CrossRef]\n20.\nN-USha, T.M. Conditions in Agriculture through\
+    \ WiFi using Raspberry PI. Int. J. Eng. 2017, 3, 6–11.\n21.\nDavcev, D.; Mitreski,\
+    \ K.; Trajkovic, S.; Nikolovski, V.; Koteli, N. IoT agriculture system based on\
+    \ LoRaWAN.\nIn Proceedings of the 2018 14th IEEE International Workshop on Factory\
+    \ Communication Systems (WFCS),\nImperia, Italy, 13–15 June 2018; pp. 1–4.\n22.\n\
+    Rudd, J.D.; Roberson, G.T.; Classen, J.J. Application of satellite, unmanned aircraft\
+    \ system, and ground-based\nsensor data for precision agriculture: A review. In\
+    \ Proceedings of the 2017 ASABE Annual International\nMeeting, Spokane, WA, USA,\
+    \ 16–19 July 2017.\n23.\nToth, C.; Jó´zków, G. Remote sensing platforms and sensors:\
+    \ A survey. ISPRS J. Photogramm. Remote Sens.\n2016, 115, 22–36. [CrossRef]\n\
+    24.\nZhong, Y.; Wang, X.; Xu, Y.; Wang, S.; Jia, T.; Hu, X.; Zhao, J.; Wei, L.;\
+    \ Zhang, L.\nMini-UAV-Borne\nHyperspectral Remote Sensing: From Observation and\
+    \ Processing to Applications. IEEE Geosci. Remote Sens.\nMag. 2018, 6, 46–62.\
+    \ [CrossRef]\n25.\nCandiago, S.; Remondino, F.; De Giglio, M.; Dubbini, M.; Gattelli,\
+    \ M. Evaluating multispectral images and\nvegetation indices for precision farming\
+    \ applications from UAV images. Remote Sens. 2015, 7, 4026–4047.\n[CrossRef]\n\
+    26.\nXue, J.; Su, B. Signiﬁcant remote sensing vegetation indices: A review of\
+    \ developments and applications.\nJ. Sens. 2017, 2017, 1353691. [CrossRef]\n27.\n\
+    Skakun, S.; Justice, C.O.; Vermote, E.; Roger, J.C. Transitioning from MODIS to\
+    \ VIIRS: An analysis of\ninter-consistency of NDVI data sets for agricultural\
+    \ monitoring.\nInt. J. Remote Sens. 2018, 39, 971–992.\n[CrossRef]\n28.\nDaroya,\
+    \ R.; Ramos, M. NDVI image extraction of an agricultural land using an autonomous\
+    \ quadcopter\nwith a ﬁlter-modiﬁed camera. In Proceedings of the 2017 7th IEEE\
+    \ International Conference on Control\nSystem, Computing and Engineering (ICCSCE),\
+    \ Penang, Malaysia, 24–26 November 2017; pp. 110–114.\n29.\nMahajan, U.; Raj,\
+    \ B. Drones for Normalized Difference Vegetation Index (NDVI), to estimate Crop\
+    \ Health for\nPrecision Agriculture: A Cheaper Alternative for Spatial Satellite\
+    \ Sensors. In Proceedings of the International\nConference on Innovative Research\
+    \ in Agriculture, Food Science, Forestry, Horticulture, Aquaculture,\nAnimal Sciences,\
+    \ Biodiversity, Ecological Sciences and Climate Change (AFHABEC-2016), Delhi,\
+    \ India,\n22 October 2016.\n30.\nRichardson, A.J.; Wiegand, C. Distinguishing\
+    \ vegetation from soil background information. Photogr. Eng.\nRemote Sens. 1977,\
+    \ 43, 1541–1552.\n31.\nHuete, A.R. A soil-adjusted vegetation index (SAVI). Remote\
+    \ Sens. Environ. 1988, 25, 295–309. [CrossRef]\n32.\nRondeaux, G.; Steven, M.;\
+    \ Baret, F. Optimization of soil-adjusted vegetation indices. Remote Sens. Environ.\n\
+    1996, 55, 95–107. [CrossRef]\n33.\nQi, J.; Chehbouni, A.; Huete, A.; Kerr, Y.;\
+    \ Sorooshian, S. A modiﬁed soil adjusted vegetation index. Remote\nSens. Environ.\
+    \ 1994, 48, 119–126. [CrossRef]\n34.\nAkubattin, V.; Bansode, A.; Ambre, T.; Kachroo,\
+    \ A.; SaiPrasad, P. Smart irrigation system. Int. J. Sci. Res.\nSci. Technol.\
+    \ 2016, 2, 343–345.\n35.\nHarishankar, S.; Kumar, R.S.; Sudharsan, K.; Vignesh,\
+    \ U.; Viveknath, T. Solar powered smart irrigation\nsystem. Adv. Electr. Comput.\
+    \ Eng. 2014, 4, 341–346.\n36.\nKansara, K.; Zaveri, V.; Shah, S.; Delwadkar, S.;\
+    \ Jani, K. Sensor based automated irrigation system with IOT:\nA technical review.\
+    \ Int. J. Comput. Sci. Inf. Technol. 2015, 6, 5331–5333.\n37.\nNikolidakis, S.A.;\
+    \ Kandris, D.; Vergados, D.D.; Douligeris, C. Energy efﬁcient automated control\
+    \ of irrigation\nin agriculture by using wireless sensor networks. Comput. Electron.\
+    \ Agric. 2015, 113, 154–163. [CrossRef]\n38.\nRawal, S. IOT based Smart Irrigation\
+    \ System. Int. J. Comput. Appl. 2017, 159, 880–886. [CrossRef]\n39.\nVellidis,\
+    \ G.; Tucker, M.; Perry, C.; Kvien, C.; Bednarz, C. A real-time wireless smart\
+    \ sensor array for\nscheduling irrigation. Comput. Electron. Agric. 2008, 61,\
+    \ 44–50. [CrossRef]\n40.\nKumar, B.D.; Srivastava, P.; Agrawal, R.; Tiwari, V.\
+    \ Microcontroller based automatic plant Irrigation system.\nInt. Res. J. Eng.\
+    \ Tenchnol. 2017, 4, 1436–1439.\n41.\nAgrawal, N.; Singhal, S. Smart drip irrigation\
+    \ system using raspberry pi and arduino. In Proceedings of the\nInternational\
+    \ Conference on Computing, Communication & Automation, Noida, India, 15–16 May\
+    \ 2015;\npp. 928–932.\nSensors 2019, 19, 3796\n24 of 25\n42.\nSoulis, K.X.; Elmaloglou,\
+    \ S.; Dercas, N. Investigating the effects of soil moisture sensors positioning\
+    \ and\naccuracy on soil moisture based drip irrigation scheduling systems. Agric.\
+    \ Water Manag. 2015, 148, 258–268.\n[CrossRef]\n43.\nYousif, M.E.R.; Ghafar, K.;\
+    \ Zahari, R.; Lim, T.H. A rule-based smart automated fertilization and irrigation\n\
+    systems. In Proceedings of the Ninth International Conference on Graphic and Image\
+    \ Processing (ICGIP\n2017), Qingdao, China, 14–16 October 2017.\n44.\nCugati,\
+    \ S.; Miller, W.; Schueller, J. Automation concepts for the variable rate fertilizer\
+    \ applicator for tree\nfarming. In Proceedings of the 4th European Conference\
+    \ on Precision Agriculture, Berlin, Germany, 15–19\nJune 2003; pp. 14–19.\n45.\n\
+    He, J.; Wang, J.; He, D.; Dong, J.; Wang, Y. The design and implementation of\
+    \ an integrated optimal\nfertilization decision support system. Math. Comput.\
+    \ Model. 2011, 54, 1167–1174. [CrossRef]\n46.\nChen, X.; Zhang, F. The establishment\
+    \ of fertilization technology index system based on “3414” fertilizer\nexperiment.\
+    \ China Agric. Technol. Ext. 2006, 22, 36–39.\n47.\nMahlein, A.K.; Oerke, E.C.;\
+    \ Steiner, U.; Dehne, H.W. Recent advances in sensing plant diseases for precision\n\
+    crop protection. Eur. J. Plant Pathol. 2012, 133, 197–209. [CrossRef]\n48.\nSankaran,\
+    \ S.; Mishra, A.; Ehsani, R.; Davis, C. A review of advanced techniques for detecting\
+    \ plant diseases.\nComput. Electron. Agric. 2010, 72, 1–13. [CrossRef]\n49.\n\
+    Mahlein, A.K. Plant disease detection by imaging sensors–parallels and speciﬁc\
+    \ demands for precision\nagriculture and plant phenotyping. Plant Dis. 2016, 100,\
+    \ 241–251. [CrossRef] [PubMed]\n50.\nLee, H.; Moon, A.; Moon, K.; Lee, Y. Disease\
+    \ and pest prediction IoT system in orchard: A preliminary study.\nIn Proceedings\
+    \ of the 2017 Ninth International Conference on Ubiquitous and Future Networks\
+    \ (ICUFN),\nMilan, Italy, 4–7 July 2017; pp. 525–527.\n51.\nGolhani, K.; Balasundram,\
+    \ S.K.; Vadamalai, G.; Pradhan, B. A review of neural networks in plant disease\n\
+    detection using hyperspectral data. Inf. Process. Agric. 2018, 5, 354–371. [CrossRef]\n\
+    52.\nRumpf, T.; Mahlein, A.K.; Steiner, U.; Oerke, E.C.; Dehne, H.W.; Plümer,\
+    \ L. Early detection and classiﬁcation\nof plant diseases with support vector\
+    \ machines based on hyperspectral reﬂectance. Comput. Electron. Agric.\n2010,\
+    \ 74, 91–99. [CrossRef]\n53.\nSanghvi, Y.; Gupta, H.; Doshi, H.; Koli, D.; Ansh,\
+    \ A.; Gupta, U. Comparison of Self organizing maps\nand Sammon’s mapping on agricultural\
+    \ datasets for precision agriculture.\nIn Proceedings of the 2015\nInternational\
+    \ Conference on Innovations in Information, Embedded and Communication Systems\
+    \ (ICIIECS),\nCoimbatore, India, 19–20 March 2015; pp. 1–5.\n54.\nHufkens, K.;\
+    \ Melaas, E.K.; Mann, M.L.; Foster, T.; Ceballos, F.; Robles, M.; Kramer, B. Monitoring\
+    \ crop\nphenology using a smartphone based near-surface remote sensing approach.\
+    \ Agric. For. Meteorol. 2019,\n265, 327–337. [CrossRef]\n55.\nPrathibha, S.; Hongal,\
+    \ A.; Jyothi, M. IOT Based monitoring system in smart agriculture. In Proceedings\n\
+    of the 2017 International Conference on Recent Advances in Electronics and Communication\
+    \ Technology\n(ICRAECT), Bangalore, India, 16–17 March 2017; pp. 81–84.\n56.\n\
+    Heble, S.; Kumar, A.; Prasad, K.V.D.; Samirana, S.; Rajalakshmi, P.; Desai, U.B.\
+    \ A low power IoT network\nfor smart agriculture. In Proceedings of the 2018 IEEE\
+    \ 4th World Forum on Internet of Things (WF-IoT),\nSingapore, 5–8 February 2018;\
+    \ pp. 609–614.\n57.\nSabo, A.; Qaisar, S.; Subasi, A.; Rambo, K. An Event Driven\
+    \ Wireless Sensors Network for Monitoring\nof Plants Health and Larva Activities.\
+    \ In Proceedings of the 2018 21st Saudi Computer Society National\nComputer Conference\
+    \ (NCC), Riyadh, Saudi Arabia, 25–26 April 2018; pp. 1–7.\n58.\nAgarwal, A.; Gupta,\
+    \ S.; Kumar, S.; Singh, D. A concept of satellite-based IoT for downscaling the\
+    \ MODIS\ndata to extract Land Surface Temperature. In Proceedings of the 2018\
+    \ 9th International Symposium on\nSignal, Image, Video and Communications (ISIVC),\
+    \ Rabat, Morocco, 27–30 November 2018; pp. 67–70.\n59.\nRahman, M.R.; Islam, A.;\
+    \ Rahman, M.A. NDVI derived sugarcane area identiﬁcation and crop condition\n\
+    assessment. Plan Plus 2004, 1, 1–12.\n60.\nChoudhury, S.B.; Jain, P.; Kallamkuth,\
+    \ S.; Ramanath, S.; Bhatt, P.V.; Sarangi, S.; Srinivasu, P. Precision Crop\nMonitoring\
+    \ with Affordable IoT: Experiences with Okra. In Proceedings of the 2019 Global\
+    \ IoT Summit\n(GIoTS), Aarhus, Denmark, 17–21 June 2019; pp. 1–6.\nSensors 2019,\
+    \ 19, 3796\n25 of 25\n61.\nMittal, A.; Sarangi, S.; Ramanath, S.; Bhatt, P.V.;\
+    \ Sharma, R.; Srinivasu, P. IoT-Based Precision Monitoring of\nHorticultural Crops—A\
+    \ Case-Study on Cabbage and Capsicum. In Proceedings of the 2018 IEEE Global\n\
+    Humanitarian Technology Conference (GHTC), San Jose, CA, USA, 18–21 October 2018;\
+    \ pp. 1–7.\n62.\nSaha, A.K.; Saha, J.; Ray, R.; Sircar, S.; Dutta, S.; Chattopadhyay,\
+    \ S.P.; Saha, H.N. IOT-based drone for\nimprovement of crop quality in agricultural\
+    \ ﬁeld. In Proceedings of the 2018 IEEE 8th Annual Computing and\nCommunication\
+    \ Workshop and Conference (CCWC), Las Vegas, NV, USA, 8–10 January 2018; pp. 612–615.\n\
+    63.\nMekala, M.S.; Viswanathan, P. CLAY-MIST: IoT-cloud enabled CMM index for\
+    \ smart agriculture monitoring\nsystem. Measurement 2019, 134, 236–244. [CrossRef]\n\
+    64.\nNawandar, N.K.; Satpute, V.R. IoT based low cost and intelligent module for\
+    \ smart irrigation system.\nComput. Electron. Agric. 2019, 162, 979–990. [CrossRef]\n\
+    65.\nSrbinovska, M.; Gavrovski, C.; Dimcev, V.; Krkoleva, A.; Borozan, V. Environmental\
+    \ parameters monitoring\nin precision agriculture using wireless sensor networks.\
+    \ J. Clean. Prod. 2015, 88, 297–307. [CrossRef]\n66.\nLottes, P.; Khanna, R.;\
+    \ Pfeifer, J.; Siegwart, R.; Stachniss, C. UAV-based crop and weed classiﬁcation\
+    \ for smart\nfarming. In Proceedings of the 2017 IEEE International Conference\
+    \ on Robotics and Automation (ICRA),\nSingapore, 29 May–3 June 2017; pp. 3024–3031.\n\
+    67.\nCambra, C.; Sendra, S.; Lloret, J.; Garcia, L. An IoT service-oriented system\
+    \ for agriculture monitoring.\nIn Proceedings of the 2017 IEEE International Conference\
+    \ on Communications (ICC), Paris, France,\n21–25 May 2017.\n68.\nFontana, D.C.;\
+    \ Pinto, D.G.; Junges, A.H.; Bremm, C. Using temporal NDVI/MODIS proﬁles for inferences\n\
+    on the crop soybean calendar. Bragantia 2015, 74, 350–358. [CrossRef]\n69.\nSeber,\
+    \ G.A.; Lee, A.J. Linear Regression Analysis; John Wiley & Sons: Hoboken, NJ,\
+    \ USA, 2012; Volume 329.\nc⃝ 2019 by the authors. Licensee MDPI, Basel, Switzerland.\
+    \ This article is an open access\narticle distributed under the terms and conditions\
+    \ of the Creative Commons Attribution\n(CC BY) license (http://creativecommons.org/licenses/by/4.0/).\n"
+  inline_citation: '>'
+  journal: Sensors
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/1424-8220/19/17/3796/pdf?version=1567419401
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Precision Agriculture Techniques and Practices: From Considerations to Applications'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.1109/access.2023.3251655
+  analysis: '>'
+  authors:
+  - Yomna Gamal
+  - Ahmed Soltan
+  - Lobna A. Said
+  - Ahmed H. Madian
+  - Ahmed G. Radwan
+  citation_count: 7
+  full_citation: '>'
+  full_text: '>
+
+    This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Subscribe Donate Cart Create Account
+    Personal Sign In Personal Sign In * Required *Email Address *Password Forgot Password?
+    Sign In Don''t have a Personal Account? Create an IEEE Account now. Create Account
+    Learn more about personalization features. IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved.'
+  inline_citation: '>'
+  journal: IEEE Access
+  limitations: '>'
+  pdf_link: https://ieeexplore.ieee.org/ielx7/6287639/6514899/10057388.pdf
+  publication_year: 2024
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Smart Irrigation Systems: Overview'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

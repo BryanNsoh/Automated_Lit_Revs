@@ -1,0 +1,834 @@
+- analysis: '>'
+  authors:
+  - Samuelsson O.
+  - Björk A.
+  - Zambrano J.
+  - Carlsson B.
+  citation_count: '14'
+  description: 'Biofilm fouling is known to impact the data quality of sensors, but
+    little is known about the exact effects. We studied the effects of artificial
+    and real biofilm fouling on dissolved oxygen (DO) sensors in full-scale water
+    resource recovery facilities, and how this can automatically be detected. Biofilm
+    fouling resulted in different drift direction and bias magnitudes for optical
+    (OPT) and electrochemical (MEC) DO sensors. The OPT-sensor was more affected by
+    biofilm fouling compared to the MEC-sensor, especially during summer conditions.
+    A bias of 1 mg/L was detected by analysing the impulse response (IR) of the automatic
+    air cleaning system in the DO sensor. The IR is an effect of a temporal increase
+    in DO concentration during the automatic air cleaning. The IRs received distinct
+    pattern changes that were matched with faults including: biofilm fouling, disturbances
+    in the air supply to the cleaning system, and damaged sensor membrane, which can
+    be used for fault diagnosis. The results highlight the importance of a condition-based
+    sensor maintenance schedule in contrast to fixed cleaning intervals. Further,
+    the results stress the importance of understanding and detecting bias due to biofilm
+    fouling, in order to maintain a robust and resource-efficient process control.'
+  doi: 10.2166/wst.2018.350
+  full_citation: '>'
+  full_text: '>
+
+    "All Content All Journals This Journal                              Advanced Search
+    Cart Register UNIVERSITY OF NEBRASKA Sign In ISSUES JOURNAL INFORMATION LIBRARIANS
+    BOOKS ABOUT Select Language▼ Volume 78, Issue 5 19 October 2018 Previous Article
+    Next Article Article Contents Abstract INTRODUCTION MATERIALS AND METHODS RESULTS
+    DISCUSSION CONCLUSIONS ACKNOWLEDGEMENTS REFERENCES Supplementary data RESEARCH
+    ARTICLE| AUGUST 22 2018 Fault signatures and bias progression in dissolved oxygen
+    sensors Oscar Samuelsson; Anders Björk; Jesús Zambrano; Bengt Carlsson Water Sci
+    Technol (2018) 78 (5): 1034–1044. https://doi.org/10.2166/wst.2018.350 Article
+    history Views PDF Share Tools Abstract Listen Biofilm fouling is known to impact
+    the data quality of sensors, but little is known about the exact effects. We studied
+    the effects of artificial and real biofilm fouling on dissolved oxygen (DO) sensors
+    in full-scale water resource recovery facilities, and how this can automatically
+    be detected. Biofilm fouling resulted in different drift direction and bias magnitudes
+    for optical (OPT) and electrochemical (MEC) DO sensors. The OPT-sensor was more
+    affected by biofilm fouling compared to the MEC-sensor, especially during summer
+    conditions. A bias of 1 mg/L was detected by analysing the impulse response (IR)
+    of the automatic air cleaning system in the DO sensor. The IR is an effect of
+    a temporal increase in DO concentration during the automatic air cleaning. The
+    IRs received distinct pattern changes that were matched with faults including:
+    biofilm fouling, disturbances in the air supply to the cleaning system, and damaged
+    sensor membrane, which can be used for fault diagnosis. The results highlight
+    the importance of a condition-based sensor maintenance schedule in contrast to
+    fixed cleaning intervals. Further, the results stress the importance of understanding
+    and detecting bias due to biofilm fouling, in order to maintain a robust and resource-efficient
+    process control. biofilm fouling, condition-based maintenance, dissolved oxygen
+    sensor, fault detection, wastewater INTRODUCTION Listen The dissolved oxygen (DO)
+    concentration is a key measured variable in water resource recovery facilities
+    (WRRFs). Two measurement technologies are common, membrane electrochemical (MEC)
+    and optical fluorescent (OPT) measurement techniques. The MEC type was originally
+    described in Clark (1959) and the OPT type was introduced by Demas et al. (1999).
+    On-line DO measurements have been commercially available since the 1970s and have
+    enabled the development of automatic DO control (Olsson et al. 2005). Typically,
+    the DO concentration is maintained at different DO set-points at different zones
+    using multiple DO sensors to enhance biological nitrogen removal. Moreover, multiple
+    parallel treatment lines result in a large total number of installed DO sensors.
+    As an example, the two WRRFs in this study, Bromma (Sweden) WRRF (about 300,000
+    p.e. (population equivalent)) and Henriksdal (Sweden) WRRF (about 750,000 p.e.),
+    make use of 30 and 21 DO sensors, respectively. Regardless of measurement technology,
+    a sensor has to be clean to provide accurate measurements. Inaccurate measurements
+    used in a feedback control loop may result in an undesired DO concentration and
+    potentially reduced treatment efficiency or unnecessary aeration (with associated
+    increasing costs). Therefore, visually inspecting the sensor, its manual cleaning,
+    and readings verification are needed on a regular basis to guarantee accurate
+    readings. Current sensor verification practice, as in International Organization
+    for Standardization (2012), rely on assessing sensor readings under predefined
+    conditions. For DO sensors, oxygen free water solutions and water saturated air
+    are commonly used. Such actions are, however, time-consuming, especially for WRRFs
+    with many and possibly remotely located DO sensors. In sewage measurements, specific
+    systems have been developed to resist biofilm fouling and prolong maintenance
+    intervals (Li et al. 2017). The need for prolonged sensor maintenance is also
+    highlighted in (Thürlimann et al. 2018), where a qualitative soft-sensor approach
+    was developed to replace an ammonium sensor with high maintenance requirements.
+    There are multiple sensor fouling sources in WRRFs that originate both from the
+    influent wastewater stream and the treatment process itself. The fouling sources
+    include: solids deposition (biofilm formation, chemical precipitation, sludge,
+    and plastic products), hair and fibres, and grease (WEF 2013). In this study we
+    consider DO sensors located in the activated sludge process (ASP) where the main
+    fouling substance is from biofilm formation. In the following we use the term
+    biofilm fouling to distinguish fouling from biofilm formation and other fouling
+    sources. In WRRFs, most sensor manufacturers provide optional automatic air cleaning
+    that extends the required time interval for manual cleaning. The air cleaning
+    results in a temporal increase in the DO concentration, which we further denote
+    as an air cleaning impulse response (IR). Andersson & Hallgren (2015) showed that
+    the IRs contain information about the degree of biofilm fouling. A similar approach
+    was suggested by Spanjers & Olsson (1992), where a change in the time constant
+    of the DO sensor was shown to be a good indication of an artificially fouled DO
+    sensor. Although there are reasons to believe that the IR of an automatic air
+    cleaning system can be used to detect biofilm fouling, we lack knowledge about
+    the robustness and sensitivity of using the IRs to detect different levels of
+    biofilm thickness. Andersson & Hallgren (2015) detected a bias in an OPT-sensor
+    of −0.6 and −0.8 mg/L due to biofilm fouling during two 1-month experiments. Additional
+    experiments are required to study the IRs during clean and fouled conditions in
+    order to extend the knowledge about IRs for biofilm fouling detection. In this
+    study, we were therefore interested to investigate: the lowest detectable bias
+    due to biofilm fouling using the response time method the variations in IR patterns
+    of repeated biofilm fouling procedures and at different process conditions whether
+    both MEC and OPT DO sensors are applicable to bias detection with IRs. It is a
+    common assumption that biofilm formation on a DO sensor affects its readings.
+    As an example, Yoo et al. (2008) assumed that sludge clogging of the DO sensor
+    can result in a complete sensor failure as a part of a simulation study. Hsu &
+    Selvaganapathy (2013) used yeast and nutrient mixture in laboratory experiments
+    to compare the effect of biofilm growth (in terms of protein absorption) on Teflon-coated
+    DO sensor membranes with silicone rubber alternative. Janzen et al. (2007) found
+    indications of negative drift due to biofilm fouling in a redesigned MEC-sensor
+    positioned in the ocean. Carlsson & Zambrano (2016) studied how bias in DO sensors
+    could be detected by comparing the air-flow ratios. There are few studies, apart
+    from Andersson & Hallgren (2015), that have investigated the effect of biofilm
+    fouling on DO sensors under real conditions in WWRFs. Our general understanding
+    about the effects of biofilm fouling is further complicated by WRRF-specific process
+    conditions, seasonal variations, and differences between sensor types and brands.
+    These aspects are fundamental to understand in order to design a cost-effective
+    sensor maintenance schedule. Therefore, we were also interested to study the bias
+    progression due to biofilm fouling under real conditions for MEC- and OPT-type
+    DO sensors. In this study, we conducted long-term experiments under full-scale
+    conditions with artificial and real biofilm fouling with two sensor techniques:
+    MEC and OPT DO sensors. Further, we studied the applicability of the response
+    time method to detect biofilm fouling and worn-out sensor membranes. MATERIALS
+    AND METHODS Listen Two experiments were conducted, one with artificial biofilm
+    fouling (grease) and one with real biofilm fouling. The purpose of evaluating
+    both artificial and real biofilm fouling was to study two aspects: variation in
+    IRs during different process conditions and long-term time effects on IRs and
+    bias from biofilm fouling. The two aspects require different studies since long-term
+    studies are difficult to repeat under different conditions. Both aspects need
+    to be considered to evaluate the usefulness of IRs for fouling detection. The
+    experimental set-ups differed between the two experiments and are detailed in
+    the following two sections. Experiment 1 – artificial biofilm fouling experiments
+    in Henriksdal WRRF Listen The first experiment was conducted in Henriksdal WRRF
+    with artificial biofilm fouling to investigate: the shape change of a fouled sensor''s
+    IR at a small bias (<0.2 mg/L), i.e. the detection sensitivity of using IR for
+    biofilm fouling detection the effect of different process conditions on the IRs,
+    including varying DO and suspended solids (SS) concentration variation in the
+    response time during clean and fouled conditions during repeated experiments the
+    difference between MEC- and OPT-sensors in terms of a response to artificial biofilm
+    fouling. The artificial biofilm fouling experiments were carried out in Henriksdal
+    WRRF during summer conditions with a wastewater temperature about 19 °C. Four
+    locations in the ASP, both in aerated and unaerated zones, were considered to
+    study the impact of different DO concentrations. Parts of the measurements were
+    conducted in the return sludge channel to study the impact of SS concentration
+    on the IRs. Artificial biofilm fouling Listen In the artificial biofilm fouling
+    experiments, the goal was to decide and apply a fouling substance to the DO sensor
+    that fulfilled the following three criteria: It should be simple to repeatedly
+    apply and remove without damaging the sensor. It should be similar to organic
+    biofilm, or at least result in a small negative bias. It should remain fixed to
+    the sensor during repeated air cleaning impulses. During one experiment, the fouling
+    procedure consisted of the following three steps: compare test sensor measurements
+    with reference DO sensors repeat IR measurements with clean test sensor manually
+    foul test sensor with an artificial biofilm fouling substance and repeat IR measurements
+    during fouled conditions. Sensor set-up and data collection Listen Five DO sensors
+    (Cerlic O2X DUO) were connected to a data acquisition system with hardware and
+    software from National Instruments, with the software LabVIEW. Data were stored
+    in a PostgreSQL database in the same laptop computer. Each DO sensor could be
+    switched between MEC and OPT measurement technology by simply changing the top
+    part of the sensor. A photograph of the experimental equipment is given in the
+    Supplementary materials (available with the online version of this paper). Two
+    of the DO sensors, one OPT- and one MEC-sensor, were used to study IRs (test sensors)
+    and two were used as references (both MEC-sensors). The third reference sensor
+    was used as a back-up in case of a failing sensor. All sensors were mounted on
+    rods according to the manufacturer''s instruction at a slight angle (5–30°) and
+    at 0.5 m depth. All membranes were replaced with new ones and calibrated in the
+    beginning of the experiments. The length of an air cleaning impulse was set to
+    15 s at 2 bar for the two test sensors, which was expected to be sufficient to
+    obtain a clear IR, even for high DO concentrations (4 mg/L). Data pre-processing
+    Listen Data were sampled with 8 Hz and later down-sampled to resemble full-scale
+    conditions. First, the data were low-pass filtered (anti-alias filter) and afterwards
+    down-sampled to 1 Hz. Details about the data pre-processing are given in the Supplementary
+    materials. A reference DO concentration was calculated from the two reference
+    sensors by their weighted least squares (WLS) estimate, see for example Kay (1993).
+    Then, the bias for a test sensor for a given IR was calculated as the difference
+    between the test sensor and WLS estimate for the time interval between two IRs.
+    Measurements Listen The measurements were conducted at two positions in the aerated
+    zone, in the anoxic zone, and in the return sludge channel. At each position,
+    the three-step fouling procedure was repeated multiple times. Experiment 2 – real
+    biofilm fouling on a full scale in Bromma WRRF Listen In the second experiment
+    conducted in Bromma WRRF, real biofilm growth was studied during 7 months to investigate:
+    fault progression in terms of bias due to biofilm fouling difference in bias magnitude
+    between MEC- and OPT-type sensors due to biofilm fouling sensitivity to detect
+    bias using the response time of an IR variation in the response times for IRs,
+    both for normal and fouled conditions impact of seasonal variations on biofilm
+    growth and bias. Bromma WRRF has a conventional ASP operated at six parallel lines
+    with seven zones per line. The sensors in the ASP experience severe biofilm growth
+    compared to other facilities in the city. Despite the automatic air cleaning system
+    in the DO sensors, manual cleaning is required and conducted between once a week
+    and once a month, depending on the biofilm growth magnitude. Sensor set-up and
+    data collection Listen One MEC- and one OPT-sensor were used as test sensors.
+    The sensors were positioned in the ASP in zone 5 (OPT-sensor) and zone 6 (MEC-sensor)
+    about 1 m from the existing DO sensors that were used as references (MEC-sensors,
+    Cerlic O2x DUO). Both zones were continuously aerated, but their DO set-points
+    differed slightly (4.0 mg/L in zone 5 and 3.5 mg/L in zone 6). Both test and reference
+    sensors were equipped with an automatic air cleaning system, performing a cleaning
+    cycle every second hour. The air pressure was set between 0.8 and 1.1 bar for
+    each sensor. Both test and reference sensors in each zone were cleaned simultaneously
+    so that their initial DO concentration would be equal. Data from test and reference
+    sensors were stored in the existing process database with 1 s sampling time. Measurements
+    Listen Each experimental period consisted of monitoring the biofilm growth on
+    two test sensors until both received a bias larger than 0.3 mg/L. The bias was
+    calculated as the mean difference in DO concentration between the reference and
+    test sensor during the period bounded by two consecutive IRs, i.e. 2 hour mean
+    values. The reference sensors were manually cleaned and inspected in addition
+    to the automatic air cleaning, which was assumed to be sufficient to remove biofilm
+    growth on the reference sensor. We expected a time between 1 and 4 weeks to obtain
+    a bias above 0.3 mg/L in the test sensor. Software calculations and data availability
+    Listen The response time of an IR was defined as the time to reach 63% of the
+    peak amplitude, see Figure 1(a) for an illustration. The initial DO concentration
+    was calculated as the average DO concentration 5 s before the IR. A short function
+    computing the response time is provided in the Supplementary materials. All calculations
+    and data pre-processing were performed off-line in MATLAB. Figure 1 VIEW LARGEDOWNLOAD
+    SLIDE (a) Ten IRs from a non-faulty MEC-sensor (solid grey lines) and the estimation
+    of the response time for one of the curves (dashed black line). All IRs were normalised
+    by subtracting the initial DO concentration of its IR for illustrative purposes.
+    The response time (RT) is indicated as the time from the start of the cleaning
+    procedure (time after impulse = 0) to reach 63% of the peak value. (b) Correlation
+    between the initial DO concentration and the IR rise magnitude of clean MEC-sensors.
+    The straight line, which is the least squares fit, indicates a small negative
+    correlation (−0.29mg/L per 1mg/L). The pre-processed data from both artificial
+    and real biofilm growth experiments are available at www.ivl.se/english/startpage/pages/publications
+    (Report number: C343) under Creative Commons license CC BY 4.0. RESULTS Listen
+    The results from the experiments in Henriksdal and Bromma WRRFs are described
+    in separate sections. Experiment 1 – artificial biofilm fouling experiments in
+    Henriksdal WRRF Listen The results include illustrations of the selected artificial
+    biofilm fouling substance, motivation for discarding experimental data, and graphs
+    showing variations in IRs during non-faulty and different faulty conditions. A
+    wide variety of fouling agents were evaluated. A mixture of ball-bearing grease
+    and floating grease from the pre-sedimentation fulfilled the three criteria for
+    artificial biofilm fouling described in the ‘Materials and methods’ section. Both
+    MEC- and OPT-sensors obtained a negative bias when fouled with the grease mixture.
+    The same effect was seen for the OPT-sensor with organic biofilm fouling (Andersson
+    & Hallgren 2015). Similarly, our own (unpublished) experience suggests that a
+    completely fouled MEC-sensor displays 0 mg/L, thus a negative bias as well. Photos
+    of artificially fouled sensors can be compared with real biofilm fouling in Figure
+    2. Figure 2 VIEW LARGEDOWNLOAD SLIDE (a) Artificially fouled MEC-sensor with a
+    mixture of ball-bearing grease and pre-sedimentation grease before an experimental
+    procedure (24 July 2015). (b) MEC- and (c) OPT-sensor after repeated air cleaning
+    impulses (4 August 2015). Note the effect of the three air cleaning nozzles that
+    resulted in a partly cleaned MEC-sensor in (b). Different stages of biofilm fouling
+    on MEC-sensor (d–f) and OPT-sensor (g). Fouling time: (d) 12 days (18 October),
+    (e) 27 days (14 November), (f) 62 days (19 December), and (g) 62 days (19 December).
+    Note that the biofilm starts to grow in the circular gap between the sensor and
+    the sensor body (d), and further expands over the entire sensor and rod (e, f).
+    During the experimental start, the OPT-sensor was damaged and data from the OPT-sensor
+    were not further considered. Instead, both test sensors were of MEC type which
+    allowed the simultaneous comparison of fouled and clean MEC-sensors. A majority
+    of the fouling procedures for the MEC test sensor resulted in the desired bias
+    magnitude between 0 and 0.2 mg/L with clear IRs. However, for two of the initial
+    fouling procedures, the average bias was larger (−1.7 and −0.35 mg/L). Similarly,
+    a negative bias between −0.27 and −0.51 mg/L was also seen for the clean test
+    sensor during the same time period. The data were studied in detail, which revealed
+    that part of the bias was an effect of large variations in the reference measurements
+    (see the Supplementary materials, available with the online version of this paper).
+    Since it was not possible to explain the reason for the variations, data with
+    an absolute bias larger than 0.2 mg/L were not further evaluated. Also, seven
+    IRs showed deviating shape with double peaks. Those IRs were discarded and removed
+    from the normal dataset. The double peak behaviour was noticed after repeated
+    manual fouling and subsequent cleaning, which could have affected the membrane.
+    The potentially damaged membrane was replaced after noticing the double peak behaviour.
+    The remaining data were pre-processed and the IRs were extracted from the pre-processed
+    data and grouped according to their status (normal or fouled). This resulted in
+    50 normal IRs and 2,628 IRs for fouled conditions. Variations in IRs during normal
+    conditions Listen Well-defined IRs were obtained for the MEC-sensor. A typical
+    set of IRs at non-faulty conditions are shown in Figure 1. The rise magnitude
+    variation (the difference between initial and maximum DO concentration during
+    one IR) was about 0.5 mg/L (Figure 1(a)). Part of this variation was a consequence
+    of a changing initial DO concentration (Figure 1(b)). Identification of common
+    sensor faults Listen In addition to the artificial biofilm fouling, accidental
+    faults occurred over the experimental period, common faults that could happen
+    during everyday operations. The accidental faults resulted in distinct changes
+    in the IRs, specific to the different accidental faults. The mean of the faulty
+    IRs are visualised in Figure 3. Figure 3 VIEW LARGEDOWNLOAD SLIDE Mean MEC-sensor
+    IRs for: (a) fouled membrane (grease mixture); mean IR of fouled test data (black
+    solid and dashed lines, n = 2,628), (b) low air pressure during the automatic
+    air cleaning procedure (n = 9), (c) the effect of increasing the SS from 2,500mg/L
+    (normal SS, n = 9) to 8,500mg/L (high SS, n = 10), (d) a potential gradual wear-out
+    effect by repeated IRs on a fouled MEC-sensor; an increased wear-out of the membrane
+    is indicated by darker grey (n = 2,180), (e) a mechanically perforated membrane
+    during manual cleaning (n = 2), (f) the effect of using harsh cleaning liquid
+    to remove excess grease (n = 98); the air cleaning impulse was between time 20
+    and 35s. Fouling the MEC-sensor with grease mixture resulted in a dampened IR
+    with an extended time to regain the original DO concentration (Figure 3(a), solid
+    and dashed black lines). The small tweak during the impulse rise was not a typical
+    pattern, but was merely an effect of combining IRs with two different shapes:
+    one part of the dataset of the fouled IRs displayed a ‘double peak behaviour’
+    similar to Figure 3(d), whereas one set had a straight increase with dampened
+    IRs similar to Figure 3(b). In the end of the experimental period, a long-term
+    test for 11 days was conducted, where the MEC-sensor was fouled and subject to
+    repeated cleaning events about 200 times per day. This was far more than the recommended
+    amount of cleaning procedures, which resulted in a gradual change of the IR, potentially
+    due to wearing out the membrane (Figure 3(d)). It is interesting that the shape
+    of the IR changed from a dampened IR to exhibit an increasingly pronounced double
+    peak behaviour. A double peak was also seen for the damaged membrane (perforated
+    during manual cleaning) (Figure 3(e)). We have no clear explanation for the double
+    peaks although they were present more frequently in faulty data, especially where
+    the membrane was mechanically damaged. The first peak coincided with the duration
+    of the air cleaning impulse whereas the second peak was delayed compared to a
+    normal IR. A decreased air pressure for the automatic air cleaning system resulted
+    in a dampened peak (Figure 3(b)). Measurements in the return sludge channel with
+    high SS only indicated a slight increase in the peak height of the same order
+    of magnitude as the normal variation (compare Figures 1 and 3(c)). This indicates
+    that the SS-level had none or minor impact on the IR. A large increase of the
+    IR''s peak value after cleaning the MEC-sensor with harsh cleaning liquid (Figure
+    3(f)) indicates that the membrane became more sensitive. Experiment 2 – real biofilm
+    fouling experiments in Bromma WRRF Listen The results show the impact of biofilm
+    fouling on bias progression and the correlation with IR response time values.
+    Further, variations in the response time values for clean sensors are shown together
+    with the impact on the IRs of damaged sensors. Finally, uncertainties in the results
+    due to sensor maintenance during the experiments are detailed. Bias progression
+    due to biofilm fouling Listen Different stages of biofilm-growth fouled sensors
+    can be seen in Figure 2 with resulting bias progression in Figure 4. Figure 4
+    VIEW LARGEDOWNLOAD SLIDE Bias and response time values during experimental periods
+    1–6 in Bromma WRRF for (a) optical sensor (OPT) and (b) membrane sensor (MEC).
+    Manual cleaning of reference sensor is indicated with dashed vertical lines. The
+    bias progression differed between the MEC- and OPT-sensors in several aspects
+    (top graphs in Figure 4(a) and 4(b)). Firstly, the OPT-sensor had an increasing
+    bias in all six periods in contrast to the MEC-sensor, which mainly had a decreasing
+    bias (period 1, 2, and 5). Secondly, the bias magnitude was larger for the OPT-sensor
+    compared to the MEC-sensor. Lastly, the OPT-sensor showed a transition in bias
+    progression from linear to exponential increasing after 10–14 days during period
+    1–3 and after 28 days during period 4–5. The MEC-sensor showed a linear bias trend
+    throughout all periods. Note also that the bias in the OPT-sensor temporarily
+    decreased after reaching a large value (above 2–3 mg/L) in period 2–5. Bias detection
+    with the response time estimation method Listen The changes in response times
+    due to bias (bottom graphs in Figure 4(a) and 4(b)) were not as evident as expected.
+    For the OPT-sensor, there was a clear change in period 2–5 for bias larger than
+    1 mg/L and a correlation between bias and the response time values was identified
+    (see details in the Supplementary materials). For the MEC-sensor, there was no
+    obvious change in response time that correlated to the bias magnitude in any of
+    the periods (Figure 4(b)). Only a slight increase in the variance for the response
+    time values in period 2 (days 15–20) and period 5 (days 35–60) was indicated.
+    Variations in response time values Listen Surprisingly, the response times also
+    changed for the reference sensors during the experiments. Firstly, a small trend
+    of decreasing response times with about 1 s per 30 days can be seen for the OPT-sensor''s
+    reference (period 1–3) and for the MEC-sensor''s reference (period 1–2). This
+    is similar to the artificial biofilm fouling experiments where the MEC-sensor
+    had a decreasing response time during the wearing-out experiment (Figure 3(d)).
+    A similar decrease can also be noted for the OPT test sensor by comparing the
+    response times during the first days in each test period (period 1–5). Note that
+    there is an opposite trend with increasing response time values for the OPT-sensor''s
+    reference and for the MEC test sensor (period 4–6). Secondly, the new MEC-sensor''s
+    reference had larger variations in its response time values, with a large increase
+    in variation during period 5–6. The OPT-sensor had in general a smaller response
+    time than the MEC-sensors (recall that all reference sensors were MEC-sensors).
+    Note also that the MEC sensors had different response times at clean conditions
+    with new membranes. The response time values for the OPT test sensor in period
+    6 deviated considerably from previous periods. The reason was an accidental kink
+    in the air supply hose that blocked the air supply to the sensor''s air cleaning
+    system, disabling all IRs after period 5. The estimated response time values were
+    therefore randomly obtained. At the same time, its reference sensor was instead
+    given a surplus of air resulting in an increase in IR peak value (see the Supplementary
+    materials). Surprisingly, there was no large change in the response time for the
+    reference sensor (Figure 4(a), period 6) despite the increased air flow and pressure.
+    Damaged sensors Listen After the final experimental period, both test sensors
+    were deliberately damaged to study mechanically worn-out sensors. The MEC-sensor''s
+    membrane was perforated with a needle and later with a screw driver and the OPT-sensor''s
+    fluorophore coating was scratched with an iron brush. Photos of the damaged sensors
+    together with corresponding IRs are provided in the Supplementary materials. For
+    the MEC-sensor, both the needle and screwdriver perforation resulted in a double
+    peak behavior as was seen in Figure 3(d), although with a smaller initial peak
+    than previously observed. About half of the IRs with needle perforation showed
+    a dip instead of a double peak. There was only a minor change in bias due to the
+    perforation events (before perforation 0.37 mg/L, after needle perforation 0.49
+    mg/L, and after screwdriver perforation 0.42 mg/L). For the OPT-sensor, the IRs
+    maintained a one-peak shape characterised by decreasing response time values with
+    increasing amount of scratches. The first scratches did not result in any bias
+    change although the following scratches, which removed >50% of the fluorophore
+    coating, resulted in a large negative bias (before scratching −0.54 mg/L, after
+    first scratching −0.51 mg/L, and after second scratching −1.54 mg/L). Sensor maintenance
+    Listen After period 2, a new membrane was installed in the MEC reference sensor.
+    The existing membrane was moved to the OPT-sensor reference sensor. The reason
+    for replacing the membrane already after 2 months was to assure that the observed
+    small bias was an effect of biofilm fouling and drift in the test sensor, and
+    not of a drift in the reference sensor. In period 3, the MEC test sensor showed
+    a segmented line with both increasing and decreasing bias trends within the segments.
+    The cause of the segmentation was the manual cleaning of the reference sensor
+    (vertical dashed lines), which coincides with the line segments (Figure 4(b),
+    period 3). Since the bias changed when the reference sensor was cleaned, this
+    indicates that the reference was also affected by biofilm fouling. This was not
+    seen in the remaining periods where a weekly cleaning interval seemed to be sufficient.
+    For period 3, it is therefore hard to draw conclusions about the bias direction
+    since we are not certain whether it was the reference or test sensor (both of
+    MEC type) that was actually drifting. In addition, the last three manual cleanings
+    were conducted during the vacation period by personnel unfamiliar with the experiments.
+    This resulted in an uncertainty as to whether only the reference sensor or both
+    the test and reference sensors were manually cleaned. The third last cleaning
+    (day 21 for MEC-sensor and day 12 for OPT-sensor) introduced a change in bias,
+    similar to what would be expected after cleaning the test sensor. In addition,
+    the exact time locations for the last three manual cleaning events were not obtained,
+    but only the actual date. Therefore, these cleanings were marked at 12:00 and
+    should be interpreted with a +/− 4 hours'' uncertainty. DISCUSSION Listen The
+    outcomes of Experiment 1 (artificial biofilm fouling) and Experiment 2 (biofilm
+    fouling) are discussed and compared with existing results. Further, implications
+    of the findings are discussed with the perspective of using IRs for fault detection
+    on a full-scale application. This includes the aspects of bias progression linked
+    to sensor maintenance, DO process control, and factors with an impact on the IRs
+    and their potential limitations on a full-scale fault detection and diagnosis
+    application. Bias progression in oxygen sensors due to biofilm fouling Listen
+    The purpose of using grease in the artificial biofilm fouling experiments was
+    to resemble organic biofilm growth. The results showed that the MEC-sensor received
+    a negative bias for both artificial and real biofilm foulings. However, the effect
+    on the IRs was larger for small bias with grease compared to the real biofilm.
+    It is hard to find a good explanation for the difference. Although we can intuitively
+    expect that grease resulted in a denser film compared to a water-permeable biofilm,
+    which may have contributed to the difference. For the OPT-sensor, all real experiments
+    resulted in a positive bias, which is in contrast to the results by Andersson
+    & Hallgren (2015). Despite the difference in bias direction, the detection sensitivities
+    were in the same range (1.0 mg/L compared to 0.6–0.8 mg/L in the previous study).
+    The OPT-sensor had in addition a faster increase in bias than the MEC-sensor.
+    No results for the MEC-sensor were reported by Andersson & Hallgren (2015), but
+    their unpublished data suggest that the bias was small for the MEC, in contrast
+    to the OPT-sensor, which is in agreement with this study. A potential explanation
+    for the large impact on OPT-sensor is that the small fluorophore area was more
+    easily covered by biofilm, compared to the larger membrane area in the MEC sensor
+    (compare Figure 2(g) with Figure 2(f)). Additional studies are needed to verify
+    whether this is valid in general or only for the specific sensor brand in this
+    study. Future studies should compare parallel treatment lines and different WRRFs
+    as this may contribute to variations in a biofilm growth. As expected, both sensor
+    types had a faster bias increase during summer conditions compared to winter conditions.
+    However the magnitude of this seasonal effect was larger than expected. The time
+    to reach a bias of 0.3 mg/L was less than 1 week for the OPT-sensor during summer
+    conditions, and beyond 60 days for the MEC-sensor during winter time. The large
+    span shows the importance of designing an adaptive sensor cleaning schedule when
+    compared to a fixed interval of 1 or 2 weeks, which is common practice today.
+    Oxygen sensor bias implications for process control Listen As seen from a process
+    control perspective, knowledge about the bias progression is important. That is,
+    does a fouled sensor result in a positive or negative bias, or even alternate
+    between the two? When a DO sensor is used in a feedback control loop (which is
+    de facto standard), a bias in the sensor will lead to different consequences depending
+    on the bias direction, the controller structure, and the controlled process. Consider
+    a MEC sensor with a strictly negative bias that is operating in a feedback loop
+    with a fixed DO set-point. The true DO concentration will be underestimated resulting
+    in excess air supply with a higher DO concentration than desired. Consider instead
+    the same MEC-sensor but in an ammonium cascade controller where the effluent ammonium
+    adjusts the DO set-point. In such a situation, the exact DO concentration will
+    be less important since the bias will be partly compensated for by the DO set-point
+    given by the ammonium master controller. The opposite argumentation applies for
+    a strictly positive bias as was indicated for the OPT-sensor. Whether a positive
+    or negative drift direction is bad or worse depend on the process configuration.
+    This raises the question whether the most likely bias direction for a specific
+    sensor should be included in the early process design. Factors affecting the impulse
+    responses and response time values Listen One of the questions in this study was
+    to investigate the impact of changed process conditions on the IRs and the corresponding
+    response time values. This was mainly conducted for the MEC-sensor due to the
+    damaged OPT-sensor in Experiment 1. Some of the factors, such as varied SS or
+    initial DO concentration, were well studied during the artificial biofilm fouling
+    experiments, but the interpretation of normal variations in response time values
+    remains uncertain. The main problem was that the response time values differed
+    between the clean MEC-sensors. The variation in response time values for the new
+    membrane in the MEC-sensor''s reference sensor in period 3 was larger than for
+    the other MEC-sensors. In addition, it was not possible to define the cause of
+    the long-term small change in response time values with both decreasing and increasing
+    values. As seen in the artificial experiments, decreasing response time values
+    could be a consequence of wearing out the membrane, but the results in Experiment
+    2 indicate that the decrease could equally well be related to a temperature, seasonal,
+    or unknown effects. Only a few sensor individuals were used in the study, which
+    raises the question whether some of the noted changes are effects of variation
+    among sensor individuals. Note that it is not clear from the results whether variations
+    in the IR and its related response time are due to factors that are independent
+    of sensor bias or, for example, seasonal effects that only affect the dynamics
+    of the IR. Future studies should therefore study potential seasonal effects in
+    the response time as well as multiple parallel sensors to distinguish variations
+    in sensor individuals from general effects. In future studies it is also important
+    to avoid ambiguities in bias estimation about whether it is the reference sensor,
+    test sensor or both that are affected by biofilm fouling. Regular checks of the
+    sensor reading in known zero-valued and saturated oxygen conditions should be
+    used as supplement to the reference measurements. Fault detection and diagnosis
+    based on impulse responses Listen The lowest detectable bias with the response
+    time method was larger than the desired 0.3 mg/L. It is therefore interesting
+    to further study if other fault detection algorithms can improve the detection
+    sensitivity. Based on the bias progression, biofilm fouling detection would be
+    most valuable during summer condition when the biofilm growth is fast with a high
+    likelihood of obtaining a bias. Summer is also the time of year when personal
+    resources may be restricted due to vacations; furthermore, ammonium effluent permits
+    can be stricter in summer than during winter time (in Sweden). Therefore, automatic
+    biofilm fouling detection in DO sensors has the largest potential to improve process
+    treatment during summer time. The results also showed that the IRs contained information
+    about different faults including: reduced air supply in the air cleaning system
+    of the sensors and damaged sensor membrane. These faults gave rise to distinct
+    pattern changes in the IRs, fault signatures, extending the possibility of fault
+    detection to diagnosis. Most importantly, double peaks were evident in both Experiment
+    1 and 2. By studying unpublished data in the study by Andersson & Hallgren (2015),
+    we noted that both the double peak behaviour (Figure 3(d)) and the extreme peaks
+    (Figure 3(f)) were present in that dataset. The results suggest that a double
+    peak indicates a damaged membrane, although the size of the first peak differed
+    for different wearing or perforation causes. We have no physical explanation for
+    the double peaks, although it seems like the first peak is aligned with the 20
+    s long air cleaning phase. As repeated perforation experiments are costly, the
+    existence and occurrence of double peaks should be evaluated on a full scale,
+    studying a more natural occurrence of double peaks. An important question to answer
+    is how early before complete sensor failure a double peak arises. CONCLUSIONS
+    Listen The results have improved our knowledge of how biofilm fouling impacts
+    the data quality of DO sensors. The bias progression speed due to biofilm fouling
+    differed between sensor types, which needs to be considered in fall-back strategies
+    for process control. In addition, the bias progression was faster during summer
+    conditions compared to winter conditions. The results could be used to design
+    effective sensor maintenance routines and to detect and diagnose sensor faults.
+    This is a step towards an increased robust wastewater treatment with decreased
+    environmental impact. The results showed that IRs and related response time values
+    contained information about the status of both MEC- and OPT-sensors. Bias due
+    to biofilm fouling was detected for bias above 1 mg/L in OPT-sensor but not for
+    values up to 0.8 mg/L in the MEC-sensor. Surprisingly, changes in the pattern
+    of IRs were matched to common sensor faults in the MEC-sensor, suggesting that
+    such fault signatures can be used for fault diagnosis. The OPT-sensor was affected
+    by biofilm growth to a greater extent than the MEC-sensor, with a positive bias
+    compared to the MEC-sensor with mainly a negative bias. Without manual cleaning
+    or fault detection, it is likely that a DO-controlled process will be operated
+    at a different (unknown) DO concentration than desired, especially when an OPT-sensor
+    is used. Whether this is a general draw-back for the OPT-sensor compared to the
+    MEC-sensor or not should be studied in future studies. Future studies should also
+    consider the following questions. Can other fault detection methods be applied
+    to the IRs and improve the bias detection sensitivity? Which type of faults can
+    be diagnosed based on IR data, and which fault diagnosis methods are suitable
+    for this task? What is the normal variation in response time values and shapes
+    of IRs with respect to seasonal variations, among multiple sensor individuals
+    of the same brand, and in relation to sensor bias? ACKNOWLEDGEMENTS Listen The
+    research leading to these results has received funding from Käppala Association,
+    Syvab and Stockholm Water, Foundation for IVL Swedish Environmental Research Institute
+    and the Swedish Water and Wastewater Association. Jesús Zambrano has received
+    funding from the Knowledge Foundation (20140168) under the project More Sense,
+    ABB, Mälarenergi, Flexiclean and Structor Miljöteknik. Sensor equipment was kindly
+    provided by Cerlic controls AB. We gratefully acknowledge the support of Simon
+    Robertsson during the artificial biofilm fouling experiments. During full-scale
+    experiments the assistance from staff personnel at Bromma WRRF was invaluable
+    including Anders Påhlsson and Kristin Ahlström. We received valuable comments
+    for setting up the experimental plan regarding the artificial biofilm fouling
+    experiments from Dr Erik Lindblom, Dr Henri Spanjers, and Dr Gustaf Olsson. Dr
+    Kris Villez provided valuable feedback on the article content and manuscript.
+    Finally, we would like to acknowledge Sofia Andersson and Fredrik Hallgren for
+    sharing data and their experiences from previous experiments on DO sensors. REFERENCES
+    Andersson S. & Hallgren F. 2015 Sensor fault detection methods applied on dissolved
+    oxygen sensors at a full scale WWTP. In: 9th Watermatex Congress, Gold Coast,
+    Australia. Google Scholar  Carlsson B. & Zambrano J. 2016 Fault detection and
+    isolation of sensors in aeration control systems. Water Science and Technology
+    73 (3), 648–653. Google ScholarCrossref PubMed  Clark L. C. 1959 Electrochemical
+    device for chemical analysis. US patent No. 2,913,386A. Demas J. N., DeGraff B.
+    A. & Coleman P. B. 1999 Oxygen sensors based on luminescence quenching. Analytical
+    Chemistry 71 (23), 793A–800A. Google ScholarCrossref PubMed  Hsu L. H. H. & Selvaganapathy
+    P. R. 2013 Development of a low cost Hemin based dissolved oxygen sensor with
+    anti-biofouling coating for water monitoring. In: Proceedings of IEEE Sensors.
+    Google Scholar  International Organization for Standardization. 2012 Water Quality
+    – Determination of Dissolved Oxygen – Electrochemical Probe Method (ISO 5814:2012).
+    International Organization for Standardization, Geneva, Switzerland. Janzen C.,
+    Murphy D. & Larson N. 2007 Getting more mileage out of dissolved oxygen sensors
+    in long-term moored applications. In: Oceans Conference Record (IEEE). Google
+    Scholar  Kay S. M. 1993 Fundamentals of Statistical Signal Processing: Estimation
+    Theory. Prentice-Hall, Upper Saddle River, NJ, USA. Google Scholar  Li T., Winnel
+    M., Lin H., Panther J., Liu C., O''Halloran R., Wang K., An T., Wong P. K., Zhang
+    S. & Zhao H. 2017 A reliable sewage quality abnormal event monitoring system.
+    Water Research 121, 248–257. Google ScholarCrossref PubMed  Olsson G., Nielsen
+    M., Yuan Z., Lynggaard-Jensen A. & Steyer J. P. 2005 Instrumentation, Control
+    and Automation in Wastewater Systems. IWA Publishing, London. Google Scholar  Spanjers
+    H. & Olsson G. 1992 Modelling of the dissolved oxygen probe response in the improvement
+    of the performance of a continuous respiration meter. Water Research 26 (7), 945–954.
+    Google ScholarCrossref   Thürlimann C. M., Dürrenmatt D. J. & Villez K. 2018 Soft-sensing
+    with qualitative trend analysis for wastewater treatment plant control. Control
+    Engineering Practice 70, 121–133. Google ScholarCrossref   WEF 2013 Automation
+    of Water Resource Recovery Facilities: WEF Manual of Practice No. 21, 4th edn.
+    Water Environment Federation, Alexandria, VA, USA. Yoo C. K., Villez K., Van Hulle
+    S. W. H. & Vanrolleghem P. A. 2008 Enhanced process monitoring for wastewater
+    treatment systems. Environmetrics 19 (6), 602–617. Google ScholarCrossref   ©
+    2018 The Authors This is an Open Access article distributed under the terms of
+    the Creative Commons Attribution Licence (CC BY 4.0), which permits copying, adaptation
+    and redistribution, provided the original work is properly cited (http://creativecommons.org/licenses/by/4.0/).
+    Supplementary data SUPPLEMENTARY MATERIALS- docx file View Metrics Cited by Web
+    Of Science (13) Google Scholar CrossRef (15) We recommend Effects of applied voltages
+    and dissolved oxygen on sustained power generation by microbial fuel cells Oh,
+    S. E. et al., Water Science and Technology, 2009 Monitoring of biological odour
+    filtration in closed environments with olfactometry and an electronic nose Willers,
+    H. et al., Water Science and Technology, 2004 Aerobic biodegradation of azo dyes
+    in biofilms H. Jiang et al., Water Science and Technology, 1994 Reverse flexing
+    as a physical/mechanical treatment to mitigate fouling of fine bubble diffusers
+    Odize, Victory O. et al., Water Science and Technology, 2017 Reverse flexing as
+    a physical/mechanical treatment to mitigate fouling of fine bubble diffusers Victory
+    O. Odize et al., Water Sci Technol, 2017 Controls of syndepotitional structural
+    slope-break zones on sequence architecture and enrichment zones of lithologic
+    reservoirs in northwestern margin of Junggar Basin FENG Youliang et al., Lithologic
+    Reservoirs, 2018 Synthesis, structures and applications as fluorescence probes
+    of novel Hg(II)/Ag(I) functional supramolecular compounds based on nitrogen heterocyclic
+    cations Huang et al., Main Group Chemistry, 2018 Quantitative characterization
+    of source-sink system of Ed3 in Shinan steep slope zone,Bozhong Depression DU
+    Xiaofeng et al., Lithologic Reservoirs, 2018 Semicarbazide as capable ligand for
+    mutual transformation between MOF and chelate Zhang, Rui et al., Main Group Chemistry,
+    2017 The Psychophysics of the Chevreul Hand-Held Pendulum Kaushal, R.S. et al.,
+    Journal of Consciousness Studies Powered by ISSN 0273-1223 EISSN 1996-9732 Cart
+    Journals eBooks Open Access Collections Subscriptions Subscribe to Open Editorial
+    Services Rights and Permissions Crossmark FAQ Contact us Sign Up for Our Mailing
+    List IWA Publishing Republic – Export Building, Units 1.04 & 1.05 1 Clove Crescent
+    London, E14 2BA, UK Telephone: +44 208 054 8208 Fax: +44 207 654 5555 IWAPublishing.com
+    IWA-network.org IWA-connect.org Cookie Policy Terms & Conditions Privacy Site
+    Map Get Adobe Acrobat Reader ©Copyright 2021 IWA Publishing This site uses cookies.
+    By continuing to use our website, you are agreeing to our privacy policy. Accept"'
+  inline_citation: '>'
+  journal: Water Science and Technology
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Fault signatures and bias progression in dissolved oxygen sensors
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors: []
+  citation_count: '0'
+  description: 'The proceedings contain 380 papers. The special focus in this conference
+    is on Measurement, Instrumentation and Automation. The topics include: A method
+    of test point optimization selection for analog circuits; analysis of the formation
+    mechanism of crack network in shale by CT; bearing replacement monitoring technology
+    of rail transit bridge in Beijing; characterization of a magnetic field probe
+    for electromagnetic interference current measurement; internet system of cognitive
+    diagnosis measurement for mixed scoring S-P chart and its applications; laser
+    wave-front measuring based on quadri-wave lateral shearing interferometry; studies
+    on the optical measuring system for grape stem diameter; study of optical coherence
+    theory in measurement; the displacement measurement of ground wind loads for launch
+    vehicle; the research of GPS elevation fitting considering the influence of covariance
+    function; knock detection and evaluation of kerosene piston engine; the oxygen
+    concentration measurement of an aircraft fuel tank inerting system; simulation
+    research of charged particle discrimination methods; analysis of energy loss-gain
+    error in discrete Fourier transform; rapid power quality detection based on generalized
+    HS-transform; semiparametric regression analysis on the AB data with zero-point
+    drift; signatures extraction of ship radiated noise based on passive sonar; split
+    train-induced vibration and seismic wave using independent component analysis;
+    the training algorithm of fuzzy coupled hidden Markov models; weak signal detection
+    method in a stronger noise background; harmonic detection in micro-grid based
+    on modified S-transform; the equipment maintenance technology research based on
+    information; objective speech quality evaluation based on matlab; a new kind of
+    water-squirting ultrasonic detector; cloud particles image playback design; design
+    of dual high precision power signal generator based on AD9854; development of
+    stimulator based on audio-visual feedback signal; key technologies for ground
+    pressure monitoring system; a iteration processing algorithm for multi-wavelength
+    pyrometer; an automated measurement method for high speed serial data validation;
+    an automated measurement method for high speed serial data validation; fault analysis
+    of smart meter based on metering chip failure analysis; an IP based audio test
+    network for tunnel application; design of fault diagnosis vehicle terminal based
+    on ARM11; detection method of optical fiber connector internal parts based on
+    machine vision; a security system design of WSN based on nodes identification;
+    a semantic-based routing algorithm for hierarchical WSNs; analysis for packet
+    dropout in state estimation problem over sensor network; design of an inclination
+    sensor with high-resolution based on MEMS accelerometer; development of a gas
+    flow sensor based on FS5 hot-film probe; fast Gaussian mixture probability hypothesis
+    density filter; wireless sensor networks deployment based on Monte Carlo method;
+    simulation study on characteristics of nonlinear photonic crystal; application
+    of FIR real-time filtering in fiber-optic current sensor; density-based energy-efficient
+    unequal clustering; a method for artificial mark recognition in augmented reality
+    system; a novel vector map watermarking evaluation based on electronic chart;
+    a simple deformation approach for facial expression; fusion of visual and infrared
+    image based on NSCT; image super-resolution via low-rank representation; research
+    of face recognition methods based on binding feature extraction; research on intangible
+    cultural heritage based on motion capture; rock classification based on image
+    processing and neural networks; subpixel edge detection for segmentation of the
+    pulp fiber image; view-invariant gait recognition based on head and shoulder shape
+    analysis; a novel no-reference perceptual blur metric; a high-order model of TV
+    and its augmented Lagrangian algorithm; design on system of badminton video base
+    on target tracking; identification of abnormal furnace flame based image processing;
+    analysis and research of stereo correspondence algorithms; application of IHA
+    on the power grid task based on cloud computing; introducing genetic algorithm
+    as an intelligent optimization technique; time-free solution for QSAT by using
+    timed tissue p systems; a survey of quantum genetic algorithm for combinatorial
+    optimization problems; the study on user model construction method based on ontology;
+    product form modular design based on genetic algorithm; deep Boltzmann machines
+    aided design based on genetic algorithms; an effective community detection method
+    based on improved genetic algorithm; individual civil building intelligent project
+    design based on the agent; application of Bp on hydrological forecast model; anthropomorphic
+    optimization of a rope-driven prosthetic finger; modelling of full-actuated autonomous
+    underwater vehicle; the impact of vertical deflection on the ballistic missiles
+    for direction and positioning; design of remote control aircraft model based on
+    ARM; initial attitude determination of aerial platform based on MIMU; weight fusion
+    orbit determination method with multi-source at injection stage; an antenna tracking
+    servo system based on particle filtering; fuzzy PID control for fast-steering
+    mirror system; research on the real-time model of aero-engine actuator; study
+    of the optimal design for the gliding trajectory; the visual path following of
+    autonomous catamaran in oil spilling; application of DMC algorithm on pH control
+    of WFGD system; robust adaptive control of nonlinear systems with uncertainties;
+    grinding concentration cascade control method of ball mill based on the fuzzy
+    control theory; research on engine control system test based on airworthiness
+    standard; a design and implementation of video monitoring system at smart home;
+    embedded software design of campus tourism navigation based on QT; research and
+    implementation of SSD lifespan protection mechanism; transient analysis for multi-conductor
+    transmission lines based on FDTD method; research on multi-mode controller of
+    switching power supply; a new channel assignment algorithm in wireless mesh network;
+    an compensation method of polymer arrayed waveguide grating; a triple-loop tracking
+    method for high-order BOC-modulated signals; construction of network teaching
+    platform; network security management system based on digital China; research
+    on content distribution mechanism of MP2P networks; research on the connectivity
+    of network; design and implementation of network events monitoring system; formal
+    approach to enhance the reliability of embedded software system; software design
+    of smart home terminal system; research on automatic test case generation framework
+    for java; a Linux-based technical implementation model for data capturing; analysis
+    of cloud calculation and its realization on computers; optimal energy management
+    strategy for parallel scheduling; the multilevel algorithm of Chinese sentence
+    similarity; an EEG application platforms design and development; the design of
+    enterprise cooperative platform based on workflow; study of Bluetooth printing
+    technology based on android phone; design knowledge retrieval research based on
+    domain ontology; analysis of emissions from selected wood charcoal species combustion;
+    conduction properties of SiN films depositing by RF magnetron sputtering; optimization
+    of oil pipe arrangement with compensation conditions; the development and characteristics
+    of electromagnetic riveting technology; analysis and improvement of fan blades
+    noise; effect of contact interface nonlinear coefficient on ultrasonic transducer;
+    development of auto starter durability test system based on PLC; vessel anchor
+    dragging early warning system based on cable vibration frequency analysis; measurement
+    and numerical study of characteristics of an energy unit; design and simulation
+    of aero-engine combination vortex fuel pump; research of a new power quality detection
+    system based on ARM; vulnerability assessment and analysis of active distribution
+    network structure; effect of drying temperature on quality of purple sweet potato
+    powder; reform and exploration of electronic basic courses teaching; teaching
+    reform on the soil mechanics and foundation; dynamic model and its application
+    in economic forecasting; research on level effect-based electrical load forecast
+    method; fire spread model for drum-tower district of Tianjin based on cellular
+    automaton and research on amending the energy efficiency provisions in the building.'
+  doi: null
+  full_citation: '>'
+  full_text: '>'
+  inline_citation: '>'
+  journal: Applied Mechanics and Materials
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 3rd International Conference on Measurement, Instrumentation and Automation,
+    ICMIA 2014
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Baggiani F.
+  - Marsili-Libelli S.
+  citation_count: '32'
+  description: 'Automatic fault detection is becoming increasingly important in wastewater
+    treatment plant operation, given the stringent treatment standards and the need
+    to protect the investment costs from the potential damage of an unchecked fault
+    propagating through the plant. This paper describes the development of a real-time
+    Fault Detection and Isolation (FDI) system based on an adaptive Principal Component
+    Analysis (PCA) algorithm, used to compare the current plant operation with a correct
+    performance model based on a reference data set and the output of three ion-specific
+    sensors (Hach-Lange gmbh, Düsseldorf, Germany): two Nitratax® NOx UV sensors,
+    in the denitrification tank and downstream of the oxidation tanks, where an Amtax®
+    ammonium-N sensor was also installed. The algorithm was initially developed in
+    the Matlab environment and then ported into the LabView 8.20 (National Instruments,
+    Austin, TX, USA) platform for real-time operation using a compact Field Point
+    ®, a Programmable Automation Controller by National Instruments. The FDI was tested
+    with a large set of operational data with 1 min sampling time from August 2007
+    through May 2008 from a full-scale plant. After describing the real-time version
+    of the PCA algorithm, this was tested with nine months of operational data which
+    were sequentially processes by the algorithm in order to simulate an on-line operation.
+    The FDI performance was assessed by organizing the sequential data in two differing
+    moving windows: a short-horizon window to test the response to single malfunctions
+    and a longer time-horizon to simulate multiple unrepaired failures. In both cases
+    the algorithm performance was very satisfactory, with a 100% failure detection
+    in the short window case, which decreased to 84% in the long window setting. The
+    short-window performance was very effective in isolating sensor failures and short
+    duration disturbances such as spikes, whereas the long term horizon provided accurate
+    detection of long-term drifts and proved robust enough to allow for some delay
+    in failure recovery. The system robustness is based on the use of multiple statistics
+    which proved instrumental in discriminating among the various causes of malfunctioning.
+    © IWA Publishing 2009.'
+  doi: 10.2166/wst.2009.723
+  full_citation: '>'
+  full_text: '>
+
+    "All Content All Journals This Journal                              Advanced Search
+    Cart Register UNIVERSITY OF NEBRASKA Sign In ISSUES JOURNAL INFORMATION LIBRARIANS
+    BOOKS ABOUT Select Language▼ Volume 60, Issue 11 December 2009 Previous Article
+    Next Article Article Contents RESEARCH ARTICLE| DECEMBER 01 2009 Real-time fault
+    detection and isolation in biological wastewater treatment plants F. Baggiani;
+    S. Marsili-Libelli Water Sci Technol (2009) 60 (11): 2949–2961. https://doi.org/10.2166/wst.2009.723
+    Views PDF Share Tools Listen Automatic fault detection is becoming increasingly
+    important in wastewater treatment plant operation, given the stringent treatment
+    standards and the need to protect the investment costs from the potential damage
+    of an unchecked fault propagating through the plant. This paper describes the
+    development of a real-time Fault Detection and Isolation (FDI) system based on
+    an adaptive Principal Component Analysis (PCA) algorithm, used to compare the
+    current plant operation with a correct performance model based on a reference
+    data set and the output of three ion-specific sensors (Hach-Lange gmbh, Düsseldorf,
+    Germany): two Nitratax® NOx UV sensors, in the denitrification tank and downstream
+    of the oxidation tanks, where an Amtax® ammonium-N sensor was also installed.
+    The algorithm was initially developed in the Matlab environment and then ported
+    into the LabView 8.20 (National Instruments, Austin, TX, USA) platform for real-time
+    operation using a compact Field Point®, a Programmable Automation Controller by
+    National Instruments. The FDI was tested with a large set of operational data
+    with 1 min sampling time from August 2007 through May 2008 from a full-scale plant.
+    After describing the real-time version of the PCA algorithm, this was tested with
+    nine months of operational data which were sequentially processes by the algorithm
+    in order to simulate an on-line operation. The FDI performance was assessed by
+    organizing the sequential data in two differing moving windows: a short-horizon
+    window to test the response to single malfunctions and a longer time-horizon to
+    simulate multiple unrepaired failures. In both cases the algorithm performance
+    was very satisfactory, with a 100% failure detection in the short window case,
+    which decreased to 84% in the long window setting. The short-window performance
+    was very effective in isolating sensor failures and short duration disturbances
+    such as spikes, whereas the long term horizon provided accurate detection of long-term
+    drifts and proved robust enough to allow for some delay in failure recovery. The
+    system robustness is based on the use of multiple statistics which proved instrumental
+    in discriminating among the various causes of malfunctioning. This content is
+    only available as a PDF. PDF Sign in Don''t already have an account? Register
+    Client Account Email address / Username Password Sign In Reset password Register
+    eBook Pay-Per-View Access $38.00 Buy Article View Metrics Cited by Web Of Science
+    (24) Google Scholar CrossRef (27) We recommend Adaptive multiscale principal components
+    analysis for online monitoring of wastewater treatment J. Lennox et al., Water
+    Science and Technology, 2002 Disturbance detection and isolation in the activated
+    sludge process C.K. Yoo et al., Water Science and Technology, 2002 A neural network
+    approach for on-line fault detection of nitrogen sensors in alternated active
+    sludge treatment plants Caccavale, F. et al., Water Science and Technology, 2010
+    Fault detection in level and flow rate sensors for safe and performant remote-control
+    in a water supply system Fellini et al., Journal of Hydroinformatics, 2019 Sensors
+    network diagnosis in anaerobic digestion processes using evidence theory Steyer,
+    J.-P. et al., Water Science and Technology, 2004 On the Reliability of the Autosub
+    Autonomous Underwater Vehicle Griffiths, G. et al., Underwater Technology, 2003
+    Control strategies for oscillating water column wave energy converters Freeman,
+    Kate et al., Underwater Technology Mathematical description of brain dynamics
+    in perception and action Nicolis, J.S. et al., Journal of Consciousness Studies,
+    1999 Adsorption Kinetics and Thermodynamics of Desulfurization Slag Adsorbent
+    for Copper () ZHENG, Yueguo et al., Journal of The Chinese Ceramic Society Effect
+    of Side Chain Density of Comb-shaped Structure on Performance of Polycarboxylate
+    Superplasticizer WANG, Ziming et al., Journal of The Chinese Ceramic Society,
+    2012 Powered by ISSN 0273-1223 EISSN 1996-9732 Cart Journals eBooks Open Access
+    Collections Subscriptions Subscribe to Open Editorial Services Rights and Permissions
+    Crossmark FAQ Contact us Sign Up for Our Mailing List IWA Publishing Republic
+    – Export Building, Units 1.04 & 1.05 1 Clove Crescent London, E14 2BA, UK Telephone:
+    +44 208 054 8208 Fax: +44 207 654 5555 IWAPublishing.com IWA-network.org IWA-connect.org
+    Cookie Policy Terms & Conditions Privacy Site Map Get Adobe Acrobat Reader ©Copyright
+    2021 IWA Publishing This site uses cookies. By continuing to use our website,
+    you are agreeing to our privacy policy. Accept"'
+  inline_citation: '>'
+  journal: Water Science and Technology
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Real-time fault detection and isolation in biological wastewater treatment
+    plants
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

@@ -1,7 +1,7 @@
 import asyncio
 import logging
 from llm_api_handler import LLM_APIHandler
-from prompts import get_prompt
+from prompt_loader import get_prompt
 import aiohttp
 from misc_utils import get_api_keys
 
@@ -15,11 +15,8 @@ class QueryProcessor:
         self.llm_api_handler = LLM_APIHandler(api_keys, session)
 
     async def process_query(self, user_query, returned_results):
-        prompt = get_prompt(
-            template_name="synthesize_results",
-            user_query=user_query,
-            returned_results=returned_results,
-        )
+        kwargs = {"user_query": user_query, "returned_results": returned_results}
+        prompt = get_prompt(template_name="synthesize_results", **kwargs)
 
         try:
             logger.info(f"Processing query: {user_query}")

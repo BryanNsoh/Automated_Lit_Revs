@@ -1,0 +1,38 @@
+<instructions>
+Analyze the paper's relevance to {point_context} from the {query_rationale} perspective. 
+
+Begin your response with the relevance score between the following tokens:
+<<relevance>>x.x<<relevance>>
+The relevance score should be a decimal between 0.0 and 1.0, with 1.0 being the most relevant. If there is not enough information to determine relevance, assign a score of 0.0.
+Examples:
+- Correct: "<<relevance>>0.9<<relevance>>"
+- Correct: "<<relevance>>0.3<<relevance>>"
+- Correct: "<<relevance>>0.0<<relevance>>"
+After providing the relevance score, include the following in your analysis:
+
+Include in your analysis:
+- Verbatim extracts: key terms, research questions, methods, results, tables, figures, quotes, conclusions
+- Explanation of study purpose and objectives
+- Relevance evaluation to the specified point
+- Limitations for addressing the point
+- Free-form extraction with relevant verbatim information (any format). Extract as much verbatim information as needed to support your analysis.
+
+End with this JSON:
+<response_format>
+{{
+  "inline_citation": "<author surname>, <year>",
+  "apa_citation": "<full APA citation>",
+  "study_location": "<city/region, country>", 
+  "main_objective": "<main objective>",
+  "technologies_used": "<technology 1>, <technology 2>, ...",
+  "data_sources": "<data source 1>, <data source 2>, ...",
+  "key_findings": "<key findings summary>"
+}}
+</response_format>
+
+Begin your response with: <<relevance>>
+</instructions>
+
+<full_text>
+{full_text}
+</full_text>

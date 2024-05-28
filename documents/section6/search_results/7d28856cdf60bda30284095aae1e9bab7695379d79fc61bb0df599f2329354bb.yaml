@@ -1,0 +1,640 @@
+- analysis: '>'
+  authors:
+  - Shu X.
+  - Hua P.
+  - Wang S.
+  - Zhang L.
+  - Xie L.
+  citation_count: '4'
+  description: 'Background: Although some robotic systems have been developed to improve
+    conventional flexible ureteroscopy (FURS), a widely used intervention in urology,
+    these robots rarely have a comprehensive force feedback function which is important
+    for master-slave controlled surgical robots. Methods: Here, we design and fabricate
+    a novel FURS robot with a comprehensive force feedback function. Moreover, to
+    realize better force feedback, a neural network-based method is also demonstrated
+    to estimate the interactive forces between the flexible ureteroscope and the environment.
+    Results: We show that when teleoperating the flexible ureteroscope with our robot,
+    the operator can accurately feel the obstruction if the interactive axial force
+    or torque exceeds 1.2 N or 15.6 mN·m respectively. For bending movement, augmented
+    force feedback greatly improves the accuracy of the operator''s perception of
+    obstruction. Conclusions: The developed robotic system with force feedback is
+    expected to improve the safety of robot-assisted FURS.'
+  doi: 10.1002/rcs.2410
+  full_citation: '>'
+  full_text: '>
+
+    "UNCL: University Of Nebraska - Linc Acquisitions Accounting Search within Login
+    / Register The International Journal of Medical Robotics and Computer Assisted
+    Surgery ORIGINAL ARTICLE Full Access Safety enhanced surgical robot for flexible
+    ureteroscopy based on force feedback Xiongpeng Shu,  Peng Hua,  Shuang Wang,  Ling
+    Zhang,  Le Xie First published: 19 April 2022 https://doi.org/10.1002/rcs.2410Citations:
+    4 SECTIONS PDF TOOLS SHARE Abstract Background Although some robotic systems have
+    been developed to improve conventional flexible ureteroscopy (FURS), a widely
+    used intervention in urology, these robots rarely have a comprehensive force feedback
+    function which is important for master-slave controlled surgical robots. Methods
+    Here, we design and fabricate a novel FURS robot with a comprehensive force feedback
+    function. Moreover, to realize better force feedback, a neural network-based method
+    is also demonstrated to estimate the interactive forces between the flexible ureteroscope
+    and the environment. Results We show that when teleoperating the flexible ureteroscope
+    with our robot, the operator can accurately feel the obstruction if the interactive
+    axial force or torque exceeds 1.2 N or 15.6 mN·m respectively. For bending movement,
+    augmented force feedback greatly improves the accuracy of the operator''s perception
+    of obstruction. Conclusions The developed robotic system with force feedback is
+    expected to improve the safety of robot-assisted FURS. 1 INTRODUCTION Flexible
+    ureteroscopy (FURS) is an important natural orifice transluminal endoscopic surgery
+    (NOTES) in urology. It can be performed to treat many upper urinary tract diseases,
+    for example, urothelial tumours and kidney stones.1 Figure 1A shows the schematic
+    of FURS: a flexible ureteroscope is inserted into the upper urinary through the
+    natural urethra, bladder, and ureter for diagnosis and treatment. Patients suffer
+    less pain and recover fast because no additional surgical incision exists. Hence,
+    FURS is widely used in clinic.2 However, conventional FURS has its drawbacks.
+    First, urologists are at risk of X-ray radiation exposure during the operation.3
+    Second, the urologist has to stand and manipulate the flexible ureteroscope for
+    a long time when treating kidney stones, which increases the prevalence of musculoskeletal
+    disorders among urologists.4 Third, besides the flexible ureteroscope, multiple
+    surgical instruments need to be manipulated simultaneously such as the irrigation
+    device for improving the endoscopic visibility and the laser fibre for smashing
+    kidney stones, which makes the operation complicated. Moreover, high intrarenal
+    pressure resulting from irrigation increases the risk of severe complications.5
+    FIGURE 1 Open in figure viewer PowerPoint (A) The schematic of FURS. (B) A commercial
+    single-use flexible ureteroscope and three common manipulations in FURS: translate,
+    rotate, and bend. FURS, flexible ureteroscope With the development of robotics,
+    a large number of researches about surgical robots have emerged.6 They aim to
+    improve conventional surgeries including FURS. Around 2008, Desai and colleagues
+    developed a master-slave-controlled robot for FURS to protect urologists from
+    X-ray radiation.7, 8 The urologist can teleoperate the flexible ureteroscope away
+    from the radioactive source. However, this robot was altered from a cardiovascular
+    surgical robot, making it fail to match FURS well. In 2011, the research group
+    in Turkey proposed a novel robotic system (named Avicenna Roboflex) which was
+    specially designed for FURS.9-11 This robot meets most of the requirements of
+    FURS: it can manipulate the commercial flexible ureteroscopes and laser fibres,
+    and is also equipped with an irrigation system.12 Later, Zhao and colleagues13
+    also developed a similar robotic system to improve the ergonomics of FURS. The
+    above researches contribute a lot to the development of robot-assisted FURS. However,
+    force feedback, an important feature of the master-slave controlled FURS robot,
+    is rarely studied. Since the urologist no longer holds the flexible ureteroscope
+    in robot-assisted FURS, the feeling of manipulating forces is absent. It will
+    challenge the urologist''s operation, surgical safety, and the instrument''s efficacy
+    as well. For example, the flexible ureteroscope may be stuck in the urinary system
+    for various reasons.14-16 If the feeling of force doesn''t exist, it will be hard
+    for urologists to perceive this dangerous event. Moreover, withdrawing the bending
+    flexible ureteroscope from the renal calyx without awareness may also lead to
+    severe intraoperative complications.17 Additionally, exerting excessive torque
+    on the bending knob may damage the flexible ureteroscopes.18 Therefore, force
+    is closely related to surgical operation, and force feedback is very important
+    for robot-assisted FURS. Recently, our previous work19 brought partial force feedback
+    into the design of FURS robot. However, the research only considered the torque
+    of the flexible ureteroscope''s bending knob, which is not enough because multiple
+    manipulating forces are generated and need to be displayed to the operator during
+    the ureteroscope''s three typical movements—translation, rotation, and bending
+    (Figure 1B). Therefore, this paper aims to propose a novel robotic system with
+    a more comprehensive force feedback function for FURS. Interactive forces that
+    occur during the three movements of the flexible ureteroscope are all taken into
+    consideration in this novel robot, including axial force while advancing and withdrawing
+    the flexible ureteroscope, axial torque while rotating the flexible ureteroscope,
+    and torque while rotating the flexible ureteroscope''s bending knob. 2 MATERIALS
+    AND METHODS Here, according to the requirements of FURS, we develop a novel robotic
+    system with force feedback function for FURS. To achieve better force feedback,
+    a neural network-based method is adopted to estimate the interactive forces between
+    the flexible ureteroscope and the environment by identifying the intrinsic forces.
+    These intrinsic forces are generated by overcoming the influence of machining
+    and assembly variation, the gravitational moment of the robot itself, the intrinsic
+    torque for bending the flexible ureteroscope''s bending section, and so on. Subsequently,
+    experiments are conducted to preliminarily evaluate the force feedback function
+    of our robotic system. 2.1 Requirements of the robotic design 2.1.1 Manipulation
+    of the flexible ureteroscope Manipulating the flexible ureteroscope (Figure 1B)
+    is a fundamental function of FURS robot. The flexible ureteroscope is one of the
+    most important instruments to perform FURS. As shown in Figure 1, the outer diameter
+    of the flexible ureteroscope''s slender shaft is less than 3 mm, and a working
+    channel whose diameter is approximately 1 mm exists in the shaft. The working
+    channel can be used for the entrance of other instruments, such as the laser fibre
+    for lithotripsy. It can meanwhile be used for irrigation to maintain a clear vision.
+    The distal end of the shaft is integrated with a camera and light source, and
+    it can be actively bent up or down with the flexible ureteroscope''s bending knob,
+    to explore each calyx in the kidney. During the operation, the urologist needs
+    to manipulate the flexible ureteroscope for forward and backward movement, axial
+    rotation, and the knob''s rotation (Figure 1B). Additionally, the flexible ureteroscope
+    should be at an appropriate height relative to the patient. Consequently, the
+    robot needs four actuators to manipulate the flexible ureteroscope, including:
+    horizontal movement actuator for advancing and withdrawing the flexible ureteroscope;
+    rotary movement actuator for rotating the flexible ureteroscope; bending movement
+    actuator for rotating the flexible ureteroscope''s knob; vertical movement actuator
+    for adjusting the height. 2.1.2 Manipulation of other surgical instruments Apart
+    from manipulating the flexible ureteroscope, some other functions are also required
+    for most FURS. First, the robot should be able to feed the holmium laser fibre
+    which will be gradually consumed during the intervention. Additionally, irrigation
+    is important for obtaining a clear endoscopic view, and it would be better if
+    the robot is equipped with an automatic and controllable irrigation system. Although
+    commercial irrigation devices exist in the market, they usually work with a manual
+    pump which is pumped by the urologist or assistant for supplemental irrigation.20
+    Hence, the robot''s built-in irrigation system allows the urologist to easily
+    control the irrigation and can reduce the number of staff in the operating room.
+    2.1.3 Sensing requirements The ability of sensing is important for realizing force
+    feedback and improving safety. As stated in the introduction section, three interactive
+    forces exist between the flexible ureteroscope and the environment during manipulation,
+    including axial force, axial torque, and bending knob''s torque. If the flexible
+    ureteroscope is trapped in the urinary tract for unexpected reasons,14-16 the
+    axial force and torque will help urologists to notice this dangerous event and
+    avoid worse complications. The torque exerted on the flexible ureteroscope''s
+    bending knob is also important, which helps protect the flexible ureteroscope
+    because excessive torque will damage it.18 Moreover, if bending movement is restricted,
+    it will be reflected in the torque of rotating the knob and further protect the
+    tissues. Additionally, sensing intrarenal pressure during the intervention is
+    also helpful for supporting urologists'' decisions to reduce the risk of complications.21
+    2.2 Design and prototypes of the robot To meet the above requirements, our robot
+    is designed as shown in Figure 2. The flexible ureteroscope is mounted on the
+    end-effector of the robot and manipulated by four actuators—vertical movement
+    actuator, horizontal movement actuator, rotary movement actuator, and bending
+    movement actuator. The front end of the robot''s end-effector has a passive retractable
+    mechanism to support the flexible shaft of the flexible ureteroscope. Moreover,
+    to feed and withdraw the laser fibre, an instrument feeding actuator is also designed.
+    The actuator consists of two friction wheels that are compressed by springs and
+    can adapt to instruments with various outer diameters. Furthermore, an automatic
+    irrigation module that can noninvasively estimate the intrarenal pressure22 is
+    integrated into the top of the slave robot. FIGURE 2 Open in figure viewer PowerPoint
+    The design of the proposed slave robot As for force sensing, some researchers
+    have developed a miniature sensor based on fibre Bragg gratings and placed it
+    on the tip of the flexible ureteroscope.23 Compared with common strain gauge-based
+    force sensors, this fibre sensor can measure the interactive forces on the tip
+    with higher accuracy. It also has good biocompatibility and can resist electromagnetic
+    interference, which is advantageous in complex electromagnetic environments such
+    as operating rooms. However, it occupies the flexible ureteroscope''s working
+    channel, making other surgical instruments like laser fibre inaccessible. Moreover,
+    the miniature sensor can only sense the interactive force on the tip, and cannot
+    measure the interactive forces exerted on the whole flexible shaft, where the
+    flexible ureteroscope may be stuck. Hence, we here adopt three ordinary force/torque
+    sensors at the joints of the robot to estimate the interactive forces. They are
+    the axial force sensor (DYZ-101, Da Yang Sensing System Engineering Corporation),
+    the axial torque sensor (DYJN-104D, Da Yang Sensing System Engineering Corporation),
+    and the bending knob''s torque sensor (DYJN-104D, Da Yang Sensing System Engineering
+    Corporation), respectively. The locations of these sensors are shown in Figure
+    2, and they will not occupy the flexible ureteroscope''s working channel. In Figure
+    2, represents the axial force of pushing or pulling the robot''s end-effector
+    and represents the axial torque of rotating the robot''s end-effector, while represents
+    the torque of rotating the flexible ureteroscope''s bending knob. The interactive
+    force/torque between the flexible ureteroscope and the environment will be transmitted
+    to the sensors at the robot joints. They can sense the force/torque exerted on
+    the whole flexible shaft of the flexible ureteroscope since the measuring position
+    is behind. These sensors are based on common strain gauges, which are cost-effective.
+    However, the compromise is that the accuracy is lower than that of the fibre sensor.
+    For example, the error of the strain gauge-based axial force sensor is 0.05 N,
+    while the fibre sensor is only 0.03 N.23 The prototypes of the robotic system
+    are shown in Figure 3. The master console platform, which was introduced in our
+    previous research,19 is composed of two haptic devices (Falcon, Force Dimension)
+    whose coordinate systems are also shown in Figure 3. With our system, the urologist
+    can control the flexible ureteroscope mounted on the slave robot by manipulating
+    the two haptic devices. The mapping law of movements from the haptic devices to
+    the slave robot is designed as FIGURE 3 Open in figure viewer PowerPoint The prototypes
+    of the robotic system and the coordinate systems of the haptic devices The left
+    of the equation is the joints'' velocities of the slave robot (Figure 2), which
+    control the flexible ureteroscope''s translation ( ), rotation ( ), and bending
+    movement ( ). The right is the haptic devices'' velocities in cartesian space
+    (Figure 3) multiplied by scale factors ( ). The movements not mentioned in the
+    mapping law, such as the adjustment of the height, are controlled by buttons.
+    Correspondingly, the mapping law of forces from the slave robot to the haptic
+    devices is designed as The left is the reproduced forces of the haptic devices
+    along the corresponding axis— (Figure 3), while the right is the forces and joint
+    angles measured by the slave robot after being processed with feedback algorithms
+    ( ). 2.3 Force feedback strategy Although the interactive forces between the flexible
+    ureteroscope and the environment will be transmitted to the sensors at the robot
+    joints, the problem is that other intrinsic forces will also be exerted on the
+    sensors. These intrinsic forces include the driving torque to overcome the gravity
+    and rotate the robot''s end-effector, the force and torque for acceleration and
+    deceleration, the friction of the mechanism, and so on. Consequently, even when
+    the flexible ureteroscope is moving freely and no interactive force exists, the
+    sensor readings will not be zeros. Figure 4A,B shows the readings of the axial
+    force and axial torque sensors when the end-effector of the robot rotated back
+    and forth in a certain range. During the rotation, a flexible ureteroscope (US31B-12;
+    Innovex Group) was mounted on the robot and could move freely so that no interactive
+    force existed during the movement. As shown in Figure 4A, the axial force sensor
+    readings will change slightly when the end-effector rotates, due to the machining
+    and assembling variation. As for axial torque (Figure 4B), it will change for
+    overcoming the dynamic gravitational moment since the centroid of the end-effector
+    is not located on the rotation axis. Other uncertain factors also affect the sensor
+    readings, which makes them irregular and inconsistent. Figure 4C shows the readings
+    of the torque sensor on the bending knob when it was actuated back and forth,
+    and the maximum angle would also increase after every few rotations. As the figure
+    shows, the torque will increase as the bending angle increases, because the distal
+    bending section of the flexible ureteroscope is driven by the proximal knob with
+    strings, and the friction and elasticity will increase as the bending angle increases.
+    FIGURE 4 Open in figure viewer PowerPoint The sensor readings when the joints
+    rotate back and forth under free movement. Readings of axial force sensor (A)
+    and axial torque sensor (B) when rotating the flexible ureteroscope. Readings
+    of bending knob''s torque sensor (C) when rotating the bending knob To sum up,
+    the intrinsic forces are correlated with the motion trajectory, such as rotation
+    angle and direction, and there exhibits hysteresis. Eliminating or weakening the
+    influence of these intrinsic forces is important to only display the real interactive
+    forces to the urologist. Hence, we here propose a unified force feedback strategy
+    (Figure 5)—robot self-learning to handle these intrinsic forces. More explicitly,
+    we let the slave robot move randomly in a certain range without manual teleoperation
+    and sample the joint states and joint force/torque sensor data simultaneously.
+    Then these data are used to train neural networks to predict the above intrinsic
+    forces. Once the intrinsic forces are identified, we can remove them from the
+    joint sensor readings, then a cleaner interactive force can be displayed to the
+    urologist. Since no external sensors and manual manipulation are needed to model
+    the intrinsic forces, this method is called robot self-learning here. FIGURE 5
+    Open in figure viewer PowerPoint The schematic diagram of the augmented force
+    feedback strategy. NN-based, neural-network-based 2.4 Estimate the intrinsic forces
+    with robot self-learning To establish the model to identify the various intrinsic
+    forces in real-time, a data-driven method based on neural network is adopted.
+    We let the slave robot randomly manipulate the flexible ureteroscope with generated
+    trajectories. During the manipulation, the flexible ureteroscope can move without
+    any restriction (defined as ''free movement’). The middle of the flexible ureteroscope''s
+    flexible shaft is supported by a smooth table on the same horizontal plane, and
+    the flexible shaft is so light that the friction can be ignored. Therefore, the
+    interactive forces between the flexible ureteroscope and the environment can be
+    regarded as zeros. Simultaneously, the angles of the robot joints and the readings
+    of the robot force/torque sensors are sampled at a frequency of 20 Hz. Then, the
+    sequence of angles is taken as neural networks'' input and the corresponding sensor
+    readings are taken as outputs (Figure 6). FIGURE 6 Open in figure viewer PowerPoint
+    The schematic diagram of predicting the intrinsic forces based on two kinds of
+    neural networks. GRU, gated recurrent unit; LSTM, long short-term memory For each
+    force and torque, we tried two types of artificial neural networks which are multilayer
+    perceptrons (MLP) and sequence models—long short-term memory (LSTM) and gated
+    recurrent unit (GRU). To obtain data for training neural networks, the flexible
+    ureteroscope was randomly manipulated by the slave robot without any restriction
+    for 4 h. Two hours were for axial rotation and 2 h were for bending movement.
+    These two movements are relatively independent, and axial rotation has little
+    effect on the knob''s torque sensor while bending movement also has little effect
+    on the axial torque sensor. Therefore, when performing one movement, another movement
+    remained stationary and at the home position. Moreover, considering that the translational
+    acceleration of the flexible ureteroscope is small during actual operation, the
+    axial inertial force has little impact on the sensor readings, which is about
+    the order of 10−2 N. Hence, the translation movement was ignored here, and only
+    the axial rotation and bending movement were considered. The random trajectories
+    of the slave robot were generated by randomly choosing a pair of <target angle,
+    speed> from the angle set and the speed set (Table 1) which take into account
+    the typical range of the speed and angle during actual operation. Figure 7A,B
+    shows part of the trajectory of generated random manipulation. To train and evaluate
+    the neural networks, we separated the two datasets of axial rotation and bending
+    movement into training set, development set, and test set according to the proportion
+    of 60% (4320 s), 20% (1440 s), and 20% (1440 s), respectively. Then a deep learning
+    framework, TensorFlow, was adopted to establish and train our neural networks.
+    After several trials, the hyperparameters of the neural networks were set as shown
+    in Table 2. Moreover, for obtaining subsequences from the long joint angle sequence,
+    the size of the sliding window was set to 15, while the step was set to 1 (Figure
+    6). TABLE 1. The parameters of generating random movements Movement Target angle
+    set (unit: °) Velocity set (unit: °/s) Axial rotation Evenly spaced anglesa over
+    [−90, 90]; 60 angles in total 3, 4, 5, 6, 7, 8, 9, 10 Bending knob''s rotation
+    Evenly spaced anglesa over [−14, 14]; 14 angles in total 1.5, 2, 3, 4, 5 a If
+    it is a decimal, only integer digits are reserved. FIGURE 7 Open in figure viewer
+    PowerPoint Part of the trajectories of generated random manipulation: (A) axial
+    rotation. (B) Bending movement. The trajectories of manual master-slave manipulation:
+    (C) axial rotation. (D) Bending movement TABLE 2. The structures and hyperparameters
+    of the artificial neural networks Model Input shape Number of hidden layers Number
+    of hidden units Optimiser Learning rate MLP (Batch, 15) 5 128 Adam 0.001 LSTM
+    (Batch, 15, 1) 5 64 Adam 0.001 GRU (Batch, 15, 1) 5 64 Adam 0.001 Abbreviations:
+    GRU, gated recurrent unit; LSTM, long short-term memory; MLP, multilayer perceptrons.
+    We will first evaluate the performance of the neural networks on the test set
+    of generated random manipulation. However, it is not enough for neural networks
+    to only perform well on the generated random manipulation. The key point of robot
+    self-learning is that the neural networks trained under generated random manipulation
+    can also work under manual master-slave manipulation, the actual application scenario
+    of the robot. The joint trajectories of the slave robot under master-slave manipulation
+    are shown in Figure 7C (rotation) and Figure 7D (bending). These trajectories
+    have slight jitters and their peaks are less sharper compared with that under
+    generated random manipulation (Figure 7A,B), which will change the distribution
+    of data. Hence, to verify the transferability, we will further test the performance
+    of the neural networks under manual master-slave manipulation. These neural networks
+    are pretrained with the data of generated random manipulations. 2.5 Evaluate the
+    force feedback function Once the intrinsic forces are estimated by the neural
+    networks, the proposed force feedback strategy shown in Figure 5 is ready to function.
+    In this section, we will design experiments to verify the performance of the force
+    feedback function in our robotic system. 2.5.1 Axial force An experimental platform
+    (Figure 8A,B) was designed to verify the axial force feedback. The platform allows
+    the flexible shaft of the flexible ureteroscope to rotate and translate. Meanwhile,
+    the actual interactive axial force exerted on the flexible shaft can be measured
+    by the sensor on the platform. More specifically, the flexible shaft is fixed
+    on the bearing inner ring by a locking ring, which allows it to rotate freely.
+    The bearing outer ring is fixed on one end of the force sensor (DYLY-108, Da Yang
+    Sensing System Engineering Corporation) on the platform. The other end of the
+    force sensor is fixed on the slider which can translate on the linear guide. During
+    the movement, an interactive axial force can be exerted on the flexible shaft
+    by pushing and pulling the slider manually or by the limit blocks, which aims
+    to simulate the axial force exerted on the flexible ureteroscope during the actual
+    intervention. FIGURE 8 Open in figure viewer PowerPoint The experiment setup of
+    evaluating axial force feedback (A, B) and axial torque feedback (C, D) To test
+    the accuracy of the axial force feedback, we first conducted experiments to compare
+    the interactive axial force estimated by the robot with the actual interactive
+    force measured by the experimental platform. During this experiment, a participant
+    manipulated the haptic device to rotate the flexible ureteroscope. Another participant
+    pushed and pulled the slider to exert an interactive axial force on the flexible
+    ureteroscope. To further verify the benefit of the axial force feedback, we next
+    experimented to find out whether the operator could be aware that the flexible
+    ureteroscope is stuck in the urinary system with the help of axial force feedback.
+    The flexible ureteroscope''s being stuck in the urinary system is a dangerous
+    event that may cause severe complications. To simulate this event, the platform
+    in Figure 8B was still used and a participant manipulated the haptic device to
+    withdraw the flexible ureteroscope mounted on the slave robot. There is also the
+    situation of being stuck when pushing forward the endoscope. However, since the
+    endoscope is soft, the pushing force will be much smaller than the pulling force,
+    which will make the situation less dangerous. Moreover, the pushing force and
+    pulling force on the sensor are essentially equivalent and only in the opposite
+    direction. Therefore, only withdrawing manipulation was performed. During the
+    manipulation, the force feedback strategy in Figure 5 was applied (see Appendix
+    A1 for details). The estimated interactive force was displayed to the operator
+    via the haptic device. Meanwhile, the actual interactive force was also recorded
+    by the experimental platform. Once the slider was blocked by the limit block,
+    the flexible ureteroscope would be stuck, and the stuck force increased if the
+    flexible ureteroscope was continuously being withdrawn. The operator needed to
+    judge whether the flexible ureteroscope was stuck during the manipulation. Once
+    the operator judged that the flexible ureteroscope was stuck, the final actual
+    interactive force and feedback force were both recorded. The above experiment
+    was repeated 10 times after the operator had tried twice. During each trial, the
+    initial position of the slider is random, so the operator can not predict the
+    stuck event by moving distance. Moreover, the experimental platform and the operator
+    were separated and the operator could not see the distance between the slider
+    and the limit block. Therefore, the operator could only rely on force feedback
+    to make judgements, which ensured the validity of the experiments. 2.5.2 Axial
+    torque In actual intervention, the interactive axial torque exerted on the flexible
+    shaft of the flexible ureteroscope is quite small, only a few to tens of millinewton
+    meters. Therefore, to reduce the influence of estimation error, we propose a continuously
+    overstepping threshold method for the axial torque feedback (Appendix A2). Briefly,
+    only when the estimated interactive torque is continuously greater than a preset
+    threshold will it be displayed to the operator. Based on this feedback algorithm,
+    we also experimented to find out whether the operator could become aware that
+    the flexible ureteroscope is stuck during rotation movement. The experimental
+    platform was designed as shown in Figure 8C,D. A torque sensor (DYJN-104, Da Yang
+    Sensing System Engineering Corporation), for measuring the actual axial interactive
+    torque, was fixed on the platform. In each experiment, the flexible shaft of the
+    flexible ureteroscope might be fixed on the torque sensor, or not. An operator
+    controlled the flexible ureteroscope to rotate axially (from zero degrees to approximately
+    −55°) by manipulating the haptic device. Meanwhile, during the manipulation, the
+    operator needed to judge whether the flexible ureteroscope was stuck, that is,
+    fixed on the sensor. Once the operator became aware that the flexible ureteroscope
+    was stuck, the manipulation would be terminated, and the actual interactive axial
+    torque exerted on the flexible ureteroscope and the corresponding estimated value
+    would be recorded. If the movement was close to −55° and was still not judged
+    as a stuck state, the manipulation would also be terminated, and the operator''s
+    judgement would be marked as ''not stuck’. Like the axial force experiments, the
+    operator could only rely on force feedback to make judgements. The above experiment
+    was repeated 10 times after the operator had tried twice. 2.5.3 Bending force
+    When the bending of the flexible ureteroscope''s distal end is restricted by the
+    tissues or laser fibres, the interactive force will be reflected in the driving
+    torque of the bending knob. Compared with free bending, when the bending section
+    is restricted, the torque profile of rotating the bending knob will change.19
+    However, since the bending section itself requires a large intrinsic torque to
+    be bent, it''s difficult for the operator to become aware of the anomaly from
+    the large intrinsic torque. Fortunately, the proposed augmented force feedback
+    strategy (Figure 5) can eliminate the intrinsic torque, which will enhance the
+    operator''s perception. To verify the effect of the augmented feedback strategy,
+    two rounds of trials were conducted. In the first round, the neural networks were
+    not used and the whole bending knob''s torque was displayed to the operator after
+    being multiplied by an appropriate gain. In the second round, the bending knob''s
+    torque would be subtracted by the intrinsic torque predicted by the neural networks
+    before being displayed to the operator (Appendix A3). In two rounds, an operator
+    manipulated the haptic device to control the bending knob''s rotation (from 0°
+    to approximately 11°). During each manipulation, the bending section of the flexible
+    ureteroscope might be restricted, or not. The operator needed to rely on the force
+    feedback to identify whether the bending movement was restricted. Each trial was
+    repeated 10 times after the operator had tried twice. 3 RESULTS 3.1 Estimate the
+    intrinsic forces with robot self-learning Figure 9 shows the results of the neural
+    networks in predicting the intrinsic forces on part of the test set of generated
+    random manipulation. The curves of estimated intrinsic forces mostly coincide
+    with the curves of actual intrinsic forces. Furthermore, Table 3 shows the specific
+    prediction errors of the neural networks on the whole test set. In general, the
+    results show that the neural networks can predict the intrinsic forces well when
+    the flexible ureteroscope is moving freely, and the performances of the three
+    neural networks are similar. However, compared with Figure 9B,C, the axial force
+    sensor readings (Figure 9A) seem to be a little far from the values of the other
+    three prediction methods. It indicates that the relative error of the intrinsic
+    axial force estimation is relatively large. This is because there is relatively
+    large uncertainty and inconsistency in the influence of rotation movement on the
+    axial sensor (as shown in Figure 4A) which may be caused by the machining and
+    assembling variation and unstable friction. However, the maximum value of the
+    intrinsic axial force is small, hence a slightly larger relative error is still
+    acceptable. FIGURE 9 Open in figure viewer PowerPoint The performance of neural
+    networks in predicting intrinsic force on part of the test set. MLP, multilayer
+    perceptrons; LSTM, long short-term memory; GRU, gated recurrent unit TABLE 3.
+    The mean absolute error (MAE) and root mean square error (RMSE) of predicting
+    intrinsic forces on the whole test set of generated manipulation Axial force Axial
+    torque Bending knob''s torque Model MAE RMSE MAE RMSE MAE RMSE MLP 0.124 N 0.156
+    N 4.780 mN·m 6.164 mN·m 3.948 mN·m 5.373 mN·m LSTM 0.127 N 0.156 N 4.300 mN·m
+    5.762 mN·m 3.862 mN·m 5.274 mN·m GRU 0.128 N 0.157 N 4.398 mN·m 5.755 mN·m 3.831
+    mN·m 5.197 mN·m Abbreviations: GRU, gated recurrent unit; LSTM, long short-term
+    memory; MLP, multilayer perceptrons. Moreover, on the manual master-slave manipulation,
+    the neural networks can still present good predictions and perform alike (as shown
+    in Figure 10), although their errors (Table 4) are slightly larger than before
+    (Table 3). Additionally, for similar reasons, the relative error of the intrinsic
+    axial force estimation is also relatively large. However, on balance, the neural
+    networks can be successfully transferred to manual master-slave manipulation.
+    FIGURE 10 Open in figure viewer PowerPoint The performance of neural networks
+    in predicting intrinsic forces on manual master-slave manipulation. MLP, multilayer
+    perceptrons; LSTM, long short-term memory; GRU, gated recurrent unit TABLE 4.
+    The mean absolute error (MAE) and root mean square error (RMSE) of predicting
+    intrinsic forces on manual master-slave manipulation Axial force Axial torque
+    Bending knob''s torque Model MAE RMSE MAE RMSE MAE RMSE MLP 0.234 N 0.265 N 9.148
+    mN·m 10.82 mN·m 7.196 mN·m 10.75 mN·m LSTM 0.233 N 0.266 N 8.735 mN·m 10.50 mN·m
+    6.760 mN·m 9.581 mN·m GRU 0.229 N 0.265 N 8.687 mN·m 10.47 mN·m 6.682 mN·m 9.159
+    mN·m Abbreviations: GRU, gated recurrent unit; LSTM, long short-term memory; MLP,
+    multilayer perceptrons. 3.2 Evaluate the force feedback function 3.2.1 Axial force
+    To test the accuracy of the axial force feedback, Figure 11 shows the comparison
+    between the estimated interactive axial force with different methods (the solid
+    lines) and the actual interactive axial force (the dotted line). The direct method
+    shown in Figure 11 is to use the joint sensor readings directly as the estimated
+    interactive axial force, while the neural network methods (MLP, LSTM and GRU)
+    will subtract the intrinsic forces predicted by the neural networks from the sensor
+    readings. As the figures show, the curves of estimated interactive force mostly
+    coincide with the curve of actual values, and the neural network methods perform
+    better in estimating the actual interactive axial force than the direct method.
+    The mean absolute errors of neural network methods (MLP, LSTM and GRU) are approximately
+    0.26 N (Table 5), which is approximately 0.1 N (28%) lower than that of the direct
+    method. FIGURE 11 Open in figure viewer PowerPoint The comparison of the estimated
+    interactive force (the solid lines) and the actual interactive force (the dotted
+    line). MLP, multilayer perceptrons; LSTM, long short-term memory; GRU, gated recurrent
+    unit TABLE 5. The mean absolute error (MAE) and root mean square error (RMSE)
+    between the estimated interactive axial force and actual interactive axial force
+    on manual master-slave manipulation Method MAE RMSE Direct 0.360 N 0.438 N MLP
+    0.259 N 0.315 N LSTM 0.259 N 0.313 N GRU 0.262 N 0.317 N Abbreviations: GRU, gated
+    recurrent unit; LSTM, long short-term memory; MLP, multilayer perceptrons. Further
+    experiments show that in all 10 trials the operator could successfully become
+    aware that the flexible ureteroscope was stuck by the limit block and stopped
+    withdrawing in time, which protected the flexible ureteroscope from damage. Furthermore,
+    Figure 12 shows the magnitude of the actual stuck force and the feedback force
+    each time the operator became aware of the stuck event. The average of actual
+    stuck forces in 10 trials is 1.202 N, and the average of feedback forces is similar,
+    which is 1.136 N. FIGURE 12 Open in figure viewer PowerPoint The actual stuck
+    force and feedback force when the operator perceives the obstruction during withdrawing
+    the flexible ureteroscope 3.2.2 Axial torque A confusion matrix (Figure 13) was
+    made based on the operator''s judgements and the ground truth of whether the flexible
+    ureteroscope was stuck. The diagonal of the confusion matrix is the trials of
+    correct judgements, while the inverse diagonal is the trials of wrong judgements.
+    As the results show, the operator successfully identified the five trials in which
+    the flexible ureteroscope was stuck and another five trials in which it was not
+    stuck. Furthermore, Figure 14 shows the actual interactive axial torque and the
+    estimated interactive axial torque when the operator became aware of the stuck
+    event, of which the averages are 15.57 and 19.09 mN·m respectively (excluding
+    the outlier set). FIGURE 13 Open in figure viewer PowerPoint The confusion matrix
+    of the operator''s judgements on obstruction during rotation FIGURE 14 Open in
+    figure viewer PowerPoint The actual interactive torque and estimated interactive
+    torque when the operator perceives the obstruction during rotation. LSTM, long
+    short-term memory 3.2.3 Bending torque The operator''s judgements of whether the
+    bending was restricted were made into a confusion matrix (Figure 15). The elements
+    on the confusion matrix''s diagonal represent the trials of correct judgements,
+    while its inverse diagonal elements represent the trials of wrong judgements.
+    As the results show when displaying the whole bending knob''s torque to the operator,
+    the accuracy of the judgements was only 50% (Figure 15A). After the augmented
+    force feedback strategy had been applied, the operator''s judgements were all
+    correct (Figure 15B), because the interference of intrinsic torque to the operator
+    is eliminated by the neural network. FIGURE 15 Open in figure viewer PowerPoint
+    The confusion matrix of the operator''s judgements on anomaly during bending.
+    (A) Displaying the whole bending knob''s torque. (B) Applying the augmented force
+    feedback strategy 4 DISCUSSION A novel highly integrated robotic system with force
+    feedback function is proposed for FURS in this article. Compared with the state-of-the-art
+    robot for FURS, the proposed robotic system has a more comprehensive force feedback
+    function including axial force, axial torque, and bending knob''s torque, which
+    is important for master-slave-controlled surgical robots. Moreover, experiments
+    have also been carried out to preliminarily verify the force feedback function
+    of our system. Sensing interactive forces is usually the first step for force
+    feedback. Although a miniature fibre sensor23 placed at the distal end of the
+    flexible ureteroscope can precisely measure the interactive forces, it has disadvantages
+    such as occupying the working channel and can not measure the force on the whole
+    flexible shaft. Hence, we here adopt the method of installing force/torque sensors
+    at the slave robot''s joints to estimate the overall interactive forces exerted
+    on the flexible ureteroscope. Furthermore, a method based on robot self-learning
+    is proposed to eliminate the intrinsic forces that are generated by overcoming
+    the structural factors of the robot and flexible ureteroscope themselves, such
+    as gravity and friction. In this way, the feedback forces can better represent
+    the actual interactive forces, thereby augmenting the operator''s perception.
+    When training our neural networks for modelling these intrinsic forces, no external
+    sensors were used. It only needed to utilise the slave robot''s own movement and
+    sensors, as if the robot became familiar with its body by waving the limbs, hence
+    we here call it robot self-learning. This can also be understood as a deviation
+    measuring method: we train the neural networks to fit the distribution of joint
+    sensor readings under free movements; when the flexible ureteroscope is interacting
+    with the environment, the distribution of sensor readings will deviate from what
+    is fitted by the neural networks. We here use simple subtraction to represent
+    this deviation and then display it to the operator. For axial force and torque,
+    this representation is approximately linear because the interactive force and
+    torque can be regarded as directly superimposed on the joint sensor; for bending
+    torque, due to the special cable-driven structure of the flexible ureteroscope,
+    the interactive force will be reflected in the knob''s torque in a nonlinear way24
+    when it''s bending. The flexible ureteroscope may be stuck in the urinary system
+    during FURS. Urologists need to be aware of it and take action in time,14-16 or
+    severe complications will be caused. Moreover, the flexible shaft is inside the
+    patient''s urinary system, and the urologist can only see the endoscopic view
+    in front of the scope. So it''s difficult to know the state of the whole flexible
+    shaft unless using the X-ray. Hence, force feedback is quite important for judging
+    the flexible ureteroscope''s state. The experimental results in this paper show
+    that with our force feedback function, the operator can feel the obstruction when
+    withdrawing the flexible ureteroscope. Ulvik and Wentzel-Larsen25 reports that
+    in ureteroscopy the average force during withdrawing ureteroscope is approximately
+    from 3.3 to 7.5 N. Although the ureteroscope in that reference is not flexible,
+    it implies the magnitude of the force that the human urinary system can withstand,
+    which is larger than the minimum average force that the operator became aware
+    of the obstruction in our experiment – 1.2 N (Figure 12). Therefore, it indicates
+    that our axial force feedback will be useful in clinic. Additionally, when the
+    neural networks were applied, the mean absolute error of predicting interactive
+    axial force decreased by 28% (Table 5). It shows that the method based on robot
+    self-learning can eliminate the patterned fluctuations of sensor readings, which
+    helps increase the accuracy of estimating actual interactive forces. Noted that
+    there is also the situation of being stuck when pushing forward the flexible ureteroscope.
+    In most cases, pulling and pushing the endoscope is equivalent for the force feedback
+    system. However, in rare circumstances, if most of the flexible shaft of the endoscope
+    is outside the body, the shaft will bend into a C-shape by a small pushing force.
+    In this situation, there is a possibility that the force feedback system cannot
+    detect the C-shape bending. However, we can use vision to make up for the limitation
+    of force feedback and tackle this problem. Actually, in clinical practice, surgeons
+    also make decisions based on multiple senses including force sensing and vision.
+    More specifically, we can broadcast in vitro operation scene to the surgeon in
+    real-time. The surgeon can directly see whether the flexible ureteroscope outside
+    the body is abnormal, such as C-shape bending. More intelligently, we can adopt
+    deep learning-based computer vision technology to assist in the analysis of in
+    vitro surgical scenes and automatically identify whether there is a C-shape bending,
+    and then inform the surgeon in time. Similarly, the force feedback of axial torque
+    also helps the operator find out whether the flexible ureteroscope rotates smoothly.
+    Although the prediction error of the neural networks is slightly large, feedback
+    strategies properly designed (such as Algorithm 2 in Appendix A2) are beneficial
+    to identifying the rotation anomaly. In the experiments, when the axial torque
+    exerted on the flexible ureteroscope was approximately greater than 15.6 mN·m,
+    the operator could accurately identify the obstruction during rotation movement
+    (Figures 13 and 14). However, a potential limitation is that 15.6 mN·m is a relatively
+    large torque for the flexible shaft of the flexible ureteroscope, which may limit
+    the occasions where the force feedback of axial torque works. For the bending
+    of the flexible ureteroscope''s distal end, the augmented force feedback strategy
+    of eliminating the intrinsic torque in real-time can help the operator become
+    aware of the abnormal bending more accurately (Figure 15). If we simply display
+    the whole torque of the bending knob to the operator, the operator needs to perceive
+    the subtle change, tens of millinewton meters, in a few hundred millinewton meters
+    of intrinsic torque, which is quite difficult (Figure 15A). However, with the
+    augmented force feedback strategy, the torque deviation from normal bending will
+    be displayed to the operator, not including the huge intrinsic torque. Thus the
+    accuracy of the operator''s judgements was improved (Figure 15B). Additionally,
+    another advantage of augmented force feedback is improving ergonomics. In conventional
+    FURS, the urologist needs to take much effort to rotate the bending knob,26 but
+    this intrinsic torque of the knob is now eliminated in our robotic system, and
+    the urologist can easily control the bending movement. Although the advantages
+    of the force feedback function in our robot are preliminarily verified, the force
+    perception is relatively subjective and only one operator participated in our
+    experiments. Therefore, to evaluate the effect of the proposed force feedback
+    function more objectively, more operators including urologists and trainees are
+    needed to participate in the experiments in future work. In addition, in vivo
+    experiments are needed to further verify the function. In addition, an important
+    feature of the method based on robot self-learning is that no manual manipulation
+    is needed for training the neural networks. Hence, the transfer performance from
+    generated manipulation to manual manipulation is quite important. Although in
+    our paper the neural networks can be transferred to manual manipulation, the error
+    increases (Tables 3 and 4). It may be due to the difference between generated
+    manipulation and manual manipulation. Therefore, in future work, making the generated
+    manipulation more similar to the manual master-slave operation may be a way to
+    improve the transferability. For example, adopting generative adversarial networks
+    (GAN) to generate more similar manipulation. Furthermore, there seems to be an
+    overall offset when the neural networks estimate the axial force sensor readings
+    (Figure 10A), which may be caused by an imperfect homing procedure. Hysteresis
+    exists in the relationship between axial force and rotation angle (Figure 4A),
+    indicating that it is trajectory-dependent. Therefore, it''s necessary to return
+    to the home position with the same trajectory in future work. Moreover, a threshold
+    strategy is used in the feedback of axial torque and bending knob''s torque, which
+    means that the torque below the threshold will be sacrificed, but it will improve
+    the stability and consistency of the operator''s feelings. Additionally, the operator''s
+    feelings are also related to the haptic device. A haptic device with higher precision,
+    usually more expensive, may help improve the performance of force feedback. However,
+    the cost-benefit ratio needs to be considered meanwhile. In summary, a novel robotic
+    system with force feedback function for FURS is proposed in this paper, which
+    is expected to improve the safety of robot-assisted FURS. ACKNOWLEDGEMENTS The
+    work described in this study was supported by the National Natural Science Foundation
+    of China (No. 62133009, 61973211, M-0221, 51911540479), The Project of Institute
+    of Medical Robotics of Shanghai Jiao Tong University, The International Cooperation
+    Project of Science and Technology Commission of Shanghai Municipality (No. 21550714200).
+    CONFLICTS OF INTEREST All the authors declare that no conflicts of interest exists.
+    APPENDIX A1: Algorithm 1. Linear feedback for axial force Inputs: axial rotation
+    angle   and force sensor (at the joint) reading   at current time step  Output:
+    feedback force   at current time step  1:  ,  2: if   then 3:  Feed   into the
+    pre-trained neural network (LSTM), get output  4:  5: end if APPENDIX A2: Algorithm
+    2. Continuously overstepping threshold feedback for axial torque Inputs: axial
+    rotation angle   and axial torque sensor (at the joint) reading   at current time
+    step k Output: feedback force   at current time step   1:  ,  ,  ,  ,    2: if   then  3:
+     Feed   into the pre-trained neural  network (LSTM), get output   4: if   then  5:  6:  if   then  7:  8:  end
+    if  9: else 10: 11: end if 12: end if APPENDIX A3: Algorithm 3. Threshold feedback
+    for bending knob''s torque Inputs: bending knob''s angle   and bending torque
+    sensor (in the end-effector) reading   at current time step  Output: feedback
+    force   at current time step  1:  ,  ,  2: if   then 3:  Feed   into the pre-trained
+    neural network (GRU), get output  4:  if   then 5:  6:  end if 7: end if Open
+    Research REFERENCES Citing Literature Volume18, Issue5 October 2022 e2410 Figures
+    References Related Information Recommended Flexible ureteroscopy Stephen Gordon
+    Top Tips in Urology, [1] Comparison of percutaneous nephrolithotomy and retrograde
+    flexible nephrolithotripsy for the management of 2–4 cm stones: a matched‐pair
+    analysis Tolga Akman,  Murat Binbay,  Faruk Ozgor,  Mesut Ugurlu,  Erdem Tekinarslan,  Cem
+    Kezer,  Rahmi Aslan,  Ahmet Yaser Muslumanoglu BJU International Flexible ureteroscopy/retrograde
+    study of the right collecting system post cystectomy Senthil Nathan Top Tips in
+    Urology, [1] A novel robotic system for flexible ureteroscopy Xiongpeng Shu,  Qi
+    Chen,  Le Xie The International Journal of Medical Robotics and Computer Assisted
+    Surgery A novel master–slave intraocular surgical robot with force feedback Siyang
+    Zuo,  Zhen Wang,  Tianci Zhang,  Baojun Chen The International Journal of Medical
+    Robotics and Computer Assisted Surgery Download PDF Additional links ABOUT WILEY
+    ONLINE LIBRARY Privacy Policy Terms of Use About Cookies Manage Cookies Accessibility
+    Wiley Research DE&I Statement and Publishing Policies Developing World Access
+    HELP & SUPPORT Contact Us Training and Support DMCA & Reporting Piracy OPPORTUNITIES
+    Subscription Agents Advertisers & Corporate Partners CONNECT WITH WILEY The Wiley
+    Network Wiley Press Room Copyright © 1999-2024 John Wiley & Sons, Inc or related
+    companies. All rights reserved, including rights for text and data mining and
+    training of artificial technologies or similar technologies."'
+  inline_citation: '>'
+  journal: International Journal of Medical Robotics and Computer Assisted Surgery
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Safety enhanced surgical robot for flexible ureteroscopy based on force feedback
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

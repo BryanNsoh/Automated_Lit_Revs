@@ -1,0 +1,1791 @@
+- analysis: '>'
+  authors:
+  - Gutiérrez F.
+  - Htun N.
+  - Schlenz F.
+  - Kasimati A.
+  - Verbert K.
+  citation_count: '34'
+  description: Decision Support Systems (DSSs) are used in precision agriculture to
+    provide feedback to a variety of stakeholders, including farmers, advisers, researchers
+    and policymakers. However, increments in the amount of data might lead to data
+    quality issues, and as these applications scale into big, real-time monitoring
+    systems the problem gets even more challenging. Visualisation is a powerful technique
+    used in these systems that provides an indispensable step in assisting end-users
+    to understand and interpret the data. In this paper, we present a systematic review
+    to synthesise literature related to the use of visualisation techniques in the
+    domain of agriculture. The search identified 61 eligible articles, from which
+    we established end-users, visualisation techniques and data collection methods
+    across different application domains. We found visualisation techniques used in
+    various areas of agriculture, including viticulture, dairy farming, wheat production
+    and irrigation management. Our results show that the majority of DSSs utilise
+    maps, together with satellite imagery, as the central visualisation. Also, we
+    observed that there is an excellent opportunity for dashboards to enable end-users
+    with better interaction support to understand the uncertainty of data. Based on
+    this analysis, we provide design guidelines towards the implementation of more
+    interactive and visual DSSs.
+  doi: 10.1016/j.compag.2019.05.053
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Keywords 1. Introduction 2. Method 3. Analysis 4.
+    Discussion 5. Limitations 6. Conclusion Acknowledgements References Show full
+    outline Cited by (39) Figures (15) Show 9 more figures Tables (9) Table 1 Table
+    2 Table 3 Table 4 Table 5 Table 6 Show all tables Computers and Electronics in
+    Agriculture Volume 163, August 2019, 104844 Review A review of visualisations
+    in agricultural decision support systems: An HCI perspective Author links open
+    overlay panel Francisco Gutiérrez a 1, Nyi Nyi Htun a 1, Florian Schlenz b, Aikaterini
+    Kasimati c, Katrien Verbert a Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.compag.2019.05.053
+    Get rights and content Highlights • Various visualisation techniques are being
+    used in differing areas of agriculture. • The majority of DSS utilise maps with
+    satellite imagery as the central visualisation. • There are great opportunities
+    for dashboard and uncertainty visualisations in DSS. • There is little work on
+    visualisation support for whole-farm management approaches. • Design guidelines
+    towards the development of interactive and visual DSS are provided. Abstract Decision
+    Support Systems (DSSs) are used in precision agriculture to provide feedback to
+    a variety of stakeholders, including farmers, advisers, researchers and policymakers.
+    However, increments in the amount of data might lead to data quality issues, and
+    as these applications scale into big, real-time monitoring systems the problem
+    gets even more challenging. Visualisation is a powerful technique used in these
+    systems that provides an indispensable step in assisting end-users to understand
+    and interpret the data. In this paper, we present a systematic review to synthesise
+    literature related to the use of visualisation techniques in the domain of agriculture.
+    The search identified 61 eligible articles, from which we established end-users,
+    visualisation techniques and data collection methods across different application
+    domains. We found visualisation techniques used in various areas of agriculture,
+    including viticulture, dairy farming, wheat production and irrigation management.
+    Our results show that the majority of DSSs utilise maps, together with satellite
+    imagery, as the central visualisation. Also, we observed that there is an excellent
+    opportunity for dashboards to enable end-users with better interaction support
+    to understand the uncertainty of data. Based on this analysis, we provide design
+    guidelines towards the implementation of more interactive and visual DSSs. Previous
+    article in issue Next article in issue Keywords Decision support systemsHuman-computer
+    interactionInformation visualisationPrecision agriculture 1. Introduction Decision
+    Support Systems (DSSs) are designed to assist humans in making more effective
+    decisions. In the field of agriculture, different stakeholders such as farmers,
+    advisers and policymakers use software tools that facilitate farm management by
+    gathering data from multiple sources, analysing these data and utilising a series
+    of suggestions that are presented by different visual outputs. Many DSSs are designed
+    to support the concept of precision agriculture (PA) which seeks to provide a
+    holistic approach to assist farmers with optimising resources (Paustian and Theuvsen,
+    2017). McBratney et al. (2005a) defined PA as the “kind of agriculture that increases
+    the number of (correct) decisions per unit area of land per unit time with associated
+    net benefits”. Thus, PA research concentrates on enabling users to make the right
+    decisions considering both space and time. In the history of agricultural systems,
+    user-driven data and model development has played an essential role in meeting
+    users’ analysis need for decision-support (Jones et al., 2017). Still, models
+    remain unfriendly, inside a black-box and behind DSS software. This black-box
+    nature often leads to trust issues, notably when suggestions coming from a DSS
+    fail (He et al., 2016). Moreover, an increase in the use of farm sensors, high-tech
+    harvesters and drones, among others, has created a massive amount of data that
+    might be difficult for decision-makers to grasp (Manos et al., 2004). Users, therefore,
+    need additional tools for understanding and interpreting their data (Ruß et al.,
+    2009a). Visualisation is a powerful technique to address these issues and has
+    demonstrated its usefulness in PA (Wachowiak et al., 2017) to communicate uncertainty
+    from both the data and the models (Frías et al., 2018). Visualisation techniques
+    have been used to assist users to better interact and understand data by aggregating,
+    filtering, searching or otherwise sifting through and scaling down relevant information.
+    Moreover, visualisations are often explicitly designed to assist our visual system
+    in handling detail that might otherwise require significant cognitive effort.
+    For instance, visualisations provide information that can be easily perceived,
+    recognised and processed into inferences. In this sense, visualisations also offer
+    short-term or long-term memory aids to reduce memory and cognitive load. Such
+    support can make data, including potentially complex information, more easily
+    consumable. As Rind et al. (2013,) suggest, visualisation tools and techniques
+    “combine the processing power of modern computers with human cognition and visual
+    abilities to better support analysis tasks”. In line with participatory DSS development,
+    visualisations can be especially practical and useful when following user-centred
+    design approaches (Hertem et al., 2017). In fact, a number of qualitative PA studies
+    highlighted the importance of using a participatory-design approach (Odom, 2010,
+    Aragó Galindo et al., 2012a), where the farmer’s perspective is used as the central
+    focus of the design. A key goal of such an approach is to support complex data
+    analysis by providing diverse visualisation techniques and adapting the tool according
+    to the farmer needs (Stojanovic et al., 2017a). A great number of visualisations
+    and visual analytics tools have been proposed in the domain of agriculture with
+    the aim to support the decision-making process. However, to the best of our knowledge,
+    a comprehensive analysis of such tools, by considering their application areas,
+    visualisation techniques and intended end-users, does not yet exist. Previous
+    literature reviews in agriculture have focused on similar areas such as DSSs and
+    PA, but not on visualisation techniques. For example, Kamilaris et al. (2017)
+    presented a survey on the recent practices of big data analysis in agriculture
+    that would help farmers and companies to extract value from data, improving their
+    productivity. This survey highlighted the opportunities of big data analysis for
+    smarter farming. A different systematic review (Le Gal et al., 2011) highlighted
+    the methodologies that can be used to support farmers in designing innovative
+    agricultural production systems. In the context of precision agriculture, Imam
+    et al. (2015) reviewed design issues for wireless sensor networks and showed a
+    comparison of different characteristics of humidity sensors, such as sensor type,
+    their sensitivity and power consumption, which play a key role for wireless sensor
+    networks for precision agriculture applications. As such, a number of reviews
+    have addressed the issues surrounding DSSs and PA, but the use of visualisations
+    in DSSs has yet to be understood. To address this gap, in this paper, we review
+    the use of information visualisation techniques in 61 articles that report their
+    support for end-user decision-making. From an HCI (Human-Computer Interaction)
+    perspective, we explore the design methodology behind the implementation of such
+    systems and investigate the rationale behind the use of visual components in different
+    application domains. HCI is a discipline in which users as well as technology
+    and environment are emphasised in the design process (Saizmaa and Kim, 2008).
+    For example, paying little attention to the environment could result in the DSS
+    being unfit for the intended environment. A recent study (Rose et al., 2018) explored
+    the reasons behind the lack of interest by farmers in the computer-based support
+    systems and highlighted the importance of HCI perspectives when designing DSSs.
+    The study also found clear benefits of designing a DSS that is easy to use, fits
+    the existing workflow of users, performs well and incubate trust (Rose et al.,
+    2018), which are some of the most commonly accessed metrics of HCI research. We
+    had two specific goals in this review: our first goal was to examine user interaction
+    with DSS for agriculture (i.e., input to the system, output from the system and
+    other interface factors) in order to identify design features that go into the
+    making of effective DSS. Our second goal was to gain insight into the evaluation
+    of DSS, as well as to learn from these evaluations to identify opportunities for
+    future research. To guide this work, we have defined our research questions as
+    follows: • RQ1: What visualisation techniques are being used across different
+    domains in agriculture? • RQ2: How are these visualisations being used by end-users
+    to make decisions? • RQ3: What is the role of uncertainty in the visualisation
+    tools that support decision-making? • RQ4: What is the role of HCI in the design
+    and development of visualisation tools to support end-user decisions? The contributions
+    of this paper are the following: first, we present an extensive overview of visualisation
+    and visual analytics techniques that have been elaborated in the agriculture field,
+    highlighting the potential of DSSs and their use of visualisations for decision-making
+    in agricultural contexts. Second, we present an analysis of a wide range of characteristics,
+    including visualisation techniques that are commonly used, how data is captured
+    and how these systems have been evaluated. Based on this analysis, we outline
+    guidelines for the design of DSSs as well as directions for future research for
+    this area. 2. Method In this section, we first elaborate the method employed for
+    the selection of articles/papers for our systematic review. We also define the
+    different categories that were used for coding the existing tools. 2.1. Eligibility
+    criteria This review includes articles that investigated or reported the usage
+    of DSSs involving visualisation techniques to support end-users in the field of
+    agriculture. The eligibility criteria were specified according to the PICO framework
+    (Table 1), stated in the preferred reporting items for systematic review and meta-analysis
+    statement (Moher et al., 2009). Table 1. Overview of the search strategy, keywords
+    identified and search-terms, based on the PICO framework. PICO Ref. Inclusion
+    criteria Search Term Keywords Population Decision support tools with visualisation
+    outputs to support farmers in decision-making scenarios agriculture agri∗, farm∗,
+    urban agriculture, precision agriculture DSS dss, decision support systems, whole-farm,
+    simulation, tool, monitoring visualisation visual∗, data, big data, algorithm,
+    techniques, tools, data viz end-user farm∗, advis∗, agro∗, policymaker, technician,
+    analyst Intervention Not used Comparison Not used Outcome Guidelines for the design
+    of visualisation in DSSs as well as directions of future research for this area.
+    design guidelines design∗, ux, ui, user experience, user study, gui Study cross-sectional,
+    prospective No restrictions were placed on the date. All the included papers were
+    written in English. The population was targeted to all articles reporting end-users
+    (i.e. farmers, policymakers or advisers) using any kind of decision tools, (i.e.
+    demos, proof-of-concept tools, dashboards and simulations) in the agriculture
+    domain and being supported by the use of any type of visualisation for decision-making.
+    DSSs were included without restrictions on the platform of use (i.e. desktop,
+    web-browser or mobile applications). Literature was included if they added a clear
+    description of the DSS, stating the data input, collection and outcome for any
+    end-user involved in the agriculture domain (i.e. farmers, advisers, policymakers).
+    Articles describing the use of visualisations in text or figures were included.
+    Papers that reported the design process of the tool and user studies regarding
+    visualisation techniques were included and analysed in detail separately. 2.2.
+    Search strategy A scoping exercise to nail down search keywords was conducted
+    in the Google Scholar and ScienceDirect databases in May 2018. The keyword identification
+    was complemented by using keyword services such as Google Keyword Planner and
+    Keyword Tool. The produced keywords are presented in Table 1. Using the defined
+    keywords, hand searching (i.e., a method of manually examining a paper to identify
+    all eligible criteria (Higgins et al., 2005)) of relevant authors and articles
+    was conducted in Google Scholar. As Google Scholar provides a broad result of
+    papers, we used the advanced search functionality for initial searches and narrowed
+    down the search using the specific keywords defined in the eligibility criteria
+    section, and listed in Table 2. Journals in the agriculture domain were identified
+    using ScimagoJR.2 The search of papers within the identified journals was done
+    in the ScienceDirect platform. Results from the search are presented in Table
+    2. Table 2. Overview of the number of documents scouted from diverse database
+    explorations. database count search query Google Scholar (76) agriculture farm
+    user study tool UX UI design visualisation DSS “big data” ScienceDirect Field
+    Crops Research (148) {FilterBy: JournalName}, {Keywords: agri∗, farm∗, “urban
+    agriculture”, “precision agriculture”, DSS, simulation, tool, monitoring, visual∗,
+    data, “data viz”, farm∗, advis∗, agro∗, design∗, ux, ui, “user experience”, “user
+    study”} Agriculture, Ecosystems and Environment (242) Agricultural and Forest
+    Meteorology (179) Advances in Agronomy (123) Applied Soil Ecology (274) Precision
+    Agriculture (43) Computers and Electronics in Agriculture (476) IEEE Xplore (484)
+    {SearchBy: FullTextAndMetadata} {Keywords: agri∗, farm∗, “precision agriculture”,
+    DSS, visual∗, data, tool, data viz, farm∗, advis∗, agro∗, design∗, ux, ui, “user
+    experience”, “user study”} ACM Digital Library (87) {SearchBy: AnyField} {Keywords:
+    agri∗, farm∗, “precision agriculture”, DSS, visual∗, data, tool, data viz, farm∗,
+    advis∗, agro∗, design∗, ux, ui, “user experience”, “user study”} Total: (2132)
+    2.3. Literature selection Results from each database were imported into Mendeley
+    (n = 2132). Titles and abstracts were screened, excluding those who were not relevant
+    to our research and/or did not meet the previously defined eligibility criteria.
+    Afterwards, the remaining articles were retrieved and assessed for eligibility
+    at full-text (n = 140). The process of paper selection is illustrated in Fig.
+    1. In summary, the search identified 2132 papers, from those, only 140 documents
+    were retrieved and reviewed in full-text from this initial set based on our criteria.
+    This narrowed the scope of this literature review to sixty-one articles. Download
+    : Download high-res image (415KB) Download : Download full-size image Fig. 1.
+    Flow diagram illustrating the literature selection process. 2.4. Data extraction
+    Data from the included articles were coded and extracted in a spreadsheet designed
+    for this review: https://goo.gl/SeJDdV. The 61 papers included in this review
+    were coded based on the following main categories: end-user, tool type, development
+    status, platform, the visualisation technique, data source, research domain and
+    evaluation. At the beginning of this stage, an inter-coder reliability assessment
+    was conducted between the researchers using Cohen’s kappa (McHugh, 2012). A random
+    selection with 20% of the papers was listed in a spreadsheet and coded following
+    the defined coding categories and subcategories. The decisions made by the second
+    researcher were compared against the first, generating Cohen’s Kappa statistics.
+    The statistics revealed a substantial agreement between the researchers, ( CI,
+    to ), . Disagreements were discussed and resolved. Consistency in coding was kept
+    throughout the remaining reviewed papers. Categories and subcategories were identified
+    based on our research questions and objectives, most of them emerged as common
+    themes derived from the articles in this review, for all the categories we used
+    both open and closed coding approaches (see Table 3 for an overview of the categories).
+    In the following subsections, we briefly describe these categories. Table 3. Definitions
+    of categories and subcategories for data extraction. category subcategory short
+    definition End-user farmer A farmer primarily engages in farming, can be a land
+    owner or land manager domain expert A farm adviser or agronomist concerned with
+    guiding farmers and with the health and well-being of crops academic An individual
+    related to education and with research interests policymaker Involved in the formulation
+    of policies often working for the government (e.g. rural extension technicians)
+    Tool type simulation A system that simulates farming scenarios allowing users
+    for self-reflection, exploration and discovery of new perspectives and scenarios
+    real practice Software that can be used in real farming practices for a particular
+    decision-making scenario (e.g. irrigation scheduling, fertiliser application,
+    etc.) whole-farm A system that provides a holistic approach for farm management
+    based on short and long-term vision of a farmer Dev. status concept The tool is
+    a proof-of-concept prototype The tool is a working prototype production The tool
+    is available to use and accessed by many users Platform mobile Intended to work
+    in mobile devices desktop Intended to work in desktop systems Visualisation The
+    visual technique used to represent and communicate data Data Source Type of data
+    collected and used by the tool App. Domain The application domain where the tool
+    was used Design approach participatory An approach that involves all stakeholders
+    in the design process to satisfy requirements and usability focus group A small
+    group of people whose opinions are studied to discover their attitudes towards
+    a product or service iterative A design methodology based on a cyclic method of
+    prototyping, developing and evaluating a product Evaluation observation A study
+    to understand user behaviour by observing user interactions with a system questionnaire
+    A method to gather feedback from users by administering a set of written questions
+    interview A method to gather feedback from users by verbally asking questions
+    workshops A method to gather feedback from a group of users 2.4.1. End-users Stakeholders
+    are the main targets of DSSs in agriculture. In this review, we identified four
+    types of stakeholders: farmers, domain experts (farm advisers or agronomists),
+    academic researchers and policymakers (see Table 3). In this review, we used the
+    end-user category to identify the types of visualisations that are targeted at
+    specific types of stakeholders. 2.4.2. Tool type Some DSSs are designed to provide
+    a simulation approach where farmers can walk-through simulated farming scenarios
+    to explore and better understand their practices (e.g. Dolinska, 2017). This approach
+    can also help leverage learning of farmers. Unlike the simulation approach, there
+    are DSSs that have been designed for practical applications in real farms. Such
+    systems provide decision support solutions for a particular decision-making scenario
+    (e.g. irrigation scheduling, fertiliser application, etc.). In addition, there
+    are systems that provide farmers with necessary tools for the planning required
+    for the whole farm. As such, we categorised the papers into three tool types based
+    on their approach: simulation, real practice and whole-farm management. 2.4.3.
+    Development status DSSs are often evaluated at different stages of the development
+    life circle. Thus, although certain papers present the systems that are currently
+    being applied in real farms, there are others that are under development or at
+    a concept stage. We used this category to identify the status of the application
+    and understand the usage of visualisation at different levels. Subcategories include
+    concept, prototype and production. 2.4.4. Platform Since the scale of agricultural
+    operations has increased over the years, DSSs are required to support on-the-fly
+    access and in-field decision-making (Tan et al., 2012). Thus, many researchers
+    have started looking into the use of different devices (i.e. desktop or mobile).
+    The systems themselves and visualisation requirements can differ according to
+    the platform. In this review, we identified the papers that are intended for mobile
+    and/or desktop uses. 2.4.5. Visualisation techniques One main goal of this review
+    was to identify visualisation techniques that are proposed for agricultural decision
+    support systems. Visualisation techniques may vary according to the needs of the
+    users, application domain, visual literacy, etc. With this category, we identified
+    an exhaustive list of visualisation techniques that are used to display agricultural
+    data and predictions. 2.4.6. Data source Outputs of DSSs are driven by data (Pham
+    and Stack, 2018). The type of data collected and how they are utilised play an
+    important role in providing optimal decisions and can vary depending on the decision-making
+    requirements. Thus, we identified data sources of the selected DSSs. 2.4.7. Application
+    domain There are diverse sub-domains in agriculture, some of which include: wheat
+    production, irrigation management, crop management, etc. Depending of the domain,
+    decision requirements can also vary vastly. Since our initial analysis showed
+    that DSSs have been proposed for many sub-domains of agriculture, we identified
+    the application domain of each DSS. 2.4.8. Design approach The design stage has
+    been identified as one of the critical steps in the development of visualisation
+    tools and agricultural DSSs (Parker and Sinclair, 2001). It also plays an important
+    role in the adoption of the system (Lindblom et al., 2017). Thus, significant
+    efforts have been put into applying user-centred approaches for developing DSSs
+    (Parker, 1999). We categorised the selected DSSs based on the following user-centred
+    design approaches: participatory, focus group and iterative. A brief definition
+    for each of these categories has been provided in Table 3. It is important to
+    note that the design approach generally defines a framework for evaluating a system.
+    Various evaluation methods maybe used under a selected framework. These evaluation
+    methods are described in Section 2.4.9. 2.4.9. Evaluation methods Evaluation is
+    an important part of the software development life circle as it ensures that all
+    the requirements of the software are met. As mentioned in Section 2.4.8, different
+    evaluation methods can be used under a selected design framework. Our initial
+    analysis showed that a number of evaluation methods have been used by previous
+    work in agriculture. Thus, we identified DSSs based on the following evaluation
+    methods: observation, questionnaire, interview and workshop. A brief definitions
+    for these categories can be found in Table 3. In general, user observations are
+    conducted “in the wild” where users are typically allowed to explore a given tool
+    freely. Interactions with the tool are observed and recorded. In certain cases,
+    questionnaires may be administered to users who then provide written answers to
+    a set of questions which can include both open- and close-ended questions. Unlike
+    asking the questions verbally as in interviews, questionnaires demand less effort
+    from the questioner and provide structured sets of answers. On the other hand,
+    interviews involve delivering both questions and answers verbally. Interviews
+    allow the questioner to capture in-depth feedback and to pose further questions
+    which is not possible with the questionnaire approach. Workshops, unlike interviews,
+    involve a group of users answering to a set of questions which are typically introduced
+    by the questioner. Workshops create a great environment to capture rich opinions
+    from users by allowing them to discuss the questions and come up with solutions.
+    3. Analysis We analysed the selected papers based on the nine categories presented
+    in Table 3 as explained above. An overview of the number of papers identified
+    within each category is shown in Fig. 2. In the following subsections, results
+    of our analysis are presented. Download : Download high-res image (421KB) Download
+    : Download full-size image Fig. 2. Overview of the data extraction results by
+    categories. The number of papers identified for each category is indicated between
+    parenthesis. 3.1. Application domain In this section, we provide an overview of
+    DSSs that have been elaborated in various application domains and demonstrate
+    how they have been applied to assist with decision support tasks. Although many
+    of the systems are grouped by their application domain, some fall under various
+    domains, as illustrated in Fig. 3. Although this figure is by no means exhaustive,
+    it provides insights into the typical cross-domain supports of current DSSs in
+    agriculture. A complete list of DSSs under each application domain is presented
+    in Table 4. Download : Download high-res image (85KB) Download : Download full-size
+    image Fig. 3. Example application domains and cross-domain supports of DSSs. Table
+    4. DSSs categorised by different application domains. Empty Cell viticulture dairy
+    farming wheat prod. beef cattle aquaculture cotton prod. rice crop soil-moisture
+    pest control crop biomass crop control climate irrigation livestock land suitability
+    fertiliser AgMine Armstrong and Nallan (2016) AgriAG Stojanovic et al. (2017b)
+    AgriSuit Yalew et al. (2016) AgroDSS Rupnik et al. (2019) AquaGIS Lorite et al.
+    (2013) ATLAS Thierry et al. (2017) Blauth et al. Blauth and Ducati (2010) Byishimo
+    et al. Byishimo and Garba (2016) CAMDT Han et al. (2017) CropGIS Machwitz et al.
+    (2019) CropSAT Lundström and Lindblom (2018) DIDAS Friedman et al. (2016) DyNoFlo
+    Cabrera et al. (2005) Galindo et al. Aragó Galindo et al. (2012b) GeoVisage Jarvis
+    et al. (2017) Geovit Terribile et al. (2017) GramyaVikas Adinarayana et al. (2008)
+    HydroQual Accorsi et al. (2014) Li et al. Li et al. (2017) LMTool Falloon et al.
+    (2018) Luvisi et al. Luvisi et al. (2011) mDSS Mysiak et al. (2005) SmartScape
+    Tayyebi et al. (2016) VBoxReporting Bimonte et al. (2016) Vite.net Rossi et al.
+    (100 (2014)) visualizeR Frías et al. (2018) ViPER Oliver et al. (2017) Ochola
+    et al. Ochola and Kerkides (2004) Falcao et al. Falcao et al. (2006) LandCaRe
+    DSS Wenkel et al. (2013) ValorE Acutis et al. (2014) Agroland Laudien et al. (2010)
+    Gandhi et al. Gandhi et al. (2016) CaNaSTA O’Brien (2008) eFarmer Pettit et al.
+    (2007) FARMERS Río et al. (2011) PlanteInfo Thysen and Detlefsen (2006) CropScape
+    Han et al. (2012) SIMAGRI Han et al. (2019) FDSSFIS Yang et al. (2017) MOTIFS
+    Meul et al. (2008) CarrotAge Le Ber et al. (2006) AgriSensor Kubicek et al. (2013)
+    CognitiveInputs Devitt et al. (2017) Ruß et al. Ruß et al. (2009b) Tan et al.
+    Tan et al. (2012) INT-VIS Gibbs et al. (2015) Piplani et al. Piplani et al. (2015)
+    HyperTree de Souza et al. (2003) iGreen Ebert et al. (2011) Munro et al. Munro
+    et al. (1996) DEVA Reed et al. (2001) Zhong-Xiao Leng and Yimit (2009) Fegraus
+    et al. Fegraus et al. (2012) LandEx Stepinski et al. (2014) RF-CLASS Zhang et
+    al. (2013) FluxDataONE Yan et al. (2014) Mudisshu et al. Mudisshu et al. (2016)
+    CLIMSAVE Savin (2015) Zheng et al. Zheng and Altamimi (2017) SMAP Hu et al. (2017)  Num.
+    Papers: 4 4 4 1 1 1 1 1 3 1 15 12 7 2 16 2 Percent (%): 7 7 7 2 2 2 2 2 5 2 25
+    20 11 3 26 3 3.1.1. Viticulture Visualisations in viticulture enable a better
+    vineyard monitoring, reducing costs and at the same time, generating a more transparent
+    representation of the existent variability in the vineyard, which is valuable
+    for the optimisation of the harvest and producing high-quality grapes (Best et
+    al., 2005). Rossi et al. (100 (2014)) is a DSS for crop management of vineyards
+    (Fig. 4a). Using sensors, the system shows visual information about soil water
+    content to help farmers monitor adequate water levels. Decision support modules
+    provide information about vine growth, pest control and diseases in grape berries.
+    The visualisation of real-time information supports farmers to make informed decisions
+    and maintain a record behind each management action. Blauth and Ducati (2010)
+    introduced a map visualisation of the land usage in vineyards (Fig. 4b). The system
+    monitors grape variety, production and inventory information, using a map to indicate
+    vineyards, vegetation, bare soil or nearby urban areas. Terribile et al. (2017)
+    provides support to farmers at a landscape level (Fig. 4c) with an interactive
+    dashboard that allows the selection and comparison of areas of interest together
+    with multiple data layers on top of a map. Download : Download high-res image
+    (641KB) Download : Download full-size image Fig. 4. The use of visualisation in
+    the viticulture domain: (a) Vite.net (Rossi et al., 100 (2014)), (b) Blauth and
+    Ducati (Blauth and Ducati, 2010), (c) Geovit (Terribile et al., 2017). 3.1.2.
+    Dairy farming According to an annual report published by United States Department
+    of Agriculture,3 feeding animals for dairy farming is one of the highest expenses
+    for dairy producers across the states. In order to optimise productivity, dairy
+    producers focus on formulating diets based on the growth rate, milk production
+    and reproduction. Thus, DSSs have also become widely popular in dairy farming.
+    Oliver et al. (2017) is a DSS that provides a visualisation of the agricultural
+    land to manage microbial pollution risks (Fig. 5a). A participatory design approach
+    was used to engage with stakeholders in order to create a user-friendly system
+    for guiding on-farm risk assessment. The resulting tool visualises patterns of
+    E. coli in space and time. Cabrera et al. (2005) is a DSS intended for producers
+    and regulatory agencies. The main purpose of this tool is to integrate nutrient
+    budgeting, crop and optimisation models to assess nitrogen leaching from dairy
+    farm systems. The user interface of DyNoFlo Dairy provides a graphical representation
+    of all system modules and their connections, allowing users to interact with different
+    models in order to optimise nitrogen leaching and profit (Fig. 5b). Download :
+    Download high-res image (541KB) Download : Download full-size image Fig. 5. The
+    use of visualisation in dairy farming. (a) ViPER (Oliver et al., 2017), (b) DyNoFlo
+    (Cabrera et al., 2005). 3.1.3. Wheat production Wheat is grown on more land area
+    than any other commercial crop and continues to be the most important food grain
+    source for humans. Its production leads all crops, including rice, maize and potatoes.
+    We found four tools (Armstrong and Nallan, 2016, Lorite et al., 2013, Thierry
+    et al., 2017, Lundström and Lindblom, 2018) that visually support end-users in
+    the wheat production domain. Armstrong and Nallan (2016) provides valuable information
+    for Western Australian wheat growers, using diverse visualisation techniques to
+    illustrate seasonal rainfall and yield production (Fig. 6a). AquaCrop (Lorite
+    et al., 2013) provides simulation analysis towards the impact of climate change
+    on wheat yield in Southern Spain by visualising yield and rainfall (Fig. 6b).
+    ATLAS (Thierry et al., 2017) simulates crop availability at the landscape scale
+    by visualising in 2D and 3D maps different crop scenarios in relation to pests,
+    diseases and biological control (Fig. 6c). cropSAT (Lundström and Lindblom, 2018)
+    is a DSS to visually analyse nitrogen fertilisation of winter wheat using satellite
+    images: farmers can recognise and explain visualised variation in the crop biomass
+    (Fig. 6d). Download : Download high-res image (516KB) Download : Download full-size
+    image Fig. 6. The use of visualisation in wheat production (a) AgMine(Armstrong
+    and Nallan, 2016), (b) AquaGIS/AquaCrop (Lorite et al., 2013), (c) ATLAS (Thierry
+    et al., 2017), (d) cropSAT (Lundström and Lindblom, 2018). 3.1.4. Pest and disease
+    control Pest control is a vital process in the agricultural business, as pests
+    and diseases can lead to important economic and ecological losses (del Águila
+    et al., 2015). A number of DSSs have focused on providing support for farmers
+    to identifying and treating (Rossi et al., 100 (2014), Rupnik et al., 2019) a
+    particular pest (see Fig. 7). CognitiveInputs (Devitt et al., 2017) (Fig. 7a)
+    is an interactive tool aimed for cotton growers that allows them to explore weed
+    management decisions while considering uncertainties under climate conditions.
+    Designed as an extension for existing farm management systems, AgroDSS (Fig. 7b)
+    (Rupnik et al., 2019) uses data mining and statistical methods to make predictions
+    for simulated scenarios and to better understand the dependencies within a domain.
+    This includes identifying pest populations and species. AgroDSS uses time-series
+    graphs to visualise such data. Vite.net (Fig. 7c) (Rossi et al., 100 (2014)) is
+    a comprehensive farm management system that can also visually represent pest occurrences
+    over the season. Time-series graphs are used to show in-depth information regarding
+    a disease, an infection chain and/or infection severity. Further decision support
+    is provided for treatment plans using a decision tree. In addition, a dashboard
+    shows alert levels of a disease and protection of the last fungicide spray against
+    diseases. Download : Download high-res image (455KB) Download : Download full-size
+    image Fig. 7. The use of visualisation in pest and disease control. (a) CognitiveInputs
+    (Devitt et al., 2017), (b) AgroDSS (Rupnik et al., 2019), (c) Vite.net (Rossi
+    et al., 100 (2014)). 3.1.5. Irrigation management Irrigation advisory services
+    provide the farmers with assistance in irrigation scheduling knowledge, considering
+    crop water conditions in different crops, optimising production and cost-effectiveness.
+    Visualisations support farmers with a better overview of water distribution to
+    their crops by showing moisture content, water uptake, etc. Such views allow farmers
+    to adjust their irrigation process depending on the soil, farm area and season
+    in order to optimise crop production. As an example, the tool designed by Byishimo
+    and Garba (2016) uses real-time data collected from in-field sensors to produce
+    live visualisations allowing farmers to monitor and process information about
+    the soil, temperature and irrigation. Interaction is limited as users can only
+    hover over the time-series visualisation to see annotations indicating details
+    about the data over time (Fig. 8a). Another example is DIDAS (Friedman et al.,
+    2016), a tool that allows to evaluate a farm based on a number of inputs such
+    as soil, evaporation, plant resistance and land structure and assists with the
+    design and scheduling of drip irrigation systems (Fig. 8b). By visualising water
+    flow, DIDAS can assist farmers in taking decisions about irrigation schedules
+    under conditions where water is a crucial limiting factor in crop productions.
+    HydroQual (Accorsi et al., 2014) uses a dataset consisting of sequences of biological
+    indices and physico-chemical values for geo-localised river stations and allows
+    experts to visually analyse river water quality of different geographical areas
+    (Fig. 8c). Download : Download high-res image (554KB) Download : Download full-size
+    image Fig. 8. The use of visualisation in irrigation management. (a) Byishimo
+    and Garba (Byishimo and Garba, 2016), (b) DIDAS (Friedman et al., 2016), (c) HydroQual
+    (Accorsi et al., 2014). 3.1.6. Crop management Crop production is deeply dependent
+    on climate conditions, diseases and pests, making it essential to provide farmers
+    with risk management technology. AquaGIS (Fig. 9a) (Lorite et al., 2013) is a
+    visualisation tool that uses AquaCrop, a crop growth model, to simulate results
+    of crop management in multiple fields and seasons. AquaGIS features visualisation
+    modules that facilitate the presentation of spatial data. It allows an efficient
+    visualisation in a map using different colours that facilitate spatial visualisation.
+    An interactive component allows interaction between different maps that describe
+    the evolution over time of the results provided by AquaCrop. AgMine (Fig. 9b)
+    (Armstrong and Nallan, 2016) is a DSS that comprises multiple components of statistical
+    analysis powered by visualisation modules. Visualisation is used in this tool
+    as a powerful technique for geo-spatial analysis, climate and crop-yield mapping.
+    With the proposed framework, farmers can use the visualisations to detect seasonal
+    patterns of rainfall and see the effects on various scenarios comparing dry and
+    wet years in crop production. Download : Download high-res image (315KB) Download
+    : Download full-size image Fig. 9. The use of visualisation to support crop management.
+    (a) AquaGIS (Lorite et al., 2013) (b) AgMine (Armstrong and Nallan, 2016). 3.1.7.
+    Fertiliser management The aim of precision agriculture is to optimise farm outputs
+    while preserving resources (McBratney et al., 2005b). Thus, fertiliser management
+    plays an important role in precision agriculture. CropSAT (Fig. 10) (Lundström
+    and Lindblom, 2018) is a tool developed for calculation of variable rate application
+    files for nitrogen fertilisation from satellite images. The images generated in
+    CropSAT show visual representations of crop biomass variation, which is difficult
+    to achieve by just walking or driving in the field. Download : Download high-res
+    image (330KB) Download : Download full-size image Fig. 10. CropSAT (Lundström
+    and Lindblom, 2018), an example of visualisation in fertiliser management. 3.1.8.
+    Weather prediction and climate Weather forecast is a big challenge in the practical
+    application of seasonal predictions in different economic sectors (Frías et al.,
+    2018). Fortunately, interactive visualisation is well known for facilitating the
+    analysis of probabilistic predictions under uncertainty (Spiegelhalter et al.,
+    2011, Diehl et al., 2017), particularly towards non-expert users (Kay et al.,
+    2016). An example tool, Geovisage (Jarvis et al., 2017), is a web-based decision
+    support system designed for farmers that displays graphs of current sensor data
+    from several weather stations. The tool visualises real-time data in a time-series
+    plot offering a quick view of recent weather conditions where time periods and
+    different weather stations are compared; a table provides extra details with statistical
+    information (Fig. 11a). CAMDT (Fig. 11b) (Han et al., 2017) is another example
+    that aims to facilitate probabilistic seasonal weather forecasts. The tool provides
+    a user interface to help decision-makers adjust their crop and water management
+    practices that may improve outcomes given the expected weather condition of the
+    growing season. It provides “what-if” scenarios where the forecast is presented
+    for visual comparison. Download : Download high-res image (303KB) Download : Download
+    full-size image Fig. 11. The use of visualisation in weather forecast. (a) Geovisage
+    (Jarvis et al., 2017), (b) CAMDT (Han et al., 2017). 3.2. End-users While the
+    majority of tools we reviewed are designed to support farmers, there are some
+    that also support other end-users including domain experts (farm advisers and
+    agronomists), policymakers and academic researchers. In this section, we present
+    our findings of tools that have been designed to help different stakeholders in
+    agriculture. A comprehensive list of these tools is presented in Table 5. Table
+    5. Types of end-users reported in the different DSSs. Empty Cell farmer farm adviser
+    agronomist policymaker academic AgMine Armstrong and Nallan (2016) AgriAG Stojanovic
+    et al. (2017b) AgriSuit Yalew et al. (2016) AgroDSS Rupnik et al. (2019) AquaGIS
+    Lorite et al. (2013) Blauth et al. Blauth and Ducati (2010) Byishimo et al. Byishimo
+    and Garba (2016) CAMDT Han et al. (2017) CropGIS Machwitz et al. (2019) CropSAT
+    Lundström and Lindblom (2018) DIDAS Friedman et al. (2016) DyNoFlo Dairy Cabrera
+    et al. (2005) Galindo et al. Aragó Galindo et al. (2012b) GeoVisage Jarvis et
+    al. (2017) Geovit Terribile et al. (2017) GramyaVikas Adinarayana et al. (2008)
+    HydroQual Accorsi et al. (2014) Li et al. Li et al. (2017) LMTool Falloon et al.
+    (2018) SmartScape Tayyebi et al. (2016) VBoxReporting Bimonte et al. (2016) Vite.net
+    Rossi et al. (100 (2014)) ViPER Oliver et al. (2017) Ochola et al. Ochola and
+    Kerkides (2004) LandCaRe Wenkel et al. (2013) ValorE Acutis et al. (2014) Gandhi
+    et al. Gandhi et al. (2016) eFarmer Pettit et al. (2007) FARMERS Río et al. (2011)
+    Pl@nteInfo® Thysen and Detlefsen (2006) SIMAGRI Han et al. (2019) MOTIFS Meul
+    et al. (2008) CarrotAge Le Ber et al. (2006) AgriSensor Kubicek et al. (2013)
+    CognitiveInputs Devitt et al. (2017) Ruß et al. Ruß et al. (2009b) Tan et al.
+    Tan et al. (2012) INT-VIS Gibbs et al. (2015) Piplani et al. Piplani et al. (2015)
+    HyperTree de Souza et al. (2003) Munro et al. Munro et al. (1996) Mudisshu et
+    al. Mudisshu et al. (2016) Zheng et al. Zheng and Altamimi (2017)  Num. Papers:
+    34 9 4 4 4 Percent (%): 56 15 7 7 7 3.2.1. Farmers We discovered that a large
+    number of tools in agriculture (34 out of 61) are designed for farmers. These
+    tools focus on assisting farmers with various aspects of farming. The majority
+    of the tools used one or more visualisation techniques to help the farmers better
+    understand the status of their farm and crops and to be able to make accurate
+    decisions regarding irrigation schedules (Fig. 8), fertiliser applications (Fig.
+    10), pest control (Fig. 7), etc. Details of individual visualisation techniques
+    found in each of these tools are presented in Section 3.3. 3.2.2. Policymakers
+    We found a total of four tools (Tayyebi et al., 2016, Gandhi et al., 2016, Río
+    et al., 2011, de Souza et al., 2003) that are designed to be used by policymakers.
+    Policymakers, such as rural extension technicians, use DSSs to facilitate the
+    evaluation of consequences of changes in agriculture, such as crop affectations
+    in landscapes. For instance, SmartScape (Tayyebi et al., 2016) provides diverse
+    visual components, such as maps and radar charts, to provide assistance to policymakers
+    in evaluating the consequences of ecosystem services in agriculture landscapes
+    (see Fig. 12). In addition, some tools (e.g. de Souza et al., 2003) are designed
+    to help with information dissemination, allowing policymakers to exchange knowledge
+    back and forth with farmers. Download : Download high-res image (656KB) Download
+    : Download full-size image Fig. 12. User interface of SmartScape (Tayyebi et al.,
+    2016), a tool to support policymakers. 3.2.3. Domain experts Farm advisers, including
+    agronomists, are considered domain experts who are often consulted by farmers,
+    as well as by researchers for designing DSSs (Adinarayana et al., 2008, Accorsi
+    et al., 2014, de Souza et al., 2003). They also assist policymakers to implement
+    farming policies and in changing farmer behaviour (Ingram, 2008). Farm advisers
+    typically assess the farms by using varieties of statistical models and analysis
+    methods, evaluating the risks of different management scenarios and finally propose
+    strategies/guidelines for farmers. Thus, the tools designed for both farm adviser
+    and farmers are typically capable of conducting analyses and simulations, as well
+    as visualising the resulting guidelines for farmers (Fig. 8c). There are nine
+    tools (Han et al., 2017, Lorite et al., 2013, Yalew et al., 2016, Aragó Galindo
+    et al., 2012b, Rossi et al., 100 (2014), Oliver et al., 2017, Acutis et al., 2014,
+    Thysen and Detlefsen, 2006, Han et al., 2019) that have been designed to support
+    farm advisers. Agronomists, amongst all domain experts, are known for establishing
+    good communication with farmers due to regular on-site meetings, local knowledge
+    and long-term relationships with farmers (Ingram, 2008). Agronomists tend to provide
+    practical farming decisions that are more likely to coincide with those of farmers,
+    instead of urging new initiatives or regulations as some advisers do (Ingram,
+    2008). In this review, we found a total of four tools (Stojanovic et al., 2017b,
+    Han et al., 2017, Le Ber et al., 2006, Devitt et al., 2017) that have been designed
+    to support agronomists. 3.2.4. Academics We found four tools (Stojanovic et al.,
+    2017b, Ochola and Kerkides, 2004, Gandhi et al., 2016, Tan et al., 2012) that
+    have been designed for academics. AgriAG (Stojanovic et al., 2017b) was developed
+    with the aid of academics that provided feedback to the elaboration of the tool.
+    Mostly, these applications (Tan et al., 2012, Gandhi et al., 2016) are used by
+    academic researchers to explore new technologies to support agricultural decision-making.
+    3.3. Visualisation techniques Through this review, we found a number of visualisation
+    techniques currently being used in DSSs for agriculture. Table 6 shows an exhaustive
+    list of different visualisation techniques that are found in the papers we reviewed.
+    In the following subsections, we present the ten most common visualisation techniques.
+    Table 6. Visualisation techniques categorised among the tools reviewed. Empty
+    Cell interactive real-time uncertainty 2D map 3D map 3D vis. heatmap cluster view
+    horizon-plots time-series bar chart box-plot parallel coords. pattern view radar
+    chart bubble chart pie chart dashboard progress circle self-org. maps hypertree
+    histogram AgMine Armstrong and Nallan (2016) AgriAG Stojanovic et al. (2017b)
+    AgriSuit Yalew et al. (2016) AgroDSS Rupnik et al. (2019) AquaGIS Lorite et al.
+    (2013) ATLAS Thierry et al. (2017) Blauth et al. Blauth and Ducati (2010) Byishimo
+    et al. Byishimo and Garba (2016) CAMDT Han et al. (2017) CropGIS Machwitz et al.
+    (2019) CropSAT Lundström and Lindblom (2018) DIDAS Friedman et al. (2016) DyNoFlo
+    Cabrera et al. (2005) Galindo et al. Aragó Galindo et al. (2012b) GeoVisage Jarvis
+    et al. (2017) Geovit Terribile et al. (2017) GramyaVikas Adinarayana et al. (2008)
+    HydroQual Accorsi et al. (2014) Li et al. Li et al. (2017) LMTool Falloon et al.
+    (2018) Luvisi et al. Luvisi et al. (2011) mDSS Mysiak et al. (2005) SmartScape
+    Tayyebi et al. (2016) VBoxReporting Bimonte et al. (2016) Vite.net Rossi et al.
+    (100 (2014)) visualizeR Frías et al. (2018) ViPER Oliver et al. (2017) Ochola
+    et al. Ochola and Kerkides (2004) Falcao et al. Falcao et al. (2006) LandCaRe
+    Wenkel et al. (2013) ValorE Acutis et al. (2014) Agroland Laudien et al. (2010)
+    Gandhi et al. Gandhi et al. (2016) CaNaSTA O’Brien (2008) eFarmer Pettit et al.
+    (2007) FARMERS Río et al. (2011) PlanteInfo Thysen and Detlefsen (2006) CropScape
+    Han et al. (2012) SIMAGRI Han et al. (2019) FDSSFIS Yang et al. (2017) MOTIFS
+    Meul et al. (2008) CarrotAge Le Ber et al. (2006) AgriSensor Kubicek et al. (2013)
+    CognitiveInputs Devitt et al. (2017) Ruß et al. Ruß et al. (2009b) Tan et al.
+    Tan et al. (2012) INT-VIS Gibbs et al. (2015) Piplani et al. Piplani et al. (2015)
+    HyperTree de Souza et al. (2003) iGreen Ebert et al. (2011) Munro et al. Munro
+    et al. (1996) DEVA Reed et al. (2001) Zhong-Xiao Leng and Yimit (2009) Fegraus
+    et al. Fegraus et al. (2012) LandEx Stepinski et al. (2014) RF-CLASS Zhang et
+    al. (2013) FluxDataONE Yan et al. (2014) Mudisshu et al. Mudisshu et al. (2016)
+    CLIMSAVE Savin (2015) Zheng et al. Zheng and Altamimi (2017) SMAP Hu et al. (2017)  Num.
+    Papers: 31 9 4 42 4 2 17 1 1 24 8 4 1 1 3 1 5 11 1 1 1 7 Percent (%): 51 15 7
+    69 7 3 28 2 2 39 13 7 2 2 5 2 8 18 2 2 2 11 3.3.1. Map Maps are overwhelmingly
+    used in agriculture to visually communicate geo-spatial data, providing an overview
+    of the farms. In total, our review identified 46 papers (i.e. 75%) that used a
+    type of map visualisation (see Table 6 for details). As seen in Fig. 13, both
+    2D and 3D map visualisations have been proposed to represent physical landscapes.
+    Out of the 46 papers, a large proportion (i.e. 42 papers) have implemented 2D
+    maps. Examples include ViPER (Oliver et al., 2017) (Fig. 13a) and AQUAGIS (Lorite
+    et al., 2013) (Fig. 13b), where plots of physical landscapes are virtually displayed
+    on a 2D map. Example usage of 3D maps includes AgriAG (Stojanovic et al., 2017b)
+    (Fig. 13c) and ATLAS (Thierry et al., 2017) (Fig. 13d). Both 2D and 3D maps are
+    often layered with various colour representations, such as a heatmap to further
+    visualise areas of interest in the farm. Download : Download high-res image (843KB)
+    Download : Download full-size image Fig. 13. Examples of use of map visualisation
+    in agriculture: (a) ViPER (Oliver et al., 2017), (b) AQUAGIS (Lorite et al., 2013),
+    (c) AgriAG (Stojanovic et al., 2017b) and (d) ATLAS (Thierry et al., 2017). 3.3.2.
+    Heatmap Heatmaps represent data values contained in an area of interest using
+    a colour range. Since heatmap visualisations generally highlight areas of interest,
+    they are often used as an overlay on top of geographical maps. Heatmaps are for
+    instance used to represent the Normalised Difference Vegetation Index (NDVI) to
+    indicate the density of green on a patch of land. Other types of data visualised
+    with heatmaps include biomass, weather, water density, risk of flooding, etc.
+    We found a total of 17 tools that used heatmaps to visualise regions of interest
+    across landscapes (see Table 6). CropSAT (Lundström and Lindblom, 2018), for example,
+    uses heatmaps to indicate biomass in a patch of farm using satellite-based images
+    (see Fig. 10). Another example is the vineyard management tool designed by Blauth
+    and Ducati (2010) (see Fig. 4b) that uses a heatmap to differentiate vineyards
+    from other vegetation, bare soil and urban areas. CAMDT (Han et al., 2017), as
+    shown in Fig. 11b, uses heatmaps to indicate areas of land that are at the risk
+    of flooding. 3.3.3. Time-series Time-series visualisations are used to show a
+    distributions of data points that are ordered by time. They are similar to line
+    graphs in that they present two dimensional data where a sequence of time (e.g.
+    months) is usually plotted on the x-axis. Due to their simplicity and effectiveness
+    in presenting data points through time, time-series are commonly seen in agricultural
+    tools. We found a total of 24 tools (see Table 6) that used time-series to visualise
+    various farm data. An example is CropGIS (Machwitz et al., 2019) which displays
+    the biomass growth of a farm over time (see Fig. 10). In a similar way, DIDAS
+    (Friedman et al., 2016) shows relative water uptake using time-series (see Fig.
+    8b). Other example applications include AgMine (Armstrong and Nallan, 2016), visualising
+    wheat yield and rainfall patterns, and LMTooln (Falloon et al., 2018), visualising
+    temperature, precipitation and wind speed. 3.3.4. Bar chart Bar charts present
+    bars clustered in groups, showing the values of more than one measured variable.
+    One axis of bar charts shows the specific categories being compared and the other
+    axis represents a measured value. We found a total of eight tools (see Table 6)
+    that used bar charts to present data. We also discovered that, in agriculture,
+    bar charts are commonly used in combinations with other types of visualisations.
+    For instance, AgMine (Armstrong and Nallan, 2016) (Fig. 9b) uses bar charts with
+    time-series to show average wheat yield between years. Similarly, DIDAS (Friedman
+    et al., 2016) (Fig. 8b) shows water supply scheduling for irrigation over a 24-h
+    period. AgriSuit (Yalew et al., 2016) (Fig. 14c) uses a heatmap and bar chart
+    together to present the distribution of suitable agricultural lands in an area
+    of interest. Download : Download high-res image (784KB) Download : Download full-size
+    image Fig. 14. The use of dashboards in agriculture: (a) Geovit (Terribile et
+    al., 2017), (b) SmartScape (Tayyebi et al., 2016) (c) AgriSuit (Yalew et al.,
+    2016) (d) Vite.net (Rossi et al., 100 (2014)) (e) HydroQual (Accorsi et al., 2014).
+    3.3.5. Histogram Histograms are used to represent an estimate of the probability
+    distribution of a continuous variable (Pearson, 1895). It differs from a bar chart
+    in the sense that a bar graph represents categorical variables, whereas in a histogram
+    each column/bar represents a continuous quantitative variable. We found seven
+    tools that used histograms to present farm-related data. SmartScape (Tayyebi et
+    al., 2016) (Fig. 12) uses a histogram to illustrate simulation results of various
+    crop change scenarios. The results illustrated include changes in vital soil chemical
+    contents, bird habitat, biofuel, pollinators, net income and net energy. In AquaGIS
+    (Lorite et al., 2013) (Fig. 6c), histogram is used to illustrate a comparison
+    between crop yield and rainfall over time. 3.3.6. Pie chart A pie chart is a circular
+    visualisation which is divided into slices with different colours to illustrate
+    a numerical proportion. Much like bar charts, pie charts are used to visualise
+    a distribution between categories of data. However, compared to bar charts, pie
+    charts are less popular in agriculture. We found a total of five tools that used
+    pie charts to visualise farm data. The VBoxReporting system (Bimonte et al., 2016)
+    is an example of usage of the pie chart in agriculture. This tool uses pie charts
+    to illustrate a comparison of work time and fuel consumption in a day between
+    different plots. 3.3.7. Radar chart Radar charts are frequently used to visualise
+    multivariate data in the form of a two-dimensional chart. Thus, they can be used
+    when three or more variables are present. In agriculture, however, radar charts
+    are less common. In this review, we discovered three tools that uses radar charts.
+    SmartScape (Tayyebi et al., 2016) (Fig. 12) is an example tool that uses a radar
+    chart to illustrate environmental outcomes between current and hypothetical crop
+    change scenarios. The outcomes include vital soil chemical contents, bird habitat,
+    biofuel, pollinators, net income and net energy. As presented in Section 3.3.5,
+    SmartScape (Tayyebi et al., 2016) also uses a histogram to illustrate such outcomes
+    in two different ways. 3.3.8. Clustering A clustering view shows clusters of similar
+    information organised by colours and shapes. While clustering is a commonly used
+    prediction technique, the visualisation of these clusters for interpretation by
+    end-users is quite uncommon: we found only one tool, HydroQual (Accorsi et al.,
+    2014), that offers such a view. In HydroQual, water stations across a map are
+    illustrated in groups by their behavioural similarity (see Fig. 8c). 3.3.9. Temporal
+    pattern view Also in HydroQual (Accorsi et al., 2014) (Fig. 8c), a “temporal pattern
+    view” is described, which is essentially a variation of a node-link diagram. It
+    is used to illustrate patterns of changes in biological indices and physico-chemical
+    parameters over time. In this review, we found the use of such a temporal pattern
+    view, or node-link diagram, only in HydroQual. 3.3.10. Dashboards Dashboards are
+    a collection of visualisations that provide relevant information to be monitored
+    on a single screen at a glance (Few, 2006). They provide an easy access to diverse
+    visual components to display detailed data, providing a unified display to the
+    decision-maker for interaction and exploration (Saket et al., 2019). In this review,
+    we identified 11 tools that use a dashboard. Fig. 14 illustrates example applications
+    of dashboards in DSSs for agriculture. Notice how all five examples in this figure
+    have a main interface from which various other visualisations can be accessed.
+    For instance, Geovit (Terribile et al., 2017) (Fig. 14a), a dashboard designed
+    for viticulture, provides diverse interactive components surrounding a heatmap,
+    allowing instant access to various different features. Similarly, SmartScape (Tayyebi
+    et al., 2016) (Fig. 14b), a spatial decision support system, uses a map together
+    with a radar chart, histograms and various diverse interactive components. AgriSuit
+    (Yalew et al., 2016) (Fig. 14c), tool for agricultural land suitability assessment,
+    also uses a map which is augmented by heatmap and bar chart visualisations, surrounded
+    by various interaction elements. HydroQual (Accorsi et al., 2014) (Fig. 14e),
+    tool for visual analysis of river water quality, uses a clustering view together
+    with a map and a pattern view. A vineyards management system, Vite.net (Rossi
+    et al., 100 (2014)) (Fig. 14d), unlike the previous dashboards, does not use a
+    map but rather a unique combination of progress bars, time-series, barometer,
+    colour shades and decision tree. We discovered that dashboards in agriculture
+    are substantially used in farm management and landscape assessment tasks, with
+    some tools (e.g. HydroQual Accorsi et al., 2014) designed for the analysis of
+    river water quality. It appears that the primary goal of dashboards is to show
+    an overview map to users, which is logical given that landscape is an important
+    part of farm management. As shown in Table 6, the majority of the tools that have
+    a dashboard (9 out of 11) use 2D maps to provide an overview of the landscape.
+    A few other familiar visualisations used in the dashboards include heatmaps (6
+    tools), time-series (5 tools), a bar chart (2 tools), a histogram (1 tool), a
+    radar chart (1 tool) and a pie chart (1 tool). We discovered that a few unique
+    visualisations such as a cluster view, horizontal plots and a pattern view have
+    also been used as part of a dashboard. Since dashboards are designed to provide
+    a unified display to the decision-maker (Saket et al., 2019), we believe that
+    the use of familiar visualisations is an important aspect of dashboards, especially
+    because most end-users in agriculture are non-experts in visualisation and data
+    analytics. Overall, the 11 tools that have a dashboard covered the following application
+    domains: land suitability assessment, crop biomass analysis, crop control, wheat
+    production, fertiliser management, pest control, dairy farming and vineyard management.
+    For the other domains such as livestock management, aquaculture analysis, cotton
+    production, rice production and soil-moisture analysis (see Table 4), various
+    visualisation tools exist but a dashboard has yet to be introduced. We believe
+    that many of such domains can also greatly benefit from a dashboard. Based on
+    an analysis of various aspects of these dashboards, we highlight opportunities
+    for future research in Section 4. 3.4. Interaction Interaction is an important
+    aspect of visualisation tools since perception and understanding of complex data
+    can be strongly influenced by the interactivity of a visualisation component (Zudilova-Seinstra
+    et al., 2009). The benefits of visualising complex data arise from being able
+    to better interact and understand data by aggregating, filtering, searching or
+    scaling down relevant information. Examples of interactive visualisation components
+    can be found in various agricultural DSSs. Thirty-one of the reviewed papers reported
+    the use of interactive visualisations in their tools (see Table 6). Many of the
+    reported interactive visualisations are included in dashboards, where visualisation
+    components interact together to provide insights to user. ViPER (Oliver et al.,
+    2017) is an example tool that provides an interactive drag-and-drop interface
+    where users can explore livestock and examine “what-if?” scenarios. Moreover,
+    AgriSuit (Yalew et al., 2016) provides an interface to allow a customised selection
+    of weights based on user preferences to achieve better insights. Geovit (Terribile
+    et al., 2017), provides an interactive dashboard that allows the selection of
+    areas of interest: based on this selection, users can explore information about
+    soil, climate and hydrology in real-time. 3.5. Tool type, platform and development
+    status All 61 papers of this review present one or more visualisations which are
+    designed to support various farming applications (e.g. irrigation scheduling,
+    fertiliser application, etc.) and platforms (e.g. mobile and desktop). We found
+    15 tools (see Table 7) that are designed to assist with decision support requirements
+    by using a simulation approach. These tools allow farmers to walk-through simulated
+    farming scenarios helping them explore and better understand their practices.
+    On the other hand, we found 24 tools that have been designed for applications
+    in real farming practices (i.e. non-simulation). These tools are designed to assist
+    with decision support requirements for a particular real-world decision-making
+    scenario, for example, irrigation scheduling or fertiliser application. Table
+    7. DSSs using visualisation as categorised by tool type, development status and
+    platform categories. Empty rows within a category mean “unclear” or “not mentioned”
+    by the paper. Empty Cell real practice simulation whole-farm concept prototype
+    production mobile desktop AgMine Armstrong and Nallan (2016) AgriAG Stojanovic
+    et al. (2017b) AgriSuit Yalew et al. (2016) AgroDSS Rupnik et al. (2019) AquaGIS
+    Lorite et al. (2013) ATLAS Thierry et al. (2017) Blauth et al. Blauth and Ducati
+    (2010) Byishimo et al. Byishimo and Garba (2016) CAMDT Han et al. (2017) CropGIS
+    Machwitz et al. (2019) CropSAT Lundström and Lindblom (2018) DIDAS Friedman et
+    al. (2016) DyNoFlo Cabrera et al. (2005) Galindo et al. Aragó Galindo et al. (2012b)
+    GeoVisage Jarvis et al. (2017) Geovit Terribile et al. (2017) GramyaVikas Adinarayana
+    et al. (2008) HydroQual Accorsi et al. (2014) Li et al. Li et al. (2017) LMTool
+    Falloon et al. (2018) Luvisi et al. Luvisi et al. (2011) mDSS Mysiak et al. (2005)
+    SmartScape Tayyebi et al. (2016) VBoxReporting Bimonte et al. (2016) Vite.net
+    Rossi et al. (100 (2014)) visualizeR Frías et al. (2018) ViPER Oliver et al. (2017)
+    Ochola et al. Ochola and Kerkides (2004) Falcao et al. Falcao et al. (2006) LandCaRe
+    Wenkel et al. (2013) ValorE Acutis et al. (2014) Agroland Laudien et al. (2010)
+    Gandhi et al. Gandhi et al. (2016) CaNaSTA O’Brien (2008) eFarmer Pettit et al.
+    (2007) FARMERS Río et al. (2011) PlanteInfo Thysen and Detlefsen (2006) CropScape
+    Han et al. (2012) SIMAGRI Han et al. (2019) FDSSFIS Yang et al. (2017) MOTIFS
+    Meul et al. (2008) CarrotAge Le Ber et al. (2006) AgriSensor Kubicek et al. (2013)
+    CognitiveInputs Devitt et al. (2017) Ruß et al. Ruß et al. (2009b) Tan et al.
+    Tan et al. (2012) INT-VIS Gibbs et al. (2015) Piplani et al. Piplani et al. (2015)
+    HyperTree de Souza et al. (2003) iGreen Ebert et al. (2011) Munro et al. Munro
+    et al. (1996) DEVA Reed et al. (2001) Zhong-Xiao Leng and Yimit (2009) Fegraus
+    et al. Fegraus et al. (2012) LandEx Stepinski et al. (2014) RF-CLASS Zhang et
+    al. (2013) FluxDataONE Yan et al. (2014) Mudisshu et al. Mudisshu et al. (2016)
+    CLIMSAVE IAP Savin (2015) Zheng et al. Zheng and Altamimi (2017) SMAP Hu et al.
+    (2017)  Num. Papers: 24 15 2 3 33 16 9 30 Percent (%): 39 25 3 5 54 26 15 49 Interestingly,
+    while a number of tools have focused on individual farming practices such as irrigation
+    scheduling or fertiliser application, only two out of the 61 tools used visualisations
+    to support whole-farm planning. Whole-farm planning is a difficult task, and its
+    practices are often delivered to farmers by technicians and experts.4 Whole-farm
+    planning systems provide users with necessary tools for all the planning required
+    for the whole farm, something farmers have to engage in nearly every day. We believe
+    that future tools should provide farmers with various plug-and-play components
+    allowing them to perform plannings for the whole farm or individual requirements.
+    In addition, we found that many of the tools have been designed to support a particular
+    device (i.e. desktop or mobile), with the exception of two tools (Tan et al.,
+    2012, Mudisshu et al., 2016) that were designed for both mobile and desktop devices.
+    Overall, 30 out of the 61 tools are desktop applications while only nine are mobile
+    applications, out of which two are designed for both desktop and mobile devices.
+    Clearly, the support for mobile devices has been considered less frequently. However,
+    since the scale of agricultural operations has increased over the years, it is
+    important that the tools are scalable and support multiple devices for on-the-fly
+    access and in-field decision-making (Tan et al., 2012). Finally, we also discovered
+    that while some of the tools (16 out of 61) are being used in practice, the majority
+    of them (33 out of 61) are under the prototype stage (see Table 7 for details).
+    Out of the two DSSs we discovered for whole-farm planning, only one (Cabrera et
+    al., 2005) is currently available for end-users whereas the other one (Acutis
+    et al., 2014) is at the prototype stage. Similarly for the tools that are designed
+    for mobile devices, we found only one (Luvisi et al., 2011) that is currently
+    available for end-users, which again supports the argument that more tools should
+    consider support for multiple devices for flexible decision-making (Tan et al.,
+    2012). 3.6. Data source Since PA is driven by data to support decision-making
+    (Pham and Stack, 2018), the type of data collected and how they are utilised play
+    an important role. We found various types of data that are being used amongst
+    the DSSs reviewed in this paper. An overview of the different types of data together
+    with the respective DSSs is presented in Table 8. Table 8. DSS categorised by
+    different types of data used to provide decision supports. Empty Cell flux domain
+    ontology landscape soil yield crop location rainfall water supply weather vegetation
+    biomass water quality fertilisation irrigation bio-index pollution soil temp.
+    humidity wind speed sensor economy pest data livestock data env. risk AgMine Armstrong
+    and Nallan (2016) AgriAG Stojanovic et al. (2017b) AgriSuit Yalew et al. (2016)
+    AgroDSS Rupnik et al. (2019) AquaGIS Lorite et al. (2013) ATLAS Thierry et al.
+    (2017) Blauth et al. Blauth and Ducati (2010) Byishimo et al. Byishimo and Garba
+    (2016) CAMDT Han et al. (2017) CropGIS Machwitz et al. (2019) CropSAT Lundström
+    and Lindblom (2018) DIDAS Friedman et al. (2016) DyNoFlo Dairy Cabrera et al.
+    (2005) Galindo et al. Aragó Galindo et al. (2012b) GeoVisage Jarvis et al. (2017)
+    Geovit Terribile et al. (2017) GramyaVikas Adinarayana et al. (2008) HydroQual
+    Accorsi et al. (2014) Li et al. Li et al. (2017) LMTool Falloon et al. (2018)
+    Luvisi et al. Luvisi et al. (2011) mDSS Mysiak et al. (2005) SmartScape Tayyebi
+    et al. (2016) VBoxReporting Bimonte et al. (2016) Vite.net Rossi et al. (100 (2014))
+    visualizeR Frías et al. (2018) ViPER Oliver et al. (2017) Ochola et al. Ochola
+    and Kerkides (2004) Falcao et al. Falcao et al. (2006) LandCaRe Wenkel et al.
+    (2013) ValorE Acutis et al. (2014) Agroland Laudien et al. (2010) Gandhi et al.
+    Gandhi et al. (2016) CaNaSTA O’Brien (2008) eFarmer Pettit et al. (2007) FARMERS
+    Río et al. (2011) PlanteInfo Thysen and Detlefsen (2006) CropScape Han et al.
+    (2012) SIMAGRI Han et al. (2019) FDSSFIS Yang et al. (2017) MOTIFS Meul et al.
+    (2008) CarrotAge Le Ber et al. (2006) AgriSensor Kubicek et al. (2013) CognitiveInputs
+    Devitt et al. (2017) Ruß et al. Ruß et al. (2009b) Tan et al. Tan et al. (2012)
+    INT-VIS Gibbs et al. (2015) Piplani et al. Piplani et al. (2015) HyperTree de
+    Souza et al. (2003) iGreen Ebert et al. (2011) Munro et al. Munro et al. (1996)
+    DEVA Reed et al. (2001) Zhong-Xiao Leng and Yimit (2009) Fegraus et al. Fegraus
+    et al. (2012) LandEx Stepinski et al. (2014) RF-CLASS Zhang et al. (2013) FluxDataONE
+    Yan et al. (2014) Mudisshu et al. Mudisshu et al. (2016) CLIMSAVE Savin (2015)
+    Zheng et al. Zheng and Altamimi (2017) SMAP Hu et al. (2017)  Num. Papers: 1 1
+    12 25 14 25 42 13 4 20 8 2 6 7 5 1 1 3 3 3 8 4 4 4 2 Percent (%): 2 2 20 41 23
+    41 69 21 7 33 13 3 10 11 8 2 2 5 5 5 13 7 7 7 3 We found that geographical data
+    such as coordinates is the most widely used data type in agricultural visualisation.
+    In total, we discovered 42 tools (i.e. 69%) that used it geographical data. This
+    result is unsurprising, as we also discovered that maps are the most common type
+    of visualisation in agriculture (see Section 3.3.1). In order to plot map visualisations,
+    coordinates are vital. The second most common data types are soil and crop data,
+    both having been used in 25 of the tools. it Soil data usually contains vital
+    elements for crops such as potassium, calcium, phosphorous, nitrogen, iron, magnesium,
+    zinc, copper and pH. it Crop data often contains growth rate, species and any
+    other data that is related to the particular crop’s anatomy. Both it soil and
+    crop data, separately or together, are often used to predict additional requirements
+    for any given farm, which includes irrigation planning, fertiliser management,
+    environmental management, etc. SmartScape (Tayyebi et al., 2016) (Fig. 12), for
+    example, uses both data to evaluate and compare different crop change scenarios,
+    assisting policymakers with their decisions. The third most commonly found data
+    type is weather data. Our review has seen a total of 20 tools that use it weather
+    data to provide decision support. Both soil and weather play an important role
+    for crops development. They are also unpredictable as changes can occur rapidly
+    and without warning. Soil chemicals, for example, can vary frequently depending
+    on animal waste on the farm. Thus, many DSSs take into account these data. As
+    we can see in Table 8, it weather and soil data are often measured by sensors.
+    Following weather data, rainfall (13 tools) and it crop yield (14 tools) have
+    been used most frequently. Rainfall, like weather data, is vital for crops. However,
+    rainfall alone does not determine crop development; humidity, it soil temperature,
+    etc. are also important for crops. Thus, weather data is more commonly used than
+    rainfall alone. For instance, AquaGIS (Lorite et al., 2013) uses both rainfall
+    and weather predictions to show water levels in an area of interest, allowing
+    for selection of a field. it Crop yield, as seen in 14 tools, is often used as
+    a metric to measure return and farm performance. In addition, four tools have
+    also used economy data to be able to optimise resources and leverage profit. Next,
+    we found that landscape data is also used as an input in 12 different DSSs. The
+    ability to hold water, for example, is greatly defined by the shape of a landscape.
+    This, in turn, has an impact on irrigation requirements of the farm. In a few
+    cases, it irrigation data has also been used as an input for decision support.
+    We discovered five tools that used irrigation data as an input. As discussed in
+    Section 3.1.5, irrigation data is often used in irrigation management systems,
+    together with additional data such as soil, location, crop type, rainfall and
+    weather predictions (see Table 8). Similarly, there are tools designed for fertiliser
+    management (7 tools) and live stock management (4 tools) which keep track of crop
+    fertilisation and it live stock data, respectively. These management tools usually
+    illustrate the current status of a farm, allowing farmers to keep track of the
+    impact on crops and environment. ViPER (Oliver et al., 2017), for example, illustrates
+    the risk of microbial pollution (e.g. E. Coli) on a land using livestock data.
+    Pest control is also an important aspect of agriculture. However, we found only
+    four tools that used it pest data for decision support with pest and disease control.
+    Interestingly, the use of it pest data is only found in DSSs that are designed
+    to assist with whole-farm management (e.g. Vite.net Rossi et al., 100 (2014) and
+    MOTIFS Meul et al., 2008). Tools designed for other stakeholders in addition to
+    farmers, such as farm advisers, agronomists, policymakers and academic researchers,
+    tend to use different sets of data compared to those designed for farmers only.
+    These data include: vegetation (8 tools), it water quality (6 tools), it water
+    resources (4 tools), biomass (2 tools), it environmental risk (2 tools), it biological
+    index (1 tool), pollution (1 tool), it flux data (1 tool) and it domain ontology
+    (1 tool). However, as can be observed in Section 3.2, not many of the tools are
+    designed for farm advisers, agronomists, policymakers and academic researchers;
+    the majority of the tools are designed for farmers. 3.7. Uncertainty Large amounts
+    of unstructured data and complex predictive models are known to lead to uncertainty
+    (Daradkeh et al., 2010). Given the concerns regarding trust and technology adoption
+    in PA, the study of uncertainty assessment through visualisation is relevant to
+    our research (Marra et al., 2003). Visualisation mechanisms for communicating
+    uncertainty have proven to be successful gaining trust particularly for non-expert
+    users (Kay et al., 2016). The incorporation of uncertainty into the decision-making
+    process is crucial for making decisions and maximising benefits (Daradkeh et al.,
+    2017). Only two out of the 61 papers considered the communication of uncertainty
+    through visualisation: CropGIS (Machwitz et al., 2019) and visualizeR (Frías et
+    al., 2018). CropGIS (Machwitz et al., 2019) uses a time-series to show information
+    about biomass development of maize with a range of uncertainty describing various
+    meteorological scenarios (see Fig. 15a). visualizeR (Frías et al., 2018) uses
+    a bubble plot together with a map to visualise seasonal forecasting of climate,
+    where the colour and size of the bubble are used to encode different levels of
+    probability (see Fig. 15b). Such uncertainty representations better reflect the
+    reality compared to static forecasts, making the prediction more reliable for
+    farmers. Download : Download high-res image (948KB) Download : Download full-size
+    image Fig. 15. Visualisation of uncertainty: (a) CropGIS (Machwitz et al., 2019)
+    shows the variability of biomass estimation over time. (b) visualiseR (Frías et
+    al., 2018) uses bubble plot to communicate uncertainty in climate change scenarios.
+    3.8. Design and evaluation Despite the potential of visualisation, many approaches
+    are poorly received by end-users, which is attributed to a lack of engagement
+    in the design process of the tools (Whitman et al., 2015). To tackle this gap
+    between complex scientific tools and more “user-friendly” systems, a human-centred
+    approach is desired. In this review, we found a total of 11 articles that followed
+    a user observation approach (see Table 9). The majority of these articles (10
+    out of 11) also reported using questionnaires for evaluation. In total, we found
+    12 articles that used questionnaires to evaluate their DSSs. Besides, we found
+    that nine out of 61 articles reported using interviews as a feedback method during
+    evaluation. Amongst these articles that used observations, questionnaires and
+    interviews, only one (i.e. Geovisage Jarvis et al., 2017) reported the use of
+    a qualitative analysis method, thematic analysis, to analyse feedback from end-users.
+    Finally, we found four articles that declared the use of workshops to obtain feedback
+    from end-users. Table 9. The visualisation tools categorised by evaluation methods
+    and design approach. Empty row within a category means “unclear” or “not mentioned”
+    by the paper. Empty Cell evaluation design Empty Cell user observation questionnaire
+    interview workshops qualitative analysis focus group iterative process part. design
+    AgriAG Stojanovic et al. (2017b) CropSAT Lundström and Lindblom (2018) DyNoFlo
+    Cabrera et al. (2005) Galindo et al. Aragó Galindo et al. (2012b) GeoVisage Jarvis
+    et al. (2017) Geovit Terribile et al. (2017) HydroQual Accorsi et al. (2014) LMTool
+    Falloon et al. (2018) mDSS Mysiak et al. (2005) SmartScape Tayyebi et al. (2016)
+    Vite.net Rossi et al. (100 (2014)) visualizeR Frías et al. (2018) ViPER Oliver
+    et al. (2017) Ochola et al. Ochola and Kerkides (2004) Agroland Laudien et al.
+    (2010) eFarmer Pettit et al. (2007) MOTIFS Meul et al. (2008) Piplani et al. Piplani
+    et al. (2015) Zhong-Xiao Leng and Yimit (2009) CLIMSAVE Savin (2015)  Num. Papers:
+    11 12 9 4 1 3 4 11 Percent (%): 18 20 15 7 2 5 7 18 Participatory design has been
+    identified as an important methodology in the design and development of tools
+    used by end-users in the agriculture domain, with the purpose of gaining trust
+    and technology acceptance, increasing adoption with end-users. However, only 11
+    out of 61 articles reported using a participatory design approach. Meanwhile,
+    three articles used a focus group approach during the design process, and four
+    reported the use of an iterative design approach. 4. Discussion The results presented
+    have many implications to consider for many future research directions. Here,
+    we discuss the results around the research questions presented in Section 1. 4.1.
+    RQ1: What visualisation techniques are being used across different domains in
+    agriculture? As presented in Section 3.3, the vast majority of visualisations
+    in agriculture used a 2D map to provide an overview of the landscape to the user
+    with a few attempts of 3D maps to provide more detail about the terrain. On top
+    of these maps, the use of heatmaps is relevant, which are often layered over the
+    maps to highlight different kinds of data for the user. Time-series are commonly
+    used to display information over time, such as daily data coming from sensors.
+    Histograms are also often used to provide information coming from sensors to show
+    the distribution of data over time. Clustering visualisations, radar and pie charts
+    were used to compare metrics from data in the map. Dashboards are relevant since
+    they provide immediate access to various interactive components to monitor and
+    display data, offering a set of visual tools to the decision-maker for interaction
+    and exploration. We also discovered that dashboards are being used in a wide variety
+    of application domains such as land suitability assessment, crop biomass analysis,
+    crop control, wheat production, fertiliser management, pest control, dairy farming
+    and vineyard management. In a number of other domains that we looked at, such
+    as livestock management, aquaculture analysis, cotton production, rice production
+    and soil-moisture analysis (see Table 4), dashboards are not yet introduced. We
+    believe that these domains (but not limited to) can also greatly benefit from
+    a dashboard. Uncertainty visualisation is another aspect that many existing DSSs
+    have ignored, but can unquestionably improve user understanding of the decisions
+    provided by the system. The role of uncertainty visualisation is further discussed
+    in RQ3. 4.2. RQ2: How are these visualisations being used by end-users to make
+    decisions? Most of the applications discovered in this review are intended for
+    farmers for various activities in the field, ranging from land suitability assessment
+    to livestock and crop management. Some others are used by advisers and agronomists
+    to provide feedback to farmers in their decision-making. A few of these applications
+    are designed for policymakers who use systems to simulate conditions and plan
+    ahead on how policies can affect particular environments. For instance, visualisation
+    of crop status in maps allows the farmer to know the right amount of fertiliser,
+    irrigation water or pesticide needed to achieve the optimum yield at a particular
+    location within a parcel. Overall, three different types of DSSs were observed:
+    those designed for a particular farming requirement, simulation and whole-farm
+    management (see Section 3.5 for details). Unfortunately, while whole-farm management
+    is a difficult task and is often engaged by farmers nearly every day, not many
+    tools are currently available to support such a task. More tools should provide
+    farmers with various plug-and-play components allowing them to perform planning
+    for whole-farm management or individual farming requirements. Similarly, with
+    the growth in agricultural operations over the years, we should consider designing
+    tools that are scalable and support multiple devices (i.e. desktop and mobile)
+    for on-the-fly access and in-field decision-making. 4.3. RQ3: What is the role
+    of uncertainty in the visualisation tools that support decision-making? Despite
+    the importance of illustrating uncertainty in visualisations, the agriculture
+    domain has not yet seen many applications of uncertainty visualisations. In this
+    review, only two tools reported communication of uncertainty through visualisation.
+    We claim that representation of uncertainty provides higher reliability and better
+    reflection about the reality, making predictions more reliable for end-users (Sacha
+    et al., 2016) and producing high quality and informed decisions (Fernandes et
+    al., 2018). While many of the DSSs analysed in this review presented visualisations
+    to aid stakeholders in their decision-making, they often lack an appropriate representation
+    of uncertainty, despite this being an essential part of the decision-making process.
+    Moreover, uncertainty has to be represented in a way that corresponds to the user’s
+    expectations and knowledge in a way that is easy to understand (Kwon et al., 2011).
+    We believe that visualisation should be used to support the fundamental parts
+    of the analysis, especially during uncertain scenarios, allowing users to control
+    and evaluate data at all stages and empowering their decision-making process (John
+    et al., 2015). Presentation of uncertainty to non-expert users can be helpful,
+    but to maximise its effectiveness it must be displayed in a way that reveals its
+    advantages to end-users (Kinkeldey et al., 2015). 4.4. RQ4: What is the role of
+    HCI in the design and development of visualisation tools to support end-user decisions?
+    As presented in Section 3.8, only a few tools included a report about the usability
+    evaluation or a participatory design process. Although we have discovered a great
+    amount of visualisation tools in agriculture, it is still a difficult task to
+    select the most suitable visualisation and interaction techniques for end-users.
+    Feedback from end-users is an important aspect in developing tools that are usable
+    in practical settings (Saizmaa and Kim, 2008, Rose et al., 2018). A lack of uptake
+    of agricultural DSSs has been noted previously by researchers as a major challenge
+    in the field (Rose et al., 2018). The “problem of implementation” is based on
+    the knowledge that participatory strategies during the design and development
+    stages are the most critical factors to build technology adoption (Lindblom et
+    al., 2017). In fact, there is a significant effort to adopt a more user-centred
+    approach in the design of DSS applications (Parker, 1999). A user-centred approach
+    in the design and development of DSSs has shown to have a positive influence,
+    for instance, in crop production (Parker and Sinclair, 2001), being seen as a
+    beneficial method for transferring knowledge from scientists to farmers. One of
+    the main reasons on low adoption and acceptance is because most of the existing
+    DSSs are based on what scientists and developers consider as the necessary knowledge
+    that should be implemented in the tool, but in reality, they fail to capture the
+    expertise and practical needs of the farmers. In this review, the System Usability
+    Scale (SUS), focus groups and semi-structured interviews appeared in some of the
+    design and development stages of applications. In particular, the case of VisAdapt
+    presented a collaborative and interactive design process, leading to satisfactory
+    results towards the development of the tool. Focus groups and semi-structured
+    interviews are well-established methodologies for exploring perceptions and gathering
+    ideas from the stakeholders which are developed as a result of the social and
+    interactive nature of the process. 5. Limitations There are some limitations to
+    this systematic review study that should be articulated. First, our included studies
+    were limited to those written in English, meaning that relevant studies written
+    in other languages may have been excluded. Second, even though an extensive scope
+    search was conducted in scientific databases and most relevant journals of the
+    agriculture domain, some relevant literature in other domains might have been
+    excluded. Third, we may have missed some tools that are used in practice, but
+    that are not reported in scientific literature. Finally, some of the categories
+    we used in this review could not be clearly identified in the papers we analysed.
+    For example, a few papers did not clearly state the development status of the
+    tools being presented. 6. Conclusion This systematic review presents a comprehensive
+    report on the use of visualisation techniques in the field of agriculture. We
+    have discussed the most used visualisation techniques considering end-users, data
+    sources, representation of uncertainty and evaluation methods. Based on this analysis,
+    we have also provided design guidelines towards the implementation of interactive
+    visual DSSs. We found that while the vast majority of applications are intended
+    to use maps for visualisation together with satellite imagery, there is a significant
+    opportunity of using dashboards to support farmers and advisers with more interactive
+    components and dashboards to handle and interact with uncertain data. We also
+    recommend the use of participatory design research, that has been successfully
+    applied to increase the usability of applications for farmers. In addition, we
+    highlight the role of representing uncertainty to increase user confidence and
+    trust. The extensive body of analysed tools provide rich examples of how DSSs
+    for agriculture can be designed on top of a variety of data sources involving
+    different stakeholders in the design process, and representing both the data as
+    well as underlying uncertainty to support informed decision making. We hope that
+    this review will inspire and motivate many researchers and practitioners towards
+    creating dashboards and visualisations following participatory research methods
+    and uncertainty representations in future design and developments of agricultural
+    DSSs. Acknowledgements Funding for this research has been provided by the European
+    Union’s Horizon 2020 research and innovation programme (grant agreement number
+    780751). References Accorsi et al., 2014 P. Accorsi, N. Lalande, M. Fabrègue,
+    A. Braud, P. Poncelet, A. Sallaberry, S. Bringay, M. Teisseire, F. Cernesson,
+    F.L. Ber Hydroqual: visual analysis of river water quality 2014 IEEE Conference
+    on Visual Analytics Science and Technology (VAST) (2014), pp. 123-132, 10.1109/VAST.2014.7042488
+    View in ScopusGoogle Scholar Acutis et al., 2014 M. Acutis, L. Alfieri, A. Giussani,
+    G. Provolo, A. Di Guardo, S. Colombini, G. Bertoncini, M. Castelnuovo, G. Sali,
+    M. Moschini, et al. ValorE: an integrated and GIS-based decision support system
+    for livestock manure management in the Lombardy region (northern Italy) Land Use
+    Policy, 41 (2014), pp. 149-162 View PDFView articleView in ScopusGoogle Scholar
+    Adinarayana et al., 2008 J. Adinarayana, S. Azmi, G. Tewari, D. Sudharsan Gramyavikas:
+    a distributed collaboration model for rural development planning Comput. Electron.
+    Agric., 62 (2) (2008), pp. 128-140, 10.1016/j.compag.2007.12.008 View PDFView
+    articleView in ScopusGoogle Scholar Aragó Galindo et al., 2012a P. Aragó Galindo,
+    C. Granell, P.G. Molin, J. Huerta Guijarro Participative site-specific agriculture
+    analysis for smallholders Precision Agric., 13 (5) (2012), pp. 594-610, 10.1007/s11119-012-9267-4
+    View in ScopusGoogle Scholar Aragó Galindo et al., 2012b P. Aragó Galindo, C.
+    Granell, P.G. Molin, J. Huerta Guijarro Participative site-specific agriculture
+    analysis for smallholders Precision Agric., 13 (5) (2012), pp. 594-610, 10.1007/s11119-012-9267-4
+    View in ScopusGoogle Scholar Armstrong and Nallan, 2016 L.J. Armstrong, S.A. Nallan
+    Agricultural decision support framework for visualisation and prediction of western
+    australian crop production (2016), pp. 1907-1912 https://ieeexplore.ieee.org/document/7724598/
+    View in ScopusGoogle Scholar Best et al., 2005 S. Best, L. León, M. Claret Use
+    of precision viticulture tools to optimize the harvest of high quality grapes
+    Proceedings of the Fruits and Nuts and Vegetable Production Engineering TIC (Frutic05)
+    (2005), pp. 249-258 CrossRefGoogle Scholar Bimonte et al., 2016 S. Bimonte, E.
+    Naoufal, L. Gineste A system for the rapid design and implementation of personalized
+    agricultural key performance indicators issued from sensor data Comput. Electron.
+    Agric., 130 (2016), pp. 1-12, 10.1016/j.compag.2016.09.010 View PDFView articleView
+    in ScopusGoogle Scholar Blauth and Ducati, 2010 D.A. Blauth, J.R. Ducati A web-based
+    system for vineyards management, relating inventory data, vectors and images Comput.
+    Electron. Agric., 71 (2) (2010), pp. 182-188, 10.1016/j.compag.2010.01.007 View
+    PDFView articleView in ScopusGoogle Scholar Byishimo and Garba, 2016 A. Byishimo,
+    A.A. Garba Designing a farmer interface for smart irrigation in developing countries
+    Proceedings of the 7th Annual Symposium on Computing for Development, ACM DEV
+    ’16, ACM, New York, NY, USA (2016), pp. 30:1-30:3, 10.1145/3001913.3006639 Google
+    Scholar Cabrera et al., 2005 V.E. Cabrera, N.E. Breuer, P.E. Hildebrand, D. Letson
+    The dynamic North Florida dairy farm model: a user-friendly computerized tool
+    for increasing profits while minimizing n leaching under varying climatic conditions
+    Comput. Electron. Agric., 49 (2) (2005), pp. 286-308, 10.1016/j.compag.2005.07.001
+    View PDFView articleView in ScopusGoogle Scholar Daradkeh et al., 2017 M. Daradkeh,
+    B. Abul-Huda Incorporating uncertainty into decision-making: an information visualisation
+    approach I. Linden, S. Liu, C. Colot (Eds.), Decision Support Systems VII. Data,
+    Information and Knowledge Visualization in Decision Support Systems, Springer
+    International Publishing, Cham (2017), pp. 74-87 CrossRefView in ScopusGoogle
+    Scholar Daradkeh et al., 2010 M. Daradkeh, A. McKinnon, C. Churcher Visualisation
+    tools for exploring the uncertainty-risk relationship in the decision-making process:
+    a preliminary empirical evaluation Proceedings of the Eleventh Australasian Conference
+    on User Interface, vol. 106, Australian Computer Society Inc (2010), pp. 42-51
+    View in ScopusGoogle Scholar del Águila et al., 2015 I.M. del Águila, J. Cañadas,
+    S. Túnez Decision making models embedded into a web-based tool for assessing pest
+    infestation risk Biosyst. Eng., 133 (2015), pp. 102-115, 10.1016/j.biosystemseng.2015.03.006
+    View PDFView articleView in ScopusGoogle Scholar de Souza et al., 2003 K.X. de
+    Souza, A.D. dos Santos, S.R. Evangelista Visualization of ontologies through hypertrees
+    Proceedings of the Latin American Conference on Human-computer Interaction, ACM
+    (2003), pp. 251-255 View in ScopusGoogle Scholar Devitt et al., 2017 S.K. Devitt,
+    T. Perez, D. Polson, T.R. Pearce, R. Quagliata, W. Taylor, D. Thornby, J. Beekhuyzen
+    A cognitive decision tool to optimise integrated weed management International
+    Tri-Conference for Precision Agriculture 2017, Hamilton, New Zealand, Springer
+    (2017) Google Scholar Diehl et al., 2017 Diehl, A., Pelorosso, L., Delrieux, C.,
+    Matković, K., Ruiz, J., Gröller, M. E., Bruckner, S., 2017. Albero: a visual analytics
+    approach for probabilistic weather forecasting. In: Computer Graphics Forum, vol.
+    36, no. 7, 2017, pp. 135–144. https://doi.org/10.1111/cgf.13279. Google Scholar
+    Dolinska, 2017 A. Dolinska Bringing farmers into the game. strengthening farmers’
+    role in the innovation process through a simulation game, a case from tunisia
+    Agric. Syst., 157 (2017), pp. 129-139 View PDFView articleView in ScopusGoogle
+    Scholar Ebert et al., 2011 A. Ebert, M. Deller, S. Thelen, I. Scheler igreen:
+    non-formal modelling in practice Proceedings of the 29th Annual European Conference
+    on Cognitive Ergonomics, ACM (2011), pp. 283-284 CrossRefView in ScopusGoogle
+    Scholar Falcao et al., 2006 A.O. Falcao, M.P. dos Santos, J.G. Borges A real-time
+    visualization tool for forest ecosystem management decision support Comput. Electron.
+    Agric., 53 (1) (2006), pp. 3-12 View PDFView articleView in ScopusGoogle Scholar
+    Falloon et al., 2018 P. Falloon, M.B. Soares, R. Manzanas, D. San-Martin, F. Liggins,
+    I. Taylor, R. Kahana, J. Wilding, C. Jones, R. Comer, E. de Vreede, W.S. de Cerff,
+    C. Buontempo, A. Brookshaw, S. Stanley, R. Middleham, D. Pittams, E. Lawrence,
+    E. Bate, H. Peter, K. Uzell, M. Richards The land management tool: developing
+    a climate service in southwest uk Clim. Serv., 9 (2018), pp. 86-100, 10.1016/j.cliser.2017.08.002
+    climate services in practice: what we learnt from EUPORIAS View PDFView articleView
+    in ScopusGoogle Scholar Fegraus et al., 2012 E.H. Fegraus, I. Zaslavsky, T. Whitenack,
+    J. Dempewolf, J.A. Ahumada, K. Lin, S.J. Andelman Interdisciplinary decision support
+    dashboard: a new framework for a tanzanian agricultural and ecosystem service
+    monitoring system pilot IEEE J. Sel. Top. Appl. Earth Observ. Remote Sens., 5
+    (6) (2012), pp. 1700-1708 View in ScopusGoogle Scholar Fernandes et al., 2018
+    M. Fernandes, L. Walls, S. Munson, J. Hullman, M. Kay Uncertainty displays using
+    quantile dotplots or CDFs improve transit decision-making Proceedings of the 2018
+    CHI Conference on Human Factors in Computing Systems, ACM (2018), p. 144 CrossRefGoogle
+    Scholar Few, 2006 S. Few Information Dashboard Design O’Reilly Sebastopol, CA
+    (2006) Google Scholar Frías et al., 2018 M. Frías, M. Iturbide, R. Manzanas, J.
+    Bedia, J. Fernández, S. Herrera, A. Cofiño, J. Gutiérrez An r package to visualize
+    and communicate uncertainty in seasonal climate prediction Environ. Model. Softw.,
+    99 (2018), pp. 101-110, 10.1016/j.envsoft.2017.09.008 View PDFView articleView
+    in ScopusGoogle Scholar Friedman et al., 2016 S.P. Friedman, G. Communar, A. Gamliel
+    Didas – user-friendly software package for assisting drip irrigation design and
+    scheduling Comput. Electron. Agric., 120 (2016), pp. 36-52, 10.1016/j.compag.2015.11.007
+    View PDFView articleView in ScopusGoogle Scholar Gandhi et al., 2016 N. Gandhi,
+    L.J. Armstrong, O. Petkar Proposed decision support system (DSS) for indian rice
+    crop yield prediction Technological Innovations in ICT for Agriculture and Rural
+    Development (TIAR), 2016 IEEE, IEEE (2016), pp. 13-18 CrossRefView in ScopusGoogle
+    Scholar Gibbs et al., 2015 S. Gibbs, K. Cromie, R. Pellow An interactive spreadsheet
+    model for visualizing dairy farm data Proceedings of the 15th New Zealand Conference
+    on Human-Computer Interaction, ACM (2015), pp. 51-55 CrossRefView in ScopusGoogle
+    Scholar Han et al., 2012 W. Han, Z. Yang, L. Di, R. Mueller CropScape: a web service
+    based application for exploring and disseminating us conterminous geospatial cropland
+    data products for decision support Comput. Electron. Agric., 84 (2012), pp. 111-123
+    View PDFView articleView in ScopusGoogle Scholar Han et al., 2017 E. Han, A.V.
+    Ines, W.E. Baethgen Climate-agriculture-modeling and decision tool (CAMDT): a
+    software framework for climate risk management in agriculture Environ. Model.
+    Softw., 95 (2017), pp. 102-114, 10.1016/j.envsoft.2017.06.024 View PDFView articleView
+    in ScopusGoogle Scholar Han et al., 2019 E. Han, W.E. Baethgen, A.V. Ines, F.
+    Mer, J.S. Souza, M. Berterretche, G. Atunez, C. Barreira Simagri: An agro-climate
+    decision support tool Comput. Electron. Agric., 161 (2019), pp. 241-251, 10.1016/j.compag.2018.06.034
+    Issn: 0168-1699 View PDFView articleView in ScopusGoogle Scholar He et al., 2016
+    C. He, D. Parra, K. Verbert Interactive recommender systems: a survey of the state
+    of the art and future research challenges and opportunities Expert Syst. Appl.,
+    56 (2016), pp. 9-27 View PDFView articleView in ScopusGoogle Scholar Hertem et
+    al., 2017 T.V. Hertem, L. Rooijakkers, D. Berckmans, A.P. Fernández, T. Norton,
+    D. Berckmans, E. Vranken Appropriate data visualisation is key to precision livestock
+    farming acceptance Comput. Electron. Agric., 138 (2017), pp. 1-10, 10.1016/j.compag.2017.04.003
+    Google Scholar Higgins et al., 2005 Higgins, J., Green, S., Handsearching, 2005.
+    In: Higgins, J., Green, S. (Eds.), Cochrane Handbook for Systematic Reviews of
+    Interventions, Cochrane (Chapter 6). Google Scholar Hu et al., 2017 L. Hu, L.
+    Di, E. Yu, P. Yue, J. Tang, L. Lin, C. Zhang, Z. Sun, R. Hu, R. Shrestha, et al.
+    Developing geospatial web service and system for SMAP soil moisture monitoring
+    Agro-Geoinformatics, 2017 6th International Conference on, IEEE (2017), pp. 1-5
+    Google Scholar Imam et al., 2015 S.A. Imam, A. Choudhary, V.K. Sachan Design issues
+    for wireless sensor networks and smart humidity sensors for precision agriculture:
+    a review 2015 International Conference on Soft Computing Techniques and Implementations
+    (ICSCTI), IEEE (2015), pp. 181-187 CrossRefView in ScopusGoogle Scholar Ingram,
+    2008 J. Ingram Agronomist–farmer knowledge encounters: an analysis of knowledge
+    exchange in the context of best management practices in England Agric. Hum. Values,
+    25 (3) (2008), pp. 405-418, 10.1007/s10460-008-9134-0 View in ScopusGoogle Scholar
+    Jarvis et al., 2017 D.H. Jarvis, M.P. Wachowiak, D.F. Walters, J.M. Kovacs Adoption
+    of web-based spatial tools by agricultural producers: conversations with seven
+    northeastern Ontario farmers using the geovisage decision support system Agriculture,
+    7 (8) (2017), 10.3390/agriculture7080069 Google Scholar John et al., 2015 M. John,
+    S. Koch, F. Heimerl, A. Müller, T. Ertl, J. Kuhn Interactive visual analysis of
+    german poetics Digital Humanities (2015) Google Scholar Jones et al., 2017 J.W.
+    Jones, J.M. Antle, B. Basso, K.J. Boote, R.T. Conant, I. Foster, H.C.J. Godfray,
+    M. Herrero, R.E. Howitt, S. Janssen, B.A. Keating, R. Munoz-Carpena, C.H. Porter,
+    C. Rosenzweig, T.R. Wheeler Brief history of agricultural systems modeling Agric.
+    Syst., 155 (2017), pp. 240-254, 10.1016/j.agsy.2016.05.014 View PDFView articleView
+    in ScopusGoogle Scholar Kamilaris et al., 2017 A. Kamilaris, A. Kartakoullis,
+    F.X. Prenafeta-Boldú A review on the practice of big data analysis in agriculture
+    Comput. Electron. Agric., 143 (2017), pp. 23-37 View PDFView articleView in ScopusGoogle
+    Scholar Kay et al., 2016 M. Kay, T. Kola, J.R. Hullman, S.A. Munson When (ish)
+    is my bus?: User-centered visualizations of uncertainty in everyday, mobile predictive
+    systems Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems,
+    CHI ’16, ACM, New York, NY, USA (2016), pp. 5092-5103, 10.1145/2858036.2858558
+    View in ScopusGoogle Scholar Kinkeldey et al., 2015 C. Kinkeldey, J. Schiewe,
+    H. Gerstmann, C. Götze, O. Kit, M. Lüdeke, H. Taubenböck, M. Wurm Evaluating the
+    use of uncertainty visualization for exploratory analysis of land cover change:
+    a qualitative expert user study Comput. Geosci., 84 (2015), pp. 46-53, 10.1016/j.cageo.2015.08.007
+    View PDFView articleView in ScopusGoogle Scholar Kubicek et al., 2013 P. Kubicek,
+    J. Kozel, R. Stampach, V. Lukas Prototyping the visualization of geographic and
+    sensor data for agriculture Comput. Electron. Agric., 97 (2013), pp. 83-91, 10.1016/j.compag.2013.07.007
+    View PDFView articleView in ScopusGoogle Scholar Kwon et al., 2011 B.C. Kwon,
+    B. Fisher, J.S. Yi Visual analytic roadblocks for novice investigators 2011 IEEE
+    Conference on Visual Analytics Science and Technology (VAST) (2011), pp. 3-11,
+    10.1109/VAST.2011.6102435 View in ScopusGoogle Scholar Laudien et al., 2010 R.
+    Laudien, M. Pofagi, J. Roehrig Development and implementation of an interactive
+    spatial decision support system for decision makers in Benin to evaluate agricultural
+    land resources—case study: Agroland Int. J. Appl. Earth Obs. Geoinf., 12 (2010),
+    pp. S38-S44 View PDFView articleView in ScopusGoogle Scholar Le Ber et al., 2006
+    F. Le Ber, M. Benoıˇt, C. Schott, J.-F. Mari, C. Mignolet Studying crop sequences
+    with CarrotAge, a HMM-based data mining software Ecol. Model., 191 (1) (2006),
+    pp. 170-185 View PDFView articleView in ScopusGoogle Scholar Le Gal et al., 2011
+    P.-Y. Le Gal, P. Dugué, G. Faure, S. Novak How does research address the design
+    of innovative agricultural production systems at the farm level? A review Agric.
+    Syst., 104 (9) (2011), pp. 714-728 View PDFView articleView in ScopusGoogle Scholar
+    Leng and Yimit, 2009 Z.-X. Leng, H. Yimit Decision support systems for improving
+    irrigation scheme management in arid area Education Technology and Computer Science,
+    2009. ETCS’09. First International Workshop on, vol. 3, IEEE (2009), pp. 332-335
+    View in ScopusGoogle Scholar Li et al., 2017 M. Li, S. Chen, F. Liu, L. Zhao,
+    Q. Xue, H. Wang, M. Chen, P. Lei, D. Wen, J.A. Sanchez-Molina, J.F. Bienvenido,
+    Z. Li, X. Yang A risk management system for meteorological disasters of solar
+    greenhouse vegetables Precision Agric., 18 (6) (2017), pp. 997-1010, 10.1007/s11119-017-9514-9
+    View in ScopusGoogle Scholar Lindblom et al., 2017 J. Lindblom, C. Lundström,
+    M. Ljung, A. Jonsson Promoting sustainable intensification in precision agriculture:
+    review of decision support systems development and strategies Precision Agric.,
+    18 (3) (2017), pp. 309-331, 10.1007/s11119-016-9491-4 View in ScopusGoogle Scholar
+    Lorite et al., 2013 I. Lorite, M. García-Vila, C. Santos, M. Ruiz-Ramos, E. Fereres
+    AquaData and AquaGIS: two computer utilities for temporal and spatial simulations
+    of water-limited yield with AquaCrop Comput. Electron. Agric., 96 (2013), pp.
+    227-237, 10.1016/j.compag.2013.05.010 View PDFView articleView in ScopusGoogle
+    Scholar Lundström and Lindblom, 2018 C. Lundström, J. Lindblom Considering farmers’
+    situated knowledge of using agricultural decision support systems (AgriDSS) to
+    Foster farming practices: the case of CropSAT Agric. Syst., 159 (C) (2018), pp.
+    9-20, 10.1016/j.agsy.2016.09.01 View PDFView articleView in ScopusGoogle Scholar
+    Luvisi et al., 2011 A. Luvisi, M. Pagano, R. Bandinelli, E. Rinaldelli, B. Gini,
+    M. Scartòn, G. Manzoni, E. Triolo Virtual vineyard for grapevine management purposes:
+    a RFID/GPS application Comput. Electron. Agric., 75 (2) (2011), pp. 368-371, 10.1016/j.compag.2010.12.013
+    View PDFView articleView in ScopusGoogle Scholar Machwitz et al., 2019 M. Machwitz,
+    E. Hass, J. Junk, T. Udelhoven, M. Schlerf CropGIS – a web application for the
+    spatial and temporal visualization of past, present and future crop biomass development
+    Comput. Electron. Agric. (2019), 10.1016/j.compag.2018.04.026 Google Scholar Manos
+    et al., 2004 B.D. Manos, A. Ciani, T. Bournaris, I. Vassiliadou, J. Papathanasiou
+    A taxonomy survey of decision support systems in agriculture Agric. Econ, Rev.,
+    5 (389-2016-23416) (2004), p. 80 Google Scholar Marra et al., 2003 M. Marra, D.J.
+    Pannell, A.A. Ghadim The economics of risk, uncertainty and learning in the adoption
+    of new agricultural technologies: where are we on the learning curve? Agric. Syst.,
+    75 (2) (2003), pp. 215-234, 10.1016/S0308-521X(02)00066-5 View PDFView articleView
+    in ScopusGoogle Scholar McBratney et al., 2005a A. McBratney, B. Whelan, T. Ancev,
+    J. Bouma Future directions of precision agriculture Precision Agric., 6 (1) (2005),
+    pp. 7-23, 10.1007/s11119-005-0681-8 View in ScopusGoogle Scholar McBratney et
+    al., 2005b A. McBratney, B. Whelan, T. Ancev, J. Bouma Future directions of precision
+    agriculture Precision Agric., 6 (1) (2005), pp. 7-23 CrossRefView in ScopusGoogle
+    Scholar McHugh, 2012 M.L. McHugh Interrater reliability: the kappa statistic Biochem.
+    Medica: Biochem. Medica, 22 (3) (2012), pp. 276-282 View in ScopusGoogle Scholar
+    Meul et al., 2008 M. Meul, S. Van Passel, F. Nevens, J. Dessein, E. Rogge, A.
+    Mulier, A. Van Hauwermeiren Motifs: a monitoring tool for integrated farm sustainability
+    Agron. Sustain. Develop., 28 (2) (2008), pp. 321-332 CrossRefView in ScopusGoogle
+    Scholar Moher et al., 2009 D. Moher, A. Liberati, J. Tetzlaff, D.G. Altman, the
+    PRISMA Group Preferred reporting items for systematic reviews and meta-analyses:
+    the prisma statement Ann. Int. Med., 151 (4) (2009), pp. 264-269, 10.7326/0003-4819-151-4-200908180-00135
+    Google Scholar Mudisshu et al., 2016 A. Mudisshu, T. Murase, S. Otsuka Meteorological
+    data visualization application for mandarin farmers support Advanced Applied Informatics
+    (IIAI-AAI), 2016 5th IIAI International Congress on, IEEE (2016), pp. 900-903
+    CrossRefView in ScopusGoogle Scholar Munro et al., 1996 H. Munro, K. Novins, G.
+    Benwell, A. Mowat Interactive visualisation tools for analysing NIR data Computer-Human
+    Interaction, 1996. Proceedings., Sixth Australian Conference on, IEEE (1996),
+    pp. 19-24 View in ScopusGoogle Scholar Mysiak et al., 2005 J. Mysiak, C. Giupponi,
+    P. Rosato Towards the development of a decision support system for water resource
+    management Environ. Model. Softw., 20 (2) (2005), pp. 203-214, 10.1016/j.envsoft.2003.12.019
+    policies and Tools for Sustainable Water Management in the European Union View
+    PDFView articleView in ScopusGoogle Scholar O’Brien, 2008 R. O’Brien Visualising
+    uncertainty in spatial decision support 8th International Symposium on Spatial
+    Accuracy Assessment in Natural Resources and Environmental Sciences, June 2008,
+    Shanghai, PR China (2008) Google Scholar Ochola and Kerkides, 2004 W. Ochola,
+    P. Kerkides An integrated indicator-based spatial decision support system for
+    land quality assessment in Kenya Comput. Electron. Agric., 45 (1–3) (2004), pp.
+    3-26 View PDFView articleView in ScopusGoogle Scholar Odom, 2010 Odom, W., 2010.
+    “mate, we don’t need a chip to tell us the soil’s dry”: opportunities for designing
+    interactive systems to support urban food production. In: Conference on Designing
+    Interactive Systems. https://doi.org/10.1145/1858171.1858211. Google Scholar Oliver
+    et al., 2017 D.M. Oliver, P.J. Bartie, A.L. Heathwaite, L. Pschetz, R.S. Quilliam
+    Design of a decision support tool for visualising e. coli risk on agricultural
+    land using a stakeholder-driven approach Land Use Policy, 66 (2017), pp. 227-234
+    View PDFView articleView in ScopusGoogle Scholar Parker, 1999 C. Parker A user-centred
+    design method for agricultural dss EFITA-99: Proceedings of the Second European
+    Conference for Information Technology in Agriculture. Bonn, Germany (1999), pp.
+    27-30 Google Scholar Parker and Sinclair, 2001 C. Parker, M. Sinclair User-centred
+    design does make a difference. the case of decision support systems in crop production
+    Behav. Inform. Technol., 20 (6) (2001), pp. 449-460 View in ScopusGoogle Scholar
+    Paustian and Theuvsen, 2017 M. Paustian, L. Theuvsen Adoption of precision agriculture
+    technologies by german crop farmers Precision Agric., 18 (5) (2017), pp. 701-716,
+    10.1007/s11119-016-9482-5 View in ScopusGoogle Scholar Pearson, 1895 K. Pearson
+    Contributions to the mathematical theory of evolution. II. Skew variation in homogeneous
+    material Philos. Trans. R. Soc. Lond., 186 (Part I) (1895), pp. 343-424 Google
+    Scholar Pettit et al., 2007 C. Pettit, I. Bishop, W. Cartwright, G. Park, O. Kemp
+    Enhancing web-based farm management software through the use of visualisation
+    technologies Proceedings of the MODSIM07: International Congress on Modelling
+    and Simulation, Citeseer (2007) Google Scholar Pham and Stack, 2018 X. Pham, M.
+    Stack How data analytics is transforming agriculture Bus. Horiz., 61 (1) (2018),
+    pp. 125-133, 10.1016/j.bushor.2017.09.011 View PDFView articleView in ScopusGoogle
+    Scholar Piplani et al., 2015 D. Piplani, D.K. Singh, K. Srinivasan, N. Ramesh,
+    A. Kumar, et al. Digital platform for data driven aquaculture farm management
+    Proceedings of the 7th International Conference on HCI, IndiaHCI 2015, ACM (2015),
+    pp. 95-101 CrossRefView in ScopusGoogle Scholar Reed et al., 2001 B. Reed, D.
+    Swets, L. Bard, J. Brown, J. Rowland Interactive visualization of vegetation dynamics
+    Geoscience and Remote Sensing Symposium, 2001. IGARSS’01. IEEE 2001 International,
+    vol. 1, IEEE (2001), pp. 210-212 View in ScopusGoogle Scholar Rind et al., 2013,
+    A. Rind, T.D. Wang, W. Aigner, S. Miksch, K. Wongsuphasawat, C. Plaisant, B. Shneiderman
+    Interactive information visualization to explore and query electronic health records
+    Found. Trends Hum.-Comput. Interact., 5(3) (2013,), pp. 207-298, 10.1561/1100000039
+    Google Scholar Río et al., 2011 M. Río, A. Franco-Uría, E. Abad, E. Roca A risk-based
+    decision tool for the management of organic waste in agriculture and farming activities
+    (farmers) J. Hazardous Mater., 185 (2–3) (2011), pp. 792-800 View PDFView articleView
+    in ScopusGoogle Scholar Rose et al., 2018 D.C. Rose, C. Parker, J. Fodey, C. Park,
+    W.J. Sutherland, L.V. Dicks Involving stakeholders in agricultural decision support
+    systems: improving user-centred design Int. J. Agric. Manage., 6 (3–4) (2018),
+    pp. 80-89 View in ScopusGoogle Scholar Rossi et al., 100 (2014) V. Rossi, F. Salinari,
+    S. Poni, T. Caffi, T. Bettati Addressing the implementation problem in agricultural
+    decision support systems: the example of vite.net Comput. Electron. Agric., 100
+    (2014), pp. 88-99, 10.1016/j.compag.2013.10.011 View PDFView articleView in ScopusGoogle
+    Scholar Rupnik et al., 2019 R. Rupnik, M. Kukar, P. Vracar, D. Košir, D. Pevec,
+    Z. Bosnic AgroDSS: a decision support system for agriculture and farming Comput.
+    Electron. Agric. (2019), 10.1016/j.compag.2018.04.001 Google Scholar Ruß et al.,
+    2009a G. Ruß, R. Kruse, M. Schneider, P. Wagner Visualization of agriculture data
+    using self-organizing maps T. Allen, R. Ellis, M. Petridis (Eds.), Applications
+    and Innovations in Intelligent Systems XVI, Springer London, London (2009), pp.
+    47-60 CrossRefView in ScopusGoogle Scholar Ruß et al., 2009b G. Ruß, R. Kruse,
+    M. Schneider, P. Wagner Visualization of agriculture data using self-organizing
+    maps T. Allen, R. Ellis, M. Petridis (Eds.), Applications and Innovations in Intelligent
+    Systems XVI, Springer London, London (2009), pp. 47-60 CrossRefView in ScopusGoogle
+    Scholar Sacha et al., 2016 D. Sacha, H. Senaratne, B.C. Kwon, G. Ellis, D.A. Keim
+    The role of uncertainty, awareness, and trust in visual analytics IEEE Trans.
+    Visualiz. Comput. Graphics, 22 (1) (2016), pp. 240-249 View in ScopusGoogle Scholar
+    Saizmaa and Kim, 2008 T. Saizmaa, H.-C. Kim A holistic understanding of hci perspectives
+    on smart home 2008 Fourth International Conference on Networked Computing and
+    Advanced Information Management, vol. 2, IEEE (2008), pp. 59-65 CrossRefView in
+    ScopusGoogle Scholar Saket et al., 2019 B. Saket, A. Endert, C. Demiralp Task-based
+    effectiveness of basic visualizations IEEE Trans. Visualiz. Comput. Graphics,
+    25 (7) (2019), pp. 2505-2512, 10.1109/TVCG.2018.2829750 ISSN: 1077-2626 View in
+    ScopusGoogle Scholar Savin, 2015 C. Savin Embedding sectorial models in an integrated
+    platform for assessing climate change impacts Modelling Symposium (EMS), 2015
+    IEEE European, IEEE (2015), pp. 37-42 View in ScopusGoogle Scholar Spiegelhalter
+    et al., 2011 D. Spiegelhalter, M. Pearson, I. Short Visualizing uncertainty about
+    the future Science, 333 (6048) (2011), pp. 1393-1400 CrossRefView in ScopusGoogle
+    Scholar Stepinski et al., 2014 T.F. Stepinski, P. Netzel, J. Jasiewicz LandEx—a
+    GeoWeb tool for query and retrieval of spatial patterns in land cover datasets
+    IEEE J. Sel. Top. Appl. Earth Observ. Remote Sens., 7 (1) (2014), pp. 257-266
+    View in ScopusGoogle Scholar Stojanovic et al., 2017a V. Stojanovic, R.E. Falconer,
+    J. Isaacs, D. Blackwood, D. Gilmour, D. Kiezebrink, J. Wilson Streaming and 3d
+    mapping of agri-data on mobile devices Comput. Electron. Agric., 138 (2017), pp.
+    188-199, 10.1016/j.compag.2017.03.019 View PDFView articleView in ScopusGoogle
+    Scholar Stojanovic et al., 2017b V. Stojanovic, R.E. Falconer, J. Isaacs, D. Blackwood,
+    D. Gilmour, D. Kiezebrink, J. Wilson Streaming and 3d mapping of agri-data on
+    mobile devices Comput. Electron. Agric., 138 (2017), pp. 188-199, 10.1016/j.compag.2017.03.019
+    View PDFView articleView in ScopusGoogle Scholar Tan et al., 2012 L. Tan, R. Haley,
+    R. Wortman, Q. Zhang An extensible and integrated software architecture for data
+    analysis and visualization in precision agriculture 2012 IEEE 13th International
+    Conference on Information Reuse Integration (IRI) (2012), pp. 271-278, 10.1109/IRI.2012.6303020
+    View in ScopusGoogle Scholar Tayyebi et al., 2016 A. Tayyebi, T.D. Meehan, J.
+    Dischler, G. Radloff, M. Ferris, C. Gratton Smartscape: a web-based decision support
+    system for assessing the tradeoffs among multiple ecosystem services under crop-change
+    scenarios Comput. Electron. Agric., 121 (2016), pp. 108-121, 10.1016/j.compag.2015.12.003
+    View PDFView articleView in ScopusGoogle Scholar Terribile et al., 2017 F. Terribile,
+    A. Bonfante, A. D’Antonio, R.D. Mascellis, C.D. Michele, G. Langella, P. Manna,
+    F. Mileti, S. Vingiani, A. Basile A geospatial decision support system for supporting
+    quality viticulture at the landscape scale Comput. Electron. Agric., 140 (2017),
+    pp. 88-102, 10.1016/j.compag.2017.05.028 View PDFView articleView in ScopusGoogle
+    Scholar Thierry et al., 2017 H. Thierry, A. Vialatte, J.-P. Choisis, B. Gaudou,
+    H. Parry, C. Monteil Simulating spatially-explicit crop dynamics of agricultural
+    landscapes: the atlas simulator Ecol. Inform., 40 (2017), pp. 62-80, 10.1016/j.ecoinf.2017.05.006
+    View PDFView articleView in ScopusGoogle Scholar Thysen and Detlefsen, 2006 I.
+    Thysen, N.K. Detlefsen Online decision support for irrigation for farmers Agric.
+    Water Manag., 86 (3) (2006), pp. 269-276, 10.1016/j.agwat.2006.05.016 View PDFView
+    articleView in ScopusGoogle Scholar Wachowiak et al., 2017 M.P. Wachowiak, D.F.
+    Walters, J.M. Kovacs, R. Wachowiak-Smolíková, A.L. James Visual analytics and
+    remote sensing imagery to support community-based research for precision agriculture
+    in emerging areas Comput. Electron. Agric., 143 (2017), pp. 149-164, 10.1016/j.compag.2017.09.035
+    View PDFView articleView in ScopusGoogle Scholar Wenkel et al., 2013 K.-O. Wenkel,
+    M. Berg, W. Mirschel, R. Wieland, C. Nendel, B. Köstner LandCaRe DSS–an interactive
+    decision support system for climate change impact assessment and the analysis
+    of potential agricultural land use adaptation strategies J. Environ. Manage.,
+    127 (2013), pp. S168-S183 View PDFView articleView in ScopusGoogle Scholar Whitman
+    et al., 2015 C.J. Whitman, G. Armijo, L.N. Schiappacasse Methodology for informed
+    design of sustainable tourism accommodation in Chile’s 9th region the gateway
+    to Patagonia Energy Procedia, 78 (2015), pp. 267-272, 10.1016/j.egypro.2015.11.633
+    6th International Building Physics Conference, IBPC 2015 View PDFView articleView
+    in ScopusGoogle Scholar Yalew et al., 2016 S. Yalew, A. van Griensven, P. van
+    der Zaag Agrisuit: a web-based GIS-MCDA framework for agricultural land suitability
+    assessment Comput. Electron. Agric., 128 (2016), pp. 1-8, 10.1016/j.compag.2016.08.008
+    View PDFView articleView in ScopusGoogle Scholar Yan et al., 2014 A. Yan, B. Lv,
+    F. Liu, Q. Li, G. Lin, Y. Bai FluxDataOne: an integrated solution for the management,
+    visualization, and analysis of flux data for agricultural and ecological studies
+    IEEE J. Sel. Top. Appl. Earth Observ. Remote Sens., 7 (11) (2014), pp. 4523-4529
+    View in ScopusGoogle Scholar Yang et al., 2017 G. Yang, L. Liu, P. Guo, M. Li
+    A flexible decision support system for irrigation scheduling in an irrigation
+    district in china Agric. Water Manage., 179 (2017), pp. 378-389 View PDFView articleView
+    in ScopusGoogle Scholar Zhang et al., 2013 B. Zhang, L. Di, G. Yu, Y. Shao, R.
+    Shrestha, L. Kang A web service based application serving vegetation condition
+    indices for flood crop loss assessment Agro-Geoinformatics (Agro-Geoinformatics),
+    2013 Second International Conference on, IEEE (2013), pp. 215-220 CrossRefView
+    in ScopusGoogle Scholar Zheng and Altamimi, 2017 Y. Zheng, T. Altamimi Innovative
+    mobile visualization platform: specification on a prototype mobile application
+    for agriculture, in: Cybernetics (CYBCONF), 2017 3rd IEEE International Conference
+    on, IEEE (2017), pp. 1-6 Google Scholar Zudilova-Seinstra et al., 2009 E. Zudilova-Seinstra,
+    T. Adriaansen, R. Van Liere Overview of interactive visualisation Trends in Interactive
+    Visualization, Springer (2009), pp. 3-15 CrossRefView in ScopusGoogle Scholar
+    Cited by (39) The Digital Agricultural Knowledge and Information System (DAKIS):
+    Employing digitalisation to encourage diversified and multifunctional agricultural
+    systems 2023, Environmental Science and Ecotechnology Show abstract Remote sensing
+    and on-farm experiments for determining in-season nitrogen rates in winter wheat
+    – Options for implementation, model accuracy and remaining challenges 2022, Field
+    Crops Research Citation Excerpt : If a sensor with only NIR and red bands is available,
+    MSAVI2 would be a better alternative than NDVI for prediction of optimal supplemental
+    N rate in winter wheat at crop development stage DC37. Decision support systems
+    for VRA in N fertilisation can be designed in many ways (e.g. Blondlot et al.,
+    2005; Gutiérrez et al., 2019). A DSS can be fully automatic or require user input
+    in the form of local knowledge and data from handheld sensor measurements in OFE
+    plots. Show abstract AHMoSe: A knowledge-based visual support system for selecting
+    regression machine learning models 2021, Computers and Electronics in Agriculture
+    Citation Excerpt : Users must be provided with an accurate estimation of uncertainties
+    from visual analytics systems so that they can trust the acquired knowledge (Sacha
+    et al., 2016). Similar to previous work in other domains, domain experts are often
+    very critical when models present outcomes that do not fully match their expectations
+    (Gutiérrez et al., 2018). In other words, does a model behave according to prior
+    knowledge? Show abstract Old problem, the Millennial solution: using mobile technology
+    to inform decision making for sustainable fertilizer management 2021, Current
+    Opinion in Environmental Sustainability Citation Excerpt : In the future however,
+    consultation with practitioners should constitute an essential part of the development
+    process to ensure that these tools respond to the needs of agricultural workers
+    and can be quickly and easily made available to the interested parties. Concerns
+    regarding the ‘black box’ approach to soil management, which ignores farmers’
+    experience, have been voiced with regards to a variety of decision support tools
+    [40–42] and should be avoided in the ICT-mediated smart farming approach at all
+    cost. MFs represent a substantial draw on farmers’ financial resources [43]. Show
+    abstract The Biomass Proxy: Unlocking Global Agricultural Monitoring through Fusion
+    of Sentinel-1 and Sentinel-2 2024, Remote Sensing A Cognitive Medical Decision
+    Support System for IoT-Based Human-Computer Interface in Pervasive Computing Environment
+    2024, Cognitive Computation View all citing articles on Scopus 1 Shared first
+    authors. 2 https://www.scimagojr.com/. 3 https://www.ers.usda.gov/data-products/milk-cost-of-production-estimates/.
+    4 https://www.vabeginningfarmer.alce.vt.edu/planning.html. View Abstract © 2019
+    Elsevier B.V. All rights reserved. Recommended articles An R package to visualize
+    and communicate uncertainty in seasonal climate prediction Environmental Modelling
+    & Software, Volume 99, 2018, pp. 101-110 M.D. Frías, …, J.M. Gutiérrez View PDF
+    Streaming and 3D mapping of AGRI-data on mobile devices Computers and Electronics
+    in Agriculture, Volume 138, 2017, pp. 188-199 V. Stojanovic, …, J. Wilson View
+    PDF Modeling Individual Strategies in Dynamic Decision-making with ACT-R: A Task
+    Toward Decision-making Assistance in HCI Procedia Computer Science, Volume 145,
+    2018, pp. 668-674 Ziying Zhang, …, Sabine Prezenski View PDF Show 3 more articles
+    Article Metrics Citations Citation Indexes: 33 Captures Readers: 192 View details
+    About ScienceDirect Remote access Shopping cart Advertise Contact and support
+    Terms and conditions Privacy policy Cookies are used by this site. Cookie settings
+    | Your Privacy Choices All content on this site: Copyright © 2024 Elsevier B.V.,
+    its licensors, and contributors. All rights are reserved, including those for
+    text and data mining, AI training, and similar technologies. For all open access
+    content, the Creative Commons licensing terms apply."'
+  inline_citation: '>'
+  journal: Computers and Electronics in Agriculture
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'A review of visualisations in agricultural decision support systems: An
+    HCI perspective'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Niu H.
+  - Zhao T.
+  - Wang D.
+  - Chen Y.
+  citation_count: '24'
+  description: In the past few years, unmanned aerial vehicles (UAVs), also called
+    drones, have been widely used in precision agriculture applications, such as water
+    stress estimation, pest monitoring, and crop yield estimation, because of the
+    development of UAV technology and remote sensing sensors. However, how to collect
+    data effectively can still be a big challenge. Many UAV tunable parameters can
+    have significant impact on data quality and the data analysis, such as flight
+    height, flight time, overlapping, and airspeed. And, little work has been done
+    regarding to how to extract high-resolution multispectral or thermal images with
+    limited ground-truth measurements. Therefore, in this paper, a UAV resolution
+    and waveband aware design was conducted in order to optimally collecting remote
+    sensing aerial images with drones. Then, the flight mission design was tested
+    in an onion field at USDA (United States Department of Agriculture) during the
+    growing season in 2017. Based on the research results, drones successfully provide
+    farmers and researchers the fundamental knowledge of irrigation management to
+    identify irrigation non-uniformity. Using multispectral and thermal images collected
+    by drones, we are able to apply supervised learning methods to find the relationship
+    between image features and onions irrigation treatments. It also found out that
+    how drones flight height or resolution settings affect the accuracy of estimating
+    onions irrigation treatment. Different spectral bands combination also has effect
+    on onion irrigation treatment prediction.
+  doi: 10.1109/ICUAS.2019.8798188
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2019 International Conference... A UAV
+    Resolution and Waveband Aware Path Planning for Onion Irrigation Treatments Inference
+    Publisher: IEEE Cite This PDF Haoyu Niu; Tiebiao Zhao; Dong Wang; YangQuan Chen
+    All Authors 17 Cites in Papers 337 Full Text Views Abstract Document Sections
+    I. Introduction II. Material and Methods III. Results and Discussion IV. Conclusions
+    Authors Figures References Citations Keywords Metrics Abstract: In the past few
+    years, unmanned aerial vehicles (UAVs), also called drones, have been widely used
+    in precision agriculture applications, such as water stress estimation, pest monitoring,
+    and crop yield estimation, because of the development of UAV technology and remote
+    sensing sensors. However, how to collect data effectively can still be a big challenge.
+    Many UAV tunable parameters can have significant impact on data quality and the
+    data analysis, such as flight height, flight time, overlapping, and airspeed.
+    And, little work has been done regarding to how to extract high-resolution multispectral
+    or thermal images with limited ground-truth measurements. Therefore, in this paper,
+    a UAV resolution and waveband aware design was conducted in order to optimally
+    collecting remote sensing aerial images with drones. Then, the flight mission
+    design was tested in an onion field at USDA (United States Department of Agriculture)
+    during the growing season in 2017. Based on the research results, drones successfully
+    provide farmers and researchers the fundamental knowledge of irrigation management
+    to identify irrigation non-uniformity. Using multispectral and thermal images
+    collected by drones, we are able to apply supervised learning methods to find
+    the relationship between image features and onions irrigation treatments. It also
+    found out that how drones flight height or resolution settings affect the accuracy
+    of estimating onions irrigation treatment. Different spectral bands combination
+    also has effect on onion irrigation treatment prediction. Published in: 2019 International
+    Conference on Unmanned Aircraft Systems (ICUAS) Date of Conference: 11-14 June
+    2019 Date Added to IEEE Xplore: 15 August 2019 ISBN Information: ISSN Information:
+    DOI: 10.1109/ICUAS.2019.8798188 Publisher: IEEE Conference Location: Atlanta,
+    GA, USA SECTION I. Introduction Over the past a few years, unmanned aerial vehicles
+    have been widely used as a remote sensing platform in agricultural applications,
+    such as crop yield estimation [1], soil moisture monitoring, water stress estimation
+    [2] and pest management [3]. Compared with traditional remote sensing tools, such
+    as satellites, drones’ flight time can be more flexible and more frequent in the
+    field. And, drones can fly at lower altitude and can take higher resolution multispectral
+    images or thermal images [4] of crops. As a low-cost scientific data collection
+    platform, drones also make data acquisition relatively less expensive. While there
+    are many advantages by using drones for agricultural applications [1], there is
+    still a lot of work for drones. Many researchers fly the drones in different standard,
+    using specialized equipment, controlling environments and relying on data analysis
+    expertise [5]. Is there any optimal point where the data can be the best representation
+    of crops? In [5], Brandon built a conceptual framework for describing the optimality
+    as a function of spatial, spectral, and temporal factors which represent the best
+    solution. How to collect remote sensing data effectively can still be a big challenge.
+    Many UAV tunable parameters can have significant impact on data quality and the
+    data analysis, such as flight height, flight time, overlapping, and airspeed.
+    In this paper, flight height’s effect on data analysis was discussed. It assumed
+    that there must be an optimal point where the data analysis results from multispectral
+    images or thermal images can greatly represent for, for example, the crops water
+    stress status [2] or other crop characteristics. In this paper, a resolution and
+    waveband aware path planning was conducted in order to optimally collecting remote
+    sensing aerial images with drones. Then, the flight mission design was tested
+    in an onion field at USDA during the growing season in 2017. Onion is one of the
+    most widely produced vegetables all over the world. And, onion also plays an important
+    role in human diet and medical properties [6]. Therefore, onion is consumed among
+    all nationalities and cultures [7]. Based on the data from Food and Agriculture
+    Organization, onion production has been increasing continuously by 65 million
+    tonne (1999 -2009 period), in an area of 2.1 million hectare in 2009 [7]. California
+    is the biggest onion producer in the United States, which is also the only state
+    that can produce spring and summer-harvested onions in the US. 31 % of the total
+    onion in the US was produced in California in 2015 [8]. In the semi-arid and arid
+    areas of California, onion production is highly dependent on irrigation. Water
+    stress could happen in any onion growing stage and cause onion yield loss. Therefore,
+    to optimize irrigation management, it’s important to have a optimal onion water
+    stress monitoring method. Many research results have been published on using drones
+    to detect water stress [9] [10] [11] [12] [13], which prove drones can be a reliable
+    and effective remote sensing platform. In onion study area, multispectral cameras
+    are mounted on the unmanned aerial vehicles for onions yield estimation, biomass
+    monitoring [14], and disease detection [15]. However, to our best knowledge, nobody
+    has studied drone flight height’s effect on onion’s multispectral images data
+    analysis and irrigation treatment inference. Therefore, in this paper, we mainly
+    designed an UAV flight mission in order to optimally collecting onion remote sensing
+    aerial images with drones. By using multispectral and thermal images collected
+    by drones, we are able to apply supervised learning methods to find the relationship
+    between image features and onions irrigation treatments. We also figured out how
+    drones flight height or resolution settings affect the accuracy of estimating
+    onion irrigation treatment. Different spectral bands combination also has effect
+    on onion irrigation treatment prediction. Fig. 1. Onion test site Show All The
+    rest of the paper is organized as follows. Section II introduces the material
+    and methods we used for UAV. Results and discussions are presented in Section
+    III. In Section IV, concluding remarks are presented for the resolution and waveband
+    aware path planning results. SECTION II. Material and Methods A. Onion Study Area
+    As shown in Fig. 1, the field study was conducted at the USDA-ARS, San Joaquin
+    Valley Agricultural Sciences Center (36.594  ∘ N,119.512  ∘ W) , Palier, California,
+    93648, USA. Since 2016, an onion test field has been set up for research of biomass
+    soil amendments and deficit irrigation. There are three irrigation treatment levels
+    and four soil amendments. Three irrigation levels are low, medium and high. The
+    four soil amendments are biochar, check, biochar + compost, and biochar + compost
+    +1 bag of sulfur. There are also three replicate plots for each treatment combination.
+    B. An UAV platform and sensors In this paper, we used a Hover (brand of the UAV)
+    quadcopter as the unmanned aerial vehicle (UAV) platform. The Hover was equipped
+    with a Pixhawk flight controller, GPS, telemetry antennas. And, it is able to
+    fly over the onions field by waypoints mode (designed by using Mission Planner
+    software). The Hover’s lithium polymer battery has a capacity of 9500 mAh, which
+    can support a 30-minute flight mission with cameras mounted on the Hover drone.
+    Multispectral images were collected by Survey 2 (MAPIR, USA) cameras with 4 bands,
+    Blue, Green, Red (RGB) and Near-infrared (NIR). The MAPIR camera has a resolution
+    of 4608 x 3456 pixels, with a space resolution at 1.01 cm/pix. The Survey 2 cameras
+    have a faster interval timer, 2 seconds for JPG mode and 3 seconds for RAW + JPG
+    mode. Faster interval timer would benefit the overlap design for UAV flight missions,
+    such as reducing the flight time, enabling higher overlapping. The thermal camera
+    ICI 9640 P-Series (ICI, USA) was applied for collecting onions’ thermal images.
+    The thermal camera has a resolution of 640 x 480 pixels. The spectral band is
+    from 7 μ m to 14 μ m. The dimensions of the thermal camera is 34mm × 30mm × 34mm.
+    The accuracy is supposed to be ± 1 ∘ C . A Raspberry Pi Model B computer was used
+    to trigger the thermal cameras during the flight missions. C. UAV images collection
+    and preprocessing Flight missions were programmed by using Mission Planner software.
+    The flight height was setup as 10m, 15m, 30m, and 60m in order to compare the
+    resolution’s effect on onions irrigation treatment inference. For all the flight
+    missions, the overlap was set up as 75% to make sure the onions’ images can be
+    stitched together during images pre-processing. We flew the Hover drone bi-weekly
+    over the onions field at noon during the growing season in 2017. The images of
+    a color panel were taken right before and after the flight missions, servicing
+    as the reflectance reference. After the flight missions, all of the aerial images
+    were stitched together to generate the orthomosaick images in PhotoScan (Agisoft
+    LLC, Russian). An RGB image is shown in Fig. 2, and an NIR image is shown in Fig.
+    3. The process includes aligning photos and building orthomosaick. The Agisoft
+    Photoscan settings and workflow for RGB and NIR images are shown as below: Step
+    1:Align Photos General Accuracy: Medium Generic preselection: Yes Advanced Key
+    point limit: 40,000 Tie point limit: 4,000 Adaptive camera model fitting: No Step
+    2:Build Mesh General Surface type: Height field (2.5D) Source data: Sparse cloud
+    Face count: Medium (30,000) Advanced Interpolation: Enabled (default) Point classes:
+    All Caculate vertex colors: Yes Step 3:Build Orthomosaick Projection Type: Planar
+    Projection plane: TOP XY Rotation angle: 0 Parameters Surface: Mesh Blending mode:
+    Mosaic (default) Enable hole filling: Yes Enable back-face culling: No All of
+    the thermal images were pre-processed by IR Flash (ICI, USA) in order to get.TIF
+    thermal images. Then, thermal images are stitched together to generate the orthomosaick
+    images in PhotoScan (Agisoft LLC, Russian). The process also includes aligning
+    photos and building orthomosaick. The Agisoft Photoscan settings and workflow
+    for thermal images are shown as below: Step 1:Align Photos General Accuracy: High
+    Pair preselection: Disabled Generic preselection: Yes Advanced Key point limit:
+    40,000 Tie point limit: 4,000 Adaptive camera model fitting: Yes Step 2:Build
+    Mesh General Surface type: Height field Source data: Sparse cloud Face count:
+    Medium (30,000) Advanced Interpolation: Enabled (default) Point classes: All Step
+    3:Build orthomosaick Projection Type: Geographic WGS 84 (EPSG::4326) Parameters
+    Surface: Mesh Blending mode: Mosaic (default) Enable color correction: No Fig.
+    2. RGB image for onions field Show All D. Principal Component Analysis For image
+    processing, we used two different machine learning methods, the Principle Component
+    Analysis (PCA) and Linear Discriminant Analysis (LDA). Both of them can reduce
+    the datasets dimensionality and increase the classification accuracy. Principle
+    Component Analysis (PCA) is a fast and flexible unsupervised method for data dimensionality
+    reduction [16]. It can achieve linear projection to a lower-dimensional subspace
+    by using singular value decomposition. PCA can also maximize the variance of the
+    projected data. Therefore, PCA is widely used in exploratory data analysis and
+    making predictive models. Fig. 3. NIR image for onions field Show All Fig. 4.
+    36 plots of onion Show All E. Linear Discriminant Analysis Linear Discriminant
+    Analysis (LDA) is a classifier with a linear decision boundary. It is generated
+    by using Bayes’ rule to fit class conditional densities to the data. It assumes
+    that all classes share the same covariance matrix. After that, LDA model can be
+    used to reduce the dimensionality of the input data by projecting it to the most
+    discriminative directions. Then, the output dimensionality is usually less than
+    the number of classes, so that LDA is a very strong dimensionality reduction [17].
+    SECTION III. Results and Discussion To prepare the multispectral and thermal images
+    data sets, we firstly segmented 36 plots from the whole onion field in order to
+    focus only on the area of interest, as shown in Fig. 4. Every image was converted
+    into 2048 dimensions vector for data processing by python packages. The data was
+    distributed as 67% for training and 33% for testing. Several classifiers in scikit-learn
+    machine learning algorithms were used for onions irrigation treatment inference,
+    such as, ”Nearest Neighbors”, ”Linear SVM”, ”RBF SVM”, ”Gaussian Process”, ”Decision
+    Tree”, ”Random Forest”, ”Neural Net”, ”AdaBoost”, ”Naive Bayes” and ”QDA”. Table
+    I Differe Ntresolutions Accuracy for Onion Treatment Inference Table II Bands
+    Configuration Accuracy for Onion Treatment Inference The accuracy was evaluated
+    by scikit-learns accuracy classification score function. This function computes
+    the subset accuracy, in which the labels predicted for a sampling must exactly
+    match the corresponding true labels. Estimators use this score method as the evaluation
+    criterion for the classification problems. All scorer objects follow the convention
+    that higher return values are better than lower return values. We mainly discuss
+    two topics in this section, flight height or different resolution’s effect on
+    onion irrigation treatment estimation and different wavebands combination on onions
+    irrigation treatment prediction. A. UAV flight height or resolution’s effect In
+    this section, near-infrared images are used to analyze the flight height or image
+    resolution’s effect on data analysis. At 30 meters height, the MAPIR has a resolution
+    as 1.01 cm/ pix. By image processing, we set up 4 different resolutions, A, B,
+    C D for onion images. Resolution A means 0.55 cm/pix, resolution B means 1.01
+    cm/pix, resolution C means 2.02 cm/pix, and resolution D means 4.04 cm/pix, as
+    shown in Table I. From the Table I, we can figure out that the best accuracy is
+    0.726, which shows up when the resolution is at 2.02 cm/pixel by using ’Neural
+    net’ classifier. Compared with the other classifiers, the ’Neural net’ classifier
+    performs the best in all resolution levels. And based on most classifiers resolution
+    analysis results in the Table I, it turns out that when we fly a drone in the
+    field, higher resolution does not mean better analysis results. The best resolution
+    does not promise the best estimation. And, based on the accuracy trend of ’Neural
+    net’ classifier, for example, it exists an optimal point near 2.02 cm/pixel resolution
+    when ’Neural net’ was applied for onions irrigation estimation. B. Waveband configuration’s
+    effect In this section, remote sensing images are generated by using different
+    wavebands configurations. There are red, green, blue (RGB), near-infrared (NIR),
+    thermal (TIR), and NDVI (Normalized Difference Vegetation Index) wavebands being
+    used in this section. As shown in Table II, there are four combinations being
+    used, RGB-NIR, All bands, RGB-NIR-TIR and TIR. Because RGB and NIR has a higher
+    resolution (1.01 cm/pixel) than thermal images resolution (9 cm/pixel), the multispectral
+    images were pre-processed in order to match the thermal images resolution. From
+    the Table II, we can figure out that the best accuracy is 0.840, which appears
+    when the RGB-NIR-TIR waveband images were used by ’Gaussian process’ classifier.
+    Compared with the other classifiers, the ’Gaussian process’ classifier performs
+    the best in all wavebands configuration. And based on most classifiers resolution
+    analysis results in the Table II, it turns out that when we fly a drone in the
+    field, more wavebands information does not mean better analysis results. Knowing
+    all the remote sensing data does not mean the best estimation. And, based on the
+    accuracy of ’Gaussian process’ classifier, it’s meaningful to point out that TIR
+    images itself can already get pretty good estimation results, as high as 0.792,
+    which means we do not always need multispectral wavebands information for some
+    coarse estimation research work. On the other side, adding RGB-NIR information
+    does increase accuracy from 0.792 to 0.840, which is meaningful for precision
+    agriculture applications. SECTION IV. Conclusions In this paper, a UAV resolution
+    and waveband aware path planning was conducted in order to optimally collecting
+    remote sensing aerial images with drones. Using multispectral and thermal images
+    collected by drones, we are able to apply supervised learning methods to find
+    the relationship between image features and onions irrigation treatments. First,
+    we found out that the best accuracy for onion irrigation treatments is 0.726,
+    which shows up when the resolution is at 2.02 cm/pixel by using ’Neural net’ classifier.
+    And, the best resolution does not promise the best estimation. According to the
+    accuracy trend of ’Neural net’ classifier, it does exist an optimal point near
+    2.02 cm/pixel resolution when ’Neural net’ was applied for onions irrigation estimation.
+    Second, this paper also found out that different spectral bands combination also
+    has effect on onion irrigation treatment prediction. Applying all the remote sensing
+    data does not mean the best estimation. And, based on the accuracy of ’Gaussian
+    process’ classifier, we figured out that TIR images itself can already get relatively
+    good estimation results for onions irrigation estimation, as high as 0.792, which
+    means we do not always need multispectral bands information for it. On the other
+    side, adding RGB-NIR information does increase accuracy from 0.792 to 0.840, which
+    is important for precision agriculture applications. ACKNOWLEDGMENT Thanks go
+    to Joshua Ahmed, Allan Murillo, Dong Sen Yan, Stella Zambrzuski and Christopher
+    Currier for flying drones or collecting field measurements. We gratefully acknowledge
+    the support of NVIDIA Corporation with the donation of the Titan X Pascal GPU
+    used for this research. Authors Figures References Citations Keywords Metrics
+    More Like This Inspecting Unattended Irrigation Canals of Dujiangyan in Mountainous
+    Area with UAV Remote Sensing Technology 2019 8th International Conference on Agro-Geoinformatics
+    (Agro-Geoinformatics) Published: 2019 VOLUNTEERED REMOTE SENSING USING HANDHELD
+    CAMERAS IN A PASSENGER AIRCRAFT IGARSS 2020 - 2020 IEEE International Geoscience
+    and Remote Sensing Symposium Published: 2020 Show More IEEE Personal Account CHANGE
+    USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile
+    Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS
+    Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT
+    Follow About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use |
+    Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy
+    A not-for-profit organization, IEEE is the world''s largest technical professional
+    organization dedicated to advancing technology for the benefit of humanity. ©
+    Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 2019 International Conference on Unmanned Aircraft Systems, ICUAS 2019
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: A UAV resolution and waveband aware path planning for onion irrigation treatments
+    inference
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

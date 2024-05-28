@@ -1,0 +1,1838 @@
+- apa_citation: Stringam, B. L. (2010). Design of a Single-Pool Downstream Controller
+    Using Quantitative Feedback Control Theory. Journal of Irrigation and Drainage
+    Engineering, 136(10), 112-118. https://doi.org/10.1061/(ASCE)IR.1943-4774.0000222
+  data_sources: Nonlinear model that numerically solves the St. Venant equations
+  explanation: Stringam's research focuses on the design of a downstream controller
+    for an irrigation canal system using quantitative feedback control theory (QFT).
+    QFT allows for the development of robust and stable controllers that can handle
+    system uncertainties and time-varying parameters, making it suitable for canal
+    control where conditions can vary significantly.
+  extract_1: '"A downstream controller is designed for an irrigation canal reach using
+    a design technique called quantitative feedback control theory (QFT)."'
+  extract_2: '"The performance of this controller is compared to a proportional, integral,
+    derivative (PID) controller and a linear quadratic regulator (LQR) controller.
+    In this study, the QFT controller is designed for a single canal reach because
+    it best demonstrates how a controller is designed."'
+  inline_citation: (Stringam, 2010)
+  key_findings: "1. The QFT controller outperforms the PID and LQR controllers in\
+    \ terms of stability and response time.\n    2. The QFT controller is able to\
+    \ handle uncertainties and time-varying parameters, making it suitable for canal\
+    \ control where conditions can vary significantly.\n    3. QFT is a promising\
+    \ technique for the design of robust and reliable controllers for automated irrigation\
+    \ systems."
+  limitations: null
+  main_objective: To design and test a downstream controller for an irrigation canal
+    system using quantitative feedback control theory (QFT).
+  relevance_evaluation: This paper is highly relevant to the point of implementing
+    feedback loops for automated irrigation systems because it provides a detailed
+    explanation of the design and implementation of a QFT-based downstream controller
+    for an irrigation canal. The paper discusses the advantages of QFT, such as its
+    ability to handle uncertainties and time-varying parameters, and presents a step-by-step
+    design process for a QFT controller. The paper also includes simulation results
+    comparing the performance of the QFT controller to a PID controller and an LQR
+    controller, showing that the QFT controller has better performance in terms of
+    stability and response time.
+  relevance_score: 0.9
+  study_location: Unspecified
+  technologies_used: QFT, PID control, LQR control
+- apa_citation: McCarthy, A. C., Hancock, N. H., & Raine, S. R. (2014). Simulation
+    of irrigation control strategies for cotton using Model Predictive Control within
+    the VARIwise simulation framework. Computers and Electronics in Agriculture, 101,
+    135-147.
+  data_sources: Weather data, soil data, plant data
+  explanation: The given research aims to explore how automated, real-time irrigation
+    management systems can contribute to water efficiency and increase agricultural
+    productivity in response to the global food challenge.
+  extract_1: '"Model-based control strategies applied to irrigation make decisions
+    (on water application and/or timing) using a crop and/or soil production model.
+    Decisions are made with respect to an optimisation objective which, for irrigation,
+    can be either short-term (e.g. achieving/maintaining a set soil–water deficit)
+    or predicted end-of-season (e.g. maximising final yield) by predicting how the
+    crop will respond at the end of the season. In contrast, sensor-based irrigation
+    strategies rely on achieving a performance that is measurable during the crop
+    season to provide the feedback control, and may not necessarily optimise overall
+    crop performance. Model-based control potentially avoids this limitation."'
+  extract_2: '"For the example of cotton grown in Australia, presents results for
+    a range of simulations having different performance objectives. The results are
+    presented as three case studies, A, B and C, which, in order, evaluate the potential
+    of MPC to optimise: A. short-term responses of square count or soil–water; B.
+    predicted end-of-season crop yield or water use efficiency with (i) low and high
+    soil nitrogen content, and (ii) crop seasons with and without rainfall; and C.
+    predicted end-of-season crop yield with different combinations of sensory input
+    data to calibrate the model. A comparison is then made between the MPC strategies
+    and simulations of ‘sensor-based’ strategies for adaptive irrigation control (McCarthy
+    et al., 2014)."'
+  inline_citation: (McCarthy et al., 2014)
+  key_findings: '- Model-based control strategies potentially avoid the limitations
+    of sensor-based irrigation strategies by using a crop and/or soil production model
+    to make decisions on water application and/or timing.
+
+
+    - The MPC strategy was successfully implemented in VARIwise and performed well
+    in controlling an automatic irrigation machine applying spatially-varied irrigation
+    amounts in simulated cotton crop scenarios.
+
+
+    - The MPC strategy can be used to optimize crop yield, crop water use efficiency,
+    or irrigation water use efficiency, as appropriate, based on the user-specified
+    objective.
+
+
+    - The MPC strategy produced significantly higher yield and crop water use efficiency
+    than sensor-based strategies for the same simulated field conditions, but required
+    more comprehensive data input for accurate crop model calibration.'
+  limitations: null
+  main_objective: To evaluate the current state and future potential of end-to-end
+    automated irrigation management systems that integrate Internet of Things (IoT)
+    and machine learning technologies, with a focus on exploring automation across
+    the entire pipeline, emphasizing interoperability and standardization, identifying
+    challenges, and proposing solutions.
+  relevance_evaluation: This paper is highly relevant to the point I am making in
+    my literature review. The paper presents a novel Model Predictive Control (MPC)
+    strategy for optimizing irrigation water use and yield, which aligns with the
+    focus on enhancing system reliability, using control techniques, and exploring
+    automation across the irrigation pipeline.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Model Predictive Control (MPC), VARIwise simulation framework,
+    cotton crop model OZCOT
+- apa_citation: Difallah, W., Bounaama, F., Draoui, B., Benahmed, K., & Laaboudi,
+    A. (2022). Model identification and control of evapotranspiration for irrigation
+    water optimization. Computers, Materials & Continua, 70(1), 1749–1767.
+  data_sources: Temperature, relative humidity, insolation duration, wind speed, Penman-Monteith
+    equation
+  explanation: The study by Difallah et al. (2022) focuses on developing a model-based
+    control system for optimizing irrigation water management. The primary objective
+    is to estimate reference evapotranspiration (ET0) using a linear ARX model and
+    optimize irrigation schedules based on real-time data using lead-lag and PID controllers.
+  extract_1: '"The results show that the values estimated by this method were in good
+    agreement with the measured data." (Difallah et al., 2022)'
+  extract_2: '"To adjust the first controller and optimize the choice of its parameters,
+    Nelder-Mead algorithm is used." (Difallah et al., 2022)'
+  inline_citation: (Difallah et al., 2022)
+  key_findings: The proposed model-based control system was able to accurately estimate
+    ET0 and optimize irrigation schedules, leading to improved water use efficiency
+    and crop productivity.
+  limitations: The study focuses on a specific region and crop (Algeria, onion), and
+    the results may not be directly generalizable to other regions or crops.
+  main_objective: To develop a model-based control system for optimizing irrigation
+    water management by estimating reference evapotranspiration (ET0) using a linear
+    ARX model and optimizing irrigation schedules based on real-time data.
+  relevance_evaluation: This study is highly relevant to the outline point on implementing
+    feedback loops for closed-loop control in automated irrigation systems. The authors
+    propose a novel approach for ET0 estimation and irrigation optimization, contributing
+    to the development of reliable and efficient irrigation management systems.
+  relevance_score: '0.9'
+  study_location: Bechar, Algeria
+  technologies_used: ARX model, Lead-lag controller, PID controller, Nelder-Mead algorithm
+- apa_citation: 'McCarthy, A. C., Hancock, N. H., & Raine, S. R. (2011). Advanced
+    process control of irrigation: the current state and an analysis to aid future
+    development. Irrigation Science, 31(2), 183-192.'
+  data_sources: Not specified in the provided context.
+  explanation: 'This paper aims to explain the existing literature of advanced process
+    control in irrigation, as well as their sensor requirements and ability to adapt
+    to field conditions. Five common methods of advanced process control have been
+    applied to irrigation: mathematical programming, linear quadratic control, artificial
+    intelligence, model predictive control, and learning control.'
+  extract_1: '"Closed-loop irrigation control strategies in the literature have been
+    developed using either infield soil sensors that aim to regulate the soil moisture
+    content (Luthra et al. 1997; Smajstrla and Locascio 2000; Dukes and Scholberg
+    2005); plant sensors to irrigate when the plant has reached a stress point (Evett
+    et al. 2002; Peters and Evett 2008); or calibrated crop production models to achieve
+    either a desired soil moisture deficit (Capraro et al. 2008), or maximise yield,
+    profit or water productivity (i.e. water use efficiency, Brown et al. 2010)."'
+  extract_2: '"Feedback from infrared thermometers or soil moisture sensors could
+    be used in sensor-based control strategies, whilst a model-based control strategy
+    requires soil properties and plant growth information to calibrate the crop model.
+    The crop model is calibrated to improve the accuracy of the model and involves
+    adjusting model parameters according to comparisons between modelled and measured
+    data."'
+  inline_citation: (McCarthy et al., 2011)
+  key_findings: 'Three robust control strategies that can overcome limitations of
+    existing irrigation control approaches are:
+
+
+    1. Iterative learning control
+
+    2. Iterative hill climbing control
+
+    3. Model predictive control'
+  limitations: The paper does not provide detailed evaluations or comparisons of the
+    performance of different control strategies in real-world irrigation systems.
+  main_objective: To review the current state of and future potential for real-time,
+    end-to-end automated irrigation management systems that integrate IoT and machine
+    learning technologies.
+  relevance_evaluation: This paper is highly relevant to the point of reference, which
+    focuses on implementing feedback loops in automated irrigation management systems
+    using control techniques. The paper discusses various types of process control
+    strategies, including feedback control, and analyzes their suitability for irrigation
+    management. It also emphasizes the importance of closed-loop control and provides
+    specific examples of its application in irrigation systems.
+  relevance_score: 0.9
+  study_location: Unspecified
+  technologies_used: Not specified in the provided context.
+- apa_citation: Rodríguez, D., Reca, J., Martínez, J., & Urrestarazu, M. (2017). Automatic
+    Irrigation Control System for Soilless Culture Based on Feedback from Drainage
+    Hydrograph. Applied Engineering in Agriculture, 33(4), 531-542. https://doi.org/10.13031/aea.11172
+  data_sources: Drainage volume measurements, Irrigation volume measurements
+  explanation: This paper describes the development and testing of a low-cost, efficient
+    automatic irrigation control system for soilless culture. The system uses feedback
+    from drainage hydrograph measurements to adjust irrigation schedules in real-time.
+    Two different irrigation application options were tested and both performed well,
+    maintaining the leaching fraction for each irrigation event close to the target
+    value. Fruit yield and quality were comparable to the control treatment, indicating
+    the effectiveness of the system.
+  extract_1: '"A Proportional Integral Derivative (PID) algorithm was used to establish
+    the irrigation timing option while two different irrigation application options,
+    based on measurements from the drainage hydrograph, were developed and tested."'
+  extract_2: '"Both irrigation algorithms performed well as they fitted the leaching
+    fraction for every irrigation event to the target value."'
+  inline_citation: (Rodríguez et al., 2017)
+  key_findings: Both irrigation application options based on feedback from drainage
+    hydrograph measurements performed well, maintaining the leaching fraction close
+    to the target value. Fruit yield and quality were comparable to the control treatment,
+    indicating the effectiveness of the system.
+  limitations: The paper focuses on a specific implementation of a closed-loop control
+    system for soilless culture, so the findings may not be directly applicable to
+    other types of irrigation systems or crops. The study was conducted in a controlled
+    environment, so the performance of the system may differ in real-world farming
+    conditions.
+  main_objective: To develop and test a low-cost, efficient automatic irrigation control
+    system for soilless culture using feedback from drainage hydrograph measurements.
+  relevance_evaluation: This paper is very relevant to the point in my literature
+    review that focuses on closed-loop control and feedback mechanisms for ensuring
+    system reliability in automated irrigation systems. The paper describes a practical
+    implementation of a closed-loop irrigation control system using a PID algorithm
+    and feedback from drainage hydrograph measurements. It provides valuable insights
+    into the design, implementation, and performance evaluation of such a system in
+    a soilless culture environment.
+  relevance_score: '0.8'
+  study_location: Unspecified
+  technologies_used: PID control algorithm, Drainage hydrograph measurements
+- explanation: 'This study introduces a novel irrigation scheduling framework that
+    combines three machine learning paradigms (unsupervised, supervised, and reinforcement
+    learning) with model predictive control and multi-agent principles to design a
+    precise irrigation scheduler for large-scale fields. The proposed framework offers
+    several key advantages.
+
+    - **Accurate and computationally efficient soil moisture modeling:** The framework
+    employs long short-term memory (LSTM) models to directly model the dynamic behavior
+    of root zone soil moisture content in each irrigation management zone, while accounting
+    for the time-varying nature of the rooting depth.
+
+    - **Management zone delineation tailored to agro-hydrological modeling:** A three-stage
+    process with a k-means clustering approach is utilized to accurately delineate
+    irrigation management zones. This process includes elevation and estimated soil
+    hydraulic parameters as attributes, resulting in optimized management zones suitable
+    for agro-hydrological modeling.
+
+    - **Enhanced computational efficiency of the mixed-integer model predictive control
+    (MPC) framework:** A multi-agent MPC paradigm is adopted where decentralized hybrid
+    actor-critic agents and the concept of a limiting management zone are employed
+    to enhance the computational efficiency of the scheduler.
+
+
+    The application of the proposed approach to a large-scale field demonstrated its
+    capability to achieve substantial water savings and improved irrigation water
+    use efficiency. The proposed approach also allowed for the utilization of less
+    conservative maximum allowable depletion (MAD) values, resulting in improved water
+    savings and optimal crop growth.'
+  relevance_evaluation:
+    extract_1: Implementing a feedback loop that continuously monitors system performance
+      and adjusts irrigation schedules based on real-time data, using control techniques
+      like proportional-integral-derivative (PID), model predictive control (MPC),
+      or fuzzy logic control.
+    extract_2: This paper introduces a unified, learning-based predictive irrigation
+      scheduler that integrates machine learning and Model Predictive Control (MPC),
+      while also incorporating multi-agent principles.
+    relevance_score: 0.9119999741315848
+  relevance_score: 0.9119999741315848
+- apa_citation: null
+  data_sources:
+  - Sensor data
+  - Interviews
+  - Case studies
+  - Literature review
+  explanation: The research aims to investigate the efficacy of closed-loop automated
+    irrigation systems through feedback loops to improve real-time irrigation management
+    and enhance agricultural productivity. The objective is to assess their effectiveness
+    in utilizing water resources efficiently and increasing crop yield. The paper
+    focuses on a hierarchical closed-loop scheduling and control scheme with feedback
+    mechanisms to optimize irrigation schedules based on real-time data and predictive
+    models.
+  extract_1: Implementing feedback loops that continuously monitor system performance
+    and adjust irrigation schedules based on real-time data, using control techniques
+    like proportional-integral-derivative (PID), model predictive control (MPC), or
+    fuzzy logic control (FLC)
+  extract_2: In this work, we introduce feedback into irrigation scheduling and integrate
+    it with irrigation control to form a hierarchical closed-loop scheduling and control
+    scheme.
+  inline_citation: null
+  key_findings:
+  - Closed-loop irrigation systems offer significant benefits over traditional open-loop
+    systems, including improved water use efficiency and increased crop yield.
+  - Feedback control techniques can be used to optimize irrigation schedules in real-time,
+    accounting for changing environmental conditions and crop water needs.
+  - The integration of closed-loop scheduling and control can lead to significant
+    improvements in agricultural productivity and sustainability.
+  limitations: []
+  main_objective: The primary goal of the study is to evaluate the performance of
+    closed-loop, automated irrigation management systems that use feedback control
+    techniques to optimize irrigation schedules and improve water usage efficiency.
+  relevance_evaluation:
+    extract_1: Implementing feedback loops that continuously monitor system performance
+      and adjust irrigation schedules based on real-time data, using control techniques
+      like proportional-integral-derivative (PID), model predictive control (MPC),
+      or fuzzy logic control (FLC)
+    extract_2: In this work, we introduce feedback into irrigation scheduling and
+      integrate it with irrigation control to form a hierarchical closed-loop scheduling
+      and control scheme.
+    limitations: []
+    relevance_score: 0.8
+  relevance_score: 0.8
+  study_location: null
+  technologies_used:
+  - proportional-integral-derivative (PID)
+  - model predictive control (MPC)
+  - fuzzy logic control (FLC)
+- apa_citation: Zoffoli, G., & Gangi, F. (2023). The potential of a coordinated system
+    of gates for flood irrigation management in paddy rice farm. Agricultural Water
+    Management, 289, 108536.
+  data_sources: null
+  explanation: The objective of this study is to evaluate the potential of integrating
+    real-time monitoring and remote control devices into existing flood irrigation
+    practices in rice farming. The authors conducted a pilot study using a rice farm
+    in Cascina Ca' Granda Milano, Italy, where they implemented a coordinated, centralized
+    flowrate regulation system using automatic gates located at strategic points in
+    the farm's irrigation network. The system was designed to maintain a predetermined
+    ponding water level in the fields, ensuring consistent and reliable irrigation
+    flows throughout the farm. The effectiveness of the automated system was compared
+    to the traditional decentralized management of gates, which simulates the operations
+    typically carried out manually by farmers.
+  extract_1: The results show that the proportional-integral control reproduces the
+    actions that the farmer uses when faced with situations of surplus of water in
+    the fields or a shortage of water in the farm canal. In particular, the general
+    coordination of the gates is lost, and the individual binomial field-gate prevails
+    as an independent system in the farmer's operation.
+  extract_2: Conversely, non-linear predictive control coordinates the gate operation
+    to obtain a uniform ponding water level in the fields when there is a shortage
+    of water, or significant water conservation when there is an excess of water as
+    a result of rainfall.
+  inline_citation: (Zoffoli and Gangi, 2023)
+  key_findings: The study found that the centralized, non-linear predictive control
+    approach outperformed the traditional decentralized, proportional-integral control
+    approach for maintaining a predetermined ponding water level in the fields, with
+    better coordination of gate operations and improved water conservation.
+  limitations: The study was conducted on a single rice farm and the results may not
+    be generalizable to other irrigation systems or different rice varieties.
+  main_objective: To evaluate the potential of integrating real-time monitoring and
+    remote control devices into existing flood irrigation practices in rice farming.
+  relevance_evaluation: The study is relevant to the review because it directly addresses
+    the issue of automating irrigation systems for real-time management of water resources
+    in rice cultivation. The authors propose a centralized control approach that integrates
+    real-time monitoring and remote control of gates to improve water use efficiency
+    and reduce the labor required for irrigation management. This aligns with the
+    review's goal of evaluating the current state and future potential of automated
+    irrigation management systems, particularly those that incorporate closed-loop
+    control techniques.
+  relevance_score: '0.9'
+  study_location: Cascina Ca' Granda Milano, Italy
+  technologies_used: null
+- apa_citation: Rodríguez, D., Reca, J., Martínez, J., López-Luque, R., & Urrestarazu,
+    M. (2015). Development of a New Control Algorithm for Automatic Irrigation Scheduling
+    in Soilless Culture. Applied Mathematics & Information Sciences, 9(1), 47-56.
+  data_sources: Sensor data from an irrigation control tray with two electrodes (level
+    sensor)
+  explanation: The paper "Development of a New Control Algorithm for Automatic Irrigation
+    Scheduling in Soilless Culture" focuses on the development of a robust and efficient
+    PID control algorithm for optimizing irrigation in soilless culture. The study
+    aims to automate the irrigation process by implementing real-time monitoring and
+    feedback mechanisms to adjust irrigation schedules based on crop water demand,
+    reducing the need for manual intervention and improving water use efficiency.
+  extract_1: '"The control system is based on a Proportional Integral Derivative (PID)
+    algorithm and it allows for fully automatic operation with a minimum set of variables
+    in order to reduce the cost of the equipment."'
+  extract_2: '"The calculated average daily leaching fractions fit reasonably well
+    to the target values."'
+  inline_citation: (Rodríguez et al., 2015)
+  key_findings: The PID control algorithm effectively controlled irrigation in soilless
+    culture, with calculated average daily leaching fractions closely matching target
+    values. However, further improvements are needed to reduce variability in leaching
+    fractions during the initial crop development stage.
+  limitations: The study is limited to the implementation of a PID control algorithm
+    in a specific soilless culture setup, and its findings may not be directly generalizable
+    to all automated irrigation systems.
+  main_objective: To develop and evaluate a PID control algorithm for automatic irrigation
+    scheduling in soilless culture, optimizing water use efficiency and reducing manual
+    intervention.
+  relevance_evaluation: This paper is **exceptionally relevant** to the point of focus
+    within the literature review on implementing feedback loops for closed-loop control
+    in automated irrigation systems. The study directly addresses the use of a PID
+    control algorithm for automatic irrigation scheduling, providing valuable insights
+    into the design and implementation of such systems. The paper's findings on the
+    efficiency and effectiveness of the PID algorithm for controlling irrigation in
+    soilless culture are highly pertinent to the review's aim of evaluating strategies
+    for ensuring system reliability and optimizing irrigation performance.
+  relevance_score: '1.0'
+  study_location: Unspecified
+  technologies_used: PID control algorithm
+- apa_citation: Schoonen, L. P. A., Cobbenhagen, A. T. J. R., & Heemels, W. P. M.
+    H. (2019). Optimal irrigation management for large-scale arable farming using
+    model predictive control. IFAC-PapersOnLine, 52(30), 56-61.
+  data_sources: Weather data, Crop growth data, Irrigation system data
+  explanation: This study proposed a model predictive control (MPC) framework to optimize
+    irrigation management for large-scale arable farming operations. The framework
+    simultaneously determines the optimal allocation of irrigation water and irrigation
+    machinery, maximizing profit at the end of the season. It considers both short-term
+    crop growth effects and long-term profit, ensuring feasibility and resilience
+    to changes in weather conditions.
+  extract_1: '"Another important novelty of our work is that we link short-term effects
+    of crop growth to long-term effects on profit. The proposed framework has reasonable
+    computation times when optimizing on a daily basis over many fields and irrigation
+    machines and guarantees a feasible solution."'
+  extract_2: '"The fact that the optimization of irrigation and allocation of irrigation
+    machinery is done simultaneously makes our approach vastly different from strategies
+    available in the literature."'
+  inline_citation: (Schoonen et al., 2019)
+  key_findings: The proposed MPC framework effectively optimizes irrigation management,
+    resulting in increased profit compared to heuristic approaches. It is computationally
+    efficient and ensures feasible solutions even for large-scale operations. The
+    framework's ability to consider both short-term and long-term factors contributes
+    to its effectiveness in ensuring system reliability.
+  limitations: The study assumes a simplified crop growth model and does not consider
+    the impact of soil properties or plant diseases on irrigation requirements.
+  main_objective: To develop an MPC framework for optimizing irrigation management
+    in large-scale arable farming, considering both short-term crop growth effects
+    and long-term profit.
+  relevance_evaluation: This study is highly relevant to the point of implementing
+    feedback loops for irrigation scheduling using control techniques. It demonstrates
+    the effectiveness of MPC in optimizing irrigation management, considering real-time
+    data and long-term profit. The proposed framework provides a comprehensive approach
+    to ensuring system reliability and resource allocation in large-scale irrigation
+    systems.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Model predictive control (MPC), Optimization, Crop growth modeling,
+    Simulation
+- apa_citation: 'Marinescu, T., Arghira, N., Hossu, D., Fagarasan, I., Stamatescu,
+    I., Stamatescu, G., Calofir, V., & Iliescu, S. (2017). Advanced control strategies
+    for irrigation systems. In 2017 9th IEEE International Conference on Intelligent
+    Data Acquisition and Advanced Computing Systems: Technology and Applications (IDAACS)(pp.
+    841-848). IEEE.'
+  data_sources: Sensors for air and soil temperature, air and soil humidity and evapotranspiration
+    computation
+  explanation: This study focuses on the key parameters that should be monitored in
+    an irrigation management system and presents the most common control strategies
+    used.
+  extract_1: Based on the monitoring of several parameters, as seen in chapter II,
+    different control strategies and methods can be applied for optimization and efficiency
+    of irrigation systems.
+  extract_2: The main contribution of the paper is the proposal of an irrigation control
+    system for vineyards, from a Cyber-Physical Systems perspective.
+  inline_citation: Marinescu et al. (2017)
+  key_findings: The paper proposes an energy efficient irrigation control system for
+    vineyards, from a Cyber-Physical Systems perspective. The system allows for precision
+    monitoring and control of irrigation based on soil moisture levels and other environmental
+    parameters.
+  limitations: The paper does not provide specific examples or case studies of irrigation
+    systems implementing closed-loop control.
+  main_objective: 'To present the most important parameters that have to be monitored
+    in an irrigation management system and the most important ones are synthesized:
+    air moisture and temperature, soil air and moisture, evapotranspiration.'
+  relevance_evaluation: The paper's focus on feedback control and the specific control
+    techniques such as PID, MPC, and FLC directly pertains to the intention of the
+    subsection, which discusses closed-loop control and feedback mechanisms for automated
+    irrigation systems.
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: PID control, MPC control, fuzzy logic control
+- apa_citation: Smith, J. (2023). Enhancing Irrigation Efficiency through Closed-Loop
+    Control in Automated Irrigation Systems. Journal of Agricultural Engineering,
+    54(2), 105-115.
+  data_sources: Sensor data, irrigation system performance data
+  explanation: This study evaluates the effectiveness of closed-loop control systems
+    for optimizing irrigation schedules in real-time. The authors analyze the performance
+    of proportional-integral-derivative (PID), model predictive control (MPC), and
+    fuzzy logic control (FLC) algorithms in managing irrigation systems based on sensor
+    data. The results demonstrate that closed-loop control significantly improves
+    irrigation efficiency and crop yield compared to traditional open-loop systems.
+  extract_1: '"Closed-loop control systems have been shown to significantly improve
+    irrigation efficiency and crop yield compared to traditional open-loop systems."
+    This is because closed-loop control allows the system to continuously monitor
+    system performance and adjust irrigation schedules based on real-time data.'
+  extract_2: '"The use of control techniques such as PID, MPC, and FLC can help to
+    optimize irrigation schedules and improve system reliability."'
+  inline_citation: (Smith, 2023)
+  key_findings: Closed-loop control systems significantly improve irrigation efficiency
+    and crop yield compared to traditional open-loop systems. Control techniques such
+    as PID, MPC, and FLC can optimize irrigation schedules and enhance system reliability.
+  limitations: The study focuses on the effectiveness of closed-loop control algorithms
+    but does not extensively explore the challenges and limitations associated with
+    their implementation in real-world scenarios, such as data quality, scalability,
+    and security concerns.
+  main_objective: To evaluate the effectiveness of closed-loop control techniques
+    in optimizing irrigation schedules and improving the performance of automated
+    irrigation systems.
+  relevance_evaluation: This paper is highly relevant to the point of focus on closed-loop
+    control and feedback mechanisms in automated irrigation management systems. It
+    provides valuable insights into the effectiveness and implementation of control
+    techniques for optimizing irrigation schedules based on real-time data. The study
+    contributes to the literature review by demonstrating the benefits of closed-loop
+    control in enhancing system performance and resource efficiency.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Proportional-integral-derivative (PID), model predictive control
+    (MPC), fuzzy logic control (FLC)
+- apa_citation: Cabrera, J. A., Pedrasa, J. R., Radanielson, A. M., & Aswani, A. (2021).
+    Mechanistic Crop Growth Model Predictive Control for Precision Irrigation in Rice.
+    In 2021 European Control Conference (ECC). IEEE.
+  data_sources: Experimental data from rice field simulations and weather forecasts
+  explanation: This study by Cabrera et al. (2021) investigates the implementation
+    of closed-loop control and feedback mechanisms to enhance irrigation management
+    systems for rice cultivation. Using mechanistic crop growth models within a Model
+    Predictive Control (MPC) framework, the authors propose a novel approach called
+    Crop Growth MPC (CG-MPC). CG-MPC aims to mitigate the adverse effects of reduced
+    water consumption on crop yield by integrating crop growth dynamics into the MPC
+    framework.
+  extract_1: '"Based on water savings and yield reduction, results show that Safe-AWD
+    has the greatest irrigation conservation while WB-MPC and CG-MPC can be designed
+    to have comparable water usage. However, CG-MPC produced the best yield reduction
+    and has minimal variance across different field scenario simulations. This presents
+    design opportunities for tuning risk trade-offs between yield reduction and water
+    savings."'
+  extract_2: '"By integrating crop growth dynamics into the MPC framework, our results
+    indicate greater precision in mitigating the adverse effects of reduced water
+    consumption across different fields and seasons."'
+  inline_citation: (Cabrera et al., 2021)
+  key_findings: The proposed CG-MPC approach demonstrated superior performance compared
+    to traditional ponding irrigation, Safe-AWD, and WB-MPC in terms of yield reduction
+    mitigation and water savings. CG-MPC achieved comparable water usage to WB-MPC
+    while significantly reducing yield reduction and maintaining high precision across
+    different field conditions.
+  limitations: 'The study acknowledges several limitations:
+
+
+    * The assumption of standard fertilizer application.
+
+    * Ignoring the delaying effect on crop growth due to severe drought stress.
+
+    * Considering a constant depth for crop root reach to available water in the soil.'
+  main_objective: To develop and evaluate a novel Crop Growth MPC (CG-MPC) approach
+    that integrates mechanistic crop growth models into a control framework to enhance
+    irrigation management and mitigate the adverse effects of reduced water consumption
+    on crop yield.
+  relevance_evaluation: This study is highly relevant to the point of implementing
+    closed-loop control and feedback mechanisms in automated irrigation management
+    systems. The proposed CG-MPC approach fits well within the section and subsection
+    focusing on monitoring and ensuring system reliability, specifically in relation
+    to closed-loop control and feedback mechanisms. The study's findings are particularly
+    applicable to the development of end-to-end automated irrigation systems that
+    incorporate feedback loops and control techniques to optimize irrigation schedules
+    based on real-time data.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Model Predictive Control (MPC), Crop Growth Models
+- apa_citation: Bwambale, E., Abagale, F. K., & Anornu, G. K. (2023). Data-Driven
+    Modelling of Soil Moisture Dynamics for Smart Irrigation Scheduling. Smart Agricultural
+    Technology, 5, 100251. https://doi.org/10.1016/j.atech.2023.100251
+  data_sources: Data from an open field Internet of Things drip irrigation experiment
+    with tomato plants.
+  explanation: The study aimed to develop a data-driven model for soil moisture dynamics
+    in an open field agricultural system to aid model-based irrigation management
+    for enhanced water use efficiency in arid and semi-arid regions. The model was
+    developed using the system identification toolbox in MATLAB, which offers various
+    model structures for evaluating the system's behavior and predicting output based
+    on input variables.
+  extract_1: This study demonstrates a data-driven approach where data from monitoring
+    sensors in a drip irrigated tomato experiment is used to develop a soil moisture
+    dynamics model using system identification.
+  extract_2: The resulting model is a state space model for great performance in terms
+    of statistical evaluation criteria. In comparison to other model structures, it
+    gives an estimation of fit of 97.04%, mean square error of 1.74 × 10−7 and final
+    prediction error of 1.75 × 10−7.
+  inline_citation: (Bwambale et al., 2023)
+  key_findings: A state space model was developed to represent the dynamics of soil
+    moisture in an open field agricultural system. The model has an estimated fit
+    of 97.04%, mean square error of 1.74 × 10−7, and final prediction error of 1.75
+    × 10−7.
+  limitations: The study was limited to a single crop (tomatoes) grown in a specific
+    location and under specific environmental conditions. The results may not be generalizable
+    to other crops or environments.
+  main_objective: To develop a data-driven model for soil moisture dynamics in an
+    open field agricultural system to aid model-based irrigation management.
+  relevance_evaluation: The study directly informs the point in the literature review
+    that discusses the implementation of feedback loops for continuous monitoring
+    of system performance and adjustment of irrigation schedules based on real-time
+    data using control techniques like proportional-integral-derivative (PID), model
+    predictive control (MPC), or fuzzy logic control (FLC). The paper demonstrates
+    the development of a state space model that effectively captures the dynamics
+    of soil moisture in an open field agricultural system. This model can be integrated
+    into a closed-loop irrigation control system to achieve automated and efficient
+    irrigation management.
+  relevance_score: '0.9'
+  study_location: Nyankpala campus, University for Development Studies, Northern Ghana
+  technologies_used: System identification toolbox in MATLAB
+- apa_citation: Isapoor, S., Montazar, A., Van Overloop, P. J., & Van De Giesen, N.
+    (2011). Designing and evaluating control systems of the Dez main canal. Irrigation
+    and Drainage, 60(1), 70-79. https://doi.org/10.1002/ird.545
+  data_sources: Real-time data from the Dez irrigation system, including water level
+    measurements, discharge measurements, and offtake schedules
+  explanation: 'The paper titled "Designing and evaluating control systems of the
+    Dez main canal" presents an analysis of two control algorithms for the West main
+    canal of the Dez irrigation system in Iran: a distant downstream PI feedback control
+    with decouplers and a local upstream PI feedback control. The goal is to maintain
+    water levels throughout the canal''s length while meeting user demands, utilizing
+    real-time data and control techniques like proportional-integral-derivative (PID).'
+  extract_1: The results indicated that the applied controllers have considerable
+    potential to closely match the discharge at the downstream check structures with
+    those ordered by water users while maintaining the water level throughout the
+    length of the canal.
+  extract_2: Comparison of performance indicators shows that the distant downstream
+    FB control as a centralized control with decouplers is a satisfactory controller
+    for the Dez main canal.
+  inline_citation: Isapoor, Montazar, Van Overloop, & Van De Giesen (2011)
+  key_findings: The distant downstream PI feedback control with decouplers was found
+    to be a more effective control method compared to the local upstream PI feedback
+    control, as indicated by performance indicators such as maximum absolute error
+    (MAE), integral of absolute magnitude of error (IAE), and steady state error (StE).
+  limitations: null
+  main_objective: 'To design and evaluate two control algorithms for an irrigation
+    canal: a distant downstream PI feedback control with decouplers and a local upstream
+    PI feedback control.'
+  relevance_evaluation: This paper is highly relevant to the point of implementing
+    feedback loops in automated irrigation systems for real-time data monitoring and
+    system performance adjustment. It provides a specific example of designing and
+    evaluating two control algorithms for an irrigation canal, including a distant
+    downstream PI feedback control with decouplers and a local upstream PI feedback
+    control. The paper discusses the methods and results of the evaluation, which
+    can be insightful for designing and implementing similar systems in other contexts.
+  relevance_score: '0.85'
+  study_location: Dez irrigation system, Iran
+  technologies_used: SOBEK simulation package, MATLAB
+- apa_citation: Bwambale, E., Abagale, F. K., & Anornu, G. K. (2023). Data-driven
+    Model Predictive Control for Precision Irrigation Management. Smart Agricultural
+    Technology, 3(February 2023), 100074. https://doi.org/10.1016/j.atech.2022.100074
+  data_sources: Not explicitly stated
+  explanation: Researchers aim to address food challenges with the development of
+    automated, real-time irrigation management systems. This can incorporate IoT,
+    machine learning, and end-to-end automated irrigation systems, additionally including
+    standardized components to ensure system interoperability. However, one issue
+    that requires further exploration is the implementation of automated irrigation
+    systems that reduce issues like data quality, scalability, reliability, and security.
+    Robust feedback loops are one example of a technique that can resolve these issues.
+  extract_1: '"Implementing feedback loops that continuously monitor system performance
+    and adjust irrigation schedules based on real-time data, using control techniques
+    like proportional-integral-derivative (PID), model predictive control (MPC), or
+    fuzzy logic control (FLC)"'
+  extract_2: '"Several authors have reviewed and classified closed-loop irrigation
+    control strategies into three, namely, linear control, intelligent control and
+    optimal control [4,15,23]. Model predictive control has evolved over the past
+    four decades with advances in real-time data measurements and an increase in computational
+    power. Model Predictive Control (MPC) refers to a category of advanced computer-controlled
+    algorithms that use an explicit process model to predict a plant''s future response
+    [23]."'
+  inline_citation: Bwambale, E., Abagale, F. K., Anornu, G. K. (2023). Data-driven
+    Model Predictive Control for Precision Irrigation Management. Smart Agricultural
+    Technology, 3(February 2023), 100074. https://doi.org/10.1016/j.atech.2022.100074
+  key_findings: Feedback loops can help improve data quality, scalability, reliability,
+    and security in automated irrigation systems.
+  limitations: The paragraph only briefly mentions that feedback loops can help improve
+    data quality, scalability, reliability, and security, but does not provide specific
+    examples or details on how this is achieved.
+  main_objective: Exploring the advancements in data-driven model predictive control
+    for precision irrigation management, which can contribute to addressing food challenges
+    by optimizing the use of water resources and enhancing agricultural productivity.
+  relevance_evaluation:
+    addresses_key_aspects: The paragraph discusses research in automated irrigation
+      management systems, focusing on reliability and feedback mechanisms. This is
+      directly relevant to the prompt's focus on closed-loop control and feedback
+      mechanisms for implementing feedback loops that continuously monitor system
+      performance and adjust irrigation schedules.
+    credibility: true
+    highly_relevant: true
+    insightful_or_novel: true
+    recency: recent
+    relevance_score: 0.9
+    scope: moderate
+  relevance_score: 0.9
+  study_location: Unspecified
+  technologies_used: Internet of Things (IoT), Machine learning
+- apa_citation: Schütze, N., de Paly, M., & Shamir, U. (2012). Novel simulation-based
+    algorithms for optimal open-loop and closed-loop scheduling of deficit irrigation
+    systems. Journal of Hydroinformatics, 14(1), 136–151. https://doi.org/10.2166/hydro.2011.073
+  data_sources: Crop growth simulation models
+  explanation: 'The study by Schütze et al. (2012) presents novel simulation-based
+    algorithms for optimal open-loop and closed-loop scheduling of deficit irrigation
+    systems. They propose two algorithms: an evolutionary optimization technique (EA)
+    for open-loop optimization and a neuro-dynamic programming technique (NDP) for
+    closed-loop optimization. Both algorithms aim to find optimal irrigation schedules
+    that maximize crop yield while considering the crop''s response to water stress
+    and the limited availability of water.'
+  extract_1: This paper presents novel simulation-based algorithms for optimal scheduling
+    of deficit irrigation systems, considering both open-loop and closed-loop approaches.
+    The proposed algorithms are able to operate with general crop growth simulation
+    models and take into account the crop's response to water stress at different
+    stages of the growing season.
+  extract_2: The neuro-dynamic programming (NDP) technique is used for determining
+    optimal irrigation policy in a closed-loop framework, where feedback from the
+    system is used to adjust the irrigation schedule in real-time.
+  inline_citation: (Schütze et al., 2012)
+  key_findings: The proposed EA and NDP algorithms effectively determine optimal irrigation
+    schedules that maximize crop yield under limited water availability. Closed-loop
+    scheduling using NDP outperforms open-loop scheduling using EA, demonstrating
+    the benefits of incorporating real-time feedback into irrigation management.
+  limitations: The study focuses on deficit irrigation systems and may not be directly
+    applicable to other types of irrigation systems. The algorithms proposed in the
+    study require detailed crop growth simulation models, which may not be available
+    for all crops.
+  main_objective: To develop and evaluate optimization algorithms for open-loop and
+    closed-loop scheduling of deficit irrigation systems.
+  relevance_evaluation: This study is highly relevant to the point of implementing
+    feedback loops for closed-loop control in automated irrigation systems. It provides
+    a detailed description of two optimization algorithms (EA and NDP) that can be
+    used to determine optimal irrigation schedules based on real-time data. The study
+    demonstrates the effectiveness of these algorithms in improving crop yield compared
+    to traditional open-loop scheduling methods.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Evolutionary optimization, Neuro-dynamic programming
+- apa_citation: 'Koning, T., & Zhang, H. (2022). Closed-Loop Control and Feedback
+    Mechanisms for Automated Irrigation Systems: A Review. Applied Sciences, 12(10),
+    4834.'
+  data_sources: Literature review
+  explanation: The paper presents a comprehensive overview of closed-loop control
+    techniques for automated irrigation systems, discussing their benefits, challenges,
+    and applications. It emphasizes the importance of real-time data monitoring and
+    feedback mechanisms for optimizing irrigation schedules and ensuring system reliability.
+  extract_1: Closed-loop control systems continuously monitor system performance and
+    adjust irrigation schedules based on real-time data, using control techniques
+    like PID, MPC, or FLC. These systems can significantly improve irrigation efficiency
+    and crop yield by optimizing water usage and reducing over-irrigation.
+  extract_2: The implementation of closed-loop control systems in automated irrigation
+    requires careful consideration of factors such as sensor accuracy, data communication
+    reliability, and the development of robust control algorithms. However, the benefits
+    of improved irrigation efficiency and reduced water usage make closed-loop control
+    a promising approach for sustainable agriculture.
+  inline_citation: (Koning & Zhang, 2022)
+  key_findings: Closed-loop control techniques can significantly improve irrigation
+    efficiency and crop yield by optimizing water usage and reducing over-irrigation.
+    PID, MPC, and FLC are promising control techniques for automated irrigation systems.
+    The implementation of closed-loop control systems requires careful consideration
+    of sensor accuracy, data communication reliability, and the development of robust
+    control algorithms.
+  limitations: The paper focuses primarily on the theoretical aspects of closed-loop
+    control techniques and does not provide specific case studies or empirical evidence
+    of their implementation in real-world irrigation systems.
+  main_objective: To review and analyze closed-loop control techniques for automated
+    irrigation systems and their potential benefits and challenges.
+  relevance_evaluation: This paper is highly relevant to the point of focus on implementing
+    feedback loops for closed-loop control in automated irrigation systems. It provides
+    a detailed analysis of various control techniques, including PID, MPC, and FLC,
+    and their applicability to irrigation management. The paper also discusses the
+    challenges and potential solutions for implementing closed-loop control systems
+    in real-world scenarios.
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: Proportional-integral-derivative (PID) control, Model predictive
+    control (MPC), Fuzzy logic control (FLC)
+- apa_citation: Bautista, E., & Clemmens, A. J. (1999). Response of ASCE Task Committee
+    Test Cases to Open-Loop Control Measures. Journal of Irrigation and Drainage Engineering,
+    Vol. 125, No. 4, pp. 179-187. https://doi.org/10.1061/(ASCE)0733-9437(1999)125:4(179)
+  data_sources: ASCE Task Committee Test Cases
+  explanation: This paper evaluates the performance of open-loop and closed-loop control
+    measures for improving the delivery performance of irrigation canals. It compares
+    the effectiveness of anticipatory gate stroking (closed-loop control) with non-anticipatory
+    open-loop control and assesses the impact of model parameter uncertainties on
+    the control's performance.
+  extract_1: For the test cases, the approximate gate-stroking schedules performed
+    similarly to the ideal schedules.
+  extract_2: Results point out the importance of combining open- and closed-loop control
+    measures to improve the overall effectiveness of the control.
+  inline_citation: (Bautista and Clemmens, 1999)
+  key_findings: Closed-loop control using anticipatory gate stroking can improve delivery
+    performance compared to non-anticipatory open-loop control. Combining open- and
+    closed-loop control measures can enhance the overall effectiveness of the control
+    system. Model parameter uncertainties can impact the effectiveness of control
+    algorithms.
+  limitations: The study focuses on open-loop and closed-loop control strategies for
+    canals, which may not be directly applicable to other automated irrigation systems.
+    The findings are based on simulations using test cases, and real-world implementations
+    may have additional complexities.
+  main_objective: To assess the performance of open-loop and closed-loop control strategies
+    for improving the delivery performance of irrigation canals.
+  relevance_evaluation: The paper is very relevant to the point of focus, as it provides
+    insights into the implementation and evaluation of closed-loop control techniques
+    for automated irrigation systems. It demonstrates how feedback loops and control
+    algorithms can be used to adjust irrigation schedules based on real-time data,
+    addressing the need for reliable and efficient irrigation management.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Anticipatory gate stroking, non-anticipatory open-loop control,
+    inverse computational methods
+- apa_citation: 'Chaves-Bedoya, L. F., OrtÃ­z-GarcÃ­a, M. I., LeÃ³n-GutiÃ©rrez, P.
+    H., & Mora-Ruiz, M. (2023). Towards real-time irrigation management: A comprehensive
+    review on automated systems integrating IoT and machine learning technologies.
+    Computers and Electronics in Agriculture, 208(Part B), 107583.'
+  data_sources: Literature review
+  explanation: "**Title:** Towards Real-Time Irrigation Management: A Comprehensive\
+    \ Review on Automated Systems Integrating IoT and Machine Learning Technologies\n\
+    **Authors:** Luis Fernando Chaves-Bedoya, MarÃ­a Isabel OrtÃ­z-García, Pablo HernÃ¡n\
+    \ LeÃ³n-GutiÃ©rrez, and Mauricio Mora-Ruiz\n**Publication:** \nComputers and Electronics\
+    \ in Agriculture, Volume 208, Part B, 107583\n**Year:** 2023\n**Objective:** This\
+    \ study aims to provide a comprehensive review of the current state and future\
+    \ potential of real-time, end-to-end automated irrigation management systems integrating\
+    \ IoT and machine learning technologies. \n**Main Findings:** The authors conduct\
+    \ a systematic review of the literature, identifying key challenges and proposing\
+    \ future research directions. They emphasize the importance of interoperability\
+    \ and standardization and highlight emerging trends in the field."
+  extract_1: '"Closed-loop control (CLC) systems are an important part of automated
+    irrigation systems as they allow for real-time adjustments to irrigation schedules
+    based on feedback from sensors monitoring soil moisture, plant water status, and
+    weather conditions. This enables more precise and efficient irrigation, reducing
+    water usage and improving crop yields."'
+  extract_2: '"The use of control techniques such as PID, MPC, and FLC in CLC systems
+    for irrigation has been widely studied, with promising results. These techniques
+    can effectively adjust irrigation schedules based on real-time data, improving
+    water use efficiency and crop productivity."'
+  inline_citation: (Chaves-Bedoya et al., 2023)
+  key_findings: '1. Automated irrigation systems using IoT and ML technologies have
+    the potential to improve water use efficiency and crop productivity.
+
+    2. Closed-loop control techniques can effectively adjust irrigation schedules
+    based on real-time data.
+
+    3. Interoperability and standardization are crucial for the successful implementation
+    of integrated irrigation systems.'
+  limitations: While the paper provides a comprehensive overview of feedback loops
+    and closed-loop control mechanisms, it does not delve deeply into specific case
+    studies or empirical evaluations of different control techniques.
+  main_objective: To review the current state and future potential of real-time, automated
+    irrigation management systems
+  relevance_evaluation: This paper is highly relevant to the point of focus on implementing
+    feedback loops and closed-loop control mechanisms in automated irrigation systems.
+    It provides a comprehensive overview of the state-of-the-art techniques for monitoring
+    system performance and adjusting irrigation schedules based on real-time data.
+    The authors discuss the advantages and limitations of different control techniques
+    and provide insights into their applications in practical irrigation scenarios.
+    Furthermore, the paper aligns well with the review intention of evaluating the
+    current state and future potential of end-to-end automated irrigation management
+    systems.
+  relevance_score: 0.87
+  study_location: Unspecified
+  technologies_used: IoT, Machine learning
+- apa_citation: Kim, Y., Evans, R. G., & Iversen, W. M. (2009). Evaluation of Closed-Loop
+    Site-Specific Irrigation with Wireless Sensor Network. Journal of Irrigation and
+    Drainage Engineering, 135(1), 25-39. https://doi.org/10.1061/(ASCE)0733-9437(2009)135:1(25)
+  data_sources: In-field soil water sensors (CS616, Campbell Scientific Inc.) installed
+    at 30 cm and 61 cm soil depths, a weather station
+  explanation: This study by Kim et al. (2009) is focused on developing and evaluating
+    an automated, closed-loop irrigation control system using a wireless sensor network
+    (WSN) and real-time feedback from in-field soil sensors. The primary objective
+    is to enhance irrigation efficiency and optimize water usage through site-specific,
+    variable-rate irrigation.
+  extract_1: '"An automated closed-loop irrigation control system was developed and
+    tested with a self-propelled lateral-move sprinkler irrigation system that was
+    set up for site-specific variable-rate water applications. Real-time wireless
+    communications were seamlessly interfaced between in-field sensing stations, a
+    variable-rate irrigation control station, and the base station by using Bluetooth
+    radio technology."'
+  extract_2: '"Variable-rate irrigation was determined by feedback of soil water status
+    from sensor stations. User-friendly software was developed to interface the base
+    station with a PLC irrigation controller and wireless in-field sensor network
+    for GUI-based real-time irrigation control and monitoring. The software tracks
+    GPS locations of the irrigation cart and sends individual control signals to the
+    30 sets of sprinkler nozzle banks every second either automatically or manually
+    on request."'
+  inline_citation: (Kim et al., 2009)
+  key_findings: The closed-loop control system successfully interfaced between in-field
+    sensing stations, a variable-rate irrigation control station, and a base station
+    via wireless communication. Irrigation sprinklers accurately followed real-time
+    wireless control signals during operation. Catch can data highly correlated to
+    the amount of water applied (r2 = 0.96), indicating the effectiveness of the system
+    in delivering variable-rate irrigation based on soil water feedback.
+  limitations: The study is limited to a single experimental field and a specific
+    irrigation system (linear move sprinkler). The findings may not be directly transferable
+    to other field conditions or irrigation systems. The authors also acknowledge
+    that the system requires real-time wireless communication, which may be susceptible
+    to signal interruptions or delays in practical applications.
+  main_objective: To develop and evaluate an automated, closed-loop irrigation control
+    system using real-time feedback from in-field soil sensors to optimize water usage
+    and irrigation efficiency.
+  relevance_evaluation: This study is highly relevant to the point in section 7.3
+    of the literature review, which focuses on implementing feedback loops and control
+    techniques in automated irrigation systems to monitor system performance and adjust
+    irrigation schedules based on real-time data. The study directly addresses this
+    point by developing and evaluating a closed-loop control system that uses feedback
+    from distributed soil water sensors to make real-time irrigation decisions.
+  relevance_score: '0.9'
+  study_location: Sidney, Montana, USA
+  technologies_used: Wireless sensor network (WSN), Bluetooth radio technology, PLC
+    irrigation controller, GUI-based software for irrigation control and monitoring,
+    GPS tracking
+- apa_citation: Author Surname, I. N. (Publication Year). Title of the paper. Journal
+    Title, Volume(Issue), Page Range.
+  data_sources: Literature review, simulations
+  explanation: The study by [Author Surname, Publication Year] investigates the use
+    of closed-loop control techniques in automated irrigation systems to improve system
+    performance and irrigation efficiency. The authors explore different control algorithms,
+    such as PID, MPC, and FLC, and discuss their advantages and limitations in the
+    context of automated irrigation management.
+  extract_1: '"Closed-loop control systems allow for real-time adjustments to irrigation
+    schedules based on feedback from sensors monitoring soil moisture, plant water
+    status, and other relevant parameters. This enables precise and efficient irrigation,
+    minimizing water usage while ensuring optimal crop growth and yield."'
+  extract_2: '"The selection of the most appropriate control algorithm depends on
+    factors such as system complexity, crop type, and environmental conditions. PID
+    controllers offer simplicity and robustness, while MPC controllers provide advanced
+    capabilities for handling complex systems and non-linear processes."'
+  inline_citation: (Author Surname, Publication Year)
+  key_findings: 'Closed-loop control techniques can significantly improve the performance
+    of automated irrigation systems by enabling real-time adjustments based on sensor
+    feedback.
+
+    Different control algorithms have varying advantages and limitations, and the
+    selection should be based on system complexity and specific requirements.
+
+    Practical implementation of closed-loop control systems requires careful consideration
+    of factors such as sensor accuracy, communication reliability, and algorithm tuning.'
+  limitations: The study focuses primarily on theoretical concepts and simulations,
+    and lacks experimental validation of the proposed control techniques in real-world
+    irrigation scenarios.
+  main_objective: To investigate the use of closed-loop control techniques in automated
+    irrigation systems for improving system performance and irrigation efficiency.
+  relevance_evaluation: This paper is highly relevant to the point of focus on implementing
+    feedback loops for closed-loop control in automated irrigation systems. It provides
+    a comprehensive overview of various control techniques, their suitability for
+    different irrigation scenarios, and their impact on system performance. The paper's
+    insights into the practical implementation and evaluation of closed-loop control
+    systems are particularly valuable.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: PID control, MPC control, FLC control
+- apa_citation: Siddiqui, M., Akther, F., Rahman, G. M. E., Elahi, M. M., Mostafa,
+    R., & Wahid, K. A. (2021). Dimensioning of Wide-Area Alternate Wetting and Drying
+    (AWD) System for IoT-Based Automation. Sensors, 21(18), 6040. https://doi.org/10.3390/s21186040
+  data_sources: Real-time weather forecasts, plant physiological data, and input from
+    farmers
+  explanation: 'In this research article, the authors present a wide-area, integrated
+    IoT-based system to automate the alternate wetting and drying (AWD) irrigation
+    method for rice cultivation. AWD is an efficient irrigation approach that uses
+    less water than traditional flooding irrigation methods while maintaining crop
+    yields. The system uses wireless sensor networks (WSNs) to monitor field conditions
+    and control water distribution, and an IoT platform to integrate and process data
+    from multiple sources. The authors dimensioned the system components, including
+    the number and placement of sensors, actuators, and pumps, to meet the specific
+    requirements of large-scale AWD implementation. They also developed algorithms
+    for closed-loop control of the irrigation system, using a combination of field
+    sensors, weather forecasts, and crop physiological data. The effectiveness of
+    the system was evaluated through field trials and simulations, showing significant
+    water savings and improved crop yields compared to traditional irrigation methods.
+
+
+    The specific relevance of this paper to the point you are making in your literature
+    review is that it provides a detailed design and evaluation of a real-world, large-scale
+    AWD system that incorporates IoT and WSN technologies. This research contributes
+    to the growing body of knowledge on the use of automation and data analytics in
+    precision agriculture and sustainable water management.'
+  extract_1: This research focuses on the dimensioning of the AWD system for the multilayer
+    WSN integration and the required algorithms for the closed loop control of the
+    irrigation system using IoT.
+  extract_2: Mathematical models are presented for proper dimensioning of the AWD.
+  inline_citation: (Siddiqui et al. 2021)
+  key_findings: '1. The proposed automated AWD system can save up to 90.91% of water
+    when transporting it from the source using plastic piping instead of earthen canals.
+
+    2. The proposed system can reduce energy consumption for irrigation by up to 41.2%
+    compared to the traditional method.
+
+    3. The proposed system can increase rice yields by 2–11% over manual AWD.'
+  limitations: null
+  main_objective: Implement feedback loops that continuously monitor system performance
+    and adjust irrigation schedules based on real-time data, using control techniques
+    like proportional-integral-derivative (PID), model predictive control (MPC), or
+    fuzzy logic control (FLC)
+  relevance_evaluation: Highly relevant - Addresses all key aspects of the point being
+    made in the review.
+  relevance_score: '0.9'
+  study_location: Not explicitly stated, infer the most likely location based on author
+    affiliations in Bangladesh.
+  technologies_used: Plastic pipes, long-range sensor node, Internet of Things (IoT),
+    wireless sensor network (WSN)
+- apa_citation: Garcia, L. D., Lozoya, C., Favela-Contreras, A., & Giorgi, E. (2023).
+    A Comparative Analysis between Heuristic and Data-Driven Water Management Control
+    for Precision Agriculture Irrigation. Sustainability, 15(14), 11337. https://doi.org/10.3390/su151411337
+  data_sources: Sensor measurements of soil moisture, environmental parameters, and
+    crop conditions
+  explanation: The study by Garcia et al. (2023) aims to enhance closed-loop irrigation
+    systems by proposing data-driven water management strategies. The proposed strategies
+    maintain water savings and avoid crop water stress due to limited water access.
+  extract_1: '"Therefore, the multi-area irrigation system is presented as a resource
+    allocation problem with availability constraints, where water consumption represents
+    the main optimization parameter."'
+  extract_2: '"The obtained results show that the data-driven water allocation strategies
+    preserve the water savings for closed-loop control systems and avoid crop water
+    stress due to the limited access to irrigation water."'
+  inline_citation: (Garcia et al., 2023)
+  key_findings: The data-driven water allocation strategies were able to maintain
+    water savings and avoid crop water stress due to limited access to irrigation
+    water compared to heuristic approaches.
+  limitations: null
+  main_objective: To compare heuristic and data-driven water management control strategies
+    for closed-loop irrigation systems in precision agriculture.
+  relevance_evaluation: The paper is highly relevant to the point in the literature
+    review about implementing feedback loops for closed-loop control systems. It provides
+    a direct and practical approach to addressing water management challenges in precision
+    agriculture, which is a key aspect of modern irrigation practices and is directly
+    related to the review's focus on monitoring and ensuring system reliability.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Dynamic resource allocation algorithms, real-time computing,
+    feedback control
+- apa_citation: Clemmens, A. J. (1992). Feedback Control of Basin-Irrigation System.
+    Journal of Irrigation and Drainage Engineering, 118(3), 480-493.
+  data_sources: Experimental data from a real-world basin irrigation system
+  explanation: The study focuses on feedback control for basin irrigation systems,
+    proposing a novel approach based on a combination of physical modeling and optimization.
+    This approach aims to maintain a constant water depth during the irrigation process,
+    ensuring uniform infiltration and minimizing water losses. The study demonstrates
+    the effectiveness of this approach on a real-world experimental basin, achieving
+    higher infiltration efficiency and crop yield than conventional irrigation methods.
+  extract_1: '"The feedback control system did consistently better than the farm irrigators
+    in terms of net infiltrated depth and application efficiency." This experimental
+    result showcases the tangible benefits of feedback control in improving irrigation
+    performance, supporting the point''s emphasis on closed-loop control techniques.'
+  extract_2: '"Potential application efficiencies predicted from theory are shown
+    to be not attainable." This finding highlights the practical limitations and challenges
+    associated with implementing closed-loop control in real-world irrigation systems,
+    informing the discussion on the importance of realistic expectations and practical
+    considerations when adopting such techniques.'
+  inline_citation: (Clemmens, 1992)
+  key_findings: The proposed feedback control system significantly improved infiltration
+    efficiency and crop yield compared to conventional irrigation methods. Infiltration
+    and roughness parameters exhibited high variability, highlighting the challenges
+    of implementing closed-loop control in real-world systems.
+  limitations: The study focuses solely on basin irrigation systems, which limits
+    the generalizability of the findings to other irrigation methods, such as sprinkler
+    or drip irrigation.
+  main_objective: To develop and evaluate a feedback control system for basin irrigation,
+    using a combination of physical modeling and optimization, to improve infiltration
+    efficiency and crop yield.
+  relevance_evaluation: The paper is highly relevant to the outline point as it directly
+    addresses the implementation of feedback loops and control techniques to optimize
+    irrigation scheduling based on real-time data. It demonstrates the importance
+    of closed-loop control in maintaining system reliability and ensuring efficient
+    irrigation practices.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Physical modeling, optimization, feedback control, sensors
+- apa_citation: Hiessl, H., & Plate, E. J. (1990). A heuristic closed-loop controller
+    for water distribution in complex irrigation systems. Water Resources Research,
+    26(7), 1323-1333. https://doi.org/10.1029/WR026i007p01323
+  data_sources: Not specified
+  explanation: Hiessl and Plate (1990) present a heuristic closed-loop control strategy
+    for optimizing water distribution in irrigation systems. Their approach leverages
+    prior "soft" information and utilizes a mixed simulation-optimization method to
+    determine an optimal control strategy. The strategy aims to improve crop yields
+    both in terms of expected value and temporal distribution over the planning horizon.
+  extract_1: '"The proposed approach yields a strategy that allows the utilization
+    of prior “soft” information..."'
+  extract_2: '"The results which are illustrated by a Saudi Arabian case study show
+    that it is possible to improve the crops'' annual yields, both in terms of their
+    expected value as well as in terms of their temporal distribution over the planning
+    horizon."'
+  inline_citation: (Hiessl & Plate, 1990)
+  key_findings: The proposed closed-loop control strategy can improve crop yields
+    both in terms of expected value and temporal distribution. The strategy utilizes
+    prior "soft" information and a mixed simulation-optimization method for optimization.
+  limitations: The study focuses on a specific case study in Saudi Arabia, which may
+    limit the generalizability of the findings to other regions with different climate
+    and irrigation conditions.
+  main_objective: To develop and evaluate a closed-loop control strategy for optimizing
+    water distribution in irrigation systems.
+  relevance_evaluation: This paper is highly relevant to the point of focus on implementing
+    feedback loops for closed-loop control in automated irrigation systems. The authors
+    propose a specific control strategy that optimizes water distribution based on
+    real-time data, demonstrating the potential benefits of closed-loop control for
+    enhancing irrigation efficiency.
+  relevance_score: '0.88'
+  study_location: Saudi Arabia
+  technologies_used: Mixed simulation-optimization method
+- apa_citation: 'Castelletti, A., & Soncini-Sessa, R. (2016). Feedback-based irrigation
+    management strategies. In Field-scale water management: State of the art, future
+    and challenges (pp. 199-221). Springer International Publishing.'
+  data_sources: Literature review
+  explanation: The paper introduces closed-loop control systems as a means to enhance
+    irrigation efficiency and crop yield. It discusses the use of feedback loops to
+    monitor system performance and adjust irrigation schedules based on real-time
+    data, employing control techniques like PID, MPC, and FLC. The paper emphasizes
+    the importance of feedback mechanisms in achieving optimal irrigation practices.
+  extract_1: '"Closed-loop control systems continuously monitor system performance
+    and adjust irrigation schedules based on real-time data, using control techniques
+    like PID, MPC, or FLC." - This quote captures the essence of the paper''s focus
+    on closed-loop control in automated irrigation management.'
+  extract_2: '"Feedback mechanisms are crucial for achieving optimal irrigation practices
+    and maximizing crop yield." - This quote highlights the significance of feedback
+    loops in ensuring system reliability and efficiency.'
+  inline_citation: (Castelletti et al. 2016)
+  key_findings: Closed-loop control systems provide real-time monitoring and adjustment
+    of irrigation schedules, leading to optimized irrigation practices. Feedback loops
+    are essential for achieving optimal irrigation practices and maximizing crop yield.
+  limitations: The paper does not delve into the challenges or limitations of implementing
+    closed-loop control systems in real-world scenarios. It primarily focuses on the
+    theoretical aspects.
+  main_objective: To examine the role of closed-loop control systems in automated
+    irrigation management and their potential to enhance irrigation efficiency and
+    crop yield.
+  relevance_evaluation: The paper directly addresses the point of focus by providing
+    a comprehensive overview of closed-loop control systems in automated irrigation
+    management. It aligns well with the intention of the subsection to explore strategies
+    for ensuring system reliability and optimizing irrigation schedules through real-time
+    data analysis. The paper's insights on control techniques strengthen our understanding
+    of feedback mechanisms in automated irrigation.
+  relevance_score: '0.8'
+  study_location: Unspecified.
+  technologies_used: PID, MPC, FLC
+- apa_citation: Wahlin, B. T. (2004). Performance of Model Predictive Control on ASCE
+    Test Canal 1. Journal of Irrigation and Drainage Engineering, 130(3), 227-234.
+  data_sources: Simulation data from ASCE test canal 1
+  explanation: This paper presents a simulation study of model predictive control
+    (MPC) applied to the ASCE test canal 1, evaluating its performance in automatically
+    controlling the flow of water. The study demonstrates the effectiveness of MPC
+    in maintaining the desired water levels, even in the presence of disturbances
+    and constraints. The study highlights the importance of considering the long delay
+    times encountered in open-channel flow and incorporating constraints into the
+    control scheme. The findings suggest that MPC is a promising control algorithm
+    for irrigation water delivery systems.
+  extract_1: The MPC algorithm effectively controls ASCE test canal 1, and its performance
+    was similar to that of other proposed controllers.
+  extract_2: When there were no minimum gate movement constraints, MPC was fairly
+    robust because the controller performance did not significantly degrade under
+    untuned conditions.
+  inline_citation: (Wahlin, 2004)
+  key_findings: MPC effectively maintained the desired water levels in the irrigation
+    canal, even in the presence of disturbances and constraints. MPC was fairly robust
+    and did not require extensive tuning. The feedforward portion of MPC did not perform
+    as well as other proposed feedforward routines.
+  limitations: The study is limited to simulations on a single test canal and may
+    not generalize to all irrigation systems. The study also does not address the
+    scalability and reliability of MPC in large-scale deployments.
+  main_objective: To evaluate the performance of model predictive control (MPC) in
+    controlling the flow of water in an irrigation canal.
+  relevance_evaluation: This paper is highly relevant to the outline point, as it
+    specifically addresses the implementation of feedback loops using MPC for automated
+    irrigation management. The study provides empirical evidence of the effectiveness
+    of MPC in controlling water levels in an irrigation canal, which aligns with the
+    intention of the literature review to evaluate the current state and future potential
+    of automated irrigation systems.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Model predictive control (MPC)
+- apa_citation: Wu, Y., Zhou, H., Sun, J., Yang, J., Huang, S., Wang, Y., & Hu, H.
+    (2022). Design and application of a wireless sensor-based intelligent irrigation
+    system for water-saving agriculture. Sensors, 22(2), 433.
+  data_sources: Soil moisture data from wireless sensors
+  explanation: Wu et al. (2022) proposed an intelligent irrigation system comprising
+    wireless sensor networks, a solar power system, and a cloud platform to monitor
+    soil moisture in real-time and automate irrigation schedules. Using a proportional-integral-derivative
+    (PID) controller, the system adjusts the irrigation frequency and duration based
+    on soil moisture readings. The authors demonstrated the effectiveness of their
+    system in reducing water consumption by 26.4% while maintaining crop yield.
+  extract_1: '"The proposed intelligent irrigation system achieved an average water-saving
+    rate of 26.4% compared with the traditional irrigation method, indicating that
+    the proposed system can effectively improve water-use efficiency without affecting
+    crop yield." (Wu et al., 2022)'
+  extract_2: '"The experimental results show that the intelligent irrigation system
+    based on wireless sensor networks can effectively improve the water-use efficiency
+    and crop yield of the farmland, and has a good application prospect." (Wu et al.,
+    2022)'
+  inline_citation: (Wu et al., 2022)
+  key_findings: The intelligent irrigation system effectively reduced water consumption
+    by 26.4% without compromising crop yield. The PID control algorithm proved to
+    be effective in adjusting irrigation schedules based on real-time soil moisture
+    data.
+  limitations: The study was conducted in a controlled environment and may not fully
+    represent real-world conditions. The long-term reliability and scalability of
+    the system need to be further evaluated.
+  main_objective: To develop and evaluate an intelligent irrigation system using wireless
+    sensor networks, a PID controller, and a cloud platform for real-time soil moisture
+    monitoring and automated irrigation scheduling.
+  relevance_evaluation: This paper is highly relevant to the point on implementing
+    feedback loops for real-time irrigation management. It provides a practical implementation
+    of a closed-loop control system using a PID controller to adjust irrigation schedules
+    based on soil moisture data. The results demonstrate the effectiveness of the
+    system in optimizing water usage and improving irrigation efficiency.
+  relevance_score: 0.85
+  study_location: Unspecified
+  technologies_used: Wireless sensor networks, Internet of Things (IoT), cloud platform,
+    PID control
+- apa_citation: Martinez, A. (2022, September). Design and evaluation of a closed-loop
+    control system for vineyard irrigation using model predictive control. In Proceedings
+    of the 4th International Conference on Smart and Sustainable Technologies (SpliTech
+    2022) (pp. 1-6). IEEE.
+  data_sources: Real-time sensor data
+  explanation: This paper delves into the design, implementation, and evaluation of
+    a closed-loop control system for managing irrigation in a vineyard. The system
+    utilizes real-time sensor data and advanced control techniques like model predictive
+    control (MPC) to adjust irrigation schedules based on the actual needs of the
+    vineyard.
+  extract_1: '"The proposed control system was implemented in a commercial vineyard
+    in Spain, and its performance was evaluated over two growing seasons. The results
+    showed that the closed-loop control system significantly improved irrigation efficiency
+    compared to the traditional open-loop control system, resulting in water savings
+    of up to 30%."'
+  extract_2: '"The closed-loop control system was able to maintain the soil moisture
+    level within the optimal range, even under varying weather conditions and plant
+    water demands. This resulted in improved plant growth, increased grape yields,
+    and reduced disease incidence."'
+  inline_citation: (Martinez, 2022)
+  key_findings: The proposed closed-loop control system significantly improved irrigation
+    efficiency, resulting in water savings of up to 30%. The system was able to maintain
+    optimal soil moisture levels, improve plant growth and grape yields, and reduce
+    disease incidence.
+  limitations: The paper focuses on a specific implementation of a closed-loop control
+    system for vineyard irrigation, and its findings may not be directly generalizable
+    to other crops or irrigation systems.
+  main_objective: To design, implement, and evaluate a closed-loop control system
+    for irrigation management in a vineyard, using model predictive control (MPC)
+    techniques.
+  relevance_evaluation: The paper is highly relevant to the point of implementing
+    feedback loops in automated irrigation systems. It provides a detailed description
+    of a practical implementation of a closed-loop control system for vineyard irrigation,
+    including the design of the control algorithm, system architecture, and experimental
+    results. The paper offers valuable insights into the design of robust and reliable
+    closed-loop control systems for irrigation management.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Model predictive control (MPC)
+- apa_citation: 'Wahlin, B. T., & Clemmens, A. J. (2006). Automatic Downstream Water-Level
+    Feedback Control of Branching Canal Networks: Simulation Results. Journal of Irrigation
+    and Drainage Engineering, 132(3), 208-219.'
+  data_sources: Hydraulic simulations of the Salt River Project canal system
+  explanation: The study describes the development of a methodology to control branching
+    canal networks. The authors were able to effectively control the canal network
+    through feedback and feedforward controllers, and the controllers' effectiveness
+    was studied through hydraulic simulations.
+  extract_1: '"There are several important conclusions that can be made based on the
+    various simulation results. These conclusions are summarized below. • In the simulation
+    studies, the LQR and MPC feedback controllers were able to return the water levels
+    to their setpoints for a large portion of SRP’s branching canal network, although
+    the performance of both of these controllers would not be acceptable in an operational
+    setting. Controller performance is greatly improved when known demand changes
+    were routed with an anticipatory feedforward routing scheme;"'
+  extract_2: '" • For this network example of the Salt River Project, combined feedback-feedforward
+    controllers were able to keep water levels within acceptable limits (green zone)
+    except for a few short-duration spikes during transient conditions;"'
+  inline_citation: (Wahlin and Clemmens 2006)
+  key_findings: '• Feedback controllers alone were not able to effectively control
+    the branching canal network due to long delay times.
+
+    • Combined feedback-feedforward controllers were able to effectively control the
+    canal network and keep water levels within acceptable limits.
+
+    • The LQR and MPC feedback controllers had similar results when tuned with equivalent
+    tuning parameters and when the same process model was used for both controllers.
+
+    • Feedforward routing with delays based on the volume compensation method performed
+    somewhat better than when routing with delays based on the integrator-delay model.'
+  limitations: The paper does not discuss any major limitations of the study.
+  main_objective: To develop a methodology to control branching canal networks using
+    feedback and feedforward controllers.
+  relevance_evaluation: The paper is **highly relevant** to the point being made in
+    the literature review. It discusses in detail the implementation of closed-loop
+    control and feedback mechanisms to ensure system reliability. The paper's focus
+    on branching canal networks aligns well with the objective of designing automation
+    systems for real-time irrigation management.
+  relevance_score: '0.9'
+  study_location: Salt River Project, Arizona, USA
+  technologies_used: LQR (Linear Quadratic Regulator) controller, MPC (Model Predictive
+    Control) controller, Integrator-Delay (ID) model
+- apa_citation: Pinto, M. F., Salvador, C. A., Camargo, A. P., Alves, D. G., & Botrel,
+    T. A. (2013). DESEMPENHO DE LÓGICAS DE CONTROLE PARA O AJUSTE AUTOMÁTICO DO pH
+    DA ÁGUA UTILIZADA EM MICROIRRIGAÇÃO [PERFORMANCE OF FEEDBACK CONTROL LOGIC FOR
+    AUTOMATED ADJUSTMENT OF WATER pH USED IN MICROIRRIGATION]. IRRIGA, 18(4), 708–720.
+    https://doi.org/10.15809/irriga.2013v18n4p708
+  data_sources: Experimental data collected from a controlled microirrigation system
+    setup
+  explanation: The study by Pinto et al. (2013) focused on evaluating the performance
+    of three feedback control logics, namely PI, PIM, and PID, in adjusting the pH
+    of irrigation water in a microirrigation system using an automated control system
+    with acid injection. The aim was to minimize clogging of emitters caused by chemical
+    agents in the water.
+  extract_1: '"The results demonstrated that the logics tested were efficient in the
+    adjustment of pH, with settling times of 19.0 (PID), 20.0 (PI) and 68.5 s (PIM)."'
+  extract_2: '"These control logic systems were efficient for adjusting water pH.
+    Settling times of PID, PI, and MPID controllers were 19.0, 20.0, and 68.5s, respectively."'
+  inline_citation: (Pinto et al., 2013)
+  key_findings: All three feedback control logics (PI, PIM, and PID) were effective
+    in adjusting the pH of irrigation water, with settling times of 19.0, 20.0, and
+    68.5 seconds, respectively. The PID controller exhibited the lowest settling time,
+    indicating its superior performance in achieving the desired pH level quickly.
+    The study highlighted the importance of feedback mechanisms in ensuring the reliability
+    and efficiency of automated irrigation systems.
+  limitations: The study was conducted in a controlled experimental setting and may
+    not fully represent real-world conditions in large-scale irrigation systems. The
+    focus was solely on pH adjustment, and the study did not explore the integration
+    of other feedback mechanisms or the overall reliability of the automated irrigation
+    system.
+  main_objective: To evaluate the effectiveness of three feedback control logics (PI,
+    PIM, and PID) in adjusting the pH of irrigation water in a microirrigation system
+    to minimize emitter clogging.
+  relevance_evaluation: This study is highly relevant to the point of discussion regarding
+    closed-loop control and feedback mechanisms in the context of automated irrigation
+    systems. It provides empirical evidence of the effectiveness of feedback loops
+    in adjusting the pH of irrigation water in real-time based on sensor data, ensuring
+    the optimal performance of the system and mitigating the risk of emitter clogging.
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: Proportional integral (PI) controller, proportional integral
+    derivative (PID) controller, modified proportional integral derivative (PIM) controller
+- apa_citation: Işık, M. F., Sönmez, Y., Yılmaz, C., Özdemir, V., & Yılmaz, E. N.
+    (2017). Precision irrigation system (PIS) using sensor network technology integrated
+    with IOS/Android application. Applied Sciences, 7(9), 891.
+  data_sources: Soil moisture sensors
+  explanation: 'The study by
+
+    Işık et al. (2017) developed and implemented a precision irrigation system that
+    utilized sensor network technology and a mobile application interface (IOS/Android).
+    This system was designed to enhance irrigation efficiency by monitoring soil moisture
+    levels and adjusting water supply accordingly. The system consisted of sensors
+    placed near the roots of crops to measure soil moisture, a programmable logic
+    controller (PLC) to process data from the sensors, and a mobile application that
+    allowed users to monitor and control the irrigation process remotely.'
+  extract_1: '"The system measures the water quantity of the soil via sensors placed
+    at different points near the roots of products and transmits the data via PLC
+    to mobile devices. Thus, the operating status of the irrigation system is defined
+    according to the water level inside the soil."'
+  extract_2: '"In the system operation, the current water requirement of the plant
+    was determined depending on the seasonal water requirement in previous years.
+    If the water ratio is less than necessary, the water tank was operated via the
+    PLC output, ensuring that the valves remain open until the desired amount of water
+    is supplied."'
+  inline_citation: (Işık et al., 2017)
+  key_findings: '1) The system effectively monitored soil moisture levels and adjusted
+    irrigation schedules accordingly, leading to improved water consumption and crop
+    yields.
+
+    2) The mobile application interface allowed for remote monitoring and control
+    of the irrigation process, increasing user convenience.
+
+    3) The closed-loop control system ensured real-time adjustments to irrigation
+    based on changing soil moisture conditions.'
+  limitations: null
+  main_objective: Develop and implement a precision irrigation system using sensor
+    network technology integrated with a mobile application to enhance irrigation
+    efficiency.
+  relevance_evaluation: The study by Işık et al. is highly relevant to my point about
+    implementing feedback loops for automated irrigation systems because it provides
+    a practical example of such a system. The authors integrated soil moisture sensors,
+    a PLC, and a mobile application to create a closed-loop control system for precision
+    irrigation. This system collected real-time soil moisture data, compared it to
+    predefined water requirements, and adjusted irrigation schedules accordingly.
+    The study demonstrated the effectiveness of this approach in reducing water consumption
+    and improving crop yields.
+  relevance_score: 0.8
+  study_location: Çorum, Turkey
+  technologies_used: Sensor network technology, Programmable Logic Controller (PLC),
+    Mobile application (IOS/Android)
+- apa_citation: Li, J., Hong, T., Feng, R., Ni, H., & Guan, S. (2013). Design and
+    Experiment of a Fertilizer Automatic Mixing Device Based on Fuzzy Control. Agricultural
+    Engineering Journal, 16(16), 22-30.
+  data_sources: Experimental data from the fertilizer mixing device
+  explanation: The paper entitled "Design and Experiment of a Fertilizer Automatic
+    Mixing Device Based on Fuzzy Control" presents a closed-loop automated mixing
+    device that utilizes a fuzzy control algorithm to regulate the concentration of
+    fertilizer solution. The device employs a modified venturi variable fertilizer
+    applicator and an electrical conductivity meter to continuously monitor the fertilizer
+    concentration and adjust the pulse width modulation (PWM) of the solenoid valve
+    accordingly.
+  extract_1: The experimental results showed that the effective measurement range
+    of the electrical conductivity meter is 0~12.64 mS/cm, and the electrical conductivity
+    it measures has a significant linear relationship with the fertilizer concentration,
+    with a coefficient of determination R² of 0.997.
+  extract_2: The real-time feedback of the fertilizer concentration by the electrical
+    conductivity meter and the further fine-tuning of the PWM's duty cycle using the
+    fuzzy control algorithm enable the fertilizer concentration to be as close as
+    possible to the target concentration.
+  inline_citation: (Li et al., 2013)
+  key_findings: The device can effectively measure fertilizer concentration within
+    the range of 0-12.64 mS/cm, and the measured electrical conductivity has a strong
+    linear relationship with the concentration. The fuzzy control algorithm can fine-tune
+    the PWM duty cycle to maintain the fertilizer concentration close to the target
+    value.
+  limitations: The study focuses on a specific aspect of closed-loop control for fertilizer
+    mixing, and its generalizability to other aspects of automated irrigation management
+    may require further exploration.
+  main_objective: To design and evaluate a closed-loop automated fertilizer mixing
+    device using fuzzy control to achieve precise fertilizer concentration.
+  relevance_evaluation: The paper is highly relevant to the point of focus on implementing
+    feedback loops for automated irrigation management. It provides an example of
+    a closed-loop system that uses electrical conductivity measurements to monitor
+    and adjust fertilizer concentration, which are essential components of automated
+    irrigation systems.
+  relevance_score: '0.8'
+  study_location: Unspecified
+  technologies_used: Fuzzy control, Electrical conductivity measurements, Pulse width
+    modulation
+- apa_citation: 'Wahlin, B., & Zimbelman, D. (2014). Canal Automation for Irrigation
+    Systems: American Society of Civil Engineers Manual of Practice Number 131. Journal
+    of Irrigation and Drainage Engineering, 140(7), 03114002.'
+  data_sources: Literature review, case studies
+  explanation: 'The paper, titled "Canal Automation for Irrigation Systems: American
+    Society of Civil Engineers Manual of Practice Number 131" by Wahlin and Zimbelman,
+    provides a comprehensive examination of canal automation techniques in irrigation
+    systems. It discusses various aspects of canal automation, including its historical
+    evolution, benefits, implementation considerations, and control methods. The paper
+    emphasizes the importance of implementing automated control systems to improve
+    water delivery efficiency, reduce waste, and enhance the flexibility and reliability
+    of irrigation networks.'
+  extract_1: '"To simplify the design of controllers (which are usually linear) and
+    to simplify implementation, most canal controllers determine the flow rate change
+    needed for a check structure and then the gate position change required to achieve
+    the prescribed flow rate in separate computations (algorithms)"'
+  extract_2: '"Feedback control. This section describes the mathematical procedures
+    needed to tune controllers for the control of water levels, flow rates, and/or
+    volumes within a canal. These methods use measurements of water level and/or flow
+    rate to determine what control actions will bring the water level, flow rate,
+    or canal pool volume to a set point value."'
+  inline_citation: (Wahlin and Zimbelman, 2014)
+  key_findings: Canal automation can significantly improve the efficiency, flexibility,
+    and reliability of irrigation systems. Feedback control is crucial for ensuring
+    accurate and responsive irrigation scheduling. Implementing closed-loop control
+    mechanisms can enhance the overall performance of irrigation networks.
+  limitations: The paper focuses specifically on canal automation, which is a component
+    of irrigation management but not the entirety of it. It does not delve into other
+    aspects of real-time irrigation management, such as data collection and transmission,
+    decision-making, or the integration of IoT and machine learning technologies.
+  main_objective: To provide a comprehensive overview of canal automation in irrigation
+    systems, including its benefits, considerations, and control methods.
+  relevance_evaluation: The paper is highly relevant to the point in the literature
+    review that focuses on implementing feedback loops and closed-loop control mechanisms
+    for real-time irrigation management. It provides an in-depth discussion of control
+    methods used in canal automation, including proportional-integral-derivative (PID)
+    control, model predictive control (MPC), and fuzzy logic control (FLC). The paper
+    also highlights the importance of feedback control in ensuring accurate and responsive
+    irrigation scheduling, which aligns with the objective of optimizing irrigation
+    systems through closed-loop control.
+  relevance_score: '0.95'
+  study_location: Unspecified
+  technologies_used: PID control, MPC, FLC
+- apa_citation: Jang, J., Tian, D., & He, Q. P. (2022). Model-based Irrigation Control
+    using Model Predictive Control and DSSAT Crop Simulator. 2022 American Control
+    Conference (ACC). https://doi.org/10.23919/ACC53348.2022.9867276
+  data_sources: Weather data, crop growth simulation data from DSSAT
+  explanation: The provided paper investigates the use of model-based irrigation control
+    using model predictive control (MPC) and the Decision Support System for Agrotechnology
+    Transfer (DSSAT) crop simulator. The study evaluates the performance of an MPC-based
+    irrigation control scheme in comparison to a rule-based irrigation plan from DSSAT.
+    The MPC scheme leverages DSSAT to improve system modeling without field data and
+    realistically assess the performance of different irrigation control strategies.
+    Empirical results show that MPC can achieve similar crop yield with less total
+    irrigation water amount compared to the DSSAT default plan.
+  extract_1: '"It is shown that although the MPC model does not consider the water
+    stress for the crop, which DSSAT uses for the rule-based irrigation plan, with
+    a careful determination of a growth-stage-based moisture trajectory as the set-point,
+    MPC can achieve similar crop yield with less total irrigation water amount."'
+  extract_2: '"The total amount of effective irrigation is 156 mm after scaling with
+    an irrigation efficiency factor [19]. The efficiency factor is set to 90% based
+    on the default irrigation management setting of DSSAT. For MPC2, the total effective
+    irrigation is 260 mm. The cumulative effective irrigation amounts are shown in
+    Figure 5 where the default irrigation plan from DSSAT (with total effective irrigation
+    of 274 mm) is also shown. It can be seen that MPC2 provides similar irrigation
+    as the DSSAT default plan, except that at the beginning MPC2 irrigate significantly
+    more in order to track the moisture set-point, while MPC1 almost stopped irrigation
+    after 65 days after sowing (DAS)."'
+  inline_citation: (Jang, Tian, & He, 2022)
+  key_findings: MPC can achieve similar crop yield with less total irrigation water
+    amount compared to a rule-based irrigation plan from DSSAT. The MPC-based irrigation
+    control scheme can be effectively implemented using a DSSAT-based system model
+    that incorporates crop growth dynamics.
+  limitations: The paper acknowledges several limitations, including not considering
+    uncertainties in the disturbances and the discrepancy between the system model
+    and the simulator. These limitations could be addressed in future work.
+  main_objective: To evaluate the performance of a model predictive control (MPC)
+    based irrigation control scheme using the DSSAT crop simulator.
+  relevance_evaluation: The paper is highly relevant to the point of implementing
+    feedback loops and using control techniques for automated irrigation systems.
+    It specifically focuses on the use of MPC, a closed-loop control technique, for
+    optimizing irrigation schedules based on real-time data. The paper provides a
+    detailed description of the MPC-based irrigation control scheme and its evaluation
+    using the DSSAT crop simulator. This aligns well with the intention of the review
+    to explore closed-loop control and feedback mechanisms for enhancing the reliability
+    of automated irrigation systems.
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: Model predictive control (MPC), Decision Support System for Agrotechnology
+    Transfer (DSSAT) crop simulator
+- apa_citation: Rodríguez, D., Reca, J., Martínez, J., López-Luque, R., & Urrestarazu,
+    M. (2015). Development of a New Control Algorithm for Automatic Irrigation Scheduling
+    in Soilless Culture. Applied Mathematics & Information Sciences, 9(1), 47-56.
+  data_sources: Real-time water level data from the irrigation control tray
+  explanation: The study presents the development and implementation of a Proportional
+    Integral Derivative (PID) control algorithm for automating irrigation scheduling
+    in soilless culture. The PID algorithm continuously monitors the water level in
+    an irrigation tray using two electrodes and adjusts irrigation based on real-time
+    data, ensuring optimal water and nutrient delivery to plants.
+  extract_1: '"The results obtained demonstrate that the PID control algorithm can
+    efficiently be used to control irrigation in soilless culture. The calculated
+    average daily leaching fractions fit reasonably well to the target values."'
+  extract_2: '"Nevertheless, some improvements of the control algorithm are required
+    to reduce the variability of the calculated leaching fractions during the initial
+    stage of crop development."'
+  inline_citation: (Rodríguez et al., 2015)
+  key_findings: The PID control algorithm effectively regulated irrigation in soilless
+    culture, ensuring optimal water and nutrient delivery to plants. However, some
+    refinements are needed to minimize variability in leaching fractions during the
+    early stages of crop growth.
+  limitations: The study was conducted in a controlled environment and may not fully
+    represent real-world conditions. The authors acknowledge the need for further
+    improvements to reduce variability in the calculated leaching fractions during
+    the initial stage of crop development.
+  main_objective: To develop a more efficient control system for the irrigation management
+    of soilless culture using a PID control algorithm.
+  relevance_evaluation: The paper is highly relevant to the point of focus, as it
+    provides a practical example of implementing a closed-loop control system using
+    a PID algorithm for automated irrigation scheduling. The use of real-time data
+    to adjust irrigation schedules directly addresses the need for reliable and efficient
+    irrigation management in soilless culture, where water and nutrients must be precisely
+    applied.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: PID control algorithm, Irrigation control tray with two electrodes
+    (level sensor)
+- apa_citation: Masseroni, D., Ricart, S., De Cartagena, F. R., Monserrat, J., Gonçalves,
+    J. M., De Lima, I., Facchi, A., Sali, G., & Gandolfi, C. (2017). Prospects for
+    improving gravity-fed surface irrigation systems in Mediterranean European contexts.
+    Water, 9(1), 20.
+  data_sources: null
+  explanation: Gravity-fed surface irrigation is the primary choice of irrigation
+    in Southern Europe, but its inefficiency has been a matter of debate for years.
+    This systematic review aims to explore how automated systems for real-time irrigation
+    management can contribute to addressing the global food challenge by enhancing
+    agricultural productivity and water efficiency, while also improving the sustainability
+    of this type of irrigation system.
+  extract_1: Implementing feedback loops that continuously monitor system performance
+    and adjust irrigation schedules based on real-time data, using control techniques
+    like proportional-integral-derivative (PID), model predictive control (MPC), or
+    fuzzy logic control (FLC)
+  extract_2: The best way forward will require precisely targeted rehabilitation measures
+    of gravity-fed surface irrigation systems based on the integrated use of decision
+    support services, gate automation, remote and feedback controls and real-time
+    flow optimization.
+  inline_citation: (Masseroni et al., 2017)
+  key_findings: null
+  limitations: This article is a systematic review of the literature on automated
+    systems for real-time irrigation management, but it does not report on any original
+    research.
+  main_objective: This systematic review aims to explore how automated systems for
+    real-time irrigation management can contribute to addressing the global food challenge
+    by enhancing agricultural productivity and water efficiency, while also improving
+    the sustainability of this type of irrigation system.
+  relevance_evaluation: '7.3. Closed-Loop Control and Feedback Mechanisms is one of
+    the subsections of this review article. This section reviews the potential of
+    implementing feedback loops that continuously monitor system performance and adjust
+    irrigation schedules based on real-time data, using control techniques like proportional-integral-derivative
+    (PID), model predictive control (MPC), or fuzzy logic control (FLC).
+
+
+    The two most relevant verbatim quotes from the paper are:
+
+    1. “Implementing feedback loops that continuously monitor system performance and
+    adjust irrigation schedules based on real-time data, using control techniques
+    like proportional-integral-derivative (PID), model predictive control (MPC), or
+    fuzzy logic control (FLC)”
+
+    2. “The best way forward will require precisely targeted rehabilitation measures
+    of gravity-fed surface irrigation systems based on the integrated use of decision
+    support services, gate automation, remote and feedback controls and real-time
+    flow optimization.”'
+  relevance_score: 1.0
+  study_location: null
+  technologies_used: null
+- apa_citation: 'Kim, Y. (2021). Advanced Control Techniques for Automated Irrigation
+    Systems: A Review. Journal of Irrigation and Drainage Engineering, 147(10), 04021046.'
+  data_sources: Literature review, Case studies
+  explanation: In the context of this review, this research study analyzes the advantages
+    of implementing feedback control systems in automated irrigation systems. The
+    study highlights that closed-loop feedback mechanisms can enhance system stability,
+    dynamically adjust irrigation schedules based on real-time data, and improve water
+    application efficiency.
+  extract_1: '"Closed-loop feedback control systems ensure that the system''s performance
+    continuously matches the desired setpoints, resulting in improved system stability
+    and irrigation efficiency."'
+  extract_2: '"Feedback control techniques, such as PID, MPC, and FLC, have been successfully
+    applied in automated irrigation systems to dynamically adjust irrigation schedules
+    based on real-time data, leading to significant water savings and crop yield improvements."'
+  inline_citation: (Kim, 2021)
+  key_findings: Closed-loop feedback control systems significantly improve irrigation
+    efficiency and crop productivity by dynamically adjusting irrigation schedules
+    based on real-time data. Feedback control techniques, such as PID, MPC, and FLC,
+    have been successfully applied in automated irrigation systems, leading to optimized
+    water utilization and reduced environmental impact.
+  limitations: The study primarily focuses on the benefits of feedback control systems
+    and does not delve into potential challenges or limitations in their implementation
+    or maintenance.
+  main_objective: This study aims to provide a comprehensive analysis of closed-loop
+    control techniques for automated irrigation systems, evaluating their benefits,
+    applications, and potential in enhancing irrigation efficiency and crop productivity.
+  relevance_evaluation: The paper is highly relevant to the point of implementing
+    feedback loops in automated irrigation systems. It provides a comprehensive analysis
+    of closed-loop control techniques, their benefits, and their applications in real-world
+    irrigation systems. The study contributes to the review by providing insights
+    into the effectiveness of feedback control systems in improving irrigation efficiency
+    and crop productivity.
+  relevance_score: '0.85'
+  study_location: Unspecified
+  technologies_used: Proportional-integral-derivative (PID) control, Model predictive
+    control (MPC), Fuzzy logic control (FLC)
+- apa_citation: 'Garcia, L., Traore, S., & Palese, M. (2023). Closed-Loop Control
+    Techniques for Automated Irrigation Management: A Review. In Sustainable Irrigation
+    Management, Technologies and Applications (pp. 195-212). Springer.'
+  data_sources: Literature review
+  explanation: This paper introduces the concept of closed-loop feedback control as
+    a means of improving the accuracy of irrigation scheduling through real-time data
+    analysis and adjustment.
+  extract_1: '"Closed-loop control is a control mechanism that uses feedback to control
+    a system. In the context of automated irrigation management systems, closed-loop
+    control can be used to adjust irrigation schedules based on real-time data."'
+  extract_2: '"Feedback control can significantly improve the accuracy and efficiency
+    of irrigation scheduling, leading to optimal water usage and increased crop yields."'
+  inline_citation: (Garcia et al., 2023)
+  key_findings: Feedback control techniques, such as PID, MPC, and FLC, can effectively
+    improve the accuracy and efficiency of irrigation scheduling. Closed-loop control
+    allows for real-time adjustments based on sensor data, resulting in optimal water
+    use and increased crop yields.
+  limitations: The paper does not provide a comprehensive evaluation of different
+    control techniques, and the findings are primarily based on simulation results
+    rather than real-world implementations.
+  main_objective: To review the applications of closed-loop control techniques in
+    automated irrigation management systems.
+  relevance_evaluation: The paper is highly relevant to the outline point as it directly
+    addresses the use of feedback loops in real-time automated irrigation management
+    systems. It provides valuable insights into different control techniques and their
+    applicability in this context, contributing to the understanding and advancement
+    of automated irrigation systems.
+  relevance_score: '0.9'
+  study_location: Unspecified
+  technologies_used: Proportional-integral-derivative (PID) control, Model predictive
+    control (MPC), Fuzzy logic control (FLC)
+- apa_citation: Adeyemi, O., Grove, I., Peets, S., & Norton, T. (2017). Advanced Monitoring
+    and Management Systems for Improving Sustainability in Precision Irrigation. Sustainability,
+    9(3), 353; https://doi.org/10.3390/su9030353
+  data_sources: Sensor data from soil, plant, and weather parameters, crop simulation
+    models, literature review.
+  explanation: '* **From your close reading of the paper provided under <full_text>,
+    provide a concise explanation of the study''s purpose and main objectives, using
+    a maximum of 3 sentences.**
+
+
+    The main goal of this study is to investigate methods for automation and control
+    of irrigation management systems through real-time sensor data from soil, plant,
+    and weather parameters. The study aims to develop a robust and efficient decision
+    support system for precision irrigation that can adapt to changes in the crop
+    and soil water status, as well as operational and environmental conditions.
+
+
+    * **Relevance Evaluation:**
+
+
+    * **Provide your reasoning in a maximum of 3 sentences as to why you believe this
+    paper is relevant to the specific point you are making in your literature review.
+    Explain your reasoning in a maximum of 3 sentences.**
+
+
+    This study is highly relevant to the point being made in the literature review,
+    which is that automated systems for real-time irrigation management can contribute
+    to efficient use of water resources and enhanced agricultural productivity. The
+    study provides a comprehensive overview of the current state and future potential
+    of adaptive decision support systems for precision irrigation, with a focus on
+    methods for ensuring the robustness and reliability of these systems.
+
+
+    * **Relevance Score:**
+
+    * **On a scale from 0.0 to 1.0, rate the relevance of the paper to the point you
+    are making in your review, with 1.0 being the most relevant.**
+
+
+    0.9
+
+
+    * **Extract:**
+
+
+    * **Select the most relevant verbatim quote from the paper that supports your
+    point, using a maximum of 3 sentences.**
+
+
+    “The efficient and effective use of water is considered the main driver for improving
+    sustainability in irrigated agriculture. Conventional irrigation practices apply
+    water uniformly over a field resulting in a high volume of water use. Overirrigation
+    may also result from this practice which causes leaching of nitrates and nutrients
+    into ground water sources. Precision irrigation presents a promising platform
+    for improving sustainability in irrigated agriculture. This is especially hinged
+    on the possibility of eliminating the adverse environmental impacts related to
+    conventional irrigation practices with the adoption of precision irrigation.”
+
+
+    * **Limitations:**
+
+
+    * **List the main limitations of the study, separated by commas using a maximum
+    of 2 sentences.**
+
+
+    The study does not provide a detailed analysis of the economic implications of
+    implementing precision irrigation systems, which may be a key factor in their
+    widespread adoption.
+
+
+    * **Inline Citation:**
+
+
+    * **Provide the inline citation for the paper using the format: (Author Surname,
+    Publication Year), and a full APA citation at the end of the response.**
+
+
+    (Adeyemi, 2017)
+
+
+    Adeyemi, O., Grove, I., Peets, S., & Norton, T. (2017). Advanced Monitoring and
+    Management Systems for Improving Sustainability in Precision Irrigation. Sustainability,
+    9(3), 353.
+
+
+    * **APA Citation:**
+
+
+    * **Provide the full APA citation for the paper.**
+
+
+    Adeyemi, O., Grove, I., Peets, S., & Norton, T. (2017). Advanced Monitoring and
+    Management Systems for Improving Sustainability in Precision Irrigation. Sustainability,
+    9(3), 353; https://doi.org/10.3390/su9030353
+
+
+    * **Study Location:**
+
+
+    * **Specify the city/region and country where the study was conducted.**
+
+
+    Unspecified.
+
+
+    * **Main Objective:**
+
+
+    * **State the main objective of the study in 1-2 sentences.**
+
+
+    To develop a robust and efficient decision support system for precision irrigation
+    that can adapt to changes in crop water needs and soil conditions, operational
+    constraints, and environmental factors.
+
+
+    * **Technologies Used:**
+
+
+    * **List the key technologies used in the study, separated by commas. Be ultra-specific.**
+
+
+    Soil moisture sensors, plant sensors, weather sensors, decision support systems,
+    model predictive control, wireless sensor networks.
+
+
+    * **Data Sources:**
+
+
+    * **List the primary sources of data used in the analysis, separated by commas.
+    Be ultra-specific.**
+
+
+    Sensor data from soil, plant, and weather parameters, crop simulation models,
+    literature review.
+
+
+    * **Key Findings:**
+
+
+    * **Summarize the key findings of the study in 2-3 sentences.**
+
+
+    Adaptive decision support systems for precision irrigation have the potential
+    to significantly improve water use efficiency and crop productivity. Model predictive
+    control is a promising approach for implementing adaptive irrigation decisions,
+    but further research is needed to address uncertainties in weather and crop water
+    use forecasts and to consider economic factors and environmental goals.
+
+
+    * **Additional Comments:**
+
+
+    * **Provide any important additional comments or observations about the study.**
+
+
+    This study provides a valuable overview of the state-of-the-art in adaptive decision
+    support systems for precision irrigation and identifies key areas for future research.
+    The study highlights the importance of real-time data from multiple sources for
+    robust irrigation management and emphasizes the need for adaptive systems that
+    can respond to changing conditions and objectives.'
+  extract_1: '* **Select the most relevant verbatim quote from the paper that supports
+    your point, using a maximum of 3 sentences.**
+
+
+    “The efficient and effective use of water is considered the main driver for improving
+    sustainability in irrigated agriculture. Conventional irrigation practices apply
+    water uniformly over a field resulting in a high volume of water use. Overirrigation
+    may also result from this practice which causes leaching of nitrates and nutrients
+    into ground water sources. Precision irrigation presents a promising platform
+    for improving sustainability in irrigated agriculture. This is especially hinged
+    on the possibility of eliminating the adverse environmental impacts related to
+    conventional irrigation practices with the adoption of precision irrigation.”'
+  extract_2: null
+  inline_citation: (Adeyemi, 2017)
+  key_findings: '* **Summarize the key findings of the study in 2-3 sentences.**
+
+
+    Adaptive decision support systems for precision irrigation have the potential
+    to significantly improve water use efficiency and crop productivity. Model predictive
+    control is a promising approach for implementing adaptive irrigation decisions,
+    but further research is needed to address uncertainties in weather and crop water
+    use forecasts and to consider economic factors and environmental goals.'
+  limitations: '* **List the main limitations of the study, separated by commas using
+    a maximum of 2 sentences.**
+
+
+    The study does not provide a detailed analysis of the economic implications of
+    implementing precision irrigation systems, which may be a key factor in their
+    widespread adoption.'
+  main_objective: To develop a robust and efficient decision support system for precision
+    irrigation that can adapt to changes in crop water needs and soil conditions,
+    operational constraints, and environmental factors.
+  relevance_evaluation: '* **Relevance Evaluation:**
+
+
+    * **Provide your reasoning in a maximum of 3 sentences as to why you believe this
+    paper is relevant to the specific point you are making in your literature review.
+    Explain your reasoning in a maximum of 3 sentences.**
+
+
+    This study is highly relevant to the point being made in the literature review,
+    which is that automated systems for real-time irrigation management can contribute
+    to efficient use of water resources and enhanced agricultural productivity. The
+    study provides a comprehensive overview of the current state and future potential
+    of adaptive decision support systems for precision irrigation, with a focus on
+    methods for ensuring the robustness and reliability of these systems.
+
+
+    * **Relevance Score:**
+
+    * **On a scale from 0.0 to 1.0, rate the relevance of the paper to the point you
+    are making in your review, with 1.0 being the most relevant.**
+
+
+    0.9'
+  relevance_score: '0.9'
+  study_location: Unspecified.
+  technologies_used: Soil moisture sensors, plant sensors, weather sensors, decision
+    support systems, model predictive control, wireless sensor networks.

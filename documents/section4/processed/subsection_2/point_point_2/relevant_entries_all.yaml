@@ -1,0 +1,4354 @@
+- DOI: https://doi.org/10.21203/rs.3.rs-2165603/v1
+  analysis: '>'
+  apa_citation: Author, A. A. (2023). Title of paper. Journal Name, xx(x), xxx-xxx.
+    https://doi.org/xx.xxxx/xxxxx
+  authors:
+  - Gonçalo Marques
+  - Carlos Senna
+  - Susana Sargento
+  - Luís A. E. Batista de Carvalho
+  - Lúıs Moniz Pereira
+  - Ricardo Matos
+  citation_count: 0
+  data_sources: Not specified
+  explanation: The purpose of this study is to develop a system for automating the
+    processes of data collection, processing, and provisioning for real-time irrigation
+    management. This system takes a proactive approach to irrigation, predicting future
+    irrigation needs and automatically allocating resources based on these predictions.
+    The system is designed to be scalable to large-scale irrigation systems, and it
+    is expected to improve water use efficiency and reduce water waste.
+  extract_1: The paper presents a system for automating the processes of data collection,
+    processing, and provisioning for real-time irrigation management. The system is
+    designed to be scalable to large-scale irrigation systems, and it is expected
+    to improve water use efficiency and reduce water waste.
+  extract_2: The system is based on a proactive approach to irrigation, predicting
+    future irrigation needs and automatically allocating resources based on these
+    predictions.
+  full_citation: '>'
+  full_text: '>
+
+    Proactive resource management for cloud of
+
+    services environments
+
+    Gonçalo Marques 
+
+    Instituto de Telecomunicações
+
+    Carlos Senna  (  cr.senna@av.it.pt )
+
+    Instituto de Telecomunicações
+
+    Susana Sargento 
+
+    Instituto de Telecomunicações
+
+    Luís Carvalho 
+
+    Veniam, Portugal
+
+    Luís Pereira 
+
+    Veniam, Portugal
+
+    Ricardo Matos 
+
+    Veniam, Portugal
+
+    Research Article
+
+    Keywords: Cloud service management, cloud monitoring, proactive resource management,
+    vehicular
+
+    cloud resources
+
+    Posted Date: October 18th, 2022
+
+    DOI: https://doi.org/10.21203/rs.3.rs-2165603/v1
+
+    License:   This work is licensed under a Creative Commons Attribution 4.0 International
+    License.  
+
+    Read Full License
+
+    Journal of Cloud Computing
+
+    Proactive resource management for cloud of
+
+    services environments
+
+    Gon¸calo Marques1, Carlos Senna1*, Susana Sargento1,2, Lu´ıs
+
+    Carvalho3, Lu´ıs Pereira3 and Ricardo Matos3
+
+    1*Instituto de Telecomunica¸c˜oes, Campus Universit´ario de
+
+    Santiago, Aveiro, 3810-193, Portugal.
+
+    2DETI, University of Aveiro, Campus Universit´ario de Santiago,
+
+    Aveiro, 3810-193, Portugal.
+
+    3Veniam, Porto, 4000-098, Portugal.
+
+    *Corresponding author(s). E-mail(s): cr.senna@av.it.pt;
+
+    Contributing authors: gjmarques@ua.pt; susana@ua.pt;
+
+    lcarvalho@veniam.com; lpereira@veniam.com;
+
+    rmatos@veniam.com;
+
+    Abstract
+
+    Microservices oﬀer advantages such as better fault isolation, smaller and
+
+    faster deployments, scalability in addition to streamlining the devel-
+
+    opment of new applications through composition of services. However,
+
+    their large-scale usage, speciﬁc purposes and requirements increase the
+
+    challenges of management systems that require a monitoring capa-
+
+    ble of accurately detecting the speciﬁc resources that are lacking
+
+    for a service, and providing them according to the requirements.
+
+    To meet these new management challenges, we propose a monitoring
+
+    and management system for microservices, containers and container clus-
+
+    ters that autonomously predicts load variations and resource scarcity,
+
+    which is capable of making new resources available in order to ensure the
+
+    continuity of the process without interruptions. Our solution’s architec-
+
+    ture allows for customizable service-speciﬁc metrics that are used by the
+
+    load predictor to anticipate resource consumption peaks and proactively
+
+    allocate them. In addition, our management system, by identifying/pre-
+
+    dicting low demand, frees up resources making the system more eﬃcient.
+
+    We evaluated our solution in the Amazon Web Services environment,
+
+    where diﬀerent services were installed for users of a vehicular network,
+
+    1
+
+    Journal of Cloud Computing
+
+    2
+
+    Marques et al.
+
+    an environment that is characterized by high mobility, dynamic topolo-
+
+    gies caused by disconnection, dropped packets, and delay problems. Our
+
+    results show that our solution improves the eﬃciency of escalation poli-
+
+    cies, and reduces response time by improving the QoS/QoE of the system.
+
+    Keywords: Cloud service management, cloud monitoring, proactive resource
+
+    management, vehicular cloud resources
+
+    1 Introduction
+
+    Microservices are the latest trend in software service design, development, and
+
+    delivery [1], that include the emphasis on dividing the system into small and
+
+    lightweight services that are purposely built to perform a very cohesive business
+
+    function. It is an evolution of the traditional service oriented architecture
+    style,
+
+    which is currently drawing a lot of attention from application developers and
+
+    service providers, such as Amazon, Netﬂix or eBay between others [2].
+
+    The growing adoption of microservices in the cloud is motivated by the eas-
+
+    iness of deploying and updating the software, as well as the provisioned loose
+
+    coupling provided by dynamic service discovery and binding. Structuring the
+
+    software to be deployed in the cloud as a collection of microservices allows cloud
+
+    service providers to oﬀer higher scalability guarantees through more eﬃcient
+
+    consumption of cloud resources, and to dynamically and quickly restructure
+
+    software to accommodate growing consumer demand [3]. Moreover, microser-
+
+    vice applications increase the number and diversity of infrastructure resources
+
+    that must be continuously monitored and managed at runtime. Finally, ser-
+
+    vices can be deployed across multiple regions and availability zones, which
+
+    adds to the challenge of gathering up-to-date information [4].
+
+    Within the scope of smart cities, the advantages of adopting services and
+
+    their compositions are notorious, as they allow agile development to meet
+
+    the enormous demand. In this context, Vehicular ad hoc Networks (VANETs)
+
+    play an important role as a communication infrastructure, since people spend
+
+    much of their time inside vehicles, especially in big cities. For these reasons,
+
+    we chose a VANET and its applications to evaluate the performance of our
+
+    service monitoring and management solution. VANETs are based on a set of
+
+    communication systems that provide vehicles with access to many diﬀerent
+
+    applications. The pervasive roadside infrastructure oﬀers high-speed internet
+
+    access by advanced wireless communication technologies (3/4/5 G, ITS-5G
+
+    or C-V2X), and brings innovative and divergent beneﬁts, but also some chal-
+
+    lenges [5], such as instability of resources which make the management of
+
+    vehicular networks complicated.
+
+    Due to the high mobility and dynamic topologies of VANETs, monitor-
+
+    ing and managing microservices becomes an extremely complex issue that can
+
+    incur high costs unless the services are managed properly. This requires a
+
+    monitoring system capable of eﬃciently managing services to optimize overall
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    3
+
+    data, ensure delivery of resources to customers, and detect resource shortages
+
+    or overspends to keep costs to a minimum. This is usually achieved with mon-
+
+    itoring solutions that collect metrics from each observed resource, which are
+
+    later analyzed by applications to detect problems in the system and ensure
+
+    that there is no over/underprovisioning of resources [6].
+
+    To address these challenges, we propose an architecture for accurate mon-
+
+    itoring of custom metrics for service-based cloud applications, which will be
+
+    used for automatic provisioning and scaling of compute resources in cloud
+
+    environments, while addressing services in very challenging scenarios such as
+
+    VANETs. Our predictive approach, designed for the AWS/EKS environment,
+
+    is capable of eﬃciently provisioning disparate services to users in VANETs.
+
+    We implement several services with diﬀerent requirements to evaluate the
+
+    performance and versatility of our monitoring system. In our evaluation, we
+
+    analyze data collected on a real vehicular network that was used to train
+
+    our machine learning algorithm and produce predictions that are sent to the
+
+    resource provisioning system.
+
+    The proposed architecture led to the following contributions:
+
+    • design and implementation of a generic monitoring architecture able to
+
+    collect metric data from various services with an open source framework,
+
+    enabling horizontal scaling;
+
+    • analysis and implementation of a network prediction model using statistical
+
+    and machine learning techniques; the analysis includes exploration of the
+
+    datasets with time-series techniques and tests;
+
+    • analysis of the most common services provided and their diﬀerent require-
+
+    ments;
+
+    • design and implementation of a cloud management system that proac-
+
+    tively predicts the required resources for the multitude of services in a very
+
+    dynamic environment.
+
+    The remainder of this article is organized as follows. Section 2 presents
+
+    the related work about monitoring systems and service provisioning. Section 3
+
+    describes our service monitoring system with proactive resource management.
+
+    Section 4 discusses the tests made to validate the proposed monitoring system.
+
+    Finally, Section 5 presents the conclusion and directions for future work.
+
+    2 Basic Concepts and Related Work
+
+    Regarding the proposed architecture, there are two relevant aspects: monitor-
+
+    ing tools & frameworks for clouds and proactive cloud management.
+
+    Big cloud providers, such as Google, Microsoft, Amazon between others,
+
+    have monitoring systems, but can only be used in their own cloud environ-
+
+    ments. For this reason we have not included details about their monitoring
+
+    systems, and concentrate on scientiﬁc publications about cloud monitoring and
+
+    management.
+
+    Journal of Cloud Computing
+
+    4
+
+    Marques et al.
+
+    Al-Shammari et al [7] presented MonSLAR, a User-centric middleware for
+
+    Monitoring Service Level Agreements (SLA) for Restful services in Software as
+
+    a Service (SaaS) cloud computing environments. MonSLAR uses a distributed
+
+    architecture that allows SLA parameters and the monitored data to be embed-
+
+    ded in the requests and responses of the REST protocol. This solution aims
+
+    to monitor the customer’s QoS and does not deal with the management of
+
+    services or any optimization of resources in the cloud. Lee et al. [8] proposed
+
+    a cloud-native workload proﬁling system with Kubernetes-orchestrated multi-
+
+    cluster conﬁguration. The solution monitors the resource usage when deploying
+
+    service cases in multiple clouds and identiﬁes the correlation between services
+
+    and resource usage. However, it does not provide a predictive and proactive
+
+    resource management.
+
+    There are also speciﬁc tools for monitoring resources, applications and ser-
+
+    vices for the cloud. Prometheus1 is an open-source system monitoring and
+
+    alerting toolkit that collects and stores its metrics as time series data along-
+
+    side optional key-value pairs called labels. Prometheus extracts metrics, either
+
+    directly or through a gateway, storing them locally. It also oﬀers the option
+
+    to run rules for aggregation and generate alerts. Stored metrics can be viewed
+
+    through dashboards like Graphana or consumed through Application Program-
+
+    ming Interfaces (APIs). Jaeger2 is a open source distributed tracing system
+
+    used for monitoring and troubleshooting microservices-based distributed sys-
+
+    tems. The Jaeger project is primarly a tracing backend that receives tracing
+
+    telemetry data and provides processing, aggregation, data mining, and visu-
+
+    alizations of that data. Open Telemetry3 resulted from a merger between the
+
+    OpenTracing and OpenCensus projects; it provides a uniﬁed set of instrumen-
+
+    tation libraries and speciﬁcations for observability telemetry [9]. The project
+
+    is a set of APIs, a software development kit, tooling and integrations designed
+
+    for the creation and management of telemetry data such as traces, metrics, and
+
+    logs. The project provides a vendor-agnostic implementation that can be con-
+
+    ﬁgured to send telemetry data to any backend. It supports a variety of popular
+
+    open-source projects including Jaeger and Prometheus. In the testbed that we
+
+    set up to evaluate our solution, we chose to use the Prometheus monitoring
+
+    system, as it is the most complete solution, with ease of customization and the
+
+    ability to produce metrics without aﬀecting the application’s performance.
+
+    Next-generation scaling approaches attempt to move beyond the limita-
+
+    tions of such reactive systems, by instead attempting to predict the near-future
+
+    workloads [10]. In such systems, the forecasting component can be considered
+
+    the most important element, and the diﬀerentiating factor when comparing
+
+    elastic systems [11]. In service oriented clouds, the forecasting problem is more
+
+    complex since it involves the collection, processing and analysis of diﬀerent
+
+    data sets, which can be traces of resource usage, such as CPU, memory, net-
+
+    work bandwidth or metrics related to provided applications/services, such as
+
+    1https://prometheus.io/
+
+    2https://www.jaegertracing.io/
+
+    3https://opentelemetry.io/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    5
+
+    the number of requests that are being served, the application architecture,
+
+    etc [12].
+
+    Wang et al. [13] proposed a self-adapting resource management framework
+
+    for cloud software services. For a given service, an iterative QoS model is
+
+    trained based on historical data, which is capable of predicting a QoS value
+
+    of a management operation using the information about the current running
+
+    workload, allocated resources, actual value of QoS in a resource allocation
+
+    operation. A runtime decision algorithm based on Particle Swarm Optimiza-
+
+    tion (PSO) together with the predicted QoS value are employed to determine
+
+    future resource allocation operations.
+
+    Chen et al. [14] proposed a microservice-based deployment problem based
+
+    on the heterogeneous and dynamic characteristics in the edge-cloud hybrid
+
+    environment, including heterogeneity of edge server capacities, dynamic geo-
+
+    graphical information of IoT devices, and changing device preference for
+
+    applications and complex application structures. Their algorithm leverages
+
+    reinforcement learning and neural networks to learn a deployment strategy
+
+    without any human instruction. The main objective of this model is to min-
+
+    imize the waiting time of the Internet of Things (IoT) devices, while our
+
+    proposed model focuses on minimizing the delay of scaling operations by
+
+    predictively allocating resources to cloud services based on the incoming
+
+    workload.
+
+    Zhao et al. [15] introduced a predictive auto-scaler for Kubernetes clusters
+
+    to improve the eﬃciency of autoscaling containers. They proposed a monitor-
+
+    ing module that obtains the indicator data of the pod which is used by the
+
+    prediction module to estimate the number of pods to the auto-scaler module for
+
+    scaling services. While the authors choose to use the original responsive strat-
+
+    egy of Horizontal Pod Autoscaler (HPA), we perform scale down operations
+
+    based on the values calculated by the predictor, reducing the over provisioning
+
+    of resources.
+
+    Zhou et al. [16] proposed an Ensemble Forecasting Approach for highly-
+
+    dynamic cloud workload based on Variational Mode Decomposition (VMD)
+
+    and R-Transformer. To decrease the non-stationarity and high randomness
+
+    of highly-dynamic cloud workload sequences, workloads are decomposed into
+
+    multiple Intrinsic Mode Functionss (IMFs) by VMD. The IMFs are then
+
+    imported into the ensemble forecasting module, based on R-Transformer and
+
+    Autoregressive models, in order to capture long-term dependencies and local
+
+    non-linear relationship of workload sequences. However, the authors do not
+
+    present any solutions on how to use a non-decomposition and eﬃcient method
+
+    to reduce the instability and randomness of highly-dynamic workload data,
+
+    which would be advantageous for reducing the training cost of deep neural
+
+    networks.
+
+    Liu et al. [17] presented a workload migration model to minimize migra-
+
+    tion times and improve the node processing performance. To forecast the
+
+    workload more accurately, a model that combines Autoregressive Moving Aver-
+
+    age (ARMA) with the Elman Neural Network (ENN) are proposed. In order
+
+    Journal of Cloud Computing
+
+    6
+
+    Marques et al.
+
+    to meet cost constraints and deadline constraints, an elastic resource manage-
+
+    ment model based on cost and deadline constraints is proposed. Both the cost
+
+    and the deadline of tasks are considered. Workload migration can be used to
+
+    balance the workload of each resource node, making the cluster’s response time
+
+    faster. However, combining on-demand resource provision method with mobile
+
+    edge computing is worth studying, since in a smart city environment, diﬀerent
+
+    areas require diﬀerent resources depending on the amount of data process-
+
+    ing, so the on-demand resource provision can reduce service expenditure while
+
+    meeting user needs.
+
+    Zhu et al. [18] proposed a model using the Long Short-term Memory
+
+    (LSTM) encoder-decoder network with attention mechanism to improve the
+
+    workload prediction accuracy. The model uses an encoder to map the histori-
+
+    cal workload sequence to a ﬁxed-length vector according to the weight of each
+
+    time step supported by the attention module, and uses a decoder to map the
+
+    context vectors back to a sequence. Finally, the output layer transforms the
+
+    sequence into the ﬁnal output. Moreover, the authors propose a scroll predic-
+
+    tion method to reduce the error occurring during long-term prediction, which
+
+    splits a long-term prediction task into several small tasks.
+
+    The presented works mostly focus on developing a predictor which is opti-
+
+    mized for their speciﬁc use case. However, in environments with multiple
+
+    distinct service applications, a single prediction algorithm might not present
+
+    the best results for all applications. In our solution, we enable the integration
+
+    and usage of diﬀerent predictors for each service. This is a very useful feature,
+
+    because it allows the usage of the optimal predictors for each case instead of
+
+    a generic predictor, which may not have the best performance for some appli-
+
+    cations. Moreover, with the rapid advances in this ﬁeld, the ability to easily
+
+    integrate new predictors as they appear is another important characteristic of
+
+    the system.
+
+    3 Proactive Cloud Resource Management
+
+    It is essential that a monitoring system is able to accurately monitor cloud
+
+    resources (hardware and software) and make automated decisions. There are
+
+    several options that monitor hardware resources, others that monitor the
+
+    software involved, whether monolithic applications, services or service compo-
+
+    sitions. However, most of them react linearly to the increase in demand, which
+
+    can cause the loss of QoS, mainly due to the time required for new resources
+
+    to be ready for use.
+
+    To ensure that the monitoring system is able to allocate resources while
+
+    maintaining QoS, we propose an architecture that allows managers to easily
+
+    deﬁne which custom metrics they want to monitor for each service or ser-
+
+    vice composition using custom metrics exporters. In addition, our solution
+
+    has a forecasting service that identiﬁes consumption peaks (up and down)
+
+    and proactively makes scale adjustments, in order to guarantee QoS (up), and
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    7
+
+    at the same time optimize resource consumption of the cloud, lowering the
+
+    operational cost (down).
+
+    As shown in Figure 1, our conceptual architecture exposes the desired met-
+
+    rics to the Metric Collector that can be integrated with the Autoscaler, to make
+
+    scaling decisions based on metrics other than Central Process Unit (CPU),
+
+    memory and communication.
+
+    Fig. 1 Main components of the proposed conceptual monitoring architecture.
+
+    The Metric Exporters (ME) collect the metrics from the services and
+
+    expose them to the Metrics Collector (MC) which will aggregate the data from
+
+    all services. The Prediction API (PAPI) queries the MC to obtain histori-
+
+    cal data from the services to update the prediction models, and then exposes
+
+    its updated predictions as metrics in an HTTP endpoint that is periodically
+
+    scraped by the MC. The MC gathers data from the services themselves and
+
+    the PAPI, and exposes the metrics in two ways. First, MC sends metrics to the
+
+    System Manager (dashboard), allowing the manager to observe and analyse the
+
+    behaviour of the services. Second, MC sends metrics to the Kubernetes Con-
+
+    troller which will use the metrics to detect service failures and automatically
+
+    adjust the resources.
+
+    Using our conceptual architecture as a basis, we designed our cloud services
+
+    monitoring solution, the details of which are presented below. First, we describe
+
+    the main components related to the monitoring itself, and then we present the
+
+    proactive version where we detail our predictor service.
+
+    Journal of Cloud Computing
+
+    8
+
+    Marques et al.
+
+    3.1 Full metrics monitoring pipeline
+
+    In Kubernetes, application monitoring does not depend on a single monitoring
+
+    solution. The resource metrics pipeline provides a limited set of metrics related
+
+    to cluster components such as the HPA controller. The full metrics pipeline
+
+    gives access to richer metrics. Figure 2 shows a high level view of the updated
+
+    monitoring system architecture with support for full metrics. Its main com-
+
+    ponents are: Service Apps, Metrics Server, Prometheus Monitor, Prometheus
+
+    Kubernetes Adapter, the Kubernetes Metrics API and the HPA.
+
+    Fig. 2 High-level view of the custom/external metrics monitoring architecture.
+
+    To monitor additional metrics, a custom exporter is integrated in each
+
+    service to publish metrics such as throughput and number of client sessions,
+
+    streams or ﬁle transfers, depending on the service. Moreover, in any monitoring
+
+    system, it is extremely important to observe the collected data, in order to
+
+    understand the applications resource requirements. However, the metrics API
+
+    does not allow the visualization of the historical data. To do that, we chose
+
+    Prometheus, an open source monitoring and alerting platform. Prometheus
+
+    collects data from the sources in a time-series format at a set interval, and
+
+    stores it locally on a disk identiﬁed by the metric name and key/value pairs.
+
+    Details about the main components of our architecture are presented below.
+
+    3.1.1 Service Apps
+
+    The Service Apps represent the generic services or compositions of services,
+
+    that will be monitored and scaled according to the memory and CPU usage
+
+    values gathered by the Metrics Server. The applications are exposed internally
+
+    through a Kubernetes service, an abstraction which deﬁnes a logical set of Pods
+
+    and a policy by which to access them; they are accessible to clients through a
+
+    Network Load Balancer (NLB). The NLB selects a target (targets may be EC2
+
+    instances, containers or IP addresses) using a ﬂow hash algorithm based on the
+
+    protocol, source IP address, source port, destination IP address, destination
+
+    port, and Transmission Control Protocol (TCP) sequence number. The TCP
+
+    connections from a client have diﬀerent source ports and sequence numbers,
+
+    and can be routed to diﬀerent targets. Each individual TCP connection is
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    9
+
+    routed to a single target for the life of the connection. The Service Apps have
+
+    been integrated with a custom exporter that enables the collection of additional
+
+    metrics, the most relevant ones being downstream throughput and number
+
+    of active user sessions. Although some applications may support Prometheus
+
+    metrics out of the box, for the most part of them we need to develop a custom
+
+    adapter (CA). The CA helps the application to monitor additional metrics
+
+    other then memory and CPU usage, collected by the Kubernetes metrics-server
+
+    by default. Moreover, we need an additional Exporter for the Prometheus
+
+    server, which collects the values from the Prometheus monitoring server and
+
+    publishes them in the Kubernetes metrics API where they become available
+
+    to Autoscaler. Our custom exporters are GO servers that collect information
+
+    from the applications at run time, and exposes them in an Hypertext Transfer
+
+    Protocol (HTTP) endpoint according to the Prometheus format, so they can
+
+    be periodically scraped by the Prometheus Monitor.
+
+    3.1.2 Metrics Server
+
+    The Metrics Server is a cluster-wide aggregator of resource usage data. Figure
+
+    3 shows in detail the simultaneous implementation of the custom/external
+
+    metrics pipeline and the resource metrics pipeline.
+
+    Fig. 3 Detailed view of the custom/external metrics monitoring architecture.
+
+    The Kubernetes Metrics Server collects and exposes metrics from appli-
+
+    cations. It discovers all nodes on the cluster, and queries each node’s kubelet
+
+    for CPU and memory usage. CPU is reported as the average usage, in CPU
+
+    cores, over a period of time derived by taking a rate over a cumulative CPU
+
+    counter provided by the kernel. Memory usage is reported as the working set,
+
+    in bytes, at the instant the metric was collected. In an ideal world, the “work-
+
+    ing set” is the amount of memory in-use that cannot be freed under memory
+
+    Journal of Cloud Computing
+
+    10
+
+    Marques et al.
+
+    pressure. However, the calculation of the working set varies by host Operating
+
+    System (OS), and generally makes heavy use of heuristics to produce an esti-
+
+    mate. It includes all anonymous (non-ﬁle-backed) memory, since Kubernetes do
+
+    not support the swap process. The metric typically includes also some cached
+
+    (ﬁle-backed) memory, because the host OS cannot always reclaim such pages.
+
+    The monitoring pipeline fetches metrics from the Kubelet which is the pri-
+
+    mary agent running in every node that works in terms of PodSpecs, which
+
+    are YAML or JSON objects that describe the containers running in that node.
+
+    The Kubelet takes the PodSpecs provided by the API Server, and ensures
+
+    that the containers described in them are running and healthy. The Kubelet
+
+    acts as a bridge between the Kubernetes master and the nodes, managing
+
+    the pods and containers running on a machine. The Kubelet translates each
+
+    pod into its constituent containers, and fetches individual container usage
+
+    statistics from the container runtime through the container runtime interface.
+
+    The Kubelet fetches this information from the integrated cAdvisor, a running
+
+    daemon that collects real-time monitoring data from the containers for the
+
+    legacy Docker integration. It then exposes the aggregated pod resource usage
+
+    statistics through the Metrics Server API.
+
+    To collect custom metrics from deployed apps, we need to integrate a Met-
+
+    rics Exporter built speciﬁcally for each app. This exporter collects the desired
+
+    metrics and exposes them to an HTTP endpoint that is periodically scraped by
+
+    Prometheus. The Prometheus monitor collects metrics directly from the appli-
+
+    cation exporters, as well as the Metrics Server. The Prometheus Kubernetes
+
+    Exporter queries the Prometheus monitor to collect speciﬁc metrics and pub-
+
+    lish them in the Custom/External Metrics API (CEMAPI). Finally, metrics
+
+    can be used by the HPA to make scaling decisions.
+
+    3.1.3 Prometheus Monitor
+
+    The Prometheus Monitor queries the data sources (Metrics Exporters) at a
+
+    speciﬁc polling frequency, at which time the exporters present the values of
+
+    the metrics at the endpoint queried by Prometheus. The exporters are auto-
+
+    matically discovered by creating a Kubernetes entity called Service Monitor, a
+
+    custom Kubernetes resource that declaratively speciﬁes how groups of services
+
+    should be monitored and which endpoints contain the metrics. The Prometheus
+
+    aggregates the data from the exporters into a local on-disk time series database
+
+    that stores the data in a highly eﬃcient format. Data is stored with its spe-
+
+    ciﬁc name and an arbitrary number of key=value pairs (Labels). Labels can
+
+    include information on the data source and other application-speciﬁc break-
+
+    down information, such as the HTTP status code (for metrics related to HTTP
+
+    responses), query method (GET versus POST), endpoint, etc.
+
+    Supported by basic and custom metrics implemented, the HPA auto-
+
+    matically scales the number of Pods in a replication controller, deployment,
+
+    replica set or stateful set based on application-provided metrics instead of
+
+    only CPU and memory usage metrics. Moreover, with custom metrics, we
+
+    can detect malfunctions and resource shortages that would go unnoticed if
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    11
+
+    we were just monitoring the CPU application and memory usage, making
+
+    the metrics pipeline complete, a valuable addition and a great improvement
+
+    to the tracking system. From the most basic perspective, the HPA controller
+
+    operates on the ratio between desired metric value and current metric value,
+
+    as formalized in the Equation 1 below:
+
+    desiredReplicas = ceil[currentReplicas∗
+
+    (currentMetricV alue/desiredMetricV alue)]
+
+    (1)
+
+    For example, if the current metric value is 200m, and the desired value
+
+    is 100m, the number of replicas will be doubled, since 200.0/100.0 = 2.0. If
+
+    the current value is instead 50m, we will halve the number of replicas, since
+
+    50.0/100.0 = 0.5.
+
+    This monitoring system is, however, still purely reactive and susceptible
+
+    to the unpredictability of the workload characteristics of service cloud envi-
+
+    ronments. To minimize the impact of these ﬂuctuations, we have integrated
+
+    a forecasting module capable of predicting resource usage and allowing the
+
+    monitoring system to allocate resources in a preventive way, reducing system
+
+    response time and wasted resources. Below, we present our complete solution
+
+    that includes the Predictor Service.
+
+    3.2 Proactive monitoring for service provisioning
+
+    Our prediction module forecasts the network workload spikes based on machine
+
+    learning algorithms, and sends the expected values to the monitoring system
+
+    so it can proactively allocate resources. Figure 4 contains a high-level depiction
+
+    of our Proactive Monitoring Framework and its six main component: Service
+
+    Apps, Prometheus Monitor, Prometheus Kubernetes Adapter, Kubernetes Met-
+
+    rics API, HPA, Prediction Exporter and Predictor Service, whose adaptations
+
+    and diﬀerences from the previous version (Section 3.1) are below.
+
+    The Service Apps are now scaled according to the Key Performance Indi-
+
+    cator (KPI) values calculated by the Predictor Service, which allows the
+
+    applications to begin the scaling process before the workload spikes occur.
+
+    The Prometheus Monitor must be conﬁgured to add the Prediction
+
+    Exporter to the scrape targets, so that it collects the predicted values from
+    the
+
+    exporter, and these metrics need to be added to the Prometheus Kubernetes
+
+    Adapter in order for them to be available to the HPA through the Kubernetes
+
+    Metrics API.
+
+    The Prediction Exporter is a standalone deployment based on a container
+
+    running a GO server that acts as the liaison between the monitoring framework
+
+    in the cloud and the Predictor Service. It queries the Prometheus Monitor to
+
+    gather data from the metrics used for scaling the applications in a ﬁle, which
+
+    is periodically sent to the Predictor Service as historical data to continuously
+
+    Journal of Cloud Computing
+
+    12
+
+    Marques et al.
+
+    Fig. 4 High-level view of the Proactive Monitoring Framework.
+
+    train and consequently improve the accuracy of the predictor. The exporter is
+
+    also a data source responsible for receiving the predicted KPI values from the
+
+    Predictor Service, and exposing them in an HTTP endpoint which is scraped
+
+    by the Prometheus Monitor to make the predicted values available to the HPA.
+
+    The Predictor Service uses a framework for distributed real-time time series
+
+    forecasting [19] that makes predictions for various dynamic systems simulta-
+
+    neously, and provides straightforward horizontal scaling, increased modularity,
+
+    high robustness and a simple interface for users.
+
+    The high-level view of the prediction framework, depicted in Figure 5, is
+
+    composed of ﬁve main components: the Prediction API, the Predictor Message
+
+    Broker (PMB), the Metric Predictor Component (MPC), the Metric Message
+
+    Transformation Component (MMTC) and the Metric Prediction Orchestration
+
+    Component (MPO).
+
+    The Prediction API is the interface that allows a client to predict a value
+
+    for a time series system/metric, train the predictor for a given metric, save
+
+    new time series data for later training and change the training parameters.
+
+    The Prediction API is a Representational State Transfer (REST) microservice
+
+    that encapsulates the functionalities of the predictor.
+
+    To train the predictor for a certain metric we need to ﬁrst provide the
+
+    dataset and send the start and end date of the data to consider for the training
+
+    phase to the Prediction API which receives the requests from external clients
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    13
+
+    Fig. 5 High-level view of the prediction architecture [19].
+
+    and sends a message to the PMB that will forward the message to the cor-
+
+    responding metric predictor or message transformation component, according
+
+    to the internal message protocol. The core component of the framework is
+
+    the MPC, which is responsible for predicting the time series data for a given
+
+    dynamic system/metric and is composed by four sub-components: the Metric
+
+    Predictor (MPC-MP), the Metric Predictor Message Broker (MPMB), the
+
+    Predictor Training (MPC-PT) and the Time-series Persistence (MPC-TsP).
+
+    The MPMB is the internal message broker of the predictor component
+
+    and it routes messages between the three sub-components. The MPC-PT does
+
+    the training of the model and updates it with the newly received data. The
+
+    new model will be uploaded to the MPC via the internal message broker.
+
+    The MPC-TsPstores the data to optimize the read and write operations for
+
+    time-series data, to be used when training the model. To enable an ensemble
+
+    prediction using multiple predictors, it is also needed to perform a reduction
+
+    step by joining the predictor results and performing adequate transformations,
+
+    which are done using the MMTC by receiving the messages in the prediction
+
+    message broker and applying custom functions for each predictor component
+
+    messages, before inserting the transformed messages into the broker.
+
+    The instances of the metric predictor and the transformation components
+
+    are orchestrated by the MPO, which has two internal components: the mon-
+
+    itoring component, which accesses the logs of the predictor and transformer
+
+    as well as the exchanged messages, to better understand the current state of
+
+    operation of the various components; and the conﬁguration and management
+
+    component, which instantiates and manages the life cycle of the predictor and
+
+    the transformation components.
+
+    Journal of Cloud Computing
+
+    14
+
+    Marques et al.
+
+    Once the predictor is trained, the Prediction API can start to predict the
+
+    values for the metric. The Prediction Exporter queries the Prometheus Monitor
+
+    to collect the current value of the time series, and send it to the Prediction
+
+    API along with their timestamp. The Prediction API will obtain the result
+
+    of the predictor and return it to the client, along with the timestamp of the
+
+    predicted point.
+
+    3.3 Main characteristics
+
+    Our Proactive Monitoring Framework is scalable, since a Prometheus instance
+
+    can monitor several thousands of services. Moreover, it is versatile and can
+
+    use other monitor engines, such as Thanos Prometheus4, to enable the aggre-
+
+    gation of queries from several Prometheus instances and save the collected
+
+    metrics in an external storage device, overcoming the scraping and storage
+
+    limitations of a single replica. It is also ﬂexible when it comes to add metrics,
+
+    services or replace components, since it facilitates the addition of services
+    and
+
+    the collection of custom metrics speciﬁc to each service’s requirements with
+
+    the custom metrics exporters. Moreover, it can be used in any public, private
+
+    or hybrid Kubernetes based cloud regardless of the provider. The Prediction
+
+    Service modularity also makes it easy to replace with any other forecasting
+
+    algorithm. The Prometheus monitor can be replaced by any other metric col-
+
+    lector, although the alternatives such as Dynatrace5 are often paid and harder
+
+    to implement. The monitoring system components have the capability to mon-
+
+    itor themselves and adjust and allocate additional resources as required, so as
+
+    long as there are resources available, the system will scale and adjust to the
+
+    number of active services.
+
+    4 Evaluation
+
+    The assessment of the proposed approach is performed in three steps. First,
+
+    we set up a testbed with the currently most used monitoring tools in the
+
+    cloud. We use this initial testbed to evaluate solutions and identify unmet
+
+    challenges. Based on this assessment, we reﬁne our testbed and perform a
+
+    new assessment. The results show the eﬃciency of this reﬁnement. Finally,
+
+    we include a prediction service in our solution. Again, the results show the
+
+    eﬃciency of this prediction approach.
+
+    Since this approach is tested in a cloud running services in a VANET envi-
+
+    ronment, the tests use a real dataset provided by Veniam6 from the network
+
+    of vehicles in Oporto, Portugal, which contains the list of Internet sessions
+
+    from the users in the vehicles, login and logout timestamps, session duration
+
+    and number of bytes transferred from 2020-09-07 at 00:00:00 to 2021-04-27
+
+    at 23:00:00. Veniams’ vehicular network infrastructure is a large-scale deploy-
+
+    ment of On Board Units (OBUs) in vehicles and infrastructural Road Side
+
+    4https://thanos.io/
+
+    5https://www.dynatrace.com/
+
+    6https://veniam.com/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    15
+
+    Units (RSUs) that enables Vehicle to Vehicle (V2V) and Vehicle to Infrastruc-
+
+    ture (V2I) communication, in the city of Porto, Portugal [20]. Currently, 600+
+
+    ﬂeet vehicles are equipped with OBUs, pertaining to the public transportation
+
+    authority (400+ buses) and waste disposal department (garbage-collection and
+
+    road-cleaning trucks). Additionally, more than 50 RSUs have been deployed.
+
+    The GPS traces and metadata of passenger Wi-Fi connections are collected
+
+    by each OBU and stored in the backend infrastructure. As an example, the
+
+    number of sessions per hour (Wi-Fi connections) is shown in Figure 6.
+
+    Fig. 6 Number of sessions per hour in the timeframe used for forecasting
+
+    Two separate sets of tests are conducted to validate the monitoring and
+
+    prediction model. The ﬁrst set is run on a local small scale Kubernetes cluster
+
+    to facilitate testing, and the second set is run on a larger private Kubernetes
+
+    cluster owned by Veniam. The local testbed infrastructure runs on a desktop
+
+    (Intel® Core™ i7-8750H CPU @ 2.20GHz × 12, 8GB RAM) using Ubuntu
+
+    Linux, running a local Kubernetes cluster in a Minikube Virtual Machine
+
+    (VM), which was used to simulate an environment where diﬀerent services were
+
+    being provided to users through a URL and monitored using Prometheus. The
+
+    large scale tests run in an infrastructure based on the private cluster provided
+
+    by Veniam running on Elastic Kubernetes Service (EKS), a managed service
+
+    used to run Kubernetes on Amazon Web Services (AWS) without needing to
+
+    install, operate, and maintain the Kubernetes control plane or nodes.
+
+    Amazon EKS runs and scales the Kubernetes control plane across multiple
+
+    AWS Availability Zones to ensure high availability, automatically scales con-
+
+    trol plane instances based on load, detects and replaces unhealthy control plane
+
+    instances, and provides automated version updates and patching for them. It
+
+    Journal of Cloud Computing
+
+    16
+
+    Marques et al.
+
+    is also integrated with many AWS services to provide scalability and secu-
+
+    rity for your applications, including the following capabilities: Amazon Elastic
+
+    Container Registry (ECR) for container images, Elastic Load Balancing for
+
+    load distribution, Identity and Access Management (IAM) for authentication,
+
+    and Amazon Virtual Private Cloud (VPC) for isolation. The Kubernetes clus-
+
+    ter consists of 13 nodes, each one with a 110 pod capacity and using Amazon
+
+    Linux 2.
+
+    The monitoring of CPU and memory usage, the two metrics supported by
+
+    default by Kubernetes, may be inadequate for some services. Therefore, we
+
+    will be running stress tests on three diﬀerent services deployed in a Kubernetes
+
+    environment, a Video Stream Service, a File Transfer Service and a Custom
+
+    Iperf Service. Figure 7 shows a high level architecture of the monitoring system
+
+    and the deployed services.
+
+    Fig. 7 High-level view of the tested services in the monitoring architecture.
+
+    The Video Stream Service is based on NGINX7, an open source software
+
+    that provides a Real Time Media Protocol (RTMP) HTTP Live Streaming
+
+    (HLS) module to be used in the streaming server. We use Fast Forward Motion
+
+    Picture Experts Group (FFmpeg) to encode and publish in real-time a looped
+
+    video ﬁle in H.264 format with a 1280x720 pixel resolution at a frame rate of
+
+    24 frames per second. The NGINX server allows clients to stream the video
+
+    through an HTTP endpoint.
+
+    7https://www.nginx.com/resources/glossary/nginx/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    17
+
+    The File Transfer Service is an HTTP server written in GO language and
+
+    uses the net/http package. The server receives HTTP requests from clients
+
+    and responds with a randomly generated ﬁle. The clients can send requests to
+
+    diﬀerent endpoints in order to obtain ﬁles of diﬀerent sizes.
+
+    The Custom Iperf Service8 is a standard Iperf3 server, a tool for active
+
+    measurements of the maximum achievable bandwidth on IP networks that
+
+    supports tuning of various parameters related to timing, buﬀers and protocols
+
+    (TCP, User Datagram Protocol (UDP), Stream Control Transmission Protocol
+
+    (SCTP) with IPv4 and IPv6) written in C, and a mixer module, developed
+
+    by Veniam, that creates multiple instances of the Iperf3 server, up to a preset
+
+    limit, allowing a single instance of the service to receive multiple client sessions
+
+    simultaneously (this feature is not supported in the default implementation).
+
+    Since it is impossible to diﬀerentiate the type of sessions recorded in the
+
+    Veniam dataset, we will be making an estimate based on the percentage values
+
+    from Sandine’s report [21]. According to the study presented in this report,
+
+    64% of the total sessions could be associated with video streams, 8% with ﬁle
+
+    transfers and Iperf will be given 1% of the total sessions. Stress tests based
+
+    on these values were created to establish a baseline for each service’s memory,
+
+    CPU and throughput requirements, allowing the discovery of bottlenecks for
+
+    each speciﬁc service.
+
+    4.1 Basic monitoring system evaluation
+
+    To determine whether the metrics server and resource metrics pipeline were
+
+    suﬃcient to accurately monitor the service applications, we developed a simple
+
+    load test. First, there is a steadily increasing number of sessions, and afterwards
+
+    the number of sessions decreases again on steady one minute intervals, as
+
+    shown in Figure 8. The test consisted of simulating the number of sessions in
+
+    each service and then analysing the memory and CPU usage metrics to see if
+
+    all services can be accurately proﬁled using these metrics.
+
+    Figure 9 shows the memory usage, and Figure 10 shows the CPU usage for
+
+    the video stream service.
+
+    Neither of the metrics is able to accurately proﬁle the status of the service
+
+    and the incoming connections, since both metrics remain constant during the
+
+    full test, with minimal variations that are not related to the incoming streams.
+
+    From the above tests, we can conclude that, exclusively monitoring memory
+
+    and CPU usage is insuﬃcient to have an accurate monitoring system. Even
+
+    though there may exist services for which these two metrics are suﬃcient, such
+
+    as the ﬁle transfer service, for video stream service and the custom Iperf service,
+
+    these metrics fail to give an accurate representation of the service status and
+
+    are unsuitable to be used as the basis for scaling decisions. This means that,
+    in
+
+    order to accurately monitor the services, additional metrics must be gathered
+
+    from the services, which will be presented in the next section.
+
+    8https://iperf.fr/
+
+    Journal of Cloud Computing
+
+    18
+
+    Marques et al.
+
+    Fig. 8 Number of sessions in the load test.
+
+    Fig. 9 Video Stream memory usage with resource metrics.
+
+    Fig. 10 Video Stream CPU usage with resource metrics.
+
+    4.2 Custom metrics monitoring system evaluation
+
+    To determine whether additional metrics could be used to monitor the ser-
+
+    vice applications, we repeated the load test shown in Figure 8 to analyze
+
+    the throughput and active users graphs to determine if they can be used to
+
+    accurately proﬁle the service load.
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    19
+
+    Fig. 11 Video Stream active streams with custom metrics.
+
+    Figure 11 shows the number of active video streams in the server at a given
+
+    time. This metric is a strong candidate to be used in the autoscaler, since it
+
+    shows the load of the service without too many ﬂuctuations, making it easier
+
+    to establish thresholds for the autoscaler. Figure 12 shows the throughput out
+
+    of the video stream service during the test. This metric is able to represent
+
+    the status of the service, since throughput is directly related to the number
+
+    of active streams. However, the rapid ﬂuctuations in the values due to the
+
+    accumulated changes in the throughput rate of each individual stream make
+
+    it diﬃcult to establish thresholds for it to be used in the autoscaler.
+
+    Fig. 12 Video Stream throughput with custom metrics.
+
+    From these tests, we conclude that the custom metrics enable a more com-
+
+    plete and versatile monitoring system. The custom exporters are a signiﬁcant
+
+    improvement, since they allow to conﬁgure any additional metric which may
+
+    seem necessary for a speciﬁc service instead of relying solely on the metrics
+
+    available from the metric server.
+
+    4.3 Service Stress Tests
+
+    Before implementing the HPA, we need to analyse each services’ behavior and
+
+    identify which resources are critical to its execution, and the amount that
+
+    should be used to scale the number of pods so that the service runs smoothly.
+
+    The load tests will be based on the values of the second to last day, since the
+
+    last day corresponds to a holiday with anomalous sessions numbers (Figure
+
+    13).
+
+    Journal of Cloud Computing
+
+    20
+
+    Marques et al.
+
+    Fig. 13 Number of sessions per hour in a single day
+
+    To evaluate the beneﬁts of automatically scaling applications based on the
+
+    collected metrics, we must ﬁrst determine which metrics are most critical to
+
+    the correct operation of the service. Figure 14 shows that the memory usage
+
+    reaches the maximum possible value regardless of the number of active streams.
+
+    Fig. 14 Video Stream memory usage without HPA.
+
+    This behaviour makes this metric unsuitable to be used in the Autoscaler,
+
+    and shows that the parameters monitored by default in Kubernetes are, in
+
+    some cases, not capable of giving an accurate depiction of the status of the
+
+    service. This indicates the need for additional speciﬁc metrics. In this way,
+    the
+
+    values of active streams shown in Figure 15 are much more representative of
+
+    the status of the service. This test was done without any automatic scaling
+
+    (without HPA), therefore, no additional replicas were created to respond to the
+
+    increase of users which resulted in the service completely stopping to respond,
+
+    as we can see in both Figures 14 and 15.
+
+    This situation shows the importance of allocating resources dynamically
+
+    to prevent both scenarios where the services are unable to respond to the
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    21
+
+    Fig. 15 Video Stream active streams without HPA.
+
+    incoming workload and where resources are being wasted during periods of
+
+    low workloads.
+
+    4.4 Stress Tests with optimized HPA
+
+    Figures 16 and 17 show the active sessions and the number of instantiated
+
+    pods during the test when using the HPA to automatically adjust resources.
+
+    It is notorious that the HPA is able to keep the metrics that are being tracked
+
+    for each service within acceptable values, and is able to prevent the service
+
+    from stopping to respond to higher workloads. However, in order to improve
+
+    the quality of service and take full advantage of the Autoscaler, we must make
+
+    changes to its conﬁguration and reduce its reactiveness by adding a stabiliza-
+
+    tion period to both scaling up and down operations, thus reducing the workload
+
+    placed on the orchestrator by rapidly creating and deleting pods.
+
+    Fig. 16 Video Stream active streams per pod with HPA.
+
+    In the following tests, a stabilization period is added. This requires the
+
+    value of a metric to be above or below the threshold for a conﬁgurable period
+
+    of time before signaling a scale up or down. Additionally, it requires a policy
+
+    to limit the rate at which pods are added or removed to 1 every 15 seconds.
+
+    These conditions are added to the HPA conﬁguration and are used to assess
+
+    whether keeping the pods longer, even though the metric value might be below
+
+    the threshold, can reduce the load on the Orchestrator without leading to
+
+    situations where we overrun the provision of resources for long periods of time.
+
+    Journal of Cloud Computing
+
+    22
+
+    Marques et al.
+
+    Fig. 17 Video Stream number of pods with HPA.
+
+    Figures 18 and 19 show the active sessions and the number of instantiated
+
+    pods during the test when using the optimized HPA with a stabilization period.
+
+    Similarly to the tests with the default conﬁguration of the Autoscaler, the
+
+    streams are split between the pods, preventing a single pod from being satu-
+
+    rated and unable to respond to the clients. However, there are far less instances
+
+    of pods being created or deleted during this test, which can be conﬁrmed in
+
+    Figure 19.
+
+    Fig. 18 Video Stream active streams per pod with optimized HPA.
+
+    Fig. 19 Video Stream number of pods with optimized HPA.
+
+    With default conﬁgurations, a total of 10 pods are used during the test.
+
+    However, the addition of the stabilization period reduced the reactivity of the
+
+    Autoscaler which made pod deletion less frequent, and so the total number of
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    23
+
+    pods used for this test was only 4, resulting in a lesser load for the Orchestrator
+
+    and a smaller number of dropped streams on pod deletions.
+
+    4.5 Stress Tests with Machine Learning Predictor
+
+    By itself, the Autoscaler with stabilization period is an eﬀective way of
+
+    responding to large spikes in client requests. However, it is a reactive system,
+
+    and there is a delay in the response to these spikes. By adding a predictive mod-
+
+    ule, we can minimize this delay using machine learning algorithms to forecast
+
+    the number of incoming sessions and thus ensuring the desired QoS.
+
+    First, we need to create a model to forecast the number of sessions in the
+
+    vehicular network. The forecasting task consists of, given the past values of
+
+    the number of sessions per hour in the vehicular network y(0), y(1), ..., y(t)
+
+    and other possible additional features, forecast the value y(t + 1) , where y(t)
+
+    represents the number of sessions in the network at hour t.
+
+    Fig. 20 Vehicular network dataset split in training set, cross-validation set
+    and test set.
+
+    With the current dataset, two weeks will be used as cross-validation data
+
+    (from the 31 of October to the 14 of November) to optimize the forecasting
+
+    models, and the last two weeks (from the 14 of November to the 28 of Novem-
+
+    ber) will be used as test data, to perform the ﬁnal tests and calculate the
+
+    performance metrics. The previous weeks (from the 9 of September to the 31
+
+    of October) will be used as training data (Figure 20).
+
+    In this work, we chose to use the predictor module developed by Ferreira et
+
+    al [19]. The performance metric used to evaluate the accuracy of the forecasts
+
+    will be the Root Mean Square Error (RMSE), which is the square root of the
+
+    average of squared diﬀerences between the forecasts and the actual observa-
+
+    tions. Predictors with lower RMSE values are more accurate than those with
+
+    higher RMSE values.
+
+    Next, we discuss the performance of the monitoring and management sys-
+
+    tem with the prediction service. Figure 21 shows the distribution of sessions
+
+    Journal of Cloud Computing
+
+    24
+
+    Marques et al.
+
+    in pods using the optimized Autoscaler, without the prediction module. Since
+
+    the Autoscaler needs to wait for session spikes to occur before it commands the
+
+    Orchestrator to create an additional pod, the original pod will have to endure
+
+    the user spike by itself, which can cause the degradation of service perfor-
+
+    mance. The annotation (i) shows a period in which a spike of users occurred.
+
+    During these periods, the average number of sessions in a single pod may far
+
+    exceed its threshold and cause the pod to stop responding.
+
+    Fig. 21 Active streams per pod without the prediciton module.
+
+    The addition of a forecasting module enables the Autoscaler to anticipate
+
+    the client spikes and react preemptively, minimizing the time a pod exceeds the
+
+    threshold of active sessions. Figure 22 depicts the distribution of sessions per
+
+    pod using the prediction module. In this case, the Autoscaler creates additional
+
+    pods preemptively, allowing the pods to have time to start up before the spike
+
+    of clients actually occurs in the period indicated by annotation (i).
+
+    Fig. 22 Average active streams with prediction.
+
+    Figure 23 shows the distribution of streams per pod, and how the predictor
+
+    enables the autoscaler to anticipate client spikes and create additional pods
+
+    preemptively (i). Figure 24 shows the number of sessions forecasted by the
+
+    prediction module. The predicted values are very similar to the real ones shown
+
+    in Figure 25, demonstrating the accuracy of the predictor.
+
+    The initial tests were performed in a local Kubernetes cluster with limited
+
+    resources with the objective of determining if the tools provided by Kubernetes
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    25
+
+    Fig. 23 Active streams per pod using the prediction module.
+
+    Fig. 24 Forecasted number of sessions.
+
+    Fig. 25 Average active streams per pod.
+
+    were suﬃcient to accurately monitor any generic service that may be deployed.
+
+    Following, we tested the custom metrics pipeline using the Prometheus frame-
+
+    work to complement the metrics server and enable the collection of custom
+
+    service-speciﬁc metrics. This model proved to be much more eﬀective as it
+
+    allows the operator to add new metrics for each service as needed, and was
+
+    used as a basis for the tests below.
+
+    The next objective was to take advantage of the collected metrics to make
+
+    automated scaling decisions based on them. The tests were done in the Veniam
+
+    Kubernetes cluster, since the local deployment lacked the resources to simulate
+
+    the required numbers of users. Initially, the tests were done without any scaling
+
+    algorithms, which led to situations where the services crashed and/or stopped
+
+    responding because they lacked the resources to respond to the amount of
+
+    Journal of Cloud Computing
+
+    26
+
+    Marques et al.
+
+    users being simulated, underlining the need for an automated scaling system
+
+    capable of responding to workload spikes in real time. A scaling system was
+
+    proposed using the Kubernetes HPA, and the custom metrics were collected
+
+    from the services to trigger scaling operations whenever the selected metric
+
+    surpassed certain thresholds. This addition was not enough to provide major
+
+    beneﬁts, since the Autoscaler was far too reactive to changes in the workloads
+
+    which were themselves highly volatile. In fact, the Autoscaler was permanently
+
+    scaling up and down, disconnecting users and placing a big workload in the
+
+    Orchestrator, so in order to make the system viable, the algorithm had to be
+
+    reviewed.
+
+    The most eﬀective way to reduce Autoscaler reactivity was to introduce a
+
+    stabilization period on the Autoscaler, either by increasing or decreasing the
+
+    scale. This modiﬁcation greatly improved the system performance, services
+
+    still reacted quickly to changes in workloads, preventing services from running
+
+    out or wasting resources. While eﬃcient, the monitoring system is still not fast
+
+    enough to prevent any variation triggering a scaling operation, reducing the
+
+    load placed on the orchestrator and user disconnection rates.
+
+    Finally, we evaluated the integration of a prediction service that allows the
+
+    system to anticipate workloads variations and adjust proactively instead of
+
+    reactively. We began by analysing the research done to select the most accurate
+
+    predictor for our scenario, and used the vehicular dataset previously referred
+
+    for training the predictor. The results of the load tests with the predictor
+
+    module show reduced periods of threshold violations, since the orchestrator
+
+    is able to proactively allocate resources, improving the response time of the
+
+    system and preventing service degradation caused by insuﬃcient resources.
+
+    5 Conclusion and Future work
+
+    This article proposed a framework for a Kubernetes based cloud, focusing on
+
+    collecting comprehensive metrics about agnostic services with diﬀerent require-
+
+    ments, on automating scaling operations and predicting load surges using a
+
+    forecasting module. The proposed monitoring and management system was
+
+    extended to provide autoscaling and to include a load prediction service that
+
+    allows the system to act preventively in order to maintain the desired QoS
+
+    while dealing with the eﬃcient use of resources in peaks of low consumption.
+
+    The Predictor Service publishes predicted user session values for the next time
+
+    period as service metrics, which are collected by the monitoring system and
+
+    used by the orchestrator to make predictive scheduling decisions. By using
+
+    these service metrics, the monitoring system improved the response time on
+
+    escalation responses and reduced service degradation. These improvements
+
+    were made possible by variable workloads compared to reactive monitoring
+
+    systems.
+
+    The proposed system is well suited for micro services environments, due to
+
+    its ability to collect customized real time performance metrics from services.
+
+    This allows system managers to overcome the limitations of the standalone
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    27
+
+    Kubernetes monitoring tools, and have a complete view of status of the applica-
+
+    tions deployed, detect malfunctions and conﬁgure alerts. The system can easily
+
+    integrate workload predictors that enable it to predict variations in service
+
+    workloads, and ensures the provisioning of resources to the deployed services
+
+    by automatically scaling applications according to workloads, minimizing the
+
+    waste of resources.
+
+    As future work, there are some elements that can be enhanced: monitor
+
+    and analyse additional pods, such as load balancers for an even more complete
+
+    view of the system; automate the behavioral analysis of services to discover
+
+    which of the collected metrics is critical for each service; and create service
+
+    speciﬁc predictors instead of a central prediction module to reduce the load
+
+    placed on the prediction module, and increase the modularity of the system.
+
+    Acknowledgements This work is supported by the European Regional
+
+    Development Fund (FEDER), through the Regional Operational Programme
+
+    of Lisbon (POR LISBOA 2020) and the Competitiveness and Internation-
+
+    alization Operational Programme (COMPETE 2020) of the Portugal 2020
+
+    framework Projects City Catalyst POCI-01-0247-FEDER-046119 and IMMI-
+
+    NENCE POCI-01-0247-FEDER-112314.
+
+    Declarations
+
+    • Ethical Approval: not applicable.
+
+    • Competing interests: not applicable.
+
+    • Authors’ contributions:
+
+    G. Marques: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, implemented the monitoring system and
+
+    contributed to the writing of the paper.
+
+    C. Senna: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, supervised the entire research process and
+
+    contributed to the writing of the paper.
+
+    S. Sargento: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, supervised the entire research process and
+
+    contributed to the writing of the paper.
+
+    L. Carvalho: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    L. Pereira: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    R. Matos: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    • Funding:
+
+    This work is supported by the European Regional Development Fund
+
+    (FEDER), through the Regional Operational Programme of Lisbon (POR
+
+    Journal of Cloud Computing
+
+    28
+
+    Marques et al.
+
+    LISBOA 2020) and the Competitiveness and Internationalization Oper-
+
+    ational Programme (COMPETE 2020) of the Portugal 2020 framework
+
+    Projects City Catalyst POCI-01-0247-FEDER-046119 and IMMINENCE
+
+    POCI-01-0247-FEDER-112314.
+
+    • Availability of data and materials: not applicable.
+
+    References
+
+    [1] O. Zimmermann, Microservices tenets. Computer Science-Research and
+
+    Development 32(3), 301–310 (2017)
+
+    [2] W.H.C. Almeida, L. de Aguiar Monteiro, R.R. Hazin, A.C. de Lima,
+
+    F.S. Ferraz, Survey on microservice architecture-security, privacy and
+
+    standardization on cloud computing environment. ICSEA 2017 p. 210
+
+    (2017)
+
+    [3] C. Esposito, A. Castiglione, K.K.R. Choo, Challenges in delivering soft-
+
+    ware in the cloud as microservices. IEEE Cloud Computing 3(5), 10–14
+
+    (2016). https://doi.org/10.1109/MCC.2016.105
+
+    [4] P. Jamshidi, C. Pahl, N.C. Mendon¸ca, J. Lewis, S. Tilkov, Microservices:
+
+    The journey so far and challenges ahead. IEEE Software 35(3), 24–35
+
+    (2018). https://doi.org/10.1109/MS.2018.2141039
+
+    [5] K. Naseer Qureshi, F. Bashir, S. Iqbal, Cloud computing model for vehic-
+
+    ular ad hoc networks, in 2018 IEEE 7th International Conference on
+
+    Cloud Networking (CloudNet) (2018), pp. 1–3. https://doi.org/10.1109/
+
+    CloudNet.2018.8549536
+
+    [6] C.B. Hauser, S. Wesner, Reviewing cloud monitoring: Towards cloud
+
+    resource proﬁling, in 2018 IEEE 11th International Conference on Cloud
+
+    Computing (CLOUD) (2018), pp. 678–685.
+
+    https://doi.org/10.1109/
+
+    CLOUD.2018.00093
+
+    [7] S. Al-Shammari, A. Al-Yasiri, Monslar: a middleware for monitoring sla
+
+    for restful services in cloud computing, in 2015 IEEE 9th International
+
+    Symposium on the Maintenance and Evolution of Service-Oriented and
+
+    Cloud-Based Environments (MESOCA) (2015), pp. 46–50. https://doi.
+
+    org/10.1109/MESOCA.2015.7328126
+
+    [8] S. Lee, S. Son, J. Han, J. Kim, Reﬁning micro services placement over
+
+    multiple kubernetes-orchestrated clusters employing resource monitoring,
+
+    in 2020 IEEE 40th International Conference on Distributed Comput-
+
+    ing Systems (ICDCS) (2020), pp. 1328–1332. https://doi.org/10.1109/
+
+    ICDCS47774.2020.00173
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    29
+
+    [9] A. Koschel, A. Hausotter, R. Buchta, A. Grunewald, M. Lange, P. Nie-
+
+    mann, Towards a microservice reference architecture for insurance compa-
+
+    nies, in SERVICE COMPUTATION 2021 : The Thirteenth International
+
+    Conference on Advanced Service Computing (Porto, Portugal, 2021)
+
+    [10] I.K. Kim, W. Wang, Y. Qi, M. Humphrey, Empirical evaluation of
+
+    workload forecasting techniques for predictive cloud resource scaling, in
+
+    2016 IEEE 9th International Conference on Cloud Computing (CLOUD)
+
+    (2016), pp. 1–10. https://doi.org/10.1109/CLOUD.2016.0011
+
+    [11] F.J. Baldan, S. Ramirez-Gallego, C. Bergmeir, F. Herrera, J.M. Benitez, A
+
+    forecasting methodology for workload forecasting in cloud systems. IEEE
+
+    Transactions on Cloud Computing 6(4), 929–941 (2018). https://doi.org/
+
+    10.1109/TCC.2016.2586064
+
+    [12] R. Weing¨artner, G.B. Br¨ascher, C.B. Westphall, Cloud resource manage-
+
+    ment: A survey on forecasting and proﬁling models. Journal of Network
+
+    and Computer Applications 47, 99–106 (2015).
+
+    https://doi.org/https:
+
+    //doi.org/10.1016/j.jnca.2014.09.018.
+
+    URL https://www.sciencedirect.
+
+    com/science/article/pii/S1084804514002252
+
+    [13] H.
+
+    Wang,
+
+    Y.
+
+    Ma,
+
+    X.
+
+    Zheng,
+
+    X.
+
+    Chen,
+
+    L.
+
+    Guo,
+
+    Self-adaptive
+
+    resource management framework for software services in cloud, in
+
+    2019 IEEE Intl Conf on Parallel Distributed Processing with Appli-
+
+    cations, Big Data Cloud Computing, Sustainable Computing Com-
+
+    munications,
+
+    Social
+
+    Computing
+
+    Networking
+
+    (ISPA/BDCloud/Social-
+
+    Com/SustainCom) (2019), pp. 1528–1529.
+
+    https://doi.org/10.1109/
+
+    ISPA-BDCloud-SustainCom-SocialCom48970.2019.00223
+
+    [14] L. Chen, Y. Xu, Z. Lu, J. Wu, K. Gai, P.C.K. Hung, M. Qiu, Iot microser-
+
+    vice deployment in edge-cloud hybrid environment using reinforcement
+
+    learning. IEEE Internet of Things Journal 8(16), 12,610–12,622 (2021).
+
+    https://doi.org/10.1109/JIOT.2020.3014970
+
+    [15] H. Zhao, H. Lim, M. Hanif, C. Lee, Predictive container auto-scaling
+
+    for cloud-native applications, in 2019 International Conference on Infor-
+
+    mation and Communication Technology Convergence (ICTC) (2019), pp.
+
+    1280–1282. https://doi.org/10.1109/ICTC46691.2019.8939932
+
+    [16] S. Zhou, J. Li, K. Zhang, M. Wen, Q. Guan, An accurate ensemble
+
+    forecasting approach for highly dynamic cloud workload with vmd and
+
+    r-transformer. IEEE Access 8, 115,992–116,003 (2020). https://doi.org/
+
+    10.1109/ACCESS.2020.3004370
+
+    [17] B. Liu, J. Guo, C. Li, Y. Luo, Workload forecasting based elastic
+
+    resource management in edge cloud. Computers & Industrial Engineer-
+
+    ing 139, 106,136 (2020).
+
+    https://doi.org/https://doi.org/10.1016/j.cie.
+
+    Journal of Cloud Computing
+
+    30
+
+    Marques et al.
+
+    2019.106136.
+
+    URL https://www.sciencedirect.com/science/article/pii/
+
+    S0360835219306059
+
+    [18] Y. Zhu, W. Zhang, Y. Chen, H. Gao, A novel approach to work-
+
+    load prediction using attention-based lstm encoder-decoder network in
+
+    cloud environment. EURASIP Journal on Wireless Communications and
+
+    Networking 2019(1), 1–18 (2019)
+
+    [19] D. Ferreira, C. Senna, S. Sargento, Distributed real-time forecasting
+
+    framework for iot network and service management, in NOMS 2020 - 2020
+
+    IEEE/IFIP Network Operations and Management Symposium (IEEE
+
+    Press, 2020), p. 1–4. https://doi.org/10.1109/NOMS47738.2020.9110456.
+
+    URL https://doi.org/10.1109/NOMS47738.2020.9110456
+
+    [20] P.M. Santos, J.G.P. Rodrigues, S.B. Cruz, T. Louren¸co, P.M. d’Orey,
+
+    Y. Luis, C. Rocha, S. Sousa, S. Cris´ostomo, C. Queir´os, S. Sargento,
+
+    A. Aguiar, J. Barros, Portolivinglab: An iot-based sensing platform for
+
+    smart cities. IEEE Internet of Things Journal 5(2), 523–532 (2018). https:
+
+    //doi.org/10.1109/JIOT.2018.2791522
+
+    [21] Sandvine,
+
+    Global
+
+    internet
+
+    phenomena
+
+    report.
+
+    Technical
+
+    report,
+
+    Sandvine
+
+    (2012).
+
+    URL
+
+    https://www.sandvine.com/hubfs/
+
+    Sandvine Redesign 2019/Downloads/Internet%20Phenomena/
+
+    2012-2h-global-internet-phenomena-report.pdf
+
+    '
+  inline_citation: (Author, 2023)
+  journal: Research Square (Research Square)
+  key_findings: The system is based on a proactive approach to irrigation, predicting
+    future irrigation needs and automatically allocating resources based on these
+    predictions.
+  limitations: The paper does not provide any specific data on the performance of
+    the system in terms of water use efficiency or water waste reduction. Additionally,
+    the system has not been tested in a real-world setting, so its scalability and
+    effectiveness in practice are unknown.
+  main_objective: To develop a system for automating the processes of data collection,
+    processing, and provisioning for real-time irrigation management.
+  pdf_link: https://www.researchsquare.com/article/rs-2165603/latest.pdf
+  publication_year: 2022
+  relevance_evaluation: The paper is relevant to the point being made in the literature
+    review because it presents a new system for automating the processes of data collection,
+    processing, and provisioning for real-time irrigation management. This system
+    has the potential to improve water use efficiency and reduce water waste, which
+    are important goals for sustainable agriculture.
+  relevance_score: '0.9'
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Unspecified
+  technologies_used: Not specified
+  title: Proactive resource management for cloud of services environments
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- DOI: https://doi.org/10.21203/rs.3.rs-2165603/v1
+  analysis: '>'
+  apa_citation: Marques, G., Senna, C., Sargento, S., Carvalho, L., Pereira, L., &
+    Matos, R. (2022). Proactive Resource Management for Cloud of Services Environments.
+    Journal of Cloud Computing, 11(1), 1-17. https://doi.org/10.21203/rs.3.rs-2165603/v1
+  authors:
+  - Gonçalo Marques
+  - Carlos Senna
+  - Susana Sargento
+  - Luís A. E. Batista de Carvalho
+  - Lúıs Moniz Pereira
+  - Ricardo Matos
+  citation_count: 0
+  data_sources: Wi-Fi connections from the network of vehicles in Oporto, Portugal
+  explanation: 'The work presented in this paper proposes an architecture for accurate
+    monitoring of custom metrics for service-based cloud applications, which will
+    be used for automatic provisioning and scaling of compute resources in cloud environments,
+    while addressing services in very challenging scenarios such as VANETs. The system
+    is composed of six main components: Service Apps, Metrics Server, Prometheus Monitor,
+    Prometheus Kubernetes Adapter, Kubernetes Metrics API and HPA. The Service Apps
+    represent services or compositions of services that will be monitored and scaled
+    according to memory and CPU usage.'
+  extract_1: An architecture for accurate monitoring of custom metrics for service-based
+    cloud applications, which will be used for automatic provisioning and scaling
+    of compute resources in cloud environments, while addressing services in very
+    challenging scenarios such as VANETs.
+  extract_2: 'The proposed system is composed of six main components: Service Apps,
+    Metrics Server, Prometheus Monitor, Prometheus Kubernetes Adapter, Kubernetes
+    Metrics API and HPA. The Service Apps represent services or compositions of services
+    that will be monitored and scaled according to memory and CPU usage.'
+  full_citation: '>'
+  full_text: '>
+
+    Proactive resource management for cloud of
+
+    services environments
+
+    Gonçalo Marques 
+
+    Instituto de Telecomunicações
+
+    Carlos Senna  (  cr.senna@av.it.pt )
+
+    Instituto de Telecomunicações
+
+    Susana Sargento 
+
+    Instituto de Telecomunicações
+
+    Luís Carvalho 
+
+    Veniam, Portugal
+
+    Luís Pereira 
+
+    Veniam, Portugal
+
+    Ricardo Matos 
+
+    Veniam, Portugal
+
+    Research Article
+
+    Keywords: Cloud service management, cloud monitoring, proactive resource management,
+    vehicular
+
+    cloud resources
+
+    Posted Date: October 18th, 2022
+
+    DOI: https://doi.org/10.21203/rs.3.rs-2165603/v1
+
+    License:   This work is licensed under a Creative Commons Attribution 4.0 International
+    License.  
+
+    Read Full License
+
+    Journal of Cloud Computing
+
+    Proactive resource management for cloud of
+
+    services environments
+
+    Gon¸calo Marques1, Carlos Senna1*, Susana Sargento1,2, Lu´ıs
+
+    Carvalho3, Lu´ıs Pereira3 and Ricardo Matos3
+
+    1*Instituto de Telecomunica¸c˜oes, Campus Universit´ario de
+
+    Santiago, Aveiro, 3810-193, Portugal.
+
+    2DETI, University of Aveiro, Campus Universit´ario de Santiago,
+
+    Aveiro, 3810-193, Portugal.
+
+    3Veniam, Porto, 4000-098, Portugal.
+
+    *Corresponding author(s). E-mail(s): cr.senna@av.it.pt;
+
+    Contributing authors: gjmarques@ua.pt; susana@ua.pt;
+
+    lcarvalho@veniam.com; lpereira@veniam.com;
+
+    rmatos@veniam.com;
+
+    Abstract
+
+    Microservices oﬀer advantages such as better fault isolation, smaller and
+
+    faster deployments, scalability in addition to streamlining the devel-
+
+    opment of new applications through composition of services. However,
+
+    their large-scale usage, speciﬁc purposes and requirements increase the
+
+    challenges of management systems that require a monitoring capa-
+
+    ble of accurately detecting the speciﬁc resources that are lacking
+
+    for a service, and providing them according to the requirements.
+
+    To meet these new management challenges, we propose a monitoring
+
+    and management system for microservices, containers and container clus-
+
+    ters that autonomously predicts load variations and resource scarcity,
+
+    which is capable of making new resources available in order to ensure the
+
+    continuity of the process without interruptions. Our solution’s architec-
+
+    ture allows for customizable service-speciﬁc metrics that are used by the
+
+    load predictor to anticipate resource consumption peaks and proactively
+
+    allocate them. In addition, our management system, by identifying/pre-
+
+    dicting low demand, frees up resources making the system more eﬃcient.
+
+    We evaluated our solution in the Amazon Web Services environment,
+
+    where diﬀerent services were installed for users of a vehicular network,
+
+    1
+
+    Journal of Cloud Computing
+
+    2
+
+    Marques et al.
+
+    an environment that is characterized by high mobility, dynamic topolo-
+
+    gies caused by disconnection, dropped packets, and delay problems. Our
+
+    results show that our solution improves the eﬃciency of escalation poli-
+
+    cies, and reduces response time by improving the QoS/QoE of the system.
+
+    Keywords: Cloud service management, cloud monitoring, proactive resource
+
+    management, vehicular cloud resources
+
+    1 Introduction
+
+    Microservices are the latest trend in software service design, development, and
+
+    delivery [1], that include the emphasis on dividing the system into small and
+
+    lightweight services that are purposely built to perform a very cohesive business
+
+    function. It is an evolution of the traditional service oriented architecture
+    style,
+
+    which is currently drawing a lot of attention from application developers and
+
+    service providers, such as Amazon, Netﬂix or eBay between others [2].
+
+    The growing adoption of microservices in the cloud is motivated by the eas-
+
+    iness of deploying and updating the software, as well as the provisioned loose
+
+    coupling provided by dynamic service discovery and binding. Structuring the
+
+    software to be deployed in the cloud as a collection of microservices allows cloud
+
+    service providers to oﬀer higher scalability guarantees through more eﬃcient
+
+    consumption of cloud resources, and to dynamically and quickly restructure
+
+    software to accommodate growing consumer demand [3]. Moreover, microser-
+
+    vice applications increase the number and diversity of infrastructure resources
+
+    that must be continuously monitored and managed at runtime. Finally, ser-
+
+    vices can be deployed across multiple regions and availability zones, which
+
+    adds to the challenge of gathering up-to-date information [4].
+
+    Within the scope of smart cities, the advantages of adopting services and
+
+    their compositions are notorious, as they allow agile development to meet
+
+    the enormous demand. In this context, Vehicular ad hoc Networks (VANETs)
+
+    play an important role as a communication infrastructure, since people spend
+
+    much of their time inside vehicles, especially in big cities. For these reasons,
+
+    we chose a VANET and its applications to evaluate the performance of our
+
+    service monitoring and management solution. VANETs are based on a set of
+
+    communication systems that provide vehicles with access to many diﬀerent
+
+    applications. The pervasive roadside infrastructure oﬀers high-speed internet
+
+    access by advanced wireless communication technologies (3/4/5 G, ITS-5G
+
+    or C-V2X), and brings innovative and divergent beneﬁts, but also some chal-
+
+    lenges [5], such as instability of resources which make the management of
+
+    vehicular networks complicated.
+
+    Due to the high mobility and dynamic topologies of VANETs, monitor-
+
+    ing and managing microservices becomes an extremely complex issue that can
+
+    incur high costs unless the services are managed properly. This requires a
+
+    monitoring system capable of eﬃciently managing services to optimize overall
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    3
+
+    data, ensure delivery of resources to customers, and detect resource shortages
+
+    or overspends to keep costs to a minimum. This is usually achieved with mon-
+
+    itoring solutions that collect metrics from each observed resource, which are
+
+    later analyzed by applications to detect problems in the system and ensure
+
+    that there is no over/underprovisioning of resources [6].
+
+    To address these challenges, we propose an architecture for accurate mon-
+
+    itoring of custom metrics for service-based cloud applications, which will be
+
+    used for automatic provisioning and scaling of compute resources in cloud
+
+    environments, while addressing services in very challenging scenarios such as
+
+    VANETs. Our predictive approach, designed for the AWS/EKS environment,
+
+    is capable of eﬃciently provisioning disparate services to users in VANETs.
+
+    We implement several services with diﬀerent requirements to evaluate the
+
+    performance and versatility of our monitoring system. In our evaluation, we
+
+    analyze data collected on a real vehicular network that was used to train
+
+    our machine learning algorithm and produce predictions that are sent to the
+
+    resource provisioning system.
+
+    The proposed architecture led to the following contributions:
+
+    • design and implementation of a generic monitoring architecture able to
+
+    collect metric data from various services with an open source framework,
+
+    enabling horizontal scaling;
+
+    • analysis and implementation of a network prediction model using statistical
+
+    and machine learning techniques; the analysis includes exploration of the
+
+    datasets with time-series techniques and tests;
+
+    • analysis of the most common services provided and their diﬀerent require-
+
+    ments;
+
+    • design and implementation of a cloud management system that proac-
+
+    tively predicts the required resources for the multitude of services in a very
+
+    dynamic environment.
+
+    The remainder of this article is organized as follows. Section 2 presents
+
+    the related work about monitoring systems and service provisioning. Section 3
+
+    describes our service monitoring system with proactive resource management.
+
+    Section 4 discusses the tests made to validate the proposed monitoring system.
+
+    Finally, Section 5 presents the conclusion and directions for future work.
+
+    2 Basic Concepts and Related Work
+
+    Regarding the proposed architecture, there are two relevant aspects: monitor-
+
+    ing tools & frameworks for clouds and proactive cloud management.
+
+    Big cloud providers, such as Google, Microsoft, Amazon between others,
+
+    have monitoring systems, but can only be used in their own cloud environ-
+
+    ments. For this reason we have not included details about their monitoring
+
+    systems, and concentrate on scientiﬁc publications about cloud monitoring and
+
+    management.
+
+    Journal of Cloud Computing
+
+    4
+
+    Marques et al.
+
+    Al-Shammari et al [7] presented MonSLAR, a User-centric middleware for
+
+    Monitoring Service Level Agreements (SLA) for Restful services in Software as
+
+    a Service (SaaS) cloud computing environments. MonSLAR uses a distributed
+
+    architecture that allows SLA parameters and the monitored data to be embed-
+
+    ded in the requests and responses of the REST protocol. This solution aims
+
+    to monitor the customer’s QoS and does not deal with the management of
+
+    services or any optimization of resources in the cloud. Lee et al. [8] proposed
+
+    a cloud-native workload proﬁling system with Kubernetes-orchestrated multi-
+
+    cluster conﬁguration. The solution monitors the resource usage when deploying
+
+    service cases in multiple clouds and identiﬁes the correlation between services
+
+    and resource usage. However, it does not provide a predictive and proactive
+
+    resource management.
+
+    There are also speciﬁc tools for monitoring resources, applications and ser-
+
+    vices for the cloud. Prometheus1 is an open-source system monitoring and
+
+    alerting toolkit that collects and stores its metrics as time series data along-
+
+    side optional key-value pairs called labels. Prometheus extracts metrics, either
+
+    directly or through a gateway, storing them locally. It also oﬀers the option
+
+    to run rules for aggregation and generate alerts. Stored metrics can be viewed
+
+    through dashboards like Graphana or consumed through Application Program-
+
+    ming Interfaces (APIs). Jaeger2 is a open source distributed tracing system
+
+    used for monitoring and troubleshooting microservices-based distributed sys-
+
+    tems. The Jaeger project is primarly a tracing backend that receives tracing
+
+    telemetry data and provides processing, aggregation, data mining, and visu-
+
+    alizations of that data. Open Telemetry3 resulted from a merger between the
+
+    OpenTracing and OpenCensus projects; it provides a uniﬁed set of instrumen-
+
+    tation libraries and speciﬁcations for observability telemetry [9]. The project
+
+    is a set of APIs, a software development kit, tooling and integrations designed
+
+    for the creation and management of telemetry data such as traces, metrics, and
+
+    logs. The project provides a vendor-agnostic implementation that can be con-
+
+    ﬁgured to send telemetry data to any backend. It supports a variety of popular
+
+    open-source projects including Jaeger and Prometheus. In the testbed that we
+
+    set up to evaluate our solution, we chose to use the Prometheus monitoring
+
+    system, as it is the most complete solution, with ease of customization and the
+
+    ability to produce metrics without aﬀecting the application’s performance.
+
+    Next-generation scaling approaches attempt to move beyond the limita-
+
+    tions of such reactive systems, by instead attempting to predict the near-future
+
+    workloads [10]. In such systems, the forecasting component can be considered
+
+    the most important element, and the diﬀerentiating factor when comparing
+
+    elastic systems [11]. In service oriented clouds, the forecasting problem is more
+
+    complex since it involves the collection, processing and analysis of diﬀerent
+
+    data sets, which can be traces of resource usage, such as CPU, memory, net-
+
+    work bandwidth or metrics related to provided applications/services, such as
+
+    1https://prometheus.io/
+
+    2https://www.jaegertracing.io/
+
+    3https://opentelemetry.io/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    5
+
+    the number of requests that are being served, the application architecture,
+
+    etc [12].
+
+    Wang et al. [13] proposed a self-adapting resource management framework
+
+    for cloud software services. For a given service, an iterative QoS model is
+
+    trained based on historical data, which is capable of predicting a QoS value
+
+    of a management operation using the information about the current running
+
+    workload, allocated resources, actual value of QoS in a resource allocation
+
+    operation. A runtime decision algorithm based on Particle Swarm Optimiza-
+
+    tion (PSO) together with the predicted QoS value are employed to determine
+
+    future resource allocation operations.
+
+    Chen et al. [14] proposed a microservice-based deployment problem based
+
+    on the heterogeneous and dynamic characteristics in the edge-cloud hybrid
+
+    environment, including heterogeneity of edge server capacities, dynamic geo-
+
+    graphical information of IoT devices, and changing device preference for
+
+    applications and complex application structures. Their algorithm leverages
+
+    reinforcement learning and neural networks to learn a deployment strategy
+
+    without any human instruction. The main objective of this model is to min-
+
+    imize the waiting time of the Internet of Things (IoT) devices, while our
+
+    proposed model focuses on minimizing the delay of scaling operations by
+
+    predictively allocating resources to cloud services based on the incoming
+
+    workload.
+
+    Zhao et al. [15] introduced a predictive auto-scaler for Kubernetes clusters
+
+    to improve the eﬃciency of autoscaling containers. They proposed a monitor-
+
+    ing module that obtains the indicator data of the pod which is used by the
+
+    prediction module to estimate the number of pods to the auto-scaler module for
+
+    scaling services. While the authors choose to use the original responsive strat-
+
+    egy of Horizontal Pod Autoscaler (HPA), we perform scale down operations
+
+    based on the values calculated by the predictor, reducing the over provisioning
+
+    of resources.
+
+    Zhou et al. [16] proposed an Ensemble Forecasting Approach for highly-
+
+    dynamic cloud workload based on Variational Mode Decomposition (VMD)
+
+    and R-Transformer. To decrease the non-stationarity and high randomness
+
+    of highly-dynamic cloud workload sequences, workloads are decomposed into
+
+    multiple Intrinsic Mode Functionss (IMFs) by VMD. The IMFs are then
+
+    imported into the ensemble forecasting module, based on R-Transformer and
+
+    Autoregressive models, in order to capture long-term dependencies and local
+
+    non-linear relationship of workload sequences. However, the authors do not
+
+    present any solutions on how to use a non-decomposition and eﬃcient method
+
+    to reduce the instability and randomness of highly-dynamic workload data,
+
+    which would be advantageous for reducing the training cost of deep neural
+
+    networks.
+
+    Liu et al. [17] presented a workload migration model to minimize migra-
+
+    tion times and improve the node processing performance. To forecast the
+
+    workload more accurately, a model that combines Autoregressive Moving Aver-
+
+    age (ARMA) with the Elman Neural Network (ENN) are proposed. In order
+
+    Journal of Cloud Computing
+
+    6
+
+    Marques et al.
+
+    to meet cost constraints and deadline constraints, an elastic resource manage-
+
+    ment model based on cost and deadline constraints is proposed. Both the cost
+
+    and the deadline of tasks are considered. Workload migration can be used to
+
+    balance the workload of each resource node, making the cluster’s response time
+
+    faster. However, combining on-demand resource provision method with mobile
+
+    edge computing is worth studying, since in a smart city environment, diﬀerent
+
+    areas require diﬀerent resources depending on the amount of data process-
+
+    ing, so the on-demand resource provision can reduce service expenditure while
+
+    meeting user needs.
+
+    Zhu et al. [18] proposed a model using the Long Short-term Memory
+
+    (LSTM) encoder-decoder network with attention mechanism to improve the
+
+    workload prediction accuracy. The model uses an encoder to map the histori-
+
+    cal workload sequence to a ﬁxed-length vector according to the weight of each
+
+    time step supported by the attention module, and uses a decoder to map the
+
+    context vectors back to a sequence. Finally, the output layer transforms the
+
+    sequence into the ﬁnal output. Moreover, the authors propose a scroll predic-
+
+    tion method to reduce the error occurring during long-term prediction, which
+
+    splits a long-term prediction task into several small tasks.
+
+    The presented works mostly focus on developing a predictor which is opti-
+
+    mized for their speciﬁc use case. However, in environments with multiple
+
+    distinct service applications, a single prediction algorithm might not present
+
+    the best results for all applications. In our solution, we enable the integration
+
+    and usage of diﬀerent predictors for each service. This is a very useful feature,
+
+    because it allows the usage of the optimal predictors for each case instead of
+
+    a generic predictor, which may not have the best performance for some appli-
+
+    cations. Moreover, with the rapid advances in this ﬁeld, the ability to easily
+
+    integrate new predictors as they appear is another important characteristic of
+
+    the system.
+
+    3 Proactive Cloud Resource Management
+
+    It is essential that a monitoring system is able to accurately monitor cloud
+
+    resources (hardware and software) and make automated decisions. There are
+
+    several options that monitor hardware resources, others that monitor the
+
+    software involved, whether monolithic applications, services or service compo-
+
+    sitions. However, most of them react linearly to the increase in demand, which
+
+    can cause the loss of QoS, mainly due to the time required for new resources
+
+    to be ready for use.
+
+    To ensure that the monitoring system is able to allocate resources while
+
+    maintaining QoS, we propose an architecture that allows managers to easily
+
+    deﬁne which custom metrics they want to monitor for each service or ser-
+
+    vice composition using custom metrics exporters. In addition, our solution
+
+    has a forecasting service that identiﬁes consumption peaks (up and down)
+
+    and proactively makes scale adjustments, in order to guarantee QoS (up), and
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    7
+
+    at the same time optimize resource consumption of the cloud, lowering the
+
+    operational cost (down).
+
+    As shown in Figure 1, our conceptual architecture exposes the desired met-
+
+    rics to the Metric Collector that can be integrated with the Autoscaler, to make
+
+    scaling decisions based on metrics other than Central Process Unit (CPU),
+
+    memory and communication.
+
+    Fig. 1 Main components of the proposed conceptual monitoring architecture.
+
+    The Metric Exporters (ME) collect the metrics from the services and
+
+    expose them to the Metrics Collector (MC) which will aggregate the data from
+
+    all services. The Prediction API (PAPI) queries the MC to obtain histori-
+
+    cal data from the services to update the prediction models, and then exposes
+
+    its updated predictions as metrics in an HTTP endpoint that is periodically
+
+    scraped by the MC. The MC gathers data from the services themselves and
+
+    the PAPI, and exposes the metrics in two ways. First, MC sends metrics to the
+
+    System Manager (dashboard), allowing the manager to observe and analyse the
+
+    behaviour of the services. Second, MC sends metrics to the Kubernetes Con-
+
+    troller which will use the metrics to detect service failures and automatically
+
+    adjust the resources.
+
+    Using our conceptual architecture as a basis, we designed our cloud services
+
+    monitoring solution, the details of which are presented below. First, we describe
+
+    the main components related to the monitoring itself, and then we present the
+
+    proactive version where we detail our predictor service.
+
+    Journal of Cloud Computing
+
+    8
+
+    Marques et al.
+
+    3.1 Full metrics monitoring pipeline
+
+    In Kubernetes, application monitoring does not depend on a single monitoring
+
+    solution. The resource metrics pipeline provides a limited set of metrics related
+
+    to cluster components such as the HPA controller. The full metrics pipeline
+
+    gives access to richer metrics. Figure 2 shows a high level view of the updated
+
+    monitoring system architecture with support for full metrics. Its main com-
+
+    ponents are: Service Apps, Metrics Server, Prometheus Monitor, Prometheus
+
+    Kubernetes Adapter, the Kubernetes Metrics API and the HPA.
+
+    Fig. 2 High-level view of the custom/external metrics monitoring architecture.
+
+    To monitor additional metrics, a custom exporter is integrated in each
+
+    service to publish metrics such as throughput and number of client sessions,
+
+    streams or ﬁle transfers, depending on the service. Moreover, in any monitoring
+
+    system, it is extremely important to observe the collected data, in order to
+
+    understand the applications resource requirements. However, the metrics API
+
+    does not allow the visualization of the historical data. To do that, we chose
+
+    Prometheus, an open source monitoring and alerting platform. Prometheus
+
+    collects data from the sources in a time-series format at a set interval, and
+
+    stores it locally on a disk identiﬁed by the metric name and key/value pairs.
+
+    Details about the main components of our architecture are presented below.
+
+    3.1.1 Service Apps
+
+    The Service Apps represent the generic services or compositions of services,
+
+    that will be monitored and scaled according to the memory and CPU usage
+
+    values gathered by the Metrics Server. The applications are exposed internally
+
+    through a Kubernetes service, an abstraction which deﬁnes a logical set of Pods
+
+    and a policy by which to access them; they are accessible to clients through a
+
+    Network Load Balancer (NLB). The NLB selects a target (targets may be EC2
+
+    instances, containers or IP addresses) using a ﬂow hash algorithm based on the
+
+    protocol, source IP address, source port, destination IP address, destination
+
+    port, and Transmission Control Protocol (TCP) sequence number. The TCP
+
+    connections from a client have diﬀerent source ports and sequence numbers,
+
+    and can be routed to diﬀerent targets. Each individual TCP connection is
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    9
+
+    routed to a single target for the life of the connection. The Service Apps have
+
+    been integrated with a custom exporter that enables the collection of additional
+
+    metrics, the most relevant ones being downstream throughput and number
+
+    of active user sessions. Although some applications may support Prometheus
+
+    metrics out of the box, for the most part of them we need to develop a custom
+
+    adapter (CA). The CA helps the application to monitor additional metrics
+
+    other then memory and CPU usage, collected by the Kubernetes metrics-server
+
+    by default. Moreover, we need an additional Exporter for the Prometheus
+
+    server, which collects the values from the Prometheus monitoring server and
+
+    publishes them in the Kubernetes metrics API where they become available
+
+    to Autoscaler. Our custom exporters are GO servers that collect information
+
+    from the applications at run time, and exposes them in an Hypertext Transfer
+
+    Protocol (HTTP) endpoint according to the Prometheus format, so they can
+
+    be periodically scraped by the Prometheus Monitor.
+
+    3.1.2 Metrics Server
+
+    The Metrics Server is a cluster-wide aggregator of resource usage data. Figure
+
+    3 shows in detail the simultaneous implementation of the custom/external
+
+    metrics pipeline and the resource metrics pipeline.
+
+    Fig. 3 Detailed view of the custom/external metrics monitoring architecture.
+
+    The Kubernetes Metrics Server collects and exposes metrics from appli-
+
+    cations. It discovers all nodes on the cluster, and queries each node’s kubelet
+
+    for CPU and memory usage. CPU is reported as the average usage, in CPU
+
+    cores, over a period of time derived by taking a rate over a cumulative CPU
+
+    counter provided by the kernel. Memory usage is reported as the working set,
+
+    in bytes, at the instant the metric was collected. In an ideal world, the “work-
+
+    ing set” is the amount of memory in-use that cannot be freed under memory
+
+    Journal of Cloud Computing
+
+    10
+
+    Marques et al.
+
+    pressure. However, the calculation of the working set varies by host Operating
+
+    System (OS), and generally makes heavy use of heuristics to produce an esti-
+
+    mate. It includes all anonymous (non-ﬁle-backed) memory, since Kubernetes do
+
+    not support the swap process. The metric typically includes also some cached
+
+    (ﬁle-backed) memory, because the host OS cannot always reclaim such pages.
+
+    The monitoring pipeline fetches metrics from the Kubelet which is the pri-
+
+    mary agent running in every node that works in terms of PodSpecs, which
+
+    are YAML or JSON objects that describe the containers running in that node.
+
+    The Kubelet takes the PodSpecs provided by the API Server, and ensures
+
+    that the containers described in them are running and healthy. The Kubelet
+
+    acts as a bridge between the Kubernetes master and the nodes, managing
+
+    the pods and containers running on a machine. The Kubelet translates each
+
+    pod into its constituent containers, and fetches individual container usage
+
+    statistics from the container runtime through the container runtime interface.
+
+    The Kubelet fetches this information from the integrated cAdvisor, a running
+
+    daemon that collects real-time monitoring data from the containers for the
+
+    legacy Docker integration. It then exposes the aggregated pod resource usage
+
+    statistics through the Metrics Server API.
+
+    To collect custom metrics from deployed apps, we need to integrate a Met-
+
+    rics Exporter built speciﬁcally for each app. This exporter collects the desired
+
+    metrics and exposes them to an HTTP endpoint that is periodically scraped by
+
+    Prometheus. The Prometheus monitor collects metrics directly from the appli-
+
+    cation exporters, as well as the Metrics Server. The Prometheus Kubernetes
+
+    Exporter queries the Prometheus monitor to collect speciﬁc metrics and pub-
+
+    lish them in the Custom/External Metrics API (CEMAPI). Finally, metrics
+
+    can be used by the HPA to make scaling decisions.
+
+    3.1.3 Prometheus Monitor
+
+    The Prometheus Monitor queries the data sources (Metrics Exporters) at a
+
+    speciﬁc polling frequency, at which time the exporters present the values of
+
+    the metrics at the endpoint queried by Prometheus. The exporters are auto-
+
+    matically discovered by creating a Kubernetes entity called Service Monitor, a
+
+    custom Kubernetes resource that declaratively speciﬁes how groups of services
+
+    should be monitored and which endpoints contain the metrics. The Prometheus
+
+    aggregates the data from the exporters into a local on-disk time series database
+
+    that stores the data in a highly eﬃcient format. Data is stored with its spe-
+
+    ciﬁc name and an arbitrary number of key=value pairs (Labels). Labels can
+
+    include information on the data source and other application-speciﬁc break-
+
+    down information, such as the HTTP status code (for metrics related to HTTP
+
+    responses), query method (GET versus POST), endpoint, etc.
+
+    Supported by basic and custom metrics implemented, the HPA auto-
+
+    matically scales the number of Pods in a replication controller, deployment,
+
+    replica set or stateful set based on application-provided metrics instead of
+
+    only CPU and memory usage metrics. Moreover, with custom metrics, we
+
+    can detect malfunctions and resource shortages that would go unnoticed if
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    11
+
+    we were just monitoring the CPU application and memory usage, making
+
+    the metrics pipeline complete, a valuable addition and a great improvement
+
+    to the tracking system. From the most basic perspective, the HPA controller
+
+    operates on the ratio between desired metric value and current metric value,
+
+    as formalized in the Equation 1 below:
+
+    desiredReplicas = ceil[currentReplicas∗
+
+    (currentMetricV alue/desiredMetricV alue)]
+
+    (1)
+
+    For example, if the current metric value is 200m, and the desired value
+
+    is 100m, the number of replicas will be doubled, since 200.0/100.0 = 2.0. If
+
+    the current value is instead 50m, we will halve the number of replicas, since
+
+    50.0/100.0 = 0.5.
+
+    This monitoring system is, however, still purely reactive and susceptible
+
+    to the unpredictability of the workload characteristics of service cloud envi-
+
+    ronments. To minimize the impact of these ﬂuctuations, we have integrated
+
+    a forecasting module capable of predicting resource usage and allowing the
+
+    monitoring system to allocate resources in a preventive way, reducing system
+
+    response time and wasted resources. Below, we present our complete solution
+
+    that includes the Predictor Service.
+
+    3.2 Proactive monitoring for service provisioning
+
+    Our prediction module forecasts the network workload spikes based on machine
+
+    learning algorithms, and sends the expected values to the monitoring system
+
+    so it can proactively allocate resources. Figure 4 contains a high-level depiction
+
+    of our Proactive Monitoring Framework and its six main component: Service
+
+    Apps, Prometheus Monitor, Prometheus Kubernetes Adapter, Kubernetes Met-
+
+    rics API, HPA, Prediction Exporter and Predictor Service, whose adaptations
+
+    and diﬀerences from the previous version (Section 3.1) are below.
+
+    The Service Apps are now scaled according to the Key Performance Indi-
+
+    cator (KPI) values calculated by the Predictor Service, which allows the
+
+    applications to begin the scaling process before the workload spikes occur.
+
+    The Prometheus Monitor must be conﬁgured to add the Prediction
+
+    Exporter to the scrape targets, so that it collects the predicted values from
+    the
+
+    exporter, and these metrics need to be added to the Prometheus Kubernetes
+
+    Adapter in order for them to be available to the HPA through the Kubernetes
+
+    Metrics API.
+
+    The Prediction Exporter is a standalone deployment based on a container
+
+    running a GO server that acts as the liaison between the monitoring framework
+
+    in the cloud and the Predictor Service. It queries the Prometheus Monitor to
+
+    gather data from the metrics used for scaling the applications in a ﬁle, which
+
+    is periodically sent to the Predictor Service as historical data to continuously
+
+    Journal of Cloud Computing
+
+    12
+
+    Marques et al.
+
+    Fig. 4 High-level view of the Proactive Monitoring Framework.
+
+    train and consequently improve the accuracy of the predictor. The exporter is
+
+    also a data source responsible for receiving the predicted KPI values from the
+
+    Predictor Service, and exposing them in an HTTP endpoint which is scraped
+
+    by the Prometheus Monitor to make the predicted values available to the HPA.
+
+    The Predictor Service uses a framework for distributed real-time time series
+
+    forecasting [19] that makes predictions for various dynamic systems simulta-
+
+    neously, and provides straightforward horizontal scaling, increased modularity,
+
+    high robustness and a simple interface for users.
+
+    The high-level view of the prediction framework, depicted in Figure 5, is
+
+    composed of ﬁve main components: the Prediction API, the Predictor Message
+
+    Broker (PMB), the Metric Predictor Component (MPC), the Metric Message
+
+    Transformation Component (MMTC) and the Metric Prediction Orchestration
+
+    Component (MPO).
+
+    The Prediction API is the interface that allows a client to predict a value
+
+    for a time series system/metric, train the predictor for a given metric, save
+
+    new time series data for later training and change the training parameters.
+
+    The Prediction API is a Representational State Transfer (REST) microservice
+
+    that encapsulates the functionalities of the predictor.
+
+    To train the predictor for a certain metric we need to ﬁrst provide the
+
+    dataset and send the start and end date of the data to consider for the training
+
+    phase to the Prediction API which receives the requests from external clients
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    13
+
+    Fig. 5 High-level view of the prediction architecture [19].
+
+    and sends a message to the PMB that will forward the message to the cor-
+
+    responding metric predictor or message transformation component, according
+
+    to the internal message protocol. The core component of the framework is
+
+    the MPC, which is responsible for predicting the time series data for a given
+
+    dynamic system/metric and is composed by four sub-components: the Metric
+
+    Predictor (MPC-MP), the Metric Predictor Message Broker (MPMB), the
+
+    Predictor Training (MPC-PT) and the Time-series Persistence (MPC-TsP).
+
+    The MPMB is the internal message broker of the predictor component
+
+    and it routes messages between the three sub-components. The MPC-PT does
+
+    the training of the model and updates it with the newly received data. The
+
+    new model will be uploaded to the MPC via the internal message broker.
+
+    The MPC-TsPstores the data to optimize the read and write operations for
+
+    time-series data, to be used when training the model. To enable an ensemble
+
+    prediction using multiple predictors, it is also needed to perform a reduction
+
+    step by joining the predictor results and performing adequate transformations,
+
+    which are done using the MMTC by receiving the messages in the prediction
+
+    message broker and applying custom functions for each predictor component
+
+    messages, before inserting the transformed messages into the broker.
+
+    The instances of the metric predictor and the transformation components
+
+    are orchestrated by the MPO, which has two internal components: the mon-
+
+    itoring component, which accesses the logs of the predictor and transformer
+
+    as well as the exchanged messages, to better understand the current state of
+
+    operation of the various components; and the conﬁguration and management
+
+    component, which instantiates and manages the life cycle of the predictor and
+
+    the transformation components.
+
+    Journal of Cloud Computing
+
+    14
+
+    Marques et al.
+
+    Once the predictor is trained, the Prediction API can start to predict the
+
+    values for the metric. The Prediction Exporter queries the Prometheus Monitor
+
+    to collect the current value of the time series, and send it to the Prediction
+
+    API along with their timestamp. The Prediction API will obtain the result
+
+    of the predictor and return it to the client, along with the timestamp of the
+
+    predicted point.
+
+    3.3 Main characteristics
+
+    Our Proactive Monitoring Framework is scalable, since a Prometheus instance
+
+    can monitor several thousands of services. Moreover, it is versatile and can
+
+    use other monitor engines, such as Thanos Prometheus4, to enable the aggre-
+
+    gation of queries from several Prometheus instances and save the collected
+
+    metrics in an external storage device, overcoming the scraping and storage
+
+    limitations of a single replica. It is also ﬂexible when it comes to add metrics,
+
+    services or replace components, since it facilitates the addition of services
+    and
+
+    the collection of custom metrics speciﬁc to each service’s requirements with
+
+    the custom metrics exporters. Moreover, it can be used in any public, private
+
+    or hybrid Kubernetes based cloud regardless of the provider. The Prediction
+
+    Service modularity also makes it easy to replace with any other forecasting
+
+    algorithm. The Prometheus monitor can be replaced by any other metric col-
+
+    lector, although the alternatives such as Dynatrace5 are often paid and harder
+
+    to implement. The monitoring system components have the capability to mon-
+
+    itor themselves and adjust and allocate additional resources as required, so as
+
+    long as there are resources available, the system will scale and adjust to the
+
+    number of active services.
+
+    4 Evaluation
+
+    The assessment of the proposed approach is performed in three steps. First,
+
+    we set up a testbed with the currently most used monitoring tools in the
+
+    cloud. We use this initial testbed to evaluate solutions and identify unmet
+
+    challenges. Based on this assessment, we reﬁne our testbed and perform a
+
+    new assessment. The results show the eﬃciency of this reﬁnement. Finally,
+
+    we include a prediction service in our solution. Again, the results show the
+
+    eﬃciency of this prediction approach.
+
+    Since this approach is tested in a cloud running services in a VANET envi-
+
+    ronment, the tests use a real dataset provided by Veniam6 from the network
+
+    of vehicles in Oporto, Portugal, which contains the list of Internet sessions
+
+    from the users in the vehicles, login and logout timestamps, session duration
+
+    and number of bytes transferred from 2020-09-07 at 00:00:00 to 2021-04-27
+
+    at 23:00:00. Veniams’ vehicular network infrastructure is a large-scale deploy-
+
+    ment of On Board Units (OBUs) in vehicles and infrastructural Road Side
+
+    4https://thanos.io/
+
+    5https://www.dynatrace.com/
+
+    6https://veniam.com/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    15
+
+    Units (RSUs) that enables Vehicle to Vehicle (V2V) and Vehicle to Infrastruc-
+
+    ture (V2I) communication, in the city of Porto, Portugal [20]. Currently, 600+
+
+    ﬂeet vehicles are equipped with OBUs, pertaining to the public transportation
+
+    authority (400+ buses) and waste disposal department (garbage-collection and
+
+    road-cleaning trucks). Additionally, more than 50 RSUs have been deployed.
+
+    The GPS traces and metadata of passenger Wi-Fi connections are collected
+
+    by each OBU and stored in the backend infrastructure. As an example, the
+
+    number of sessions per hour (Wi-Fi connections) is shown in Figure 6.
+
+    Fig. 6 Number of sessions per hour in the timeframe used for forecasting
+
+    Two separate sets of tests are conducted to validate the monitoring and
+
+    prediction model. The ﬁrst set is run on a local small scale Kubernetes cluster
+
+    to facilitate testing, and the second set is run on a larger private Kubernetes
+
+    cluster owned by Veniam. The local testbed infrastructure runs on a desktop
+
+    (Intel® Core™ i7-8750H CPU @ 2.20GHz × 12, 8GB RAM) using Ubuntu
+
+    Linux, running a local Kubernetes cluster in a Minikube Virtual Machine
+
+    (VM), which was used to simulate an environment where diﬀerent services were
+
+    being provided to users through a URL and monitored using Prometheus. The
+
+    large scale tests run in an infrastructure based on the private cluster provided
+
+    by Veniam running on Elastic Kubernetes Service (EKS), a managed service
+
+    used to run Kubernetes on Amazon Web Services (AWS) without needing to
+
+    install, operate, and maintain the Kubernetes control plane or nodes.
+
+    Amazon EKS runs and scales the Kubernetes control plane across multiple
+
+    AWS Availability Zones to ensure high availability, automatically scales con-
+
+    trol plane instances based on load, detects and replaces unhealthy control plane
+
+    instances, and provides automated version updates and patching for them. It
+
+    Journal of Cloud Computing
+
+    16
+
+    Marques et al.
+
+    is also integrated with many AWS services to provide scalability and secu-
+
+    rity for your applications, including the following capabilities: Amazon Elastic
+
+    Container Registry (ECR) for container images, Elastic Load Balancing for
+
+    load distribution, Identity and Access Management (IAM) for authentication,
+
+    and Amazon Virtual Private Cloud (VPC) for isolation. The Kubernetes clus-
+
+    ter consists of 13 nodes, each one with a 110 pod capacity and using Amazon
+
+    Linux 2.
+
+    The monitoring of CPU and memory usage, the two metrics supported by
+
+    default by Kubernetes, may be inadequate for some services. Therefore, we
+
+    will be running stress tests on three diﬀerent services deployed in a Kubernetes
+
+    environment, a Video Stream Service, a File Transfer Service and a Custom
+
+    Iperf Service. Figure 7 shows a high level architecture of the monitoring system
+
+    and the deployed services.
+
+    Fig. 7 High-level view of the tested services in the monitoring architecture.
+
+    The Video Stream Service is based on NGINX7, an open source software
+
+    that provides a Real Time Media Protocol (RTMP) HTTP Live Streaming
+
+    (HLS) module to be used in the streaming server. We use Fast Forward Motion
+
+    Picture Experts Group (FFmpeg) to encode and publish in real-time a looped
+
+    video ﬁle in H.264 format with a 1280x720 pixel resolution at a frame rate of
+
+    24 frames per second. The NGINX server allows clients to stream the video
+
+    through an HTTP endpoint.
+
+    7https://www.nginx.com/resources/glossary/nginx/
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    17
+
+    The File Transfer Service is an HTTP server written in GO language and
+
+    uses the net/http package. The server receives HTTP requests from clients
+
+    and responds with a randomly generated ﬁle. The clients can send requests to
+
+    diﬀerent endpoints in order to obtain ﬁles of diﬀerent sizes.
+
+    The Custom Iperf Service8 is a standard Iperf3 server, a tool for active
+
+    measurements of the maximum achievable bandwidth on IP networks that
+
+    supports tuning of various parameters related to timing, buﬀers and protocols
+
+    (TCP, User Datagram Protocol (UDP), Stream Control Transmission Protocol
+
+    (SCTP) with IPv4 and IPv6) written in C, and a mixer module, developed
+
+    by Veniam, that creates multiple instances of the Iperf3 server, up to a preset
+
+    limit, allowing a single instance of the service to receive multiple client sessions
+
+    simultaneously (this feature is not supported in the default implementation).
+
+    Since it is impossible to diﬀerentiate the type of sessions recorded in the
+
+    Veniam dataset, we will be making an estimate based on the percentage values
+
+    from Sandine’s report [21]. According to the study presented in this report,
+
+    64% of the total sessions could be associated with video streams, 8% with ﬁle
+
+    transfers and Iperf will be given 1% of the total sessions. Stress tests based
+
+    on these values were created to establish a baseline for each service’s memory,
+
+    CPU and throughput requirements, allowing the discovery of bottlenecks for
+
+    each speciﬁc service.
+
+    4.1 Basic monitoring system evaluation
+
+    To determine whether the metrics server and resource metrics pipeline were
+
+    suﬃcient to accurately monitor the service applications, we developed a simple
+
+    load test. First, there is a steadily increasing number of sessions, and afterwards
+
+    the number of sessions decreases again on steady one minute intervals, as
+
+    shown in Figure 8. The test consisted of simulating the number of sessions in
+
+    each service and then analysing the memory and CPU usage metrics to see if
+
+    all services can be accurately proﬁled using these metrics.
+
+    Figure 9 shows the memory usage, and Figure 10 shows the CPU usage for
+
+    the video stream service.
+
+    Neither of the metrics is able to accurately proﬁle the status of the service
+
+    and the incoming connections, since both metrics remain constant during the
+
+    full test, with minimal variations that are not related to the incoming streams.
+
+    From the above tests, we can conclude that, exclusively monitoring memory
+
+    and CPU usage is insuﬃcient to have an accurate monitoring system. Even
+
+    though there may exist services for which these two metrics are suﬃcient, such
+
+    as the ﬁle transfer service, for video stream service and the custom Iperf service,
+
+    these metrics fail to give an accurate representation of the service status and
+
+    are unsuitable to be used as the basis for scaling decisions. This means that,
+    in
+
+    order to accurately monitor the services, additional metrics must be gathered
+
+    from the services, which will be presented in the next section.
+
+    8https://iperf.fr/
+
+    Journal of Cloud Computing
+
+    18
+
+    Marques et al.
+
+    Fig. 8 Number of sessions in the load test.
+
+    Fig. 9 Video Stream memory usage with resource metrics.
+
+    Fig. 10 Video Stream CPU usage with resource metrics.
+
+    4.2 Custom metrics monitoring system evaluation
+
+    To determine whether additional metrics could be used to monitor the ser-
+
+    vice applications, we repeated the load test shown in Figure 8 to analyze
+
+    the throughput and active users graphs to determine if they can be used to
+
+    accurately proﬁle the service load.
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    19
+
+    Fig. 11 Video Stream active streams with custom metrics.
+
+    Figure 11 shows the number of active video streams in the server at a given
+
+    time. This metric is a strong candidate to be used in the autoscaler, since it
+
+    shows the load of the service without too many ﬂuctuations, making it easier
+
+    to establish thresholds for the autoscaler. Figure 12 shows the throughput out
+
+    of the video stream service during the test. This metric is able to represent
+
+    the status of the service, since throughput is directly related to the number
+
+    of active streams. However, the rapid ﬂuctuations in the values due to the
+
+    accumulated changes in the throughput rate of each individual stream make
+
+    it diﬃcult to establish thresholds for it to be used in the autoscaler.
+
+    Fig. 12 Video Stream throughput with custom metrics.
+
+    From these tests, we conclude that the custom metrics enable a more com-
+
+    plete and versatile monitoring system. The custom exporters are a signiﬁcant
+
+    improvement, since they allow to conﬁgure any additional metric which may
+
+    seem necessary for a speciﬁc service instead of relying solely on the metrics
+
+    available from the metric server.
+
+    4.3 Service Stress Tests
+
+    Before implementing the HPA, we need to analyse each services’ behavior and
+
+    identify which resources are critical to its execution, and the amount that
+
+    should be used to scale the number of pods so that the service runs smoothly.
+
+    The load tests will be based on the values of the second to last day, since the
+
+    last day corresponds to a holiday with anomalous sessions numbers (Figure
+
+    13).
+
+    Journal of Cloud Computing
+
+    20
+
+    Marques et al.
+
+    Fig. 13 Number of sessions per hour in a single day
+
+    To evaluate the beneﬁts of automatically scaling applications based on the
+
+    collected metrics, we must ﬁrst determine which metrics are most critical to
+
+    the correct operation of the service. Figure 14 shows that the memory usage
+
+    reaches the maximum possible value regardless of the number of active streams.
+
+    Fig. 14 Video Stream memory usage without HPA.
+
+    This behaviour makes this metric unsuitable to be used in the Autoscaler,
+
+    and shows that the parameters monitored by default in Kubernetes are, in
+
+    some cases, not capable of giving an accurate depiction of the status of the
+
+    service. This indicates the need for additional speciﬁc metrics. In this way,
+    the
+
+    values of active streams shown in Figure 15 are much more representative of
+
+    the status of the service. This test was done without any automatic scaling
+
+    (without HPA), therefore, no additional replicas were created to respond to the
+
+    increase of users which resulted in the service completely stopping to respond,
+
+    as we can see in both Figures 14 and 15.
+
+    This situation shows the importance of allocating resources dynamically
+
+    to prevent both scenarios where the services are unable to respond to the
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    21
+
+    Fig. 15 Video Stream active streams without HPA.
+
+    incoming workload and where resources are being wasted during periods of
+
+    low workloads.
+
+    4.4 Stress Tests with optimized HPA
+
+    Figures 16 and 17 show the active sessions and the number of instantiated
+
+    pods during the test when using the HPA to automatically adjust resources.
+
+    It is notorious that the HPA is able to keep the metrics that are being tracked
+
+    for each service within acceptable values, and is able to prevent the service
+
+    from stopping to respond to higher workloads. However, in order to improve
+
+    the quality of service and take full advantage of the Autoscaler, we must make
+
+    changes to its conﬁguration and reduce its reactiveness by adding a stabiliza-
+
+    tion period to both scaling up and down operations, thus reducing the workload
+
+    placed on the orchestrator by rapidly creating and deleting pods.
+
+    Fig. 16 Video Stream active streams per pod with HPA.
+
+    In the following tests, a stabilization period is added. This requires the
+
+    value of a metric to be above or below the threshold for a conﬁgurable period
+
+    of time before signaling a scale up or down. Additionally, it requires a policy
+
+    to limit the rate at which pods are added or removed to 1 every 15 seconds.
+
+    These conditions are added to the HPA conﬁguration and are used to assess
+
+    whether keeping the pods longer, even though the metric value might be below
+
+    the threshold, can reduce the load on the Orchestrator without leading to
+
+    situations where we overrun the provision of resources for long periods of time.
+
+    Journal of Cloud Computing
+
+    22
+
+    Marques et al.
+
+    Fig. 17 Video Stream number of pods with HPA.
+
+    Figures 18 and 19 show the active sessions and the number of instantiated
+
+    pods during the test when using the optimized HPA with a stabilization period.
+
+    Similarly to the tests with the default conﬁguration of the Autoscaler, the
+
+    streams are split between the pods, preventing a single pod from being satu-
+
+    rated and unable to respond to the clients. However, there are far less instances
+
+    of pods being created or deleted during this test, which can be conﬁrmed in
+
+    Figure 19.
+
+    Fig. 18 Video Stream active streams per pod with optimized HPA.
+
+    Fig. 19 Video Stream number of pods with optimized HPA.
+
+    With default conﬁgurations, a total of 10 pods are used during the test.
+
+    However, the addition of the stabilization period reduced the reactivity of the
+
+    Autoscaler which made pod deletion less frequent, and so the total number of
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    23
+
+    pods used for this test was only 4, resulting in a lesser load for the Orchestrator
+
+    and a smaller number of dropped streams on pod deletions.
+
+    4.5 Stress Tests with Machine Learning Predictor
+
+    By itself, the Autoscaler with stabilization period is an eﬀective way of
+
+    responding to large spikes in client requests. However, it is a reactive system,
+
+    and there is a delay in the response to these spikes. By adding a predictive mod-
+
+    ule, we can minimize this delay using machine learning algorithms to forecast
+
+    the number of incoming sessions and thus ensuring the desired QoS.
+
+    First, we need to create a model to forecast the number of sessions in the
+
+    vehicular network. The forecasting task consists of, given the past values of
+
+    the number of sessions per hour in the vehicular network y(0), y(1), ..., y(t)
+
+    and other possible additional features, forecast the value y(t + 1) , where y(t)
+
+    represents the number of sessions in the network at hour t.
+
+    Fig. 20 Vehicular network dataset split in training set, cross-validation set
+    and test set.
+
+    With the current dataset, two weeks will be used as cross-validation data
+
+    (from the 31 of October to the 14 of November) to optimize the forecasting
+
+    models, and the last two weeks (from the 14 of November to the 28 of Novem-
+
+    ber) will be used as test data, to perform the ﬁnal tests and calculate the
+
+    performance metrics. The previous weeks (from the 9 of September to the 31
+
+    of October) will be used as training data (Figure 20).
+
+    In this work, we chose to use the predictor module developed by Ferreira et
+
+    al [19]. The performance metric used to evaluate the accuracy of the forecasts
+
+    will be the Root Mean Square Error (RMSE), which is the square root of the
+
+    average of squared diﬀerences between the forecasts and the actual observa-
+
+    tions. Predictors with lower RMSE values are more accurate than those with
+
+    higher RMSE values.
+
+    Next, we discuss the performance of the monitoring and management sys-
+
+    tem with the prediction service. Figure 21 shows the distribution of sessions
+
+    Journal of Cloud Computing
+
+    24
+
+    Marques et al.
+
+    in pods using the optimized Autoscaler, without the prediction module. Since
+
+    the Autoscaler needs to wait for session spikes to occur before it commands the
+
+    Orchestrator to create an additional pod, the original pod will have to endure
+
+    the user spike by itself, which can cause the degradation of service perfor-
+
+    mance. The annotation (i) shows a period in which a spike of users occurred.
+
+    During these periods, the average number of sessions in a single pod may far
+
+    exceed its threshold and cause the pod to stop responding.
+
+    Fig. 21 Active streams per pod without the prediciton module.
+
+    The addition of a forecasting module enables the Autoscaler to anticipate
+
+    the client spikes and react preemptively, minimizing the time a pod exceeds the
+
+    threshold of active sessions. Figure 22 depicts the distribution of sessions per
+
+    pod using the prediction module. In this case, the Autoscaler creates additional
+
+    pods preemptively, allowing the pods to have time to start up before the spike
+
+    of clients actually occurs in the period indicated by annotation (i).
+
+    Fig. 22 Average active streams with prediction.
+
+    Figure 23 shows the distribution of streams per pod, and how the predictor
+
+    enables the autoscaler to anticipate client spikes and create additional pods
+
+    preemptively (i). Figure 24 shows the number of sessions forecasted by the
+
+    prediction module. The predicted values are very similar to the real ones shown
+
+    in Figure 25, demonstrating the accuracy of the predictor.
+
+    The initial tests were performed in a local Kubernetes cluster with limited
+
+    resources with the objective of determining if the tools provided by Kubernetes
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    25
+
+    Fig. 23 Active streams per pod using the prediction module.
+
+    Fig. 24 Forecasted number of sessions.
+
+    Fig. 25 Average active streams per pod.
+
+    were suﬃcient to accurately monitor any generic service that may be deployed.
+
+    Following, we tested the custom metrics pipeline using the Prometheus frame-
+
+    work to complement the metrics server and enable the collection of custom
+
+    service-speciﬁc metrics. This model proved to be much more eﬀective as it
+
+    allows the operator to add new metrics for each service as needed, and was
+
+    used as a basis for the tests below.
+
+    The next objective was to take advantage of the collected metrics to make
+
+    automated scaling decisions based on them. The tests were done in the Veniam
+
+    Kubernetes cluster, since the local deployment lacked the resources to simulate
+
+    the required numbers of users. Initially, the tests were done without any scaling
+
+    algorithms, which led to situations where the services crashed and/or stopped
+
+    responding because they lacked the resources to respond to the amount of
+
+    Journal of Cloud Computing
+
+    26
+
+    Marques et al.
+
+    users being simulated, underlining the need for an automated scaling system
+
+    capable of responding to workload spikes in real time. A scaling system was
+
+    proposed using the Kubernetes HPA, and the custom metrics were collected
+
+    from the services to trigger scaling operations whenever the selected metric
+
+    surpassed certain thresholds. This addition was not enough to provide major
+
+    beneﬁts, since the Autoscaler was far too reactive to changes in the workloads
+
+    which were themselves highly volatile. In fact, the Autoscaler was permanently
+
+    scaling up and down, disconnecting users and placing a big workload in the
+
+    Orchestrator, so in order to make the system viable, the algorithm had to be
+
+    reviewed.
+
+    The most eﬀective way to reduce Autoscaler reactivity was to introduce a
+
+    stabilization period on the Autoscaler, either by increasing or decreasing the
+
+    scale. This modiﬁcation greatly improved the system performance, services
+
+    still reacted quickly to changes in workloads, preventing services from running
+
+    out or wasting resources. While eﬃcient, the monitoring system is still not fast
+
+    enough to prevent any variation triggering a scaling operation, reducing the
+
+    load placed on the orchestrator and user disconnection rates.
+
+    Finally, we evaluated the integration of a prediction service that allows the
+
+    system to anticipate workloads variations and adjust proactively instead of
+
+    reactively. We began by analysing the research done to select the most accurate
+
+    predictor for our scenario, and used the vehicular dataset previously referred
+
+    for training the predictor. The results of the load tests with the predictor
+
+    module show reduced periods of threshold violations, since the orchestrator
+
+    is able to proactively allocate resources, improving the response time of the
+
+    system and preventing service degradation caused by insuﬃcient resources.
+
+    5 Conclusion and Future work
+
+    This article proposed a framework for a Kubernetes based cloud, focusing on
+
+    collecting comprehensive metrics about agnostic services with diﬀerent require-
+
+    ments, on automating scaling operations and predicting load surges using a
+
+    forecasting module. The proposed monitoring and management system was
+
+    extended to provide autoscaling and to include a load prediction service that
+
+    allows the system to act preventively in order to maintain the desired QoS
+
+    while dealing with the eﬃcient use of resources in peaks of low consumption.
+
+    The Predictor Service publishes predicted user session values for the next time
+
+    period as service metrics, which are collected by the monitoring system and
+
+    used by the orchestrator to make predictive scheduling decisions. By using
+
+    these service metrics, the monitoring system improved the response time on
+
+    escalation responses and reduced service degradation. These improvements
+
+    were made possible by variable workloads compared to reactive monitoring
+
+    systems.
+
+    The proposed system is well suited for micro services environments, due to
+
+    its ability to collect customized real time performance metrics from services.
+
+    This allows system managers to overcome the limitations of the standalone
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    27
+
+    Kubernetes monitoring tools, and have a complete view of status of the applica-
+
+    tions deployed, detect malfunctions and conﬁgure alerts. The system can easily
+
+    integrate workload predictors that enable it to predict variations in service
+
+    workloads, and ensures the provisioning of resources to the deployed services
+
+    by automatically scaling applications according to workloads, minimizing the
+
+    waste of resources.
+
+    As future work, there are some elements that can be enhanced: monitor
+
+    and analyse additional pods, such as load balancers for an even more complete
+
+    view of the system; automate the behavioral analysis of services to discover
+
+    which of the collected metrics is critical for each service; and create service
+
+    speciﬁc predictors instead of a central prediction module to reduce the load
+
+    placed on the prediction module, and increase the modularity of the system.
+
+    Acknowledgements This work is supported by the European Regional
+
+    Development Fund (FEDER), through the Regional Operational Programme
+
+    of Lisbon (POR LISBOA 2020) and the Competitiveness and Internation-
+
+    alization Operational Programme (COMPETE 2020) of the Portugal 2020
+
+    framework Projects City Catalyst POCI-01-0247-FEDER-046119 and IMMI-
+
+    NENCE POCI-01-0247-FEDER-112314.
+
+    Declarations
+
+    • Ethical Approval: not applicable.
+
+    • Competing interests: not applicable.
+
+    • Authors’ contributions:
+
+    G. Marques: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, implemented the monitoring system and
+
+    contributed to the writing of the paper.
+
+    C. Senna: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, supervised the entire research process and
+
+    contributed to the writing of the paper.
+
+    S. Sargento: designed the monitoring system and analyzed the results, pre-
+
+    pared the evaluation scenarios, supervised the entire research process and
+
+    contributed to the writing of the paper.
+
+    L. Carvalho: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    L. Pereira: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    R. Matos: supervised the entire research process and contributed to the
+
+    writing of the paper.
+
+    • Funding:
+
+    This work is supported by the European Regional Development Fund
+
+    (FEDER), through the Regional Operational Programme of Lisbon (POR
+
+    Journal of Cloud Computing
+
+    28
+
+    Marques et al.
+
+    LISBOA 2020) and the Competitiveness and Internationalization Oper-
+
+    ational Programme (COMPETE 2020) of the Portugal 2020 framework
+
+    Projects City Catalyst POCI-01-0247-FEDER-046119 and IMMINENCE
+
+    POCI-01-0247-FEDER-112314.
+
+    • Availability of data and materials: not applicable.
+
+    References
+
+    [1] O. Zimmermann, Microservices tenets. Computer Science-Research and
+
+    Development 32(3), 301–310 (2017)
+
+    [2] W.H.C. Almeida, L. de Aguiar Monteiro, R.R. Hazin, A.C. de Lima,
+
+    F.S. Ferraz, Survey on microservice architecture-security, privacy and
+
+    standardization on cloud computing environment. ICSEA 2017 p. 210
+
+    (2017)
+
+    [3] C. Esposito, A. Castiglione, K.K.R. Choo, Challenges in delivering soft-
+
+    ware in the cloud as microservices. IEEE Cloud Computing 3(5), 10–14
+
+    (2016). https://doi.org/10.1109/MCC.2016.105
+
+    [4] P. Jamshidi, C. Pahl, N.C. Mendon¸ca, J. Lewis, S. Tilkov, Microservices:
+
+    The journey so far and challenges ahead. IEEE Software 35(3), 24–35
+
+    (2018). https://doi.org/10.1109/MS.2018.2141039
+
+    [5] K. Naseer Qureshi, F. Bashir, S. Iqbal, Cloud computing model for vehic-
+
+    ular ad hoc networks, in 2018 IEEE 7th International Conference on
+
+    Cloud Networking (CloudNet) (2018), pp. 1–3. https://doi.org/10.1109/
+
+    CloudNet.2018.8549536
+
+    [6] C.B. Hauser, S. Wesner, Reviewing cloud monitoring: Towards cloud
+
+    resource proﬁling, in 2018 IEEE 11th International Conference on Cloud
+
+    Computing (CLOUD) (2018), pp. 678–685.
+
+    https://doi.org/10.1109/
+
+    CLOUD.2018.00093
+
+    [7] S. Al-Shammari, A. Al-Yasiri, Monslar: a middleware for monitoring sla
+
+    for restful services in cloud computing, in 2015 IEEE 9th International
+
+    Symposium on the Maintenance and Evolution of Service-Oriented and
+
+    Cloud-Based Environments (MESOCA) (2015), pp. 46–50. https://doi.
+
+    org/10.1109/MESOCA.2015.7328126
+
+    [8] S. Lee, S. Son, J. Han, J. Kim, Reﬁning micro services placement over
+
+    multiple kubernetes-orchestrated clusters employing resource monitoring,
+
+    in 2020 IEEE 40th International Conference on Distributed Comput-
+
+    ing Systems (ICDCS) (2020), pp. 1328–1332. https://doi.org/10.1109/
+
+    ICDCS47774.2020.00173
+
+    Journal of Cloud Computing
+
+    Marques et al.
+
+    29
+
+    [9] A. Koschel, A. Hausotter, R. Buchta, A. Grunewald, M. Lange, P. Nie-
+
+    mann, Towards a microservice reference architecture for insurance compa-
+
+    nies, in SERVICE COMPUTATION 2021 : The Thirteenth International
+
+    Conference on Advanced Service Computing (Porto, Portugal, 2021)
+
+    [10] I.K. Kim, W. Wang, Y. Qi, M. Humphrey, Empirical evaluation of
+
+    workload forecasting techniques for predictive cloud resource scaling, in
+
+    2016 IEEE 9th International Conference on Cloud Computing (CLOUD)
+
+    (2016), pp. 1–10. https://doi.org/10.1109/CLOUD.2016.0011
+
+    [11] F.J. Baldan, S. Ramirez-Gallego, C. Bergmeir, F. Herrera, J.M. Benitez, A
+
+    forecasting methodology for workload forecasting in cloud systems. IEEE
+
+    Transactions on Cloud Computing 6(4), 929–941 (2018). https://doi.org/
+
+    10.1109/TCC.2016.2586064
+
+    [12] R. Weing¨artner, G.B. Br¨ascher, C.B. Westphall, Cloud resource manage-
+
+    ment: A survey on forecasting and proﬁling models. Journal of Network
+
+    and Computer Applications 47, 99–106 (2015).
+
+    https://doi.org/https:
+
+    //doi.org/10.1016/j.jnca.2014.09.018.
+
+    URL https://www.sciencedirect.
+
+    com/science/article/pii/S1084804514002252
+
+    [13] H.
+
+    Wang,
+
+    Y.
+
+    Ma,
+
+    X.
+
+    Zheng,
+
+    X.
+
+    Chen,
+
+    L.
+
+    Guo,
+
+    Self-adaptive
+
+    resource management framework for software services in cloud, in
+
+    2019 IEEE Intl Conf on Parallel Distributed Processing with Appli-
+
+    cations, Big Data Cloud Computing, Sustainable Computing Com-
+
+    munications,
+
+    Social
+
+    Computing
+
+    Networking
+
+    (ISPA/BDCloud/Social-
+
+    Com/SustainCom) (2019), pp. 1528–1529.
+
+    https://doi.org/10.1109/
+
+    ISPA-BDCloud-SustainCom-SocialCom48970.2019.00223
+
+    [14] L. Chen, Y. Xu, Z. Lu, J. Wu, K. Gai, P.C.K. Hung, M. Qiu, Iot microser-
+
+    vice deployment in edge-cloud hybrid environment using reinforcement
+
+    learning. IEEE Internet of Things Journal 8(16), 12,610–12,622 (2021).
+
+    https://doi.org/10.1109/JIOT.2020.3014970
+
+    [15] H. Zhao, H. Lim, M. Hanif, C. Lee, Predictive container auto-scaling
+
+    for cloud-native applications, in 2019 International Conference on Infor-
+
+    mation and Communication Technology Convergence (ICTC) (2019), pp.
+
+    1280–1282. https://doi.org/10.1109/ICTC46691.2019.8939932
+
+    [16] S. Zhou, J. Li, K. Zhang, M. Wen, Q. Guan, An accurate ensemble
+
+    forecasting approach for highly dynamic cloud workload with vmd and
+
+    r-transformer. IEEE Access 8, 115,992–116,003 (2020). https://doi.org/
+
+    10.1109/ACCESS.2020.3004370
+
+    [17] B. Liu, J. Guo, C. Li, Y. Luo, Workload forecasting based elastic
+
+    resource management in edge cloud. Computers & Industrial Engineer-
+
+    ing 139, 106,136 (2020).
+
+    https://doi.org/https://doi.org/10.1016/j.cie.
+
+    Journal of Cloud Computing
+
+    30
+
+    Marques et al.
+
+    2019.106136.
+
+    URL https://www.sciencedirect.com/science/article/pii/
+
+    S0360835219306059
+
+    [18] Y. Zhu, W. Zhang, Y. Chen, H. Gao, A novel approach to work-
+
+    load prediction using attention-based lstm encoder-decoder network in
+
+    cloud environment. EURASIP Journal on Wireless Communications and
+
+    Networking 2019(1), 1–18 (2019)
+
+    [19] D. Ferreira, C. Senna, S. Sargento, Distributed real-time forecasting
+
+    framework for iot network and service management, in NOMS 2020 - 2020
+
+    IEEE/IFIP Network Operations and Management Symposium (IEEE
+
+    Press, 2020), p. 1–4. https://doi.org/10.1109/NOMS47738.2020.9110456.
+
+    URL https://doi.org/10.1109/NOMS47738.2020.9110456
+
+    [20] P.M. Santos, J.G.P. Rodrigues, S.B. Cruz, T. Louren¸co, P.M. d’Orey,
+
+    Y. Luis, C. Rocha, S. Sousa, S. Cris´ostomo, C. Queir´os, S. Sargento,
+
+    A. Aguiar, J. Barros, Portolivinglab: An iot-based sensing platform for
+
+    smart cities. IEEE Internet of Things Journal 5(2), 523–532 (2018). https:
+
+    //doi.org/10.1109/JIOT.2018.2791522
+
+    [21] Sandvine,
+
+    Global
+
+    internet
+
+    phenomena
+
+    report.
+
+    Technical
+
+    report,
+
+    Sandvine
+
+    (2012).
+
+    URL
+
+    https://www.sandvine.com/hubfs/
+
+    Sandvine Redesign 2019/Downloads/Internet%20Phenomena/
+
+    2012-2h-global-internet-phenomena-report.pdf
+
+    '
+  inline_citation: (Marques et al., 2022)
+  journal: Research Square (Research Square)
+  key_findings: 1. The proposed monitoring system is able to accurately monitor custom
+    metrics for service-based cloud applications. 2. The system can be used to automatically
+    provision and scale compute resources in cloud environments. 3. The system is
+    effective in challenging environments such as VANETs, where resources are often
+    scarce and the workload is highly dynamic.
+  limitations: 1. The system relies on a centralized monitoring service, which could
+    be a single point of failure.2. The system does not currently support live migration
+    of virtual machines, which could lead to service disruption during scaling operations.
+  main_objective: To design and implement a monitoring system for microservices, containers
+    and container clusters that autonomously predicts load variations and resource
+    scarcity, and is capable of making new resources available in order to ensure
+    the continuity of the process without interruptions.
+  pdf_link: https://www.researchsquare.com/article/rs-2165603/latest.pdf
+  publication_year: 2022
+  relevance_evaluation: The proposed monitoring system is highly relevant to the specific
+    point being made in the literature review. The system provides a comprehensive
+    and accurate way to monitor custom metrics for service-based cloud applications,
+    which is essential for enabling automated provisioning and scaling of compute
+    resources. This capability is particularly important in challenging environments
+    such as VANETs, where resources are often scarce and the workload is highly dynamic.
+    The system also provides a number of features that make it easy to use and integrate
+    with existing cloud platforms. Overall, the proposed system is a valuable addition
+    to the literature on automated resource management for cloud applications.
+  relevance_score: 1.0
+  relevance_score1: 0
+  relevance_score2: 0
+  study_location: Porto, Portugal
+  technologies_used: Prometheus, Jaeger, Open Telemetry, Particle Swarm Optimization
+    (PSO), Kubernetes, HPA, ARMA, ELMAN Neural Network (ENN), VMD, R-Transformer
+  title: Proactive resource management for cloud of services environments
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

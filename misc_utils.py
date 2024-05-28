@@ -32,7 +32,7 @@ async def prepare_text_for_json(text):
     return json_string
 
 
-def get_api_keys(source="cloud"):
+def get_api_keys(source="local"):
     if source == "cloud":
         client = secretmanager.SecretManagerServiceClient()
         name = "projects/crop2cloud24/secrets/api-keys/versions/latest"

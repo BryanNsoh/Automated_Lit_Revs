@@ -3,7 +3,7 @@ import asyncio
 import aiohttp
 
 from llm_api_handler import LLM_APIHandler
-from prompts import get_prompt, core_search_guide
+from prompt_loader import get_prompt
 from misc_utils import get_api_keys
 
 from logger_config import get_logger
@@ -18,11 +18,12 @@ class QueryGenerator:
         self.llm_api_handler = LLM_APIHandler(self.api_keys, session)
 
     async def generate_queries(self, user_query):
+        dependencies = {"search_guidance": "core_search_guide"}
         # Generate the prompt from the user's query
         prompt = get_prompt(
             template_name="generate_queries",
+            dependencies=dependencies,
             user_query=user_query,
-            search_guidance=core_search_guide,
         )
 
         # Obtain the model's response for the generated prompt

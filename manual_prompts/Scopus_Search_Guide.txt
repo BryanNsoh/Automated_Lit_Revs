@@ -1,0 +1,55 @@
+Syntax and Operators
+--------------------
+
+Valid syntax for advanced search queries includes:
+
+*   Field codes (e.g. TITLE, ABS, KEY, AUTH, AFFIL) to restrict searches to specific parts of documents
+*   Boolean operators (AND, OR, AND NOT) to combine search terms
+*   Proximity operators (W/n, PRE/n) to find words within a specified distance
+*   Quotation marks for loose/approximate phrase searches
+*   Braces {} for exact phrase searches
+*   Wildcards (* and ?) for partial word matches
+
+Invalid syntax includes:
+
+*   Mixing different proximity operators (e.g. W/n and PRE/n) in the same expression
+*   Using wildcards or proximity operators with exact phrase searches
+*   Placing AND NOT before other Boolean operators
+*   Using wildcards on their own without any search terms
+
+Ideal Search Structure
+----------------------
+
+An ideal advanced search query should:
+
+*   Use field codes to focus the search on the most relevant parts of documents
+*   Combine related concepts using AND and OR
+*   Exclude irrelevant terms with AND NOT at the end
+*   Use proximity operators to find phrases and related words near each other
+*   Employ quotation marks and braces appropriately for phrase searching
+*   Include wildcards to capture variations of key terms
+*   Follow the proper order of precedence for operators
+
+Complex searches should be built up systematically, with parentheses to group related expressions as needed. The information from the provided documents on syntax rules and operators should be applied rigorously.
+
+Example Advanced Searches
+-------------------------
+
+TITLE-ABS-KEY("precision agriculture" AND ("machine learning" OR "artificial intelligence") AND water W/10 management)
+TITLE(({internet of things} OR iot) W/15 (irrigation OR watering) AND sensor?)
+TITLE-ABS(("precision farming" OR "precision agriculture") AND ("deep learning" OR "neural network?") AND water conservation)
+TITLE-ABS-KEY((crop? PRE/5 monitor?) AND "remote sensing" AND (irrigation OR water?))
+AFFIL("agricultural engineering") AND TITLE-ABS(("precision agriculture" OR "smart farming") AND soil W/10 moist?)
+TITLE(("precision irrigation" OR "variable rate irrigation") AND "machine learning")
+TITLE-ABS-KEY(("precision agriculture" OR "precision farming") AND (autonom? W/5 robot?) AND (irrigat? OR water?))
+ALL(("internet of things" OR iot) AND (soil W/10 (monitor? OR sens?)) AND ("crop yield" OR productivity))
+TITLE-ABS(("digital agriculture" OR "smart agriculture") AND "big data" AND irrigation W/10 schedul?)
+AFFIL("precision agriculture") AND TITLE-ABS-KEY(("machine learning" OR "artificial intelligence") AND water W/15 (productivity OR efficiency OR sav?))
+TITLE-ABS-KEY("precision agriculture" AND "decision support system?" AND (water OR irrigation))
+TITLE-ABS(("smart farming" OR "digital agriculture") AND "remote sensing" AND "crop monitoring")
+ALL(("precision agriculture" OR "precision farming") AND "sustainability" AND (water W/10 management))
+TITLE(("machine learning" OR "artificial intelligence") AND "irrigation scheduling")
+AFFIL("agricultural engineering") AND TITLE-ABS-KEY(("internet of things" OR iot) AND "crop yield" AND "water use efficiency")
+
+
+These example searches demonstrate different ways to effectively combine key concepts related to precision agriculture, irrigation, real-time monitoring, IoT, machine learning and related topics using advanced search operators. They make use of field codes, Boolean and proximity operators, phrase searching, and wildcards to construct targeted, comprehensive searches to surface the most relevant research. The topic focus is achieved through carefully chosen search terms covering the desired themes.

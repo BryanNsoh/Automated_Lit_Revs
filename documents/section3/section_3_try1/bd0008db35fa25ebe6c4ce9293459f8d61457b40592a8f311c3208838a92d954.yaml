@@ -1,0 +1,1029 @@
+- analysis: '>'
+  authors:
+  - Chamara N.
+  - Bai G.
+  - Ge Y.
+  citation_count: '1'
+  description: 'Precision Agriculture (PA) promises to meet the future demands for
+    food, feed, fiber, and fuel while keeping their production sustainable and environmentally
+    friendly. PA relies heavily on sensing technologies to inform site-specific decision
+    supports for planting, irrigation, fertilization, spraying, and harvesting. Traditional
+    point-based sensors enjoy small data sizes but are limited in their capacity to
+    measure plant and canopy parameters. On the other hand, imaging sensors can be
+    powerful in measuring a wide range of these parameters, especially when coupled
+    with Artificial Intelligence. The challenge, however, is the lack of computing,
+    electric power, and connectivity infrastructure in agricultural fields, preventing
+    the full utilization of imaging sensors. This paper reported AICropCAM, a field-deployable
+    imaging framework that integrated edge image processing, Internet of Things (IoT),
+    and LoRaWAN for low-power, long-range communication. The core component of AICropCAM
+    is a stack of four Deep Convolutional Neural Networks (DCNN) models running sequentially:
+    CropClassiNet for crop type classification, CanopySegNet for canopy cover quantification,
+    PlantCountNet for plant and weed counting, and InsectNet for insect identification.
+    These DCNN models were trained and tested with >43,000 field crop images collected
+    offline. AICropCAM was embodied on a distributed wireless sensor network with
+    its sensor node consisting of an RGB camera for image acquisition, a Raspberry
+    Pi 4B single-board computer for edge image processing, and an Arduino MKR1310
+    for LoRa communication and power management. Our testing showed that the time
+    to run the DCNN models ranged from 0.20 s for InsectNet to 20.20 s for CanopySegNet,
+    and power consumption ranged from 3.68 W for InsectNet to 5.83 W for CanopySegNet.
+    The classification model CropClassiNet reported 94.5 % accuracy, and the segmentation
+    model CanopySegNet reported 92.83 % accuracy. The two object detection models
+    PlantCountNet and InsectNet reported mean average precision of 0.69 and 0.02 for
+    the test images. Predictions from the DCNN models were transmitted to the ThingSpeak
+    IoT platform for visualization and analytics. We concluded that AICropCAM successfully
+    implemented image processing on the edge, drastically reduced the amount of data
+    being transmitted, and could satisfy the real-time need for decision-making in
+    PA. AICropCAM can be deployed on moving platforms such as center pivots or drones
+    to increase its spatial coverage and resolution to support crop monitoring and
+    field operations.'
+  doi: 10.1016/j.compag.2023.108420
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Graphical abstract Keywords 1. Introduction 2. Materials
+    and methods 3. Results and discussion 4. Conclusion and future perspectives Funding
+    CRediT authorship contribution statement Declaration of Competing Interest Acknowledgements
+    Data availability References Show full outline Cited by (1) Figures (12) Show
+    6 more figures Tables (7) Table 1 Table 2 Table 3 Table 4 Table 5 Table 6 Show
+    all tables Computers and Electronics in Agriculture Volume 215, December 2023,
+    108420 AICropCAM: Deploying classification, segmentation, detection, and counting
+    deep-learning models for crop monitoring on the edge Author links open overlay
+    panel Nipuna Chamara a, Geng Bai a, Yufeng Ge a b Show more Share Cite https://doi.org/10.1016/j.compag.2023.108420
+    Get rights and content Under a Creative Commons license open access Highlights
+    • We developed AICropCAM, an edge-computing enabled camera system for crop monitoring.
+    • It integrated Raspberry Pi and Arduino for image processing and LoRa communication.
+    • It ran a stack of four deep neural networks to characterize multiple plant/canopy
+    parameters. • We quantified the power consumption and speed of the system for
+    edge image-processing. • AICropCAM is a next-generation enabling technology for
+    real-time, low-latency Ag applications. Abstract Precision Agriculture (PA) promises
+    to meet the future demands for food, feed, fiber, and fuel while keeping their
+    production sustainable and environmentally friendly. PA relies heavily on sensing
+    technologies to inform site-specific decision supports for planting, irrigation,
+    fertilization, spraying, and harvesting. Traditional point-based sensors enjoy
+    small data sizes but are limited in their capacity to measure plant and canopy
+    parameters. On the other hand, imaging sensors can be powerful in measuring a
+    wide range of these parameters, especially when coupled with Artificial Intelligence.
+    The challenge, however, is the lack of computing, electric power, and connectivity
+    infrastructure in agricultural fields, preventing the full utilization of imaging
+    sensors. This paper reported AICropCAM, a field-deployable imaging framework that
+    integrated edge image processing, Internet of Things (IoT), and LoRaWAN for low-power,
+    long-range communication. The core component of AICropCAM is a stack of four Deep
+    Convolutional Neural Networks (DCNN) models running sequentially: CropClassiNet
+    for crop type classification, CanopySegNet for canopy cover quantification, PlantCountNet
+    for plant and weed counting, and InsectNet for insect identification. These DCNN
+    models were trained and tested with >43,000 field crop images collected offline.
+    AICropCAM was embodied on a distributed wireless sensor network with its sensor
+    node consisting of an RGB camera for image acquisition, a Raspberry Pi 4B single-board
+    computer for edge image processing, and an Arduino MKR1310 for LoRa communication
+    and power management. Our testing showed that the time to run the DCNN models
+    ranged from 0.20 s for InsectNet to 20.20 s for CanopySegNet, and power consumption
+    ranged from 3.68 W for InsectNet to 5.83 W for CanopySegNet. The classification
+    model CropClassiNet reported 94.5 % accuracy, and the segmentation model CanopySegNet
+    reported 92.83 % accuracy. The two object detection models PlantCountNet and InsectNet
+    reported mean average precision of 0.69 and 0.02 for the test images. Predictions
+    from the DCNN models were transmitted to the ThingSpeak IoT platform for visualization
+    and analytics. We concluded that AICropCAM successfully implemented image processing
+    on the edge, drastically reduced the amount of data being transmitted, and could
+    satisfy the real-time need for decision-making in PA. AICropCAM can be deployed
+    on moving platforms such as center pivots or drones to increase its spatial coverage
+    and resolution to support crop monitoring and field operations. Graphical abstract
+    Download : Download high-res image (227KB) Download : Download full-size image
+    Previous article in issue Next article in issue Keywords Artificial intelligenceComputer
+    visionEdge computingInternet of thingsLoRaWANPrecision agriculture 1. Introduction
+    The demands for food, feed, fiber, and fuel increase rapidly due to the fast expansion
+    of the global population, income growth, technological advancement, and transport
+    and logistics improvements (van Dijk et al., 2021). Precision agriculture (PA),
+    which seeks to apply the right amount of inputs (fertilizers, irrigation water,
+    pesticides, and other chemicals) in the right location at the right time, is essential
+    to meet the requirements of future global food production, as well as environmental
+    sustainability and climate resilience. PA is predicated on accurate sensor measurements,
+    timely and sound decision-making, and automated actuators. The backbone of PA
+    is the Internet of Things (IoT) technology that automates data collection, data
+    analytics, data presentation, control, and efficient data communication (Chamara
+    et al., 2022). Imaging sensors or digital cameras are essential for PA as they
+    can capture more information than traditional scalar or vector sensors. Images
+    can capture crop phenology for precise decision-making (Taylor and Browning, 2022,
+    Tian et al., 2020). Cyclic events such as vegetative growth, flowering, leaf count
+    and color change, maturation, and senescence are studied in crop phenology, which
+    is essential to PA as it determines the management inputs required by crops. Moreover,
+    images have rich information on the scene that allows for pest pressure evaluation.
+    At present, a limited number of sensors are available for pest identification
+    and pest pressure estimation. Among them, imaging sensors provide the most promising
+    solution. Conventional (handcrafted feature extraction) and Artificial Intelligence
+    (AI)-based image processing are the two branches of image processing. Traditional
+    approaches extract image features defined by shape, texture, and color (Anubha
+    et al., 2019, Yuan et al., 2019). The AI-based methods use Convolutional Neural
+    Networks (CNN) to extract features from images (Luis et al., 2020). CNN models
+    with multiple hidden layers for feature extraction and learning are considered
+    Deep Convolutional Neural Networks (DCNN) (LeCun et al., 1998). Conventional imaging
+    platforms in PA store images locally using onboard storage memories. Post processing
+    refers to the processing of images stored at the central data storage in batches
+    at a later time to extract useful information (Aasen et al., 2020). Imaging platforms
+    that can access the internet through a stable connection with high bandwidth can
+    automatically upload images to Cloud data storage. The vast majority of farmlands
+    worldwide are in rural and remote areas with poor access to electric power and
+    internet connectivity. This represents a big challenge for camera systems deployed
+    in rural farmlands for high-speed image processing, data transmission, and low-latency
+    decision-making (Richardson, 2019). Post-processing of crop images has been used
+    for the estimation of leaf area index (Aasen et al., 2020), growth rate (Sakamoto
+    et al., 2012), leaf chlorophyll and nitrogen content (Wang et al., 2014), fruit
+    counts (Wang et al., 2014), and plant height (Sritarapipat et al., 2014). Further
+    post-image processing allows for the assessment of biotic stress, such as pest
+    density (Barbedo, 2014; Park et al., 2007) and weed pressure (Wang et al., 2019),
+    as well as abiotic stress, such as nutrient deficiency (Ghorai et al., 2021).
+    Richardson (2019) suggested that deep learning-based methods have the potential
+    to facilitate the extraction of more sophisticated phenological data from both
+    new and previously archived camera imagery compared to conventional image processing.
+    Semantic segmentation-based canopy coverage (CC) estimation (Chamara et al., 2021;
+    Liang et al., 2023), image classification-based crop identification (Anubha et
+    al., 2019), disease identification (Sharma et al., 2020), growth stage prediction
+    (Yasrab et al., 2021) and object detection-based plant feature identification
+    (A. Wang et al., 2019) are examples of DCNN applications in agriculture. Conventional
+    image processing requires less computational power and less energy, but they are
+    limited in adaption to new scenarios, while deep learning requires high computational
+    power and consumes more energy. DCNN models require large memory due to the large
+    number of parameters these models hold. Therefore, it is not easy to implement
+    these models practically in embedded systems that have less memory and computation
+    power. These models also require a large amount of data to train to predict with
+    high accuracy. Therefore, it is resource intensive. Edge image processing is the
+    image processing done on image-capturing devices. The main advantage of edge image
+    computing is that it lowers the high throughput data transmission requirement
+    over a wireless IoT-enabled imaging network (Cao et al., 2020). Wang et al. (2022a)
+    demonstrated the capability of identifying potted flowers with precision above
+    89 % in real-time in a Jetson TX 2 computing module based on a DCNN algorithm.
+    These authors suggested that a cloud-edge collaborative framework could achieve
+    real-time and automatic learning for the DCNN model they have developed. Wang
+    et al. (2022b) proposed a real-time weed detection model run on Jetson AGX Xavier
+    for field robots. The authors proved it was possible to do real-time weed detection
+    with a precision above 90 % yet required expensive hardware. Wang et al. (2022a)
+    reviewed Raspberry Pi single-board computer-based real-time image processing applications.
+    They concluded that Raspberry Pi (Datasheet Raspberry Pi Model B, 2019) is a cost-effective
+    edge computing unit that could potentially be used as an edge image processing
+    unit, and the capability of integrating it with IoT was also discussed. Zualkernan
+    et al. (2022) demonstrated an edge image processing platform for the classification
+    of animals and transmitting the identified animal and time of identification via
+    LoRa for a camera trap. Past literature on IoT and image processing applications
+    in agriculture has highlighted a research gap in edge image processing with IoT-enabled
+    crop monitoring cameras. In-field crop cameras are expected to make real-time
+    crop management decisions based on real-time image processing; however, poor internet
+    connectivity in agricultural fields severely limits their capability. To address
+    this gap, we have developed a novel imaging platform named AICropCAM that extracts
+    plant and crop canopy level parameters through DCNN and uploads them to the Cloud
+    via low-power, low-throughput communication protocols. We also demonstrated AICropCAM
+    on an IoT-enable wireless sensor network in corn and soybean fields. A technology
+    that addresses image processing at the lowest level (edge) and transmits only
+    useful information can revolutionize real-time decision-making in PA. Therefore,
+    the main objective of this paper is to demonstrate AICropCAM to perform edge image
+    processing and low-throughput, low-power, and long-range data transmission through
+    IoT technology. In this novel AICropCAM platform, multiple DCNN image processing
+    algorithms run in series to extract plant-level and canopy-level features in an
+    embedded system. Image classification, object detection with classification, and
+    image segmentation are the three major applications of DCNN image processing,
+    and all three are included in AICropCAM to demonstrate the capabilities of DCNN
+    for image processing in PA. AICropCAM has trained models for canopy segmentation,
+    crop classification, plant growth stage identification, plant counting, weed counting,
+    and plant type identification. All the protocols that transmit data from AICropCAM
+    to the Cloud were custom designed. AICropCAM sends the generated data to a cloud
+    platform for logging, visualization, and analysis. Furthermore, this paper explains
+    the DCNN model training process, model performance, and test results. We reported
+    the model training comprehensively because it was essential for AICropCAM development.
+    2. Materials and methods Essential activities in this research were data/image
+    collection and preprocessing, hardware design for AICropCAM, software design for
+    data transmission between the edge and the Cloud, deep learning model design,
+    and model training and optimization (Fig. 1). AICropCAM was implemented in a corn
+    and soybean field at the field phenotyping facility in Mead, Nebraska, USA (Bai
+    et al., 2019). We demonstrated the training of the following DCNNs: CropClassiNet
+    for classifying images based on image quality and crop type, CanopySegNet for
+    segmenting crop canopy from the background, PlantCountNet for classifying and
+    counting soybean and weed plants, and InsectNet for identifying insects and counting
+    them. Download : Download high-res image (412KB) Download : Download full-size
+    image Fig. 1. Steps of edge image processing program deployment on the embedded
+    system (edge devices). 2.1. Image collection, annotation, preprocessing, and augmentation
+    Image collection for DCNN model training occurred in four growing seasons using
+    three different types of cameras: (i) commercially available Meidas SL122 trail
+    cameras in 2019 (Meidas Trail Cameras, 2022), (ii) OV5642 imaging sensors with
+    ArduCAM camera shields in 2020, and (iii) Raspberry Pi Camera Module V2 with Raspberry
+    Pi Zero in 2021 and 2022 (Chamara, 2021). All the cameras were mounted on the
+    bars horizontally extended and fixed on stationary poles erected vertically in
+    the fields, as shown in Fig. 2A. The distance between the crop canopy and the
+    cameras was maintained between 0.5 and 1.5 m throughout the growing seasons. Images
+    used for training the InsectNet were also captured with smartphones as we could
+    not collect enough images with insects from the three types of cameras mentioned
+    above. Download : Download high-res image (338KB) Download : Download full-size
+    image Fig. 2. Left: An Illustration of how AICropCAM was set up in the field for
+    image collection. In addition to the camera, other components such as the solar
+    panel and data logger were also shown. Right: A close-up view of AICropCAM and
+    its hardware components. All three standard image annotation techniques in deep
+    learning model training were utilized: (1) folder labeling for the image classification
+    models, (2) pixel-level annotation for the semantic segmentation model, and (3)
+    bounding boxes for object detection models. Images belonging to the same class
+    were grouped into a single folder, and five distinct classes (or folders) were
+    created: rejected, corn, soybean, grass, and night. Separating the crop canopy
+    from the soil was done with pixel-level annotation and semantic segmentation.
+    Bounding boxes, the smallest rectangle around an object, were drawn for corn plants,
+    soybean plants, weed plants, and insects. Table 1 explains each type of annotation
+    used in the model training. Table 1. Annotation criteria used to generate labels
+    from the images to train and test the four deep convolutional neural network models
+    in AICropCAM. Labeling Type Class Description Image classification (CropClassiNet)
+    Rejected Images were labeled as rejected due to multiple reasons: blurred images
+    caused by water droplets on the lens; the cameras turned away from the targeted
+    crop; crops growing up to the camera blocking the view or capturing only a few
+    leaves; people present in the images; lens covered with different stuff; and the
+    camera was not installed in the field. Corn Images entirely covered by corn plants
+    at different growth stages. Soybean Images entirely covered by soybean plants
+    at different growth stages. Grass/Weed Images only comprise grass/weed plants
+    at different growth stages. Night Images captured under low lighting conditions.
+    Most of the cameras were not programmed to stop collecting images under low light.
+    Crop canopy and background (CanopySegNet) Canopy Pixel labeling was done on the
+    crop canopy. We used assisted freehand tool and the superpixel option in the MATLAB
+    image labeler. Background Pixel labeling was done on the crop canopy. We used
+    assisted freehand tool and the superpixel option in the MATLAB image labeler.
+    Plant-type (PlantCountNet) Weed Weed present in the image was labeled using bounding
+    boxes. It was challenging to locate the weed after the corn or soybean canopy
+    was closed. Soybean Soybean plants present in the image were labeled using bounding
+    boxes. Insects (InsectNet) Insects During the labeling process, without distinguishing
+    insects based on their type, all the insects present in the images were labeled
+    using bounding boxes. Image preprocessing is necessary for DCNN model training
+    and real-time edge image processing. Differences in the input layer size in different
+    DCNN models demand that images be resized before passing through the model for
+    training or prediction purposes. High-resolution images improve accuracy but require
+    more computational power. For specific applications, labeled datasets were only
+    limitedly available. Therefore, image augmentation techniques were used to increase
+    the number of image data sets, including scaling, flipping, cropping, rotation,
+    color transformation, PCA color augmentation, and noise rejection (Paymode and
+    Malode, 2022). Multiple augmentation techniques were used for each model, as detailed
+    in Table 2. Additionally, Table 2 provides the numbers of images in training,
+    validation, and testing for the four DCNN models. Table 2. DCNN model image allocation
+    and image augmentation. Model Number of images Data Augmentation Techniques Total
+    Training Validation Test CropClassiNet 43,611 30,528 9,810 3,273 Random rotation,
+    random X  and Y reflection CanopySegNet 51 31 10 10 Transformation (random left/right
+    reflection and random X/Y translation of ±10 pixels) PlantCountNet 110 88 11 11
+    Transformation (same as CanopySegNet) InsectNet 542 326 108 108 Transformation
+    (same as CanopySegNet) Our main objective was not to make the most accurate prediction
+    for the DCNN models but to demonstrate the concept of implementing edge image
+    processing and transmitting the results to the Cloud for decision-making. Therefore,
+    we selected a limited number of images for CanopySegNet, PlantCountNet, and InsectNet,
+    which were sufficient to train models with a reasonable degree of accuracy. 2.2.
+    DCNN model architecture selection, training, evaluation, and deployment on the
+    edge device The steps to select model architecture/model backbone weights and
+    image input sizes to train the best model for CropClassiNet, CanopySegNet, PlantCountNet,
+    and InsectNet are summarized in Fig. 3. Unlike many DCNN applications that prioritize
+    higher accuracy, our application focused on finding the balance between accuracy
+    and model deployability on the edge device. Download : Download high-res image
+    (771KB) Download : Download full-size image Fig. 3. DCNN model selection process
+    during the training and testing by attempting different model architectures, model
+    backdone weights, and input image sizes. For example, in the development of CropSegNet
+    (Segmentation), we selected DeepLabv3+ (Firdaus-Nawi et al., 2018) with weights
+    initialized from pre-trained networks of ResNet18 (He et al., 2016), ResNet50,
+    Xception, InceptionresnetV2, and MobileNetV2. The input image sizes tested were
+    512 × 512 × 3 and 256 × 256 × 3, and training options were kept constant to find
+    the best-performing networks, which should also be deployable to Raspberry Pi
+    4B. This process identified DeepLabv3 + with ResNet50 as the most suitable model
+    for CropSegNet, with an input image size of 512 × 512 × 3. Table 3 summarizes
+    the hyperparameter values and training options for the final DCNN models deployed
+    to the edge device. (1) (2) (3) (4) (5) (6) (7) Table 3. Hyperparameter values
+    and training options for the best models (SGDM - stochastic gradient descent with
+    momentum, RMSProp - Root mean square propagation). Training option and the function/Hyperparameters
+    Values for CropClassiNet Values for CanopySegNet Values for InsectNet (320 × 320
+    × 3) Values for PlantCountNet (320 × 320 × 3) Optimizer SGDM SGDM SGDM RMSProp
+    Momentum 0.9 0.9 0.99 NA Initial learning rate 0.001 0.001 0.001 0.001 Learn rate
+    schedule Piecewise Piecewise Piecewise Piecewise Learn rate drop period 10 10
+    10 10 Learn rate drop factor 0.3 0.3 0.1 0.3 Minibatch size 16 4 16 32 L2Regularization
+    NA 0.005 0.005 0.005 Validation frequency 3 3 3 10 Shuffle Every epoch Every epoch
+    Every epoch Every epoch Validation patience 4 10 10 10 Max epochs 100 300 1000
+    100 Execution environment Multi GPU Multi GPU GPU GPU The performance of the four
+    DCNN models was evaluated using the indices calculated from Eq. (1), (2), (3),
+    (4), (5), (6), (7). Accuracy, Precision, Recall, F1 score, and Jaccard index were
+    used for the classification models CropClassiNet and CropSegNet, whereas IoU and
+    mAP (Mean Average Precision) were used for PlantCountNet and InsectNet. Jaccard
+    index gives the proportion of correctly predicted labels to the total number of
+    labels. Model training was performed on an NVIDIA GeForce GTX 1650 Ti Mobile processor,
+    a dedicated mid-range graphics card with 4 GB GDDR6 memory on a Dell XPS 15 9500
+    Laptop. The laptop had an Intel Core i7-10750H 10th Gen processor,16 GB DDR4 RAM,
+    and 1 TB SSD hard disk. 2.3. Hardware and software of AICropCAM The IoT data transmission
+    and edge image processing hardware comprised the following major components: a
+    Raspberry Pi 4B single-board computer, an Arduino MKR1310 development board, an
+    Arduino MKR Relay Proto Shield, and a Dragino OLG02 outdoor dual channels LoRa
+    Gateway (Fig. 4). The 12 V 8Ah battery powered the Raspberry Pi 4B, controlled
+    through the relay shield managed by the Arduino MKR1310. A 3.7 V lithium polymer
+    battery powered the Arduino MKR1310 board. There are two advantages of having
+    a separate Arduino board. First, the Arduino board consumes less power than the
+    Raspberry Pi 4B module. It can be switched on and off according to user requirements.
+    Second, it allows uninterrupted communication between the edge node and the Cloud
+    with low power. Download : Download high-res image (303KB) Download : Download
+    full-size image Fig. 4. Hardware overview of AICropCAM and data flow. AICropCAM
+    required programming on two hardware platforms. Arduino was programmed using C++
+    in Arduino’s Integrated Development Environment. Raspberry Pi imaging and image
+    processing program was developed in MATLAB and deployed onto the Raspberry Pi
+    4B using the MATLAB Coder and MATLAB Compiler. A python program was designed to
+    read the saved data in the Raspberry Pi 4B and serially communicate to the Arduino
+    MKR1310. The primary functions of the MRK1310 program were to (1) turn on the
+    Raspberry Pi 4B module based on the user-defined time intervals, (2) get the processed
+    data, including the results of DCNN model predictions, through serial communication
+    from the Raspberry Pi 4B, and (3) transmit the data to the ThingSpeak Cloud channel
+    through the LoRa gateway. All the DCNN models were trained using the MATLAB deep
+    learning toolbox. In the edge deployment, a MATLAB program runs multiple models
+    logically depending on the prediction result of the previous model estimation,
+    as shown in Fig. 5. MATLAB coder generated the C and C++ code derived from the
+    program we developed to run on the Raspberry Pi. MATLAB Compiler generated the
+    standalone application on the Raspberry Pi (The MathWorks, 2022). Download : Download
+    high-res image (477KB) Download : Download full-size image Fig. 5. Overall sequential
+    image processing and data generation flow chart. Table 4 lists the parameters
+    generated by the models in AICropCAM. The abbreviations in Table 4 are fields
+    holding data in the program to reduce the complexity of system development and
+    maintain a common standard among different platforms. Fig. 6 shows the data generation
+    from images. According to Fig. 6, the size of the images were around 2 MB before
+    being fed into the image processing pipeline. The output message contains the
+    crop type (CT), plant count (PC), weed count (WC), canopy coverage (CC), and pest
+    count (PstC). The resulting message is typically less than 100 bytes. This represents
+    a substantial reduction of memory size with the output being 0.00005 times the
+    size of the original image. Consequently, this message can be transmitted in a
+    single message via LoRa as the maximum LoRa packet size is around 256 bytes. Table
+    4. List of parameters used to represent information in the images. Parameter Abbreviation
+    Represent information Image location LOC Node ID manually entered/Global positioning
+    system location coordinates Image orientation IO Accelerometer/Manually feed/Gravity
+    switch Image quality/Crop type CT Image classification based on image quality
+    and the crop type Plant count/Weed count PC/WC Multiclass object detection/classification
+    Crop canopy coverage CC Semantic segmentation Pest count PstC Multiclass object
+    detection/classification Download : Download high-res image (2MB) Download : Download
+    full-size image Fig. 6. Examples of message generation and data size reduction
+    for LoRa transmission. 2.4. Data transmission, visualization, and storage The
+    data generated after image processing were saved on the Raspberry Pi 4B SD card,
+    allowing access to the data remotely or through manual retrieval during field
+    visits. Two options for transmitting the collected data to the ThingSpeak IoT
+    platform are available. Firstly, the data can be uploaded directly from the Raspberry
+    Pi 4B if internet connectivity is available for growers with Wi-Fi access. Secondly,
+    the Raspberry Pi 4B transmits the recently acquired data to the Arduino MKR1310.
+    The Arduino MKR1310 decodes the data received from the Raspberry Pi 4B and forwards
+    it to the ThingSpeak. The second method is for low-rate, long-range communication
+    beyond the limit of Wi-Fi. A single message receivable to the ThingSpeak server
+    includes data for eight fields. In our demonstration, a single message was enough
+    to transmit the data generated. Fields 1 and 2 are reserved for geographic coordinates
+    (namely, latitude and longitude) to represent the device''s location. The third
+    field was for camera orientation. Image quality/crop type, plant count, weed count,
+    insect count, and crop canopy coverage were allocated from fields four to eight.
+    ThingSpeak supports eight channels per gateway. If additional data is generated
+    in the future, we have to create new channels to accommodate them. However, only
+    data in a single channel can be passed through a single message. The Arduino-LoRa
+    library was used to prepare the LoRa messages forwarded to the gateway (Mistry,
+    2016). The message generated from the Arduino MKR1310 includes the device identification
+    number and the data with the field number. Once the gateway receives this message,
+    it adds the target client ID (generated by ThingSpeak when defining a device),
+    host address (mqtt://mqtt3.thingspeak.com), server port number, username and password,
+    channel ID, and the data in each field according to the Message Queuing Telemetry
+    Transport (MQTT) protocol. Username and password ensure that only authorized devices
+    can transmit data to the ThingSpeak platform. ThingSpeak provides two ways to
+    interact with its platform, REST (Representative State Transfer) and MQTT protocols.
+    The advantages of using MQTT over REST protocol are that it supports ThingSpeak
+    data publishing, including immediate and minimum power consumption and data transmission
+    over limited bandwidth, which encouraged us to select the MQTT protocol in our
+    demonstration. 3. Results and discussion 3.1. DCNN model performance CropClassiNet
+    had a test accuracy of 91.26 %, a Jaccard Index of 0.77, and an F1-score of 0.91;
+    the confusion matrix is given in Fig. 7. The highest precision is for the “grass”
+    class (100 %), and the lowest is for “soybean” (92.0 %). The highest recall is
+    for the “corn” class (99.9 %), and the lowest is for “grass” (67.1 %). The primary
+    goal of CropClassiNet is to determine the quality of new images and direct them
+    for subsequent processing (Fig. 5). This step has never been executed in an image-based
+    crop monitoring platform before. Further, CropClassiNet can eliminate erroneous
+    images when humans are present in the camera’s field of view or when the camera
+    is misaligned due to external factors. AICropCAM can send maintenance requests
+    through IoT analytics if rejected images are continuously generated. Download
+    : Download high-res image (275KB) Download : Download full-size image Fig. 7.
+    Confusion matrix for test images by CropClassiNet. CanopySegNet on the test images
+    achieved a global accuracy of 0.93, a weighted IoU of 0.87, and a mean BF score
+    of 0.73. Fig. 8 shows an example of an original soybean image and the corresponding
+    segmentation result by CanopySegNet, which estimated CC to be 18.72 %. Season-long,
+    time-series images can be fed into CanopySegNet to generate diurnal and seasonal
+    curves of crop CC, as shown in Fig. 9. Download : Download high-res image (621KB)
+    Download : Download full-size image Fig. 8. An image of soybean crop and the segmentation
+    result by CropSegNet to calculate canopy coverage. Download : Download high-res
+    image (367KB) Download : Download full-size image Fig. 9. Examples of diurnal
+    and seasonal variations of canopy coverage as computed by CropSegNet. According
+    to Fig. 9, canopy coverage percentage variation is low during the daytime and
+    reaches zero at night. This verifies the need to eliminate low-light images before
+    segmenting. As shown in Fig. 5, it is possible to eliminate the generation of
+    false values when the camera captures images under low light conditions by halting
+    the process of running CanopySegNet. There are three diurnal variation series
+    on 6/8/2021, 6/26/2021, and 7/12/2021 in Fig. 9. The CC increased from 8 % to
+    95 % between 6/8/2021 to 7/12/2021. The seasonal trend showed that the CC reached
+    a maximum around 7/8/2021. These results suggest that the proposed stacked models
+    can track the daily and seasonal CC variation and eliminate the effect of lighting
+    conditions on false value generation. Table 5. Performance of PlantCountNet and
+    InsectNet on the test image set (Root mean square error (RMSE)/Final validation
+    loss (FVL)). Model Name Architecture Input size Validation RMSE/FVL Mean average
+    precision Object class PlantCountNet YOLOv2 320 × 320 × 3 0.888 (RMSE) 0.66 Soybean
+    0.86 Weed InsectNet YOLOv4 320 × 320 × 3 26.2 (FVL) 0.02 Insect The overall performance
+    of the PlantCountNet and InsectNet is given in Table 5. Fig. 10(A) and 10(B) show
+    the result obtained by PlantCountNet for a soybean image at an early vegetative
+    stage (V3). Meanwhile Fig. 10(C) and 10(D) shows the result at a reproductive
+    stage (R1). It can be seen that, at V3 stage, the model outputs matched the labels
+    of soybean and weed plants well, indicating a level of high accuracy. Download
+    : Download high-res image (1MB) Download : Download full-size image Fig. 10. The
+    result of PlantCountNet for soybean and weed counting: Manually annotated vs.
+    model-predicted bounding boxes at V3 growth stage (A and B); manually annotated
+    vs. model-predicted bounding boxes at R1 growth stage (C and D). The size of insects
+    is very small compared to the size of images (Fig. 11), which is the main reason
+    for the low mAP for InsectNet (Table 5). Increasing input image resolution beyond
+    480 × 480 × 3 is impractical as it exceeds the memory limitation to load models
+    into Raspberry Pi 4B. A potential solution could be to increase the resolution
+    of the region of interest by splitting the original image while keeping the resolution
+    the same. Also, we suggest using the approach recommended by Tetila et al., 2020a,
+    Tetila et al., 2020b in the future on Raspberry Pi model 4B. As technology advances,
+    we expect the memory capacities will increase for edge computing units. At the
+    same time, the state-of-the-art object detection algorithms will improve the accuracy
+    for small object detection. Download : Download high-res image (1MB) Download
+    : Download full-size image Fig. 11. The result of InsectNet for insect counting
+    in soybean. The top row shows a situation of high false positives and low false
+    negatives: (A) and (B) are manually annotated and model-predicted insect labels,
+    respectively. The bottom row shows a situation of low false positive and high
+    false negative: (C) and (D) are manually annotated and model-predicted insect
+    labels. 3.2. Power consumption for Raspberry Pi 4B Since edge cameras in farmlands
+    have limited access to electric power, information on their power consumption
+    is essential for designing IoT devices and systems. AICropCAM is designed to be
+    energized by solar power. It runs on a rechargeable battery when there is no solar
+    power. We monitored the maximum energy consumption of each task performed by AICropCAM,
+    and the result is presented in Table 6. Four main strategies are available for
+    the power management of IoT edge devices: Selecting power-efficient hardware,
+    maintaining low power modes, dynamic power management, and cloud-based management.
+    Raspberry Pi 4B is an affordable power-efficient single-board computer suitable
+    for our application, but it does not naturally support low-power modes. Therefore,
+    we introduced the Arduino MKR1310 LoRa module for the Raspberry Pi 4B dynamic
+    power management. Furthermore, this Arduino module allows us to perform cloud-based
+    central management independently. Table 6. Electrical power consumption of the
+    Raspberry Pi 4B and the Arduino MKR1310 during edge image processing. Device Activity
+    The maximum current range and the voltage recorded Raspberry Pi 4B Idle run 5.25
+    V × (0.45 – 0.53) A Image classification 5.25 V × (0.97 – 1.04) A Image segmentation
+    5.25 V × (0.98 – 1.11) A Weed and plant detection 5.25 V × (0.62 – 0.70) A Insect
+    detection 5.25 V × (0.62 – 0.70) A Arduino MKR1310 Sleep mode <0.01A Serial communication
+    <0.01A LoRa transmission <0.01A For our measurements, we used a Raspberry Pi 4B
+    with 8 GB of RAM, connected to an HDMI monitor, a USB keyboard, and a USB mouse,
+    and ran a MathWorks® Raspbian image (file used to boot the Raspberry Pi 4B). The
+    Raspberry Pi 4B was operated at room temperature and connected to a wireless LAN
+    access point and a laptop via an Ethernet cable. The electric current consumption
+    for running each DCNN model was recorded during the test. CropClassiNet had the
+    highest current consumption, while the PlantCountNet and InsectNet models had
+    the lowest. As for LoRa transmission, we could not measure its current consumption
+    because the lowest value our instrument could measure was 0.01A. Based on the
+    manufacturer''s specifications, the Arduino MKR1310 consumes 104 uA at 5 V. The
+    average time to run the DCNN models is essential to estimate the energy consumed
+    for each prediction. These parameters listed in Table 7 provide essential guidelines
+    for designing IoT sensor nodes with suitable batteries and power sources. We also
+    noticed that typically the first prediction of a model took the longest time,
+    but the rest take a considerably shorter time to predict. Table 7. Time duration
+    needed for the selected DCNN models deployed in the Raspberry Pi 4B. Model/Task
+    Input image size Time for predicting results (s) The maximum power demand for
+    the activity (W) CropClassiNet/Image quality evaluation and crop classification
+    224 × 224 × 3 6.44 5.46 CanopySegNet/Semantic segmentation to separate canopy
+    from background 512 × 512 × 3 20.20 5.83 PlantCountNet/Weed and plant detection,
+    classification, and counting 320 × 320 × 3 14.38 3.68 InsectNet/Insect detection
+    320 × 320 × 3 0.20 3.68 Semantic segmentation was the most power-demanding activity,
+    while insect detection was the least. Changing the order of the image processing
+    models and adding new models or dropping existing models is possible during regular
+    operation. It enables dynamic power management within the Raspberry Pi module.
+    The main advantage of AICropCAM is that it implements a stack of four DCNN-based
+    image processing models with multiple objectives. To the best of our knowledge,
+    this is the first time such a system has been developed for a field crop monitoring
+    camera. AICropCAM has applications such as setting up smart in-field or greenhouse
+    IoT camera networks with edge computing capability, monitoring crops by attaching
+    them to sprinkler irrigation systems (pivots and linear moves), or collecting
+    crop information through ground or aerial mobile robots. The relatively short
+    time to run each DCNN model makes the system suitable for real-time applications,
+    including variable rate irrigation, fertilization, and spraying. For example,
+    a pivot irrigated multi-cropping system with AICropCAM can automate irrigation
+    or fertigation transition between different crops or crops at different growth
+    stages by automatically providing the crop type or growth stage information to
+    the irrigation controller. Additionally, existing herbicide or pesticide sprayers
+    can get the feedback of the PlantCountNet and InsectNet in the AICropCAM for precision
+    spraying. 4. Conclusion and future perspectives This paper outlines the essential
+    components of constructing a functional edge image processing framework for real-time
+    crop monitoring. From a software standpoint, CropClassiNet can categorize captured
+    images according to image quality and detect the presence of specific crop types
+    for further processing. CanopySegNet can further quantify the degree of canopy
+    coverage; PlantCountNet can count the number of plants and weeds in the image;
+    and finally, InsectNet can count the number of insects in the image. These four
+    DCNN models, when implemented on edge devices, can extract an array of important
+    crop and canopy parameters from field images and enable real-time, low-latency
+    decision making and applications. Deep learning-based image processing on the
+    edge has excellent potential in PA. Applications of AICropCAM are not limited
+    to image classification, segmentation, plant counting, or weed counting. Potential
+    future applications include insect classification and crop damage estimation,
+    weed classification and pressure estimation, fruit identification and yield estimation,
+    decision on replanting (Whigham et al., 2000), and disease identification and
+    disease damage estimation in real time using actual field images collected by
+    AICropCAM. AICropCAM shows excellent potential in enhancing crop management through
+    crop monitoring. However, the current demonstration requires significant improvements
+    on both hardware and software fronts. Customized circuitry and modular design
+    are required to put AICropCAM in commercial farm applications. The full potential
+    of the AICropCAM can be achieved by putting this camera on a moving platform like
+    a center pivot with a GPS receiver to generate spatiotemporal data. Crop classification
+    must include more crop types, and segmentation models need training data from
+    other crop types. The DCNN models for weed and insect identification require the
+    capability to identify different weed types, their growth stage, different insect
+    types, and their growth stages to generate effective pest control decisions. Additionally,
+    improving the models’ accuracy in image classification, segmentation, and object
+    detection is crucial. It can be achieved by increasing the number of training
+    image data sets. We also planned to expand the research for multiple edge architecture
+    evaluation. Architectures such as a high-performance edge computer that accepts
+    images from multiple edge devices through short-range, high-speed communication
+    (e.g., Wi-Fi) and can run more accurate deep learning models with higher numbers
+    of parameters, might be a better solution for the primary objectives addressed
+    in this paper. We aim to expand the AICropCAM applications to other crops beyond
+    corn and soybean. By making these improvements, AICropCAM will become a more effective
+    tool for crop management, potentially revolutionizing how we grow and manage crops.
+    Funding This work was supported by the United States Department of Agriculture
+    – National Institute of Food and Agriculture grants [Award 2020-68013-32371 to
+    YG and GB, Award 2021-67021-34417 to YG]. CRediT authorship contribution statement
+    Nipuna Chamara: Methodology, Software, Visualization. Geng Bai: Conceptualization,
+    Methodology, Resources. Yufeng Ge: Conceptualization, Resources, Supervision,
+    Project administration, Funding acquisition. Declaration of Competing Interest
+    The authors declare the following financial interests/personal relationships which
+    may be considered as potential competing interests: Nipuna Chamara, Yufeng Ge,
+    Geng Bai has patent pending to University of Nebraska-Lincoln. Acknowledgements
+    Jianxin Sun assisted in developing the imaging device with Raspberry Pi Zero used
+    for image acquisition. David Scoby helped the field management and AICropCAM installation.
+    Junxiao Zhang supported the field installation of AICropCAM and smart-phone based
+    acquisition of crop images with insects. Data availability Data will be made available
+    on request. References Aasen et al., 2020 H. Aasen, N. Kirchgessner, A. Walter,
+    F. Liebisch PhenoCams for field phenotyping: using very high temporal resolution
+    digital repeated photography to investigate interactions of growth, phenology,
+    and harvest traits Front. Plant Sci., 11 (June) (2020), pp. 1-16, 10.3389/fpls.2020.00593
+    Google Scholar Anubha et al., 2019 P.S. Anubha, V. Sathiesh Kumar, S. Harini A
+    study on plant recognition using conventional image processing and deep learning
+    approaches J. Intell. Fuzzy Syst., 36 (3) (2019), pp. 1997-2004, 10.3233/JIFS-169911
+    Google Scholar ArduCAM, 2016 ArduCAM ESP8266 UNO board User Guide (pp. 0–9). (2016).
+    www.ArduCAM.com. Google Scholar Bai et al., 2019 G. Bai, Y. Ge, D. Scoby, B. Leavitt,
+    V. Stoerger, N. Kirchgessner, S. Irmak, G. Graef, J. Schnable, T. Awada NU-Spidercam:
+    A large-scale, cable-driven, integrated sensing and robotic system for advanced
+    phenotyping, remote sensing, and agronomic research Comput. Electron. Agric.,
+    160 (March) (2019), pp. 71-81, 10.1016/j.compag.2019.03.009 View PDFView articleView
+    in ScopusGoogle Scholar Barbedo, 2014 J.G.A. Barbedo Using digital image processing
+    for counting whiteflies on soybean leaves J. Asia Pac. Entomol., 17 (4) (2014),
+    pp. 685-694, 10.1016/j.aspen.2014.06.014 View PDFView articleView in ScopusGoogle
+    Scholar Cao et al., 2020 K. Cao, Y. Liu, G. Meng, Q. Sun An Overview on Edge Computing
+    Research IEEE Access, 8 (2020), pp. 85714-85728, 10.1109/ACCESS.2020.2991734 View
+    in ScopusGoogle Scholar Chamara et al., 2021 N. Chamara, K. Alkhadi, H. Jin, F.
+    Bai, A. Samal, Y. Ge A deep convolutional neural network based image processing
+    framework for monitoring the growth of soybean crops. 2021 ASABE Annual International
+    Meeting, 2100259 (2021), 10.13031/aim.202100259 Google Scholar Chamara et al.,
+    2022 N. Chamara, M.D. Islam, G.F. Bai, Y. Shi, Y. Ge Ag-IoT for crop and environment
+    monitoring: Past, present, and future Agr. Syst., 203, 103497 (2022), 10.1016/j.agsy.2022.103497
+    Google Scholar Chamara, 2021 N. Chamara Development of an Internet of Things (IoT)
+    Enabled Novel Wireless Multi-Sensor Network for Infield Crop Monitoring. Master’s
+    Thesis, Department of Biological Systems Engineering, University of Nebraska-Lincoln
+    (2021) Google Scholar Datasheet Raspberry Pi Model, 2019 Datasheet Raspberry Pi
+    Model B, 2019. https://datasheets.raspberrypi.org. Accessed 11 November 2023.
+    Google Scholar Firdaus-Nawi et al., 2018 Firdaus-Nawi, M., Noraini, O., Sabri,
+    M.Y., Siti-Zahrah, A., Zamri-Saad, M., Latifah, H., 2018. DeepLabv3+_Encoder-Decoder
+    with Atrous Separable Convolution for Semantic Image Segmentation. In: Proceedings
+    of the European Conference on Computer Vision (ECCV), pp. 801–818. Google Scholar
+    Ghorai et al., 2021 A.K. Ghorai, A.R. Barman, B. Chandra, K. Viswavidyalaya, S.
+    Jash, B. Chandra, K. Viswavidyalaya, B. Chandra, K. Viswavidyalaya Image processing
+    based detection of diseases and nutrient deficiencies in plants SATSA Mukhapatra,
+    25 (1) (2021), pp. 1-24 Google Scholar He et al., 2016 He, K., Zhang, X., Ren,
+    S., Sun, J., 2016. Deep residual learning for image recognition kaiming. In: Proceedings
+    of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 770–778.
+    doi: 10.1002/chin.200650130. Google Scholar LeCun et al., 1998 LeCun, Y., Bottou,
+    L., Bengio, Y., Haffner, P., 1998. Gradient-based learning applied to document
+    recognition. Proc. IEEE 86(11), 2278–2323. doi: 10.1109/5.726791. Google Scholar
+    Liang et al., 2023 Liang, W. Z., Oboamah, J., Qiao, X., Ge, Y., Harveson, B.,
+    Rudnick, D. R., Wang, J., Yang, H., Gradiz, A., 2023. CanopyCAM – an edge-computing
+    sensing unit for continuous measurement of canopy cover percentage of dry edible
+    beans. Comput. Electron. Agric. 204 (January), 107498. https://doi.org/10.1016/j.compag.2022.107498.
+    Google Scholar Luis et al., 2020 Luis, S., Filipe, N.S., Paulo, M.O., Pranjali,
+    S., 2020. Deep Learning applications in agriculture: a short review. Deep Learning
+    Applications in Agriculture: A Short Review, 1092 AISC(January), C1. doi: 10.1007/978-3-030-35990-4.
+    Google Scholar Meidas Trail Cameras, 2022 Meidas Trail Cameras, 2022. https://www.meidase.com/product-category/trail-cameras/.
+    Accessed 11 November 2023. Google Scholar Mistry, 2016 Mistry, S., 2016. Arduino
+    LoRa. MIT License. https://github.com/sandeepmistry/arduino-LoRa. Accessed 11
+    November 2023. Google Scholar Park et al., 2007 Y. Park, R.K. Krell, M. Carroll
+    Theory, technology, and practice of site-specific insect pest management J. Asia
+    Pac. Entomol., 10 (2) (2007), pp. 89-101 View PDFView articleView in ScopusGoogle
+    Scholar Paymode and Malode, 2022 A.S. Paymode, V.B. Malode Transfer learning for
+    multi-crop leaf disease image classification using convolutional neural network
+    VGG Artif. Intell. Agric., 6 (2022), pp. 23-33, 10.1016/j.aiia.2021.12.002 View
+    PDFView articleView in ScopusGoogle Scholar Richardson, 2019 A.D. Richardson Tracking
+    seasonal rhythms of plants in diverse ecosystems with digital camera imagery New
+    Phytol., 222 (4) (2019), pp. 1742-1750, 10.1111/nph.15591 View in ScopusGoogle
+    Scholar Sakamoto et al., 2012 T. Sakamoto, A.A. Gitelson, A.L. Nguy-Robertson,
+    T.J. Arkebauer, B.D. Wardlow, A.E. Suyker, S.B. Verma, M. Shibayama An alternative
+    method using digital cameras for continuous monitoring of crop status Agric. For.
+    Meteorol., 154–155 (2012), p. 113, 10.1016/j.agrformet.2011.10.014 View PDFView
+    articleView in ScopusGoogle Scholar Sharma et al., 2020 P. Sharma, Y.P.S. Berwal,
+    W. Ghai Performance analysis of deep learning CNN models for disease detection
+    in plants using image segmentation Inf. Process. Agric., 7 (4) (2020), pp. 566-574,
+    10.1016/j.inpa.2019.11.001 View PDFView articleView in ScopusGoogle Scholar Sritarapipat
+    et al., 2014 T. Sritarapipat, P. Rakwatin, T. Kasetkasem Automatic rice crop height
+    measurement using a field server and digital image processing Sensors (Switzerland),
+    14 (1) (2014), pp. 900-926, 10.3390/s140100900 View in ScopusGoogle Scholar Taylor
+    and Browning, 2022 S.D. Taylor, D.M. Browning Classification of daily crop phenology
+    in phenocams using deep learning and hidden markov models Remote Sens. (Basel),
+    14 (2) (2022), pp. 1-22, 10.3390/rs14020286 Google Scholar Tetila et al., 2020a
+    Tetila, E.C., Machado, B.B., Astolfi, G., Belete, N.A.S., Amorim, W.P., Roel,
+    A.R., Pistori, H., 2020. Detection and classification of soybean pests using deep
+    learning with UAV images. Computers and Electronics in Agriculture, 179(May).
+    doi: 10.1016/j.compag.2020.105836. Google Scholar Tetila et al., 2020b E.C. Tetila,
+    B.B. MacHado, G.V. Menezes, N.A. De Souza Belete, G. Astolfi, H. Pistori A deep-learning
+    approach for automatic counting of soybean insect pests IEEE Geosci. Remote Sens.
+    Lett., 17 (10) (2020), pp. 1837-1841, 10.1109/LGRS.2019.2954735 View in ScopusGoogle
+    Scholar The MathWorks, 2022 The MathWorks, I., 2022. MATLAB Coder - MATLAB. MathWorks.
+    https://www.mathworks.com/products/matlab-coder.html. Google Scholar Tian et al.,
+    2020 H. Tian, T. Wang, Y. Liu, X. Qiao, Y. Li Computer vision technology in agricultural
+    automation—a review Inf. Process. Agric., 7 (1) (2020), pp. 1-19, 10.1016/j.inpa.2019.09.006
+    View PDFView articleView in ScopusGoogle Scholar van Dijk et al., 2021 M. van
+    Dijk, T. Morley, M.L. Rau, Y. Saghai A meta-analysis of projected global food
+    demand and population at risk of hunger for the period 2010–2050 Nat. Food, 2
+    (7) (2021), pp. 494-501, 10.1038/s43016-021-00322-9 View in ScopusGoogle Scholar
+    Wang et al., 2022b Q. Wang, M. Cheng, S. Huang, Z. Cai, J. Zhang, H. Yuan A deep
+    learning approach incorporating YOLO v5 and attention mechanisms for field real-time
+    detection of the invasive weed Solanum rostratum Dunal seedlings Comput. Electron.
+    Agric., 199 (July) (2022), Article 107194, 10.1016/j.compag.2022.107194 View PDFView
+    articleView in ScopusGoogle Scholar Wang et al., 2022a J. Wang, Z. Gao, Y. Zhang,
+    J. Zhou, J. Wu, P. Li Real-time detection and location of potted flowers based
+    on a ZED camera and a YOLO V4-tiny deep learning algorithm Horticulturae, 8 (1)
+    (2022), 10.3390/horticulturae8010021 Google Scholar Wang et al., 2014 Y. Wang,
+    D. Wang, P. Shi, K. Omasa Estimating rice chlorophyll content and leaf nitrogen
+    concentration with a digital still color camera under natural light Plant Methods,
+    10 (3) (2014), pp. 273-286, 10.1016/S0378-4290(99)00063-5 View in ScopusGoogle
+    Scholar Wang et al., 2019 A. Wang, W. Zhang, X. Wei A review on weed detection
+    using ground-based machine vision and image processing techniques Comput. Electron.
+    Agric., 158 (January) (2019), pp. 226-240, 10.1016/j.compag.2019.02.005 View PDFView
+    articleView in ScopusGoogle Scholar Whigham et al., 2000 K. Whigham, D. Farnham,
+    J. Lundvall, D. Tranel Soybean replant decision, Department of Agronomy, Iowa
+    State University (2000) Google Scholar Yasrab et al., 2021 R. Yasrab, J. Zhang,
+    P. Smyth, M.P. Pound Predicting plant growth from time-series data using deep
+    learning Remote Sens. (Basel), 13 (3) (2021), pp. 1-17, 10.3390/rs13030331 View
+    in ScopusGoogle Scholar Yuan et al., 2019 W. Yuan, N.K. Wijewardane, S. Jenkins,
+    G. Bai, Y. Ge, G.L. Graef Early prediction of soybean traits through color and
+    texture features of canopy RGB imagery Sci. Rep., 9 (2019), p. 14089, 10.1038/s41598-019-50480-x
+    View in ScopusGoogle Scholar Zualkernan et al., 2022 I. Zualkernan, S. Dhou, J.
+    Judas, A.R. Sajun, B.R. Gomez, L.A. Hussain An IoT system using deep learning
+    to classify camera trap images on the edge Computers, 11 (1) (2022), pp. 1-24,
+    10.3390/computers11010013 Google Scholar Cited by (1) YOLO performance analysis
+    for real-time detection of soybean pests 2024, Smart Agricultural Technology Show
+    abstract © 2023 The Authors. Published by Elsevier B.V. Part of special issue
+    Agricultural Cybernetics: A New Methodology of Analysis and Development for Modern
+    Agricultural Production Systems Edited by Yanbo Huang, Manoj Karkee, Lie Tang,
+    Dong Chen View special issue Recommended articles Joint control method based on
+    speed and slip rate switching in plowing operation of wheeled electric tractor
+    equipped with sliding battery pack Computers and Electronics in Agriculture, Volume
+    215, 2023, Article 108426 Qi Wang, …, Yongjie Cui View PDF LSCA-net: A lightweight
+    spectral convolution attention network for hyperspectral image processing Computers
+    and Electronics in Agriculture, Volume 215, 2023, Article 108382 Ziru Yu, Wei
+    Cui View PDF Automatic detection of crop lodging from multitemporal satellite
+    data based on the isolation forest algorithm Computers and Electronics in Agriculture,
+    Volume 215, 2023, Article 108415 Rui Guo, …, Tingting Liu View PDF Show 3 more
+    articles Article Metrics Citations Citation Indexes: 1 Captures Readers: 19 View
+    details About ScienceDirect Remote access Shopping cart Advertise Contact and
+    support Terms and conditions Privacy policy Cookies are used by this site. Cookie
+    settings | Your Privacy Choices All content on this site: Copyright © 2024 Elsevier
+    B.V., its licensors, and contributors. All rights are reserved, including those
+    for text and data mining, AI training, and similar technologies. For all open
+    access content, the Creative Commons licensing terms apply."'
+  inline_citation: '>'
+  journal: Computers and Electronics in Agriculture
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'AICropCAM: Deploying classification, segmentation, detection, and counting
+    deep-learning models for crop monitoring on the edge'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Rani T.O.G.
+  - Goudar S.S.
+  - Chethan M.
+  - Harshitha M.
+  - Shashank Raju K.
+  - Sinchana K.R.
+  citation_count: '0'
+  description: This paper aims to implement a wireless sensor network to automate
+    greenhouse operations, with the primary objective of achieving optimal plant growth
+    conditions. To effectively monitor crucial micro-climatic parameters such as temperature,
+    soil moisture, light, pH, and salinity, the system employs slave unit sensor nodes
+    equipped with a diverse array of sensors. Additionally, a mobile application is
+    utilized to enable farmers to set customized threshold values for each parameter,
+    granting them complete control over the greenhouse environment via their mobile
+    devices. These threshold values serve as benchmarks to ensure that the growing
+    conditions remain within desired ranges. Multiple slave units have been strategically
+    deployed throughout the greenhouse to ensure comprehensive and accurate data collection.
+    Each slave unit actively collects sensor data and efficiently transmits it wirelessly
+    to the central master unit. The master unit plays a vital role in the automation
+    process by receiving the data set by the mobile application and meticulously comparing
+    it with the real-time data received from the slave units. This meticulous comparison
+    allows the system to precisely assess the current conditions against the desired
+    threshold values. Based on this comparison, the system takes prompt actions to
+    regulate and maintain the most favorable growing conditions for the plants, optimizing
+    their growth potential. An essential aspect of this system's design is the integration
+    of edge computing, enabling localized processing and decision-making. This approach
+    significantly reduces latency and dependence on constant cloud connectivity, ensuring
+    that the system remains responsive and reliable, even in areas with limited network
+    coverage. The implementation of this automated greenhouse system brings numerous
+    benefits to agriculturists, as it alleviates the burden of manual monitoring and
+    control. Instead, farmers can concentrate on strategic planning and overall agricultural
+    management, optimizing their efforts for improved productivity. Moreover, the
+    system's ability to maintain optimal growing conditions results in maximized crop
+    yield while promoting resource-efficient and environmentally sustainable farming
+    practices.
+  doi: 10.1109/NMITCON58196.2023.10276317
+  full_citation: '>'
+  full_text: '>
+
+    "This website utilizes technologies such as cookies to enable essential site functionality,
+    as well as for analytics, personalization, and targeted advertising purposes.
+    To learn more, view the following link: Privacy Policy Manage Preferences IEEE.org
+    IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account Personal
+    Sign In Browse My Settings Help Access provided by: University of Nebraska - Lincoln
+    Sign Out All Books Conferences Courses Journals & Magazines Standards Authors
+    Citations ADVANCED SEARCH Conferences >2023 International Conference... Monitoring
+    and Control System for Green House Using Edge Computing Publisher: IEEE Cite This
+    PDF T O Geetha Rani; Shobha S Goudar; Chethan M; Harshitha M; Shashank Raju K;
+    Sinchana K R All Authors 27 Full Text Views Abstract Document Sections I. Introduction
+    II. Related Work III. The System Overview IV. Implementation V. Results Show Full
+    Outline Authors Figures References Keywords Metrics Abstract: This paper aims
+    to implement a wireless sensor network to automate greenhouse operations, with
+    the primary objective of achieving optimal plant growth conditions. To effectively
+    monitor crucial micro-climatic parameters such as temperature, soil moisture,
+    light, pH, and salinity, the system employs slave unit sensor nodes equipped with
+    a diverse array of sensors. Additionally, a mobile application is utilized to
+    enable farmers to set customized threshold values for each parameter, granting
+    them complete control over the greenhouse environment via their mobile devices.
+    These threshold values serve as benchmarks to ensure that the growing conditions
+    remain within desired ranges. Multiple slave units have been strategically deployed
+    throughout the greenhouse to ensure comprehensive and accurate data collection.
+    Each slave unit actively collects sensor data and efficiently transmits it wirelessly
+    to the central master unit. The master unit plays a vital role in the automation
+    process by receiving the data set by the mobile application and meticulously comparing
+    it with the real-time data received from the slave units. This meticulous comparison
+    allows the system to precisely assess the current conditions against the desired
+    threshold values. Based on this comparison, the system takes prompt actions to
+    regulate and maintain the most favorable growing conditions for the plants, optimizing
+    their growth potential. An essential aspect of this system''s design is the integration
+    of edge computing, enabling localized processing and decision-making. This approach
+    significantly reduces latency and dependence on constant cloud connectivity, ensuring
+    that the system remains responsive and reliable, even in areas with limited network
+    coverage. The implementation of this automated greenhouse system brings numerous
+    benefits to agriculturists, as it alleviates the burden of manual monitoring and
+    control. Instead, farmers can concentrate on strategic planning and overall agricultural
+    ma... (Show More) Published in: 2023 International Conference on Network, Multimedia
+    and Information Technology (NMITCON) Date of Conference: 01-02 September 2023
+    Date Added to IEEE Xplore: 17 October 2023 ISBN Information: DOI: 10.1109/NMITCON58196.2023.10276317
+    Publisher: IEEE Conference Location: Bengaluru, India SECTION I. Introduction
+    Climate change introduces us to many problems and the challenge is intensified
+    by agriculture''s extreme vulnerability to climate change. Climate change is already
+    having a negative impact, with rising temperatures, increased weather variability,
+    shifting ecosystem boundaries, invasive crops and pests, and more frequent extreme
+    weather events. The solution for such a problem is a controlled environment such
+    as a greenhouse, also called a glasshouse, which is a building designed for the
+    protection of tender or out-of-season plants against excessive cold or heat. Maintenance
+    and working in the greenhouse are tough as the knowledge of multiple parameters
+    such as Electric Conductivity (EC), pH, light intensity, humidity, moisture, and
+    temperature is required. This procedure simplified the problem of obtaining the
+    reading and the steps required to preserve the plants in a controlled environment.
+    Here, drip irrigation is automated to water the plants in a regulated manner on
+    a regular basis. Also, it aims to maintain pH and EC using water, by adding fertilizer
+    and salt to control pH and EC [1]. Install automated light bulbs and curtains
+    to control the light received by the plants in a regulated manner based on the
+    plant''s requirements. For example, Gerbera is commercially propagated through
+    the division of clumps (suckers). Tissue-cultured plants, on the other hand, can
+    be used for commercial flower production. Day temperature of 22- 300C and night
+    temperature of 120C to 160C is ideal for growth and flower production. An adequate
+    amount of shade net (50%) must be provided to regulate excess light and temperature.
+    Humidity should be maintained at 60% Farmers need frequent visits to their farms
+    for tasks like watering and fertilizing, which can be costly and time-consuming.
+    As agricultural lands grow, remote monitoring and management systems are becoming
+    more prevalent. However, weak or inadequate internet connectivity can hinder remote
+    farm monitoring and control. The Internet of Things is typically used in agriculture
+    through a monitoring network with numerous sensor nodes. Using edge computing,
+    which distributes the cloud server burden and reduces wait times, could help address
+    this issue. Edge computing applications include pest identification, product safety
+    tracking, autonomous equipmentuse, promoting agricultural technology, and intelligent
+    management [2]. The paper is divided into 6 sections. Section 1, consists of an
+    introduction and motivation. In section 2, a detailed literature review is presented.
+    Section 3 consists of the system overview which includes information about the
+    slave unit, master unit, methodology, and block diagrams. Section 4 is all about
+    hardware and software implementation with all flowcharts. Section 5 explains about
+    Results. In Section 6, the conclusion is mentioned. SECTION II. Related Work Greenhouses
+    are structures, either with frames or inflated, that are covered with transparent
+    materials. They are designed to provide a suitable environment for plant growth,
+    allowing for optimal growth and productivity by controlling environmental-mental
+    conditions to a partial or full extent. This section includes research done in
+    Smart Greenhouse monitoring Systems and EDGE Computing. An automatic irrigation
+    system using edge nodes has beenproposed that is unaffected by communication delay
+    and disconnection [3]. The Jetson Nano and Raspberry Pi 3 Model B were evaluated
+    as edge node candidates andthe Jetson Nano was found to perform better at hightemperatures.
+    The system can be used to evaluate AImodels and determine water stress for crop
+    cultivation. It is currently used for high sugar tomato cultivation in Japan with
+    manual parameter management. An Intelligent IoT-based Automated Irrigation system
+    has been developed that captures sensor data on soil moisture and temperature.
+    The data is communicated to a Raspberry Pi3 control unit where a KNN machine learning
+    algorithmis used for analysis and irrigation prediction. The system is developed
+    using cheap embedded systems such as Raspberry Pi 3 and Arduino Uno [4]. A wireless
+    sensor network is used to gather data for the prediction of energy and water requirements
+    for maintaining a greenhouse''s climate [5]. The input data from sensors is processed
+    using fuzzy logic methods to produce output data. The greenhouse is managed and
+    monitored through an Android-based user interface. The paper [6] presents a system
+    architecture that integrates artificial intelligence at the local network layer
+    for smart agriculture and farming applications. Edge and Fog computing, as well
+    as LPWAN technology, are used to extend functionality and solve the low-bandwidth
+    transmission challenge of LPWAN technologies. The system includes a sensor node,
+    an Edge gateway, LoRa repeaters, a Fog gateway, cloud servers, and an end-user
+    terminal application. The article in [7], discusses the potential of wireless
+    sensors and IoT in agriculture and the challenges of integrating this technology
+    with traditional farming practices. It lists the available sensors for soil preparation,
+    crop status, irrigation, and insect/pest detection, and how this technology helps
+    the growers throughout the crop stages. Applying the fuzzy logic method to the
+    input data from sensors (temperature and humidity sensors, such as the DHT11)
+    has produced the output data. Through an Android-based user interface, the writers
+    manage andkeep an eye on the greenhouse [8]. A greenhouse smartphone monitoring
+    system has been suggested that combines Eclipse''s Android programming tools and
+    Visual Studio''s C++/MFC. The system offers strong cross-platform and secondary
+    development portability, enabling real-time data interchange between client software
+    and the core module [9]. The article [10] provides a comprehensive overview of
+    important technologies like blockchain and artificial intelligence used in agriculture
+    to inform consumers about the products they consume. The research also sheds light
+    on difficulties encountered with tasks like task assignment, data analysis, service
+    stability, and privacy protection. Edge AI, also known as local network layer
+    artificial intelligence, enables smart farming and agricultural applications using
+    edge and fog computing as well as LPWANtechnology for extensive coverage. Moving
+    data analyticsand compression close to end devices solves the low-bandwidth transmission
+    issue of LPWAN technologies. The system [11], [12] includes a sensor node, an
+    Edgegateway, LoRa repeaters, a Fog gateway, cloud servers, and an end-user terminal
+    application. The article discusses the impact of IoT-based technologies on smart
+    agriculture and the potential of wireless sensors. It lists sensors for various
+    agricultural applications and explains how they aid farmers throughout the production
+    process. The article also highlights modern IoT-based agricultural systems and
+    platforms. The article [13] highlights the state-of-the-art IoT-based architectures
+    and platforms used in agriculture. The system that forecasts how much water and
+    energy willbe needed to keep greenhouse climate factors like soil moisture, relative
+    humidity, and temperature stable. Using a wireless sensor network, node packs
+    arranged in a star topology are used to gather the data needed for predictions.
+    The papers [14], [15] discusses the advantages of advanced wireless sensor networks
+    for soil sampling processes, the challenge of maintaining power supply, and the
+    potential of ambient energy harvesting as a solution, while also noting the current
+    limitations of battery less sensor nodes for extensive environmental monitoring.
+    The paper presents a Wireless SensorNetwork prototype with MicaZ nodes for monitoring
+    temperature, light, pressure, and humidity in greenhouses, sharing measurement
+    data through the Internet of Things for remote control by farmers via mobile phones
+    or computers. The paper explores the automation of greenhouse monitoring systems
+    using edge nodes, automated plant watering, and sensors to track temperature,
+    light, humidity, and soil moisture. It highlights the significance of also monitoring
+    soil pH and EC, which can be challenging when dealing with multiple plantation
+    areas. To address this, a mobile application and a master-slave unit are proposed,
+    enabling the owner to manage all parameters remotely and efficiently across different
+    greenhouse sections. SECTION III. The System Overview The system consists of both
+    hardware and software technologies. The following sections describe the methodology
+    and the block diagram of the system. The goal of this Paper is to fully automate
+    a greenhouse shown in Fig. 1. There are three parts in the system, 1. Mobile Application.
+    2. Slave unit. and 3. Master Unit. The Mobile application is used to set the parameters
+    with respect to the plantation area. The Slave units are implemented in the plantation
+    area of the greenhouse and used to sense the temperature, light, moisture, pH,
+    and salinity using multiple sensors. The sensed data are sent to the master unit
+    wirelessly. The data received from the Slave unit is to the master unit. The master
+    unit will take appropriate action to control parameters in the greenhouse with
+    respect to the data set by the owner through the mobile application. To regulate
+    the pH, EC, temperature, and moisture, a separate solution is prepared and kept
+    in a tank. The app helps the user (Farmer)to view the greenhouse condition and
+    change, control, and setparameters for the plants as required remotely. The app
+    also contains default parameters to set for specific plants. Fig. 1. Block Diagram
+    of Greenhouse. Show All A. Mobile Application The owner-specified plant''s threshold
+    values for temperature, moisture, light, and soil pH are set using a mobileapplication.
+    Users must first sign up and log in using the same email. Users can set data in
+    2 modes in the application. The first one is done manually using a slider as shown
+    in Fig. 2(a), and if the plant owner is unaware of its specifications, they can
+    simply choose the plant type as shown in Fig. 2(b). In accordance with the owner''s
+    threshold valve, the master unit will take the appropriate action. Fig. 2. (a)
+    Login page of app. (b) Manual setting using slider and Plant type selection. Show
+    All B. Slave Unit The Slave unit consists of temperature, luminosity, pH, and
+    soil EC sensors along with a microcontroller i.e., ESP32 as shown in Fig. 3. The
+    sensor node senses the environmental parameters such as temperature, luminosity,
+    soil pH, EC, and Moisture inside the greenhouse with the help of DHT11, light,
+    pH, and EC (JXBS-3001-EC-RS-I) sensors respectively. The sensed data is sent to
+    the Master unit wirelessly. Multiple slave units are deployed at strategic points
+    of the greenhouse. The control signals from these different nodes communicate
+    with the master unit. Fig. 3. Slave Unit Show All C. Master Unit As shown in Fig.
+    4, the proposed system''s master unit consists of a microcontroller (ESP32), solenoid
+    valves, and a diaphragm motor. The control signals from the sensor nodes are received
+    by the Master unit from the slave unit. The received data from the slave unit
+    is stored locally and also transferred to the cloud using ESP32 module and analyzed
+    as an edge node. The control signals indicate the conditions prevalent in the
+    greenhouse. The control signals are relayed to the microcontroller which processes
+    the data and necessary actions such as bringing the temperature down using the
+    humidifiers, improving the lighting conditions maintaining using artificial lighting.
+    Soil with a pH level below 6.5 is considered acidic and requires the amendment
+    of lime, while soil with a pH level above 8.5 is categorized as acidic soil and
+    requires the amendment of gypsum which is added to the soil by mixing it with
+    water controlled by the solenoid valves. If the EC level of the soil exceeds the
+    established threshold, which indicates the presence of saline soil, and the recommended
+    solution is leaching to flush out the excess salts. Fig. 4. Master Unit Show All
+    SECTION IV. Implementation A. Hardware The system hardware in the slave unit consists
+    of Soil EC sensor, pH sensor, Light sensor, DHT11, Moisture sensor and ESP32 module.
+    The primary responsibility of the slave unit is to gather and transmit data to
+    the master unit about all sensed data. Fig. 5 explains the complete system design
+    of slave circuit. The complete design of the master unit circuit is provided in
+    Fig. 6. The primary role of the master unit is to regulate the soil''s acidic
+    pH, base pH, temperature, moisture, and electrical conductivity (EC) using solenoid
+    valves. These valves are controlled by the ESP32 microcontroller integrated into
+    the master unit. The working of solenoid valves depends on the data sent by slave
+    unit to master unit. Master unit controls solenoid valves so that the environment
+    is suitable for greenhouse plants. Pumping solution out of tanks for drip irrigation
+    is done with a diaphragm motor. Fig. 5. Circuit of Slave Unit Show All Fig. 6.
+    Circuit of Master Unit. Show All B. Flowchart This Paper employs software technologies
+    to build user-facing applications, and it stores all of the data it has gathered
+    on the cloud. A mobile application was created to update the preloaded data and
+    configure the threshold parameters for the particular plantation. The user (owner)
+    must first register and log in for the same account in order to manually set the
+    parameters using the slider and establish a set of settings, particularly for
+    the plantation area. The mobile application''s flowchart, as shown in Fig. 7.
+    Fig. 8 explains how the slave unit operates. Fig. 7. Mobile Application flow graph
+    Show All Fig. 8. Slave unit flow graph Show All The slave unit collects data from
+    all sensors and transmits it to the master unit as soon as it receives power.
+    Themaster unit flow will be managed in accordance with the data sent, as shown
+    in Fig. 9. The water solution value will open and the motors will pump to maintain
+    the soil''s moisture levelif the moisture value falls below the threshold value.
+    Then, if the temperature data exceeds the threshold, sprinklers are utilized to
+    maintain the temperature. Fig. 9. Master unit flow graph Show All Acid solution
+    is used when the pH value exceeds the threshold. Base solution is used when the
+    pH value is below the threshold. A motor will pump solutions to keep the pH of
+    the soil stable. Then, with the aid of lights, intensity is adjusted by comparing
+    light intensity with the threshold value. SECTION V. Results As a case study,
+    the Gerbera plants are chosen for implementing and testing the proposed work in
+    real-time. Table I represents the ideal environmental conditions for the growth
+    of the Gerbera plant. The outcomes of the work are presented in the subsequent
+    sections. Table II shows the greenhouse monitoring system can deviate from ideal
+    values for optimal plant growth conditions. However, after deployment and operation,
+    these parameters are effectively controlled and regulated, resulting in improved
+    plant cultivation conditions. The mobile application login success depicted in
+    Fig. 2 signifies thatusers have gained access to the system. The cloud-based infrastructure
+    empowers real-time monitoring of greenhouse conditions while offering manual parameter
+    customization and plant type selection, enhancing usability and adaptability.
+    Table I. Ideal Values of the Parameters for Gerbera Plant Table II. Comparison
+    of Parameters Inside Greenhouse Before and After Controlling to That of Ideal
+    Values The model implementation displayed in Fig. 12 showcases the master unit
+    and slave units, forming an efficient architecture for data processing and control.
+    Fig. 10 and Fig. 11 provide avisual representation of all parameters before and
+    after monitoring and control, taking into account the user mobile application''s
+    threshold value. These figures illustrate the changes in various measured quantities
+    and how they compare to the set threshold. The visual representation presents
+    a clear overview of the parameter values, allowing users to assess the effectiveness
+    of the monitoring process and identify any deviations from the desired threshold.
+    The successful uploading of all slave unit data shown in Fig. 13 through the app
+    enables real-time monitoring. Finally, Fig. 14 demonstrates the successful testing
+    conducted in the greenhouse, validating the system''s effectiveness in maintaining
+    optimal growing conditions. From survey, so far pH and EC in real time is not
+    implemented but in this paper both pH and EC are controlled. Fig. 10. (a), (b),
+    (c) and (d) are Light Intensity before, after monitoring and Temperature of the
+    greenhouse before and after monitoring respectively Show All Fig. 11. (a), (b),
+    (c) and (d) are pH before, after monitoring and Soil moisture of soil before and
+    after monitoring respectively Show All Fig. 12. Greenhouse implementation Show
+    All Fig. 13. Control Page with various parameters. Show All Fig. 14. Real-time
+    implementation of the system. Show All SECTION V. Conlusion The proposed system''s
+    primary contribution is focused on maintaining the soil pH within the desired
+    range. Users have the ability to set all relevant parameters using a mobile application.
+    Additionally, all processing tasks carried out by the master unit are efficiently
+    performed through edge computing. This ensures effective soil pH regulation and
+    simplifies the greenhouse management process for users. Smart greenhouse monitoring
+    using edge computing was tested in real time at Akshaya nursery near Gulur. As
+    part of the proposed work, the master unit and slave unit both underwent successful
+    design and testing. The master unit has the ability to control all greenhouse
+    parameters, enabling thorough management. The data from the slave unit can be
+    successfully updated to the cloud system, guaranteeing precise and real-time monitoring
+    of the greenhouse environment. Two slave units are used to get the soil and environment
+    conditions such as Soil pH, temperature, moisture, and light intensity. A master
+    unit is used to control the different solenoid valves to let the different solutions
+    flow into the plantation area to maintain the soil pH, moisture and control the
+    artificial lighting according to requirements based on edge computing. A mobile
+    application that allows users to manually change parameters based on plant type
+    has also been developed. For quick and personalized control of greenhouse conditions,
+    this app offers a user-friendly interface, with these developments able to automate
+    the greenhouse, which improved plant growth and reduced manual labor. Edge computing
+    eliminates processing delays in greenhouse automation systems by completing processes
+    faster, typically within 3–4 minutes. This local data processing and decision-making
+    reduces latency, enhancing efficiency andresponsiveness, allowing timely actions,
+    and minimizing delaysin critical processes. Authors Figures References Keywords
+    Metrics More Like This IoT enabled plant soil moisture monitoring using wireless
+    sensor networks 2017 Third International Conference on Sensing, Signal Processing
+    and Security (ICSSS) Published: 2017 A 1.2-V 1.35-μW all MOS temperature sensor
+    for wireless sensor networks 2015 IEEE International Symposium on Circuits and
+    Systems (ISCAS) Published: 2015 Show More IEEE Personal Account CHANGE USERNAME/PASSWORD
+    Purchase Details PAYMENT OPTIONS VIEW PURCHASED DOCUMENTS Profile Information
+    COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION TECHNICAL INTERESTS Need Help?
+    US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732 981 0060 CONTACT & SUPPORT Follow
+    About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination
+    Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy A not-for-profit
+    organization, IEEE is the world''s largest technical professional organization
+    dedicated to advancing technology for the benefit of humanity. © Copyright 2024
+    IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 2023 International Conference on Network, Multimedia and Information Technology,
+    NMITCON 2023
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Monitoring and Control System for Green House Using Edge Computing
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

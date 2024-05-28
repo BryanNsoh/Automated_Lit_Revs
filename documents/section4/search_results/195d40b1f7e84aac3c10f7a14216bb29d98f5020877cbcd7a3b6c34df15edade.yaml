@@ -1,0 +1,3254 @@
+- DOI: https://doi.org/10.3390/agriculture13030540
+  analysis: '>'
+  authors:
+  - Marwan Ali Albahar
+  citation_count: 9
+  full_citation: '>'
+  full_text: '>
+
+    Citation: Albahar, M. A Survey on
+
+    Deep Learning and Its Impact on
+
+    Agriculture: Challenges and
+
+    Opportunities. Agriculture 2023, 13,
+
+    540. https://doi.org/10.3390/
+
+    agriculture13030540
+
+    Academic Editor: Jiangbo Li
+
+    Received: 7 January 2023
+
+    Revised: 6 February 2023
+
+    Accepted: 11 February 2023
+
+    Published: 23 February 2023
+
+    Copyright:
+
+    © 2023 by the author.
+
+    Licensee MDPI, Basel, Switzerland.
+
+    This article is an open access article
+
+    distributed
+
+    under
+
+    the
+
+    terms
+
+    and
+
+    conditions of the Creative Commons
+
+    Attribution (CC BY) license (https://
+
+    creativecommons.org/licenses/by/
+
+    4.0/).
+
+    agriculture
+
+    Review
+
+    A Survey on Deep Learning and Its Impact on Agriculture:
+
+    Challenges and Opportunities
+
+    Marwan Albahar
+
+    College of Computer Science in Al-Leith, Umm Al Qura University, Mekkah 21955,
+    Saudi Arabia;
+
+    mabahar@uqu.edu.sa
+
+    Abstract: The objective of this study was to provide a comprehensive overview
+    of the recent ad-
+
+    vancements in the use of deep learning (DL) in the agricultural sector. The author
+    conducted a
+
+    review of studies published between 2016 and 2022 to highlight the various applications
+    of DL in
+
+    agriculture, which include counting fruits, managing water, crop management, soil
+    management,
+
+    weed detection, seed classiﬁcation, yield prediction, disease detection, and harvesting.
+    The author
+
+    found that DL’s ability to learn from large datasets has great promise for the
+    transformation of the
+
+    agriculture industry, but there are challenges, such as the difﬁculty of compiling
+    datasets, the cost of
+
+    computational power, and the shortage of DL experts. The author aimed to address
+    these challenges
+
+    by presenting his survey as a resource for future research and development regarding
+    the use of DL
+
+    in agriculture.
+
+    Keywords: agriculture; deep learning; crop management; weed detection
+
+    1. Introduction
+
+    In the contemporary era of globalization, the role and contributions of agriculture
+    are
+
+    crucially important. Over the years, agriculture has suffered from different challenges
+    in
+
+    fulﬁlling the ever-increasing needs of the world population, which has increased
+    by twofold
+
+    in the past ﬁve decades. There are different predictions for this unprecedented
+    growth
+
+    in the population, which is likely to reach approximately 9 billion people in
+    the world
+
+    by 2050 [1]. In addition, the estimates show an increase in the number of people
+    living
+
+    within urban areas, along with a signiﬁcant drop in the percentage of the population
+    who
+
+    are retired or working [1,2]. This means that agricultural productivity around
+    the world
+
+    must be increased considerably, and there is a need for a human labor force. To
+    address
+
+    this sort of problem, technologies such as tractors were introduced into agriculture
+    over a
+
+    century ago. At present, mechanical technology is showing an incredible evolution,
+    and
+
+    a signiﬁcant number of technologies are available. Existing technologies, such
+    as remote
+
+    sensing [3], robotic platforms [4], and the Internet of Things (IoT) [2], have
+    recently become
+
+    widespread in industry, particularly in the agricultural sector, leading to the
+    phenomenon
+
+    of smart and efﬁcient farming [5,6]. Schmidhuber (2015) states that deep learning
+    (DL) is a
+
+    modern approach that is successfully being utilized as part of various machine-learning
+
+    techniques [7]. It is comparable to artiﬁcial neutral networks (ANNs) but with
+    enhanced
+
+    learning capabilities; therefore, it has higher accuracy [8]. In recent years,
+    DL technologies,
+
+    such as generative adversarial networks (GANs), recurrent neutral networks (RNNs),
+    and
+
+    convolutional neutral networks (CNNs), have been widely implemented and investigated
+
+    in different ﬁelds of research, including farming and agriculture. Agriculturalists
+    and
+
+    researchers often use different software systems without assessing the mechanisms
+    and
+
+    ideas of the techniques, such as GANs, RNNs, and CNNs, that are usually applied
+    in DL
+
+    algorithms. There are various sub-categories of DL algorithms, including deep
+    convo-
+
+    lutional generative adversarial networks (DCGANs), very deep convolutional networks
+
+    (VGGNets), and long short-term memory (LSTM) networks; therefore, understanding
+    these
+
+    Agriculture 2023, 13, 540. https://doi.org/10.3390/agriculture13030540
+
+    https://www.mdpi.com/journal/agriculture
+
+    Agriculture 2023, 13, 540
+
+    2 of 22
+
+    sub-categories of DL algorithms is important for understanding common DL algorithms
+    [9].
+
+    According to Kamilaris and Prenafeta [10], DL is a modern and recent technique
+    and
+
+    system for data analysis and image processing with signiﬁcant potential and promising
+
+    results [10]. DL has been successfully used in different domains and has recently
+    entered
+
+    the agriculture ﬁeld. Additionally, it has the potential to address complex problems
+    more
+
+    efﬁciently and quickly due to the use of complex models that enable massive parallelization.
+
+    These multifaceted models used in DL are likely to increase classiﬁcation accuracy
+    and
+
+    limit faults in regression problems, but only if there are sufﬁciently large databases
+    that can
+
+    be used to explain such problems.
+
+    The authors of [11] argued that DL using drone technology is signiﬁcant for agriculture
+
+    and farming as it provides a convenient way to monitor, assess, and scan crops
+    through the
+
+    use of high-quality and high-resolution images [11]. Such technology aids in recognizing
+
+    advancements in ﬁelds and assessing quality. For example, with the help of images
+
+    provided by drone technology, agriculturalists and farmers can determine whether
+    crops
+
+    are fully ready for harvesting. DL, along with machine-learning (ML) techniques,
+    can help
+
+    farmers understand the nature of the soil, thus aiding them in making timely decisions
+
+    regarding farming. DL is also applied to assess how nutrients and water are to
+    be managed
+
+    and to make decisions about the suitable time for cropping and harvesting. Yields
+    are
+
+    higher and more efﬁcient and the return on investment (ROI) for crops can be projected,
+
+    considering the margin and cost in the market [12]. In addition, the efﬁciency
+    of DL is
+
+    recognized because it has been observed to outclass conventional methods, such
+    as support
+
+    vector machines (SVMs), random forest (RF) algorithms, and ANNs. Several technologies
+
+    are being used together with DL to enhance performance in prediction and classiﬁcation
+
+    related to agricultural problems. The RNN and LSTM models have memory and time
+
+    dimensions. As a result, they can be used to project animal and plant growth based
+    on
+
+    recorded data, evaluate water needs, and determine crop yield using the mining
+    time
+
+    dimensions and memory function [13,14]. They can also be utilized to estimate
+    plant
+
+    and animal growth based on previously recorded data to evaluate fruit yields or
+    water
+
+    requirements. Ren et al. [15], for example, used both models to forecast various
+    phenomena
+
+    and climate changes. Using hyperspectral images and infrared thermal imaging to
+    provide
+
+    data and information is the right direction for the prompt detection of diseases
+    in crops.
+
+    With the subsequent exponential growth in this ﬁeld, it is necessary to provide
+    an up-to-date
+
+    review of the recent literature focusing on innovative research techniques implementing
+
+    DL for agriculture. Hence, this study focused on providing an overview of the
+    recent
+
+    advancements linked to DL in the agricultural sector. The study aimed to describe
+    the
+
+    use of DL in agriculture; in particular, with respect to counting fruits, managing
+    water,
+
+    crop management, soil management, weed detection, seed classiﬁcation, yield prediction,
+
+    disease detection, and harvesting. The adoption of technology in the agriculture
+    sector
+
+    during the recent period has signiﬁcantly transformed and assisted farming and
+    crop
+
+    cultivation. However, DL has been noted to have added efﬁciency to agriculture,
+    which
+
+    has motivated researchers to investigate how it can be helpful in farming and
+    harvesting
+
+    and in yield predictions.
+
+    This paper is categorized in the following way: Section 2 presents the research
+    method-
+
+    ology. Section 3 provides a literature review by highlighting a brief history
+    of the topic.
+
+    Section 4 highlights the importance of DL in the agriculture sector. Section 5
+    discusses DL
+
+    tools that can be used for model development. In addition, the same section describes
+    the
+
+    usage, purpose, signiﬁcance, and implementation of DL in the agriculture sector.
+    Section 6
+
+    provides the results and a discussion, drawing on previous studies that have discussed
+
+    deep learning. Section 7 presents the overall conclusion of the study, together
+    with some
+
+    ideas for future research directions.
+
+    2. Research Method
+
+    The methodology of this study was based on secondary data and a comprehensive
+    re-
+
+    view of approaches linked to agricultural DL, including disease detection, yield
+    prediction,
+
+    Agriculture 2023, 13, 540
+
+    3 of 22
+
+    and weed prediction, using databases such as Research Gate, IEEE Explore, Springer,
+    Else-
+
+    vier, Google Scholar, Frontier, and Science Direct. For this study, research papers
+    published
+
+    between 2016 and early 2022 were considered due to the increasing advancements
+    in DL
+
+    and its increasing use in agriculture. Additionally, the emphasis for data collection
+    was on
+
+    journal articles and conference papers. The inclusion criteria for research papers
+    were that
+
+    they were available in English with full access and were relevant to the research
+    objectives
+
+    with themes including development and agriculture. Studies that were published
+    before
+
+    2016 were excluded from this study. The research method ﬂowchart for this study
+    is shown
+
+    in Figure 1.
+
+    Figure 1. The research methodology.
+
+    3. Literature Review
+
+    3.1. Deep Learning
+
+    Agriculture faces many challenges due to the increase in demand and the presence
+
+    of fewer workers in the ﬁelds. In this context, smart farming can be used to address
+
+    issues such as food security, sustainability, productivity, and environmental
+    impact [16].
+
+    As is known, agriculture plays a vital role in the global economy [17]. This is
+    because
+
+    it ensures food security for countries, and most companies rely on it for their
+    external
+
+    trade. In the world today, most home appliances, travel means, and other commonly
+
+    used services are becoming automated through the adoption of artiﬁcial intelligence
+    (AI);
+
+    thus, farming practices should too, since they are the backbone of a country.
+    Achieving
+
+    understanding and making quick responses with the help of data provided by continuous
+
+    monitoring, measuring, and analysis of different physical aspects and phenomena
+    would be
+
+    helpful to overcome the complex, multivariate, and unpredictable challenges of
+    agricultural
+
+    ecosystems [18]. This would require the analysis of huge amounts of agricultural
+    data
+
+    and the use of new information and communication technologies (ICTs) and would
+    be
+
+    necessary for both small-scale farms and large-scale ecosystem monitoring [19].
+    It could
+
+    be achieved using DL with a large network. DL is basically an aspect of machine
+    learning
+
+    that aims to build neural networks that can analytically learn by simulating the
+    human
+
+    brain. It acts like the human brain in that it works by reading data, such as
+    pictures, videos,
+
+    text, and sounds. With its continued development, DL has already been implemented
+    in
+
+    various complex tasks, such as image segmentation, image recognition, natural
+    language
+
+    processing, object detection, and image classiﬁcation [18]. However, DL requires
+    a huge
+
+    dataset since the quality of the DL results entirely depends on the size of the
+    dataset, and
+
+    the model tends to learn from that data and then respond accordingly. Some computer
+    and
+
+    industrial advancements, such as image processing, IoT technologies, robotics,
+    machine
+
+    learning, deep learning, and computer vision, are very useful in the agricultural
+    industry
+
+    and even for local farmers. High-quality image processing makes AI based on drone
+
+    technology a very helpful asset for farmers, since they can identify the progress
+    of the crops
+
+    and determine whether they are ready to harvest or not while sitting in one place
+    rather
+
+    than having to move long distances. This has been achieved just AI and a drone
+    system;
+
+    one can only imagine how beneﬁcial it would be to implement DL in agriculture
+    [18].
+
+    Figure 2 lists numerous advantages of using DL in agriculture. With the current
+
+    increase in the population, there has also been an increase in the demand for
+    agricultural
+
+    goods [18]. The implementation of DL and other automation components could greatly
+
+    beneﬁt production outcomes, reduce the chances of ripening, reduce production
+    costs,
+
+    and increase income due to the increased production. Moreover, it would also make
+
+    Agriculture 2023, 13, 540
+
+    4 of 22
+
+    it possible to forecast climatic changes—for instance, if there is an incoming
+    rainstorm,
+
+    cyclone, etc.—so that the farmers could be ready and prepare before a disaster.
+
+    Figure 2. Deep learning applications in agriculture [18].
+
+    3.2. Agriculture before Deep Learning
+
+    Traditional agriculture was the main method of farming before the adoption of
+    sci-
+
+    entiﬁc advancements in agricultural industries. Traditional agriculture mainly
+    involves
+
+    the extensive use of traditional tools and organic fertilizers, indigenous knowledge
+    of land
+
+    use and natural resources, cultural beliefs, etc. [19]. Another way to describe
+    it could be
+
+    as the “primitive style” or “early style” of farming and food production. The
+    traditional
+
+    method of farming affects the environment in many ways, such as through the depletion
+    of
+
+    soil nutrients. For instance, slash and burn practices in traditional agriculture
+    were one
+
+    reason for decreased soil organic matter. Another problem caused by traditional
+    farming
+
+    was deforestation, as most deforestation has taken place in tropical rainforests
+    to make
+
+    space for other agricultural activities. Another signiﬁcant issue relating to
+    soil erosion is
+
+    the removal of topsoil by water or wind. This topsoil is the most fertile, and
+    it may take
+
+    decades to replenish it once it is removed [19].
+
+    Agroforestry, crop rotation, intercropping, polycultures, and water harvesting
+    are
+
+    some of the most common types of traditional farming practices. The traditional
+    farming
+
+    method of constructing grain storage structures provided an incredible moisture-proof
+
+    environment for grain storage. Compared to today’s colossal warehouses, these
+    small
+
+    structures were cheap to fabricate and maintain. However, many different pesticides
+    were
+
+    used to keep the grains safe during storage periods, which later resulted in very
+    bad effects
+
+    on the environment [20]. The implementation of technology and the investment of
+    huge
+
+    sums of money in agricultural industries have helped to control other diseases,
+    thereby
+
+    making the amount of money spent worthwhile.
+
+    3.3. Deep Learning Architecture
+
+    Several nonlinear transformations are used to model higher-level abstractions
+    in
+
+    data, and these are the foundations of DL [21]. One of the main beneﬁts of DL
+    is the
+
+    Agriculture 2023, 13, 540
+
+    5 of 22
+
+    automatic extraction of features from raw data or feature learning. Producing
+    features
+
+    from lower-level components yields features in higher-level components [22]. Recurrent
+
+    neural networks (RNNs) and CNNs are two types of DL networks that are often used
+
+    in agriculture.
+
+    3.3.1. Convolutional Neural Networks (CNNs)
+
+    The CNN is a type of DL algorithm [23] composed of multiple convolutional layers,
+
+    pooling layers, and fully connected layers. Two of the most common applications
+    for CNNs
+
+    are the recognition of handwritten characters and image processing. In the domain
+    of
+
+    computer vision, CNNs have been used for a variety of tasks, including object
+    detection,
+
+    image classiﬁcation, voice recognition, image fragmentation, medical image analysis,
+    and
+
+    text and video processing. Convolutional, pooling, and fully connected layers
+    are the
+
+    typical architectural components of a CNN [24]. Figure 3 depicts the architecture
+    of a CNN,
+
+    and brief descriptions of each layer are provided below.
+
+    Figure 3. Convolutional neural network architecture.
+
+    In a CNN, the convolutional layer is the most fundamental and signiﬁcant. It stores
+    all
+
+    of the images’ distinguishing characteristics while making it possible to limit
+    the amount of
+
+    data that must be simultaneously processed. Then, pooling enables a CNN to aggregate
+    all
+
+    the different dimensions of an image and recognize the object, even if its form
+    is distorted or
+
+    it is positioned at an angle. Thus, the number of learnable features in the model
+    is reduced,
+
+    helping to address the overﬁtting issue. Pooling can be accomplished in a variety
+    of ways,
+
+    including average pooling, maximum pooling, and stochastic pooling. The fully
+    connected
+
+    layer is the ﬁnal layer, which is used to feed the neural network [24].
+
+    3.3.2. Recurrent Neural Networks (RNNs)
+
+    An RNN is a type of neural network model capable of performing exceptionally
+
+    well in fundamental tasks such as machine translation, language modeling, and
+    speech
+
+    recognition [25]. Unlike traditional neural networks, RNNs use the network’s sequential
+
+    information. This feature is essential in many applications because the data sequence’s
+
+    inherent structure contains valuable information that can be extracted from it.
+    Figure 4
+
+    depicts the fundamental structure of a recurrent neural network [25].
+
+    Figure 4. Recurrent neural network generic structure.
+
+    Agriculture 2023, 13, 540
+
+    6 of 22
+
+    4. Signiﬁcance of Deep Learning in Agriculture
+
+    4.1. Counting of Fruit
+
+    Counting fruit is an essential task for growers because it makes it possible to
+    estimate
+
+    the yield, which can be helpful in the management of yards. According to [26],
+    counting
+
+    fruit using automated fruit detection and algorithms can optimize agriculture
+    production
+
+    and help in managing the harvest process effectively. For automated fruit counting
+    and
+
+    detection, the authors provided a method that uses a pipeline for the DL algorithms
+
+    consisting of part 0, part 1, part 2, and part 3. In part 0, the algorithms learn
+    ground
+
+    truths. They use the Bob detection neural network in part 1 and count the fruit
+    through the
+
+    neural network in part 2. In part 3, the linear regression is run for the ﬁnal
+    count [26]. The
+
+    authors of [27] proposed automatic yield estimation using robotic agricultural
+    techniques
+
+    to improve the manual counting of fruit. The authors used Inception-ResNet to
+    achieve a
+
+    high accuracy ratio with a lower computational cost as a deep simulated learning
+    technique.
+
+    The signiﬁcance of the technique proposed in [27] is that it does not require
+    thousands of
+
+    images to train the neural networks. Instead, the network can be trained with
+    synthetic
+
+    images to test the authenticity of images, achieving an accuracy rate of 91%.
+    This novel
+
+    DL method can facilitate farmers’ abilities to efﬁciently count fruit and make
+    decisions
+
+    with great precision [27]. Similarly, the authors of [28] trained a Fast R-CNN
+    DL model
+
+    to detect, count, and predict the right size for citrus fruit. The authors also
+    used the long
+
+    short-term memory detection method to calculate the number of fruit on each tree,
+    as
+
+    shown in Figure 5. Hence, DL methods, such as automated yield detection, DL simulation,
+
+    and Fast R-CNN, can be helpful in the counting of fruit. Table 1 presents the
+    most recent
+
+    methods for counting fruits.
+
+    Figure 5. Flowchart for Faster R-CNN [28].
+
+    Agriculture 2023, 13, 540
+
+    7 of 22
+
+    Table 1. Summary of different DL methods for counting fruit.
+
+    Ref
+
+    DL model
+
+    Dataset
+
+    Accuracy
+
+    [29]
+
+    Faster R-CNN
+
+    TL + ﬁeld farm
+
+    0.83 F1-score
+
+    [30]
+
+    Inception-ResNet-v4
+
+    ILSVRC-2010&2012
+
+    N/A
+
+    [31]
+
+    VGG-16
+
+    Orchard
+
+    95%
+
+    [32]
+
+    CNN
+
+    Kiwifruit
+
+    89.29%
+
+    [33]
+
+    YOLO V3
+
+    PT + WGISD
+
+    —
+
+    [34]
+
+    Faster R-CNN + Iv2
+
+    Cherries
+
+    85%
+
+    [35]
+
+    E-Net
+
+    Fruit 360
+
+    93.7%
+
+    [36]
+
+    8-layer CNN model
+
+    Self collecting
+
+    95.67%
+
+    [37]
+
+    M-Net
+
+    Mango orchard
+
+    73.6%
+
+    [38]
+
+    YOLO V3
+
+    PT + WGISD
+
+    97.3% for test
+
+    4.2. Management of Water
+
+    Water is an essential natural resource for agriculture that needs recycling for
+    the
+
+    continued and sustainable development of agriculture. The authors of [39] stated
+    that
+
+    water is essential for agriculture production but the chemicals from industries
+    and the
+
+    wastewater from daily usage increase water pollution. Therefore, the agriculture
+    ﬁeld
+
+    needs a DL technique to protect agriculture from water pollution. The authors
+    of [39]
+
+    proposed a near-infrared (NIR) spectroscopy method that can be used to assess
+    water
+
+    demand, protection, and recycling. The NIR system is used as one layer along with
+    an
+
+    improved convolutional neural network (CNN) layer that employs decision tree analysis
+
+    to depict informative data helpful for making decisions relevant to water management.
+
+    The authors of [40] posited that agriculture is the backbone of the economy in
+    India and
+
+    requires water as a signiﬁcant resource. Traditional irrigation methods waste
+    water due to
+
+    excessive water use and unplanned water management. Therefore, the authors provided
+
+    an integrative approach that uses DL methods to improve the irrigation system
+    in India’s
+
+    agriculture (see Figure 6). The system consists of sensors that detect the soil’s
+    humidity
+
+    and predict the irrigation needs of the soil. The authors of [41] stated that
+    water is a critical
+
+    resource for which evapotranspiration assessment is very beneﬁcial. Evapotranspiration
+
+    assessment uses DL techniques to predict upcoming water needs and to provide clues
+    that
+
+    can be helpful for real-time irrigation management. Thus, DL techniques can help
+    farmers
+
+    precisely manage their irrigation systems.
+
+    Figure 6. Deep learning approach for water management [40].
+
+    Agriculture 2023, 13, 540
+
+    8 of 22
+
+    4.3. Crop Management
+
+    The signiﬁcance of DL frameworks is increasing in crop management, a subﬁeld of
+
+    agriculture. The authors of [42] asserted that DL technology is beneﬁcial for
+    crop planting.
+
+    Crop planting is the ﬁrst step in crop production and needs to be managed efﬁciently
+    to
+
+    increase crop production. The authors discussed the various DL crop planting techniques,
+
+    including ViSeed, which has been used for soybean production; Fast R-CNN, which
+    has
+
+    been used to count and measure the stalks of sorghum plants; CNN, which has been
+    used
+
+    for the identiﬁcation of localized features of roots and shoots; and VGG-16, which
+    has
+
+    been used for categorization of crops and weeds. According to the authors of [43],
+    there
+
+    are different types of deep learning networks that can be used for crop prediction.
+    These
+
+    different types include ANNs, for which the regression method and crop species
+    and images
+
+    and climatic and soil properties can be used to predict wheat, barley, sugarcane,
+    sunﬂower,
+
+    and potato crop production. Other DL techniques discussed in [43] include two-layered
+
+    DNN LSTM, which has been used to predict tomato, soybean, and corn crop production
+
+    using the regression method, a vegetative index, environmental characteristics,
+    and soil.
+
+    In addition, the authors of [44] stated that intelligence plays a crucial role
+    in precisely
+
+    managing crops. The authors introduced the CropDeep approach, which classiﬁes
+    and
+
+    detects different classes of crops. CropDeep provides crop management services
+    through
+
+    cameras and models; it classiﬁes crops and provides analysis that is helpful for
+    decision
+
+    making and includes real-world challenges; e.g., weather uncertainty (see Figure
+    7). Table 2
+
+    presents the most recent methods for crop management.
+
+    Figure 7. CropDeep deep-learning detection and classiﬁcation models [44].
+
+    Table 2. Summary of different DL methods for crop management.
+
+    Ref
+
+    DL Model
+
+    Application
+
+    Accuracy
+
+    [45,46]
+
+    FCN architecture/Stem-seg-S
+
+    Joint stem detection and
+
+    crop/weed classiﬁcation
+
+    mAP, 85.4% (stem detection)
+
+    69.7% (segmentation)
+
+    [47]
+
+    AgroAVNET
+
+    Crop/weed classiﬁcation
+
+    98.23%
+
+    [48]
+
+    AlexNet, VGG-19, GoogLeNet,
+
+    ResNet-50, ResNet-101,
+
+    Inception-v3
+
+    Crop/weed classiﬁcation
+
+    96% (VGG-19)
+
+    [49]
+
+    1D/2D/3D CNN
+
+    Crop mapping
+
+    94% (3D CNN)
+
+    4.4. Soil Management
+
+    Soil management refers to the practices, operations, and treatments that protect
+    soil
+
+    and increase an agricultural ﬁeld’s production. The authors of [50] stated that
+    DL techniques
+
+    can help manage soil moisture. According to the authors, developing a mathematical
+    model
+
+    Agriculture 2023, 13, 540
+
+    9 of 22
+
+    is difﬁcult for soil moisture, so the accuracy, predictions, and generalization
+    of existing
+
+    models could be improved. The authors improved the DL regression model by ﬁtting
+    it
+
+    with large datasets, making it possible to precisely determine soil moisture.
+
+    The authors of [51] proposed that agriculture has been an essential aspect of
+    the lives of
+
+    human beings since even before civilization. Soil yield plays a key role in crop
+    production
+
+    and efﬁcient agriculture. Therefore, the authors discussed how implementing the
+    Keras
+
+    API in Python can help protect soil from herbicide toxicity while also retaining
+    moisture.
+
+    Moreover, using a ﬁrst-order agriculture simulator that employs discrete time,
+    the Richard
+
+    equation can help determine the precise moisture level in soil [52]. The authors
+    explained
+
+    that using an agriculture simulator can help in obtaining aerial images with a
+    particular soil
+
+    moisture information dataset. The dataset was analyzed using seven methods, including
+
+    constant prediction baseline, SVM, and NN, which showed that using a CNN could
+    reduce
+
+    water consumption by 52% [52]. Thus, the authors showed that DL techniques can
+    help
+
+    maintain soil moisture.
+
+    4.5. Weed Detection
+
+    Weeds are undesirable plants that can reduce crop production. DL techniques can
+
+    help detect weeds. According to [51], a “weed” is a plant that grows in an unfavorable
+
+    environment. They have negative effects on crop production because they compete
+    with
+
+    plants for water, sunlight, and soil minerals. Weed detection can be undertaken
+    by using
+
+    DL techniques, such as ﬁrst-order agriculture simulation with Richard’s equation.
+    This
+
+    approach reduces the use of weedicides, thus protecting the soil from toxicity
+    and ensuring
+
+    the plants achieve suitable production yields. In addition, the authors of [53]
+    raised the
+
+    concern that the production and utilization of herbicides have made weeds resistant
+    to
+
+    these herbicides. Therefore, developing precision techniques to detect weeds is
+    important
+
+    to increase crop production. Researchers have discussed the revolution in computing
+
+    technology and how it can help in better understanding weed biology and ecology.
+    DL is
+
+    the most helpful technique, as it aids in categorizing weeds in crop categories
+    and getting
+
+    rid of them. In a similar context, the authors of [54] found that DL techniques,
+    such as
+
+    classiﬁcation SVMs and CNNs, can reduce the burden on farmers. The techniques
+    can help
+
+    farmers detect weeds. The authors described various weed detection and categorization
+
+    techniques. In such techniques, the camera ﬁrst takes images of weeds and then
+    uses a gray-
+
+    level occurrence matrix to identify homogeneity among the images. The color identiﬁed
+
+    through the hue saturation value (HSV) describes the mellowness of the weeds,
+    as shown
+
+    in Figure 8. Hence, DL techniques are helpful for weed detection, reducing the
+    burden on
+
+    farmers and increasing crop yield.
+
+    4.6. Seed Classiﬁcation
+
+    In the agriculture sector, crop production strongly relies on seeds. According
+    to [55],
+
+    seeds are a signiﬁcant part of crop production, without which production and harvesting
+
+    of crops are impossible. The increased level of population growth has put pressure
+    on
+
+    agriculture growth due to the precision needed when identifying and classifying
+    seeds.
+
+    The authors proposed a CNN to increase the efﬁciency of the classiﬁcation of seeds.
+    In this
+
+    technique, the methods used included decayed learning points.
+
+    4.7. Classiﬁcation of Plant Diseases
+
+    Plants can produce decreased crop yields due to the presence of fungi, microbes,
+    and
+
+    bacteria. If the disease is not diagnosed in time, it can cause signiﬁcant economic
+    losses
+
+    for farmers. The pathogen-killing pesticides that are used to restore crop functionality
+
+    and remove pests come at a high cost. Excessive use of pesticides is detrimental
+    to the
+
+    environment and can disrupt the water and soil cycles [56]. As plant diseases
+    stunt growth,
+
+    identifying them in their early stages is essential. DL models have been applied
+    in the
+
+    process of recognizing and categorizing various plant diseases. Several DL architectures
+
+    have been proposed to improve detection accuracy [57]. In [58], the authors proposed
+    a
+
+    Agriculture 2023, 13, 540
+
+    10 of 22
+
+    method for identifying and categorizing banana diseases based on a CNN. The proposed
+
+    model processes pictures of leaves to help farmers detect two banana diseases
+    (sigatoka
+
+    and speckle) quickly. In addition, the authors of [59] used AlexNet to accurately
+    classify
+
+    plant diseases based on leaf images. The DL hybrid model described in [60] identiﬁed
+
+    and categorized diseases that affect sunﬂowers, such as Verticillium wilt, Phoma
+    rot,
+
+    downy mildew, and Alternaria leaf rot. The authors of [61] developed a mobile
+    app that
+
+    utilizes machine learning to diagnose diseases that affect plant leaves. The app
+    can classify
+
+    38 different diseases. The authors amassed 96,206 images, including both healthy
+    and
+
+    diseased plant leaf specimens, for training, testing, and validation of the model.
+    In [62], the
+
+    authors proposed a pre-trained, transfer-learning deep neural network model that
+    could
+
+    predict crop disease by learning leaf characteristics from input data. They extensively
+
+    investigated different DL and CNN topologies, such as ResNet, MobileNet, Wide
+    ResNet,
+
+    and DenseNet. The result showed that the proposed method was superior in terms
+    of
+
+    accuracy and memory to previous methods in the literature. Another CNN-based method
+
+    for detecting, classifying, and identifying plant diseases was proposed in [63].
+    The accuracy
+
+    for the identiﬁcation of 13 different plant diseases ranged from 91 to 98%. Furthermore,
+    the
+
+    proposed model was able to distinguish between unhealthy and healthy leaves, as
+    well as
+
+    their backgrounds. Using 500 different leaf images, the authors of [64] proposed
+    a model
+
+    based on an SVM classiﬁer. The proposed model could accurately identify plant
+    diseases,
+
+    achieving an accuracy of 94%. Table 3 presents the most recent methods for classifying
+
+    plant diseases.
+
+    Figure 8. Flowchart for weed detection and classiﬁcation [54].
+
+    Agriculture 2023, 13, 540
+
+    11 of 22
+
+    Table 3. Summary of different DL methods for classifying plant diseases.
+
+    Ref.
+
+    Leaf Type
+
+    Method
+
+    Accuracy
+
+    [65]
+
+    Rice
+
+    VGGNet
+
+    92.00
+
+    [66]
+
+    Tomato
+
+    S-CNN and F-CNN
+
+    98.30
+
+    [67]
+
+    Plant leaf
+
+    EfﬁcientNet
+
+    96.18
+
+    [68]
+
+    Grape
+
+    Hy-CNN
+
+    98.70
+
+    [69]
+
+    Grape
+
+    United model
+
+    98.20
+
+    [70]
+
+    Plant leaf
+
+    Whale and DL
+
+    95.10
+
+    [71]
+
+    Crop
+
+    FCNN and SCNN
+
+    92.01
+
+    [72]
+
+    Coffee
+
+    Deep CNN
+
+    98.00
+
+    4.8. Yield Prediction
+
+    It is essential to focus on and carefully manage yield predictions for each crop.
+    Agri-
+
+    cultural machine-learning and DL algorithms are primarily concerned with crop
+    yield
+
+    prediction. They inform the farmer about whether the crop is ready for cultivation
+    and
+
+    predict when it will be [73]. Manjula et al. [74] proposed a model based on an
+    RF classiﬁer
+
+    that could predict millet crop yield with an accuracy of 99.74%. The prediction
+    of crop
+
+    yield is notoriously difﬁcult due to the presence of numerous complex factors.
+    For example,
+
+    high-dimensional marker data are required to represent genotype information, consisting
+
+    of the data for millions of markers for each individual plant. The ﬁnal effect
+    of the genetic
+
+    markers must be estimated because it is affected by numerous environmental conditions
+
+    and ﬁeld management techniques. Recently, a variety of machine-learning models,
+    includ-
+
+    ing association rule mining, ANNs, decision trees, and multivariate regression,
+    have been
+
+    applied in the ﬁeld of crop yield prediction. The most notable characteristic
+    of ML and DL
+
+    may be that the output is treated as an implicit function of the input variables
+    and may be
+
+    a highly nonlinear and complex function [75].
+
+    Extensive research has been conducted on crop yield prediction. Liu et al. [76]
+    em-
+
+    ployed a neural network with one hidden layer for the prediction of corn yield
+    using input
+
+    data on weather, soil, and management. In the same context, Drummond et al. [76]
+    worked
+
+    on predicting crop yield by using neural networks, projection pursuit regression,
+    and
+
+    stepwise multiple linear regression. As a result, they found that both regression
+    methods
+
+    were outperformed by the neural network method. In addition, Marko et al. [76]
+    predicted
+
+    the crop yields of different soybean varieties by using weighted histogram regression.
+    They
+
+    obtained better performance than the conventional regression algorithms.
+
+    4.9. Disease Detection
+
+    In the agricultural ﬁeld, one major threat to farmers is crop disease. With the
+    devel-
+
+    opments in the ﬁelds of AI and DL and their implementation in agricultural industries,
+
+    crop disease detection has become one of the easiest processes. Before the adoption
+    of
+
+    advanced technology in agriculture, the detection of diseases in crops at an early
+    stage was
+
+    a time-consuming and tedious task that had to be performed manually [77]. Plant
+    disease
+
+    not only affects plant growth and the population but also seriously affects the
+    economy
+
+    of countries. Hence, it is essential to adopt automatic and accurate techniques
+    for the
+
+    prediction and detection of plant disease severity for disease management and
+    food safety
+
+    and to predict losses in returns. In most developing countries, farmers are usually
+    required
+
+    to travel huge distances to contact experts, which can consume huge amounts of
+    money
+
+    and time [76]. This could be handled by developing a robust and easy-to-use plant
+    or crop
+
+    disease detection system, which would require many sample images of crops that
+    have
+
+    diseases that could be uploaded to the cloud, and the system could run on IoT
+    devices, such
+
+    as smartphones and tablet PCs with appropriate computational capabilities. Some
+    work
+
+    has been done in order to tackle this issue of crop diseases. Nikhil Patil et
+    al. [78] proposed
+
+    Agriculture 2023, 13, 540
+
+    12 of 22
+
+    a crop disease detection system using a CNN. The system achieved an accuracy rate
+    of 89%
+
+    compared to the traditional crop disease detection system. Hence, when it comes
+    to image
+
+    processing, CNN systems can be relied upon due to the fact that they are widely
+    used in
+
+    agricultural research. Most DL applications in agriculture can be categorized
+    as plant or
+
+    crop classiﬁcation, which is important for disaster monitoring, robotic harvesting,
+    pest
+
+    control, and yield prediction. Plant and crop disease recognition models are mostly
+    based
+
+    on pattern recognition and leaf images [78]. Hence, DL and AI models could automatically
+
+    determine which plants are diseased and send alerts to the farmer for early action.
+    Figure 9
+
+    shows an example of how DL and AI can detect plant diseases.
+
+    Figure 9. Plant disease detection [79].
+
+    5. Application of Deep-Learning Models in Agriculture
+
+    According to [80], there are different points of view about the creation of DL
+    tools
+
+    for model development. Python tools are used to emphasize the concept of saliency
+    in
+
+    images. Saliency is typically deﬁned by unique features, including pixels, or
+    the resolution
+
+    of the image in visual processing. Another DL tool is the gradient explanation
+    technique,
+
+    which employs the gradient-based attribution method. In this method, each gradient
+
+    quantiﬁes each of the input dimensions that can change the predictions around
+    the input.
+
+    The integrated gradient is a gradient-based attribution that allows predictions
+    to be formed
+
+    by a deep neural network. It is created via attributions related to the network’s
+    input
+
+    features [81]. Deep label-speciﬁc feature (DeepLIFT) is another tool designed
+    to ensure
+
+    the accuracy of deep neural network predictions. It is also known as the gradient
+    + input
+
+    method, and it is used to enhance the gradient with the input signal. It has quite
+    a few
+
+    advantages over gradient-based methods, especially when it is implemented into
+    models
+
+    that are usually trained with natural images and genomics data [82]. Typically,
+    activation
+
+    of each neuron takes place with reference to the contribution scores calculated
+    by the
+
+    system. These calculations are based on comparisons between various outputs and
+    a
+
+    certain benchmarked output and the differences in the inputs from their reference
+    inputs.
+
+    Another model is guided backpropagation, also known as guided saliency, which
+    is a
+
+    type of deconvolution approach. This tool and approach is often employed in a
+    range of
+
+    network structures, such as in max pooling in CNNs [83]. The purpose is to substitute
+    the
+
+    max-pooling layers with a convolutional layer. Similarly, the authors of [84]
+    claim that
+
+    deconvolution is a technique for visualizing CNNs that uses quite similar aspects,
+    such as
+
+    deconvolutional networks. Furthermore, the authors of [85] proposed class activation
+    maps
+
+    (CAMs) for the identiﬁcation of images. With this tool, analysts may inspect a
+    particular
+
+    image and then its speciﬁc parts or pixels are used to form the ﬁnal output. In
+    other
+
+    Agriculture 2023, 13, 540
+
+    13 of 22
+
+    words, CAMs are used to study the discriminative regions of an image, as with
+    a CNN. A
+
+    ﬁnal softmax-loss layer is formed after obtaining the weighted sum of the vector.
+    Finally,
+
+    layer-wise relevance propagation (LRP) is a tool for decomposing nonlinear classiﬁers
+    that
+
+    aims to improve DL interpretability [86]. It is based on deep neural networks
+    formed by
+
+    propagating predictions backward, fulﬁlling the requirement for the conservation
+    property.
+
+    All the abovementioned DL tools are currently available for model development.
+
+    According to [87], the deep neural network (DNN) can be employed using a CNN for
+
+    the assessment of the quality of seeds in agriculture. The model can be used to
+    study the
+
+    quality of seeds in soybean pods, along with the sorting of haploid seeds. Assessments
+
+    of the shape, phenotypic expression, and embryonic pose are undertaken [88]. CNNs
+
+    have also been used in the classiﬁcation plant seedlings into 12 species. Furthermore,
+    the
+
+    authors of [89] used an image analysis technique to create a principal component
+    analysis
+
+    (PCA) that can be used to place seeds in different clusters in a cost- and time-effective
+
+    manner. The authors of [90] claimed that DL algorithms, such as Inspection-v3,
+    VGG-16,
+
+    and VGG-19, are more efﬁcient in citrus plant disease detection than other innovations.
+
+    In [91], the authors claimed that DL methods aid in the identiﬁcation of plant
+    diseases
+
+    from individual lesions and spots. This makes it possible to focus on other aspects
+    rather
+
+    than only considering the entire leaf in disease detection. This DL application
+    is good
+
+    at detecting multiple diseases on the same leaf and provides 12% greater accuracy.
+    DL
+
+    methods can also be used to identify various plant diseases [92]. The authors
+    of [93]
+
+    claimed that apple leaf and fruit diseases can be detected using a CNN model,
+    implying
+
+    that the use of DL models for disease detection is quite effective. There are
+    also harvesting
+
+    techniques that use DL. The authors of [94] formed a shot-detector (YOLO) algorithm
+    for
+
+    on-tree fruit detection and used the BBox-Label-Tool to label images. Likewise,
+    two deep
+
+    learning models were utilized for images of pears and apples fruits, and it was
+    found that
+
+    the deep learning models were quite effective for harvesting purposes. The authors
+    of [95]
+
+    revealed that having a robust DL model can be helpful in the harvesting process,
+    as it
+
+    showed promising results due to its employment of bio-inspired features. As shown
+    by
+
+    these studies, DL is becoming one of the most useful techniques and models in
+    harvesting
+
+    since it employs mature features in comparison to other agricultural techniques.
+    This recent
+
+    survey also shows that CNNs have promising results in agriculture and increase
+    efﬁciency.
+
+    In other words, CNNs have increased accuracy and improved learning capacities
+    when DL
+
+    mechanisms are employed in agriculture.
+
+    6. Results and Discussions
+
+    The ﬁndings from the studies show that DL mechanisms have helped farmers in
+
+    different areas of agricultural production. These include counting fruit, management
+
+    of water, crop management, soil management, weed detection, seed classiﬁcation,
+    yield
+
+    prediction, disease detection, and even harvesting. A summary of the key ﬁndings
+    is
+
+    presented in Table 4.
+
+    Table 4. Summary of different DL methods used in agriculture.
+
+    Ref
+
+    Method Used
+
+    Purpose of Employing Method
+
+    Key Insights
+
+    [20]
+
+    Automated fruit detection and
+
+    algorithms using a DL algorithm
+
+    pipeline consisting of part 0, part 1,
+
+    part 2, and part 3
+
+    Counting fruit
+
+    Optimization of agriculture production
+
+    Promising harvesting results
+
+    [27]
+
+    Inception-ResNet
+
+    Counting fruit
+
+    Provides high accuracy in the counting of fruit
+
+    Uses synthetic images to test authentic images,
+
+    achieving a 91% accuracy rate
+
+    [26]
+
+    Near-infrared (NIR) spectroscopy
+
+    Management of water
+
+    Increased water protection and recycling
+
+    Provides information that helps make effective
+
+    decisions in water management
+
+    Agriculture 2023, 13, 540
+
+    14 of 22
+
+    Table 4. Cont.
+
+    Ref
+
+    Method Used
+
+    Purpose of Employing Method
+
+    Key Insights
+
+    [41]
+
+    Evapotranspiration
+
+    Management of water
+
+    Allows the prediction of water speciﬁcations
+
+    for real-time irrigation management
+
+    [42]
+
+    R-CNN for counting and measuring
+
+    crop plantings
+
+    Crop management
+
+    The CNN helps in identifying localized
+
+    features of roots and shoots
+
+    CGG-16 allows categorization of crops
+
+    and weeds
+
+    [43]
+
+    Two-layered DNN LSTM
+
+    Crop management
+
+    Highlights soil and environmental
+
+    characteristics
+
+    Prominent vegetative index used to create
+
+    estimations of crop production for tomato,
+
+    soybean, and corn
+
+    [51]
+
+    Keras API through Python
+
+    Soil management
+
+    Helps in preventing the harmful effects of
+
+    herbicides and toxicity in soil and
+
+    in retaining moisture
+
+    [52]
+
+    First-order agriculture simulator using
+
+    discrete time
+
+    Soil management
+
+    Improves aerial images and provides soil
+
+    moisture information
+
+    [51]
+
+    First-order agriculture simulation
+
+    with Richard equation
+
+    Weed detection
+
+    Increases protection of soil from toxicity and
+
+    ensures plants achieve good production yields
+
+    [54]
+
+    SVM and CNN
+
+    Weed detection
+
+    The camera is used to take an image of a weed,
+
+    and then the gray-level occurrence matrix is
+
+    employed to determine the homogeneity
+
+    among the images
+
+    Reduces burden on farmers
+
+    [55]
+
+    CNN
+
+    Seed classiﬁcation
+
+    Increased efﬁciency in seed classiﬁcation
+
+    [74]
+
+    Random forest (RF)
+
+    Yield prediction
+
+    Provides the best yield prediction accuracy
+
+    [76]
+
+    Histogram regression
+
+    Yield prediction
+
+    Offers accuracy in the determination of
+
+    soybean varieties
+
+    [78]
+
+    CNN
+
+    Disease detection
+
+    Achieved an 89% accuracy rate when
+
+    compared to other traditional crop disease
+
+    detection methods
+
+    Improves pest control and makes robotic
+
+    harvesting possible with increased yield
+
+    prediction and disaster monitoring
+
+    abilities for crops
+
+    [95]
+
+    Bio-inspired methods
+
+    Harvesting
+
+    Increases harvesting efﬁciency
+
+    Improves accuracy for harvesting in
+
+    agriculture
+
+    [96]
+
+    Canopy-attention-YOLOv4
+
+    Fruit detection
+
+    Precision = 94.89%
+
+    Recall = 90.08%
+
+    F1 = 92.52%
+
+    [97]
+
+    YOLOv5-CS (citrus sort)
+
+    Fruit detection and
+
+    counting
+
+    Recall = 97.66%
+
+    Precision = 86.97%
+
+    mAP = 98.23%
+
+    The key ﬁndings from the literature review show that there are various ways in
+    which
+
+    DL has beneﬁted the agriculture industry. Agriculture faces numerous barriers
+    as a result of
+
+    increased demand and fewer workers in the sector. However, the implementation
+    of smart
+
+    farming can help address issues such as productivity, environmental impact, food
+    security,
+
+    and sustainability and increase the efﬁciency of agricultural production [16].
+    Agriculture,
+
+    as is well-known, plays an important part in the global economy [17] as it ensures
+    food
+
+    security for regions and is used by the majority of businesses for external commerce.
+    The
+
+    implementation of deep-learning methods has helped the agricultural sector grow
+    and
+
+    develop, employing the latest prediction analyses and tools. There are various
+    tools that
+
+    have been used by scholars to prove the efﬁciency of deep-learning methods in
+    agriculture.
+
+    According to [18], the size of the dataset used for deep-learning methods may
+    determine
+
+    the quality of the results. The accuracy of the results obtained using deep learning
+    in
+
+    agricultural production and processes may lead to improved decisions. Traditional
+    farming
+
+    Agriculture 2023, 13, 540
+
+    15 of 22
+
+    practices result in a wide range of environmental consequences, including soil
+    nutrient
+
+    depletion. Deforestation is another issue produced by traditional farming, as
+    most defor-
+
+    estation has occurred in tropical rainforests to make room for other agricultural
+    activities.
+
+    Soil erosion, which occurs as a result of the erosion of topsoil by water or wind,
+    is another
+
+    issue associated with traditional farming. This topsoil is the most productive
+    portion of the
+
+    soil and, once removed, it can take decades to restore it [19]. This implies that
+    traditional
+
+    agricultural production methods are insufﬁcient to promote the efﬁciency of the
+    sector.
+
+    Agriculture must become more brilliant and progressive in order to meet future
+    demands
+
+    and utilize emerging technologies, such as deep learning, remote sensors, and
+    distributed
+
+    computing [98]. The current study’s key ﬁndings highlight that the use of various
+    DL tools
+
+    in agriculture has improved farming outcomes and production. According to [95],
+    the
+
+    real parameters for agriculture are now obtained through cutting-edge technology
+    and DL
+
+    mechanisms. DL methods have proven their ability to increase efﬁciency in agriculture,
+
+    showing improved results and accuracy in all domains. Despite the employment of
+    DL
+
+    mechanisms in agriculture, it was identiﬁed that there are also certain challenges
+    that
+
+    accompany the use of this technology, such as dataset creation, the time required
+    to train
+
+    staff, and having skilled labor to increase production. Furthermore, system development
+
+    and hardware maintenance, as well as the deployment of large models and software
+    on
+
+    small devices, such as mobile phones, may have an impact on system efﬁciency [99].
+    More-
+
+    over, developing awareness among staff members when DL methods are employed is
+
+    also challenging in agriculture. According to [100], transfer learning is a technique
+    that
+
+    can be employed to minimize the emerging challenges that may arise when employing
+
+    deep learning in agriculture. It is typically used to address problems when there
+    is a
+
+    small dataset and minimal time is required to test the accuracy of the model.
+    As shown
+
+    in [101,102], AI is useful to minimize the challenges affecting agricultural production
+    when
+
+    DL and robotics are used. In the same context, automated machine learning (AutoML)
+    is
+
+    another technique that helps increase agriculture production through innovation.
+    When
+
+    DL methods are employed in agricultural production mechanisms, AutoML can be use-
+
+    ful to minimize the challenges. Thus, the literature shows that DL methods have
+    been
+
+    extremely useful in increasing production in the agricultural sector. However,
+    in order
+
+    to minimize the challenges that come with employing DL techniques, it is important
+    to
+
+    consider employing other emerging technologies, such as robotics, the Internet
+    of Things,
+
+    and distributed computing.
+
+    It was found that most DL-based farming techniques use very simple algorithms
+    and
+
+    network structures. The primary cause of this is that the combination of deep
+    learning and
+
+    precision agriculture is still in its infancy. The lack of collaboration between
+    the computer-
+
+    science and agriculture communities is also a contributing factor. Table 1 shows
+    that many
+
+    of the deep-learning algorithms tested had an accuracy of 90% or more with some
+    datasets,
+
+    but it should be noted that these results are not generalizable. The accuracy
+    and speed
+
+    of these networks typically fall short of the benchmarks when they are employed
+    with
+
+    other datasets or a real farmland environment. This is mainly due to the fact
+    that the
+
+    complexity, quality, and quantities of agricultural datasets are still very different
+    from
+
+    actual farmland environments. Many novel approaches have been proposed to lessen
+
+    the reliance of DL models on agricultural datasets, including transfer learning
+    [103,104],
+
+    few-shot learning [105,106], graph convolutional networks [107], and semi-supervised
+
+    learning [108]. However, their entire performances are still unavailable. Only
+    a few
+
+    recent studies have focused on tailoring deep-learning algorithms and neural network
+
+    architectures to the needs of agricultural applications. Some studies, for instance,
+    have
+
+    aimed to ﬁnd the most effective ways to optimize the parameters used in DL models.
+
+    Enhancing DL algorithms and frameworks has been the focus of other research. With
+    the
+
+    aim of large-scale dense semantic segmentation of weeds using aerial images, the
+    authors
+
+    of [109,110] presented WeedMap and WeedNet. They made changes to the decoder that
+
+    allowed them to use a modiﬁed version of the VGG16 architecture in place of the
+    original
+
+    encoder. Jiao et al. [111] created an anchor-free convolutional neural network
+    (AF-RCNN)
+
+    Agriculture 2023, 13, 540
+
+    16 of 22
+
+    to achieve a balance between speed and accuracy in deep-learning algorithms applied
+
+    to the detection of multiclass agricultural pests. To improve recognition accuracy
+    in leaf
+
+    disease detection, the authors of [112] utilized convolutional neural networks
+    (CNNs) and
+
+    pre-trained models to identify plant diseases. The study focused on ﬁne-tuning
+    popular
+
+    pre-trained models, such as DenseNet-121, ResNet-50, VGG-16, and Inception V4,
+    using
+
+    the PlantVillage dataset, which contains 54,305 images of plant diseases in 38
+    classes. The
+
+    performance of the models was evaluated through various metrics. The results showed
+    that
+
+    DenseNet-121 achieved the highest classiﬁcation accuracy of 99.81%, outperforming
+    other
+
+    state-of-the-art models. In the same context, the authors of [113] proposed a
+    new method for
+
+    data augmentation utilizing generative adversarial networks (GANs) for tomato
+    leaf disease
+
+    recognition. By utilizing deep convolutional generative adversarial networks (DCGANs)
+    to
+
+    augment the original images and GoogLeNet as the input, the proposed model was
+    able to
+
+    achieve the top average identiﬁcation accuracy of 94.33%. The model was further
+    improved
+
+    by adjusting the hyper-parameters, modifying the architecture of the convolutional
+    neural
+
+    networks, and experimenting with different GANs. The use of DCGAN to augment
+
+    the dataset not only increased its size but also improved its diversity, leading
+    to better
+
+    generalization of the recognition model. In addition, the authors of [114] proposed
+    the use
+
+    of a deep convolutional generative adversarial network (DCGAN) to augment an original
+
+    dataset and trained a convolutional neural network (CNN) in the task of regression
+    by
+
+    utilizing the DCGAN to generate synthetic images that were realistic enough to
+    be included
+
+    in the training set. They employed a two-stage scheme where the baseline CNN,
+    trained
+
+    with the original dataset, was utilized to predict the regression vectors for
+    each image
+
+    generated by the DCGAN. These regression vectors served as the ground truth for
+    the
+
+    augmented dataset, enabling the CNN to make more accurate predictions.
+
+    7. Future Challenges and Opportunities in the Agricultural Domain
+
+    Deep learning has the potential to revolutionize the agricultural industry by
+    enabling
+
+    more efﬁcient crop production, precision agriculture, and improved crop monitoring
+    and
+
+    forecasting. However, there are several challenges that need to be addressed to
+    fully
+
+    realize the potential of deep learning in agriculture. One major challenge is
+    the lack of
+
+    high-quality labeled data in the ﬁeld of agriculture. This can be addressed by
+    developing
+
+    new data collection methods and creating large labeled datasets that can be used
+    to train
+
+    deep-learning models [114]. Another challenge is the high computational cost associated
+
+    with deep learning, which can make it difﬁcult to implement these models in resource-
+
+    constrained environments, such as rural areas [115].
+
+    Additionally, there is a need for deep-learning models in agriculture to attain
+    robust-
+
+    ness and adaptability to different environments, crop types, imaging conditions,
+    and sensor
+
+    modalities. This requires the development of models that can be generalized well
+    across
+
+    different scenarios and are robust to variations in the data [116,117]. Furthermore,
+    as the
+
+    data in the agricultural domain is often incomplete, noisy, or corrupted, there
+    is a need for
+
+    methods that can handle missing or incomplete data [118]. In recent years, research
+    on
+
+    robust deep-learning techniques, such as robust optimization, adversarial training
+    [118],
+
+    and meta-learning [119,120], has been undertaken to address this challenge, but
+    more
+
+    research is still needed in this area.
+
+    Another important challenge is the need for deep-learning models in agriculture
+
+    to be interpretable and explainable, as this is essential for decision making
+    and to gain
+
+    trust from stakeholders. There is a growing interest in developing methods that
+    can
+
+    provide insight into the inner workings of deep-learning models, such as explainable
+    AI
+
+    techniques—for instance, Local Interpretable Model-Agnostic Explanations (LIME)
+    [121]
+
+    and Shapley Additive Explanations (SHAP) [122]—and interpretable deep learning—for
+
+    instance, decision trees and rule-based systems [123]. Moreover, the integration
+    of multiple
+
+    modalities of data, such as image, sensor, and weather data, is crucial to improving
+    the
+
+    performance of deep-learning models in agriculture. There is a need for multistream
+    neural
+
+    Agriculture 2023, 13, 540
+
+    17 of 22
+
+    networks, such as those based on attention [124], that can handle multiple modalities
+    of
+
+    data and provide a more comprehensive understanding of the agricultural system.
+
+    Few-shot learning is a form of machine learning that allows models to be generalized
+    to
+
+    previously unseen classes with a small number of examples. This is beneﬁcial in
+    agriculture,
+
+    as it allows such models to learn more quickly and accurately from a limited amount
+    of
+
+    data. Furthermore, it is more data-efﬁcient, meaning that fewer data points are
+    required to
+
+    train the model [125].
+
+    In conclusion, deep learning has the potential to revolutionize the agricultural
+    industry,
+
+    but there are several areas that need to be addressed to fully realize its potential.
+    These
+
+    include the need for robustness, interpretability, integration of multiple modalities
+    of data,
+
+    and few-shot learning. Further research in these areas is crucial to overcoming
+    these
+
+    challenges and fully harnessing the power of deep learning in agriculture.
+
+    8. Conclusions and Future Work
+
+    The primary aim of the present study was to provide an overview of the recent
+    ad-
+
+    vancements linked to DL in the agricultural sector. This study employed a comprehensive
+
+    review of approaches linked to agricultural DL, including disease detection, yield
+    predic-
+
+    tion, and weed prediction, in studies published between 2016 and early 2022. The
+    key
+
+    ﬁndings of this paper indicated that a range of DL tools, employed for counting
+    fruit,
+
+    managing water, crop management, soil management, weed detection, seed classiﬁcation,
+
+    yield prediction, disease detection, and even harvesting, have been identiﬁed.
+    It was also
+
+    revealed that, despite the employment of DL processes in agriculture, there are
+    certain
+
+    obstacles that come with the use of this technology. It involves difﬁculties such
+    as the
+
+    compilation of datasets, the time necessary for staff training, and the presence
+    of DL experts
+
+    to ensure high production. Furthermore, system development and hardware requirements,
+
+    as well as the deployment of large models and software on small devices, such
+    as smart-
+
+    phones, may have impacts on system efﬁciency. Thus, it can be concluded that,
+    with the
+
+    support of the most recent prediction analyses and tools, the application of DL
+    methods
+
+    has assisted the agriculture industry in growing and developing. It can be noted
+    that DL
+
+    has great potential in the ﬁeld of agriculture. However, the high cost of hardware
+    and
+
+    software makes its application very limited. Therefore, there is a need to work
+    on research
+
+    and development around cost-effective DL methods in the future to enhance large-scale
+
+    applications. Furthermore, DL methods are limited in terms of accuracy and effectiveness.
+
+    Thus, more research is needed in this direction to enhance the accuracy and effectiveness
+    of
+
+    DL methods.
+
+    The availability of computational capacity is yet another barrier that inhibits
+    the
+
+    implementation of DL in agriculture. The training of models necessitates ever-increasing
+
+    amounts of computing resources due to the growing number of datasets, as well
+    as the
+
+    increasing complexity of deep-learning neural networks. It is very important that
+    the
+
+    performance of graphics processing units (GPUs) and central processing units (CPUs)
+
+    continues to improve, as this is a very important accelerator for the widespread
+    popularity
+
+    of deep learning. In addition, the development of DL has been sped up by the availability
+    of
+
+    cloud computing services, such as the Google Cloud Platform, offered by private
+    businesses.
+
+    However, because of stringent requirements regarding computation capacity, current
+    uses
+
+    of DL in agriculture are typically ofﬂine. This means that the collection and
+    analysis of
+
+    images of farmland is undertaken in an asynchronous manner. Consequently, companies
+
+    have paid some attention to this issue.
+
+    Funding: This research received no external funding.
+
+    Data Availability Statement: The data used are included within the manuscript.
+
+    Conﬂicts of Interest: The author declares no conﬂict of interest.
+
+    Agriculture 2023, 13, 540
+
+    18 of 22
+
+    References
+
+    1.
+
+    Santos, L.; Santos, F.; Mendes, J.; Costa, P.; Lima, J.; Reis, R.; Shinde, P.
+    Path planning aware of robot’s center of mass for steep
+
+    slope vineyards. Robotica 2020, 38, 684–698. [CrossRef]
+
+    2.
+
+    Patil, K.A.; Kale, N.R. A model for smart agriculture using IoT. In Proceedings
+    of the 2016 International Conference on Global
+
+    Trends in Signal Processing, Information Computing and Communication (ICGTSPICC),
+    Jalgaon, India, 22–24 December 2016;
+
+    pp. 543–545.
+
+    3.
+
+    Atzberger, C. Advances in remote sensing of agriculture: Context description,
+    existing operational monitoring systems and major
+
+    information needs. Remote Sens. 2013, 5, 949–981. [CrossRef]
+
+    4.
+
+    Santos, L.; Ferraz, N.; dos Santos, F.N.; Mendes, J.; Morais, R.; Costa, P.; Reis,
+    R. Path planning aware of soil compaction for steep
+
+    slope vineyards. In Proceedings of the 2018 IEEE International Conference on Autonomous
+    Robot Systems and Competitions
+
+    (ICARSC), Torres Vedras, Portugal, 25–27 April 2018. [CrossRef]
+
+    5.
+
+    Dhanaraju, M.; Chenniappan, P.; Ramalingam, K.; Pazhanivelan, S.; Kaliaperumal,
+    R. Smart Farming: Internet of Things
+
+    (IoT)-Based Sustainable Agriculture. Agriculture 2022, 12, 1745. [CrossRef]
+
+    6.
+
+    Walter, A.; Finger, R.; Huber, R.; Buchmann, N. Opinion: Smart farming is key
+    to developing sustainable agriculture. Proc. Natl.
+
+    Acad. Sci. USA 2017, 114, 6148–6150. [CrossRef] [PubMed]
+
+    7.
+
+    Schmidhuber, J. Deep learning in neural networks: An overview. Neural Netw. 2015,
+    61, 85–117. [CrossRef] [PubMed]
+
+    8.
+
+    Kamilaris, A.; Prenafeta-Boldú, F.X. A review of the use of convolutional neural
+    networks in agriculture. J. Agric. Sci. 2018, 156,
+
+    312–322. [CrossRef]
+
+    9.
+
+    Bouguettaya, A.; Zarzour, H.; Kechida, A.; Taberkit, A.M. A survey on deep learning-based
+    identiﬁcation of plant and crop
+
+    diseases from UAV-based aerial images. In Cluster Computing; Springer Science
+    and Business Media LLC: Berlin/Heidelberg,
+
+    Germany, 2022. [CrossRef]
+
+    10.
+
+    Khan, A.; Vibhute, A.D.; Mali, S.; Patil, C.H. A systematic review on hyperspectral
+    imaging technology with a machine and deep
+
+    learning methodology for agricultural applications. In Ecological Informatics;
+    Elsevier BV: Amsterdam, The Netherlands, 2022;
+
+    Volume 69, p. 101678.
+
+    11.
+
+    Kashyap, P. Machine Learning for Decision-Makers: Cognitive Computing Fundamentals
+    for Better Decision Making; Apress: Bangalore,
+
+    India, 2017; pp. 227–228.
+
+    12.
+
+    Magomadov, V.S. Deep Plearning and its role in smart agriculture. J. Phys. Conf.
+    Ser. 2019, 1399, 044109. [CrossRef]
+
+    13.
+
+    Graves, A.; Schmidhuber, J. Framewise phoneme classiﬁcation with bidirectional
+    LSTM and other neural network architectures.
+
+    Neural Netw. 2005, 18, 602–610. [CrossRef]
+
+    14.
+
+    Jain, A.; Zamir, A.R.; Savarese, S.; Saxena, A. Structural-run: Deep learning
+    on Spatio-temporal graphs. In Proceedings of the
+
+    IEEE Conference on Computer Vision and Pattern Recognition, Las Vegas, NV, USA,
+    27–30 June 2016; pp. 5308–5317.
+
+    15.
+
+    Ren, C.; Kim, D.K.; Jeong, D. A survey of deep learning in agriculture: Techniques
+    and their applications. J. Inf. Process. Syst.
+
+    2020, 16, 1015–1033.
+
+    16.
+
+    Santos, L.; Santos, F.N.; Oliveira, P.M.; Shinde, P. Deep learning applications
+    in agriculture: A short review. In Proceedings of
+
+    the Fourth Iberian Robotics Conference: Advances in Robotics, Robot 2019: Porto,
+    Portugal, 20–22 November 2019; Silva, M.F.,
+
+    Lima, J.L., Reis, L.P., Sanfeliu, A., Tardioli, D., Eds.; Springer: Cham, Switzerland;
+    pp. 139–151. Available online: https:
+
+    //doi.org/10.1007/978-3-030-35990-4_12 (accessed on 23 February 2022). [CrossRef]
+
+    17.
+
+    Kamilaris, A.; Prenafeta-Boldú, F.X. Deep learning in agriculture: A survey. Comput.
+    Electron. Agric. 2018, 147, 70–90. Available
+
+    online: https://doi.org/10.1016/j.compag.2018.02.016 (accessed on 23 February
+    2022). [CrossRef]
+
+    18.
+
+    Thai-Nghe, N.; Tri, N.T.; Hoa, N.H. Deep Learning for Rice Leaf Disease Detection
+    in Smart Agriculture. In Artiﬁcial Intelligence in
+
+    Data and Big Data Processing; Springer International Publishing: Berlin/Heidelberg,
+    Germany, 2022; pp. 659–670.
+
+    19.
+
+    Traditional Agriculture: An Efﬁcient and Sustainable Farming Method. Stories.pinduoduo-global.com.
+    2021. Available online:
+
+    https://stories.pinduoduo-global.com/agritech-hub/traditionalagriculture#:~:text=Traditional%20agriculture%20can%20be%
+
+    20deﬁned,cultural%20beliefs%20of%20the%20farmers (accessed on 23 February 2022).
+
+    20.
+
+    Shaila, M.; Begum, N. Ancient farming methods of seed storage and pest management
+    practices in India—A review. Plant Arch.
+
+    2021, 21, 499–509.
+
+    21.
+
+    Dargan, S.; Kumar, M.; Ayyagari, M.R.; Kumar, G. A survey of deep learning and
+    its applications: A new paradigm to machine
+
+    learning. Arch. Comput. Methods Eng. 2020, 27, 1071–1092. [CrossRef]
+
+    22.
+
+    LeCun, Y.; Bengio, Y.; Hinton, G. Deep learning. Nature 2015, 521, 436–444. [CrossRef]
+    [PubMed]
+
+    23.
+
+    Abdullahi, H.S.; Sheriff, R.; Mahieddine, F. Convolution neural network in precision
+    agriculture for plant image recognition and
+
+    classiﬁcation. In 2017 Seventh International Conference on Innovative Computing
+    Technology (INTECH), Luton, UK, 16–18 August 2017;
+
+    IEEE: Piscataway, NJ, USA, 2017; Volume 10, pp. 256–272.
+
+    24.
+
+    Ajit, A.; Acharya, K.; Samanta, A. A review of convolutional neural networks.
+    In Proceedings of the 2020 International Conference
+
+    on Emerging Trends in Information Technology and Engineering (ic-ETITE), Vellore,
+    India, 24–25 February 2020.
+
+    25.
+
+    Zaremba, W.; Sutskever, I.; Vinyals, O. Recurrent neural network regularization.
+    arXiv 2014, arXiv:1409.2329. in press.
+
+    26.
+
+    Chen, S.W.; Shivakumar, S.S.; Dcunha, S.; Das, J.; Okon, E.; Qu, C.; Taylor, C.J.;
+    Kumar, V. Counting apples and oranges with deep
+
+    learning: A data-driven approach. IEEE Robot. Autom. Lett. 2017, 2, 781–788. [CrossRef]
+
+    27.
+
+    Rahnemoonfar, M.; Sheppard, C. Deep count: Fruit counting based on deep simulated
+    learning. Sensors 2017, 17, 905. [CrossRef]
+
+    Agriculture 2023, 13, 540
+
+    19 of 22
+
+    28.
+
+    Apolo-Apolo, O.E.; Martínez-Guanter, J.; Egea, G.; Raja, P.; Pérez-Ruiz, M. Deep
+    learning techniques for estimation of the yield
+
+    and size of citrus fruits using a UAV. Eur. J. Agron. 2020, 115, 126030. [CrossRef]
+
+    29.
+
+    Sa, I.; Ge, Z.; Dayoub, F.; Upcroft, B.; Perez, T.; McCool, C. Deepfruits: A fruit
+    detection system using deep neural networks.
+
+    Sensors 2016, 16, 1222. [CrossRef]
+
+    30.
+
+    Krizhevsky, A.; Sutskever, I.; Hinton, G.E. Imagenet classiﬁcation with deep convolutional
+    neural networks. In Advances in Neural
+
+    Information Processing Systems, Proceedings of the Neural Information Processing
+    Systems Conference, Lake Tahoe, NV, USA, 3–6 December
+
+    2012; Neural Information Processing Systems Foundation, Inc.: Ljubljana, Slovenia,
+    2012; pp. 1097–1105.
+
+    31.
+
+    Bargoti, S.; Underwood, J. Deep fruit detection in orchards. In Proceedings of
+    the 2017 IEEE International Conference on Robotics
+
+    and Automation (ICRA), Singapore, 29 May–3 June 2017.
+
+    32.
+
+    Fu, L.; Feng, Y.; Elkamil, T.; Liu, Z.; Li, R.; Cui, Y. Image recognition method
+    of multi-cluster kiwifruit in ﬁeld based on
+
+    convolutional neural networks. Nongye Gongcheng Xuebao/Trans. Chin. Soc. Agric.
+    Eng. 2018, 34, 205–211.
+
+    33.
+
+    Katarzyna, R.; Paweł, M. A vision-based method utilizing deep convolutional neural
+    networks for fruit variety classiﬁcation in
+
+    uncertainty conditions of retail sales. Appl. Sci. 2019, 9, 3971. [CrossRef]
+
+    34.
+
+    Villacrés, J.F.; Auat Cheein, F. Detection and characterization of cherries: A
+    deep learning usability case study in Chile. Agronomy
+
+    2020, 10, 835. [CrossRef]
+
+    35.
+
+    Chung, D.T.P.; Van Tai, D. A fruits recognition system based on a modern deep
+    learning technique. J. Phys. Conf. Ser. 2019,
+
+    1327, 012050. [CrossRef]
+
+    36.
+
+    Wang, S.H.; Chen, Y. Fruit category classiﬁcation via an eight-layer convolutional
+    neural network with parametric rectiﬁed linear
+
+    unit and dropout technique. Multim. Tools Appl. 2018, 79, 15117–15133. [CrossRef]
+
+    37.
+
+    Kestur, R.; Meduri, A.; Narasipura, O. MangoNet: A deep semantic segmentation
+    architecture for a method to detect and count
+
+    mangoes in an open orchard. Eng. Appl. Artif. Intell. 2019, 77, 59–69. [CrossRef]
+
+    38.
+
+    Santos, T.T.; de Souza, L.L.; dos Santos, A.A.; Avila, S. Grape detection, segmentation,
+    and tracking using deep neural networks
+
+    and three-dimensional association. Comput. Electron. Agric. 2020, 170, 105247.
+    [CrossRef]
+
+    39.
+
+    Chen, H.; Chen, A.; Xu, L.; Xie, H.; Qiao, H.; Lin, Q.; Cai, K. A deep learning
+    CNN architecture applied in smart near-infrared
+
+    analysis of water pollution for agricultural irrigation resources. Agric. Water
+    Manag. 2020, 240, 106303. [CrossRef]
+
+    40.
+
+    Garg, D.; Khan, S.; Alam, M. Integrative use of IoT and deep learning for agricultural
+    applications. In Proceedings of ICETIT
+
+    2019: Emerging Trends in Information Technology; Springer: Cham, Switzerland,
+    2020; pp. 521–531.
+
+    41.
+
+    Mohan, P.; Patil, K.K. Deep learning based weighted SOM to forecast weather and
+    crop prediction for agriculture application. Int.
+
+    J. Intell. Eng. Syst. 2018, 11, 167–176. [CrossRef]
+
+    42.
+
+    Yang, X.; Sun, M. A survey on deep learning in crop planting. IOP Conf. Ser. Mater.
+    Sci. Eng. 2019, 490, 062053. [CrossRef]
+
+    43.
+
+    Dharani, M.K.; Thamilselvan, R.; Natesan, P.; Kalaivaani, P.C.D.; Santhoshkumar,
+    S. Review Pon crop prediction using deep
+
+    learning techniques. J. Phys. Conf. Ser. 2021, 1767, 012026. [CrossRef]
+
+    44.
+
+    Zheng, Y.Y.; Kong, J.L.; Jin, X.B.; Wang, X.Y.; Su, T.L.; Zuo, M. CropDeep: The
+    crop vision dataset for deep-learning-based
+
+    classiﬁcation and detection in precision agriculture. Sensors 2019, 19, 1058.
+    [CrossRef]
+
+    45.
+
+    Lottes, P.; Behley, J.; Chebrolu, N.; Milioto, A.; Stachniss, C. Robust joint
+    stem detection and crop-weed classiﬁcation using image
+
+    sequences for plant-speciﬁc treatment in precision farming. J. Field Robot. 2020,
+    37, 20–34. [CrossRef]
+
+    46.
+
+    Lottes, P.; Behley, J.; Milioto, A.; Stachniss, C. Fully convolutional networks
+    with sequential information for robust crop and weed
+
+    detection in precision farming. IEEE Robot. Autom. Lett. 2018, 3, 2870–2877. [CrossRef]
+
+    47.
+
+    Chavan, T.R.; Nandedkar, A.V. AgroAVNET for crops and weeds classiﬁcation: A step
+    forward in automatic farming. Comput.
+
+    Electron. Agric. 2018, 154, 361–372. [CrossRef]
+
+    48.
+
+    Suh, H.K.; Ijsselmuiden, J.; Hofstee, J.W.; van Henten, E.J. Transfer learning
+    for the classiﬁcation of sugar beet and volunteer
+
+    potato under ﬁeld conditions. Biosyst. Eng. 2018, 174, 50–65. [CrossRef]
+
+    49.
+
+    Meng, S.; Wang, X.; Hu, X.; Luo, C.; Zhong, Y. Deep learning-based crop mapping
+    in the cloudy season using one-shot
+
+    hyperspectral satellite imagery. Comput. Electron. Agric. 2021, 186, 106188. [CrossRef]
+
+    50.
+
+    Cai, Y.; Zheng, W.; Zhang, X.; Zhangzhong, L.; Xue, X. Research on soil moisture
+    prediction model based on deep learning.
+
+    PLoS ONE 2019, 14, e0214508. [CrossRef]
+
+    51.
+
+    Yashwanth, M.; Chandra, M.L.; Pallavi, K.; Showkat, D.; Kumar, P.S. Agriculture
+    automation using deep learning methods
+
+    implemented using keras. In Proceedings of the 2020 IEEE International Conference
+    for Innovation in Technology (INOCON),
+
+    Bangalore, India, 6–8 November 2020.
+
+    52.
+
+    Tseng, D.; Wang, D.; Chen, C.; Miller, L.; Song, W.; Viers, J.; Vougioukas, S.;
+    Carpin, S.; Ojea, J.A.; Goldberg, K. Towards
+
+    automating precision irrigation: Deep learning to infer local soil moisture conditions
+    from synthetic aerial agricultural images.
+
+    In Proceedings of the 2018 IEEE 14th International Conference on Automation Science
+    and Engineering (CASE), Munich, Germany,
+
+    20–24 August 2018; pp. 284–291.
+
+    53.
+
+    Westwood, J.H.; Charudattan, R.; Duke, S.O.; Fennimore, S.A.; Marrone, P.; Slaughter,
+    D.C.; Swanton, C.; Zollinger, R. Weed
+
+    management in 2050: Perspectives on the future of weed science. Weed Sci. 2018,
+    66, 275–285. [CrossRef]
+
+    54.
+
+    Mishra, A.M.; Gautam, V. Weed species identiﬁcation in different crops using precision
+    weed management: A review. Proc. CEUR
+
+    Workshop 2021, 180–194. Available online: https://www.semanticscholar.org/paper/Weed-Species-Identiﬁcation-in-Different-
+
+    Crops-Weed-Mishra-Gautam/8710e1a04eada39809b159ea8650f4c639c9bf19 (accessed on
+    3 July 2022).
+
+    Agriculture 2023, 13, 540
+
+    20 of 22
+
+    55.
+
+    Gulzar, Y.; Hamid, Y.; Soomro, A.B.; Alwan, A.A.; Journaux, L. A convolution neural
+    network-based seed classiﬁcation system.
+
+    Symmetry 2020, 12, 2018. [CrossRef]
+
+    56.
+
+    Sharma, A.; Jain, A.; Gupta, P.; Chowdary, V. Machine learning applications for
+    precision agriculture: A comprehensive review.
+
+    IEEE Access 2020, 9, 4843–4873. [CrossRef]
+
+    57.
+
+    Saleem, M.H.; Potgieter, J.; Arif, K.M. Plant disease detection and classiﬁcation
+    by deep learning. Plants 2019, 8, 468. [CrossRef]
+
+    58.
+
+    Amara, J.; Bouaziz, B.; Algergawy, A. A deep learning-based approach for banana
+    leaf diseases classiﬁcation. In Proceedings of
+
+    the Datenbanksysteme für Business, Technologie und Web (BTW 2017)-Workshopband,
+    Stuttgart, Germany, 6–7 March 2017;
+
+    Gesellschaft für Informatik e.V.: Bonn, Germany, 2017; pp. 79–88.
+
+    59.
+
+    Dipali, M.; Deepa, D. Automation, and integration of growth monitoring in plants
+    (with disease prediction) and crop prediction.
+
+    Mater. Today Proc. 2021, 43, 3922–3927.
+
+    60.
+
+    Akash, S.; Malik, A. A hybrid model for the classiﬁcation of sunﬂower diseases
+    using deep learning. In Proceedings of the 2021
+
+    2nd International Conference on Intelligent Engineering and Management (ICIEM),
+    London, UK, 28–30 April 2021; pp. 58–62.
+
+    61.
+
+    Ahmed, A.A.; Reddy, G.H. A mobile-based system for detecting plant leaf diseases
+    using deep learning. AgriEngineering 2021, 3,
+
+    478–493. [CrossRef]
+
+    62.
+
+    Pallagani, V.; Khandelwal, V.; Chandra, B.; Udutalapally, V.; Das, D.; Mohanty,
+    S.P. DCrop: A deep-learning-based framework for
+
+    accurate prediction of diseases of crops in smart agriculture. In Proceedings
+    of the 2019 IEEE International Symposium on Smart
+
+    Electronic Systems (iSES) (Formerly iNiS), Rourkela, India, 16–18 December 2019;
+    pp. 29–33.
+
+    63.
+
+    Sladojevic, S.; Arsenovic, M.; Anderla, A.; Culibrk, D.; Stefanovic, D. Deep neural
+    networks based recognition of plant diseases by
+
+    leaf image classiﬁcation. Comput. Intell. Neurosci. 2016, 2016, 3289801. [CrossRef]
+    [PubMed]
+
+    64.
+
+    Arivazhagan, S.; Shebiah, R.N.; Ananthi, S.; Varthini, S.V. Detection of unhealthy
+    region of plant leaves and classiﬁcation of plant
+
+    leaf diseases using texture features. Agric. Eng. Int. CIGR J. 2013, 15, 211–217.
+
+    65.
+
+    Chen, J.; Chen, J.; Zhang, D.; Sun, Y.; Nanehkaran, Y.A. Using deep transfer learning
+    for image-based plant disease identiﬁcation.
+
+    Comput. Electron. Agric. 2020, 173, 105393. [CrossRef]
+
+    66.
+
+    Sharma, P.; Berwal, Y.P.S.; Ghai, W. Performance analysis of deep learning CNN
+    models for disease detection in plants using
+
+    image segmentation. Inf. Process. Agric. 2020, 7, 566–574. [CrossRef]
+
+    67.
+
+    Atila, Ü.; Uçar, M.; Akyol, K.; Uçar, E. Plant leaf disease classiﬁcation using
+    EfﬁcientNet deep learning model. Ecol. Inform. 2021,
+
+    61, 101182. [CrossRef]
+
+    68.
+
+    Kaur, P.; Harnal, S.; Tiwari, R.; Upadhyay, S.; Bhatia, S.; Mashat, A.; Alabdali,
+    A.M. Recognition of leaf disease using hybrid
+
+    convolutional neural network by applying feature reduction. Sensors 2022, 22,
+    575. [CrossRef]
+
+    69.
+
+    Ji, M.; Zhang, L.; Wu, Q. Automatic grape leaf diseases identiﬁcation via UnitedModel
+    based on multiple convolutional neural
+
+    networks. Inf. Process. Agric. 2020, 7, 418–426. [CrossRef]
+
+    70.
+
+    Gadekallu, T.R.; Rajput, D.S.; Reddy, M.P.K.; Lakshmanna, K.; Bhattacharya, S.;
+    Singh, S.; Jolfaei, A.; Alazab, M. A novel
+
+    PCA–whale optimization-based deep neural network model for classiﬁcation of tomato
+    plant diseases using GPU. J. Real-Time
+
+    Image Process. 2021, 18, 1383–1396. [CrossRef]
+
+    71.
+
+    Azimi, S.; Kaur, T.; Gandhi, T.K. A deep learning approach to measure stress level
+    in plants due to nitrogen deﬁciency. Measurement
+
+    2021, 173, 108650. [CrossRef]
+
+    72.
+
+    Joshi, R.C.; Kaushik, M.; Dutta, M.K.; Srivastava, A.; Choudhary, N. VirLeafNet:
+    Automatic analysis and viral disease diagnosis
+
+    using deep-learning in Vigna mungo plant. Ecol. Inform. 2021, 61, 101197. [CrossRef]
+
+    73.
+
+    Kavitha, A. Deep Learning for Smart Agriculture.
+
+    Int.
+
+    J. Eng.
+
+    Res.
+
+    Technol.
+
+    2021, 9.
+
+    Available online: https://www.
+
+    semanticscholar.org/paper/Deep-Learning-for-Smart-Agriculture-Kavitha/0a272722fe4838cce5af0bb907310bf76927406d
+    (ac-
+
+    cessed on 3 July 2022).
+
+    74.
+
+    Josephine, B.; Ramya, K.; Rao, K.V.S.N.; Kuchibhotla, P.; Venkata, K.; Rahamathulla,
+    S. Crop yield prediction using machine
+
+    learning. Int. J. Sci. Technol. Res. 2020, 9. Available online: http://www.ijstr.org/paper-references.php?ref=IJSTR-0120-29576
+
+    (accessed on 3 July 2022).
+
+    75.
+
+    Khaki, S.; Wang, L. Crop yield prediction using deep neural networks. Front. Plant
+    Sci. 2019, 10, 621. Available online:
+
+    https://doi.org/10.3389/fpls.2019.00621 (accessed on 23 February 2022). [CrossRef]
+
+    76.
+
+    Deepika, P.; Kaliraj, S. A survey on pest and disease monitoring of crops. In
+    Proceedings of the 2021 3rd International Conference
+
+    on Signal Processing and Communication (ICPSC), Coimbatore, India, 13–14 May 2021;
+    Available online: https://doi.org/10.110
+
+    9/icspc51351.2021.9451787 (accessed on 23 February 2022).
+
+    77.
+
+    Ale, L.; Sheta, A.; Li, L.; Wang, Y.; Zhang, N. Deep learning based plant disease
+    detection for smart agriculture. In Proceedings
+
+    of the 2019 IEEE Globecom Workshops (GC Wkshps), Waikoloa, HI, USA, 9–13 December
+    2019; Available online: https:
+
+    //doi.org/10.1109/gcwkshps45667.2019.9024439 (accessed on 23 February 2022).
+
+    78.
+
+    Zhu, N.; Liu, X.; Liu, Z.; Hu, K.; Wang, Y.; Tan, J.; Huang, M.; Zhu, Q.; Ji,
+    X.; Jiang, Y.; et al. Deep learning for smart agriculture:
+
+    Concepts, tools, applications, and opportunities. Int. J. Agric. Biol. Eng. 2018,
+    11, 32–44. [CrossRef]
+
+    79.
+
+    Deep Learning for Image-Based Plant Disease Detection.
+
+    Let’s Nurture—An IT Company Nurturing Ideas into Reality.
+
+    2022. Available online: https://www.letsnurture.com/blog/using-deep-learning-for-image-based-plant-disease-detection.html
+
+    (accessed on 23 February 2022).
+
+    80.
+
+    Zhao, Q.; Koch, C. Learning saliency-based visual attention: A Review. Signal
+    Process. 2013, 93, 1401–1407. [CrossRef]
+
+    Agriculture 2023, 13, 540
+
+    21 of 22
+
+    81.
+
+    Kümmerer, M.; Theis, L.; Bethge, M. Deep Gaze I: Boosting saliency prediction
+    with feature maps trained on ImageNet. In
+
+    Proceedings of the 2015 International Conference on Learning Representations (ICLR),
+    San Diego, CA, USA, 8 May 2014; Available
+
+    online: https://pure.mpg.de/pubman/faces/ViewItemOverviewPage.jsp?itemId=item_2160776
+    (accessed on 24 February 2022).
+
+    82.
+
+    Shrikumar, A.; Greenside, P.; Kundaje, A. Reverse-complement parameter sharing
+    improves deep learning models for genomics.
+
+    bioRxiv 2017, in press.
+
+    83.
+
+    Springenberg, J.T.; Dosovitskiy, A.; Brox, T.; Riedmiller, M. Striving for simplicity:
+    The all convolutional net. arXiv. 2015. in press.
+
+    Available online: https://arxiv.org/abs/1412.6806 (accessed on 24 February 2022).
+
+    84.
+
+    Zeiler, M.D.; Fergus, R. Visualizing and understanding Convolutional Networks.
+    In Proceedings of Computer Vision–ECCV
+
+    2014: 13th European Conference, Part I 13, Zurich, Switzerland, 6–12 September
+    2014; Springer International Publishing: Cham,
+
+    Switzerland, 2014; pp. 818–833.
+
+    85.
+
+    Zhou, B.; Khosla, A.; Lapedriza, A.; Oliva, A.; Torralba, A. Learning deep features
+    for discriminative localization. In Proceedings
+
+    of the 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR),
+    Las Vegas, NV, USA, 26 June–1 July 2016.
+
+    86.
+
+    Bach, S.; Binder, A.; Montavon, G.; Klauschen, F.; Müller, K.-R.; Samek, W. On
+    pixel-wise explanations for non-linear classiﬁer
+
+    decisions by layer-wise relevance propagation. PLoS ONE 2015, 10, e0130140. [CrossRef]
+
+    87.
+
+    Uzal, L.C.; Grinblat, G.L.; Namías, R.; Larese, M.G.; Bianchi, J.S.; Morandi,
+    E.N.; Granitto, P.M. Seed-per-pod estimation for plant
+
+    breeding using deep learning. Comput. Electron. Agric. 2018, 150, 196–204. [CrossRef]
+
+    88.
+
+    Nkemelu, D.K.; Omeiza, D.; Lubalo, N. Deep convolutional neural network for plant
+    seedlings classiﬁcation. arXiv. 2018. in press.
+
+    Available online: https://arxiv.org/abs/1811.08404?source=post_page (accessed
+    on 24 February 2022).
+
+    89.
+
+    Amiryouseﬁ, M.R.; Mohebbi, M.; Tehranifar, A. Pomegranate seed clustering by machine
+    vision. Food Sci. Nutr. 2017, 6, 18–26.
+
+    [CrossRef] [PubMed]
+
+    90.
+
+    Sujatha, R.; Chatterjee, J.M.; Jhanjhi, N.Z.; Brohi, S.N. Performance of deep
+    learning vs machine learning in plant leaf disease
+
+    detection. Microprocess. Microsyst. 2021, 80, 103615. [CrossRef]
+
+    91.
+
+    Arnal Barbedo, J.G. Plant disease identiﬁcation from individual lesions and spots
+    using deep learning. Biosyst. Eng. 2019, 180,
+
+    96–107. [CrossRef]
+
+    92.
+
+    Liu, P.; Mahmood, T.; Khan, Q. Multi-attribute decision-making based on prioritized
+    aggregation operator under hesitant
+
+    intuitionistic fuzzy linguistic environment. Symmetry 2017, 9, 270. [CrossRef]
+
+    93.
+
+    Bresilla, K.; Perulli, G.D.; Boini, A.; Morandi, B.; Grappadelli, L.; Manfrini,
+    L. Single-shot convolution neural networks for
+
+    real-time fruit detection within the tree. Front. Plant Sci. 2019, 10, 611. [CrossRef]
+    [PubMed]
+
+    94.
+
+    Altaheri, H.; Alsulaiman, M.; Muhammad, G. Date fruit classiﬁcation for robotic
+    harvesting in a natural environment using deep
+
+    learning. IEEE Access 2019, 7, 117115–117133. [CrossRef]
+
+    95.
+
+    Meshram, V.; Patil, K.; Meshram, V.; Hanchate, D.; Ramkteke, S.D. Machine learning
+    in agriculture domain: A state-of-art survey.
+
+    Artif. Intell. Life Sci. 2021, 1, 100010. [CrossRef]
+
+    96.
+
+    Lu, S.; Chen, W.; Zhang, X.; Karkee, M. Canopy-attention-YOLOv4-based immature/mature
+    apple fruit detection on dense-foliage
+
+    tree architectures for early crop load estimation. Comput. Electron. Agric. 2022,
+    193, 106696. [CrossRef]
+
+    97.
+
+    Lyu, S.; Li, R.; Zhao, Y.; Li, Z.; Fan, R.; Liu, S. Green citrus detection and
+    counting in orchards based on YOLOv5-CS and AI edge
+
+    system. Sensors 2022, 22, 576. [CrossRef]
+
+    98.
+
+    Khan, R.; Dhingra, N.; Bhati, N. Role of Artiﬁcial Intelligence in Agriculture:
+    A Comparative Study. In Transforming Management
+
+    with AI, Big-Data, and IoT; Springer International Publishing: Cham, Switzerland,
+    2022; pp. 73–83.
+
+    99.
+
+    Wang, C.; Liu, B.; Liu, L.; Zhu, Y.; Hou, J.; Liu, P.; Li, X. A review of deep
+    learning used in the hyperspectral image analysis for
+
+    agriculture. Artif. Intell. Rev. 2021, 54, 5205–5253. [CrossRef]
+
+    100. Coulibaly, S.; Kamsu-Foguem, B.; Kamissoko, D.; Traore, D. Deep neural networks
+    with transfer learning in Millet crop images.
+
+    Comput. Ind. 2019, 108, 115–120. [CrossRef]
+
+    101. Sahni, V.; Srivastava, S.; Khan, R. Modelling techniques to improve the quality
+    of food using artiﬁcial intelligence. J. Food Qual.
+
+    2021, 2021, 2140010. [CrossRef]
+
+    102. Khan, R.; Tyagi, N.; Chauhan, N. Safety of food and food warehouse using
+    VIBHISHAN. J. Food Qual. 2021, 2021, 1328332.
+
+    [CrossRef]
+
+    103. Kaya, A.; Keceli, A.S.; Catal, C.; Yalic, H.Y.; Temucin, H.; Tekinerdogan,
+    B. Analysis of transfer learning for deep neural network
+
+    based plant classiﬁcation models. Comput. Electron. Agric. 2019, 158, 20–29. [CrossRef]
+
+    104. Sharma, M.; Nath, K.; Sharma, R.K.; Kumar, C.J.; Chaudhary, A. Ensemble Averaging
+    of Transfer Learning Models for Identiﬁca-
+
+    tion of Nutritional Deﬁciency in Rice Plant. Electronics 2022, 11, 148. [CrossRef]
+
+    105. Argüeso, D.; Picon, A.; Irusta, U.; Medela, A.; San-Emeterio, M.G.; Bereciartua,
+    A.; Alvarez-Gila, A. Few-shot learning approach
+
+    for plant disease classiﬁcation using images taken in the ﬁeld. Comput. Electron.
+    Agric. 2020, 175, 105542. [CrossRef]
+
+    106. Zhong, F.M.; Chen, Z.K.; Zhang, Y.C.; Xia, F. Zero-and few-shot learning
+    for diseases recognition of Citrus aurantium L. using
+
+    conditional adversarial autoencoders. Comput. Electron. Agric. 2020, 179, 105828.
+    [CrossRef]
+
+    107. Jiang, H.H.; Zhang, C.Y.; Qiao, Y.L.; Zhang, Z.; Zhang, W.J.; Song, C.Q.
+    CNN feature-based graph convolutional network for
+
+    weed and crop recognition in smart farming. Comput. Electron. Agric. 2020, 174,
+    105450. [CrossRef]
+
+    108. Khaki, S.; Pham, H.; Han, Y.; Kuhl, A.; Kent, W.; Wang, L. Deepcorn: A semi-supervised
+    deep learning method for high-throughput
+
+    image-based corn kernel counting and yield estimation. Knowl. Based Syst. 2021,
+    218, 106874. [CrossRef]
+
+    Agriculture 2023, 13, 540
+
+    22 of 22
+
+    109. Sa, I.; Chen, Z.; Popovi´c, M.; Khanna, R.; Liebisch, F.; Nieto, J.; Siegwart,
+    R. WeedNet: Dense semantic weed classiﬁcation using
+
+    multispectral images and MAV for smart farming. IEEE Robot. Autom. Lett. 2017,
+    3, 588–595. [CrossRef]
+
+    110. Sa, I.; Popovi´c, M.; Khanna, R.; Chen, Z.; Lottes, P.; Liebisch, F.; Nieto,
+    J.; Stachniss, C.; Walter, A.; Siegwart, R. WeedMap: A
+
+    large-scale semantic weed mapping framework using aerial multispectral imaging
+    and deep neural network for precision farming.
+
+    Remote Sens. 2018, 10, 1423. [CrossRef]
+
+    111. Jiao, L.; Dong, S.; Zhang, S.; Xie, C.; Wang, H. AF-RCNN: An anchor-free
+    convolutional neural network for multi-categories
+
+    agricultural pest detection. Comput. Electron. Agric. 2020, 174, 105522. [CrossRef]
+
+    112. Eunice, J.; Popescu, D.E.; Chowdary, M.K.; Hemanth, J. Deep learning-based
+    leaf disease detection in crops using images for
+
+    agricultural applications. Agronomy 2022, 12, 2395.
+
+    113. Wu, Q.; Chen, Y.; Meng, J. DCGAN-based data augmentation for tomato leaf
+    disease identiﬁcation. IEEE Access 2020, 8,
+
+    98716–98728. [CrossRef]
+
+    114. Hammouch, H.; El-Yacoubi, M.; Qin, H.; Berrahou, A.; Berbia, H.; Chikhaoui,
+    M. A two-stage deep convolutional generative
+
+    adversarial network-based data augmentation scheme for agriculture image regression
+    tasks. In Proceedings of the 2021
+
+    International Conference on Cyber-Physical Social Intelligence (ICCSI), Beijing,
+    China, 18–20 December 2021.
+
+    115. Sourav, A.I.; Emanuel, A.W.R. Recent Trends of Big Data in Precision Agriculture:
+    A Review. In IOP Conference Series: Materials
+
+    Science and Engineering; IOP Publishing: Bristol, UK, 2021; Volume 1096, p. 012081.
+
+    116. Bharman, P.; Ahmad Saad, S.; Khan, S.; Jahan, I.; Ray, M.; Biswas, M. Deep
+    Learning in Agriculture: A Review. Asian J. Res.
+
+    Comput. Sci. 2022, 13, 28–47. [CrossRef]
+
+    117. Goodfellow, I.; Bengio, Y.; Courville, A. Deep Learning; MIT Press: Cambridge,
+    MA, USA, 2014.
+
+    118. Liu, J.; Cheng, L.; Yan, S. Deep learning with noisy labels. In Proceedings
+    of the IEEE Conference on Computer Vision and Pattern
+
+    Recognition, Long Beach, CA, USA, 16–20 June 2019.
+
+    119. Madry, A.; Makelov, A.; Schmidt, L.; Tsipras, D.; Vladu, A. Towards deep
+    learning models resistant to adversarial attacks. arXiv
+
+    2018, arXiv:1706.06083. in press.
+
+    120. Finn, C.; Abbeel, P.; Levine, S. Model-agnostic meta-learning for fast adaptation
+    of deep networks. In Proceedings of the 34th
+
+    International Conference on Machine Learning, Sydney, Australia, 6–11 August 2017;
+    Volume 70, pp. 1126–1135.
+
+    121. Ribeiro, M.T.; Singh, S.; Guestrin, C. “Why should I trust you?”: Explaining
+    the predictions of any classiﬁer. In Proceedings of the
+
+    22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,
+    San Francisco CA, USA, 13–17 August
+
+    2016; Association for Computing Machinery: New York, NY, USA, 2016; pp. 1135–1144.
+
+    122. Lundberg, S.M.; Lee, S.I. A uniﬁed approach to interpreting model predictions.
+    Adv. Neural Inf. Process. Syst. 2017, 30, 4765–4774.
+
+    123. Caruana, R. Intelligible models for healthcare: Predicting pneumonia risk
+    and hospital 30-day readmission. In Proceedings of the
+
+    21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,
+    Sydney, Australia, 10–13 August 2015;
+
+    pp. 1721–1730.
+
+    124. Vaswani, A.; Shazeer, N.; Parmar, N.; Uszkoreit, J.; Jones, L.; Gomez, A.N.;
+    Kaiser, Ł.; Polosukhin, I. Attention is all you need. Adv.
+
+    Neural Inf. Process. Syst. 2017, 30, 5998–6008.
+
+    125. Snell, J.; Swersky, K.; Zemel, R. Prototypical networks for few-shot learning.
+    Adv. Neural Inf. Process. Syst. 2017, 30, 4077–4087.
+
+    Disclaimer/Publisher’s Note: The statements, opinions and data contained in all
+    publications are solely those of the individual
+
+    author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or
+    the editor(s) disclaim responsibility for any injury to
+
+    people or property resulting from any ideas, methods, instructions or products
+    referred to in the content.
+
+    '
+  inline_citation: '>'
+  journal: Agriculture
+  limitations: '>'
+  pdf_link: https://www.mdpi.com/2077-0472/13/3/540/pdf?version=1677156618
+  publication_year: 2023
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'A Survey on Deep Learning and Its Impact on Agriculture: Challenges and
+    Opportunities'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

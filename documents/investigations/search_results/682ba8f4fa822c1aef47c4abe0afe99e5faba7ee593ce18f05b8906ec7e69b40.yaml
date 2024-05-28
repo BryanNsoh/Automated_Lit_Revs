@@ -1,0 +1,834 @@
+- DOI: https://doi.org/10.1016/j.agwat.2015.12.011
+  analysis: '>'
+  authors:
+  - Geng Niu
+  - Y.P. Li
+  - Guohe Huang
+  - J. Liu
+  - Yurui Fan
+  citation_count: 59
+  full_citation: '>'
+  full_text: '>
+
+    Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Keywords 1. Introduction 2. Methodology 3. Case study
+    4. Result analysis 5. Discussion 6. Conclusions Acknowledgements Appendix A. References
+    Show full outline Figures (10) Show 4 more figures Tables (6) Table 1 Table 2
+    Table 3 Table 4 Table 5 Table 6 Agricultural Water Management Volume 166, 1 March
+    2016, Pages 53-69 Crop planning and water resource allocation for sustainable
+    development of an irrigation region in China under multiple uncertainties Author
+    links open overlay panel G. Niu a, Y.P. Li a b, G.H. Huang b, J. Liu a, Y.R. Fan
+    b Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.agwat.2015.12.011
+    Get rights and content Highlights • An interactive two-stage fuzzy stochastic
+    programming (ITFSP) method is advanced. • Uncertainties of probability distribution
+    and fuzzy-boundary interval can be handled. • Different policy scenarios for crop
+    and irrigation targets are examined. • Optimal water-allocation schemes can be
+    obtained for agricultural sustainability. • Results can help to identify desired
+    crop planning and water allocation in profitable ways. Abstract In this study,
+    an interactive two-stage fuzzy stochastic programming (ITFSP) method is developed
+    for supporting crop planning and water resource allocation under uncertainty.
+    ITFSP can effectively address uncertainties expressed as probability distributions
+    and fuzzy-boundary intervals. It can also be utilized for in-depth analyzing different
+    policy scenarios that are integrated with various economic implications since
+    penalties are executed with recourse actions. ITFSP enables decision makers to
+    identify a tradeoff between higher objective values and feasibility of constraints.
+    The ITFSP method is applied to a real case of Hetao irrigation district, one of
+    the largest irrigation districts for food production in China. Different scenarios
+    for crop planning targets which reflect the attitudes of local authority to the
+    available water resources are examined. Results discover that different scenarios
+    lead to changed irrigation patterns, water shortages, penalties, as well as system
+    benefits. Results also reveal that decision makers would be more positive to water
+    allocation to crops of wheat and oil than maize; oil crop always possesses the
+    priority of water allocation and would be partly satisfied even under the low
+    flow. Solutions are useful for determining optimized cropland use and water allocation
+    patterns in such an agricultural system in the arid region, which could hedge
+    appropriately against future available water levels in more profitable and sustainable
+    ways. Previous article in issue Next article in issue Keywords Aricultural developmentInteractive
+    fuzzy resolutionOptimizationPolicy analysisUncertaintyWater resource 1. Introduction
+    Nowadays, rapid population and economy growth have led to increasing reliance
+    on agricultural production. Development of water resource for agricultural irrigation
+    plays a vital role in guaranteeing food security to provision human life and improves
+    socio-economic development (Sharma and Minhas, 2005, Singh, 2014). However, more
+    and more irrigation districts where demands outstrip agricultural water resource
+    availabilities have suffered from serious shortages, especially for many arid
+    and semi-arid regions where are main features of low rainfall, high evaporation
+    and uneven temporal distribution (Tran et al., 2011, Garg and Dadhich, 2014).
+    The balance between increasing consumption and decreasing acquisition of water
+    resource to realize optimal water allocation has become a major challenge for
+    many authorities. Therefore, sound system planning for agricultural water resource
+    allocation is desired to reduce such conflicts, as well as to obtain certain goals
+    such as economic merits, conserve water, reduce pollution, and food security under
+    the limitation of cropland and water resource (Zhou et al., 2010, Kang and Park,
+    2014). In fact, agricultural water resource system is related to various uncertainty
+    variables such as soil moisture, rainfall, temperature, resource availability,
+    irrigation quota, economic benefit, and market demand, which are not easily quantified
+    and not fully controllable (Regulwar and Gurav, 2011, Zhang et al., 2011a). In
+    addition, interactions among these uncertain parameters and additional economy
+    implications can further complicate the agricultural water resource system. In
+    response to the above complexities and uncertainties, a number of stochastic mathematical
+    programming (SMP) methods were proposed for planning water resource systems (Sethi
+    et al., 2006, Li et al., 2011, Housh et al., 2013, Zhang et al., 2014, Akbari
+    et al., 2014, Mun et al., 2015). For example, Marques et al. (2010) developed
+    a two-stage stochastic quadratic programming to optimize farmer''s expected revenue
+    and cropping decisions through conjunctive use of groundwater and artificial recharge,
+    in which hydrology, annual crops, and irrigation technology decisions were treated
+    as a random event. Huang et al. (2012) presented a two-stage interval quadratic
+    programming for supporting agriculture water management in the Tarim River Basin,
+    China, where the available irrigation water was presented as a random variable
+    and the other parameters were expressed as interval values. Two-stage stochastic
+    programming (TSP) is useful for tackling problems where an analysis of policy
+    scenarios is desired and related data are random; however, TSP is incapable of
+    addressing uncertainties exist as vagueness interval due to the quality of information
+    can not satisfactory enough to specify distributions than to define fluctuation
+    ranges (Li et al., 2006). Fuzzy mathematical programming (FMP) is effective for
+    reflecting ambiguity and vagueness in resource availabilities as well as dealing
+    with decision problems under fuzzy goal and constraints (Zimmermann, 1995, Li
+    et al., 2009, Zhang et al., 2009b). Biswas and Pal (2005) presented a fuzzy goal
+    programming method for planning agricultural land use problems, where total cultivable
+    land, productive resource, production aspiration levels and total expected benefit
+    were fuzzily described and cropping plan of several seasonal crops were optimized.
+    Sahoo et al. (2006) developed a fuzzy multiobjective optimization model for planning
+    an agricultural land-water-crop system to explore the related cropping patterns
+    in an uncertain environment where existed imprecision in fuzzy objectives and
+    fuzzy constraints. Zhang et al., 2009a proposed a hybrid fuzzy possibilistic robust
+    programming approach to help generate decision schemes for agricultural activities
+    by allowing fuzzy information to be directly communicated into the optimization
+    processes and resulting solutions. In fact, in real-world irrigation water management
+    problems, parameters or variables appear in modeling formulation (e.g., water
+    availability, irrigation target and crop/yield production) may be estimated as
+    intervals; at the same time, the lower and upper bounds of these intervals are
+    also fuzzy in nature, which derives dual uncertainties expressed as fuzzy-boundary
+    intervals (Liu et al., 2014). Moreover, decision makers often face conflicting
+    desires of greater objective values and higher constraint feasibility. These complexities
+    have placed many agricultural water management problems beyond the conventional
+    FMP methods. An interactive fuzzy resolution (IFR) approach, based on fuzzy sets
+    theory, is proposed for solving such problems (Jiménez et al., 2007, Wang and
+    Huang, 2013). The advantages of IFR methods include: (1) handling fuzzy-boundary
+    interval parameters; (2) allowing the decision makers to consider in an interactive
+    style and express their preferences in linguistic terms; (3) tackle relationship
+    between the fuzzy left- and right-hand sides of constraints and search the optimal
+    values of the fuzzy objective function. Nevertheless, how to efficiently tackle
+    both multi-uncertainty of data and interactions between objective and constraints
+    has become a major challenge for decision makers. Therefore, this study aims to
+    develop an interactive two-stage fuzzy stochastic programming (ITFSP) approach
+    through integrating interval-parameter programming (IPP), interactive fuzzy resolution
+    (IFR), and two-stage stochastic programming (TSP) into a general framework. ITFSP
+    method can handle multiple uncertainties expressed as probability distributions
+    and fuzzy-boundary intervals. Then, the ITFSP method is applied to crop planning
+    and water resource allocation of Hetao irrigation region in China. This area is
+    one of the largest irrigation regions for food production in China and is a typical
+    water-deficient region with the features of arid climate, low and uneven distribution
+    rainfall. Results obtained will be used for generating decision alternatives,
+    and thus help decision makers to identify cropland use and water allocation patterns
+    with a maximized economic return and a sustainable development manner. 2. Methodology
+    2.1. Interval two-stage stochastic programming Interval-parameter programming
+    (IPP) is an effectively alternative for deal with uncertainties expressed as discrete
+    intervals which not require probability distributions that are hardly describable
+    in practical application. However, IPP encounter difficult for handing two layers
+    uncertainties that interval coefficients with fuzzy sets information. Moreover,
+    it is incapable of incorporate with the subjective information of the authorities
+    into decision-making process (Li et al., 2006). In many realistic agricultural
+    water management problems, since the available water expressed as random variable
+    is uncertain, decision variable is divided into two types, which include decision
+    target must be determined before the realization of random variable, and recourse
+    variable that is determined after the disclosure of random variable. A two-stage
+    stochastic programming (TSP) model for planning water resource systems can be
+    formulated as follows: (1a) subject to: (Water availability constraint) (1b) (Water
+    allocation goal constraint) (1c) (Non-negativity and technical constraint) (1d)
+    where f = objective benefits (RMB¥);  = net benefit to crop i per m3 of water
+    allocated (RMB¥/m3); = promised target of water allocation quantity for crop i
+    (m3);  = expected value of a random variable;  = deficit to crop i per m3 of water
+    not delivered, (RMB¥/m3); SiQ = water deficit to crop i when the stream flow is
+    Q (m3); Q = the total amount of stream flow (m3); = water loss rate in transport
+    process;  = the maximum allowable allocation for crop i (m3); m = the total number
+    of crops; i = type of crop, i = 1, 2, …, m. The distribution of Q must be approximated
+    by a set of discrete values which for deal with above issues through the linear
+    programming method. Letting Q take values qj with probabilities (j = 1, 2... n),
+    then have: . Meanwhile, parameters such as benefits ( ) and penalties ( ) are
+    seldom expressed as deterministic values. Correspondingly, interval-parameters
+    are introduced into the TSP framework which can allow uncertainties expressed
+    as intervals to be directly communicated into the optimization process. Thus,
+    an interval two-stage stochastic programming (ITSP) model can be formulated as
+    follows: (2a) subject to: (2b) (2c) (2d) where , , , , , and are interval parameters
+    and variables. The interval is defined as a number with known lower- and upper-
+    bound but without known probability distribution (Huang and Loucks, 2000, Miao
+    et al., 2014). 2.2. Interactive fuzzy resolution approach In practical agricultural
+    water management problems, when the detailed probabilistic distributions generated
+    based on unrealistic estimations, for example, uncertainties in stream flows may
+    include not only randomness but also fuzziness in individual events with varied
+    probability levels, this leads to dual uncertainties existing in the system. Jiménez
+    et al. (2007) proposed an interactive fuzzy resolution (IFR) method could effectively
+    tackle such issues. IFR could be formulated as follows: (3a) subject to: (3b)
+    (3c) where represents the expected value of the fuzzy vector ( ). IFR method allows
+    decision makers to consider two factors: feasibility degree of constraints and
+    satisfaction degree of the goal. Then, there would adopt three steps for solved
+    of IFR. More details about IFR solution are presented in the “Appendix A”. 2.3.
+    Interactive two-stage fuzzy stochastic programming In order to address dual uncertainties
+    presented as fuzzy bound intervals as well as probability distributions, IFR is
+    introduced into the ITSP framework. Thus, an interactive two-stage fuzzy stochastic
+    programming (ITFSP) model can be reformulated as follows: (4a) subject to: (4b)
+    (4c) (4d) where , , , are fuzzy-boundary intervals; When are considered as uncertain
+    inputs, the existing methods for solving inexact linear programming problems cannot
+    be used directly. Accordingly, let , where and , and are decision variables utilized
+    for identifying an optimized set of target values ( ) and thereby favor of agricultural
+    policy analysis. Thus, model (4) can be converted into two submodels as follows:
+    Upper submodel: (5a) subject to: (5b) (5c) (5d) Lower submodel: (6a) subject to:
+    (6b) (6c) (6d) When solving the two submodels, the solutions of model (4) under
+    the optimized water allocation targets are: (7a) (7b) where and are the solutions
+    of submodel (5), and , are the solutions of submodel (6). Finally, the optimized
+    water allocation scheme is: (8) 3. Case study 3.1. Problem statement Hetao irrigation
+    district (40°13′–42°28′N, 105°12′–109°53′E) is located in western part of the
+    Inner Mongolia Autonomous Region of China. It is border on the Yellow River to
+    the south and the Langshan Mountains to the north, with an agricultural irrigation
+    area of 5.74 × 103 km2. According to the division of administrative, the basin
+    are divided into five sub-areas, namely, Linhe, Wuyuan, Dengkou, Hangjinhou, and
+    Urad front banner (as shown in Fig. 1). The elevation of the sub-areas is higher
+    in the southwest and lower in the northwest with an elevation ranging from 1032
+    to 1050 m above sea level. The district features arid and semi-arid climatic conditions
+    with an average annual precipitation of 120–220 mm and mean evaporation is about
+    reaching 2300 mm. Precipitation is occurring mainly between in July and August,
+    reaching for 56.3% of the total rainfall. The annual mean temperature is 7.7 °C,
+    with the highest temperature in July (23.9 °C) and the lowest temperature in January
+    (−10.6 °C) (BCWSP, 2013, IMSY, 2013). Download : Download full-size image Fig.
+    1. Study system of the Hetao irrigation district. The district is one of the largest
+    irrigation regions for food production in China, where canal irrigation systems
+    are widespread to divert water from the Yellow River into the district for agricultural
+    irrigation (Guo et al., 2011). Many crops are cultivated in the Hetao irrigation
+    districts, such as cotton, wheat, sugar beets, maize, oil plant, millet, and vegetables.
+    Among them, wheat, maize and oil plant are widely cultivated (BCMP, 2013). Agricultural
+    irrigation depends mainly on water from the Yellow River. However, allowable water
+    diversions from the Yellow River to the Hetao irrigation district have decreased
+    in recent years from 5 billion to 4 billion m3/year (Ye et al., 2010). In addition,
+    dispute and divergent of water allocation problems among plurality of competing
+    interests (e.g., municipal, industrial and ecological) have been intensified.
+    The competitiveness can further exacerbating the shortage of agricultural water.
+    A series of serious problems (e.g., food security, social stability) can thus
+    triggered by poorly planning of water resource management when merely limited
+    water resource is available for plurality of competing users (BCWSP, 2013, IMSY,
+    2013). Moreover, there are a mass of complexities exist in agricultural water
+    resource optimal allocation system, in where, many uncertainty factors are involved,
+    such as crop planting area, irrigation water use efficiency, irrigation quota,
+    water availability as well as economic parameters. All these parameters and phenomena
+    have feature of uncertainty and thus affect the comprehensive policy decision
+    (Li et al., 2010, Zhang et al., 2011b). Fig. 2 presents schematic of the ITFSP
+    methodology for agriculture irrigation system. Moreover, spatial and temporal
+    variations exist in system components as stream flows and agricultural crop targets.
+    Decision making process of water allocation for irrigation should take them into
+    consideration. Therefore, under such complexities and uncertainties, effective
+    optimization approach is needed for allocating and managing agricultural irrigation
+    in more equitable and sustainable ways for obtaining a desired policy for irrigation
+    water management with a maximized system benefits. Download : Download full-size
+    image Fig. 2. Schematic of the ITFSP methodology for agriculture irrigation system.
+    3.2. Modeling formulation In this study, the problem under consideration is how
+    to identify the optimal policy which could bring maximum agricultural system benefit
+    through allocating the limited water to the three main crops (i.e., wheat, maize
+    and oil plant) in five irrigation sub-areas based on the given objectives/restrictions.
+    Meanwhile, net irrigation benefit, economic penalty, water available and irrigation
+    quota are expressed as fuzzy-boundary intervals. The flow level presented as random
+    variable and other parameters are given as interval coefficients. Therefore, the
+    proposed ITFSP method is suitable for supporting agricultural water resource management
+    in the study irrigation district under multiple uncertainties. The study problem
+    can be formulated as follows: (9a) subject to: (1) The flow quantity constraint:
+    the total amount of allocated water to all districts should be less than the available
+    water amount of the source; (9b) (2) Infrastructural capacity constraint: the
+    allocated water amount should be no more than the transfer capacity of canals;
+    (9c) (3) Water demands constraints: the total acquired water quantity for each
+    sub-area should be in the range of its minimum and maximum water demands; (9d)
+    (9e) (4) Planting area constraint: crop area of each sub-area should be limited
+    in an appropriately range; (9f) (9g) (5) Nonnegative constraint; (9h) where f
+    is the expected system benefit (RMB¥); i is the crop, with i = 1 for wheat, i
+    = 2 for maize, and i = 3 oil plant; j is sub-area, with j = 1 for DengKou, j =
+    2 for HangJinHou banner, j = 3 for LinHe, j = 4 for WuYuan, and j = 5 for Urad
+    front banner; k is flow level, with k = 1 representing low level, k = 2 representing
+    low-medium level, k = 3 representing medium level, k = 4 representing medium-high
+    level, and k = 5 representing high level; is the probability of flow k; is the
+    net irrigation benefit for crop i in sub-area j per unit of planting area (RMB¥/ha),
+    which was calculated by comprehensive consideration the food benefit, fertilizer
+    cost, water cost and manual labor; is the fixed irrigation area target of crop
+    i in sub-area j (ha); is the maximum allowable area for planting crop i in sub-area
+    j (ha); is the reduction of net benefit (economic penalty) to sub-area j planting
+    crop i when per unit target unirrigated (RMB¥/ha), and ( ); is the probabilistic
+    deficit of farmland that unirrigated under scenario k (ha), which is the recourse
+    decision variable; is the water available for irrigation diverted from the Yellow
+    River under scenario k (m3); is the irrigation quota for crop i in sub-area j
+    (m3/ha); , is the maximum and minimum water demand of crop i in sub-area j (m3);
+    is the canal transfer capacity in sub-area j (m3); is the variation factor representing
+    water losses in the transporting stage from the Yellow River to each sub-area
+    j; 3.3. Scenario design In the agricultural irrigation system, decision maker
+    is responsible for optimize water resources allocation policies for meeting the
+    irrigation water demand of cropping pattern. It is desired that reflect the different
+    alternatives of crop targets ( ) under different flow levels. Given a crop targets
+    that is promised to each crop in each sub-area. It could bring target benefit
+    when the demand amount is contented. On the other hand, if the amount of water
+    cannot satisfy the farmland area target, farmers are either forced to accept other
+    more expensive alternative water sources or crop yield would be curtailed. These
+    would lead to reduction of agricultural system benefit and food security cannot
+    be guaranteed. Therefore, different scenarios would be designed according to various
+    flow levels for crop planning which could effective abating the economic penalties
+    caused by improper crop target. In this study, four alternatives from the ITSP
+    are selected to reflect attitude of the managers to water resources availability:
+    • Scenario 1: crop targets are considered as uncertain input parameters, which
+    defined according to Equation ( and ). Decision variable was considered in the
+    ITFSP model for maximize the benefit. This scenario can reflect interactions among
+    uncertainties of the system (e.g., crop targets and available water). • Scenario
+    2: when decision makers take a conservative attitude for agricultural water availability
+    (i.e., worst conditions), they will set crop targets as the lower bounds (i.e.,
+    ). This policy would result in both a less expected benefit and a low risk of
+    shortage. • Scenario 3: when decision makers are optimistic about the availability
+    of agricultural water resource (i.e., best conditions), the crop targets will
+    reach the upper bounds (i.e., ). This scenario will correspond to the highest
+    expected system benefit given the uncertain water allocation targets. • Scenario
+    4: crop targets approximate the mid-values of interval (i.e., ). It is applicable
+    the situation when decision makers take a neutral attitude for agricultural water
+    resource availability. 3.4. Data collection and analysis In this study, the uncertain
+    input parameters are obtained based on policy surveys, historic statistic, related
+    literature, and government reports. According to the agricultural statistic data
+    generated from Inner Mongolia statistical yearbook 2013, the original agriculture
+    irrigation targets for each crop in each sub-area were presented in Table 1. Crop
+    water requirement can be obtained through irrigation quota multiplied by the planting
+    area. The irrigation quota is defined as the total water demand (cubic meters)
+    per unit area (e.g. ha) of a certain crop (IMSY, 2013). Table 1. Original agricultural
+    irrigation target for each crop in each sub-area (unit: ha) Sub-area Agriculture
+    irrigation target, (ha) Empty Cell Wheat Maize Oil plant DK (7100.32, 7653.25)
+    (13680.01, 15047.27) (32666.68, 35042.83) HJHB (16580.75, 17780.51) (23595.42,
+    26406.68) (50504.52, 53366.69) LH (13790.31, 14840.28) (50294.56, 51240.03) (8434.77,
+    9833.34) WY (25647.24, 26240.01) (41716.41, 44506.68) (57594.51, 60386.69) UFB
+    (32784.28, 34540.72) (29432.27, 31200.01) (46117.06, 50640.02) (DK, Dengkou county;
+    HJHB, HangJinHou Banner; LH, Linhe district; WY, Wuyuan county; HJHB, Hangjinhou
+    Banner.) Table 2 shows the net irrigation benefits and penalties of various crops
+    in each sub-area, which are mainly obtained from government record files and local
+    policy surveys. Their lower and upper bounds are presented as fuzzy sets with
+    known triangular membership functions. Table 3 presents the available water resource
+    for irrigation under various stream flows and associated probability. Since the
+    stream flow of the Yellow River is varies significantly among different years,
+    the total amount of water can be divided into different levels with probability
+    distributions according to statistical analysis of historical data (i.e. annual
+    stream flow of the Yellow River). Thus, five flow levels are generated, which
+    are named as low (L), low-medium (L–M), medium (M), medium-high (M–H) and high
+    (H), respectively. For each flow, available water for irrigation can be expressed
+    as a fuzzy-boundary interval. Each flow level corresponds to a fixed probability
+    level , and the sum of the probability of flow level is 1. Table 2. Net irrigation
+    benefits and penalties for various crops in each sub-area. Empty Cell Wheat Maize
+    Oil plant Net irrigation benefit when water demand is satisfied, (RMB¥/ha) DK
+    [(6417.15, 6917.15, 7417.15), (8409.93, 8909.93, 9409.93)] [(10357.34, 10857.34,
+    11357.34), (12350.12, 12850.12, 13350.12)] [(34776.57, 35276.57, 35776.57), (36769.35,
+    37269.35, 37769.35)] HJHB [(6603.41, 7103.41, 7603.41), (8610.07, 9110.07, 9610.07)]
+    [(10543.59, 11043.59, 11543.59), (12550.26, 13050.26, 13550.26)] [(34962.82, 35462.82,
+    35962.82), (36969.49, 37469.49, 37969.49)] LH [(6509.97, 7009.97, 7509.97), (8503.02,
+    9003.02, 9503.02)] [(10450.16, 10950.16, 11450.16), (12443.21, 12943.21, 13443.21)]
+    [(34869.39, 35369.39, 35869.39), (36862.44, 37362.44, 37862.44)] WY [(6461.26,
+    6961.26, 7461.26), (8457.14, 8957.14, 9457.14)] [(10401.45, 10901.45, 11401.45),
+    (12397.33, 12897.33, 13397.33)] [(34820.68, 35320.68, 35820.68), (36816.56, 37316.56,
+    37816.56)] UFB [(6515.35, 7015.35, 7515.35), (8513.31, 9013.31, 9513.31)] [(10455.54,
+    10955.54, 11455.54), (12453.51, 12953.51, 13453.51)] [(34874.77, 35374.77, 35874.77),
+    (36872.73, 37372.73, 37872.73)]  Penalty when water is not delivered, (RMB¥/ha)
+    DK [(8919.84, 9614. 84, 10309. 84), (11521.60, 12206.60, 12891.60)] [(14396.70,
+    15091.70, 15786.70), (16919.66, 17604.66, 18289.66)] [(48339.43, 49034.43, 49729.43),
+    (50374.01, 51059.01, 51744.01)] HJHB [(9178.74, 9873.74, 10568.74), (11795.80,
+    12480.80, 13165.80)] [(14655.59, 15350.59, 16045.59), (17193.86, 17878.86, 18563.86)]
+    [(48598.32, 49293.32, 49988.32), (50648.20, 51333.20, 52018.20)] LH [(9048.86,
+    9743.86, 10438.86), (11649.14, 12334.14, 13019.14)] [(14525.72, 15220.72, 15915.72),
+    (17047.20, 17732.20, 18417.20)] [(48468.45, 49163.45, 49858.45), (50501.54, 51186.54,
+    51871.54)] WY [(8981.15, 9676.15, 10371.15), (11586.28, 12271.28, 12956.28)] [(14458.02,
+    15153.02, 15848.02), (16984.34, 17669.34, 18354.34)] [(48400.75, 49095.74, 49790.74),
+    (50438.69, 51123.69, 51808.69)] UFB [(9056.34, 9751.34, 10446.34), (11663.23,
+    12348.23, 13033.23)] [(14533.20, 15228.20, 15923.20), (17061.29, 17746.29, 18431.29)]
+    [(48475.93, 49170.93, 49865.93), (50515.64, 51200.64, 51885.64)] Table 3. Available
+    water resource for irrigation under different flow levels and associated probability.
+    Flow level Probability Available water resource for irrigation, (×109 m3) Low
+    0.20 [(2.05, 2.25, 2.45), (2.77, 2.97, 3.17)] Low-medium 0.25 [(3.17, 3.42, 3.67),
+    (4.07, 4.32, 4.57)] Medium 0.40 [(4.57, 4.97, 5.37), (6.02, 6.42, 6.82)] Medium-high
+    0.10 [(6.82, 6.92, 7.02), (7.18, 7.28, 7.38)] High 0.05 [(7.38, 7.43, 7.48), (7.56,
+    7.61, 7.66)] 4. Result analysis In this study, the net irrigation benefit, economic
+    penalty, available water to agriculture irrigation and irrigation quota for crops
+    in each sub-area ( , , and ) were expressed as a fuzzy-boundary interval. These
+    could lead to multi-layers interactive relationships between various components
+    of irrigation system. Seven semantic terms are chosen with the discrete values
+    of α (i.e., 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 and 1) for analyzing feasibilities of
+    the constraints. Four scenarios were examined under the best choice solution based
+    on different crop targets which could reflect the local decision makers'' attitudes
+    to water resource availabilities. The results could facilitate efficient irrigation
+    water allocation and management in applying to crop target settings at the beginning
+    of irrigation, water allocations according to different flow levels, and cropping
+    pattern optimization in each sub-area of the Hetao irrigation district. 4.1. System
+    benefit Fig. 3 indicates the system benefits obtained from the ITFSP model under
+    different degrees of α which presented as fuzzy-boundary interval. It is shown
+    that the minimum and maximum agricultural irrigation system profits would be [(5.57,
+    5.68, 5.79), (9.42, 9.63, 9.84)] × 109 RMB¥ under α = 1 and [(6.25, 6.38, 6.50),
+    (9.63, 9.86, 10.08)] × 109 RMB¥ under α = 0.4. The results indicate that, higher
+    feasibility degree would result in lower objective function value, while higher
+    degree of objective satisfying guarantees lower feasibility degree of constraints.
+    After obtaining the objective values with different α levels, decision makers
+    can determine a goal with tolerance threshold by fuzzy set . The goals of lower
+    and upper bounds system benefits can be expressed by the fuzzy set. In this study,
+    the specified lower and upper bounds fuzzy goals would be 6.50 × 109 and 10.08
+    × 109, with its tolerance levels being 0.93 × 109 and 0.66 × 109. The membership
+    function of is shown as follow: (10a) (10b) Table 4 presents the membership grades
+    of fuzzy decisions in the α-acceptable solutions. In an attempt to determine the
+    balance between objective satisfying and constraints feasibility, fuzzy decision
+    was utilized for aggregate the degrees of satisfaction and feasibility under α-level
+    solutions. The final compromised decision would be the one that has the largest
+    mean membership value of fuzzy decision considering lower- and upper-bound solutions.
+    As shown in Table 4, best alternatives in this study is the solution under 0.6-feasibility
+    with the greatest mean of membership degree of 0.357 and lowest deviation of 0.009.
+    Download : Download full-size image Fig. 3. Total system benefit obtained from
+    the ITFSP model under different α levels (unit: RMB¥109). Table 4. Membership
+    grades of fuzzy decisions in the α-acceptable solutions. Feasibility degree Satisfaction
+    degree of fuzzy goal Membership grade of fuzzy decision Mean of membership grade
+    for fuzzy decision Deviation of membership grade for fuzzy decision Empty Cell
+    Lower bound Upper bound Lower bound Upper bound Empty Cell Empty Cell 0.4 0.87
+    0.67 0.348 0.268 0.308 0.040 0.5 0.74 0.62 0.370 0.310 0.340 0.030 0.6 0.61 0.58
+    0.366 0.348 0.357 0.009 0.7 0.47 0.52 0.329 0.364 0.347 0.018 0.8 0.35 0.45 0.280
+    0.360 0.320 0.040 0.9 0.24 0.39 0.216 0.351 0.284 0.067 1 0.12 0.32 0.120 0.320
+    0.220 0.100 4.2. Crop target Fig. 4 depicts the optimized crop targets for wheat,
+    maize and oil plant in the five sub-areas corresponding to scenario 1 ( ) under
+    the 0.6-feasibility solutions. Generally, a higher system benefit would be obtained
+    if the crop target ( ) water reach the upper bound (i.e.,  = 1), at the same time,
+    it would be suffered a high risk of economic penalty when water available is inadequate
+    (e.g. flow level is low). Conversely, when approach to the lower-bound (i.e.,  =
+    0), it would result in a lower penalty risk, meanwhile, a high surplus when the
+    flow level is high. It is indicated that the optimized crop targets of wheat and
+    oil plant in all sub-areas except Dengkou would correspond the upper-bound. Results
+    reveal that the decision makers would be more positive to water available to wheat
+    and oil plant than maize. Download : Download full-size image Fig. 4. Optimized
+    crop targets for various crops in each sub-area under the 0.6-feasibility solutions.
+    4.3. Optimized irrigation pattern Fig. 5 depicts the optimized crop area patterns
+    for the three crops in different sub-areas under different flow levels and scenarios.
+    In fact, it would result deficits when the promised irrigation targets are more
+    than actual irrigated croplands. The actual crop area (i.e., actual crop area
+    = optimized target − unirrigated area) would be various under a given flow levels
+    associated with different probability. For example, under low and low-medium flow
+    levels, wheat and maize would not be irrigated in all sub-areas, while the irrigation
+    proportions (i.e., actual crop area/optimized crop targets) of oil plant would
+    be [22.2, 31.4] %, [15.1, 32.8] %, [15.0, 23.5] %, and [22.6, 30.6] % under low
+    level and [70.7, 73.6] %, [67.9, 75.6] %, [64.8, 68.2] %, and [67.6, 70.9] % under
+    low-medium level from scenarios 1 to 4, respectively. The results discovered that
+    oil plant always owns the priority of water allocation and would be partly satisfied
+    even under low flow level, due to its higher unit net irrigation benefit and lower
+    water requirement compared with wheat and maize. Moreover, scenario 2 would be
+    more favorable to wheat and maize since it associated with lower irrigation target
+    compared with other scenarios. Download : Download full-size image Fig. 5. Optimized
+    crop area patterns for various crops in each sub-area. (S1 denote Scenario 1,
+    S2 denote Scenario 2, S3 denote Scenario 3 and S4 denote Scenario 4.). Fig. 6
+    depicts the optimized agricultural water allocation patterns for the three crops
+    in different sub-areas under different flow levels and scenarios. It is depicts
+    that the total water allocation amounts to oil plant would be [579.1, 641.4] ×
+    106, [537.3, 594.9] × 106, [614.3, 652.7] × 106 and [558.4, 618.1] × 106 m3 when
+    the promised targets for oil plant in all sub-areas would be satisfied under scenarios
+    1 to 4. The total water allocation amounts for wheat would be [65.6, 87.7] × 106,
+    [34.9, 62.2] × 106, [86.8, 110.1] × 106 and [37.9, 66.9] × 106 m3 lower than oil
+    plant under scenarios 1 to 4. In general, oil plant would consume higher amounts
+    of water than wheat and maize under relatively low flow levels, due to its higher
+    net irrigation benefit, crop area and lower water requirement. Results indicate
+    that abating extensive land uses for wheat might be suitable to local economic
+    development and resource conservation. Download : Download full-size image Fig.
+    6. Optimized agricultural water allocation patterns for various crops in each
+    sub-area. Fig. 7 shows the unirrigated area proportion of each subarea under a
+    low flow level. It could give information for decision maker that which subarea
+    was most influenced by water deficit. The proposed model can calculated not only
+    unirrigated area but also optimized target of irrigation. It would lead to deficits
+    when the promised irrigation targets are more than actual irrigated croplands.
+    The results indicate that unirrigated area would be different in each sub-area
+    under different scenarios. Generally, the unirrigated area proportion (i.e., unirrigated
+    area/total unirrigated area) of Wuyuan would be the highest among the five sub-areas,
+    with [27.5, 27.6] %, [28.5, 28.6] %, [27.4, 27.6] % and [27.7, 28.1] % under scenarios
+    1–4, respectively. It can be explained that crops area are overplanted in this
+    sub-area and more high water-intensive crops such as maize and wheat are planted.
+    In summary, (i) Wuyuan would be the main economic loss sub-areas under four scenarios
+    due to its highest unirrigated area proportion, abatement activities for land
+    uses should be taken; (ii) the most conservative development policy (i.e. scenario
+    2) would be more favorable to Linhe since it would reduce the adverse effect when
+    water shortage occurs. Download : Download full-size image Fig. 7. Unirrigated
+    area proportion of each sub-area under low flow level. 4.4. Policy analysis Fig.
+    8 shows the water shortage patterns under different scenarios and flow levels.
+    It is indicated that different scenarios would result in various water shortage
+    under different flow levels (except under high level), which can provide the information
+    of shortage quantity for decision makers and thus minimizing the risk of penalty.
+    For example, scenario 3 would result in the worst shortage situation compared
+    with other scenarios under low flow level, and thus leading to the highest economic
+    penalty (RMB¥ [1.9, 7.6] × 109). Aiming to mitigate the adverse effects of water
+    shortage for agricultural irrigation, decision makers should try to select a crop
+    planning which is more suitable and profitable for local agricultural water allocation.
+    Fig. 9 shows system benefits and penalties under different scenarios and flow
+    levels. For example, under medium and medium-high flow levels, decision makers
+    would be suggested to choose the crop targets correspond to scenario 1, while
+    leading to the highest net return of RMB¥ [6.1, 7.3] × 109 and [6.1, 9.2] × 109,
+    respectively. Results reveal that different agricultural policies for crop planning
+    and water allocation correspond to different water shortages and surpluses, which
+    result in varied system benefits and penalties. Download : Download full-size
+    image Fig. 8. Water shortage patterns under different scenarios and flow levels.
+    (L, Low; L–M, Low–medium; M, Medium; M–H, Medium–high; H, High.). Download : Download
+    full-size image Fig. 9. System benefits and penalties under different scenarios
+    and flow levels. 4.5. Comparison with the ITSP The ITSP method can also be utilized
+    for solve the irrigation model through predigest parameters with interval fuzzy
+    coefficient into deterministic boundary, and thus, resulting the interrelation
+    of system parameters (e.g. benefit and supply, penalty and shortage) and the marginal
+    utility of information are neglected (Huang and Loucks, 2000). Table 5 presents
+    the solutions obtained from ITSP under basic scenario (corresponding to scenario
+    1 of ITFSP). The system benefit from ITSP would be a single interval of RMB¥ [6.1,
+    8.9] × 109, while the system benefit from ITFSP (under α = 0.6) would be RMB¥
+    [(6.0, 6.2, 6.3), (9.6, 9.8, 10.0)] × 109, which has a wider interval with its
+    boundaries depicted as triangular fuzzy sets. This indicates that ITFSP could
+    provide plenty of information for decision makers and enhanced the reliable of
+    decisions. In fact, in agricultural water resources management, the benefit/penalty
+    coefficients as well as supply/shortage parameters may be estimated as intervals,
+    while their lower- and upper- bounds are also fuzzy in nature, which derives dual
+    uncertainties expressed as fuzzy-boundary intervals. Thus, the relationship between
+    benefit and supply, as well as relationship between penalty and shortage will
+    be too complicated to be handled by ITSP. In comparison, ITFSP can effectively
+    deal with such issues through introducing interactive fuzzy resolution (IFR) approach
+    into ITSP. It also allows decision makers to evaluate a balanced solution concerned
+    the tradeoff between feasibility degree of constraints (i.e., limited water to
+    satisfy the crops) and satisfaction degree of the goal (i.e., maximization of
+    the net system benefit). Table 5. Solutions obtained from the ITSP model under
+    basic scenario (ha). User Empty Cell Wheat (i = 1) Maize (i = 2) Oil plant (i
+    = 3) Target ( ) Empty Cell Empty Cell Empty Cell Empty Cell Dengkou 7100.32 13680.01
+    32666.68 Hangjinhou Banner 17780.51 26406.68 53366.69 Linhe 14840.28 51240.03
+    9833.34 Wuyuan 26240.01 44506.69 60386.69 Urad front banner 34540.72 31200.01
+    50640.02  Unirrigated area ( ) under a flow level of Dengkou Low (k = 1) [0,1575.56]
+    [0,7863.75] [22622.73, 23650.29] Empty Cell Low-medium (k = 2) [0,896.53] [0,3517.21]
+    [0,22622.75] Empty Cell Medium (k = 3) 0 [0,1574.28] [0,13781.24] Empty Cell Medium-high
+    (k = 4) 0 0 0 Empty Cell High (k = 5) 0 0 0  Hangjinhou Banner Low (k = 1) [7736.05,
+    8763.61] [17451.72, 19616.56] [0,34968.15] Empty Cell Low-medium (k = 2) [0,7736.05]
+    [0,17451.74] [0,22679.77] Empty Cell Medium (k = 3) [0,6325.23] [0,11047.83] [0,17248.35]
+    Empty Cell Medium-high (k = 4) 0 0 0 Empty Cell High (k = 5) 0 0 0  Linhe Low
+    (k = 1) [0,6178.34] [12865.44, 40646.62] [1171.18, 3444.45] Empty Cell Low-medium
+    (k = 2) [0,3725.61] [0,8907.24] [0,1042.17] Empty Cell Medium (k = 3) 0 [0,4621.83]
+    [0,870.24] Empty Cell Medium-high (k = 4) 0 0 0 Empty Cell High (k = 5) 0 0 0  Wuyuan
+    Low (k = 1) [16812.08, 18801.74] [17543.54, 36504.17] [0,50205.38] Empty Cell
+    Low-medium (k = 2) [0,16812.08] [0,34278.25] [0,23108.03] Empty Cell Medium (k
+    = 3) [0,12083.25] [0,22678.33] 0 Empty Cell Medium-high (k = 4) 0 0 0 Empty Cell
+    High (k = 5) 0 0 0  Urad front banner Low (k = 1) [0,24496.06] [22019.83, 24101.25]
+    [0,37081.24] Empty Cell Low-medium (k = 2) [0,22622.73] [2223.75, 18334.74] [0,22570.34]
+    Empty Cell Medium (k = 3) [0,12031.64] [0,8927.33] [0,11205.26] Empty Cell Medium-high
+    (k = 4) 0 0 0 Empty Cell High (k = 5) 0 0 0  System benefit (RMB¥ 109): [6.05,
+    8.91] 5. Discussion In the irrigation district, water resources system is lack
+    of unified water resources management mechanism and supervisory measure, and has
+    not formed a detailed allocation scheme and crop planning for agricultural management.
+    Research works for regional agricultural water management have difficulties in
+    considering various uncertainties. In this study, the ITFSP approach is proposed
+    for crop planning and water allocation under multiple uncertainties, and the results
+    are valuable in providing a basis for formulating a secure, reasonable and reliable
+    agriculture management scheme in the future. Reverse modeling techniques are useful
+    for the process of planning, implementing, and controlling the efficient, cost-effective
+    flow of raw materials, in-process inventory, finished goods and related information
+    from the point of origin to the point of consumption for the purpose of conforming
+    to customer requirements (Bautista and Pereira, 2006, Zhang et al., 2011c). However,
+    the reverse modeling techniques have difficulties in tackling various uncertain
+    parameters that are important sources leading to planning and management complexities
+    in water resource systems. Ignoring these uncertainties in real-world decision
+    making may increase the system-failure risk and economic penalty due to the adding
+    of extra burdens in the areas of information processing and infrastructure investment
+    to meet increased water demand. Through selecting different flow conditions in
+    the past and introducing these flows into the ITFSP model, Table 6 shows the system
+    benefits obtained (denoted as ITFSP-II) under different α levels. The system benefits
+    from ITFSP-IIwould slightly increase compared with those from IFBIP. This is due
+    to the fact that the available water for irrigation in the past is higher than
+    that in the future. According to the Yellow River water allocation plans approved
+    by the local authority, the total amount of water diverted from the Yellow River
+    in the future will gradually decline (BCWSP, 2013). For example, the system benefit
+    under 0.6-feasibility by ITFSP is [(6.02, 6.14, 6.26), (9.58, 9.80, 10.02)] ×
+    109 RMB¥, in contrast, the corresponding system benefit by ITFSP-IIis [(6.32,
+    6.44, 6.66), (9.88, 10.10, 10.32)] × 109 RMB¥. Thus, a lower economic penalty
+    would happen under demanding conditions (e.g., low or low-medium flow levels)
+    when the cropland targets are not satisfied. Table 6. Total system benefit obtained
+    from the IFBIP-II under different α levels. Feasibility degree System benefit
+    (RMB¥ 109) 0.4 [(6.55, 6.68, 6.81), (9.93, 10.16, 10.38)] 0.5 [(6.43, 6.56, 6.68),
+    (9.91, 10.13, 10.35)] 0.6 [(6.32, 6.44, 6.66), (9.88, 10.10, 10.32)] 0.7 [(6.19,
+    6.32, 6.43), (9.84, 10.06, 10.28)] 0.8 [(6.10, 6.21, 6.32), (9.80, 10.02, 10.24)]
+    0.9 [(5.98, 6.10, 6.21), (9.77, 9.98, 10.19)] 1 [(5.87, 5.98, 6.09), (9.72, 9.93,
+    10.14)] Fig. 10 presents the optimized crop area patterns obtained from the ITFSP-II.
+    For the crop area change, the optimal solutions under demanding conditions from
+    ITFSP-IIis higher than crop patterns obtained from ITFSP. Under advantageous conditions
+    (e.g., medium-high or high flow levels), the optimal patterns are identical for
+    the two solutions which can both approach the upper bound of targets. However,
+    under demanding conditions, degree of targets satisfying in ITFSP-IIsolutions
+    is higher than that obtained from ITFSP. For instance, the irrigation area for
+    maize obtained form ITFSP-II is [63.4,78.1] ha higher than ITFSP solutions. This
+    is due to that past available water resources for irrigation as result of stream
+    flow from the Yellow River basin is more than future planning available quantity.
+    Results reveal that stream flow level is an important variable which can directly
+    affect economic benefits. Generally, reverse modeling technique can be utilized
+    for providing a comparison between the cropland use and water allocation patterns
+    in the past and the optimal solutions from the ITFSP model. It will make the proposed
+    agricultural water resources management model relatively practical in reflecting
+    real-world situation. Download : Download full-size image Fig. 10. Optimized crop
+    area patterns obtained from the ITFSP-II. Verification based reverse modeling
+    strategies can be utilized for examining the accuracy of the ITSFP method by comparing
+    optimal results with those existed crop patterns in the past. It is found that
+    the cropland use and water allocation patterns in the past are also within the
+    range of the interval solutions from ITSFP. For instance, under the medium flow
+    level, the solution for maize planting area (from ITFSP-II) is [99.3, 105.5] ha,
+    and this is conforming to the actual cultivation situation of the Hetao irrigation
+    district. Generally, the results indicate that, through the proposed ITSFP approach,
+    uncertainties in water resource systems can be effectively reflected. When the
+    cropland and water-allocation patterns vary from their lower- and upper-bound
+    solutions under each α level and each probability level, the system benefit value
+    would change within the solution interval correspondingly. Decision alternatives
+    can be generated by adjusting different cropland and water-flow combinations within
+    the solution intervals according to projected planning conditions. Therefore,
+    from the perspective of resource saving and reasonable configuration, the optimal
+    solution can provide effectively suggestion for adjustment of currently cropping
+    patterns and allocation schedules to achieve maximum economic benefit and agricultural
+    sustainable development mode. On the other hand, more complicated spatial-temporal
+    models could be used to more thoroughly describe the complexity of the processes
+    of water flow and irrigation pattern. Thus, future studies could introduce digital
+    elevation maps, topography driven flow, and subsurface flow to improve model performance.
+    Results of crop planning optimization model that assigns the land use pattern
+    at a sub-area scale could be incorporated into GIS platform to supply specific
+    location suggestion on the basis of extant cropping schedule, slope, farmlands
+    size and runoff of farm in the irrigation region. Besides, more specifies execution
+    and interpretation of optimal development scenarios can be obtained. The utilization
+    of GIS technology based on the solutions of ITFSP model, which could provide the
+    information of where and what type of farmland use should be changed for decision
+    makers. Therefore, in attempt to obtained comprehensive optimal farmland and agricultural
+    water use of the irrigation district, the integrated GIS-based optimization modeling
+    as a promising research method that incorporated various system components and
+    uncertainties in decision-making process is conducive to providing holistic and
+    synthetically analysis of related agricultural management and planning. 6. Conclusions
+    In this study, an interactive two-stage fuzzy stochastic programming (ITFSP) method
+    has been developed to aid the crop planning and water resource allocation under
+    uncertainty. The developed method has three major advantages compared with the
+    existing fuzzy and stochastic methods. Firstly, it can handle uncertainties expressed
+    as fuzzy-boundary intervals and probability distributions. Secondly, it can also
+    provide an effective linkage between conflicting economic benefits and the associated
+    penalties due to the violation of the predefined policies. Thirdly, it can enable
+    decision makers to quantify the relationship between objective satisfying and
+    feasibility of constraints. The developed method has been applied to a real case
+    of crop planning and water resource allocation of Hetao irrigation region in China.
+    Four decision scenarios associated with different water resources management policies
+    are examined; solutions under different feasibility degrees (α) have been generated.
+    Results are significant for assisting decision makers with adjust existing agricultural
+    development patterns under multiple uncertainties. Through the application of
+    ITFSP approach, it is found that higher feasibility degree (α) would result in
+    lower objective function value, while higher degree of objective satisfying would
+    correspond to lower feasibility degree of constraints. The best alternative is
+    the solution under α with the greatest mean and lowest deviation membership grade
+    for fuzzy decision. Compared with scenarios with the negative, neutral, and optimistic
+    attitudes for agricultural water resource availability (i.e., scenarios 2–4),
+    results under scenario 1 could be easily interpreted for generating decision alternatives
+    associated with interactions among uncertainties of the system. Moreover, results
+    discover that abating extensive land uses for wheat might be suitable to local
+    economic development and resource conservation due to its lower unit benefit and
+    higher irrigation quote. Wuyuan would be the main economic loss sub-areas under
+    four scenarios due to its highest unirrigated area proportion, abatement activities
+    for land uses should be taken. Although this study is the first attempt for planning
+    agricultural water resource management through development of ITFSP approach,
+    there are still some extensive research to be done for further improvement. For
+    instance, in real-world irrigation water management problems, more natural factors
+    should be taken into account such as soil moisture, water run-off, and irrigation
+    water leakage; and other objectives except economic ones should be attracted attention,
+    such as ecosystem stability, food security and so on. Consequently, the integration
+    of surface and groundwater as well as searching for optimal multi-objectives with
+    more efficient solution methods would be interesting topics that deserve future
+    research efforts. Acknowledgements This research was supported by the National
+    Natural Science Foundation of China (51225904 and 51190095), the National High-tech
+    R&D (863) Program of China (2012AA091103), and the 111 Project (B14008). The authors
+    are grateful to the editors and the anonymous reviewers for their insightful comments
+    and helpful suggestions. Appendix A. Solution method of IFR Fuzzy set theory is
+    an effective tool for incorporating subjective information. Firstly, a linear
+    programming model with fuzzy parameters can be formulated as follows: (A.1a) subject
+    to: (A.1b) (A.1c) where and represents a set of fuzzy parameters related in the
+    objective function and constraints; , and represents a set of crisp decision variables.
+    A fuzzy set ( ) in X is characterized by its membership function : , where is
+    a set of elements (Zadeh, 1965). When is an uncertain parameter, the membership
+    degree can be identified as the plausibility degree of taking value x. Zadeh (1978)
+    defined the possibility distribution associated with as . The convex fuzzy set
+    ( ) is a set defined on the real line (R) with a continuous membership function
+    ( ) that can be expressed as follows (Heilpern, 1992, Jiménez et al., 2007): (A.2)
+    where , , , and , is a continuous and monotonically increasing function on the
+    left-hand side of , and is a continuous and monotonically decreasing function
+    on the right-hand side of . A fuzzy number is trapezoidal if and are linear functions
+    by denote = ( ). If , a fuzzy set becomes triangular. The α-level set of a fuzzy
+    set ( ) can be defined by , where . Since is upper semi-continuous, the α-level
+    set of forms a closed and bound interval  =  (Jiménez et al., 2007). The tradeoff
+    between feasibility of decision vector and optimality of objective function need
+    to concerned when comparing fuzzy sets with fuzzy modeling parameters and deterministic
+    variables. According Jiménez et al. (2007), for any couple of fuzzy sets and ,
+    the degree in which is smaller than is: (A.3) where and are the expected intervals
+    of fuzzy sets and , respectively. When , where , it implies that is smaller than,
+    or equal to, at least in a degree α, and can be represented by . Considering the
+    feasibility of a decision vector when the constraints with fuzzy parameters, given
+    a decision vector , it is feasible in degree (or α-feasible) if (A.4) where ;
+    α is the feasibility degree of a decision vector, and thus can deduced that 1–α
+    provides a measure risk of infeasibility. According to formula (A.3), this is
+    can also expressed as: (A.5) The decision vectors set that are -feasible can be
+    denoted by . Obviously, when , then . This can be inferring that an increased
+    feasibility corresponds to a decreased optimal objective function value. For the
+    optimality of the objective function with fuzzy coefficients, vector is an acceptable
+    solution if it can be verified . According to Eq. (A.3), this can be written as:
+    (A.6) The decision vector [ ] is an -acceptable solution of initial fuzzy model
+    (A.1) if it is an optimal solution to the following α-parametric linear programming
+    problem: (A.7a) subject to: (A.7b) (A.7c) where represents the expected value
+    of the fuzzy vector ( ). The interactive method proposed by Jiménez et al. (2007)
+    allows decision makers to consider two factors: feasibility degree of constraints
+    and satisfaction degree of the goal. The decision makers have to evaluate a balanced
+    solution between these two conflicting objectives. The best way to reflect the
+    decision makers'' preferences is to use linguistic terms, establishing a semantic
+    correspondence for different degrees of feasibility (Zadeh, 1975); Therefore,
+    Jiménez et al. (2007) constructed a set of semantic include 11 scales, which allowed
+    distinguish between different preference degrees of decision makers to the objective
+    function value sufficiently. The 11 scales include: α = 0.0, unacceptable solution
+    (US); α = 0.1, practically US; α = 0.2, almost US; α = 0.3, very US; α = 0.4,
+    quite US; α = 0.5, neither acceptable solution (AS) nor US; α = 0.6, quite AS;
+    α = 0.7, very AS; α = 0.8, almost AS; α = 0.9, practically AS; α = 1.0, completely
+    AS. The discrete values of α can be calculated as follows: (A.8) where α0 is the
+    minimum acceptable feasibility degree of decision makers. In the first step of
+    the IFR method, the space of the αk-acceptable solutions and the corresponding
+    objective-function values can be obtained through solving model (A.7). After obtaining
+    the results given by the different , decision makers can determine a goal and
+    the tolerance threshold by fuzzy set . In the second step, the degree of satisfaction
+    of each to fuzzy goal can be obtained through an index proposed by Yager (1979).
+    In the third step, in order to identify a balance between feasibility of the constraints
+    and satisfaction degree of the goal in the space of α-acceptable solutions, a
+    fuzzy decision ( ) can be defined as an intersection of fuzzy constraint and fuzzy
+    goal (Bellman and Zadeh, 1970). The solution with the highest membership grade
+    will be the final decision for the fuzzy linear programming problem [i.e., model
+    (A.1)]. References Akbari et al., 2014 M. Akbari, A. Afshar, S.J. Mousavi Multi-objective
+    reservoir operation under emergency condition: Abbaspour reservoir case study
+    with non-functional spillways J. Flood Risk Manag., 7 (4) (2014), pp. 374-384
+    CrossRefView in ScopusGoogle Scholar Bautista and Pereira, 2006 J. Bautista, J.
+    Pereira Modeling the problem of locating collection areas for urban waste management.
+    An application to the metropolitan area of Barcelona Omega, 34 (6) (2006), pp.
+    617-629 View PDFView articleView in ScopusGoogle Scholar BCMP, 2013 BCMP (Bayannur
+    City master plan), 2013. Bayannur Urban Planning Bureau. Google Scholar BCWSP,
+    2013 BCWSP (Bayannur City water supply plan), 2013. Inner Mongolia Water Resource
+    and Hydropower Survey and Design Institute. Google Scholar Bellman and Zadeh,
+    1970 R. Bellman, L.A. Zadeh Decision making in a fuzzy environment Manag. Sci.,
+    17 (1970), pp. 141-164 Google Scholar Biswas and Pal, 2005 A. Biswas, B.B. Pal
+    Application of fuzzy goal programming technique to land use planning in agricultural
+    system Omega, 33 (5) (2005), pp. 391-398 View PDFView articleView in ScopusGoogle
+    Scholar Garg and Dadhich, 2014 N.K. Garg, S.M. Dadhich Integrated non-linear model
+    for optimal cropping pattern and irrigation scheduling under deficit irrigation
+    Agric. Water Manag., 140 (2014), pp. 1-13 View PDFView articleView in ScopusGoogle
+    Scholar Guo et al., 2011 H.M. Guo, B. Zhang, Y. Li, Z. Berner, X.H. Tang, S. Norra
+    Hydrogeological and biogeochemical constrains of arsenic mobilization in shallow
+    aquifers from the Hetao basin, Inner Mongolia Environ. Pollut., 159 (2011), pp.
+    876-883 View PDFView articleView in ScopusGoogle Scholar Heilpern, 1992 S. Heilpern
+    The expected value of a fuzzy number Fuzzy Sets Syst., 47 (1992), pp. 81-86 View
+    PDFView articleView in ScopusGoogle Scholar Housh et al., 2013 M. Housh, A. Ostfeld,
+    U. Shamir Limited multi-stage stochastic programming for managing water supply
+    systems Environ. Modell. Softw., 41 (2013), pp. 53-64 View PDFView articleView
+    in ScopusGoogle Scholar Huang and Loucks, 2000 G.H. Huang, D.P. Loucks An inexact
+    two-stage stochastic programming model for water resources management under uncertainty
+    Civil Eng. Syst., 17 (2) (2000), pp. 95-118 CrossRefView in ScopusGoogle Scholar
+    Huang et al., 2012 Y. Huang, Y.P. Li, X. Chen, Y.G. Ma Optimization of the irrigation
+    water resources for agricultural sustainability in Tarim River Basin, China Agric.
+    Water Manag., 107 (2012), pp. 74-85 View PDFView articleView in ScopusGoogle Scholar
+    IMSY, 2013 IMSY (Inner Mongolia statistical yearbook), 2013. Statistical Bureau
+    of Inner Mongolia. Google Scholar Jiménez et al., 2007 M. Jiménez, M. Arenas,
+    A. Bilbao, M.V. Rodriguez Linear programming with fuzzy parameters: an interactive
+    method resolution Eur. J. Oper. Res., 177 (2007), pp. 1599-1609 View PDFView articleView
+    in ScopusGoogle Scholar Kang and Park, 2014 M. Kang, S. Park Modeling water flows
+    in a serial irrigation reservoir system considering irrigation return flows and
+    reservoir operations Agric. Water Manag., 143 (2014), pp. 131-141 View PDFView
+    articleView in ScopusGoogle Scholar Li et al., 2006 Y.P. Li, G.H. Huang, S.L.
+    Nie An interval-parameter multi-stage stochastic programming model for water resources
+    management under uncertainty Adv. Water Resour., 29 (5) (2006), pp. 776-789 View
+    PDFView articleView in ScopusGoogle Scholar Li et al., 2009 Y.P. Li, G.H. Huang,
+    G.Q. Wang, Y.F. Huang FSWM: a hybrid fuzzy-stochastic water management model for
+    agricultural sustainability under uncertainty Agric. Water Manag., 96 (2009),
+    pp. 1807-1818 View PDFView articleView in ScopusGoogle Scholar Li et al., 2011
+    Y.P. Li, G.H. Huang, S.L. Nie, X. Chen A robust modeling approach for regional
+    water management under multiple uncertainties Agric. Water Manag., 98 (2011),
+    pp. 1577-1588 View PDFView articleView in ScopusGoogle Scholar Li et al., 2010
+    Y.P. Li, G.H. Huang, S.L. Nie Planning water resources management systems using
+    a fuzzy-boundary interval-stochastic programming method Adv. Water Resour., 33
+    (2010), pp. 1105-1117 View PDFView articleView in ScopusGoogle Scholar Liu et
+    al., 2014 J. Liu, Y.P. Li, G.H. Huang, X.T. Zeng A dual-interval fixed-mix stochastic
+    programming method for water resources management under uncertainty Resour. Conserv.
+    Recycl., 88 (2014), pp. 50-66 View PDFView articleView in ScopusGoogle Scholar
+    Marques et al., 2010 G.F. Marques, J.R. Lund, R.E. Howitt Modeling conjunctive
+    use operations and farm decisions with two-stage stochastic quadratic programming
+    J. Water Resourc. Plann. Manag., 136 (3) (2010), pp. 386-394 View in ScopusGoogle
+    Scholar Miao et al., 2014 D.Y. Miao, W.W. Huang, Y.P. Li, Z.F. Yang Planning water
+    resources systems under uncertainty using an interval-fuzzy de novo programming
+    method J. Environ. Inform., 24 (1) (2014), pp. 11-23 CrossRefView in ScopusGoogle
+    Scholar Mun et al., 2015 S. Mun, G.F. Sassenrath, A.M. Schmidt, N. Lee, M.C. Wadsworth,
+    B. Rice, Prabhu Uncertainty analysis of an irrigation scheduling model for water
+    management in crop production Agric. Water Manag., 155 (2015), pp. 100-112 View
+    PDFView articleView in ScopusGoogle Scholar Regulwar and Gurav, 2011 D.G. Regulwar,
+    J.B. Gurav Irrigation planning under uncertainty –a multi objective fuzzy linear
+    programming approach Water Resourc. Manag., 25 (5) (2011), pp. 1387-1416 CrossRefView
+    in ScopusGoogle Scholar Sahoo et al., 2006 B. Sahoo, A.K. Lohani, R.K. Sahu Fuzzy
+    multiobjective and linear programming based management models for optimal land–water–crop
+    system Water Resourc. Manag., 20 (6) (2006), pp. 931-948 CrossRefView in ScopusGoogle
+    Scholar Sethi et al., 2006 L.N. Sethi, S.N. Panda, M.K. Nayak Optimal crop planning
+    and water resources allocation in a coastal groundwater basin, Orissa, India Agric.
+    Water Manag., 83 (3) (2006), pp. 209-220 View PDFView articleView in ScopusGoogle
+    Scholar Sharma and Minhas, 2005 B.R. Sharma, P.S. Minhas Strategies for managing
+    saline/alkali waters for sustainable agricultural production in South Asia Agric.
+    Water Manag., 78 (2005), pp. 136-151 View PDFView articleView in ScopusGoogle
+    Scholar Singh, 2014 A. Singh Simulation–optimization modeling for conjunctive
+    water use management Agric. Water Manag., 141 (2014), pp. 23-29 View PDFView articleGoogle
+    Scholar Tran et al., 2011 L.D. Tran, S. Schilizzi, M. Chalak, R. Kingwell Optimizing
+    competitive uses of water for irrigation and fisheries Agric. Water Manag., 101
+    (2011), pp. 42-51 View PDFView articleView in ScopusGoogle Scholar Wang and Huang,
+    2013 S. Wang, G.H. Huang Interactive fuzzy boundary interval programming for air
+    quality management under uncertainty Water Air Soil Pollut., 224 (5) (2013), pp.
+    1-16 View in ScopusGoogle Scholar Yager, 1979 R.R. Yager Ranking fuzzy subsets
+    over the unit interval Proceedings of 17th IEEE International Conference on Decision
+    and Control, San Diego, CA (1979), pp. 1435-1437 Google Scholar Ye et al., 2010
+    Z.Y. Ye, K.Z. Guo, S.Y. Zhao, B. Xu The current development and focal points in
+    short-term water-saving agriculture in Hetao irrigation district China Rural Water
+    Conserv. Hydropower, 6 (2010), pp. 81-84 Google Scholar Zhang et al., 2014 N.
+    Zhang, Y.P. Li, W.W. Huang, J. Liu An inexact two-stage water quality management
+    model for supporting sustainable development in a rural system J. Environ. Inform.,
+    24 (1) (2014), pp. 52-64 CrossRefView in ScopusGoogle Scholar Zhang et al., 2009a
+    X.D. Zhang, G.H. Huang, X.H. Nie Optimal decision schemes for agricultural water
+    quality management planning with imprecise objective Agric. Water Manag., 96 (2009),
+    pp. 1723-1731 View PDFView articleView in ScopusGoogle Scholar Zhang et al., 2009b
+    X.D. Zhang, G.H. Huang, X.H. Nie Robust stochastic fuzzy possibilistic programming
+    for environmental decision making under uncertainty Sci. Total Environ., 408 (2)
+    (2009), pp. 192-201 View PDFView articleView in ScopusGoogle Scholar Zhang et
+    al., 2011a X.D. Zhang, G.H. Huang, X.H. Nie, Q.G. Lin Model-based decision support
+    system for water quality management under hybrid uncertainty Expert Syst. Appl.,
+    38 (3) (2011), pp. 2809-2816 View PDFView articleView in ScopusGoogle Scholar
+    Zhang et al., 2011b X.D. Zhang, G.H. Huang, X.H. Nie Possibilistic stochastic
+    water management model for agricultural nonpoint source pollution J. Water Resourc.
+    Plann. Manag. (ASCE), 137 (1) (2011), pp. 101-112 Google Scholar Zhang et al.,
+    2011c Y.M. Zhang, G.H. Huang, L. He An inexact reverse logistics model for municipal
+    solid waste management systems J. Environ. Manag., 92 (3) (2011), pp. 522-530
+    View PDFView articleGoogle Scholar Zhou et al., 2010 H.H. Zhou, Y.N. Chen, W.H.
+    Li Soil properties and their spatial pattern in an oasis on the lower reaches
+    of the Tarim River, northwest China Agric. Water Manag., 97 (2010), pp. 1915-1922
+    View PDFView articleView in ScopusGoogle Scholar Zimmermann, 1995 H.J. Zimmermann
+    Fuzzy Set Theory and Its Applications (third ed.), Kluwer Academic Publishers
+    (1995) Google Scholar Zadeh, 1965 L.A. Zadeh Fuzzy sets Inform. Control, 8 (1965),
+    pp. 338-353 View PDFView articleView in ScopusGoogle Scholar Zadeh, 1975 Zadeh,
+    L.A., 1975. The concept of a linguistic variable and its applications to approximate
+    reasoning. Part I. Information Sciences, vol. 8, pp. 199-249; Part II. Information
+    Sciences, vol. 8, pp. 301e357; Part III. Information Sciences, vol. 9, pp. 43-80.
+    Google Scholar Zadeh, 1978 L.A. Zadeh Fuzzy sets as a basis for a theory of possibility
+    Fuzzy Sets Syst., 1 (1978), pp. 3-28 View PDFView articleView in ScopusGoogle
+    Scholar Cited by (0) View Abstract Copyright © 2015 Elsevier B.V. All rights reserved.
+    Recommended articles A GIS-based decision tool for reducing salinization risks
+    in olive orchards Agricultural Water Management, Volume 166, 2016, pp. 33-41 Juan
+    Manuel Peragón, …, Francisco J. Pérez-Latorre View PDF Determining an optimum
+    pattern of mixed planting from organic and non-organic crops with regard to economic
+    and environmental indicators: A case study of cucumber in Kerman, Iran Information
+    Processing in Agriculture, Volume 3, Issue 4, 2016, pp. 207-214 Soraya Molaie
+    Emamzadeh, …, Samaneh Darbandi View PDF Optimization model for the allocation
+    of water resources based on the maximization of employment in the agriculture
+    and industry sectors Journal of Hydrology, Volume 533, 2016, pp. 430-438 M. Habibi
+    Davijani, …, S.R. Hashemi View PDF Show 3 more articles Article Metrics Citations
+    Citation Indexes: 63 Captures Readers: 86 View details About ScienceDirect Remote
+    access Shopping cart Advertise Contact and support Terms and conditions Privacy
+    policy Cookies are used by this site. Cookie settings | Your Privacy Choices All
+    content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply.'
+  inline_citation: '>'
+  journal: Agricultural water management (Print)
+  limitations: '>'
+  pdf_link: null
+  publication_year: 2016
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Crop planning and water resource allocation for sustainable development of
+    an irrigation region in China under multiple uncertainties
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

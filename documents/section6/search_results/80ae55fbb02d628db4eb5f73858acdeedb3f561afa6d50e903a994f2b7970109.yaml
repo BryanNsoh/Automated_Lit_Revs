@@ -1,0 +1,440 @@
+- DOI: https://doi.org/10.29007/j2z7
+  analysis: '>'
+  authors:
+  - Tapiwa Gundu
+  - Vimbai Maronga
+  citation_count: 4
+  full_citation: '>'
+  full_text: ">\nIoT Security and Privacy: Turning on the \nHuman Firewall in Smart\
+    \ Farming  \nTapiwa Gundu1 and Vimbai .L. Maronga 2 \n1 Sol Plaatje University,\
+    \ Kimberley, South Africa \n2 Urban-Econ Development Economists, Port Elizabeth,\
+    \ South Africa. \ntapgun@gmail.com, vimlin@gmail.com \nAbstract \nAgriculture\
+    \ is central to the economy of the world, with sixty percent of the \npopulation\
+    \ depending on it for survival. Farmers are adopting smart farming technics to\
+    \ \nmake agricultural practices more efficient. Smart farming takes advantage\
+    \ of Internet of \nThings (IoT) technologies for performing tasks such as moisture\
+    \ sensing, weeding, \nkeeping vigilance, spraying, bird and animal scaring, smart\
+    \ irrigation controls, the use of \nreal time field data for intelligent decision\
+    \ making and smart warehouse management \nwhich includes theft detection and temperature\
+    \ and humidity maintenance of the \nwarehouse. Smart devices such as watches,\
+    \ computers or cellphones connected to the \ninternet can then be used to control\
+    \ the smart farming system. Smart farming being at \nnascent stage, its privacy\
+    \ and security needs to be researched and explored as its future \npartially dependent\
+    \ on the resolution of the privacy and security issues associated. This \npaper\
+    \ comprehensively reviews various security and privacy issues and challenges \n\
+    associated with IoT deployments in smart farming. Following a structured approach,\
+    \ a \nframework for smart farming security and privacy was developed in an attempt\
+    \ to address \nchallenges experienced/expected. This framework can also be used\
+    \ for future directions \nfor any IoT related privacy and security initiatives.\
+    \ \n1 Introduction \nThe growth in global population is leading to increased food\
+    \ requirement needs of the modern-day \ncivilization requires increased food production.\
+    \ Unfortunately, traditional farming methods with low \nyields for fruit and crops\
+    \ are still predominantly used. But wherever automation has been implemented,\
+    \ \nyield improvement has been evident (Gondchawar & Kawitkar, 2016). This highlights\
+    \ the need to \nintroduce modern technologies to the agriculture sector to achieve\
+    \ better yields.  \n \nThe new technologies and solutions being implemented in\
+    \ agriculture increase efficiency in methods \nfor gathering and processing data\
+    \ while enhancing net productivity (Ray, 2017). On the other hand, the \nKalpa\
+    \ Publications in Computing\nVolume 12, 2019, Pages 95–104\nProceedings of 4th\
+    \ International Conference on the\nInternet, Cyber Security and Information Systems\
+    \ 2019\nK. Njenga (ed.), ICICIS 2019 (Kalpa Publications in Computing, vol. 12),\
+    \ pp. 95–104\nwater crisis and alarming climate change require new and improved\
+    \ methods of farming. Automation \nand intelligent decision making technologies\
+    \ are therefore also important in accomplishing this mission \n(Fan TongKe, 2013).\
+    \ Amongst technologies that are making it possible are; IoT, remote sensing, \n\
+    ubiquitous computing, cloud computing, Radio Frequency Identifier and wireless\
+    \ and sensor networks \n(Ray, 2017).  \n \nHowever, this study only focuses on\
+    \ IoT, which is “a collection of many interconnected objects, \nservices, humans,\
+    \ and devices that can communicate, share data, and information to achieve a common\
+    \ \ngoal in different areas and applications. IoT is fast tracked by the rapid\
+    \ growth in nanotechnology which \nenables production of small and cheap sensors.\
+    \ This has brought about great potential towards faster \ndecision making and\
+    \ automation in the agriculture industry in the following smart farming techniques:\
+    \ \n(automated irrigation scheduling (Reche, Sendra, Díaz, & Lloret, 2015), precision\
+    \ agriculture (Barcelo-\nOrdinas, Chanet, Hou, & García-Vidal, 2013; Ray, 2017),\
+    \ optimization of plant growth (Hwang, Shin, \n& Yoe, 2010), green-house monitoring\
+    \ (Mao, Miao, He, Li, & Liu, 2012), farm land monitoring (Corke \net al., 2010),\
+    \ and farming production process management (Dong, Vuran, & Irmak, 2013)). This\
+    \ rapid \ndevelopment in the Internet of Things in agriculture has propelled the\
+    \ phenomenon that is called Smart \nFarming (Sundmaeker, Verdouw, Wolfert, & Freire,\
+    \ 2016).  \n \nAlthough smart farming promotes the increase of yields, reduces\
+    \ operating costs, and increases \nagility, its unique architecture raises numerous\
+    \ security and privacy concerns. The huge amounts of \ndata that are shared in\
+    \ IoT-enabled environments can be harnessed by malicious applications that can\
+    \ \nuse to the disadvantage of some aspect of smart farming. Thus, understanding\
+    \ and minimization of these \nsecurity and privacy risks by the development of\
+    \ efficient and effective cybersecurity solutions is \ncritical for the success\
+    \ of smart farming initiatives. Since both IoT and smart farming are relatively\
+    \ new \nphenomena, their knowledge concerning security and privacy implications\
+    \ is not widespread as \nexpected. Some authors have labeled these technologies\
+    \ as “technology hypes that may fail to \nmaterialize.” (Fenn & LeHong, 2011).\
+    \  \n \nThis research paper provides insight into smart farming and goes on to\
+    \ identify the most important \nsecurity and privacy challenges they expose farmers\
+    \ to. Lastly, we introduce a framework to help \nmitigate the smart farming security\
+    \ and privacy challenges exposed. We acknowledge both technical \nand human security\
+    \ and privacy challenges, however, the paper mainly focuses on the human aspect\
+    \ of \nprivacy and security in smart farming because it seems as though not enough\
+    \ research has been done. \nIn line with that, this paper seeks to answer the\
+    \ following research questions:  \n1. What are the privacy and security issues\
+    \ in IoT?  \n2. How do humans affect the privacy and security of IoT initiatives?\
+    \  \n3. How can the impact of human weakness in the privacy and security of IoT\
+    \ be reduced?  \n \nThe remainder of this paper is structured as follows; firstly,\
+    \ it will highlight the contribution of this \nstudy, it will then discuss a review\
+    \ of related literature after which it will provide the brief methodology \nfor\
+    \ the research followed by a description of the proposed framework. The last section\
+    \ will conclude \nand provide recommendations for further research and actions.\
+    \ \n2  Related Literature \nAgriculture has seen three revolutions already, from\
+    \ plants animal domestication a few thousand \nyears ago, systematic crop rotational\
+    \ methods of a few hundred years ago and the “green revolution” \nwhich came with\
+    \ the use of fertilizers, pesticides, genetic modifications and introduction of\
+    \ systematic \nbreeding a few decades ago (Walter, Finger, Huber, & Buchmann,\
+    \ 2017). We suggest that agriculture \nIoT Security and Privacy: Turning on the\
+    \ Human Firewall in Smart Farming\nGundu and Maronga\n96\nis undergoing a fourth\
+    \ revolution triggered by the increasing population that in turn is increasing\
+    \ the \ndemand of food. Ray (2017) warns that the growth rate in food production\
+    \ is not at par with the food \nrequired by the growing population. The Food and\
+    \ Agriculture Organization of the United Nations \n(How to Feed the World in 2050)\
+    \ recently published a report showing a prediction of global food \nrequirements\
+    \ reaching 3 billion tons by 2050 from 1.5 billion in 2015. This calls for an\
+    \ exploration of \nnew and modern technologies that can be used in agricultural\
+    \ applications to achieve the target. As a \nresult, this is accelerating the\
+    \ incorporation of sensors and IoT into agriculture, giving birth to smart \n\
+    farming. \n \n2.1 Internet of Things (IoT) \n \nIoT is rapidly gaining momentum\
+    \ in modern wireless telecommunications. The basic IoT concept \nlays around connection\
+    \ and use of a variety of technologies (such as Radio-Frequency IDentification\
+    \ \n(RFID) tags, sensors, computers, actuators, smart watches, mobile phones,\
+    \ etc.). These technologies \ninteract with each other through unique addressing\
+    \ schemes to achieve common goals (Pecorella, \nPierucci, & Nizzi, 2018). The\
+    \ integration of IoT with humans can take advantage of collaboration and \ntechnical\
+    \ analytics to achieve real-time decision making (Angelini, Mugellini, Abou Khaled,\
+    \ & \nCouture, 2018; Ray, 2017). IERC (‘IERC-European Research Cluster on the\
+    \ Internet of Things’, 2014) \nwhich seems to have the most cited definition,\
+    \ defines IoT as follows: “A dynamic global network \ninfrastructure with self-configuring\
+    \ capabilities based on standard and interoperable communication \nprotocols where\
+    \ physical and virtual ‘things’ have identities, physical attributes, and virtual\
+    \ \npersonalities and use intelligent interfaces, and are seamlessly integrated\
+    \ into the information network, \noften communicate data associate with users\
+    \ and their environments.” \n \n2.2 Smart Farming \nSmart farming is the use of\
+    \ modern technology to improve the amount and quality of agricultural \nproducts.\
+    \ Walter et al (Walter et al., 2017) advocates that, apart from the use of intelligent\
+    \ sensors, \nsmart farming  also encompasses the use of robotic vehicles (e.g.\
+    \ for application of fertilizer, weeding \nand fruit harvesting). They also elaborate\
+    \ that the drones with autonomous flight control, bundled with \npowerful hyperspectral\
+    \ and high-resolution cameras are also being used to calculate biomass \ndevelopment\
+    \ and fertilization status of crops, is another form of sophisticated smart farming.\
+    \ Another \ncommon form of smart farming innovation is virtual fencing technologies\
+    \ which assist cattle herd \nmanagement by the use of Global Positioning System\
+    \ Sensors (GPS) sensors attached to the livestock \nand monitored on computer\
+    \ or smart phones. This management can also be achieved by the use of real \n\
+    time remote-sensing signals. Combined, these technical improvements discussed\
+    \ constitute a technical \nrevolution that can generate positive changes in agricultural\
+    \ practices. These trends for farming are not \nonly applicable to developed countries\
+    \ but also to developing countries, especially where deployments \nin ICT (e.g.,\
+    \ use of smart phones, access to the Internet) are being adopted at a rapid pace.\
+    \ The rapid \ndecrease in price for IoT based sensors for smart farming solutions\
+    \ is also opening a possibility for \nsmart faming initiatives in emerging economies\
+    \ as the farmers can also afford them (Ray, 2017). \n \nSmart farming reduces\
+    \ the ecological footprint of farming due to efficient site-specific application\
+    \ \nof inputs, such as fertilizers and pesticides. This makes agriculture more\
+    \ profitable for the farmer as \nresource inputs would have been decreased. It\
+    \ also assists with mitigation of leaching problems as well \nas greenhouse gas\
+    \ emissions (Mahmoud, Yousuf, Aloul, & Zualkernan, 2015) and increase reliability\
+    \ \nof spatially explicit data which will ultimately reduce farming risks. Optimal,\
+    \ yield projections, site-\nIoT Security and Privacy: Turning on the Human Firewall\
+    \ in Smart Farming\nGundu and Maronga\n97\nspecific weather forecasts, and diseases\
+    \ and disasters probability maps based on weather and climate \ndata will help\
+    \ plan and optimize cultivation of crops (Walter et al., 2017). With the IoT,\
+    \ it is possible \nto create a sensor network allowing for almost continuous monitoring\
+    \ of the farm reducing the time \nneeded for surveillance.  \n \nIn principle,\
+    \ optimization of farming activities due to smart farming should lead to better\
+    \ product \nquality (e.g., watering an orchard when the moisture level has not\
+    \ dropped too much, produces better \njuicier fruits or better-quality milk produced\
+    \ by individualized feeding of cattle). Better quality products \nare not only\
+    \ healthier but also generate more profits as they sell at higher prices.  \n\
+    \ \nBecause there are numerous players in smart farming, this introduces a challenge\
+    \ of accountability \nfor malpractice or mistakes that may lead to environmental\
+    \ and/or economic consequences. For \nexample, it is difficult to establish the\
+    \ source of the problem if a consumer gets sick from eating \nharvested fruits\
+    \ that still had traces of fertilizer or pesticides because it was applied too\
+    \ late. Should the \nblame be on the farmer, or the software vendor, or the network\
+    \ provider, or the manufacturer of the \nsensor? As at the time of publishing\
+    \ of this paper, there is no straightforward answer to address such an \nincident.\
+    \  Another challenge is that smart farming can lead to serious disease outbreaks\
+    \ if not monitored \nproperly. Efficient use of fungicide in a smart farming environment\
+    \ may delay disease outbreaks which \nthen increases the risk of creating fungicide\
+    \ resistant traits which is even more devastating. \n \nContrary to the view that\
+    \ the automation in smart farming eliminates the need of human labor \ntherefore\
+    \ increases the unemployment rate, this whole process will always require humans\
+    \ however at \na much higher intelligent level. Machines will only conduct the\
+    \ monotonous and tiring operational \nactivities (Walter et al., 2017). \n \n\
+    2.3 Security and Privacy \nWe will discuss the security and privacy challenges\
+    \ of smart farming as well as those of IoT in \ngeneral as they also filter into\
+    \ smart farming. These challenges can be broadly divided into technological \n\
+    challenges and human challenges (Gundu, Flowerday, & Renaud, 2019; Mahmoud et\
+    \ al., 2015). The \ntechnological challenges in smart farming mainly arise due\
+    \ to its heterogeneous and ubiquitous nature. \nIf magnified closer, these challenges\
+    \ have to do with wireless technologies, scalability and energy.  The \nhuman\
+    \ challenges are related to the awareness and knowledge of principles and functionalities\
+    \ that \nshould be followed to achieve and maintain a secure smart farming environment.\
+    \ These human \nchallenges evolve around the ability to ensure security by authentication,\
+    \ confidentiality, end-to-end \nsecurity, integrity etc. (Mahmoud et al., 2015).\
+    \ \n \nIn the recent years, there has been a lot of effort attempting to address\
+    \ security and privacy issues \nsmart paradigms (Alaba, Othman, Hashem, & Alotaibi,\
+    \ 2017; Cho, Cho, Shin, Park, & Lee, 2012; Corke \net al., 2010; Fagade & Tryfonas,\
+    \ 2016; Granjal, Monteiro, & Sa Silva, 2015; Hwang et al., 2010; \nOleshchuk,\
+    \ 2009; Pecorella et al., 2018; Zhou, Cao, Dong, & Vasilakos, 2017). Collectively,\
+    \ the authors \ntouch on trust management, authentication, intrusion detection\
+    \ systems, privacy issues, data security, \nnetwork security, access control systems,\
+    \ fault tolerance and digital forensics. An IoT project requires \nsome form of\
+    \ trust, privacy, and security model implementation. This model should address\
+    \ data \nintegrity, confidentiality and end-to-end communication issues. To probe\
+    \ into data misuse, the model \nshould also address access policies and encrypting\
+    \ mechanisms to be used.  \n \nThe classic security goals of Confidentiality,\
+    \ Integrity and Availability (CIA) of any cyber system \nalso apply to IoT. However,\
+    \ IoT based smart systems have other restrictions and limitations. These are \n\
+    IoT Security and Privacy: Turning on the Human Firewall in Smart Farming\nGundu\
+    \ and Maronga\n98\nprimarily due to computational power limitations of the devices\
+    \ and the heterogonous and ubiquitous \nnature of IoT. To address that, we suggest\
+    \ authentication, lightweight solutions, heterogeneity, policies \nand key management\
+    \ systems to be added to the traditional CIA triad, which will be discussed below.\
+    \ \n \nSecurity and privacy issues that may arise due to weaknesses of the human\
+    \ in smart farming are \ninterception, node capture attack, dos attack, man-in-the-middle\
+    \ attack and data theft. Technological \nissues include compatibility, wireless\
+    \ signal strength, storage capacity, power consumption, and \ncomputation capability.\
+    \ In general, when designing IoT applications it is important to take the following\
+    \ \ninto account: how will different users interact with the devices, how much\
+    \ data will be revealed and \nwho will be managing the applications. Therefore,\
+    \ users should have tools that control data to be \ndisclosed, by whom and when\
+    \ (Mahmoud et al., 2015). \n \n \n3 Contribution \nThis paper contributes to the\
+    \ body of knowledge as follows.  \n \nAnalysis of the advantages of smart farming.\
+    \  \n \nAnalysis of privacy and security issues related to IoT and smart farming\
+    \ deployments with \nrespect to the human aspect. \n \nDevelopment of a framework\
+    \ that can be followed to reduce the effect of the human \nweakness in terms of\
+    \ privacy and security of smart farming. \n \n \n4 Methodology \nIn order to address\
+    \ the research questions outlined in the Introduction, we reviewed literature\
+    \ from \nJanuary 2009 to January 2019. This review period was chosen due to the\
+    \ fact that IoT and smart farming \nare recent phenomena, hence as a practical\
+    \ consideration we did not expect to access older studies \nwithin articles prior\
+    \ to 2009. Apart from inclusion by period of publication, we also used two other\
+    \ \ninclusion criteria for the literature search. These encompassed whether it\
+    \ was a full article publication \nand its relevance to the research questions.\
+    \ Exclusion of previous literature was also based on two \ndifferent criteria:\
+    \ either the articles were not published in English or the articles focused solely\
+    \ on \ntechnological designs. The literature survey was undertaken using the following\
+    \ systematic approach: \na search on two major bibliographical databases was carried\
+    \ out, on Science Direct and Scopus. This \nsearch was conducted using a combinations\
+    \ of keywords which were separated into two groups, the \nfirst addressing Smart\
+    \ Farming (i.e. precision farming, agri-food, sensor-driven innovation, \ntechnologies\
+    \ in farming, internet of things, IoT) and the second group focusing on cybersecurity\
+    \ (i.e. \nhuman centered security, awareness campaigns, training). The choice\
+    \ of the two databases was based \non their wide coverage of relevant literature\
+    \ and their capability to suggest related articles or citations. \nA total of\
+    \ 359 peer-reviewed articles were retrieved from the two databases. These were\
+    \ filtered by \nscanning for relevance. This involved identifying sections of\
+    \ the text that address the research questions. \nFollowed by screening, where,\
+    \ the search function was used to locate the paragraphs containing the key \n\
+    words. We then analyzed the text to identify links to our research questions.\
+    \  \n \nIoT Security and Privacy: Turning on the Human Firewall in Smart Farming\n\
+    Gundu and Maronga\n99\nWe used Zotero reference management software to manage\
+    \ the articles and eventually, 21 articles \nwere considered as very relevant\
+    \ and 93 as relatively relevant. The remainder of the articles were \nirrelevant\
+    \ and excluded from this analysis because they did not speak to smart farming\
+    \ or cybersecurity. \nThe number of relevant peer reviewed literature was very\
+    \ low; however, this was not surprising as IoT \nand Smart Farming are relatively\
+    \ new concepts. Their applications are rapidly evolvingpeer reviewed \narticles\
+    \ are lagging behind as usually the case with most technologies. This led to the\
+    \ decision to also \ninclude grey literature into the review. This comprised using\
+    \ Google Scholar and LexisNexis search \nengine. Thus, we managed to obtain magazines,\
+    \ reports, blogs, and other web-items. This resulted in \n213 magazine articles,\
+    \ 4 reports, 119 blogs and 19 items on twitter. Each of the 119 blogs had their\
+    \ title \nand sentences scanned for relevance and duplicated blogs were removed.\
+    \ As a result, 21 blogs were \nselected for additional evaluation through further\
+    \ reading. Eventually, 7 blogs were considered as \ncontaining relevant information\
+    \ for our study. Each of the 213 magazine articles was similarly evaluated \n\
+    and 9 articles were considered as containing relevant information. The analysis\
+    \ and synthesis of the \nliterature led to the development of the framework presented\
+    \ in the next section. \n5 Proposed Framework \nThis paper argues that for the\
+    \ technological security measures put in place to be effective, the user \nof\
+    \ the system should be aware of the security risks associated and how to behave\
+    \ securely. Technology \nshould complement and supplement the human element not\
+    \ the other way around. The \ntechnological/physical firewall can be deemed useless\
+    \ if the ‘human firewall’ is not turned on, as it is \nthe human who controls\
+    \ the technology. In summary, we suggest that the human element is at the Centre\
+    \ \nof any security and privacy initiative. \n \nThe proposed privacy and security\
+    \ framework for smart farming in figure 1 has constructs guided \nby how literature\
+    \ seems to address the human and technological aspects of privacy and security\
+    \ attempts \nto highlight that enhanced security and privacy can only be achieved\
+    \ by considering both technological \nand human aspects. \n \n5.1 Technology Aspect\
+    \ \nAppropriate technological infrastructure is essential in making smart farming\
+    \ systems function. \nAlthough literature does not have much information on infrastructures\
+    \ being used, the few mentioned \nare supplied by large venture capital vendors\
+    \ such as AGCO, John Deere, KAA IoT, ThingsWorkx, \nBlue River Technologies, Thingsboard.io\
+    \ and Monsanto. However, the demands of the fourth industrial \nEnhanced Smart\
+    \ Farming Security & Privacy \nFigure 1: A privacy and security framework for\
+    \ smart farming \nAwareness & Training \nHuman \nAspect \nTechnology \nAspect\
+    \ \nVendor \nIoT Security and Privacy: Turning on the Human Firewall in Smart\
+    \ Farming\nGundu and Maronga\n100\nrevolution particularly smart farming are now\
+    \ attracting organizations that were previously not active \nin traditional agriculture.\
+    \ For example, a Japanese technology firm (Fujitsu) now hosts cloud-based \nfarming\
+    \ systems. In North America, there are several initiatives for example the facilitation\
+    \ of data \nacquisition via an open-source hardware platform and software libraries\
+    \ known as the ISOBlue project \nand the Open Ag Toolkit (OpenATK) (Ray, 2017)\
+    \ In Europe, FIWARE was developed. It is for cloud \nhosting, data management,\
+    \ provision of IoT services, cybersecurity and analysis of Big Data (Wolfert,\
+    \ \nGe, Verdouw, & Bogaardt, 2017).  \n \nSince, devices (sensors, computers,\
+    \ cellphones, routers, etc.) in smart farming are manufactured and \ndistributed\
+    \ by different vendors, trust should be established between them and the farmers.\
+    \ For this to \nhappen the devices they supply should be technically secure. This\
+    \ leaves the aspect of the technological \naspect of privacy and security primarily\
+    \ on the vendors. However, these vendors should train the \nfarmers on the use\
+    \ of their devices and advise them on possible risks and how to use the devices\
+    \ \nsecurely.  \n \n5.2 Human Aspect \nThe challenge for smart farming is to ensure\
+    \ awareness of security and privacy to the farmers and \ntheir employees and also\
+    \ to ensure that they are trained on how to implement safety in their daily \n\
+    routines in a consistent manner. Technical security controls may only assist in\
+    \ reducing the threat of \nmalicious people such as hackers, competitors or disgruntled\
+    \ employees. However, the defense against \nnaïvetés and lacking understanding\
+    \ necessary to safeguard the smart farming system may be achieved \nby vigorous\
+    \ security awareness and training programs.  \n \nThe trusted human (employee)\
+    \ typically has unregulated access to some part or else parts of the \nsmart farming\
+    \ system. This makes it possible for a naive farmer or employee to breach security\
+    \ and \nprivacy measures put in place from within the system’s perimeter defenses\
+    \ without triggering the \nperimeter defenses alarm (Gundu, 2012). On the other\
+    \ hand, outside attackers attempt to gain access \ninside a network either by\
+    \ attacking the system directly or by exploiting the weaknesses of an employee.\
+    \ \nThis research study focused on insiders only. The reason for this segregation\
+    \ was that the insider threat \nis usually taken for granted and smart farming\
+    \ often has limited measures in place to minimize the risk \nto which insiders\
+    \ expose the farm as compared to that posed by outsiders with firewalls and physical\
+    \ \nsecurity being used to guard against intruders. The hour it takes an employee\
+    \ to view an awareness \npresentation may be the difference between a secure organization\
+    \ and a multimillion Dollar breach of \nsecurity. \n \nWhat should be given great\
+    \ attention is that most farmers and farm workers are not Information and \nCommunication\
+    \ Technology (ICT) specialists. Hence, they might not be aware of the risks involved\
+    \ in \na smart farming environment, and how those risks can be reduced. Farmers\
+    \ and farm employees with \n‘little-to-no’ prior cyber security training or experience\
+    \ may suddenly be responsible for hundreds of \nnetworked IoT devices generating\
+    \ large amounts of data some which might be sensitive as part of their \njob The\
+    \ weaknesses humans present can never be completely avoided, however, a properly\
+    \ structured \ncybersecurity awareness campaign can lower the risk to tolerable\
+    \ levels (Flowerday & Von Solms, \n2005; Gundu, 2017).   \n \nIn a smart farming\
+    \ environment, everyone requires cybersecurity awareness training just as in the\
+    \ \narmed forces, every soldier, regardless of their role, have to complete elementary\
+    \ training. Hence, \ncybersecurity awareness among human users (farmers and farm\
+    \ workers) is an important security \nmeasure for the success and growth of smart\
+    \ farming. If humans lack awareness, they can make \nIoT Security and Privacy:\
+    \ Turning on the Human Firewall in Smart Farming\nGundu and Maronga\n101\nmistakes\
+    \ such as using default passwords that come with devices making it easy for hackers\
+    \ to conduct \nattacks against the whole network (Mahmoud et al., 2015). \n6 Conclusions\
+    \ and recommendations \nWith the global population prediction of 9.6 billion by\
+    \ 2050, extreme weather condition challenges, \nclimate change, and resulting\
+    \ environmental impact, there is great need to embrace IoT. Effective \nfarming\
+    \ practices can address these issues. Currently, literature reports smart farming\
+    \ applications are \ntaking place primarily in Europe and North America. However,\
+    \ it reveals keen interest from Africa and \nAsia whose economies are primarily\
+    \ based on agriculture.   \n \nEnsuring security and privacy is one of the biggest\
+    \ challenges of smart farming governance to date. \nThis challenge might end up\
+    \ inhibiting developments because farmers may be reluctant to share data as \n\
+    they begin to fear that their data may end up in their competitors’ hands. Hence,\
+    \ strong access controls \nmight be a starting point for vendors to build trust\
+    \ with farmers. \n \nIn this paper a literature review on security and privacy\
+    \ in smart farming was conducted. It was \nconcluded that IoT in smart farming\
+    \ applications is still premature based on the limited peer reviewed \npublications.\
+    \ However, it is evident that humans remain the weak link in smart farming security\
+    \ and \nprivacy initiatives. Some farmers are lulled into a false sense of security\
+    \ by IoT device vendors who \nvogue that technology is the total barrier to breaches.\
+    \  Hence, this paper develops a framework to try to \nreduce the risk the human\
+    \ exposes smart farming initiatives to. As we believe, it will be the most \n\
+    effective way of switching on the human firewall that is making the human part\
+    \ of the solution and not \nthe problem. The next step for this study is conduct\
+    \ action research to test the effectiveness of the \nproposed model. Our main\
+    \ recommendation for future research lies within analyzing whether Africa is \n\
+    ready for smart farming in terms of security and privacy. \n \nReferences \n \n\
+    \ \nAlaba, F. A., Othman, M., Hashem, I. A. T., & Alotaibi, F. (2017). Internet\
+    \ of Things security: A survey. \nJournal \nof \nNetwork \nand \nComputer \nApplications,\
+    \ \n88, \n10–28. \nhttps://doi.org/10.1016/j.jnca.2017.04.002 \nAngelini, L.,\
+    \ Mugellini, E., Abou Khaled, O., & Couture, N. (2018). Internet of Tangible Things\
+    \ (IoTT): \nChallenges and Opportunities for Tangible Interaction with IoT. Informatics,\
+    \ 5(1), 7. \nhttps://doi.org/10.3390/informatics5010007 \nBarcelo-Ordinas, J.\
+    \ M., Chanet, J. P., Hou, K.-M., & García-Vidal, J. (2013). A survey of wireless\
+    \ \nsensor technologies applied to precision agriculture. In J. V. Stafford (Ed.),\
+    \ Precision \nagriculture ’13 (pp. 801–808). Wageningen Academic Publishers. \n\
+    Cho, Y., Cho, K., Shin, C., Park, J., & Lee, E.-S. (2012). An Agricultural Expert\
+    \ Cloud for a Smart \nFarm. In J. J. (Jong Hyuk) Park, V. C. M. Leung, C.-L. Wang,\
+    \ & T. Shon (Eds.), Future \nInformation Technology, Application, and Service\
+    \ (pp. 657–662). Springer Netherlands. \nCorke, P., Wark, T., Jurdak, R., Hu,\
+    \ W., Valencia, P., & Moore, D. (2010). Environmental Wireless \nSensor \nNetworks.\
+    \ \nProceedings \nof \nthe \nIEEE, \n98(11), \n1903–1917. \nhttps://doi.org/10.1109/JPROC.2010.2068530\
+    \ \nIoT Security and Privacy: Turning on the Human Firewall in Smart Farming\n\
+    Gundu and Maronga\n102\nDong, X., Vuran, M. C., & Irmak, S. (2013). Autonomous\
+    \ precision agriculture through integration of \nwireless underground sensor networks\
+    \ with center pivot irrigation systems. Ad Hoc Networks, \n11(7), 1975–1987. https://doi.org/10.1016/j.adhoc.2012.06.012\
+    \ \nFagade, T., & Tryfonas, T. (2016). Security by compliance? A study of insider\
+    \ threat implications for \nNigerian banks. International Conference on Human\
+    \ Aspects of Information Security, Privacy, \nand Trust, 128–139. Springer. \n\
+    Fan TongKe. (2013). Smart Agriculture Based on Cloud Computing and IOT. Journal\
+    \ of Convergence \nInformation Technology, 8(2), 210–216. https://doi.org/10.4156/jcit.vol8.issue2.26\
+    \ \nFenn, J., & LeHong, H. (2011). Hype cycle for emerging technologies. Gartner,\
+    \ Stamford. \nFlowerday, S., & Von Solms, R. (2005). Real-time information integrity=\
+    \ system integrity+ data \nintegrity+ continuous assurances. Computers & Security,\
+    \ 24(8), 604–613. \nGondchawar, N., & Kawitkar, R. S. (2016). IoT based Smart\
+    \ Agriculture. International Journal of \nAdvanced Research in Computer and Communication\
+    \ Engineering, 5(6), 838–842. \nGranjal, J., Monteiro, E., & Sa Silva, J. (2015).\
+    \ Security for the Internet of Things: A Survey of Existing \nProtocols and Open\
+    \ Research Issues. IEEE Communications Surveys & Tutorials, 17(3), \n1294–1312.\
+    \ https://doi.org/10.1109/COMST.2015.2388550 \nGundu, T., Flowerday, S., & Renaud,\
+    \ K. (2019). Deliver Security Awareness Training, then Repeat: \nDeliver; Measure\
+    \ Efficacy. 2019 Conference on Information Communications Technology and \nSociety\
+    \ (ICTAS), 1–6. https://doi.org/10.1109/ICTAS.2019.8703523 \nGundu, T. (2012).\
+    \ Towards an information security awareness process for engineering SMEs in \n\
+    emerging economies. University of Fort Hare. \nGundu, T. (2017). An information\
+    \ security policy compliance reinforcement and assessment framework. \nUniversity\
+    \ of Fort Hare. \nHow \nto \nFeed \nthe \nWorld \nin \n2050. \n(2015). \nRetrieved\
+    \ \nfrom \nhttp://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_i\n\
+    n_2050.pdf \nHwang, J., Shin, C., & Yoe, H. (2010). A Wireless Sensor Network-Based\
+    \ Ubiquitous Paprika Growth \nManagement System. Sensors, 10(12), 11566–11589.\
+    \ https://doi.org/10.3390/s101211566 \nIERC-European Research Cluster on the Internet\
+    \ of Things. (2014). Retrieved 30 March 2019, from \nhttp://www.internet-of-things-research.eu/about_iot.htm\
+    \ \nMahmoud, R., Yousuf, T., Aloul, F., & Zualkernan, I. (2015). Internet of things\
+    \ (IoT) security: Current \nstatus, challenges and prospective measures. 2015\
+    \ 10th International Conference for Internet \nTechnology \nand \nSecured \nTransactions\
+    \ \n(ICITST), \n336–341. \nhttps://doi.org/10.1109/ICITST.2015.7412116 \nMao,\
+    \ X., Miao, X., He, Y., Li, X., & Liu, Y. (2012). CitySee: Urban CO2monitoring\
+    \ with sensors. 2012 \nProceedings IEEE INFOCOM, 1611–1619. https://doi.org/10.1109/INFCOM.2012.6195530\
+    \ \nOleshchuk, V. (2009). Internet of things and privacy preserving technologies.\
+    \ 2009 1st International \nConference on Wireless Communication, Vehicular Technology,\
+    \ Information Theory and \nAerospace \nElectronic \nSystems \nTechnology, \n336–340.\
+    \ \nhttps://doi.org/10.1109/WIRELESSVITAE.2009.5172470 \nPecorella, T., Pierucci,\
+    \ L., & Nizzi, F. (2018). “Network Sentiment” Framework to Improve Security \n\
+    and Privacy for Smart Home. Future Internet, 10(12), 125. https://doi.org/10.3390/fi10120125\
+    \ \nRay, P. P. (2017). Internet of things for smart agriculture: Technologies,\
+    \ practices and future direction. \nJournal \nof \nAmbient \nIntelligence \nand\
+    \ \nSmart \nEnvironments, \n9(4), \n395–420. \nhttps://doi.org/10.3233/AIS-170440\
+    \ \nReche, A., Sendra, S., Díaz, J. R., & Lloret, J. (2015). A Smart M2M Deployment\
+    \ to Control the \nAgriculture Irrigation. In M. Garcia Pineda, J. Lloret, S.\
+    \ Papavassiliou, S. Ruehrup, & C. B. \nWestphall (Eds.), Ad-hoc Networks and Wireless\
+    \ (pp. 139–151). Springer Berlin Heidelberg. \nIoT Security and Privacy: Turning\
+    \ on the Human Firewall in Smart Farming\nGundu and Maronga\n103\nSundmaeker,\
+    \ H., Verdouw, C., Wolfert, S., & Freire, L. P. (2016). Internet of Food and Farm\
+    \ 2020. \nDigitising the Industry-Internet of Things Connecting Physical, Digital\
+    \ and Virtual Worlds, \n129–151. \nWalter, A., Finger, R., Huber, R., & Buchmann,\
+    \ N. (2017). Opinion: Smart farming is key to developing \nsustainable agriculture.\
+    \ Proceedings of the National Academy of Sciences, 114(24), 6148–\n6150. https://doi.org/10.1073/pnas.1707462114\
+    \ \nWolfert, S., Ge, L., Verdouw, C., & Bogaardt, M.-J. (2017). Big Data in Smart\
+    \ Farming – A review. \nAgricultural Systems, 153, 69–80. https://doi.org/10.1016/j.agsy.2017.01.023\
+    \ \nZhou, J., Cao, Z., Dong, X., & Vasilakos, A. V. (2017). Security and Privacy\
+    \ for Cloud-Based IoT: \nChallenges. \nIEEE \nCommunications \nMagazine, \n55(1),\
+    \ \n26–33. \nhttps://doi.org/10.1109/MCOM.2017.1600363CM \n \nIoT Security and\
+    \ Privacy: Turning on the Human Firewall in Smart Farming\nGundu and Maronga\n\
+    104\n"
+  inline_citation: '>'
+  journal: Kalpa publications in computing
+  limitations: '>'
+  pdf_link: https://easychair.org/publications/open/CF36
+  publication_year: 2019
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'IoT Security and Privacy: Turning on the Human Firewall in Smart Farming'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

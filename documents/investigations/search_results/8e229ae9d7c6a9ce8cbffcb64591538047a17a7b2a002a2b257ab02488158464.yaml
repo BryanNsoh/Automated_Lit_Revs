@@ -1,0 +1,2034 @@
+- analysis: '>'
+  authors:
+  - Choe H.O.
+  - Lee M.H.
+  citation_count: '1'
+  description: Despite the recent increase in smart farming practices, system uncertainty
+    and difficulties associated with maintaining farming sites hinder their widespread
+    adoption. Agricultural production systems are extremely sensitive to operational
+    downtime caused by malfunctions because it can damage crops. To resolve this problem,
+    the types of abnormal data, the present error determination techniques for each
+    data type, and the accuracy of anomaly data determination based on spatial understanding
+    of the sensed values are classified in this paper. We design and implement a system
+    to detect and predict abnormal data using a recurrent neural network algorithm
+    and diagnose malfunctions using an ontological technique. The proposed system
+    comprises the cloud in charge of the IoT equipment installed in the farm testbed,
+    communication and control, system management, and a common framework based on
+    machine learning and deep learning for fault diagnosis. It exhibits excellent
+    prediction performance, with a root mean square error of 0.073 for the long short-term
+    memory model. Considering the increasing number of agricultural production facilities
+    in recent years, the results of this study are expected to prevent damage to farms
+    due to downtime caused by mistakes, faults, and aging.
+  doi: 10.3390/agriculture13112124
+  full_citation: '>'
+  full_text: '>
+
+    "This website uses cookies We use cookies to personalise content and ads, to provide
+    social media features and to analyse our traffic. We also share information about
+    your use of our site with our social media, advertising and analytics partners
+    who may combine it with other information that you’ve provided to them or that
+    they’ve collected from your use of their services. Consent Selection Necessary
+    Preferences Statistics Marketing Show details                 Deny Allow selection
+    Allow all     Journals Topics Information Author Services Initiatives About Sign
+    In / Sign Up Submit   Search for Articles: Agriculture All Article Types Advanced   Journals
+    Agriculture Volume 13 Issue 11 10.3390/agriculture13112124 Submit to this Journal
+    Review for this Journal Propose a Special Issue Article Menu Academic Editors
+    Maciej Zaborowicz Jakub Frankowski Subscribe SciFeed Recommended Articles Related
+    Info Link More by Authors Links Article Views 1015 Citations 1 Table of Contents
+    Abstract Introduction Materials and Methods System Configuration Model Design
+    Model Implementation and Experimentation Conclusions Author Contributions Funding
+    Institutional Review Board Statement Data Availability Statement Conflicts of
+    Interest References share Share announcement Help format_quote Cite question_answer
+    Discuss in SciProfiles thumb_up Endorse textsms Comment first_page settings Order
+    Article Reprints Open AccessArticle Artificial Intelligence-Based Fault Diagnosis
+    and Prediction for Smart Farm Information and Communication Technology Equipment
+    by Hyeon O. Choe 1 and Meong-Hun Lee 2,* 1 Department of Information and Communication
+    Engineering, Sunchon National University, Suncheon-si 57922, Jellanam-do, Republic
+    of Korea 2 Department of Smart Agriculture Major, Sunchon National University,
+    Suncheon-si 57922, Jellanam-do, Republic of Korea * Author to whom correspondence
+    should be addressed. Agriculture 2023, 13(11), 2124; https://doi.org/10.3390/agriculture13112124
+    Submission received: 5 October 2023 / Revised: 30 October 2023 / Accepted: 2 November
+    2023 / Published: 10 November 2023 (This article belongs to the Special Issue
+    Big Data Analytics and Machine Learning for Smart Agriculture) Download keyboard_arrow_down     Browse
+    Figures Versions Notes Abstract Despite the recent increase in smart farming practices,
+    system uncertainty and difficulties associated with maintaining farming sites
+    hinder their widespread adoption. Agricultural production systems are extremely
+    sensitive to operational downtime caused by malfunctions because it can damage
+    crops. To resolve this problem, the types of abnormal data, the present error
+    determination techniques for each data type, and the accuracy of anomaly data
+    determination based on spatial understanding of the sensed values are classified
+    in this paper. We design and implement a system to detect and predict abnormal
+    data using a recurrent neural network algorithm and diagnose malfunctions using
+    an ontological technique. The proposed system comprises the cloud in charge of
+    the IoT equipment installed in the farm testbed, communication and control, system
+    management, and a common framework based on machine learning and deep learning
+    for fault diagnosis. It exhibits excellent prediction performance, with a root
+    mean square error of 0.073 for the long short-term memory model. Considering the
+    increasing number of agricultural production facilities in recent years, the results
+    of this study are expected to prevent damage to farms due to downtime caused by
+    mistakes, faults, and aging. Keywords: smart farming; sensors; RNN; LSTM; ontology;
+    prediction 1. Introduction In recent years, rapid progress has been made in agricultural
+    technology in terms of enhancements in productivity and convenience, which are
+    together referred to as smart farming. This has been facilitated by the convergence
+    of various information and communication technologies (ICTs) [1]. In countries
+    around the world, including South Korea, agriculture is undergoing technological
+    evolution via smart convergence based on data collection, analysis, and prediction.
+    Current agricultural practice is focused on developing differentiated technology
+    related to “software and hardware platforms”, “data intelligence”, and “convergence
+    of various technologies, such as artificial intelligence (AI), the cloud, and
+    the Internet of Things (IoT)” to develop an intelligent smart farming industry
+    [2]. Smart farms centered around facility horticulture provide services related
+    to crop growth, environmental information management, system control, disease
+    control, and growth algorithms customized to suit the requirements of local farmers.
+    However, the applicability of these technologies to the current agricultural production
+    process remains limited. A first-generation smart farming system operated based
+    on ICT convergence was developed with a focus on labor reduction and convenience.
+    However, it suffers from several problems, including difficulties in checking
+    system operation and remote-monitoring-based control, cost-intensive CCTV operation
+    for visual monitoring, and the high complexity of criteria for assessing abnormalities
+    in sensing values. Besides such technical and financial problems, the application
+    of advanced technologies to real-world local farms suffers from additional basic
+    limitations [3,4,5]. The South Korean government’s smart farm distribution project
+    has considerably increased the number of smart farms across the country, but the
+    aforementioned problems hinder the widespread adoption of smart farming. Unlike
+    other sectors, an agricultural production system is extremely vulnerable to fault-induced
+    downtime, which can lead to irrevocable damage to crops and farms, in addition
+    to incurring maintenance and repair costs. Therefore, there is a compelling need
+    for system prognostics, health management technology, and condition-based maintenance
+    technology [6]. This will prevent damage to farms due to downtime induced by accidents,
+    faults, and aging based on meticulous data monitoring of ICT equipment in agricultural
+    production facilities. Several studies have investigated sensor-based fault detection
+    by classifying various types of anomalous data in the field of sensor networks
+    and proposed error detection methods for each data type [7]. Faults detected based
+    on sensing values have been assessed corresponding to individual and multiple
+    data within a given space. Particularly, a moving-average-based assessment technique
+    was used to study time series, and anomalous data were assessed based on a geospatial
+    understanding of the sensing values [3,4]. One study pointed out the problem of
+    poor generalizability of the methods used for sensor outlier assessment based
+    on the ambiguity of data forms and models [8]. Traditional outlier treatment uses
+    Bayesian analysis of data sensed within a specific space; however, the utilization
+    of only limit values within a specific dataset, such as temperature or humidity,
+    is not suitable for facility horticulture smart farming [9,10]. To this end, this
+    paper presents the design and implementation of an error detection system based
+    on ontology and recurrent neural networks (RNNs). The system uses sensor and controller
+    data generated during smart farming and implements an architecture to detect and
+    diagnose the malfunction of sensors and controllers in the smart farming system.
+    The remainder of this paper is arranged as follows. In Section 2, an overview
+    of previous studies on sensor-based fault detection is presented. In Section 3,
+    the architecture and composition of the proposed system to detect faults in parts
+    constituting the smart farming system are discussed. The system design of an AI
+    model used for experimental verification is presented in Section 4. Subsequently,
+    the model implementation and experimental analysis are presented in Section 5.
+    Finally, Section 6 presents the conclusions of the study. 2. Materials and Methods
+    In this context, an AI algorithm and an ontological technique are developed to
+    enhance model generalizability based on data type. The overall aim is to identify
+    and predict malfunctions in smart farm ICT equipment by evaluating both internal
+    and external control data, unlike the current prediction approach based solely
+    on temperature and humidity data. 2.1. RNNs RNNs are a type of artificial neural
+    network (ANN) comprising a directed cycle composed of hidden nodes connected by
+    directed edges. They have garnered significant attention recently, alongside convolutional
+    neural networks (CNNs), owing to their suitability for processing sequential sensor
+    data, such as voice and textual data [11]. As illustrated in Figure 1, RNNs can
+    flexibly create various structures, which are capable of accepting inputs of any
+    length, by manipulating their network architecture. Figure 1. Architecture of
+    the RNN algorithm (“one-to-many”, “many-to-one”, “many-to-many”) [12]. Figure
+    2 depicts the basic architecture of RNNs. The green, red, and blue boxes represent
+    the hidden states (h), input (x), and output (y), respectively. The current hidden
+    state (ht) is updated based on the previous hidden state (ht−1). The current output
+    (yt) is updated by using ht based on the equation given in the figure. The activation
+    function of the hidden state is taken to be the nonlinear hyperbolic tangent function
+    (tanh) [13,14,15,16,17,18,19]. Figure 2. Basic architecture of RNNs [12]. 2.2.
+    Smart Farming Systems Smart farming is defined as a convergence technology that
+    incorporates ICT into existing agricultural, livestock, and fishery industries
+    to improve their productivity. Smart farming enables the measurement and analysis
+    of temperature, humidity, and sunlight using ICT and the remote control of the
+    environment using mobile devices. In the smart farming system depicted in Figure
+    3, smart farm operations consist of defining the growth conditions such as temperature,
+    humidity, and CO2 level using growth environment maintenance/management software,
+    and monitoring the growth environment by automatically collecting data related
+    to temperature, humidity, solar radiation, and CO2 levels. Moreover, the system
+    enables convenient management of the environment, e.g., the automatic/remote operation
+    of HVAC, window opening and closing, and the supply of CO2 and nutrient feed.
+    However, faults in ICT equipment can cause considerable damage to farms, making
+    an effective fault diagnosis system essential [20,21,22,23]. Figure 3. Smart farming
+    architecture. 3. System Configuration A testbed installed at a farm was used to
+    implement the proposed fault detection system. The entire system constituting
+    the smart farm comprises the cloud in charge of the IoT equipment installed at
+    the smart farm, communication and control, system management, and the machine-learning-
+    and deep-learning-based common framework constituting the fault diagnosis engine.
+    As depicted in Figure 4, the common framework for fault diagnosis consists of
+    a framework to perform ontological and deep-learning-based fault diagnosis based
+    on equipment thresholds, conditions, actuator conditions, and user-defined rules.
+    Figure 4. Block diagram of the fault diagnosis system. Moreover, actual data are
+    transmitted along the paths illustrated in Figure 5 within an integration module
+    connecting the common interfaces to integrate the sensing data with the actuator
+    control data received from the OneM2M Integration Open API cloud [24]. Figure
+    5. Data transfer paths of the actuator control interface integration module. The
+    statistical analysis module is a statistical value calculation module that diagnoses
+    faults based on the difference between the measured value and the value predicted
+    by the RNN-based prediction model. Time series, i.e., the RNN prediction model
+    and the RNN sequence prediction model, are trained, and sensing values are predicted
+    based on series of incoming sensing and control values. The semantic fault diagnosis
+    module consists of smart farm ontology, time ontology, geospatial ontology, event
+    ontology, and fault diagnosis ontology. Fault diagnosis ontology is used to define
+    the concepts of threshold and prediction data used to assess the faults detected
+    by the statistical analysis module. Using the notification interface provided
+    by the cloud, malfunction notifications are classified as faults and the results
+    of fault diagnosis are notified to the user. Figure 6 illustrates the software
+    architecture, which consists of the implementation environment, a fault diagnosis
+    engine layer, an interface layer, and a user interface layer. Figure 6. Software
+    architecture. Figure 7 illustrates the integration architecture within the fault
+    diagnosis prediction system. Equipment control data and equipment-measured values
+    transmitted through the common API and fault API are collected by the fault diagnosis
+    module in real time via the HTTP RESTful API, stored in a queue for a certain
+    length of time, and then diagnosed via the scheduler job. Figure 7. Integration
+    architecture within the fault diagnosis prediction system. To perform RNN prediction
+    using the data collected by the scheduler job and add the RNN prediction results
+    and the collected data source to the ontology, conversion-to-triples is performed
+    during the semantic transformation process, and the converted triples are added
+    to the semantic storage. Inference rules registered in advance for ontology are
+    applied to perform fault diagnosis as well as store and manage the inferred fault
+    events in cloud notifications and RDBMS/HBase. Equipment fault diagnosis results
+    are provided directly to RDBMS and HBase when requested in the fault API. 4. Model
+    Design The ontology for fault diagnosis is defined to enable fault diagnosis based
+    on knowledge. The main environmental data for the smart farm are collected by
+    the sensor network; thus, the ontology is defined based on the semantic sensor
+    network ontology [25,26,27,28,29]. Figure 8 presents the ontology architecture
+    for smart farm fault diagnosis. The semantic sensor network ontology is designed
+    for general use, and includes the detection target of the sensor, the detection
+    method, metadata, sensors, the sensor deployment system, and various attributes.
+    However, its direct use for fault diagnosis is inefficient due to its complexity.
+    Therefore, the smart farm sensor network is defined based on the stimulus–sensor–observation
+    pattern and other patterns related to sensors and the sensor deployment system.
+    Figure 8. Ontology architecture for smart farm fault diagnosis. The W3C time ontology
+    is used to describe the concept of time. For smart farm equipment deployment,
+    a spatial concept suitable for smart farming is defined based on the open-source
+    spatial data ontology. Table 1 defines the concepts related to the fault diagnosis
+    event and the conceptual relationships around the event. Table 1. Concepts related
+    to the fault diagnosis event. Fault diagnosis methods are classified as (i) methods
+    based on smart farm ontology and rules and (ii) fault event generation methods
+    that use the ontology based on thresholds obtained by first analyzing the normal
+    distribution of the difference between the sensor sequence values transmitted
+    in real time using the RNN prediction model (abs (predicted value − measured value))
+    and the values generated during model training (abs (predicted value − measured
+    value)) and, then, comparing these two values using the rules listed below. A
+    fault event is added in the following cases: Rule 1: The temperature sensing values
+    obtained from the equipment differ from those obtained from other equipment of
+    the same type installed in the same area. Rule 2: A temperature sensor and a heater
+    are adjacent among the equipment installed in the same area. Rule 3: Temperature
+    and humidity sensors are installed in the same area and the current temperature
+    is 5 °C or less and the humidity is 10% or less. Rule 4: The power measured by
+    a power sensor is zero during the operation of some equipment. Rule 5: When both
+    the RNN-predicted value of an installed device and Many2OneModelStatistics for
+    the device exist, a malfunction event is added if the VARIANCE of the RNN-predicted
+    value is greater than the VARIANCE threshold of the Many2OneModelStatistics. Figure
+    9 shows a hierarchical ontology configuration model, wherein the fault diagnosis
+    processing flow involves a cyclic query of collected data via semantic transformation
+    and their conversion into triples for the input (the optimal batch cycle is configured
+    considering the quasi-real-time performance and the sensor collection cycle).
+    The first request made after the data input is inferred automatically, and the
+    inferred triples are extracted by transmitting the query to SparQL. Figure 9.
+    Hierarchical ontology configuration model. (http://farmnote.org/farmdb/sql.php?db=farmnote&table=u_log_narelab&server=1&target=&token=aa521c6b1cacd178c7da85a30a5ee6fc)
+    (accessed on 11 June 2023). The extracted inferred data are transferred to other
+    integrated subsystems or stored in a database. Finally, all triples of the data
+    model are deleted, as are all inferred triples, by rebinding the upper models
+    (OWL inference model, rule inference model). Table 2 provides an overview of the
+    methods used to configure the fault detection inference rules. Inference rules
+    for detecting an anomaly state of a sensor in a smart farm can be derived by applying
+    these methods. Table 2. Methods for configuring the fault detection inference
+    rules. First, the sensing value is predicted using the RNN Many2One and RNN Seq2Seq
+    models and compared with the measured value. If the difference between the predicted
+    and measured values exceeds the pre-determined threshold, the event is considered
+    a fault event. The threshold used at this time is determined by comparing the
+    measured data used during model training with the values predicted by the RNN
+    model. Second, when the difference between the sensing values of sensors of identical
+    type (e.g., temperature sensors) installed in the same zone/area exceeds the threshold
+    (5 °C), the sensors in the zone/area are suspected to be faulty. As it is not
+    possible to determine the exact faulty sensor, all sensors are deemed to be faulty.
+    Third, when high-temperature, high-humidity conditions beyond a certain threshold
+    are different from the general conditions of high temperature and low humidity,
+    which exerts a harmful effect on plant growth at smart farms, the sensor concerned
+    is suspected to be faulty. Finally, the minimum and maximum allowable ranges are
+    checked as metadata of the measured values of a sensor to determine whether the
+    sensor is in an environment where it can operate normally and reliably. The range
+    may fall within the normal range, enabling normal operation (a range measurable
+    by the sensor or ideal value to be specified in the normal plant factory environment).
+    If the range checked falls outside the normal range, the corresponding sensors
+    are deemed to be faulty. Table 3 provides an overview of the inference rules to
+    be applied in different conditions. Table 3. Inference rules to be applied in
+    different conditions. 5. Model Implementation and Experimentation Diagnosis of
+    malfunction using the above-defined ontology requires the consideration of the
+    critical point of the smart farm sensor. As a result, if the sensor value is predicted
+    to be abnormal and deviates significantly from the predicted value, it may be
+    diagnosed as a malfunction. Sensor value prediction was performed based on hourly
+    data collected from a strawberry farm spanning one year obtained from the Korea
+    Agency of Education, Promotion, and Information Service in Food, Agriculture,
+    Forestry and Fishery. Data analysis reveals that various factors affect the temperature
+    sensing values, as outlined in Table 4. Table 4. Baseline training datasets [30].
+    The measurement items include measurement season, measurement time, outdoor temperature,
+    solar radiation, clouds, fog, precipitation (dry or wet days), and amount of precipitation.
+    The measurable and replaceable data applicable to a real prediction model are
+    listed in Table 5. Table 5. Training data affecting the temperature values. As
+    the data collected by the Korea Agency of Education, Promotion, and Information
+    Service in Food, Agriculture, Forestry and Fishery provide information about the
+    aforementioned items and temperature measurement values corresponding to each
+    time slot, the data were extracted by sequence and item, and the training data
+    were pre-processed. These datasets were used to train the many-to-one model by
+    dividing the time series input sensing values into sequences. The errors corresponding
+    to the differences between the predicted and measured values calculated during
+    training followed a normal distribution, and a threshold was added (semantic transformation)
+    to the ontology by setting appropriate confidence intervals. This value was input
+    (semantic transformation) into the ontology, and faults were assessed by comparing
+    it with the threshold value calculated by the model following the rules. A system-wide
+    configuration of constants and variables was applied to the RNN learning model,
+    which was normalized and denormalized via MinMaxScaler and RevMinMaxScaler functions,
+    respectively. The training and test datasets were separated by loading the farm
+    file with the loadData function. RNN cell/multi-RNN cell were defined to configure
+    the RNN network after loading data from the “temp” directory corresponding to
+    each farm into the main code, and a fully connected layer was defined to test
+    the learning result. Based on the definition of the cost function, the cost was
+    set to be minimized using the Adam optimizer, and several training iterations
+    were performed by the (training) node following the system-wide configuration.
+    Finally, the learning results were stored, and the learning model was tested using
+    the farm data stored for testing. Algorithm 1 presents the code responsible for
+    calculating the predicted values based on an actual sensor sequence. It specifically
+    focuses on the section that displays the outcomes of training the recurrent neural
+    network (RNN) cell in the program. In the main code, the code first examines the
+    command line arguments and the file path for input data. It loads the data from
+    the specified file. Afterwards, the RNN Cell/Multi-RNN cell is defined, the RNN
+    network is configured, the fully connected layer is defined, the node is run,
+    and learning is conducted as many times as globally set. Finally, the results
+    are output as a graph. Algorithm 1: Prediction algorithm based on sensor sequence
+    001: # ----------------------------------------------------------- 002: # Program
+    Start 003: # ----------------------------------------------------------- 004:
+    # Load training data 005: loadData() 006: 007: print(‘Size of training data: ‘
+    + str(len(trainX))) 008: print(‘Size of test data: ‘ + str(len(inputX)) 009: 010:
+    # Input placeholders 011: X = tf.placeholder(tf.float32, [None, seq_length, data_dim])
+    012: Y = tf.placeholder(tf.float32, [None, 1]) 013: 014: # Construct the RNN network
+    015: # RNN Cell (Available cells: Basic LSTM, LSTM, GRU, …) 016: # cell = tf.contrib.rnn.BasicLSTMCell(
+    017: #  num_units=hidden_dim, state_is_tuple=True, activation=tf.tanh) 018: cell
+    = tf.contrib.rnn.GRUCell( 019: num_units=hidden_dim, activation=tf.tanh) 020:
+    021: # Multi-RNN Cells 022: cells = tf.contrib.rnn.MultiRNNCell([cell] * NUMBER_OF_RNN_CELL_LAYERS)
+    023: 024: # Dynamic RNN (outputs: output, _states: previous states in the RNN
+    network) 025: # If RNN cells and input data are given as arguments, the RNN cells
+    are connected to form a network. 026: outputs, _states = tf.nn.dynamic_rnn(cell,
+    X, dtype=tf.float32) 027: 028: # Add fully connected layers to obtain prediction
+    values 029: Y_pred = tf.contrib.layers.fully_connected( 030: outputs[:, −1], output_dim,
+    activation_fn=None) 031: 032: # Define the cost function (sum of the squares)
+    033: loss = tf.reduce_sum(tf.square(Y_pred − Y)) 034: 035: # Define the cost Tensor
+    for Tensorboard 036: tf.summary.scalar(“cost”, loss) 037: 038: # Summary 039:
+    summary = tf.summary.merge_all() 040: 041: # Define the optimizer 042: optimizer
+    = tf.train.AdamOptimizer(learning_rate) 043: train = optimizer.minimize(loss)
+    044: 045: # RMSE (Root Mean Square Error, the square root of the mean squared
+    differences between actual and predicted values) 046: targets = tf.placeholder(tf.float32,
+    [None, 1]) 047: predictions = tf.placeholder(tf.float32, [None, 1]) 048: rmse
+    = tf.sqrt(tf.reduce_mean(tf.square(targets − predictions)) 049: 050: with tf.Session()
+    as sess: 051: init = tf.global_variables_initializer() 052: sess.run(init) 053:
+    054: # Create a summary writer 055: writer = tf.summary.FileWriter(TB_SUMMARY_DIR)
+    056: writer.add_graph(sess.graph) 057: global_step = 0 058: 059: # -------------------------------------------------------------
+    060: # Training Phase 061: # -------------------------------------------------------------
+    062: for i in range(iterations): 063: s, _, step_loss = sess.run([summary, train,
+    loss], feed_dict={ 064: X: trainX, Y: trainY}) 065: #print(“[step: {}] loss: {}”.format(i,
+    step_loss)) 066: 067: writer.add_summary(s, global_step=global_step) 068: global_step
+    += 1 069: 070: # Save the training results 071: saver = tf.train.Saver() 072:
+    saver.save(sess, ‘./model/malfunction_predict.pd’) 073: 074: # -------------------------------------------------------------
+    075: # Testing Phase 076: # -------------------------------------------------------------
+    077: # Perform predictions on test data and display the results using plots 078:
+    test_predict = sess.run(Y_pred, feed_dict={X: inputX}) 079: rmse_val = sess.run(rmse,
+    feed_dict={ 080: targets: sensingValueY, predictions: test_predict}) 081: print(“inputX
+    RMSE: {}”.format(rmse_val)) 082: 083: correct_prediction = test_predict - sensingValueY
+    084: accuracy = tf.reduce_mean(correct_prediction) 085: 086: plt.figure(figsize=(20,
+    4)) 087: plt.plot(RevMinMaxScaler(sensingValueY), ‘b-’, label=‘Sensing’) 088:
+    plt.plot(RevMinMaxScaler(test_predict), ‘r-’, label=‘Prediction’) 089: plt.xlabel(“Time
+    Period”) 090: plt.ylabel(“Temperature”) 091: plt.legend(loc=‘best’) 092: 093:
+    # Perform predictions on the first test data and display the results using plots
+    094: test_predict = sess.run(Y_pred, feed_dict={X: firstTestX}) 095: rmse_val
+    = sess.run(rmse, feed_dict={ 096: targets: firstTestY, predictions: test_predict})
+    097: print(“firstTestX RMSE: {}”.format(rmse_val)) 098: 099: correct prediction
+    = test_predict - firstTestY 100: accuracy = tf.reduce_mean(correct_prediction)
+    101: 102: plt.figure(figsize=(20, 6)) 103: plt.plot(RevMinMaxScaler(firstTestY),
+    ‘b-’, label=‘Sensing’) 104: plt plot(RevMinMaxScaler(test_predict), ‘r-’, label=‘Prediction’)
+    105: plt.xlabel(“Time Period”) 106: plt.ylabel(“Temperature”) 107: plt.legend(loc=‘best’)
+    108: 109: plt.show() 110: Figure 10 graphically depicts the tensor board cost
+    with respect to the sensor values. The test was conducted by varying the number
+    of training iterations from 500 to 1000, 5000, 10,000, and 100,000. After 5000
+    training iterations, no significant difference is observed. Figure 10. Tensor
+    board cost graph. The root mean squared error (RMSE), a widely used error metric,
+    was used to compare the learning results. In the error measurement results listed
+    in Table 6, the RNN cell exhibits an RSME value for the LSTM that is lower than
+    that for the GRU by 0.003. The training data are time series data; thus, this
+    can imply that the LSTM algorithm analyzes time series data more effectively than
+    GRU. Table 6. Errors corresponding to each learning model. Table 7 presents the
+    test results corresponding to different numbers of training iterations. The lowest
+    mean error is achieved after 5000 iterations, and the mean error increases as
+    the number of training iterations is increased to 10,000 and 100,000, presumably
+    due to overfitting. Table 7. Errors corresponding to different numbers of training
+    iterations. Concrete accuracy is expressed numerically, as in Table 7; thus, it
+    is difficult to determine the accuracy of these values. Figure 11, Figure 12,
+    Figure 13 and Figure 14 visually express the prediction accuracy by comparing
+    actual data and predicted data, and it can be seen that the values predicted by
+    the model follow the actual sensor values relatively well. A real-time smart farm
+    equipment fault diagnosis experiment was conducted using the prediction model
+    derived in this study. Figure 11. Test results obtained using the measured data
+    (top: overall result value, bottom: magnified graph of some test results). Figure
+    12. (Left) LSTM model, 500 iterations; (Right) GRU model, 500 iterations. (a)
+    LSTM model overall results, (b) LSTM model Enlarged graph, (c) GRU model Overall
+    results, (d) GRU model Enlarged graph. Figure 13. (Left) LSTM model, 5000 iterations;
+    (Right) GRU model, 5000 iterations. (a) LSTM model overall results, (b) LSTM model
+    Enlarged graph, (c) GRU model Overall results, (d) GRU model Enlarged graph. Figure
+    14. (Left) LSTM model, 1000 iterations; (Right) GRU model, 10,000 iterations.
+    (a) LSTM model overall results, (b) LSTM model Enlarged graph, (c) GRU model Overall
+    results, (d) GRU model Enlarged graph. The observed RMSE value in the experiment
+    is 0.062557. The graphs plotting the measured (blue) and predicted values (red)
+    in Figure 11 are quasi-identical, indicating that the prediction model exhibits
+    good performance. Figure 15 depicts the smart farm equipment fault diagnosis test
+    environment where the proposed model was evaluated experimentally. The equipment
+    fault API integration function, equipment fault diagnosis unit function, power
+    measurement equipment integration, and RNN model were evaluated. The sensor used
+    in this experiment was a temperature sensor(Naretrends Co., Ltd., Buchon-si, Korea)
+    used in smart farms. Figure 15. Configuration of the sensor node test environment.
+    Figure 16 shows a block diagram of the RNN-based fault diagnosis workflow. If
+    fault diagnosis is conducted based on the threshold value after RNN-based prediction
+    of sensor data, there is an integrated interface to submit external data. This
+    is performed using the method “receiveDeviceMeasureNotification”, and the path
+    indicated is its URL path. The data received are not directly entered into the
+    fault diagnosis ontology but are sent to the “Malfunction Detection Scheduler”
+    queue. Fault detection inference can be conducted only after different types of
+    sensor values have been received for a certain length of time. Subsequently, the
+    semantic storage, which is loaded with ontology models, reasoners, and rules,
+    is managed. Once instances are added to the semantic storage through the process
+    of semantic transformation, an event query automatically leads to fault inference.
+    In other words, a query triggers inference. Thus, adding triples does not automatically
+    lead to inference, but inference starts as the need arises. A semantic transformation
+    method such as “translatePredictionResult” is applied using a semantic transformer.
+    The object “PredictionResult” is received as a factor and is transformed into
+    a triple consisting of a subject, a predicate, and an object, which is then added
+    to the ontology using the function “semanticStorageManager.addTriple”. Then, the
+    sensor values cyclically collected through the external interface stored in the
+    “Malfunction Detection Scheduler” queue are subjected to semantic transformations,
+    and fault event reporting is carried out through the process of query and fault
+    inference. Here, “doCollect” issues an event query and triggers inference in the
+    ontology, and the Cloud sends fault events to the website. Figure 16. Block diagram
+    of the RNN-based fault diagnosis workflow. Figure 17 shows the RNN-based fault
+    diagnosis program. The sensor values are predicted using the prediction model,
+    the predicted data are subjected to ontology inference, and the diagnosis results
+    are presented to the user. Once the greenhouse is selected as the area and test
+    data are entered, the predicted and measured values are presented via real-time
+    monitoring to notify the user of threshold crossings. Figure 17. RNN-based fault
+    diagnosis program interface. The proposed system and previously provided fault
+    detection systems have long been used in other fields, and accurate comparisons
+    between them are difficult because they employ different methods. However, the
+    continuous analysis of sensor outliers detected by the proposed system is expected
+    to improve fault detection in smart farming systems. 6. Conclusions In this study,
+    a fault detection technique for smart farming equipment was designed and implemented
+    with the aim of preventing damage to farms due to downtime caused by mistakes,
+    faults, and aging of ICT devices. This is particularly significant owing to the
+    widespread use of such devices in agricultural production facilities. To this
+    end, a model was designed based on RNN algorithms. The model was trained using
+    hourly data obtained from the Korea Agency of Education, Promotion, and Information
+    Service in Food, Agriculture, Forestry and Fishery which were collected at a strawberry
+    farm over a one-year span. The data were extracted in sequence, and necessary
+    items were preprocessed as training data. The learning results were tested by
+    considering 500, 1000, 5000, 10,000, and 100,000 training iterations. The RSME
+    of the optimized model was 0.07, confirming that it exhibits a high prediction
+    power in an environment in which ICT equipment operation is difficult. In farms
+    operating large-scale, modernized, high-tech greenhouses, growth management optimization
+    with respect to facilities and crop characteristics is essential, and efficient
+    operation of sensors and controllers is fundamental. Further, to ensure effective
+    smart farm operation, human interference should be minimized. Furthermore, damage
+    to smart farm equipment and crops can be minimized by detecting malfunctions and
+    arranging for prompt replacements. The technology discussed in this study is a
+    key element in the construction of smart farms capable of self-reliant operation
+    and fault detection. Moreover, this study enables the prevention of disputes between
+    farms and companies, empowers device PL insurance through linkage with insurance
+    companies, and can be used as a source of base data suitable for agricultural
+    research. It is also expected to maximize the output of the smart farm system
+    industry by predicting the remaining useful life and promoting the use of sensors
+    and data to monitor the status of smart farm equipment or mechanical systems,
+    the use of secure diagnostic technology to detect signs of failure, and the use
+    of condition-based maintenance technology to maintain normal operation. It is
+    expected to enhance the reliability of the service and secure global competitiveness
+    for smart farm companies. In future work, we intend to predict malfunction faults
+    by collecting vibration, current, and image values obtained using actuators used
+    in greenhouses. Author Contributions Writing—original draft, H.O.C.; Project administration,
+    M.-H.L. All authors have read and agreed to the published version of the manuscript.
+    Funding This work was supported by the Korea Institute of Planning and Evaluation
+    for Technology in Food, Agriculture and Forestry (IPET) and the Korea Smart Farm
+    R&D Foundation (KosFarm) through the Smart Farm Innovation Technology Development
+    Program funded by the Ministry of Agriculture, Food and Rural Affairs (MAFRA)
+    and the Ministry of Science and ICT (MSIT), Rural Development Administration (RDA)
+    (421021-03). This work was supported by Korea Institute of Planning and Evaluation
+    for Technology in Food, Agriculture and Forestry (IPET) through Short-term Advancement
+    of Smart Agricultural Technology in Open Fields Project, funded by Ministry of
+    Agriculture, Food and Rural Affairs (MAFRA) (322031-03). Institutional Review
+    Board Statement Not applicable. Data Availability Statement Data are contained
+    within the article. Conflicts of Interest The authors declare no conflict of interest.
+    The funders had no role in the design of the study; in the collection, analyses,
+    or interpretation of data; in the writing of the manuscript, or in the de-cision
+    to publish the results. References Kaaya, J. Role of Information Technology in
+    Agriculture. Proc. FOA Conf. 1999, 4, 315–328. [Google Scholar] Sharma, A.B.;
+    Golubchik, L.; Govindan, R. Sensor Faults: Detection Methods and Prevalence in
+    Real-World Datasets. ACM Trans. Sens. Netw. 2010, 6, 23. [Google Scholar] [CrossRef]
+    Mourad, M.; Bertrand-Krajewski, J.L. A Method for Automatic Validation of Long
+    Time Series of Data in Urban Hydrology. Water Sci. Technol. 2002, 45, 263–270.
+    [Google Scholar] [CrossRef] [PubMed] Ahn, H.; An, S.-Y.; Kim, J.-Y.; Lee, C.W.
+    Humidity Sensor Prediction Model Using Environmental Data Analysis in Greenhouse
+    Smartfarm. In Proceedings of the Symposium of the Korean Institute of Communications
+    and Information Sciences, Jeju, Republic of Korea, 18–21 June 2021; pp. 159–160.
+    [Google Scholar] Lee, S. Cloud-Based Smart Farm Technology. J. Korean Inst. Commun.
+    Sci. 2016, 34, 51–57. [Google Scholar] Jeffery, S.R.; Alonso, G.; Franklin, M.J.;
+    Hong, W.; Widom, J. Declarative Support for Sensor Data Cleaning, Lecture Notes
+    in Computer Science. In Proceedings of the of 4th International Conference on
+    Pervasive Computing, Dublin, Ireland, 7–10 May 2006; pp. 83–100. [Google Scholar]
+    [CrossRef] Ni, K.; Ramanathan, N.; Chehade, M.N.H.; Balzano, L.; Nair, S.; Zahedi,
+    S.; Kohler, E.; Pottie, G.; Hansen, M.; Srivastava, M. Sensor Network Data Fault
+    Types. ACM Trans. Sens. Netw. 2009, 5, 25. [Google Scholar] [CrossRef] Hong, S.-J.;
+    Kim, J.H.; Kim, T.-H. An Integrated Verification System for an RNN Inference Processor.
+    In Proceedings of the Korean Society of Electronics Engineers Conference, Jeju,
+    Republic of Korea, 28 June–2 July 2022; pp. 1918–1921. [Google Scholar] Kim, Y.-D.;
+    Jung, G.-H. Bayesian Methodology for Machine Learning. J. Korean Inst. Commun.
+    Sci. 2016, 33, 60–64. [Google Scholar] Seo, D.-S.; Park, Y.-G.; Park, J.-Y.; Kim,
+    Y.-J. A Study on Smart Farm Operation Status and Development Direction; Ministry
+    of Agriculture, Food and Rural Affairs, National Library of Korea: Sejong, Republic
+    of Korea, 2016; Volume 3. [Google Scholar] Joonyong, K.; Rack, P.K. Analysis of
+    Accuracy and Loss Performance According to Hyperparameter in RNN Model. J. Converg.
+    Inf. 2021, 11, 31–38. [Google Scholar] Introduction to the Architecture of Recurrent
+    Neural Networks (RNNs). Available online: https://pub.towardsai.net/introduction-to-the-architecture-of-recurrent-neural-networks-rnns-a277007984b7
+    (accessed on 11 June 2023). Cho, S.M.; Kim, W. Automatic Document Title Generation
+    with RNN and Reinforcement Learning. J. Inf. Technol. Appl. Manag. 2020, 27, 49–58.
+    [Google Scholar] Shin, S.H.; Lee, M.K.; Song, S.K. A Prediction Model for Agricultural
+    Products Price with LSTM Network. J. Korean Contents Assoc. 2018, 18, 416–429.
+    [Google Scholar] Kim, D.-H. Livestock Price Prediction Study Using LSTM Based
+    on Big Data. Ph.D. Thesis, Chonbuk National University, Cheongju, Republic of
+    Korea, 2021. [Google Scholar] Oh, H.-W.; Huh, J.-D. IoT-Based Smart Factory Failure
+    Prediction Analysis Technology for Productivity and Quality Improvement; IEEE:
+    Piscataway, NJ, USA, 2020; pp. 33–43. [Google Scholar] Han, J.H.; Choi, D.-J.;
+    Park, S.-U.; Hong, S.-K. DT-CNN Based Motor Failure Prediction Considering Outlier
+    Data. J. Inst. Control Robot. Syst. 2020, 26, 932–939. [Google Scholar] [CrossRef]
+    Ryu, M.; Cha, S.-H. Developing a Knowledge Graph Based on Ontology Learning. J.
+    Korean Assoc. Comput. Educ. 2022, 25, 51–57. [Google Scholar] Park, J.; Song,
+    M.; Ahn, S. Developing the Fault Diagnostics and Prognostics Model of a Rotating
+    Machinery. JKORMS 2020, 45, 25–38. [Google Scholar] [CrossRef] Lee, S.; Lee, J.
+    Monitoring Procedure of Autocorrelated Processes Using the Deep Learning-Based
+    LSTM Model. J. Korean Data Inf. Sci. Soc. 2022, 33, 237–248. [Google Scholar]
+    Elnahrawy, E.; Nath, B. Cleaning and Querying Noisy Sensors. In Proceedings of
+    the of 2nd ACM International Conference on Wireless Sensor Networks and Applications,
+    San Diego, CA, USA, 19 September 2003; pp. 78–87. [Google Scholar] Tolle, G.;
+    Polastre, J.; Szewczyk, R.; Culler, D.; Turner, N.; Tu, K.; Burgess, S.; Dawson,
+    T.; Buonadonna, P.; Gay, D.; et al. A Macroscope in the Redwoods. In Proceedings
+    of the 2nd International Conference on Embedded Networked Sensor Systems, San
+    Diego, CA, USA, 2–4 November 2005; ACM Press: New York, NY, USA, 2005; pp. 51–63.
+    [Google Scholar] Bae, N.J. Implementation of Ontology-Based Context-Aware Control
+    Service Model for Plant Factory Environment; Suncheon University: Suncheon, Republic
+    of Korea, 2014. [Google Scholar] Park, M.Y.; Kim, M.J.; Park, Y.M.; Song, J.S.
+    Development of Internet of Things Platform Based on oneM2M Standards to Provide
+    Data Augmentation Features for Artificial Intelligence Services. In Proceedings
+    of the Symposium of the Korean Institute of Communications and Information Sciences,
+    Gyeongju, Republic of Korea, 16–18 November 2022; pp. 1683–1684. [Google Scholar]
+    Ji, K.; Kwon, Y. Hadoop MapReduce Performance Optimization Analysis by Calibrating
+    Hadoop Parameters. J. Korean Inst. Inf. Technol. 2021, 19, 9–19. [Google Scholar]
+    [CrossRef] Choi, M.; Gyeong, N.-J.; Lim, J.S. Design of Smart Farming System with
+    Kafka and Spark Streaming. In Proceedings of the Korea Contents Association Comprehensive
+    Conference, Limassol, Cyprus, 7 September 2022; pp. 405–406. [Google Scholar]
+    Lembo, D.; Stantarelli, V.; Savo, D.F.; Giacomo, G.D. Graphol: A graphical language
+    for ontology modeling equivalent to OWL 2. Futur. Internet 2022, 14, 78. [Google
+    Scholar] [CrossRef] Jeon, Y.J.; Lee, H. A Study on the Ontology Modeling by Analyzing
+    RiC-CM v0.2. J. Korean Rec. Manag. Assoc. 2020, 20, 139–158. [Google Scholar]
+    Kim, K.Y.; Jongmo, K.; Park, G.-D.; Sohn, M.M. Value of Information Assessment
+    Framework Using Fuzzy Inference Ontology. J. Korean Soc. Manag. Eng. 2020, 25,
+    117–135. [Google Scholar] Smartfarm Datamart. Available online: https://data.smartfarmkorea.net/structuredData/selectContHortiCultureDataViewLists.do
+    (accessed on 11 June 2023).      Disclaimer/Publisher’s Note: The statements,
+    opinions and data contained in all publications are solely those of the individual
+    author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or
+    the editor(s) disclaim responsibility for any injury to people or property resulting
+    from any ideas, methods, instructions or products referred to in the content.  ©
+    2023 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open
+    access article distributed under the terms and conditions of the Creative Commons
+    Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/). Share
+    and Cite MDPI and ACS Style Choe, H.O.; Lee, M.-H. Artificial Intelligence-Based
+    Fault Diagnosis and Prediction for Smart Farm Information and Communication Technology
+    Equipment. Agriculture 2023, 13, 2124. https://doi.org/10.3390/agriculture13112124
+    AMA Style Choe HO, Lee M-H. Artificial Intelligence-Based Fault Diagnosis and
+    Prediction for Smart Farm Information and Communication Technology Equipment.
+    Agriculture. 2023; 13(11):2124. https://doi.org/10.3390/agriculture13112124 Chicago/Turabian
+    Style Choe, Hyeon O., and Meong-Hun Lee. 2023. \"Artificial Intelligence-Based
+    Fault Diagnosis and Prediction for Smart Farm Information and Communication Technology
+    Equipment\" Agriculture 13, no. 11: 2124. https://doi.org/10.3390/agriculture13112124
+    Note that from the first issue of 2016, this journal uses article numbers instead
+    of page numbers. See further details here. Article Metrics Citations Crossref   1
+    Scopus   1 Web of Science   1 Google Scholar   [click to view] Article Access
+    Statistics Article access statistics Article Views 14. Jan 24. Jan 3. Feb 13.
+    Feb 23. Feb 4. Mar 14. Mar 24. Mar 3. Apr 0 1000 250 500 750 1250 For more information
+    on the journal statistics, click here. Multiple requests from the same IP address
+    are counted as one view.   Agriculture, EISSN 2077-0472, Published by MDPI RSS
+    Content Alert Further Information Article Processing Charges Pay an Invoice Open
+    Access Policy Contact MDPI Jobs at MDPI Guidelines For Authors For Reviewers For
+    Editors For Librarians For Publishers For Societies For Conference Organizers
+    MDPI Initiatives Sciforum MDPI Books Preprints.org Scilit SciProfiles Encyclopedia
+    JAMS Proceedings Series Follow MDPI LinkedIn Facebook Twitter Subscribe to receive
+    issue release notifications and newsletters from MDPI journals Select options
+    Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated Disclaimer
+    Terms and Conditions Privacy Policy"'
+  inline_citation: '>'
+  journal: Agriculture (Switzerland)
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Artificial Intelligence-Based Fault Diagnosis and Prediction for Smart Farm
+    Information and Communication Technology Equipment
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Yassin G.I.
+  - Ramaswamy L.
+  citation_count: '0'
+  description: Smart farming has become increasingly reliant on the integration of
+    Internet of Things (IoT) devices and data analytics to optimize production processes
+    and reduce resource waste. However, secure access to sensitive data and the efficient
+    sharing of information among stakeholders in this context remain a challenge.
+    To address this, we propose a semantically enriched access control architecture
+    for smart farms, which enriches access requests with semantic smart farm information
+    derived from smart farm-specific ontologies before evaluation. Additionally, we
+    explore the feasibility of deploying the proposed ABAC architecture on the edge
+    area, which makes it suitable for distributed environments like smart farms. Our
+    proposed approach improves the accuracy of access control decisions and reduces
+    the complexity of policy management tasks while taking into account the smart
+    farm's nature limitations. To validate our approach, we evaluate it through a
+    case study that simulates access control scenarios in a smart farm. Our results
+    show that the proposed approach significantly enhances access control decision-making
+    in smart farming environments.
+  doi: 10.1109/TPS-ISA58951.2023.00048
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2023 5th IEEE International C...
+    Harvesting Security: A Semantically Enriched Access Control Architecture for Smart
+    Farms Publisher: IEEE Cite This PDF Ghadeer I Yassin; Lakshmish Ramaswamy All
+    Authors 10 Full Text Views Abstract Document Sections I. Introduction II. Motivation
+    & Background Information III. Semantic Smart Farm Abac Architecture IV. Prototype
+    and Evaluation V. Related Work Show Full Outline Authors Figures References Keywords
+    Metrics Abstract: Smart farming has become increasingly reliant on the integration
+    of Internet of Things (IoT) devices and data analytics to optimize production
+    processes and reduce resource waste. However, secure access to sensitive data
+    and the efficient sharing of information among stakeholders in this context remain
+    a challenge. To address this, we propose a semantically enriched access control
+    architecture for smart farms, which enriches access requests with semantic smart
+    farm information derived from smart farm-specific ontologies before evaluation.
+    Additionally, we explore the feasibility of deploying the proposed ABAC architecture
+    on the edge area, which makes it suitable for distributed environments like smart
+    farms. Our proposed approach improves the accuracy of access control decisions
+    and reduces the complexity of policy management tasks while taking into account
+    the smart farm''s nature limitations. To validate our approach, we evaluate it
+    through a case study that simulates access control scenarios in a smart farm.
+    Our results show that the proposed approach significantly enhances access control
+    decision-making in smart farming environments. Published in: 2023 5th IEEE International
+    Conference on Trust, Privacy and Security in Intelligent Systems and Applications
+    (TPS-ISA) Date of Conference: 01-04 November 2023 Date Added to IEEE Xplore: 16
+    February 2024 ISBN Information: DOI: 10.1109/TPS-ISA58951.2023.00048 Publisher:
+    IEEE Conference Location: Atlanta, GA, USA SECTION I. Introduction Smart farming
+    combines conventional agricultural methods with advanced technologies such as
+    sensors, actuators, drones, Information and Communication Technology (ICT), and
+    the Internet of Things (IoT). These technologies provide farmers with accurate
+    and precise information that helps optimize farming tasks, minimize labor requirements,
+    increase crop yields, improve crop quality, reduce waste of resources such as
+    water, fertilizers, and herbicides, and enhance profitability. Smart farming is
+    a complex environment that involves multiple stakeholders and devices. A large
+    number of human workers cooperate in smart farms to monitor the environmental
+    data collected by a huge amount of smart sensors and devices to make informed
+    decisions. As with any sector that employs IoT technologies, The multi-user, multi-device
+    nature of smart farms creates several security and privacy threats, which can
+    hinder the adoption of IoT in farming [1]. Attribute-Based Access Control (ABAC)
+    is a popular access control model that is increasingly being employed to secure
+    IoT devices and networks. ABAC''s efficacy in securing IoT lies in its flexibility
+    and adaptability to different scenarios, which makes it suitable for a variety
+    of IoT systems. ABAC enables the use of contextual attributes such as device location,
+    user identity, and time of day, to enforce access control policies dynamically,
+    ensuring that only authorized users and devices can access critical resources.
+    However, despite the efficacy of ABAC, it fails to capture, on one side the real-world
+    relations among actors and assets in a large system composed of many independent
+    and distributed agents and, on the other side, their complex, dynamic attributes
+    which make it difficult to control. Another limitation that faces systems utilizing
+    the traditional ABAC model is their centralized nature. Almost all of the models
+    developed in the last years assume explicitly or implicitly the existence of a
+    centralized authority unit such as system owners. This unit is responsible for
+    asserting and assessing access policies. These models are not suitable for cooperative
+    systems such as smart farms where the attributes of an entity may not necessarily
+    match those used in access control policies. Hence, Access requests'' decisions
+    are based on static policies and static attributes. In addition, any change in
+    the system specifications requires changing the policies which is a time-consuming
+    and error-prone process. On the other hand, the application of the standard ABAC
+    architecture in smart farms faces challenges due to the inherent complexity of
+    the architecture and the specific characteristics of smart farms, such as network
+    instability and limited device capabilities. In order to tackle these concerns,
+    our paper introduces a smart farm access control architecture incorporating semantic
+    enrichment. This architecture is composed of a smart farm ontology that offers
+    a detailed representation of users, resources, and their interconnections within
+    the smart farm ecosystem. Additionally, it employs a semantic-based access control
+    mechanism that is capable of enriching access control requests with useful data
+    and reduces false positive access request denials. Our research contribution includes:
+    Creating novel smart farm-specific ontology and replacing the functionality of
+    the attributes'' store in the ABAC architecture with the created ontology. Simplifying
+    the policy administration tasks through extending access control requests with
+    attributes inferred from ontologies. Reducing the required communication steps
+    to evaluate a single request by simplifying the access control architecture. Evaluating
+    the proposed architecture on edge devices to better suit Smart farm nature. The
+    paper is structured as follows. In Section II, we lay out important background
+    information and our motivation behind this research. While, in Section III, we
+    provide a detailed overview of the proposed architecture. And in Section IV we
+    describe the prototype implementation of the architecture as well as the different
+    evaluation experiments. In Section V, we discuss Important related works. Finally,
+    in Section VI, we draw our conclusions. SECTION II. Motivation & Background Information
+    Our research motivation stems from the distinctive characteristics of smart farms
+    that distinguish them from other smart systems. Within smart farms, a wide range
+    of stakeholders actively participate in the farm and have access to farm equipment
+    and data. Those stakeholders are not limited to farmers and owners but also include
+    researchers, veterinarians, and government officials to name a few. Furthermore,
+    these farms are collecting an immense volume of data from multiple sources on
+    a daily basis. These data have a great impact on farm value and the workers themselves.
+    Therefore, securing smart farms through access control is of paramount importance.
+    However, most of smart farm devices typically have low memory and processing capabilities.
+    Additionally, the network connectivity in smart farms tends to be prone to instability.
+    Therefore, it is imperative that access control solutions for smart farms are
+    specifically tailored to address the resource constraints of smart farm devices
+    and the inherent difficulties posed by unstable network connectivity. Merely adapting
+    existing solutions from other smart systems may not suffice in ensuring effective
+    access control in this unique context. A. ABAC for Securing Smart Farms ABAC is
+    a well-suited access control model for securing smart farms because it empowers
+    the dynamic enforcement of access control policies based on contextual attributes,
+    such as device location, user identity, time of day, etc. By leveraging these
+    attributes, ABAC ensures that only authorized users and devices with specific
+    attributes have access to critical resources within the smart farm environment.
+    For instance, consider a smart farm implementing a policy specifically stating
+    that only farm operators with high clearance are permitted to control the irrigation
+    system located within the greenhouse after working hours. In this scenario, ABAC
+    can dynamically enforce this policy by taking into account various contextual
+    attributes. These attributes include the resource attribute (greenhouse), the
+    user role (operator), the user attribute (clearance level), and the environmental
+    attribute (after working hours). By considering these contextual attributes, ABAC
+    ensures that access control decisions align with the specific requirements of
+    the policy, allowing only authorized operators with high clearance to manipulate
+    the irrigation system within the greenhouse outside of regular working hours.
+    ABAC Limitation in Smart Farms: Despite the efficacy of ABAC in capturing and
+    leveraging contextual attributes to enforce policies, its adoption in smart farms
+    faces a limitation. ABAC assumes a centralized authority, such as the farm owner,
+    managing access control policies for devices, resources, and attributes related
+    to subjects, objects, and the environment. All the conditions and attributes that
+    need to be verified during access request evaluation must be programmed in advance
+    by the centralized authority into the policy. Additionally, the attributes retrieved
+    from different attribute stores during the decision-making process must match
+    the required attributes for subjects, objects, and the environment to ensure accurate
+    and precise decisions. While this centralized approach may be feasible in scenarios
+    like smart homes, where homeowners have sole responsibility for protecting their
+    devices and appliances, it is not a realistic assumption for a more complex environment
+    like a smart farm. The static encoding of attributes and conditions in ABAC leads
+    to increased complexity, making it challenging to manage and maintain the access
+    control system. In this distributed and heterogeneous environment, the attributes
+    of entities may not necessarily match those used in access control policies, resulting
+    in access decisions based on static attributes. Moreover, any changes in the system
+    specifications necessitate modifying the access control policies, which can be
+    a time-consuming and error-prone process. The dynamic nature and scalability of
+    smart farm systems introduce additional challenges in policy management. Therefore,
+    an effective access control system for smart farms should minimize the efforts
+    required from users to create and administer access control policies while addressing
+    the dynamicity and scalability of the environment. B. XACML Standard Architecture
+    ABAC has been utilized for several years [2], However, no standard framework was
+    developed to realize it. Neither, there is any agreement on the general components
+    or architecture of ABAC. However, the XACML [3] has been used by the research
+    community as the core model for ABAC [4]. XACML is an XML policy-based language
+    that defines the process of access authorization as well as the request and response
+    formats. It offers a framework for enforcing policies that utilize attributes
+    to make access control decisions. The XACML standard includes several key components
+    as shown in Figure 1. The Policy Enforcement Point (PEP) is responsible for receiving
+    access requests and transmitting them to the policy decision point (PDP). The
+    PDP is the central component of the architecture which evaluates incoming requests
+    against access control policies and renders decisions that are then enforced by
+    the PEP. In addition, The XACML architecture encompasses the PIP and the PAP as
+    two critical components that aid in the decision-making process. The PAP contains
+    access control policies and permits administrators to create and oversee policies.
+    On the other hand, if the PEP does not furnish sufficient information to the PDP
+    to render a decision (e.g., certain attributes are missing from the access request
+    but are referenced in the applicable access control policies), the PDP can retrieve
+    the absent information from the PIP, which stores attribute values. Fig. 1. ABAC
+    Standard Architecture. Show All A key feature of the XACML architecture is its
+    loosely coupled architecture, where the policy management function (offered by
+    the PAP), the attributes store (provided through PIP), the decision function (provided
+    by the PDP), and the enforcement function (handled by the PEP) are cleanly separated.
+    XACML standard Architecture''s Limitation in Smart farms: XACML standard architecture
+    involves numerous components and requires numerous communication between them
+    to evaluate a single access request. This complex nature of the architecture may
+    pose challenges in the context of limited capability devices commonly found in
+    smart farms leading to performance issues and increased resource consumption,
+    affecting the overall efficiency of the smart farm operations. Furthermore, network
+    connectivity can present a significant challenge in the process of evaluating
+    access requests within the XACML architecture in smart farms, particularly when
+    multiple components need to communicate with each other to reach a final decision.
+    SECTION III. Semantic Smart Farm Abac Architecture To overcome the limitation
+    of applying ABAC and its XACML standard Architecture in smart farms. We leveraged
+    the flexibility of the XACML standard architecture as a loosely coupled architecture
+    and semantic technologies to adapt ABAC to suit the requirements of smart farms.
+    Since The XACML architecture is designed to be flexible and adaptable, allowing
+    for the addition or removal of new components as needed. Our novel proposed solution
+    includes modifying the architecture as shown in Figure 2. In our architecture’
+    when requests sent to system resources are intercepted by the PEP, instead of
+    directly sending them to the PDP for evaluation against stored policies, they
+    are sent to a new component called Request Enricher (RE). We modified the XACML
+    standard architecture by replacing the PIP component functionality along with
+    its sources of attributes for the subject, object, and environment with the RE
+    component. The RE Component is responsible for semantically enriching incoming
+    access requests with additional attributes that help PDP to directly make its
+    access request decision. In contrast to the standard architecture where the PDP
+    needs to later query PIP for additional attributes not found in the request. This
+    modification helps to significantly reduce the required steps and communication
+    taken to make the final access decision. Additionally, the disposal of the PIP
+    components could lead to reducing the load of the architecture on the constrained
+    devices making it more suitable for the smart farm system. Fig. 2. Proposed Architecture.
+    Show All The high-level request enriching process pipeline is shown in Figure
+    3. The RE component receives access requests and extracts the attributes available
+    in the request and uses them to infer additional related attributes. Finally,
+    it appends the newly inferred attributes back to the access request. A detailed
+    description of how this pipeline is achieved is provided as follows. A. Smart
+    Farm Ontology Semantic technologies can play a crucial role in access control
+    request enrichment by gathering additional information about access requests through
+    applying semantic reasoning techniques on domain ontologies. It enables identifying
+    a user''s role, location, and past behavior, and using that information to make
+    more accurate access control decisions and reduce the risk of false positive and
+    false negative access decisions. Therefore, we have developed an ontology specifically
+    for Smart Farms using the widely used open-source ontology editor Protege [18].
+    The developed ontology incorporates both the standard access request elements
+    as well as Smart Farmspecific concepts. Our ontology builds upon the standard
+    ABAC request elements, such as Subject, Object, Action, and Environment, and expands
+    them with additional subclasses, each representing a specific aspect of the standard
+    classes. Smart Farm-specific Subjects were characterized by different types of
+    Roles that can be found in a smart farm system. In addition, Resources were categorized
+    into Equipment and Data resources. Furthermore, we have classified the requested
+    actions into three sub-classes: Delete, Write, and Read, and have expanded the
+    Environment class to include contextual information such as Access Location and
+    Time of Use. Figure 4 provides an overview of the ABAC standard request elements
+    as well as their direct expanded subclasses. These direct subclasses were further
+    classified into more detailed classes reflecting a deep representation of the
+    smart farm ecosystem. In addition to the main ABAC request elicited classes and
+    their subclasses, we have created more classes that describe the subjects such
+    as their degree of expertise, their permitted access time, their role synonyms,
+    their work specialty, etc. The resources were described using classes such as
+    the data sources and equipment locations as well as some resource-specific characteristics
+    such as collected images and video resolution, the data quality, etc. These classes
+    help enrich access requests with more fine-grained attributes describing both
+    resources and subjects. Fig. 3. High-Level Request Enriching Pipeline. Show All
+    Fig. 4. Main ABAC Request Elicited Classes. Show All Figure 5 describes object
+    properties related to subject-ID: UOOSF, as shown in the figure this subject-ID
+    is categorized as having a sensor technician role in the smart farm. In addition,
+    it has some object properties such as access time, access type, and level of expertise.
+    Moreover, its role and permitted access inside the smart farm are further extended
+    with synonyms. These synonyms - when later appended to the access request - help
+    to majorly reduce false positive access request denials because of the mismatching
+    values between the request and the stored policies. On the other hand, Figure
+    6 describes two different resources with resource-ID: R76SF and R98SF respectively.
+    Each of these resources is classified as a data resource or equipment resource
+    and has different object properties describing their location (for equipment resource)
+    and data source (for data resource) with its longitude and latitude, the allowed
+    access time, and properties describing the data resource such as its resolution.
+    Fig. 5. Object Properties describing Subject Classes for Subject-ID U00SF. Show
+    All B. Request Enricher-RE The proposed RE component in our architecture is displayed
+    with green shade in Figure 2. It is responsible for handling requests before they
+    are sent to the PDP to get evaluated and contains two main modules: an Attribute
+    Processor which extracts key attributes from the request such as the subject,
+    resource, and action, and forwards them to the other module which is a semantic
+    reasoner that infers additional attributes about the request. The Semantic Reasoner
+    module utilizes Hermit reasoner [16] using its API to load and reason over the
+    created smart-farm ontology. The semantic reasoner is capable of inferring information
+    about resources, subjects, and actions that are found in access control requests.
+    Once an access control request filtered attributes is forwarded to the semantic
+    reasoner it utilizes the smart farm ontology to infer more information about subjects
+    such as their level of expertise, their allowed actions over resources, and their
+    allowed access time. In addition, it infers information about the resource location
+    if it is an equipment resource or the source of the resource if it is a data resource
+    as well as some of its characteristics such as data quality and graphical data
+    resolution, etc. The inferred information is then sent back to the Attribute Processor.
+    Once the Attribute Processor receives the additional attributes, it appends them
+    to the original request. The RE component then sends the enriched request to the
+    PDP for evaluation. The enriched request is more likely to be accepted by the
+    access control system as it includes more detailed and relevant information. Therefore,
+    the RE component can improve access control mechanisms by reducing the number
+    of denied requests and improving the accuracy of access decisions while performing
+    the required inference in just one communication step. C. Policy Adminstration
+    As policy administration is an essential aspect of any access control framework,
+    We used the WSO2 Identity Server which offers a Policy PAP feature, that provides
+    extensive support for managing policies. It allows the creation of XACML policies
+    using the available editors. After creating a policy, we can evaluate its expected
+    behavior by testing it with sample requests without activating it in the PDP.
+    If any corrections are needed, they can be made at this stage. Using that, We
+    developed a policy set comprising various policies regulating access to diverse
+    system resources. However, these policies were not intended to encompass every
+    aspect of resource accessibility. Instead, we simplified them to assess how the
+    smart farm semantics could provide adequate coverage for straightforward access
+    policies and decrease the effort and time expended in policy administration duties.
+    Those policies followed the XACML 3.0 standard [3] in defining access control
+    policies and used standard XACML 3.0 combining algorithms for conflict resolution.
+    Fig. 6. Object Properties describing Resource classes for Resource-ID R76SF &
+    R98SF. Show All In particular, A single policy is composed of one or more rules
+    defining the general conditions under which access to a resource is granted or
+    denied. Policies employ a combination algorithm to resolve conflicts between rules
+    and determine the appropriate decision based on their outcomes. Additionally,
+    it incorporates a default deny policy that addresses scenarios where no permission
+    is applicable or when the conflict resolution algorithm fails to reach a decision.
+    Some sample policies from the policy set are described in Table I. For example,
+    The purpose of Policy-l is to restrict the Action: Read on the Resource: Haybaler''s
+    Data - such as performance metrics data - for hay balers that have Resource Property:
+    Location =Field , for Subject: Sensor Technician with Subject Property: Expertise
+    = Expert during Environment Condition: Access Time = Working Hours Exclusively.
+    We choose this policy for testing the ability of the semantic reasoner to infer
+    information about subject properties such as their level of expertise as well
+    as the resource properties such as their location in addition to environment properties
+    such as working hours. All other used policies test a different combination of
+    properties. In addition, Those policies help in testing the ability of the semantic
+    reasoner inference of the requested action synonyms as well as the subject role
+    synonyms. SECTION IV. Prototype and Evaluation For evaluation purposes, we evaluated
+    our proposed architecture on Raspberry Pi 4 model B [17], a small single- board
+    computer developed by the Raspberry Pi Foundation that is widely used in smart
+    ecosystems to control sensors and actuators and is capable of collecting data
+    from various sources, and processing the data for various applications. In addition,
+    we evaluated the proposed architecture on the cloud utilizing Google Cloud App
+    Engine [19], a Platform-as-a-Service (PaaS) offering provided by Google Cloud
+    which provides the required infrastructure for building, deploying, and testing
+    software applications. The following evaluation criteria were tested: Reducing
+    false positives: Is the framework capable of reducing the number of denied requests
+    that should have been accepted according to the available policies? Inference
+    & Request Enrichment Time: How long does it take on average for a single request
+    to be enriched in terms of both inference time and enrichment time? Performance
+    tests between Gateway and Cloud: How long does it take on average for a single
+    request to be processed on cloud services and on gateway devices? A. False Positives
+    To evaluate the efficacy of our framework in reducing false positives, we tested
+    it using different scenarios. A few of them are as follows: 1) Scenario-1 This
+    scenario is targeting Policy-l in Section III-C. Access Request: User ID UOOSF
+    is attempting to review the temperature sensor''s data with Resource ID R00SF.
+    The XML request is shown in Figure 7. This Request, when directly evaluated by
+    the PDP gets denied since it is missing important attributes such as the location
+    of the resource, the current time as well as the level of expertise of the user.
+    In addition, it includes mismatching attribute values when compared with the stored
+    policy such as the required action value { review instead of read} and the user
+    role {Sensor Specialist instead of Sensor Technician}. Enriched Access Request:
+    The Enriched request using our extended component is shown in Figure 8. The semantic
+    reasoner was able to infer the level of expertise of the user as well as the location
+    of the resource and the current time. In addition to inferring synonyms of the
+    required action and the user role in the system. The attribute processor has added
+    the inferred information to the request and when evaluated by the PDP it got accepted
+    as it contained all missing attributes that are required by the targeted Policy.
+    Fig. 7. Access Request Scenario-1. Show All Table I Smaple policies from the policy
+    set. Table II Characteristics of ontology versions. 2) Scenario-2 This scenario
+    is targeting Policy-2 in Section III-C. Access Request: User ID U01SF is attempting
+    to view the Livestock graphical data with Resource ID R01SF. This Request similar
+    to the previous scenario got denied when evaluated by the PDP as its missing important
+    attributes such as the Resolution of the resource. In addition to the mismatching
+    attribute values for the required action when compared with the stored policy.
+    Enriched Access Request: The request was enriched with the help of our RE extended
+    component to include other required attributes such as the subject role, the role
+    synonyms the action synonyms, the resource resolution, and the current time. Similar
+    to the previously mentioned scenarios, A combination of other Scenarios targeting
+    different policies was evaluated including requests missing only a few semantic
+    synonyms of the Subject role or the required action. In addition to other requests
+    missing attributes concerning other resource properties and subject properties.
+    The proposed XACML architecture with the extended component RE was able to accurately
+    reduce false positives for 15 different access requests created for testing purposes
+    and targeting different simple stored policies containing only the most important
+    attributes. Therefore, our proposed architecture proved its effectiveness in significantly
+    reducing Access control policies'' administration tasks. B. Inference Time & Request
+    Enrichment Time Two sets of experiments were conducted to evaluate the performance
+    of the essential components of the system: (1) The average time of the inference
+    step. (2) The average time of the request enriching step. We describe these evaluations
+    as follows: Fig. 8. Enriched Access Request Scenario-1. Show All Table III Time
+    to conduct inference in seconds. Table IV Time to extract attributes from request
+    + enriching requests in seconds. 1) Inference Time We used three different versions
+    of the ontology that was saved during the ontology creation process. The three
+    versions majorly developed in terms of the number of classes and the number of
+    axioms as shown in Table II. Version-1 of the ontology has a relatively simple
+    structure as the development efforts primarily focused on establishing a foundational
+    framework that captures the essential relationships and concepts within the domain.
+    Version-2 of the ontology expanded the number of classes and axioms and incorporated
+    additional granularity and detail compared to the previous version as we refined
+    the structure to encompass a more comprehensive representation of the domain.
+    finally, Version-3 showcases a significant increase in the number of classes and
+    axioms as it captures a high level of detail and intricacy, reflecting a deep
+    representation of the domain. Table III demonstrates the required time for the
+    semantic reasoner to perform the inference step on the cloud and on the edge gateway.
+    The average time of inference on the Cloud was slightly less than the average
+    time of inference on the gateway recording 895 milliseconds for version-3 on the
+    cloud and 1667 milliseconds on the gateway. This difference in time is due to
+    the limited nature of the processing ability of the gateway device when compared
+    to the cloud. 2) Request Enrichment Time The request enrichment time does not
+    depend on the underlying ontology and therefore the time to extract the attributes
+    from the request and enriching the request back with the inferred additional data
+    is very consistent over the cloud and the gateway as shown in Table IV recording
+    maximum time of 39 milliseconds which is a very trivial time in the total access
+    request evaluation time. C. Performance Tests Between Gateway and Cloud When a
+    user generates an access request for an asset, the system goes through several
+    steps to ultimately decide whether to grant or deny access to the asset including
+    the previously mentioned two steps, the PDP eventually checks the request against
+    stored policies in order to make an access decision. The combined Total time taken
+    by the architecture starting with sending a request to making a decision for the
+    different ontology versions is depicted in Figure 9. The average time difference
+    between deploying the architecture on the cloud and on the edge gateway is less
+    than a second for all ontologies versions which reflects the suitability of deploying
+    the architecture on edge gateway devices in smart farms. SECTION V. Related Work
+    Semantic web technologies have been utilized in the domain of access control for
+    many years. Numerous approaches have integrated semantic components into various
+    access control models. Research papers such as [5], and [6], have focused on using
+    semantic technologies with Role-based access control (RBAC) models. However, those
+    papers failed to address the limitations of this model in role assignment and
+    role explosion. Alternatively, ABAC was introduced as a solution to the limitations
+    and inflexibility imposed by other access control systems like RBAC as it provides
+    more flexibility and context awareness, making it a more suitable access control
+    model for complex systems. Therefore, like our research, numerous other research
+    papers have suggested the semantic ABAC as an extension to the standard XACML
+    architecture [7]–[12]. The semantic architecture proposed in [7] was targeting
+    web services. In this architecture, the access requester has the ability to retrieve
+    the access control policies to find out the required policy attributes. The required
+    attributes are queried multiple times from PIP and ontologies. This architecture
+    poses major performance challenges to the system because of the extra work needed
+    to be done for every request. In addition, retrieving policies by the requester
+    pauses a security threat to the system and defeats the purpose of access control.
+    Calvillo et al, [8] proposed a framework targetting the healthcare domain that
+    majorly complicates the standard architecture by adding three additional PIPs
+    components, connected to three different knowledge bases and replaced the PDP
+    with an inference engine that makes decisions based on a developed ontology. Other
+    research works such as [9]–[11] proposed different extensions to the architecture
+    as ideas without performance evaluation using prototypes or supported case studies.
+    All of those proposed architectures were designed for systems that have a different
+    nature than IoT ecosystems, which makes them less suitable for managing access
+    to IoT devices and data. This limitation arises from the fact that these proposals
+    would require additional components to the XACML architecture besides the original
+    components. In addition, they pose extra request processing time through querying
+    attributes multiple times before taking the required access decision. Fewer researchers
+    suggested the semantic ABAC as an extension to the XACML architecture in IoT systems.
+    Drozdowicz et al, [12] proposed an architecture with the same access request evaluation
+    flow as in the standard architecture. However, They replaced PIP with a semantic
+    PIP integrated with security and privacy ontology that describes concepts in the
+    e-Health domain. When the PDP queries the Semantic PIP for extra attributes, the
+    Semantic PIP creates OWL concepts, and OWL individuals for the query attributes
+    and translates the access request into an ontology. Then, it runs a semantic reasoner
+    to obtain extra semantically relevant attributes and retrieves their values by
+    issuing SPARQL queries. Finally, it returns the retrieved attribute values to
+    the PDP for a final decision. A different application of the architecture was
+    proposed for smart cities in [13]. On the other hand, the researchers in [20]
+    suggest extending the access requests before sending them to PDP for evaluation
+    in the healthcare domain. However, unlike our proposed architecture, the access
+    requests are extended with role synonyms if the request attributes match some
+    predefined roles. Any additional required attributes are retrieved from PIP as
+    in the standard architecture. The required synonyms are found by querying a small
+    ontology using a stand-alone semantic reasoner that requires extra network communication
+    in the architecture. Other Research in access control explored the usage of blockchain
+    technologies to secure smart IoT systems such as [14] and [15]. However, there
+    are several drawbacks to using blockchain technologies in access control for smart
+    IoT systems, some of which are scalability, cost, and energy consumption. Fig.
+    9. Total Time Comparison in Cloud and Gateway. Show All SECTION VI. Conclusion
+    and Future Work In this paper, we have highlighted some of the major issues facing
+    the adoption of the traditional ABAC architecture in the smart farm ecosystem.
+    We proposed a novel architecture that aims to decrease the required steps taken
+    to find the required additional attributes for granting or denying access request
+    decisions. The architecture is capable of inferring the attributes related to
+    the Subject, Object, and Environment as well as synonyms for higher chances of
+    reducing false positives. The utilized ontology was developed specifically to
+    cover all aspects of the smart farm ecosystem and provide adequate coverage for
+    any missing access request attributes which in turn significantly simplifies the
+    required access control policies administration tasks by only specifying the most
+    necessary and relevant conditions and attributes in the policies depending on
+    the RE component to enrich access requests with the required attributes. The average
+    total time of request evaluation on edge gateway devices is very small even with
+    different ontology complexities, which makes our architecture more suitable for
+    Smart farm systems. Finally, we plan to carry out our research on enhancing access
+    control in smart IoT systems in general and smart farms specifically by introducing
+    a policy refinement point for refining and updating policies at runtime when necessary
+    because of the changes in the environmental context or abnormalities in access
+    behaviors. Authors Figures References Keywords Metrics More Like This HAC: Enable
+    High Efficient Access Control for Information-Centric Internet of Things IEEE
+    Internet of Things Journal Published: 2020 Security Challenges and Solutions for
+    Internet of Things based Smart Agriculture: A Review 2022 4th International Conference
+    on Smart Sensors and Application (ICSSA) Published: 2022 Show More IEEE Personal
+    Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED
+    DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION
+    TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732
+    981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help | Accessibility
+    | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap |
+    IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
+    technical professional organization dedicated to advancing technology for the
+    benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: Proceedings - 2023 5th IEEE International Conference on Trust, Privacy
+    and Security in Intelligent Systems and Applications, TPS-ISA 2023
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Harvesting Security: A Semantically Enriched Access Control Architecture
+    for Smart Farms'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Amudala A.
+  - Chagarlamudi M.
+  - Polavarapu S.
+  - Sajjala S.
+  - Ramesh S.
+  citation_count: '2'
+  description: Many cropping systems are concerned about effectively managing water.
+    Water management of irrigated crops can be enhanced with the Internet of Things
+    (IoT) and Wireless Sensor Networks. A growing industry of Internet-of-Things (IoT)
+    applications has emerged in countless industrial areas, such as agriculture, healthcare,
+    and logistics. In the advanced industry, the Internet of Things is the key to
+    maximizing productivity and enabling automation. A Dynamic Irrigation Scheduling
+    System for Irrigated Crop Fields Based on the Internet of Things (IoT) is described
+    in this article. Using IoT, the system offers real-time, automatic, dynamic irrigation
+    treatments for different phases of the crop's growth cycle, and manual irrigation
+    treatment for specific locations. Sensors can be designed as budget-friendly devices
+    to detect water levels in a farm, i.e. water level sensors. An irrigation design
+    which is convenient for farmers, which is both automatic and manual is presented.
+    The application has a user-friendly interface that provides farmers with access
+    to farm information via various modes, such as visuals, cell phones, and a web
+    portal. There are notable results relating to water usage prediction, and failure
+    rate of dynamic irrigation in a variety of climatic conditions. A Multipurpose
+    Energy Efficient Wireless Sensor Node has been designed for loT in order to obtain
+    a longer lifespan and higher accuracy. It will allow the user to select the desired
+    communication module based on the communication range required. A power management
+    circuit is designed to enhance the resource's lifetime in the sensor node. Compared
+    with the traditional method of manual irrigation, it helps to increase the crop
+    productivity. This paper examines IoT trends in agricultural applications.
+  doi: 10.1109/ICESC54411.2022.9885455
+  full_citation: '>'
+  full_text: '>
+
+    "IEEE.org IEEE Xplore IEEE SA IEEE Spectrum More Sites Donate Cart Create Account
+    Personal Sign In Browse My Settings Help Access provided by: University of Nebraska
+    - Lincoln Sign Out All Books Conferences Courses Journals & Magazines Standards
+    Authors Citations ADVANCED SEARCH Conferences >2022 3rd International Confer...
+    An IoT-Model for Monitoring Irrigated Crops Publisher: IEEE Cite This PDF Avinash
+    Amudala; Meghana Chagarlamudi; Sahithi Polavarapu; Swetha Sajjala; Ramesh Sr All
+    Authors 2 Cites in Papers 172 Full Text Views Abstract Document Sections I. Introduction
+    II. Literature survey III. SYSTEM ARCHITECTURE IV. DESIGN OF THE SYSTEM V. RESULTS
+    AND DISCUSSION Show Full Outline Authors Figures References Citations Keywords
+    Metrics Abstract: Many cropping systems are concerned about effectively managing
+    water. Water management of irrigated crops can be enhanced with the Internet of
+    Things (IoT) and Wireless Sensor Networks. A growing industry of Internet-of-Things
+    (IoT) applications has emerged in countless industrial areas, such as agriculture,
+    healthcare, and logistics. In the advanced industry, the Internet of Things is
+    the key to maximizing productivity and enabling automation. A Dynamic Irrigation
+    Scheduling System for Irrigated Crop Fields Based on the Internet of Things (IoT)
+    is described in this article. Using IoT, the system offers real-time, automatic,
+    dynamic irrigation treatments for different phases of the crop''s growth cycle,
+    and manual irrigation treatment for specific locations. Sensors can be designed
+    as budget-friendly devices to detect water levels in a farm, i.e. water level
+    sensors. An irrigation design which is convenient for farmers, which is both automatic
+    and manual is presented. The application has a user-friendly interface that provides
+    farmers with access to farm information via various modes, such as visuals, cell
+    phones, and a web portal. There are notable results relating to water usage prediction,
+    and failure rate of dynamic irrigation in a variety of climatic conditions. A
+    Multipurpose Energy Efficient Wireless Sensor Node has been designed for loT in
+    order to obtain a longer lifespan and higher accuracy. It will allow the user
+    to select the desired communication module based on the communication range required.
+    A power management circuit is designed to enhance the resource''s lifetime in
+    the sensor node. Compared with the traditional method of manual irrigation, it
+    helps to increase the crop productivity. This paper examines IoT trends in agricultural
+    applications. Published in: 2022 3rd International Conference on Electronics and
+    Sustainable Communication Systems (ICESC) Date of Conference: 17-19 August 2022
+    Date Added to IEEE Xplore: 19 September 2022 ISBN Information: DOI: 10.1109/ICESC54411.2022.9885455
+    Publisher: IEEE Conference Location: Coimbatore, India SECTION I. Introduction
+    Smart farming is an arising concept that alludes to overseeing ranches using advancements
+    like IoT, robots, drones, and artificial intelligence to improve the quality and
+    quantity of products while streamlining human work. IoT has improved nearly every
+    industry imaginable, its impact on agriculture has been tremendous. IoT isn''t
+    just providing a solution to often time-consuming and tedious tasks. It''s changing
+    the way one thinks about agriculture. The driving force of smart farming is the
+    Internet of Things - connecting sensors and machines on farms to make them more
+    data-driven and automated. Precision agriculture depends heavily on the management
+    of irrigation water for its crops making water management a key factor [1]-[2].
+    Crop yield is reduced by inadequate irrigation in terms of water management, scheduling,
+    and scheduling. The ability to efficiently utilize water resources is highly dependent
+    on our ability to meet your urgent food demand, given the current trends in world
+    population growth. By optimizing water use and increasing yields and quality of
+    agricultural crops in the most minimal way possible, water management approaches
+    alleviate dependence on direct human intervention. It is done by ensuring that
+    the water monitoring process runs smoothly, by applying the right level of automation,
+    and by giving farmers access to their farms at any time. In this paper, an automated
+    irrigation system based on wireless technology and microcontrollers is described
+    and also implemented on a small scale in rural areas. Using automatic irrigation
+    design was intended to demonstrate how water consumption can be reduced. With
+    the Internet of Things (IoT), it is pretty much possible to accomplish the goal
+    of precise water management and water saving from anywhere and anytime. Physical
+    objects can be connected to IoT via actuators, sensors, and wireless connectivity
+    modules that share data with other devices, machines, and humans [3]-[7]. SECTION
+    II. Literature survey This section highlights research about manual and automated
+    water irrigation with sophisticated technologies like WSNs and IoTs for water
+    precision and conservation agriculture. A. Wireless Sensor Network farming Research
+    has been conducted in many fields of agriculture [8] based on the improvement
+    of WSNs to enhance the precision and accuracy of farming operations in real-time.
+    In an irrigation system designed for malting barley cultivation at large scale,
+    irrigation optimizer software and an infield wireless sensor network (WSN) controlled
+    an irrigation machine with programmable sprinkler nozzles were used to optimize
+    irrigation. When irrigation is done without analyzing the soil properties, the
+    water is applied unevenly to the soil, resulting in lower yields. A modern irrigation
+    management system will resolve this problem. Y Kim proposed that wireless sensor
+    networks and embedded Linux boards are used in this web-based irrigation system.
+    There are two nodes in the proposed system, the end device node and the coordinated
+    node [9]. Through the coordinator, the system will communicate with distributed
+    End device nodes using ZigBee wireless technology. This will enable the system
+    to continuously collect soil temperature and soil moisture data and store this
+    information in a database. Using the Raspberry Pi board and MySQL database, a
+    database is created [9]. Using the received data, the Coordinate node determines
+    how much water is needed for the soil. In order to control a variable rate irrigation
+    system in real time, J. Gutiérrez designed, constructed, and tested a wireless
+    sensor network (WSN), a remote sprinkler control, and a user-friendly software
+    component [10]. Wireless sensor networks reduce installation and maintenance costs
+    by eliminating the need to hardwire sensor stations. WSNs are widely used to achieve
+    accurate results in irrigation systems. A design based on WSN containing a base
+    station and WSN module is connected to a web portal to update the data in the
+    computer [11]. Telos B motes are used to collect the data from the nodes deployed
+    in the field and connect to the computer. Various uses of Wireless Sensor Networks
+    in agriculture are described in [12]. On the other hand, the issue of theft in
+    agricultural fields has been ignored for years which resulted in unauthorized
+    invaders. It regards the entry of an intruder to be a critical issue and has created
+    a prototype intrusion detection system. B. Internet of Things farming IoT enables
+    sensors on a field to gather and evaluate a variety of data remotely and send
+    it to the farmer in real time. Imteaj et al. [13] proposed an automatic watering
+    system, by using Arduino, Raspberry pi 3 microcontrollers. A WIFI module with
+    IP connectivity handles communication between the sensor node and the receiver
+    node. A SMS alert is sent to the farmer if there is a water shortage when communication
+    between central units and farmers is via GSM. Using daylight sensors, soil moisture
+    sensors, and water level sensors, the proposed irrigation system utilized data
+    from sensors. However, in reality, remote areas may not have access to WIFI services.
+    An outline of the Cloud of Things'' water irrigation system was proposed by Roopaei
+    et al. [14], which would be a hybrid of IoT and CPS. Agriculture relies on water
+    and electricity as its two primary inputs. The CoT, a fusion of the Internet of
+    Things and Cyber-Physical Systems, can also improve energy efficiencies in pumps,
+    lighting, boosters, and other applications, in addition to enabling remote monitoring,
+    control, and monitoring of equipment. This paper presents a lab-scale prototype
+    of an Internet of Things (IoT)-based irrigation system, which detects soil moisture,
+    temperature, and raindrops to estimate the amount of irrigation water needed.
+    Data mining techniques such as regression allow for predicting how much water
+    will be needed for the next iteration based on the amount of water flowing and
+    the temperature of the surroundings. Using a wifi module, the sensed parameters
+    are fed to a mobile application via the cloud aiding the user to access the data.
+    By using the API Key, data is transferred from the microcontroller to the cloud
+    and from there, the mobile app. TABLE I. Limitations of previous work SECTION
+    III. SYSTEM ARCHITECTURE Fig. 1. Proposed System Architecture Show All In this
+    section, the architecture of the proposed system is presented as mentioned in
+    Fig. 1. The proposed system follows the conceptual architecture of Wireless Sensor
+    Networks towards the IoT. A. Sensing and Actuator layer In this layer, Sensor
+    networks are installed in the field to sense environmental conditions and transmit
+    data to gateway nodes through GSM. The data is transmitted by the gateway node
+    to the remote server via GPRS packets. GPRS provides the IoT architecture''s core
+    communication, allowing the interaction and integration of physical and virtual
+    items [15]. The sensor node compares data from sensors with thresholds stored
+    in an Arduino. If any distortion from the preset values, the relay board activates
+    the motor. B. Remote Processing and Service layer The data is processed in this
+    layer from sensors, and the desired operation is performed without human need.
+    The remote processing layer enables the controller to control the field operations
+    remotely. When irrigation is needed, this layer will be executed without the physical
+    presence of the farmer. C. Application layer A farmer can easily view current
+    operations and field information through this layer. Farmers are equipped with
+    GSM capabilities, so they can transmit data to a mobile phone, and an LCD display
+    with GPRS capability and LED array indication in their house allows them to analyze
+    field data easily. Farmers can also access their field information at any time
+    via the Web server over the Internet. If an intruder enters the field, the farmer
+    receives an alarm message, by using PIR sensors in the node [15]. SECTION IV.
+    DESIGN OF THE SYSTEM This section explains our proposed design for the system.
+    A detailed overview of the different components such as an IoT gateway, a remote
+    server and a sensor node is described in this section. Arduino UNO is the microprocessor
+    in the suggested system. The novel multipurpose energy efficient wireless sensor
+    node will allow the user to select the desired communication module based on the
+    communication range. A power management circuit has also been developed to enhance
+    the resource''s lifetime in the sensor node and also in this proposed system,
+    loT level-2 is used. It is made of a single node, a database, and a framework
+    that are all hosted on the cloud. Local data analysis is conducted out. The cloud
+    is only used for storage. The communication protocols used in this work are GSM
+    Module and Bluetooth. Fig. 2. Pin diagram of ATMega328 Show All A. Design of Sensor
+    node Fig. 3. Flowchart for system design Show All As demonstrated, a dependable,
+    low-cost energy efficient wireless sensor node is developed. The diagram of the
+    developed sensor node shows the various components that are connected to its processor.
+    The Soil moisture sensor is used to measure the amount of moisture in the soil
+    in the sensor node design. In the field, the DTH11 sensor is used to estimate
+    humidity and temperature. A PIR sensor is used for detecting the intruder that
+    enters the field. An LDR sensor is also used to measure the light intensity. All
+    these sensors are powered by a power supply of 12V. Any information in the sensor
+    node is shown in the 16×2 LCD display attached to the node. Pin diagram of the
+    16×2 LCD. The relay module which is connected to the controller is fed to the
+    input of the DC pump. The relay module acts as an actuator and operates the ON
+    and OFF of the motor based on the sensed input from the controller. Here, two
+    types of boards are used to integrate the microcontrollers to process the system.
+    Arduino (Developed) and Self Developed boards are used for sensor nodes. In Arduino
+    (Developed), ATMega328P microcontroller is used for high performance and low power
+    consumption, which helps for long time usage. Buck converter is a 12V to 5V DC-DC
+    step-down converter. Here, a simple circuit for the step-down converter, an LM-2596S-3.3
+    voltage regulator IC and Schottky diode are used in it. 1) Power management circuit:
+    Power management circuit provides three different power channels for the microcontroller,
+    sensor/actuator and GSM. A low-dropout (LDO) linear regulator with a high-power
+    supply rejection ratio, the AP7343 LDO, is used in our system. 2) Charging circuit:
+    In the charging circuit, the TP4056 linear charger DW01A for battery protection
+    and integrated circuit (IC) is used. A. Integration of Sensors and IoT Gateway
+    In the proposed system, 4 types of sensors are used, soil moisture, DTH11, LDR,
+    and PIR sensor. The soil moisture sensor is interlinked with the relay board through
+    the developed Arduino board [16]. A relay board is connected with the water motor,
+    if water quantity in the soil falls less than the preset value then the sensor
+    sends the information to the relay board, GSM, and LCD display. Relay board acts
+    as a switch here, if the actual value falls below the preset value, then the switch
+    will on other it is in off state. If soil is dry, farmers will receive an alert
+    message that \"Soil is dry so turn the motor ON\" to the mobile phone, LCD display,
+    as well as the data about motor ON/OFF, is uploaded to the server through IoT
+    gateway(GSM). Finally, the Intruder sensor, if an object or intruder is detected
+    then sends an alert message to the farmer through GPRS. Simultaneously, all the
+    information is shown below. Concepts of IOT are explored from [17-18]. B. Implementation
+    of System server In our design, free web services are used which are thingspeak
+    open-source software. By using the API key, it is connected to our system. Need
+    to insert API key and server link in the Arduino code, then the server is connected
+    to the system. For every 30 seconds, data will be automatically uploaded by using
+    GPRS. In Fig. 4 the complete flowchart to build in a traditional way with an IoT
+    based smart irrigation system. Fig. 4. Flowchart of the system Show All SECTION
+    V. RESULTS AND DISCUSSION In Figs. 6&7 graphs are from the sensor DTH11, which
+    monitors the temperature and humidity of the field. After monitoring one month
+    of this data, by using this one can predict the water usage of that particular
+    crop. This sensor and GPRS are connected to the Arduino so that this information
+    is displayed on the LCD display and also on the web page. To create a web page
+    thingspeak open source software is used to display the data. The web page and
+    server are already mentioned in the Design section IV. The Relay board is connected
+    to the soil moisture sensor, it acts as a switch to control the soil moisture
+    sensor. Based on this motor will work. Moisture percentage is shown on both the
+    LCD display and web page. To convert soil moisture percentage a formula is used.
+    i.e. AO = ADCValue/1023, Moisture percentage = 100-(AO*100). This formula is already
+    present in the Arduino code, so that percentage will be displayed. And also the
+    system sends alert messages to the farmer regarding whether the soil is wet or
+    dry as shown in Fig. 5. Fig. 5. Administrator mobile phone SMS receiver from system
+    Show All Fig. 6. Data from DTH11 to web server Show All Fig. 7. Data from DTH11
+    to web server Show All Fig. 8. Data from soil moisture to web server Show All
+    Fig. 9. Data transmitted to the web server from the LDR sensor Show All In Fig.
+    9. It shows the light intensity of the field. By using this one can compare the
+    irrigation process and water requirement with the other crops. Fig. 10. Designed
+    IoT System Show All Experimented the design as in Fig. 10 IoT system in the household
+    garden in an area of 100 square feet from Feb 15th to March 16th, 2022. As 100
+    square feet is a comparatively small area, the designed board is placed in the
+    center of the plot. The board has the soil moisture sensor, water level sensor
+    to sense the values and update to the web. All the sensed data is collected on
+    the web and is displayed in the form of a bar graph. The system model is depicted
+    in Fig. 11. Fig. 11. System prototype Show All Accuracy Calculation:  Error Percentage
+    =  originlal value − Experimental value   original value  ×100 View Source Original
+    values are collected from the climate forecast. Average Error percentage of temperature
+    from the designed system = 4.78 % Average Error percentage of humidity from the
+    designed system = 4.01 % Accuracy percentage = 100 - Error percentage Average
+    Accuracy percentage of temperature from the designed system = 95.22 % Average
+    Accuracy percentage of humidity from the designed system = 95.99 % SECTION VI.
+    CONCLUSION The research study that is performed has shown that implementing an
+    automatic water irrigation system can help improve the quality of a plant''s production.
+    This method is relatively simple to implement and does not require a lot of money.
+    As sensors improve, this system will become more valuable. A more accurate weather
+    forecast can help improve decision-making regarding water supply and waste reduction.
+    It can also help ensure that the correct amount of fertilizer is delivered to
+    the right place. This system can also help reduce the amount of time that farmers
+    spend on crop maintenance. Authors Figures References Citations Keywords Metrics
+    More Like This Sensor data collection and irrigation control on vegetable crop
+    using smart phone and wireless sensor networks for smart farm 2014 IEEE Conference
+    on Wireless Sensors (ICWiSE) Published: 2014 Wireless Sensor Network and Internet
+    of Things-based Smart Irrigation System for Farming 2023 International Conference
+    on Inventive Computation Technologies (ICICT) Published: 2023 Show More IEEE Personal
+    Account CHANGE USERNAME/PASSWORD Purchase Details PAYMENT OPTIONS VIEW PURCHASED
+    DOCUMENTS Profile Information COMMUNICATIONS PREFERENCES PROFESSION AND EDUCATION
+    TECHNICAL INTERESTS Need Help? US & CANADA: +1 800 678 4333 WORLDWIDE: +1 732
+    981 0060 CONTACT & SUPPORT Follow About IEEE Xplore | Contact Us | Help | Accessibility
+    | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap |
+    IEEE Privacy Policy A not-for-profit organization, IEEE is the world''s largest
+    technical professional organization dedicated to advancing technology for the
+    benefit of humanity. © Copyright 2024 IEEE - All rights reserved."'
+  inline_citation: '>'
+  journal: 3rd International Conference on Electronics and Sustainable Communication
+    Systems, ICESC 2022 - Proceedings
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: An IoT-Model for Monitoring Irrigated Crops
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
+- analysis: '>'
+  authors:
+  - Hossain M.S.
+  - Rahman M.H.
+  - Rahman M.S.
+  - Hosen A.S.M.S.
+  - Seo C.
+  - Cho G.H.
+  citation_count: '8'
+  description: In this work, we examine the privacy and safety issues of Internet
+    of Things (IoT)-based Precision Agriculture (PA), which could lead to the problem
+    that industry is currently experiencing as a result of Intellectual Property Theft
+    (IPT). Increasing IoT-based information flow in PA will make a system less secure
+    if a proper security mechanism is not ensured. Shortly, IoT will transform everyday
+    lives with its applications. Intellectual Property (IP) is another important concept
+    of an intelligent farming system. If the IP of a wise farming system leaks, it
+    damages all intellectual ideas like cultivation patterns, plant variety rights,
+    and IoT generated information of IoT-based PA. Thus, we proposed an IoT enabled
+    SDN gateway regulatory system that ensures control of a foreign device without
+    having access to sensitive farm information. Most of the farm uses its devices
+    without the use of its integrated management and memory unit. An SDN-based structure
+    to solve IP theft in precision farming has been proposed. In our proposed concept,
+    a control system integrates with the cloud server, which is called the control
+    hub. This hub will carry out the overall PA monitoring system. By hiring the farm
+    devices in the agricultural system, these devices must be tailored according to
+    our systems. Therefore, our proposed PA is a management system for all controllable
+    inputs. The overall goal is to increase the probability of profit and reduce the
+    likelihood of IPT. It does not only give more information but also improves information
+    securely by enhancing the overall performance of PA. Our proposed PA architecture
+    has been measured based on the throughput, round trip time, jitter, packet error
+    rate, and the cumulative distribution function. Our achieved results reduced around
+    (1.66–6.46)% compared to the previous research. In the future, blockchain will
+    be integrated with this proposed architecture for further implementation.
+  doi: 10.3390/electronics10161987
+  full_citation: '>'
+  full_text: '>
+
+    "This website uses cookies We use cookies to personalise content and ads, to provide
+    social media features and to analyse our traffic. We also share information about
+    your use of our site with our social media, advertising and analytics partners
+    who may combine it with other information that you’ve provided to them or that
+    they’ve collected from your use of their services. Consent Selection Necessary
+    Preferences Statistics Marketing Show details                 Deny Allow selection
+    Allow all   Journals Topics Information Author Services Initiatives About Sign
+    In / Sign Up Submit   Search for Articles: Electronics All Article Types Advanced   Journals
+    Electronics Volume 10 Issue 16 10.3390/electronics10161987 Submit to this Journal
+    Review for this Journal Propose a Special Issue Article Menu Academic Editors
+    Rashid Mehmood Domenico Ursino Subscribe SciFeed Recommended Articles Related
+    Info Link More by Authors Links Article Views 3251 Citations 8 Table of Contents
+    Abstract Introduction Literature Survey Architecture of the Proposed Framework
+    Evaluation and Results Analysis Conclusions and Future Work Author Contributions
+    Funding Conflicts of Interest References share Share announcement Help format_quote
+    Cite question_answer Discuss in SciProfiles thumb_up Endorse textsms Comment first_page
+    settings Order Article Reprints Open AccessArticle Intellectual Property Theft
+    Protection in IoT Based Precision Agriculture Using SDN by Md. Selim Hossain 1,
+    Md. Habibur Rahman 2, Md. Sazzadur Rahman 3,*, A. S. M. Sanwar Hosen 4, Changho
+    Seo 5 and Gi Hwan Cho 4,* 1 Department of Computing and Information System (CIS),
+    Daffodil International University, Dhaka 1207, Bangladesh 2 Department of Information
+    and Communication Technology, Bangabandhu Sheikh Mujibur Rahman Digital University,
+    Bangladesh, Gazipur 1750, Bangladesh 3 Institute of Information Technology, Jahangirnagar
+    University, Savar, Dhaka 1342, Bangladesh 4 Division of Computer Science and Engineering,
+    Jeonbuk National University, Jeonju 54896, Korea 5 Department of Convergence Science,
+    Kongju National University, Gongju 32588, Korea * Authors to whom correspondence
+    should be addressed. Electronics 2021, 10(16), 1987; https://doi.org/10.3390/electronics10161987
+    Submission received: 15 July 2021 / Revised: 9 August 2021 / Accepted: 13 August
+    2021 / Published: 18 August 2021 (This article belongs to the Special Issue Privacy
+    - Aware IoT Task Offloading in Green Edge Computing) Download keyboard_arrow_down     Browse
+    Figures Versions Notes Abstract In this work, we examine the privacy and safety
+    issues of Internet of Things (IoT)-based Precision Agriculture (PA), which could
+    lead to the problem that industry is currently experiencing as a result of Intellectual
+    Property Theft (IPT). Increasing IoT-based information flow in PA will make a
+    system less secure if a proper security mechanism is not ensured. Shortly, IoT
+    will transform everyday lives with its applications. Intellectual Property (IP)
+    is another important concept of an intelligent farming system. If the IP of a
+    wise farming system leaks, it damages all intellectual ideas like cultivation
+    patterns, plant variety rights, and IoT generated information of IoT-based PA.
+    Thus, we proposed an IoT enabled SDN gateway regulatory system that ensures control
+    of a foreign device without having access to sensitive farm information. Most
+    of the farm uses its devices without the use of its integrated management and
+    memory unit. An SDN-based structure to solve IP theft in precision farming has
+    been proposed. In our proposed concept, a control system integrates with the cloud
+    server, which is called the control hub. This hub will carry out the overall PA
+    monitoring system. By hiring the farm devices in the agricultural system, these
+    devices must be tailored according to our systems. Therefore, our proposed PA
+    is a management system for all controllable inputs. The overall goal is to increase
+    the probability of profit and reduce the likelihood of IPT. It does not only give
+    more information but also improves information securely by enhancing the overall
+    performance of PA. Our proposed PA architecture has been measured based on the
+    throughput, round trip time, jitter, packet error rate, and the cumulative distribution
+    function. Our achieved results reduced around (1.66–6.46)% compared to the previous
+    research. In the future, blockchain will be integrated with this proposed architecture
+    for further implementation. Keywords: intellectual property; precision agriculture;
+    IoT; SDN; gateway; smart control 1. Introduction Agriculture is tremendously important
+    throughout the world. To provide the conversion on the road to exploiting efficiency,
+    sustainable production, and actual time, reliable evidence about crop progress
+    is vital today. PA can be seen as a new era of agriculture that makes agriculture
+    a more skillful and accurate way of utilizing expertise to raise cattle and grow
+    crops. This is the farm management method, the critical component of ICT is the
+    usage of sensors, regulator systems, robotics, stand-alone vehicles, automatic
+    hardware, Software Defined Network (SDN), Internet of Things (IoT), and variable
+    technology. Precision agriculture based on IoT provides valuable insight into
+    crop growth, development, transformation, farming, and so on [1,2]. The IoT-based
+    system for radar monitoring allows for high-cloud weather-based analysis. At the
+    same time, the optical sensors discriminate between crop type, soil pH, water
+    level, and health and maturity. Hands-on crop nursing is now possible through
+    the latest information satellite and a scalable high-speed cloud computation system
+    for agricultural insurance resolutions. We can gain competitive insights with
+    advanced crop performance analytics, and advantages compare to the previous ones.
+    Receiving early warnings about cultivation failure or agriculture helps a farmer
+    make decisions. Expositions of data relations and responses to potential threats
+    or diseases, nutrients or water deficiencies, crop production drought, risk mitigation,
+    and infrastructure sustainability provide proper predication in smart farming
+    [3]. Farmers with a wealth of information are also supplied with PA to build up
+    their farm records, improve decision-making, foster more traceability, increase
+    agricultural products marketing, improve rental arrangements and landowners’ relationships,
+    improve farming quality inherently, and so forth. The agricultural sector must
+    adopt new technologies to achieve a much-needed edge to meet the needs of the
+    increasing population. Thus, SDN and IoT [4,5] enable the industry to raise operational
+    efficiency, reduce costs, and cut waste. It also manages delivery issues and improves
+    yield quality in new agricultural applications in smart agriculture and IoT precision
+    having an SDN enabled smart network. Farmers can also monitor the conditions on
+    the field from anywhere, which means remote monitoring. IoT’s intelligent agriculture
+    is highly efficient compared to the traditional method. In addition to the conventional,
+    large-scale farming processes involved in SDN and IoT-smart farming, the applications
+    may also provide new levers to uplift other crop and common trends in farming
+    such as organics, family agriculture (completive or small-scale areas, particular
+    crops, high-quality crops, etc.), and enhance the highly transparent system of
+    agriculture [6,7]. The use of IoT-SDN based intelligent farming means that a system
+    with sensor aids (light, humidity, temp, soil humidity, etc.) for monitoring crop
+    fields is developed, and an irrigation system is automated. When these external
+    or foreign devices are employed temporarily in our PA system, our proposed system
+    by the intelligent hub will control the intelligent farming system. These plans
+    are also effort based on monitoring, based on intelligent farming systems. The
+    connection scheme of the farm system is a vital concern of these external devices.
+    These devices can generally work in the network system or can be customized to
+    operate. 1.1. Scientific Progression in IoT Based PA IoT is playing a role in
+    transforming our everyday lives with different types of applications. There are
+    already 31 billion connected IoT [8] devices around the globe that help us to
+    carry out daily tasks with added ease. When devices monitor our activities and
+    know what we need to achieve, we have less to worry about. Thus, the expansion
+    of IoT products has spread worldwide [9]. The use of IoT has boosted many industries
+    by using low-cost sensors and IoT platforms, data collection, real-time insight,
+    and process automation. In this way, the agriculture and agriculture industry,
+    in general, can truly take advantage of the IoT solution [10]. It is also a key
+    solution to the growing concern over the global population’s food and environmental
+    impact, not only a smart agricultural approach but also today’s innovative agricultural
+    technique. PA is one of today’s most curved issues. IoT-based PA covers various
+    technologies, including sensors, Media Access Control (MAC), Global Positioning
+    System (GPS), drones, satellite images, and big data. IoT-based PA covers a range
+    of technologies. The use of IoT in farm machinery enables farmers to practice
+    compared with fewer inputs that reduce costs rather than produce higher amounts.
+    IoT also comprises hardware, such as sensors, machine-to-machine and long-range,
+    decision support software, and web-based software. The most advantageous point
+    of using this technology is that it can be combined at a very affordable price,
+    allowing countries to stop precision farming approaches. The production concerns
+    farmers’ special and results-oriented efforts. By using IoT, farmers can assess
+    the aspects of agriculture and take appropriate steps to obtain results. The production
+    of farmers with IoT using sensors, robotics, control systems, and more to forecast
+    the results is guaranteed if they follow the analysis results and instructions.
+    PA helps farmers determine where the problem is by providing the best services
+    and forecasts of what to plant and regular seeding updates, analysis, and delivery
+    of highly advanced combined sensors to soil moisture specifications. 1.2. Current
+    Situation of Intellectual Property in PA IP contains intangible human intellect
+    conceptions. Many forms and some countries identify more than others as IP. Copyrights,
+    patents, trademarks, and business secrets are the most well-known kind. The existing
+    IoT-based farming is limited to hiring foreign devices when these devices are
+    required in smart agriculture. It is like a usual process. When we engage these
+    foreign agents, these devices can quickly look up every system of an intelligent
+    farming system. It is very easy to steal any information or intellectual property
+    such as plant patterns, employee skills, or farming policies for these foreign
+    agents. It was only in the late 20th century that intellectual property was employed
+    in most legal schemes worldwide. IP is primarily aimed at inspiring the development
+    of an extensive range of IP rights. Intellectual property gives individuals and
+    companies the right of information and intellectual property, usually for only
+    a limited time. Intellectual Capital (IC) means a change in the value of knowledge
+    for a company. Thus, the debit and IC are the credit or share of intellectual
+    property such as people, patents, processes, brand names, etc. If this IP idea
+    is shared or accessed somehow, then the concept could easily be implemented in
+    another smart farming system. As a result, the goal of that farming system may
+    not be adequately obtained. Now, there is no control hub procedure of the current
+    smart farming system. If we hire a device in a smart farming system, it can easily
+    access my farming information due to the existing IoT-based PA infrastructure.
+    1.3. Impact of Intellectual Capital Theft in PA IP theft includes removing an
+    individual or company from trade secrets or soft products, known as ‘cultural
+    property’, from ideas, inventions, or creative expressions. From new crop production
+    and farm equipment design, commercializing and labelling of farm products are
+    essential. Intellectual goods have a long-term effect and significant importance
+    in the many agricultural sectors. However, the interaction between intellectual
+    property law and agriculture has had comparatively less interest or attention.
+    The situation has reformed over the past decade mainly because of increasing awareness
+    of the role of IP law in food safety. If the business secret or policy is publicly
+    disclosed, there will be a massive impact on this particular enterprise. The corporate
+    competition might also be a public structure. If IP theft takes place in a specific
+    agricultural system, a catastrophic drawback from that agricultural system will
+    be imposed. The adoption of nano-based biomarkers to trace patented products through
+    new scientific and technical innovations throughout the food chain uses molecular
+    markers in breeding. To track proprietary products or data-based intelligent agriculture
+    information, the adoption of nano-based biomarkers might be communicated throughout
+    the world. The guardian of IP is serious about promoting innovation. Innovation,
+    farms, and individuals would not benefit from the full support of their inventions
+    without protecting ideas and would focus less on research and growth. Artists
+    would therefore not be fully paid for their creations, and their cultural strength
+    would suffer. Intellectual property is a category of property that includes intangible
+    creations of the human intellect in a PA. It has a direct impact on a smart farming
+    system. Cultivation patterns, plant variety rights, and IoT generated information
+    from a smart farming system are the intellectual properties that are protected
+    by the IoT-SDN gateway hub. When foreign devices are hired in a PA, these devices
+    must load the IoT-SDN operating system. The foreign devices are operated by the
+    direction of this IoT-SDN intelligent hub. IoT based precision agriculture is
+    a new era of technology for smart farming systems. In the previous research works,
+    intellectual property theft has not been protected. In our research work, firstly,
+    we have proposed an SDN-IoT framework to protect intellectual property. In our
+    proposed framework, we have approached an SDN-GW connection hub that will manage
+    the foreign devices. Secondly, in this research, we have proposed an algorithm
+    that will control the apparatus according to the PA criteria. Finally, foreign
+    device mobility management has been simulated and executes better performance
+    than other mobility management. The structure of this paper has been described
+    as follows. In Section 2, literature survey is described. Section 3 describes
+    the architecture of the proposed framework. In Section 4, evaluation and result
+    analysis are illustrated. Section 5 presented the overall conclusions of the paper
+    relating to the future work. 2. Literature Survey Agriculture is the essential
+    sector for sustainable development in the fourth industrial (4I) revolution [10].
+    Since technology is rapidly growing rationally with modern civilization, the agriculture
+    sector has also adopted intelligent tools and techniques [11]. As a result, IoT
+    is facilitating better and faster services in recent agriculture. Another new
+    technology, SDN, has also been introduced in several sectors, including agriculture
+    [12]. SDN has also been implemented to manage the network traffic in multipath
+    routing [13]. SDN has also been inaugurated in IoT based monitoring in 5G networks
+    [14]. The use of smart devices, especially IoT in agriculture, is termed as PA
+    and provides valuable information on crop growth, development, processing, cultivation,
+    etc. Satellite and scalable high-speed cloud and edge computing systems are also
+    used for proactive crop cultivation [15]. They can also provide competitive insights
+    with advanced crop performance analytics and advantages from previous information.
+    Early warnings of cultivation failure help a farmer to make decisions accordingly.
+    Expositions of data relations and responses to potential threats to gas or diseases,
+    nutrients or water deficiencies, and crop production drought. If the farmer can
+    establish a sustainable infrastructure of a firm, then they can mitigate the risk
+    and forecast the market viability. To store farm records, improve decision-making,
+    promote traceability, and enhance agricultural products’ marketing, IoT can oversee
+    the challenges [16]. To improve the rental arrangements and the relationship of
+    landowners, improve farming quality and so forth, farmers will also receive a
+    wealth of information. According to the current growing population, it is now
+    expected to reach 9.6 billion by 2050 [17]. Agriculture must grow its demand,
+    irrespective of environmental challenges, including unpleasant conditions and
+    climate change. The agricultural sector has to adopt new technologies to achieve
+    an extended production edge to meet the needs of the increasing population. IoT
+    might be a suitable addition to agriculture to enable the agricultural industry
+    to raise operational efficiency, reduce costs, cut waste, manage its delivery,
+    and improve yield quality in new agricultural applications [18]. SDN-enabled IoT’s
+    intelligent agriculture is highly efficient compared to the traditional method
+    [18]. The application of SDN and IoT-oriented smart farming could target the conventional,
+    large-scale farming processes and ensure the secured and scalable precision agriculture.
+    Preserving high-quality varieties and improving the highly transparent agriculture
+    system SDN and IoT integration have been studied in intelligent homes and industries.
+    However, the integration of SDN in IoT based PA is an entirely new concept and
+    more challenging issue. Thus, we have proposed precision agriculture compiled
+    with IoT and SDN. Most of the researchers have researched SDN to outperform IoT
+    devices and make them more secure. Some also work on NFV and blockchain technology.
+    Their focus is on building, city, network and mobility management. Very few have
+    done security concern in precision agriculture. Thus, we have focused on the security
+    aspects of the IP in precision agriculture. We have also shown a comparison of
+    our proposed model along with the other researchers in Table 1. Table 1. Qualitative
+    comparison of our proposed model along with previous work. A comprehensive analysis
+    has been highlighted in the table. The key focus features along with the implemented
+    protocol and the measurement matrices have been analyzed. Most researchers have
+    studied structural and network management using SDN, NFV, IoT, and blockchain.
+    Researchers have clarified their work as having QoS throughput measurement. SDN
+    and IoT based OpenFlow and MQTT protocol have been considered for the implementation.
+    We have considered LoRa and OpenFlow protocols in our proposed framework, and
+    Mininet Wi-Fi have been chosen for simulation. We have also compared our obtained
+    results and the previous research evaluating PER, CDF, Jitter, RTT, and throughput.
+    SDN and IoT-based intelligent farming means that a system with sensor aids (light,
+    humidity, temp, soil humidity, etc.) for monitoring crop fields is developed,
+    and an irrigation system is automated. Traditionally, any automatic farm consists
+    of its native intelligent devices. Sometimes, farmers need to hire some foreign
+    devices occasionally for strip cropping, large scale irrigation and so on, which
+    can expose the farming information, production mechanism, intellectual property,
+    and some other confidential resources. External or foreign devices are vulnerable
+    threats for security purposes. Handle foreign devices are the critical concerns
+    of the researcher. To the best of our knowledge, no one introduces SDN in IoT
+    to facilitate the farmers for better and qualified PA. Hence, we have proposed
+    a framework to provide a better quality of service in PA and network management.
+    We have also proposed an algorithm to efficiently handle the foreign devices and
+    manage the intellectual assets of any precision agriculture. In the end, to control
+    the foreign mobile devices, we have also compared the improved quality of service
+    (QoS) of our proposed model along with previously implemented mobile architecture
+    in multiple controllers’ domains [26]. 3. Architecture of the Proposed Framework
+    Hereby, this framework mainly contributes to reducing IPT in precision farming
+    presented in Figure 1. Figure 1. System workflow of the proposed framework. The
+    entire PA monitoring system will be implemented according to this proposed system.
+    The framework is divided into two different device and network layers. An IoT-SDN
+    gateway connected the layers to provide consistent remote control of the smart
+    farming devices. Based on the operational behavior, devices are separated into
+    the home and foreign agent. Native devices are termed home agents that are managed
+    by home access points operated with LoRa protocol. SDN is used to manage the external
+    devices that are called the foreign agent. Since SDN offers dynamical modification
+    according to the user’s expectation, agricultural information can be protected
+    from the outside world. OpenFlow protocol based SDN access points can handle the
+    foreign agent. The home and foreign agent can be inclined with the IoT-SDN gateway
+    for network management. In this work, the devices are perfectly in line with our
+    gateway hub system and enhance the efficiency of the intelligent farming system.
+    SDN operational functionality, modified mechanical strategy, and proposed framework
+    algorithm are described below. 3.1. Precision Agricultural Network In PA, most
+    smart devices are assigned with their specific tasks like moister, GPS, temperature,
+    smoke, pH sensors, sprinkler, camera, drone, etc. Some smart devices occasionally
+    need the same tractor, irrigator, harvester etc. These types of devices are called
+    foreign devices and are hired once or twice in an agricultural session. These
+    devices are varied in number based on the size of a PA. In a small farm, almost
+    15–30 smart devices are installed, including networking devices. This number is
+    increased to 30–60 for a medium-size PA. More than 70 numbers of devices are installed
+    for large size PA. Thus, we have considered three different size network clusters
+    containing 25, 50, and 100 nodes respectively for small, medium, and large size
+    in our proposed PA architecture. 3.2. Management of IP Rights and Foreign Agents
+    Today, several different analog farming methods exist. For every farmer, agricultural
+    store, and agronomic, technology has become an integral part of their company.
+    Farming requires a lot of techniques and efforts to develop smart farming. Agriculturists
+    utilize technology to enhance efficiency and control expenses. With the development
+    and modernization of digital technology, IoT-based smart farming concepts have
+    emerged. Application of IoT in agriculture promises previously unavailable efficiency,
+    reduced resources and cost, automation, and data-driven processes. In agriculture,
+    these benefits act as improvements, but the solutions for the whole industry turn
+    into a range of dangerous problems such as IP theft. Cultivation patterns, plant
+    variety, copyright, trademarks, internal database management, employee competence,
+    and IoT device generated information from a smart farming system are examples
+    of IP rights. The core of smart farming is derived from the ability to extract
+    value from IP data. When foreign agents know the IP data, such as internal database
+    management, it must possibly leak these IP rights. To protect this leakage, we
+    have proposed the foreign agents’ management policy which has been shown in Figure
+    2. When these IoT-based foreign agents are hired, we have a customized setting
+    to control these agents. These devices are loaded and operated according to the
+    criteria of PA. Since we customize the setting for foreign agents, these foreign
+    agents have strong restriction to accessing all PA things. Since these devices
+    are controlled by an IoT-SDN control hub, data generated from these devices are
+    stored in separate cloud servers. As a result, IP rights can be easily protected.
+    Figure 2. Foreign agent selection for IP rights management. 3.3. IoT-SDN Gateway
+    Integration A smart SDN based gateway is a server to manage both the home and
+    foreign agents outside the network. The computer system within the IoT based agricultural
+    networks are portal nodes in the big intelligent farming system. The general insight
+    architecture of the IoT-SDN gateway is presented in Figure 3. A gateway-based
+    connection hub with internal networks is embedded by an operating system. A portal
+    is the complete form of a number of devices essential for the system’s interoperability
+    as system translators. Sensing [27] devices connected with this gateway are smartly
+    controlled by defining the devices’ functionality. OpenFlow as an SDN and LoRa
+    as IoT communication protocols describe the routing rule system [28,29]. These
+    protocols permit the transfer of information through any physical quantity between
+    two or more communication nodes. If one device communicates with the others, they
+    comply with the gateway protocol rules. The tracking module monitors the entire
+    system with its operating system. The external devices are connected to the home
+    network according to the algorithmic structure. All of the communication among
+    the IoT-based smart devices and the network information management is stored in
+    the database. SDN is deployed with the IoT devices for the foreign device’s control
+    [30,31]. Thus, the SDN based IoT gateway has been established, where SDN plays
+    a network management role over the IoT devices [32]. The foreign devices are managed
+    based on this intelligent farming gateway system. When the foreign devices are
+    hired in the smart farming system, the devices are joined according to the algorithm
+    structure setting based on that farming system. If these devices are not joined
+    by a proper method, these devices will be rejected or released to load the embedded
+    operating system. Completing the registration process, the foreign devices load
+    the embedded operating system with smart farming. Since a farming loaded operating
+    system is enabled in these foreign devices, it must be controlled by a farming
+    system. The monitoring module monitors the foreign with the help of a tracking
+    module. The gateway module will help to exchange data among the foreign devices
+    and home devices. Figure 3. Architectural view of the IoT-SDN smart gateway. 3.4.
+    Proposed Algorithm Since the intelligent gateway is designed to manage the foreign
+    agent, we have to set the operational functionality. The administrator of the
+    PA defines the rules to access resources inside the farm. The Algorithm 1 has
+    been integrated with the IoT-SDN gateway. The network administrator defines the
+    execution time, speed, and acceptable delay of each foreign device. The Algorithm
+    1 is described as follows: Algorithm 1: Proposed Foreign Agent Selection Algorithm
+    Input: Number of External Devices (E), Registered with Password (R), Operational
+    Time (T), Operational Speed (S) and Acceptable Delay (D) Output: Foreign Agent
+    Selection, Time and Delay 1: Initialize the Variables 2: while (1) do 3: 4: 5:
+    6: 7:     T[0] ←T   //Initialize Time S[0] ← S   //Initialize Speed  D[0] ← D  //Initialize
+    Acceptable Delay Time = 0   //Initial total execution time Delay = 0  //Initial
+    total delay 8:     for i ← 1 to E do 9:         if (PW[i] != R) then 10:          PW[i]
+    ← R 11:         end if 12:            if (T[i] != T[0] and S[i] != S[0] and D[i]
+    != D[0]) then 13: 14: 15: 16:             T[i] ← T   //Update Time S[i] ← S   //Update
+    Speed  D[i] ← D  //Update Acceptable Delay FA [i] ← E[i]   //Foreign Agent Selection
+    17:             PA[i] ← PA[i] + E[i] 18: 19:         else FA [i] ← E[i]   //Foreign
+    Agent Selection 20:             PA[i] ← PA[i] + E[i] 21: 22: 23: 24:             end
+    if Time ← Time + T[i] * S[i] Delay ← Delay + D[i] return FA[i]    //Return Selected
+    Foreign Agent 25: 26:  27:      end for Timeavg = Time/E Delayavg = Delay/E 28:
+    end while At first, the algorithm initializes the measurement criteria like time,
+    speed, and acceptable delay for the foreign devices. Then, it checks whether the
+    external device is registered or not. If it is already registered, the password
+    has been discarded for loading existing resources. Otherwise, it provides the
+    suggestion of foreign devices for completing the registration and loading the
+    operating system of existing PA farming. When these devices are loaded with the
+    operating system of PA farming, it successfully allowed for accessing the farming
+    information and returning the selected foreign agent. Otherwise, the rejection
+    function will be active for these foreign agents. It also checks the criteria
+    for successful attachment with the PA. Cumulative time and delay have been stored
+    and averaged to measure the network performance. Based on the implementation of
+    this algorithm, the overall network performance has been discussed in the Results
+    section. 3.5. Mechanical Modification We proposed a model that was described in
+    Figure 1 to solve intellectual property theft in precision farming. Figure 1 shows
+    that the device is controlled by the IoT-SDN gateway. This control hub carries
+    out the overall PA monitoring system. If a foreign device needs to be employed
+    in the farming system, this device must be adapted based on the owner’s need.
+    Consequently, these devices work due to the control plate system perfectly, and
+    there is no information leakage. Therefore, our proposed PA is a management system
+    for all controllable foreign devices depicted in Figure 4. The functional requirements
+    are imposed on the guest device through the proposed algorithm whenever the algorithm
+    executes the operational behavior that is stored in the memory. Thus, the explosion
+    probability of the information is reduced. It can rarely guarantee a positive
+    outcome by securely determining the overall system performance. Figure 4. Modified
+    mechanical design of PA. 3.6. SDN Implementation Whenever the IoT-SDN gateway
+    forwards the information toward the network layer, it deals with further remote
+    monitoring, traffic control, routing, and so on. Apart from this, SDN decouples
+    the data plane from the control plane compared to the traditional network scheme
+    [19,20]. The data plane forwards the packet according to the instruction from
+    the control plane. The control plane consists of the network operating system
+    (NOS). This controller is integrated with northbound API for traffic control,
+    routing table, and security concerns. The upper layer of the control plane is
+    known as the application plane. Applications are applied for future network virtualization.
+    Figure 5 presents the visual representation of the overall operational functionality
+    of SDN. Since SDN decouples the control plane from the data plane, the networking
+    devices are performing as forwarders. They only execute the instructions from
+    the control plane. The control plane consists of the network operating system
+    installed in a network controller. Well defined API is used to execute the required
+    operation of the end user. The API is placed in the application plane. It acts
+    as a bridge among the users and the SDN network. Packet monitoring, routing, mobility,
+    accounting, authentication, and security operations are done by the API. Figure
+    5. General architecture of a software defined network. 4. Evaluation and Results
+    Analysis This section describes the simulation and result analysis of the proposed
+    framework. It will cover the simulation environment, architecture, and performance
+    measurement metrics. 4.1. Environmental Setup An Intel Core-i5 based Central Processing
+    Unit (CPU) with 2.11 GHz processing speed and 8 GB RAM has been used to set up
+    the simulation environment. In addition, a 64-bit Ubuntu (18.04) operating system
+    was used for virtually designing the network architecture. Three different sizes
+    of network clusters are considered for the performance analysis. At first, 25
+    nodes were used for deploying the proposed network architecture. Then, the network
+    added another 25 nodes as a medium-size network. Finally, the network performance
+    has been analyzed for 100 nodes. Mininet Wi-Fi as a simulator and Ryu as a controller
+    are used for the simulation to create the virtual network. OpenFlow is used as
+    a two-way communication protocol. After deploying the network, Wireshark was used
+    to capture the packets of the virtual network. Then, the network performance is
+    visually represented by using MATLAB (2020a). The remaining simulation parameters
+    are shown in Table 2. Table 2. Simulated parameters setting for the network architecture.
+    4.2. Network Configuration To analyze the proposed framework, a small size single
+    controller-based PA has been considered for first tire simulation. Figure 6 presents
+    the topological view of a small smart farm installed with some basic sensors and
+    monitoring control. Three access points are connected with the internet. The SDN
+    controller is set to the network administration building. The farm owner can monitor
+    the PA system from his own residence. Figure 6. Single controller based network
+    topology of precision agriculture. Figure 7 presents the graphical visualization
+    of the simulated network. Access point 2 is connected with the controller depicted
+    by sta1. The mobile monitoring host inside the farm is associated with access
+    point 4, indicated by sta2. Since the network nodes are mobile, mobility frequency
+    has been set to 0.1, 0.25, 0.50, and 0.75 in several time simulations. Only two
+    mobilities 0.25 and 0.50 have been presented in Figure 6 concerning a and b. Figure
+    7. Simulation of SDN network along with mobility. (a) mobility frequency 0.25
+    and (b) mobility frequency 0.50. 4.3. Performance Matrices Analysis of the performance,
+    i.e., throughput, RTT, CDF, jitter, and PER based on the mobility of the proposed
+    framework, has been calculated and described as QoS matrices. Iperf (command)
+    is used to measure the performance of the network. Based on our proposed algorithm,
+    we have calculated the throughput and RTT for measuring the network performance.
+    Drone and foreign devices are moveable in their operational behaviors. Thus, we
+    have to consider the impact of mobility on the network. As a result, we have measured
+    the CDF, Jitter, and PER with another mobile network containing multiple controllers’
+    domains [26]. Four different mobile frequencies, 0.1, 0.25, 0.5, and 0.75, have
+    been considered for performance comparison. A.Throughput The successful data transfer
+    rate from source to destination is known as throughput. We have simulated our
+    proposed architecture based on small, medium, and large size of the network including
+    25, 50, and 100 nodes. Throughput is calculated by Equation (1): Throughput =
+    Number of Packets/Time (1) The higher the throughput and the lower the RTT complies,
+    the better the network performance. Figure 8 represents the average throughput
+    of the proposed network for three different clusters. Figure 7 shows that the
+    smallest cluster gives the best throughput compared to the medium and the most
+    extensive sized network. However, in the broader sense, the difference in the
+    throughput is negligible. The throughput of medium and large size networks is
+    almost identical. An acceptable throughput is slightly reduced for larger size
+    network nodes in our architecture. Figure 8. Average throughput comparison among
+    25, 50, and 100 nodes. B.Round Trip Time Round trip time is one of the significant
+    measurements parameters of any network architecture. In our proposed framework,
+    the session time between the home agents and the foreign agents have been considered
+    for RTT. If any session has already been established before joining any foreign
+    agent, the time has been marked as previous RTT. RTT is obtained as Equation (2):
+    𝑅𝑇𝑇=(1−𝛼)×𝑟𝑒𝑣𝑖𝑜𝑢𝑠𝑅𝑇𝑇+𝛼×𝑃𝑟𝑒𝑠𝑒𝑛𝑡𝑅𝑇𝑇  (2) where α is constant weight factor. Figure
+    9 represents the RTT for 25, 50, and 100 node network architecture. RTT is the
+    time calculated with the summation of the packet requested by the sender and the
+    acknowledgement provided by the receiver. RTT is increased proportionally with
+    the simulation time. The RTT of the small and medium-size networks is nearly similar.
+    However, the RTT is very high for an extensive sized network. Figure 9. Round
+    trip time comparison among 25, 50, and 100 nodes. C.Cumulative Distribution Since
+    the foreign agent will be hired, mobility needs to be considered for performance
+    measurement. Hence, the cumulative distribution function (CDF) represents the
+    geometric distribution of the packet handled per second with the corresponding
+    probabilities. Four different frequently used possibilities of mobility frequencies
+    have been shown in Figure 10. The figure shows that the distribution’s efficiency
+    decreases with the increasing number of packets. CDF has been calculated using
+    Equation (3): 𝑦=𝐹(𝑥|𝑝)=1− (1−𝑝) 𝑥+1  𝑥=0,1,2…𝑛 (3) where p is the probability
+    of success. Figure 10. Cumulative distribution with probability 0.1, 0.25, 0.50,
+    and 0.75. D.Jitter The delay variations are known as jitter. The jitter of the
+    network architecture has been presented in Figure 11. More than 150 packets have
+    been captured and considered for jitter calculation in a microsecond. The y-axis
+    represents the jitter corresponding to the packet number depicted on the x-axis.
+    Since mobility was one of the challenging issues for the proposed architecture,
+    we have shown the jitter comparison with [26]. Higher jitter is decreasing the
+    network performance. The figure represents that our proposed network architecture
+    facilitated lower jitter than the network simulated in [26]. Figure 11. Jitter
+    (packet delay variations) comparison of proposed architecture. E.Packet Error
+    Rate The ratio of error packets over the total number of transmitted packets in
+    a network is termed packet error rate (PER). Our proposed PA is implemented in
+    a single IoT-SDN controller domain. Since foreign devices are moveable, the mobility
+    frequencies of 0.1, 0.25, 0.50, and 0.75 PER have been compared with the multiple
+    controllers’ environment [26]. Figure 12 presented the comparative PER among single
+    and various controllers. At the time of handling the session handover, PER increased
+    with the increasing mobility frequency. The figure clearly shows that our proposed
+    PA reduces the PER by around 3.53% compared to the multiple controllers. PER is
+    calculated by Equation (4): 𝑃𝐸𝑅= 𝐸𝑟𝑟𝑜𝑟 𝑃𝑎𝑐𝑘𝑒𝑡𝑠 𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑡𝑡𝑒𝑑 𝑃𝑎𝑐𝑘𝑒𝑡𝑠 ·100%  (4)
+    Figure 12. Packet error rate (PER) comparison of proposed architecture. F.Quantitative
+    Error Rate Comparison with Existing Works Since mobility has been considered for
+    handling the moveable devices, we have compared our proposed model with multiple
+    controllers’ domain. We have reduced the error rate 3.53% on average in four different
+    mobile frequencies. The error rate varies with the implemented technology and
+    the protocol. Several researchers have done their research on PA implementing
+    both IoT and SDN. Frequently used OpenFlow, MQTT, EADC, CHP, and LoRa protocols
+    have been considered for comparison with our proposed model. Our proposed model
+    reduces the error rate (1.66~6.46)% compared to the other protocols. A comprehensive
+    comparison of the error rate of our proposed model has been compared in Table
+    3. Table 3. Comparison of error rate for the use of different protocol. 5. Conclusions
+    and Future Work Geospatial skills help to develop more efficient and effective
+    methods of farming. They are used for the analysis of soil data and crop health
+    from afar and cover large areas simultaneously. These technologies can contribute
+    to the improvement of food production and safety throughout the world. Efficient
+    management of resources and persistent and timely monitoring of crop health are
+    more and more critical. Specific areas where PA may be at risk or vulnerable are
+    increasingly connected to the Internet and other equipment. The final area of
+    device corruption is now widely recognized as a danger in many institutions. Consequently,
+    we have proposed a smart IoT-SDN gateway control system that will ensure the authenticity
+    of foreign devices since IP rights are very sensitive pieces of information in
+    a PA system. A smart hub will be used to perform the overall PA monitoring system.
+    If new guest equipment or external devices are to be hired for this agricultural
+    system, they must be tailored to our needs. Therefore, these devices work following
+    the control plate system perfectly, and there is no information leakage. Our plan
+    is to add a blockchain to this research work. Author Contributions Conceptualization,
+    M.S.H. and M.S.R.; methodology, M.S.H. and M.H.R.; software, M.S.H. and M.H.R.;
+    validation, M.S.H., M.H.R. and M.S.R.; formal analysis, M.S.H., M.H.R. and M.S.R.;
+    writing—original draft preparation, M.S.H., M.H.R. and M.S.R.; writing—review
+    and editing, M.S.R. and A.S.M.S.H.; visualization, M.S.H. and M.H.R.; supervision,
+    M.S.R.; project administration, C.S. and G.H.C.; funding acquisition, C.S. and
+    G.H.C. All authors have read and agreed to the published version of the manuscript.
+    Funding This work was supported by the National Research Foundation of Korea (NRF)
+    grant funded by the Korea government (MSIT) (No. 2021R1F1A1059840), and Institute
+    of Information and Communications Technology Planning and Evaluation (IITP) grant
+    by the Korea government through MSIT (No. 2021-0-00511, research on robust AI,
+    and distributed attack detection for edge AI security). Conflicts of Interest
+    The authors declare no conflict of interest. References Dorri, A.; Kanhere, S.S.;
+    Jurdak, R.; Gauravaram, P. Blockchain for IoT security and privacy: The case study
+    of a smart home. In Proceedings of the 2017 IEEE International Conference on Pervasive
+    Computing and Communications Workshops (PerCom Workshops), Kona, HI, USA, 13–17
+    March 2017; pp. 618–623. [Google Scholar] Zhang, X.; Davidson, E.A. Improving
+    nitrogen and water management in crop production on a national scale. Am. Geophys.
+    Union 2018, 2018, B22B-01. [Google Scholar] Mekala, M.S.; Viswanathan, P. A survey:
+    Smart agriculture IoT with cloud computing. In Proceedings of the 2017 International
+    conference on Microelectronic Devices, Circuits and Systems (ICMDCS), ICMDCS’17,
+    Vellore, India, 10–12 August 2017; pp. 1–7. [Google Scholar] Hossain, S.; Waheed,
+    S.; Rahman, Z.; Shezan, A.; Hossain, M. Blockchain for the security of internet
+    of things: A smart home use case using ethereum. Int. J. Recent Technol. Eng.
+    2020, 8, 4601–4608. [Google Scholar] [CrossRef] Singh, S.; Hosen, A.S.; Yoon,
+    B. Blockchain security attacks, challenges, and solutions for the future distributed
+    IoT network. IEEE Access 2021, 9, 13938–13959. [Google Scholar] [CrossRef] Rathee,
+    G.; Sharma, A.; Iqbal, R.; Aloqaily, M.; Jaglan, N.; Kumar, R. A blockchain framework
+    for securing connected and autonomous vehicles. Sensors 2019, 19, 3165. [Google
+    Scholar] [CrossRef] [PubMed] [Green Version] Hosen, A.S.M.S.; Sharma, P.K.; Cho,
+    G.H. MSRM-IoT: A reliable resource management for cloud, fog and mist assisted
+    IoT networks. IEEE Internet Things J. 2021. [Google Scholar] [CrossRef] Islam,
+    N.; Farhin, F.; Sultana, I.; Kaiser, M.S.; Rahman, M.S. Towards machine learning
+    based intrusion detection in IoT networks. Comput. Mater. Contin. 2021, 69, 1801–1821.
+    [Google Scholar] [CrossRef] Rahman, A.; Hossain, S.; Rahman, Z.; Shezan, S.A.
+    Performance enhancement of the internet of things with the integrated blockchain
+    technology using RSK sidechain. Int. J. Adv. Technol. Eng. Explor. 2019, 6, 257–266.
+    [Google Scholar] [CrossRef] Charania, I.; Li, X. Smart farming: Agriculture’s
+    shift from a labor intensive to technology native industry. Internet Things 2020,
+    9, 100142. [Google Scholar] [CrossRef] Alexandratos, N.; Bruinsma, J. World Agriculture
+    towards 2030/2050: The 2012 Revision; ESA Working Paper Rome; FAO: Rome, Italy,
+    2012. Ahmed, N.; De, D.; Hussain, I. Internet of things (IoT) for smart precision
+    agriculture and farming in rural areas. IEEE Internet Things J. 2018, 5, 4890–4899.
+    [Google Scholar] [CrossRef] Hossen, S.; Rahman, H.; Mustanjid, A.; Nobin, A.S.;
+    Habib, A. Enhancing quality of service in SDN based on multi-path routing optimization
+    with DFS. In Proceedings of the 2019 International Conference on Sustainable Technologies
+    for Industry 4.0 (STI), Dhaka, Bangladesh, 24–25 December 2019. [Google Scholar]
+    Maksymyuk, T.; Dumych, S.; Brych, M.; Satria, D.; Jo, M. An IoT based monitoring
+    framework for software defined 5G mobile networks. In Proceedings of the Proceedings
+    of the 11th International Conference on Ubiquitous Information Management and
+    Communication, Beppu, Japan, 5–7 January 2017. [Google Scholar] Psannis, K.E.;
+    Stergiou, C.; Gupta, B.B. Advanced media-based smart big data on intelligent cloud
+    systems. IEEE Trans. Sustain. Comput. 2018, 4, 77–87. [Google Scholar] [CrossRef]
+    Fastellini, G.; Schillaci, C. Precision farming and IoT case studies across the
+    world. In Agricultural Internet of Things and Decision Support for Precision Smart
+    Farming; Academic Press: Cambridge, MA, USA, 2020; pp. 331–415. [Google Scholar]
+    Song, H.; Zhang, D.; Jara, A.; Wan, J.; Boussetta, K. IEEE access special section
+    editorial: Smart cities. IEEE Access 2016, 4, 3671–3674. [Google Scholar] [CrossRef]
+    Lee, M.; Hwang, J.; Yoe, H. Agricultural production system based on IoT. In Proceedings
+    of the 2013 IEEE 16th International Conference on Computational Science and Engineering,
+    Sydney, NSW, Australia, 3–5 December 2013; pp. 833–837. [Google Scholar] Sharma,
+    P.K.; Singh, S.; Jeong, Y.-S.; Park, J.H. DistBlockNet: A distributed blockchains-based
+    secure SDN architecture for IoT networks. IEEE Commun. Mag. 2017, 55, 78–85. [Google
+    Scholar] [CrossRef] Mukherjee, B.K. An SDN based distributed iot network with
+    nfv implementation for smart cities. In International Conference on Cyber Security
+    and Computer Science; Springer: Cham, Switzerland, 2020. [Google Scholar] Wang,
+    Y.; Bi, J. A solution for IP mobility support in software defined networks. In
+    Proceedings of the 2014 23rd International Conference on Computer Communication
+    and Networks (ICCCN), Shanghai, China, 4–7 August 2014. [Google Scholar] Islam,
+    M.J. Distblacknet: A distributed secure black sdn-iot architecture with nfv implementation
+    for smart cities. In Proceedings of the 2019 International Conference on Electrical,
+    Computer and Communication Engineering (ECCE), Cox’sBazar, Bangladesh, 7–9 February
+    2019. [Google Scholar] Rahman, A. Distblockbuilding: A distributed blockchain-based
+    sdn-iot network for smart building management. IEEE Access 2020, 8, 140008–140018.
+    [Google Scholar] [CrossRef] Le, L.V.; Do, S.; Lin, B.-S.P.; Tung, L.-P. Big Data
+    and Machine Learning Driven Open5GMEC for Vehicular Communications. Trans. Networks
+    Commun. 2018, 6, 103. [Google Scholar] [CrossRef] Cauteruccio, F.; Cinelli, L.;
+    Corradini, E.; Terracina, G.; Ursino, D.; Virgili, L.; Savaglio, C.; Liotta, A.;
+    Fortino, G. A framework for anomaly detection and classification in Multiple IoT
+    scenarios. Future Gener. Comput. Syst. 2021, 114, 322–335. [Google Scholar] [CrossRef]
+    Rahman, H.; Islam, N.; Swapna, A.I.; Habib, A. Analysis of software defined wireless
+    network with IP mobility in multiple controllers domain. In International Conference
+    on Cyber Security and Computer Science; Springer: Cham, Switzerland, 2020. [Google
+    Scholar] Hosen, A.S.M.S.; Singh, S.; Mariappan, V.; Kaur, M.; Cho, G.H. A secure
+    and privacy preserving partial deterministic RWP model to reduce overlapping in
+    IoT sensing environment. IEEE Access 2019, 7, 39702–39716. [Google Scholar] [CrossRef]
+    Kim, H.; Feamster, N. Improving network management with software defined networking.
+    IEEE Commun. Mag. 2013, 51, 114–119. [Google Scholar] [CrossRef] McKeown, N. OpenFlow:
+    Enabling innovation in campus networks. ACM SIGCOMM Comput. Commun. Rev. 2008,
+    38, 69–74. [Google Scholar] [CrossRef] Bhandari, K.S.; Hosen, A.S.M.S.; Cho, G.H.
+    CoAR: Congestion-aware routing protocol for low power and lossy networks for IoT
+    applications. Sensors 2018, 18, 3838. [Google Scholar] [CrossRef] [PubMed] [Green
+    Version] Caraguay, V.; Leonardo, Á. SDN: Evolution and opportunities in the development
+    IoT applications. Int. J. Distrib. Sens. Netw. 2014, 10, 735142. [Google Scholar]
+    [CrossRef] [Green Version] Hosen, A.S.M.S.; Cho, G.H. An energy centric cluster-based
+    routing protocol for wireless sensor networks. Sensors 2018, 18, 1520. [Google
+    Scholar] [CrossRef] [PubMed] [Green Version] Shete, R.; Agrawal, S. IoT based
+    urban climate monitoring using Raspberry Pi. In Proceedings of the 2016 International
+    Conference on Communication and Signal Processing (ICCSP), Melmaruvathur, India,
+    6–8 April 2016; pp. 2008–2012. [Google Scholar] Hosen, A.S.; Singh, S.; Sharma,
+    P.K.; Rahman, M.S.; Ra, I.H.; Cho, G.H.; Puthal, D. A QoS-aware data collection
+    protocol for LLNs in fog-enabled internet of things. IEEE Trans. Netw. Serv. Manag.
+    2019, 17, 430–444. [Google Scholar] [CrossRef] [Green Version] Jin, J.; Ma, Y.;
+    Zhang, Y.; Huang, Q. Design and implementation of an agricultural IoT based on
+    LoRa. In Proceedings of the MATEC Web of Conferences, Beijing, China, 18–25 May
+    2018; Volume 189, p. 04011. [Google Scholar] Boonchieng, E.; Chieochan, O.; Saokaew,
+    A. Smart farm: Applying the use of NodeMCU, IOT, NETPIE and LINE API for a Lingzhi
+    mushroom farm in Thailand. IEICE Trans. Commun. 2018, 101, 16–23. [Google Scholar]
+    [CrossRef] [Green Version]         Publisher’s Note: MDPI stays neutral with regard
+    to jurisdictional claims in published maps and institutional affiliations.  ©
+    2021 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open
+    access article distributed under the terms and conditions of the Creative Commons
+    Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/). Share
+    and Cite MDPI and ACS Style Hossain, M.S.; Rahman, M.H.; Rahman, M.S.; Hosen,
+    A.S.M.S.; Seo, C.; Cho, G.H. Intellectual Property Theft Protection in IoT Based
+    Precision Agriculture Using SDN. Electronics 2021, 10, 1987. https://doi.org/10.3390/electronics10161987
+    AMA Style Hossain MS, Rahman MH, Rahman MS, Hosen ASMS, Seo C, Cho GH. Intellectual
+    Property Theft Protection in IoT Based Precision Agriculture Using SDN. Electronics.
+    2021; 10(16):1987. https://doi.org/10.3390/electronics10161987 Chicago/Turabian
+    Style Hossain, Md. Selim, Md. Habibur Rahman, Md. Sazzadur Rahman, A. S. M. Sanwar
+    Hosen, Changho Seo, and Gi Hwan Cho. 2021. \"Intellectual Property Theft Protection
+    in IoT Based Precision Agriculture Using SDN\" Electronics 10, no. 16: 1987. https://doi.org/10.3390/electronics10161987
+    Note that from the first issue of 2016, this journal uses article numbers instead
+    of page numbers. See further details here. Article Metrics Citations Crossref   6
+    Web of Science   6 Scopus   8 Google Scholar   [click to view] Article Access
+    Statistics Article access statistics Article Views 14. Jan 24. Jan 3. Feb 13.
+    Feb 23. Feb 4. Mar 14. Mar 24. Mar 3. Apr 0k 1k 2k 3k 4k For more information
+    on the journal statistics, click here. Multiple requests from the same IP address
+    are counted as one view.   Electronics, EISSN 2079-9292, Published by MDPI RSS
+    Content Alert Further Information Article Processing Charges Pay an Invoice Open
+    Access Policy Contact MDPI Jobs at MDPI Guidelines For Authors For Reviewers For
+    Editors For Librarians For Publishers For Societies For Conference Organizers
+    MDPI Initiatives Sciforum MDPI Books Preprints.org Scilit SciProfiles Encyclopedia
+    JAMS Proceedings Series Follow MDPI LinkedIn Facebook Twitter Subscribe to receive
+    issue release notifications and newsletters from MDPI journals Select options
+    Subscribe © 1996-2024 MDPI (Basel, Switzerland) unless otherwise stated Disclaimer
+    Terms and Conditions Privacy Policy"'
+  inline_citation: '>'
+  journal: Electronics (Switzerland)
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: Intellectual property theft protection in iot based precision agriculture
+    using sdn
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'

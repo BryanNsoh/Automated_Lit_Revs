@@ -1,0 +1,1046 @@
+- analysis: '>'
+  authors:
+  - Chlingaryan A.
+  - Sukkarieh S.
+  - Whelan B.
+  citation_count: '758'
+  description: Accurate yield estimation and optimised nitrogen management is essential
+    in agriculture. Remote sensing (RS) systems are being more widely used in building
+    decision support tools for contemporary farming systems to improve yield production
+    and nitrogen management while reducing operating costs and environmental impact.
+    However, RS based approaches require processing of enormous amounts of remotely
+    sensed data from different platforms and, therefore, greater attention is currently
+    being devoted to machine learning (ML) methods. This is due to the capability
+    of machine learning based systems to process a large number of inputs and handle
+    non-linear tasks. This paper discusses research developments conducted within
+    the last 15 years on machine learning based techniques for accurate crop yield
+    prediction and nitrogen status estimation. The paper concludes that the rapid
+    advances in sensing technologies and ML techniques will provide cost-effective
+    and comprehensive solutions for better crop and environment state estimation and
+    decision making. More targeted application of the sensor platforms and ML techniques,
+    the fusion of different sensor modalities and expert knowledge, and the development
+    of hybrid systems combining different ML and signal processing techniques are
+    all likely to be part of precision agriculture (PA) in the near future.
+  doi: 10.1016/j.compag.2018.05.012
+  full_citation: '>'
+  full_text: '>
+
+    "Skip to main content Skip to article Journals & Books Search Register Sign in
+    Brought to you by: University of Nebraska-Lincoln View PDF Download full issue
+    Outline Highlights Abstract Keywords 1. Introduction 2. Machine learning techniques
+    3. Yield estimation 4. Precision nitrogen management 5. Conclusions Acknowledgement
+    References Cited by (801) Tables (2) Table 1 Table 2 Computers and Electronics
+    in Agriculture Volume 151, August 2018, Pages 61-69 Review Machine learning approaches
+    for crop yield prediction and nitrogen status estimation in precision agriculture:
+    A review Author links open overlay panel Anna Chlingaryan a, Salah Sukkarieh a,
+    Brett Whelan b Show more Add to Mendeley Share Cite https://doi.org/10.1016/j.compag.2018.05.012
+    Get rights and content Highlights • Review of studies in crop yield prediction
+    and N status estimation via ML techniques. • Comparison of different ML techniques
+    in application to the same task in PA. • Discussion on ML techniques used in the
+    reviewed studies. Abstract Accurate yield estimation and optimised nitrogen management
+    is essential in agriculture. Remote sensing (RS) systems are being more widely
+    used in building decision support tools for contemporary farming systems to improve
+    yield production and nitrogen management while reducing operating costs and environmental
+    impact. However, RS based approaches require processing of enormous amounts of
+    remotely sensed data from different platforms and, therefore, greater attention
+    is currently being devoted to machine learning (ML) methods. This is due to the
+    capability of machine learning based systems to process a large number of inputs
+    and handle non-linear tasks. This paper discusses research developments conducted
+    within the last 15 years on machine learning based techniques for accurate crop
+    yield prediction and nitrogen status estimation. The paper concludes that the
+    rapid advances in sensing technologies and ML techniques will provide cost-effective
+    and comprehensive solutions for better crop and environment state estimation and
+    decision making. More targeted application of the sensor platforms and ML techniques,
+    the fusion of different sensor modalities and expert knowledge, and the development
+    of hybrid systems combining different ML and signal processing techniques are
+    all likely to be part of precision agriculture (PA) in the near future. Previous
+    article in issue Next article in issue Keywords Vegetation indicesFeatures extractionPredictive
+    modellingDecision makingInformation fusion 1. Introduction Improving crop yield
+    production and quality while reducing operating costs and environmental pollution
+    is a key goal in precision agriculture (PA). The potential growth and yield depends
+    on many different production attributes such as the weather, soil properties,
+    topography, irrigation and fertilizer management. The need for timely and accurate
+    sensing of these inputs for large agricultural fields has led to increased adoption
+    of remote and proximal sensing technologies (Campbell and Wynne, 2011) in PA (Curran,
+    1987). These sensing techniques provide acquisition of spectral, spatial and temporal
+    information about the objects via ground-based vehicles, aircraft, satellites
+    and handheld radiometers. Remote sensing, such as satellite and airborne multi-spectral
+    scanning, photography and video, enables precision weed management through the
+    generation of timely and accurate weed maps (Lamb and Brown, 2001). Thermal remote
+    sensing via airborne thermal imagery has the potential to identify spatial variations
+    in crop water status (Tilling et al., 2006), which can enable improvements in
+    the water management in irrigated cropping systems. Nowadays, this remote sensing
+    technique is widely used in different crop species such as wheat (Gontia and Tiwari,
+    2008), maize (Taghvaeian et al., 2012), trees (Bellvert et al., 2016) and vineyards
+    (Gutiérrez et al., 2018). At the same time many ground-based platforms have been
+    developed and aimed at different PA tasks such as mapping of soil properties (Barnes
+    et al., 2003), estimating evapotranspiration and drought stress (Maes and Steppe,
+    2012), weed mapping (Sui et al., 2008) and assessing crop water and nitrogen status
+    (El-Shikha et al., 2007, Govender et al., 2009). Remote sensing at visible and
+    near-infrared wavelengths (vis-NIR) has been used to devise many spectral indices
+    for estimating different vegetation properties. This includes the amount of chlorophylls
+    and other photosynthetic/photoprotective pigments and the leaf area index (LAI)
+    (Barati et al., 2011, Gao, 1996, Haboudane et al., 2004, Huete, 1988, Qi et al.,
+    1994, Sims and Gamon, 2002, Viña et al., 2011, Zarco-Tejada et al., 2012). More
+    than 100 vegetation indices along with their applicability, representativeness,
+    environment and implementation precision have recently been reviewed by Xue and
+    Su (2017). They concluded that for real-world applications the use of any existing
+    vegetation indices requires careful consideration of the strengths and shortcomings
+    of those indices and the specific environment where they will be applied. Making
+    crop yield predictions using remotely sensed vegetation indices has been attempted
+    by Panda et al., 2010, Jaafar and Ahmad, 2015 and many others. Utilization of
+    wireless sensors and actuators in PA, as well as algorithms for wireless sensor
+    network data integration is now advancing (Zhou et al., 2012). Aqeel-ur-Rehman
+    et al. (2014) presented a review on wireless sensor network technology and their
+    applications in different aspects of agriculture and reported on existing system
+    frameworks in PA. Nitrogen (N) is considered by growers as a major mineral nutrient
+    for plant growth and development because it is directly related to the photosynthetic
+    process (Andrews et al., 2013). At the same time N has a high environmental and
+    economic impact. Hence, the optimization of N fertilization for different crops
+    has become a subject of many spectrometric studies (Cao et al., 2017, Chen et
+    al., 2008, Goron et al., 2017, Lukina et al., 2001, MacKerron et al., 1993, Maresma
+    et al., 2016, Quemada et al., 2014, Raun et al., 2005, Schepers and Raun, 2008).
+    The estimation of the plant N status can be divided into two main types: destructive
+    and non-destructive. The most common method of destructive measurement is a chemical
+    analysis which is associated with the Kjeldahl technique and is laborious, lengthy
+    and costly (Jones and Moseley, 1993, Vigneau et al., 2011). Optical remote sensing
+    of the plant N status is a non-destructive method based on canopy reflectance
+    in the visible–NIR wavelengths (400–900 nm). This measurement is completed in-situ,
+    lowering the number of field samples required and thus reducing the time and financial
+    cost of field sample collection, preparation and laboratory analysis. Many studies
+    have been dedicated to non-destructive measurement of the N status inferring in
+    plants via remote sensing technology (Apostol et al., 2007, Lamb et al., 2002,
+    Reyniers and Vrindts, 2006, Scharf et al., 2002, Tremblay et al., 2012) and spectral
+    indices indicative of the plant N status have been derived from hyperspectral
+    data (Chen et al., 2010, Tian et al., 2014, Yao et al., 2010). Adoption of remote
+    sensing in geology (Gupta, 2003), forestry (Holmgren and Thuresson, 1998, Hultquist
+    et al., 2014), hydrology (Engman and Gurney, 1991), agriculture (Seelan et al.,
+    2003) and other domains has led to the collection of significant volumes of data.
+    The volume is continuously growing and it is beyond human ability to personally
+    integrate, analyse and make the best informed decisions from the information.
+    This is particularly the case when the data is not homogeneous, i.e. is sensed
+    by sensors with different spatial, temporal and spectral modalities. Machine Learning
+    (ML) is an emerging technology that can aid in the discovery of rules and patterns
+    in large sets of data (Du and Jeffrey, 2007). Crop yield prediction and N status
+    estimation are considered together here because of the direct linkage in fertiliser
+    management decisions. Crop yield goals are routinely utilised for calculating
+    N requirements, both pre- and in-season. For devising potential site-specific
+    management plans for N fertiliser, especially in-season, an estimation of both
+    would be ideal. The aim of this review is to show the capability of different
+    ML techniques to effectively handle these different but closely related tasks.
+    A review is presented of recent studies in the area of crop yield prediction and
+    N status estimation, which incorporate different ML techniques. It also covers
+    comparative studies of different ML techniques as they are applied to the same
+    task in PA. Some technical aspects of the ML techniques used in the reviewed studies
+    are discussed. 2. Machine learning techniques One of the main advantages of ML
+    techniques is that they are capable of autonomously solving large non-linear problems
+    using datasets from multiple (potentially interconnected) sources. Some ML techniques,
+    such as Gaussian Processes (GPs) (Bishop, 2006, Rasmussen and Williams, 2005),
+    Dirichlet Processes (DP) (Ferguson, 1973) and Indian Buffet Process (IBP) (Griffiths
+    and Ghahramani, 2011) are probabilistic and enable consideration of sensor noise
+    while conducting probabilistic fusion of information from different sensors (Castaldi
+    et al., 2016, Dalponte et al., 2012, Pohl and Van Genderen, 1998) and providing
+    confidence intervals for the predictions. ML enables better decision making and
+    informed actions in real-world scenarios without (or with minimal) human intervention.
+    ML provides a powerful and flexible framework for not only data-driven decision
+    making but also for incorporation of expert knowledge into the system. These are
+    some of the key characteristics of the ML techniques that make them widely used
+    in many domains, and highly applicable to PA. The major aim of PA in cropping
+    systems is to provide information that will enable better decisions to be made
+    on management across space and time (Whelan and Taylor, 2013). Specifically, information
+    on variation in plant health and physiology, nutrient status or pest/disease burden
+    may allow different treatments or treatment intensity to be applied to specific
+    areas of crop. The practical identification and segregation of areas is commonly
+    achieved by dividing a large field area into smaller management zones with identified
+    requirements for different treatments. Conventionally, such delineation is based
+    on maps of the crop field variability derived from soil and yield measurements.
+    Nawar et al. (2017) provided a comprehensive review on management zone delineation
+    approaches for PA applications. They illustrated how recent developments in sensing
+    technologies, geostatistical analysis, data fusion and interpolation techniques
+    have improved precision and reliability of management zone delineation, making
+    it a viable strategy in commercial agriculture. They also compared traditional
+    with advanced sensing technologies for delineating management zones. Recently,
+    Pantazi et al. (2015) demonstrated that the combination of data fusion modelling
+    and clustering methods was able to improve the quality of management zone delineation.
+    Specifically, they compared k-means clustering with the Self-Organizing Map (SOM)
+    for delineating management zones maps for variable-rate N application. Furthermore,
+    a hybrid SOM algorithm in combination with k-means was compared with k-means in
+    terms of cluster separation and management zone formation based on data fusion
+    of NDVI and soil parameters. As reviewed by Behmann et al. (2015), ML techniques
+    have been widely used for the early and accurate detection of biotic stress in
+    crop, specifically, for detection of weeds, plant diseases and insect pests. Mehra
+    et al. (2016) used ML techniques such as Artificial Neural Networks (ANNs), categorical
+    and regression trees and Random Forests (RFs) to approach the problem of predicting
+    the pre-planting risk of Stagonospora nodorum blotch (SNB) in winter wheat. They
+    developed risk assessment models that could be useful in making disease management
+    decisions prior to planting of the wheat crop. Also Tellaeche et al. (2008) showed
+    that cost savings and reduced pollution could be achieved by a Bayesian framework
+    based automatic decision making process for detecting weeds in corn crops. Machine
+    learning techniques applied to hyperspectral imaging data can be used to reveal
+    physiological and structural characteristics in plants and enable tracking physiological
+    dynamics due to environmental effects (Wahabzada et al., 2016). Goldstein et al.
+    (2017) demonstrated that field data, such as soil moisture, weather, irrigation
+    characteristics, and resulting yield could be fused via ML techniques to provide
+    automated recommendations for irrigation. Gutiérrez et al. (2018) have used thermal
+    imaging and a combination of two ML techniques (Rotation Forests and Decision
+    Trees) to develop a new methodology for the on-the-go assessment of vineyard water
+    status with potential for irrigation decision making. Machine learning techniques
+    can be used in field spectroscopy for offline and online prediction of the soil
+    parameters studied in the field (Morellos et al., 2016). They can work not only
+    with variables such as derived spectral indices, but also with the entire spectral
+    response trace (Wittenberghe et al., 2014). Spectral indices depend on a small
+    number of available spectral bands and therefore don’t use the entire information
+    conveyed by the spectral trace. Thus, there is always the question: which vegetation
+    index or suite of vegetation indices is better for the given task? (Panda et al.,
+    2010). ML techniques, such as Neural Networks, can be employed for automated extraction
+    of relevant features from the data (You et al., 2017). Continuum-removal (CR)
+    can be used to effectively isolate individual absorption features of interest
+    and, for example, estimate the chemical concentration in dry leaves (Clark and
+    Roush, 1984, Huang et al., 2004, Kokaly, 2001, Vigneau et al., 2011). After the
+    automated extraction of features is performed, the ML techniques (e.g. BPNNs)
+    can be used for automated crop yield prediction and assessing which feature is
+    more informative (Panda et al., 2010). Due to the large number of bands in the
+    hyperspectral data, some methods (e.g. Stepwise Multiple Linear Regression (SMLR))
+    are likely to suffer from multicollinearity when applied to canopy hyperspectral
+    data (Bolster et al., 1996, Grossman et al., 1996). Multicollinearity means that
+    one predicted variable can be linearly predicted from the others with a substantial
+    degree of accuracy. A Partial Least Squares Regression (PLSR) approach can be
+    adopted to reduce the large number of measured collinear spectral variables to
+    a few non-correlated latent variables. It avoids the potential overfitting problems
+    that are typically associated with SMLR (Grossman et al., 1996, Hansen and Schjoerring,
+    2003). Although Artificial Neural Networks (ANNs) are widely used in remote sensing
+    to predict vegetation parameters and crop yield (Farifteh et al., 2007, Kaul et
+    al., 2005, Kuwata and Shibasaki, 2015) and are generally used to deal with non-linear
+    models, their practical application has some difficulties, such as selection of
+    the number and size of hidden layers, learning rate, the need for a large training
+    dataset and the problem of overfitting. Support Vector Machines (SVMs) are also
+    being used in PA and have the potential to resolve the problem of overfitting
+    when analysing high-dimensional data such as hyperspectral imaging data. Applications
+    of SVMs include crop type classification (Peña et al., 2014, Ustuner et al., 2014,
+    Yang et al., 2016) and crop-weeds classification (Tellaeche et al., 2007). There
+    are other ML techniques which may be used for different applications in PA. Advantages
+    and disadvantages of some of them have been listed by Ali et al. (2015). Despite
+    the significant recent developments in ML and the successful application in many
+    areas, ML techniques have some fundamental limitations when used naively in a
+    purely data-driven fashion. The accuracy of the predictions and their uncertainties
+    produced by the ML algorithms strongly depend on the data quality, model representativeness
+    and the dependencies between the input and target variables in the collected datasets.
+    Data with a high level of noise, erroneous data, presence of outliers and biases
+    in the data, and incomplete datasets may significantly reduce the predictive power
+    of the models. The appropriate definition of the ML model, such as the GP covariance
+    function, ANN architecture and SVR parametrisations is also critical for optimal
+    performance. Many strategies, such as incorporation of expert knowledge into the
+    covariance function, outlier detection, transfer learning, and model selection
+    through automated cross-validation can be employed to overcome these limitations.
+    3. Yield estimation Achieving maximum crop yield at minimum cost with a healthy
+    ecosystem is one of the main goals of agricultural production. Early detection
+    and management of problems associated with crop yield restrictions can help increase
+    yield and subsequent profit, and estimating yield is important to numerous crop
+    management and business decisions. In recent years different ML techniques have
+    been implemented to achieve accurate yield prediction for different crops (Subhadra
+    et al., 2016). The most successful ML techniques have been Artificial Neural Networks
+    (Drummond et al., 2003, Fortin et al., 2011, Liu et al., 2001, Safa et al., 2004),
+    Support Vector Regression (Ruß, 2009), M5-Prime Regression Trees (Frausto-Solis
+    et al., 2009, Marinković et al., 2009, Ruß and Kruse, 2010, Wang and Witten, 1997)
+    and k-nearest neighbour (Zhang et al., 2010). Recently, Gonzalez-Sanchez et al.
+    (2014) presented a comparative study of ANN, SVR, M5-Prime, kNN ML techniques
+    and Multiple Linear Regression for crop yield prediction in ten crop datasets.
+    To validate the models they used four accuracy metrics: Root Mean Square Error
+    (RMS), Root Relative Square Error (RRSE), Normalized Mean Absolute Error (MAE)
+    and Correlation Factor (R). Results showed that M5-Prime achieved the lowest errors
+    across the produced crop yield models. The results of that study ranked the techniques
+    from the best to the worst, according to RMSE, RRSE, R, and MAE results, in the
+    following order: M5-Prime, kNN, SVR, ANN and MLR. In another study Nari and Yang-Won
+    (2016) applied four ML techniques, SVM, Random Forest (RF), Extremely Randomized
+    Trees (ERT) and Deep Learning (DL) to estimate corn yield in Iowa State. Comparisons
+    of the validation statistics showed that DL provided more stable results by overcoming
+    the overfitting problem. As soil and climatic conditions play a significant role
+    in crop growth and yield, online proximal soil sensing for estimation of relevant
+    soil properties remains a missing component in the management system. Pantazi
+    et al. (2016) predicted the within field variation in wheat yield using online
+    multi-layer soil data and satellite imagery crop growth characteristics. They
+    used supervised Self-Organizing Maps (SOM) in this work. The data for a single
+    cropping season was used and the performance of counter-propagation artificial
+    neural networks (CP-ANN), XY-fused Networks (XY-F) and Supervised Kohonen Networks
+    (SKN) for predicting wheat yield was compared. The average overall accuracy for
+    SKN was 81.65%, for CP-ANN was 78.3% and for XY-F was 80.92%, showing that the
+    SKN model had the best overall performance. Spectral vegetation indices (VIs)
+    are mathematical combinations (often ratios) of mainly red, green and infrared
+    spectral bands. They are designed to find functional relationships between crop
+    characteristics and remote sensing observations (Wiegand et al., 1979). Since
+    the development of the Simple Ratio Index (SR) (Birth and McVey, 1968, Jordan,
+    1969, Knipling, 1970) and the Normalized Difference Vegetation Index (NDVI) (Johnson,
+    2014, Rouse et al., 1973, Tucker, 1979) a large number of vegetation indices have
+    been developed, such as the two-band Enhanced Vegetation Index (EVI2) (Bolton
+    and Friedl, 2013) and Normalized Difference Water Index (NDWI) (Satir and Berberoglu,
+    2016) to name a few. The availability of a large number of indices leads to the
+    need to optimally choose and combine indices for maximally accurate crop yield
+    estimation. Panda et al. (2010) implemented Back-propagation Neural Network (BPNN)
+    modelling to test the efficiency of the following four spectral vegetation indices:
+    NDVI, green vegetation index (GVI), soil adjusted vegetation index (SAVI) and
+    perpendicular vegetation index (PVI) in corn crop yield prediction. The results
+    showed that the corn yield was best predicted using BPNN models that used the
+    means and standard deviations of PVI grid images. Although spectral vegetation
+    indices are widely used, they depend only on a small number (usually two) of the
+    available image bands and the full spectrum information in hyperspectral data
+    is not exploited. In their recent publication You et al. (2017) used Convolutional
+    Neural Network (CNN) and Long-Short Term Memory (LSTM) to automatically discover
+    relevant features from raw data. Deep Gaussian Process was employed to integrate
+    the spatio-temporal information from the data. They evaluated the proposed approach
+    on the task of predicting county-level soybean production in the United States.
+    The results of this study showed that the proposed approach outperformed competing
+    techniques by a large margin. Yuan et al. (2015) addressed the problem of selection
+    of the most representative bands to reduce the dimensionality of the data while
+    maximally preserving its original information. They proposed a group-wise band
+    selection framework, with a joint sparsity constraint, which is fully unsupervised
+    and computationally feasible. They conducted experiments on hyperspectral classification
+    and colour visualisation. The results of those experiments demonstrated that,
+    in these two applications, the proposed framework is more robust and reliable
+    compared to the other state of the art alternatives (e.g. traditional pointwise-selection-based
+    methods). To make a timely prediction of crop yield, the Spiking Neural Networks
+    (SNN) model has been presented by Bose et al. (2016). It introduces for the first
+    time SNN as a promising technique for spatio-temporal data modelling, analysis,
+    and land use/crop prediction. As deep learning has the capability to extract key
+    features from the data for estimation, it can be expected to have less dependency
+    on the input data. Because of this, even in areas where data acquisition is limited,
+    deep learning can be expected to provide good quality estimation of crop yield
+    (Kuwata and Shibasaki, 2015). Many other studies have been conducted on the application
+    of ML techniques to crop yield estimation from remotely sensed and in-situ data.
+    Table 1. presents a review of the studies and provides a summary, methodology
+    and discussion for each publication. This discussion is concentrated on some key
+    technical aspects of the used ML techniques. Table 1. Publications that use machine
+    learning techniques for crop yield estimation with a focus on their technical
+    aspects. Paper Summary Methodology Discussion Pantazi et al. (2016) This paper
+    developed and evaluated a yield prediction model for wheat. For the yield prediction
+    the fusion vectors have been used as input for the three ANNs. The fusion vectors
+    consist of the values of the eight soil parameters collected with the on-line
+    soil sensor, the satellite imagery calculated NDVI values and historic yield data
+    from the previous two years. Self-Organizing Map Models (SOMs): • Counter-Propagation
+    Artificial Neural Networks (CPANN) • XY-Fused Networks (XY-Fs) • Supervised Kohonen
+    Networks (SKNs) The presented approach incorporates the yield limiting factors
+    in a multi-layer fusion model.  Stas et al. (2016) The paper presented a comparison
+    of two machine learning techniques (BRT and SVM) for prediction of winter wheat
+    yield in Henan province of China. Three types of NDVI-related predictors have
+    been used: Single NDVI, Incremental NDVI and Targeted NDVI. The results of comparison,
+    which are based on a cross-validation error (RMSE), showed that BRT model consistently
+    outperforms SVM. • Boosted Regression Trees (BRT) • Support Vector Machines (SVM)
+    When a limited number of training samples is available, ML techniques used in
+    this paper are better able to cope with large set of predictors (compared to MLR)  Heremans
+    et al. (2015) In this paper two regression tree methods (BRT and RF) were used
+    in order to evaluate the accuracy of winter wheat yield, using NDVI data from
+    the SPOT-VEGETATION sensor together with meteorological variables and fertilization
+    levels, in the North China. The aim was not only to compare the performance of
+    the methods but also to assess the potential for early-season predictions of winter
+    wheat yield at the prefecture level (five prefectures were involved). The comparison
+    of methods was based on cross-validation R2 and RMSE. The results showed that
+    BRT outperforms RF for four out of the five prefectures. • Boosted Regression
+    Trees (BRT) • Random Forest (RF) BRT is sensitive to noise, prone to overfitting
+    and much slower than bagging. At the same time, boosting has been shown to be
+    more accurate than bagging. RF can be used to improve the performance of bagging.
+    In terms of accuracy, RFs are comparable to boosting but don’t have the mentioned
+    limitations. RF has much lower computational cost than boosting  Liang et al.
+    (2015) The paper presented a non-destructive method - the hybrid inversion method,
+    for estimation of leaf area index (LAI) values of crops. The method used different
+    regression algorithms and allowed determining the relationships between optimal
+    simulated VIs and simulated LAI values. To establish hybrid inversion model ANN
+    and RFR have been used.The comparison of the used algorithms showed that RFR was
+    a better method for modelling with the higher R2 and lower RMSE values for different
+    datasets and various VIs. • Curve fitting • Artificial Neural Network (ANN) •
+    Random Forest Regression (RFR) In contrast to full-spectrum approaches, using
+    VIs to estimate LAI requires a reduction in the number of model input parameters
+    and therefore may result in lower inversion accuracy. However, RFR can enable
+    good performance with several or even a single parameter if that input parameter
+    is highly correlated and representative.  Wu et al. (2015) This paper developed
+    and compared two inversion models, using Statistical Regression model and BPNN
+    model, to estimate the LAI of a temperate meadow steppe in China. The results
+    of comparison showed that BPNN method (accuracy: 82.2%) outperforms Statistical
+    Regression model (accuracy: 78.8%). • Statistical Regression Model • BPNN BPNN
+    refers to a broad family of ANNs where the error is calculated at the output layer
+    (using the observations) and is propagated back through the layers of the ANN.
+    The optimisation process adjusts the weights in each layer by minimising the pre-defined
+    loss function.  Jin et al. (2016) In the paper the particle swarm optimization
+    (PSO) algorithm was used to assimilate field spectroscopic data into the AquaCrop
+    model to improve the estimation accuracy of winter wheat yield under different
+    planting dates and irrigation management strategies. The results showed that the
+    PSO algorithm is an effective method for improving the estimates of biomass and
+    yield of winter wheat. Particle Swarm Optimization (PSO) algorithm Particle Swarm
+    Optimization (PSO) algorithm can be used to minimise the difference between the
+    regression based and AquaCrop model based estimates. This helps to improve the
+    predictions.  Li et al. (2016) The paper aimed to produce accurate and timely
+    predictions of grassland LAI for the meadow steppes of northern China, using different
+    regression approaches and hybrid geostatistical methods. The comparison of predictions
+    via hybrid geostatistical methods, followed by different regression models was
+    presented. The results showed that the RF model provides the most accurate predictions
+    among the regression models. • Partial Least Squares Regression (PLSR) • ANNs
+    • RFs • Regression Kriging (RK) • Random Forests Residuals Kriging (RFRK) RFs
+    can provide better resistance to the over-fitting problem and to noise in the
+    data compared with other regression methods. However, RF method ignores spatial
+    autocorrelation information. RFRK is an extension of RF and is very similar to
+    RK. It helps to include the spatial autocorrelation into the RF  Papageorgiou
+    et al. (2013) The paper mainly aimed to present a method, based on FCM learning
+    technique, to develop a computational intelligent tool for categorizing apple
+    fruit yield. The results showed that the knowledge-based FCM learning approach
+    predicts properly the phenomenon, gives a front-end decision about the class of
+    apple fruit yield, and provides similar results to those obtained from horticulturist
+    experts. • Fuzzy Cognitive Mapping (FCM) The FCM method has many advantages such
+    as simplicity, adaptability and capability of approximating abstractive structures.
+    FCMs are knowledge-based and, therefore, provide meaningful results. As FCMs are
+    mainly constructed manually, data-driven learning algorithms are required when
+    dealing with a large number of variables.  Papageorgiou et al. (2011) The main
+    aim of the paper was to connect yield defining parameters with yield in cotton
+    crop production in Central Greece. The simulation approach based on the soft computing
+    technique of Fuzzy Cognitive Maps was investigated (FCM tool). The data from six
+    subsequent years were used to estimate the average classification accuracy of
+    the yield production, using the FCM tool. The results of estimation were compared
+    with results of some ML techniques obtained from the same data. The results of
+    comparison based on the overall accuracy of each method showed that the FCM technique
+    performed better in most of the cases. • Fuzzy Cognitive Mapping (FCM) • ANNs
+    • Decision Trees (DTs) • Bayesian Networks (BNs) Fuzzy cognitive Map (FCM) represents
+    a combination of neural networks and fuzzy logic, and can be used for information
+    representation and decision making in complex processing environments. In particular,
+    FCMs can be used to model and represent expert knowledge for cotton yield prediction
+    and crop management  Kaul et al. (2005) The paper described the development of
+    ANN models as an accurate technique for corn and soybean yield prediction in Maryland
+    nutrient management planning. The results showed that ANN yield prediction is
+    more accurate than the MLR-based yield model. • Artificial Neural Network (ANN)
+    • Multiple Linear Regression (MLR) ANN and MLR are among the techniques that can
+    be used for agricultural modelling and prediction. The MLR is a simple methodology
+    which is also easy to apply. ANN is a much more sophisticated technique the difficulties
+    of the practical application of which are described in Section 2. 4. Precision
+    nitrogen management As nitrogen (N) plays a significant role in the process of
+    photosynthesis, it is important for crop health and development. At the same time,
+    environmental factors and cost require a prudent application of N. Because of
+    these factors the problem of optimal N management has attracted the attention
+    of numerous researchers (Cao et al., 2015, Cao et al., 2017, Dai et al., 2013,
+    Magney et al., 2017, Zhao et al., 2013). One of the approaches to optimal N management
+    in PA is to use management zones, that is, identify subfield regions with homogeneous
+    characteristics that require similar treatment. The most widely used methods for
+    delineation of site-specific management zones are the fuzzy C-means and k-means
+    algorithms (Schuster et al., 2011, Vrindts et al., 2005). These are popular clustering
+    methods used extensively for unsupervised learning and identification of structure
+    in datasets. However, determining subfield areas is a difficult task because of
+    the complex correlations and spatial variability of soil properties and nutrient
+    concentrations, which are responsible for variations in crop yield within the
+    field. The non-destructive methods for making N fertilizer recommendations for
+    crops are commonly based on plant N status testing, using remote sensing and in-situ
+    data (Cilia et al., 2014, Maresma et al., 2016, Tremblay et al., 2011). Cao et
+    al. (2015) evaluated two sensor systems, based on a three band user-configurable
+    Crop Circle ACS-470 sensor and a two fixed-band GreenSeeker sensor, in order to
+    estimate winter wheat N status. The results of the comparison demonstrated that
+    the winter wheat N status can be better predicted via the three band Crop Circle
+    ACS-470 sensor. A comprehensive review of the advantages and disadvantages of
+    different methods for sensing the N status in plants has been conducted by Muñoz-Huerta
+    et al. (2013). Diacono et al. (2013) produced a review of precision N management
+    of a wheat crop. They investigated approaches/results of site-specific N management
+    of wheat to analyse both performance and sustainability of this agricultural practice.
+    However, to the best of the authors’ knowledge, there are no published review
+    papers focused on ML techniques for precision N management. A number of spectrometric
+    studies have been undertaken devoted to the estimation of the N status in plants
+    using CR, vegetation indices (VIs) (Li et al., 2010, Maresma et al., 2016, Ruß
+    and Kruse, 2011), SMLR and PLSR (Grossman et al., 1996, Haboudane et al., 2008,
+    Hansen and Schjoerring, 2003, Huang et al., 2004, Tian et al., 2011, Yu et al.,
+    2013, Zhu et al., 2006). Yao et al. (2015) applied different linear (CR, VI, SMLR
+    and PLSR) and nonlinear (ANN and SVM) regression methods in order to determine
+    which method, input variable and model could estimate the Leaf Nitrogen Concentration
+    (LNC) in winter wheat with higher accuracy, more robustness, less time and lower
+    complexity. A comparative assessment of those six methods was conducted using
+    the following six metrics: coefficients of determination for the calibration (
+    ) and validation ( ) sets, the root mean square errors of prediction (RMSEP) for
+    the calibration and validation sets, the ratio of prediction to deviation (RPD),
+    the computational efficiency (CE) and the complexity level (CL). The results of
+    the comparison showed that the SVM method was more robust in coping with potential
+    confounding factors for most varieties, ecological site and growth stage. However,
+    the VI method utilising the Soil-Adjusted Vegetation Index (1200 and 705 bands)
+    was most accurate for the estimation of the LNC in wheat. Gaussian Processes (GPs)
+    machine learning regression algorithms have been applied to estimate chlorophyll
+    content, N content, leaf water content and specific leaf area from a field-based
+    multi-species dataset (for trees) (Wittenberghe et al., 2014). As an input the
+    GP used the entire spectral data and then several distinct wavebands were automatically
+    chosen for estimation of different leaf parameters. Results illustrate that the
+    information to predict a leaf parameter is not restricted to one or few spectral
+    bands, but that six or more separate bands can be (equally) involved. Taking more
+    bands into account helps better discriminate the source of change when some bands
+    are also influenced by other variables. Three methods (PLS, ANN, LS-SVM) have
+    been used to estimate the N status non-destructively in rice using canopy spectral
+    reflectance with visible and near-infrared reflectance spectroscopy (Shao et al.,
+    2012). The comparative analysis showed that the LS-SVM outperformed the other
+    methods and it was concluded that LS-SVM is a promising alternative for the regression
+    analysis to quantify N status in rice. The Random Forest (RF) algorithm is a data
+    mining method developed by Breiman (2001). It can be employed to reduce the redundancy
+    in complex high-dimensional hyperspectral datasets. The results by Elfatih et
+    al. (2013) show that RF regression applied to hyperspectral data has the potential
+    to accurately predict sugarcane leaf N concentration thus assisting in making
+    informed decisions regarding site-specific application of N fertilizers. There
+    are many other studies dedicated to precision N management using not only ML but
+    also other techniques such as kriging, multivariate methods and inverse distance
+    weighting. Table 2. presents those studies and provides a summary, methodology
+    and discussion for each publication. This discussion is concentrated on some key
+    technical aspects of the used ML and other techniques. Table 2. Publications that
+    use machine learning and other techniques for precision nitrogen management. Paper
+    Summary Methodology Discussion Song et al. (2017) The paper showed that based
+    on the data collected from some georeferenced locations the Ordinary Kriging Analysis
+    allows the interpolation of maps for • wheat grain protein content (GPC) • GPC
+    yield • wheat canopy fluorescence parameters, including Simple Florescence Ratio
+    and Nitrogen Balance Indices (NBI) • soil Nitrate-Nitrogen (NO3-N) content and
+    soil Time Domain Reflectometry (TDR) The comparison of the fluorescence parameter
+    maps, soil NO3-N and soil TDR maps with the wheat GPC and the GPC yield maps demonstrated
+    that the NBI spatial variability map in the late stage of wheat growth can be
+    used to distinguish areas that produce higher GPC Ordinary Kriging Analysis (OKA)
+    Ordinary Kriging Analysis is a widely used approach in PA. However, ML via Gaussian
+    Processes based modelling will provide • automation • quick update of the models
+    as new data becomes available • optimised data collection (based on maximising
+    the information gain) • probabilistic outcomes with representative uncertainties
+    • possibility for further fusion of data from different sensors  Magney et al.
+    (2017) The paper aimed • to evaluate the usefulness of RapidEye spectral VIs to
+    predict cumulative N uptake in wheat • to examine the usefulness of remotely sensed
+    N uptake maps for PA applications It was concluded that • the top performing VI
+    was the Normalized Difference Red-Edge index (NDRE) • N uptake maps from RapidEye
+    imagery could have important implications for PA Seventeen commonly used spectral
+    VIs Although VIs have been used for a number of different applications in satellite
+    remote sensing for PA, this paper reports that VIs from RapidEye imagery can be
+    used for estimating wheat N uptake.  Morellos et al. (2016) To predict total nitrogen
+    (TN), organic carbon (OC) and moisture content (MC) in fresh (wet and unprocessed)
+    soil samples two multivariate and two machine learning methods have been compared.
+    The results indicated that machine learning methods outperformed the multivariate
+    methods for the prediction of all three soil properties. Multivariate methods:
+    • Principal Component Regression (PCR) • Partial Least Squares Regression (PLSR),
+    Machine learning methods: • Least Squares Support Vector Machines (LS-SVM) • Cubist
+    The advantage of ML methods is that they are capable of tackling non-linear problems
+    in the dataset. The ML techniques can be used in field spectroscopy for off-line
+    and online prediction of the soil parameters studied in the fields (if the soil
+    type and variability is similar to the one studied in this paper)  Castaldi et
+    al. (2016) The paper proposed data fusion process in order to improve the choice
+    of satellite bands for grain N uptake prediction. The results showed that the
+    best spectral regions vary over the growing season of the wheat crop. Combination
+    of • Stepwise Regression with Backward Selection • Stepwise Variance Inflation
+    Factors (VIFs) analysis • Linear Mixed Effect Model (LMEM) LMEM can be a very
+    efficient technique to estimate the spatial variability of the soil and crop variables
+    accurately across the field with limited data, thus saving time and reducing the
+    costs.  Wang et al. (2017) The paper investigated the modelling performances of
+    four different chemometric techniques and three vegetation indices. Results showed
+    that the best modelling and prediction accuracy were found in the model established
+    by PLSR and spectra measured with a black background. A higher coefficient of
+    determination between the leaf N concentration and fruit yield was found at 50 days
+    after full bloom. Four techniques: • Principal Components Regression (PCR) • Partial
+    Least Squares Regression (PLSR) • Stepwise Multiple Linear Regression (SMLR) •
+    BPNN Three indices: • Difference Spectral Index • Normalized Difference Spectral
+    Index • Ratio Spectral Index PCR, PLSR, and BPNN use all available wavelengths
+    simultaneously, while SMLR selects useful wavelengths from the available spectrum
+    and ignores the remaining wavebands. To improve the performance of the methods
+    normalization can be used on the raw spectra collected by the probe, and wavelengths
+    with very large atmospheric influence can be removed.  Guo et al. (2015) The paper
+    compared two different approaches (SLR and RFRK) to predict and map the spatial
+    distribution of soil organic matter for the rubber plantation. Results showed
+    that RFRK outperforms SLR, by providing lower prediction errors (ME, MAE, and
+    RMSE) and higher R2 • Stepwise Linear Regression (SLR) • RFRK • Generalized Additive
+    Mixed Model (GAMM) • Classification And Regression Tree (CART) RFRK model required
+    no assumptions about the relationships between the target variable and the predictor
+    variables. Those relationships could be nonlinear and hierarchical. This can be
+    revealed by using GAMM and CART.  Dai et al. (2014) The paper presented ANN-kriging
+    methodology in order to predict accurate Soil Organic Matter (SOM) content maps.
+    A comparison of proposed method with the other interpolation methods was performed
+    to assess the prediction accuracy. The results indicated that ANN-kriging provides
+    the lower RMSE. • ANN-kriging • ANN • Inverse Distance Weighting (IDW) It is suggested
+    that the proposed ANN-kriging methodology can be used to improve the accuracy
+    of SOM content mapping at large scale. 5. Conclusions Sensing technologies and
+    ML techniques have rapidly advanced during the last decade. These developments
+    are likely to continue providing cost-effective and more comprehensive datasets
+    combined with more sophisticated algorithmic solutions enabling better crop and
+    environment state estimation and decision making. We are at the beginning of a
+    promising path that has the potential to significantly alter crop yield management.
+    A number of ML techniques have already been successfully applied to different
+    PA tasks. This review particularly demonstrates that (a) Back-propagation Neural
+    Networks allow identification of the importance of different Vegetation Indices
+    (VI) for more accurate crop yield estimation. (b) The combination of Convolutional
+    Neural Networks or Long-short Term Memory with Gaussian Processes enables feature
+    extraction from the data and efficient reduction of the error maps. (c) Gaussian
+    Processes are useful for automatic selection of wavebands from the entire spectrum
+    in order to predict different characteristics of plant leaves. (d) M5-Prime Regression
+    Trees are a suitable tool for multi-class crop prediction. (e) Least Squares Support
+    Vector Machine is a promising tool for regression analysis to quantify Nitrogen
+    status. (f) Fuzzy cognitive Map (FCM) can be used to model and represent expert
+    knowledge for yield prediction and crop management. Based on the current dynamics
+    in algorithmic developments and sensor technologies the following future trends
+    can be expected: (a) More optimised, targeted application of the currently available
+    sensors and established ML techniques to specific PA tasks (b) Interconnected
+    treatment of spatial, spectral and temporal domains and incorporation of expert
+    knowledge into the ML techniques aimed at modelling and decision making in different
+    aspects of PA. (c) The combination of multiple ML as well as signal processing
+    techniques into hybrid systems to benefit from the strengths of those techniques
+    and compensate for their individual shortcomings. (d) Spatial and spectral fusion
+    of information from sensors with different spatial resolution and spectral characteristics.
+    (e) The dynamic combination of stationary (e.g. in-ground probes, weather station)
+    and mobile (e.g. ground and aerial vehicles, satellites) equipment to enable active
+    optimal data collection, information fusion and model update for high value areas.
+    Acknowledgement This work has been supported by the Australian Centre for Field
+    Robotics. References Ali et al., 2015 I. Ali, F. Greifeneder, J. Stamenkovic,
+    M. Neumann, C. Notarnicola Review of Machine Learning Approaches for Biomass and
+    Soil Moisture Retrievals from Remote Sensing Data Remote Sens., 7 (2015), p. 15841
+    Google Scholar Andrews et al., 2013 M. Andrews, J.A. Raven, P.J. Lea Do plants
+    need nitrate? The mechanisms by which nitrogen form affects plants Ann. Appl.
+    Biol., 163 (2013), pp. 174-199 CrossRefView in ScopusGoogle Scholar Apostol et
+    al., 2007 S. Apostol, A. Viau, N. Tremblay A comparison of multiwavelength laser-induced
+    fluorescence parameters for the remote sensing of nitrogen stress in field-cultivated
+    corn Can. J. Remote Sens., 33 (2007), pp. 150-161 CrossRefView in ScopusGoogle
+    Scholar Aqeel-ur-Rehman et al., 2014 Aqeel-ur-Rehman, A.Z. Abbasi, N. Islam, Z.A.
+    Shaikh A review of wireless sensors and networks'' applications in agriculture
+    Comp. Stand. Interf., 36 (2014), pp. 263-270 View PDFView articleView in ScopusGoogle
+    Scholar Barati et al., 2011 S. Barati, B. Rayegani, M. Saati, A. Sharifi, M. Nasri
+    Comparison the accuracies of different spectral indices for estimation of vegetation
+    cover fraction in sparse vegetated areas Egypt. J. Remote Sens. Space Sci., 14
+    (2011), pp. 49-56 View PDFView articleView in ScopusGoogle Scholar Barnes et al.,
+    2003 E.M. Barnes, K.A. Sudduth, J.W. Hummel, S.M. Lesch, D.L. Corwin, C. Yang,
+    C.S.T. Daughtry, W.C. Bausch Remote- and ground-based sensor techniques to map
+    soil properties Photogramm. Eng. Remote Sens., 6 (2003), pp. 619-630 View in ScopusGoogle
+    Scholar Behmann et al., 2015 J. Behmann, A. Mahlein, T. Rumpf, C. Römer, L. Plümer
+    A review of advanced machine learning methods for the detection of biotic stress
+    in precision crop protection Prec. Agric., 16 (2015), pp. 239-260 CrossRefView
+    in ScopusGoogle Scholar Bellvert et al., 2016 J. Bellvert, J. Marsal, J. Girona,
+    V. Gonzalez-Dugo, E. Fereres, S. Ustin, P. Zarco-Tejada Airborne thermal imagery
+    to detect the seasonal evolution of crop water status in peach, nectarine and
+    saturn peach orchards Remote Sens., 8 (2016), p. 39 CrossRefView in ScopusGoogle
+    Scholar Birth and McVey, 1968 G.S. Birth, G.R. McVey Measuring the color of growing
+    turf with a reflectance spectrophotometer Agron. J., 60 (1968), pp. 640-643 CrossRefView
+    in ScopusGoogle Scholar Bishop, 2006 C.M. Bishop Pattern Recognition and Machine
+    Learning (Information Science and Statistics) Springer-Verlag, New York Inc (2006)
+    Google Scholar Bolster et al., 1996 K.L. Bolster, M.E. Martin, J.D. Aber Determination
+    of carbon fraction and nitrogen concentration in tree foliage by near infrared
+    reflectances: a comparison of statistical methods Can. J. For. Res., 26 (1996),
+    pp. 590-600 CrossRefView in ScopusGoogle Scholar Bolton and Friedl, 2013 D.K.
+    Bolton, M.A. Friedl Forecasting crop yield using remotely sensed vegetation indices
+    and crop phenology metrics Agric. For. Meteorol., 173 (2013), pp. 74-84 View PDFView
+    articleView in ScopusGoogle Scholar Bose et al., 2016 P. Bose, N.K. Kasabov, L.
+    Bruzzone, R.N. Hartono Spiking neural networks for crop yield estimation based
+    on spatiotemporal analysis of image time series IEEE Trans. Geosci. Remote Sens.,
+    54 (2016), pp. 6563-6573 View in ScopusGoogle Scholar Breiman, 2001 L. Breiman
+    Random forests Mach. Learn., 45 (2001), pp. 5-32 Google Scholar Campbell and Wynne,
+    2011 Campbell, J.B., Wynne, R.H., 2011. Introduction to Remote Sensing. fifth
+    ed. Guildford Press. Google Scholar Cao et al., 2015 Q. Cao, Y. Miao, G. Feng,
+    X. Gao, F. Li, B. Liu, S. Yue, S. Cheng, S.L. Ustin, R. Khosla Active canopy sensing
+    of winter wheat nitrogen status: An evaluation of two sensor systems Comput. Electr.
+    Agric., 112 (2015), pp. 54-67 View PDFView articleView in ScopusGoogle Scholar
+    Cao et al., 2017 Q. Cao, Y. Miao, F. Li, X. Gao, B. Liu, D. Lu, X. Chen Developing
+    a new crop circle active canopy sensor-based precision nitrogen management strategy
+    for winter wheat in North China Plain Prec. Agric., 18 (2017), pp. 2-18 CrossRefView
+    in ScopusGoogle Scholar Castaldi et al., 2016 F. Castaldi, A. Castrignanò, R.
+    Casa A data fusion and spatial data analysis approach for the estimation of wheat
+    grain nitrogen uptake from satellite data Int. J. Remote Sens., 37 (2016), pp.
+    4317-4336 CrossRefView in ScopusGoogle Scholar Chen et al., 2010 P. Chen, D. Haboudane,
+    N. Tremblay, J. Wang, P. Vigneault, B. Li New spectral indicator assessing the
+    efficiency of crop nitrogen treatment in corn and wheat Remote Sens. Environ.,
+    114 (2010), pp. 1987-1997 View PDFView articleView in ScopusGoogle Scholar Chen
+    et al., 2008 D. Chen, H. Suter, A. Islam, R. Edis, J.R. Freney, C.N. Walker Prospects
+    of improving efficiency of fertiliser nitrogen in Australian agriculture: a review
+    of enhanced efficiency fertilisers Soil Res., 46 (2008), pp. 289-301 View in ScopusGoogle
+    Scholar Cilia et al., 2014 C. Cilia, C. Panigada, M. Rossini, M. Meroni, L. Busetto,
+    S. Amaducci, M. Boschetti, V. Picchi, R. Colombo Nitrogen status assessment for
+    variable rate fertilization in maize through hyperspectral imagery Remote Sens.,
+    6 (2014), p. 6549 CrossRefView in ScopusGoogle Scholar Clark and Roush, 1984 R.N.
+    Clark, T.L. Roush Reflectance spectroscopy: Quantitative analysis techniques for
+    remote sensing applications J. Geophys. Res.: Solid Earth, 89 (1984), pp. 6329-6340
+    View in ScopusGoogle Scholar Curran, 1987 P.J. Curran Remote sensing in agriculture:
+    an introductory review J. Geogr., 86 (1987), pp. 147-156 CrossRefView in ScopusGoogle
+    Scholar Dai et al., 2013 X. Dai, X. Zhou, D. Jia, L. Xiao, H. Kong, M. He Managing
+    the seeding rate to improve nitrogen-use efficiency of winter wheat Field Crops
+    Res., 154 (2013), pp. 100-109 View PDFView articleView in ScopusGoogle Scholar
+    Dai et al., 2014 F. Dai, Q. Zhou, Z. Lv, X. Wang, G. Liu Spatial prediction of
+    soil organic matter content integrating artificial neural network and ordinary
+    kriging in Tibetan Plateau Ecol. Indicat., 45 (2014), pp. 184-194 View PDFView
+    articleView in ScopusGoogle Scholar Dalponte et al., 2012 M. Dalponte, L. Bruzzone,
+    D. Gianelle Tree species classification in the Southern Alps based on the fusion
+    of very high geometrical resolution multispectral/hyperspectral images and LiDAR
+    data Remote Sens. Environ., 123 (2012), pp. 258-270 View PDFView articleView in
+    ScopusGoogle Scholar Diacono et al., 2013 M. Diacono, P. Rubino, F. Montemurro
+    Precision nitrogen management of wheat A review Agron. Sustain. Dev., 33 (2013),
+    pp. 219-241 CrossRefView in ScopusGoogle Scholar Drummond et al., 2003 S.T. Drummond,
+    K.A. Sudduth, A. Joshi, S.J. Birrel, N.R. Kitchen Statistical and neural methods
+    for site-specific yield prediction Trans. Am. Soc. Agric. Eng., 46 (2003), pp.
+    5-14 View in ScopusGoogle Scholar Du and Jeffrey, 2007 Z. Du, J.P.T. Jeffrey Advances
+    in Machine Learning Applications in Software Engineering IGI Global, Hershey,
+    PA, USA (2007) Google Scholar Elfatih et al., 2013 M.A. Elfatih, B.A. Fethi, I.
+    Riyad Random forest regression and spectral band selection for estimating sugarcane
+    leaf nitrogen concentration using EO-1 Hyperion hyperspectral data Int. J. Remote
+    Sens., 34 (2013), pp. 712-728 Google Scholar El-Shikha et al., 2007 D.M. El-Shikha,
+    P. Waller, D. Hunsaker, T. Clarke, E. Barnes Ground-based remote sensing for assessing
+    water and nitrogen status of broccoli Agric. Water Manage., 92 (2007), pp. 183-193
+    View PDFView articleView in ScopusGoogle Scholar Engman and Gurney, 1991 E.T.
+    Engman, R.J. Gurney Remote sensing in hydrology Chapman and Hall, London (1991)
+    Google Scholar Farifteh et al., 2007 J. Farifteh, F. Van der Meer, C. Atzberger,
+    E.J.M. Carranza Quantitative analysis of salt-affected soil reflectance spectra:
+    A comparison of two adaptive methods (PLSR and ANN) Remote Sens. Environ., 110
+    (2007), pp. 59-78 View PDFView articleView in ScopusGoogle Scholar Ferguson, 1973
+    T.S. Ferguson A Bayesian analysis of some nonparametric problems Ann. Statist.,
+    1 (1973), pp. 209-230 View in ScopusGoogle Scholar Fortin et al., 2011 J.G. Fortin,
+    F. Anctil, L. Parent, M.A. Bolinder Site-specific early season potato yield forecast
+    by neural network in Eastern Canada Prec. Agric., 12 (2011), pp. 905-923 CrossRefView
+    in ScopusGoogle Scholar Frausto-Solis et al., 2009 Frausto-Solis, J., Gonzalez-Sanchez,
+    A., Larre, M., 2009. A New Method for Optimal Cropping Pattern, In: Aguirre, A.H.,
+    Borja, R.M., Garciá, C.A.R. (Eds.), MICAI 2009: Advances in Artificial Intelligence:
+    8th Mexican International Conference on Artificial Intelligence, Guanajuato, México,
+    November 9-13, 2009. Proceedings. Springer Berlin Heidelberg, Berlin, Heidelberg,
+    pp. 566–577. Google Scholar Gao, 1996 B. Gao NDWI—A normalized difference water
+    index for remote sensing of vegetation liquid water from space Remote Sens. Environ.,
+    58 (1996), pp. 257-266 View PDFView articleView in ScopusGoogle Scholar Goldstein
+    et al., 2017 A. Goldstein, L. Fink, A. Meitin, S. Bohadana, O. Lutenberg, G. Ravid
+    Applying machine learning on sensor data for irrigation recommendations: revealing
+    the agronomist’s tacit knowledge Prec. Agric. (2017) Google Scholar Gontia and
+    Tiwari, 2008 N.K. Gontia, K.N. Tiwari Development of crop water stress index of
+    wheat crop for scheduling irrigation using infrared thermometry Agric. Water Manage.,
+    95 (2008), pp. 1144-1152 View PDFView articleView in ScopusGoogle Scholar Gonzalez-Sanchez
+    et al., 2014 A. Gonzalez-Sanchez, J. Frausto-Solis, W. Ojeda-Bustamante Predictive
+    ability of machine learning methods for massive crop yield prediction Spanish
+    J. Agric. Res., 12 (2014), pp. 313-328 CrossRefView in ScopusGoogle Scholar Goron
+    et al., 2017 T. Goron, J. Nederend, G. Stewart, B. Deen, M. Raizada Mid-season
+    leaf glutamine predicts end-season maize grain yield and nitrogen content in response
+    to nitrogen fertilization under field conditions Agronomy, 7 (2017), p. 41 CrossRefView
+    in ScopusGoogle Scholar Govender et al., 2009 Govender, M., Dye, P.J., Weiersbye,
+    I.M., Witkowski, E.T.F., Ahmed, F., 2009. Review of commonly used remote sensing
+    and ground-based technologies to measure plant water stress. Water SA 35. Google
+    Scholar Griffiths and Ghahramani, 2011 T.L. Griffiths, Z. Ghahramani The Indian
+    buffet process: an introduction and review J. Mach. Learn. Res., 12 (2011), pp.
+    1185-1224 View in ScopusGoogle Scholar Grossman et al., 1996 Y.L. Grossman, S.L.
+    Ustin, S. Jacquemoud, E.W. Sanderson, G. Schmuck, J. Verdebout Critique of stepwise
+    multiple linear regression for the extraction of leaf biochemistry information
+    from leaf reflectance data Remote Sens. Environ., 56 (1996), pp. 182-193 View
+    PDFView articleView in ScopusGoogle Scholar Guo et al., 2015 P. Guo, M. Li, W.
+    Luo, Q. Tang, Z. Liu, Z. Lin Digital mapping of soil organic matter for rubber
+    plantation at regional scale: An application of random forest plus residuals kriging
+    approach Geoderma, 237 (2015), pp. 49-59 View PDFView articleView in ScopusGoogle
+    Scholar Gupta, 2003 R.P. Gupta Remote Sensing Geology Springer-Verlag, Berlin
+    Heidelberg, Germany (2003) Google Scholar Gutiérrez et al., 2018 S. Gutiérrez,
+    M.P. Diago, J. Fernández-Novales, J. Tardaguila Vineyard water status assessment
+    using on-the-go thermal imaging and machine learning PLOS One, 13 (2018), p. e0192037
+    CrossRefView in ScopusGoogle Scholar Haboudane et al., 2004 D. Haboudane, J.R.
+    Miller, E. Pattey, P.J. Zarco-Tejada, I.B. Strachan Hyperspectral vegetation indices
+    and novel algorithms for predicting green LAI of crop canopies: Modeling and validation
+    in the context of precision agriculture Remote Sens. Environ., 90 (2004), pp.
+    337-352 View PDFView articleView in ScopusGoogle Scholar Haboudane et al., 2008
+    D. Haboudane, N. Tremblay, J.R. Miller, P. Vigneault Remote estimation of crop
+    chlorophyll content using spectral indices derived from hyperspectral data IEEE
+    Trans. Geosci. Remote Sens., 46 (2008), pp. 423-437 Google Scholar Hansen and
+    Schjoerring, 2003 P.M. Hansen, J.K. Schjoerring Reflectance measurement of canopy
+    biomass and nitrogen status in wheat crops using normalized difference vegetation
+    indices and partial least squares regression Remote Sens. Environ., 86 (2003),
+    pp. 542-553 View PDFView articleView in ScopusGoogle Scholar Heremans et al.,
+    2015 S. Heremans, Q. Dong, B. Zhang, L. Bydekerke, J. Van Orshoven Potential of
+    ensemble tree methods for early-season prediction of winter wheat yield from short
+    time series of remotely sensed normalized difference vegetation index and in situ
+    meteorological data APPRES, 9 (2015), p. 097095 CrossRefView in ScopusGoogle Scholar
+    Holmgren and Thuresson, 1998 P. Holmgren, T. Thuresson Satellite remote sensing
+    for forestry planning—A review Scandinavian J. For. Res., 13 (1998), pp. 90-110
+    CrossRefView in ScopusGoogle Scholar Huang et al., 2004 Z. Huang, B.J. Turner,
+    S.J. Dury, I.R. Wallis, W.J. Foley Estimating foliage nitrogen concentration from
+    HYMAP data using continuum removal analysis Remote Sens. Environ., 93 (2004),
+    pp. 18-29 View PDFView articleView in ScopusGoogle Scholar Huete, 1988 A.R. Huete
+    A soil-adjusted vegetation index (SAVI) Remote Sens. Environ., 25 (1988), pp.
+    295-309 View PDFView articleView in ScopusGoogle Scholar Hultquist et al., 2014
+    C. Hultquist, G. Chen, K. Zhao A comparison of Gaussian process regression, random
+    forests and support vector regression for burn severity assessment in diseased
+    forests Remote Sens. Lett., 5 (2014), pp. 723-732 CrossRefView in ScopusGoogle
+    Scholar Jaafar and Ahmad, 2015 H.H. Jaafar, F.A. Ahmad Crop yield prediction from
+    remotely sensed vegetation indices and primary productivity in arid and semi-arid
+    lands Int. J. Remote Sens., 36 (2015), pp. 4570-4589 CrossRefView in ScopusGoogle
+    Scholar Jin et al., 2016 X. Jin, L. Kumar, Z. Li, X. Xu, G. Yang, J. Wang Estimation
+    of winter wheat biomass and yield by combining the AquaCrop model and field hyperspectral
+    data Remote Sens., 8 (2016), p. 972 CrossRefView in ScopusGoogle Scholar Johnson,
+    2014 D.M. Johnson An assessment of pre- and within-season remotely sensed variables
+    for forecasting corn and soybean yields in the United States Remote Sens. Environ.,
+    141 (2014), pp. 116-128 View PDFView articleView in ScopusGoogle Scholar Jones
+    and Moseley, 1993 Jones, D.I.H., Moseley, G., 1993. Laboratory methods for estimating
+    nutritive quality. In: Davies, A., Baker, R.D., Grant, S.A., Laidlaw, A.S. (Eds.),
+    Sward Measurement Handbook, second ed., pp. 265–283. Google Scholar Jordan, 1969
+    C.F. Jordan Derivation of leaf-area index from quality of light on the forest
+    floor Ecology, 50 (1969), pp. 663-666 CrossRefGoogle Scholar Kaul et al., 2005
+    M. Kaul, R.L. Hill, C. Walthall Artificial neural networks for corn and soybean
+    yield prediction Agric. Syst., 85 (2005), pp. 1-18 View PDFView articleView in
+    ScopusGoogle Scholar Knipling, 1970 E.B. Knipling Physical and physiological bases
+    for the reference of visible and near infrared radiation from vegetation Remote
+    Sens. Environ., 1 (1970), pp. 155-159 View PDFView articleView in ScopusGoogle
+    Scholar Kokaly, 2001 R.F. Kokaly Investigating a physical basis for spectroscopic
+    estimates of leaf nitrogen concentration Remote Sens. Environ., 75 (2001), pp.
+    153-161 View PDFView articleView in ScopusGoogle Scholar Kuwata and Shibasaki,
+    2015 Kuwata, K., Shibasaki, R., 2015. Estimating crop yields with deep learning
+    and remotely sensed data, 2015 IEEE International Geoscience and Remote Sensing
+    Symposium (IGARSS), pp. 858–861. Google Scholar Lamb and Brown, 2001 D.W. Lamb,
+    R.B. Brown PA—Precision agriculture J. Agric. Eng. Res., 78 (2001), pp. 117-125
+    View PDFView articleView in ScopusGoogle Scholar Lamb et al., 2002 D.W. Lamb,
+    M. Steyn-Ross, P. Schaare, M.M. Hanna, W. Silvester, A. Steyn-Ross Estimating
+    leaf nitrogen concentration in ryegrass (Lolium spp.) pasture using the chlorophyll
+    red-edge: Theoretical modelling and experimental observations Int. J. Remote Sens.,
+    23 (2002), pp. 3619-3648 View in ScopusGoogle Scholar Li et al., 2010 F. Li, Y.
+    Miao, S.D. Hennig, M.L. Gnyp, X. Chen, L. Jia, G. Bareth Evaluating hyperspectral
+    vegetation indices for estimating nitrogen concentration of winter wheat at different
+    growth stages Prec. Agric., 11 (2010), pp. 335-357 CrossRefGoogle Scholar Li et
+    al., 2016 Z. Li, J. Wang, H. Tang, C. Huang, F. Yang, B. Chen, X. Wang, X. Xin,
+    Y. Ge Predicting grassland leaf area index in the meadow steppes of northern china:
+    a comparative study of regression approaches and hybrid geostatistical methods
+    Remote Sens., 8 (2016), p. 632 CrossRefView in ScopusGoogle Scholar Liang et al.,
+    2015 L. Liang, L. Di, L. Zhang, M. Deng, Z. Qin, S. Zhao, H. Lin Estimation of
+    crop LAI using hyperspectral vegetation indices and a hybrid inversion method
+    Remote Sens. Environ., 165 (2015), pp. 123-134 View PDFView articleView in ScopusGoogle
+    Scholar Liu et al., 2001 Liu, J., Goering, C.E., Tian, L., 2001. A neural network
+    for setting target corn yields. 44, pp. 705–713. Google Scholar Lukina et al.,
+    2001 E.V. Lukina, K.W. Freeman, K.J. Wynn, W.E. Thomason, R.W. Mullen, M.L. Stone,
+    J.B. Solie, A.R. Klatt, G.V. Johnson, R.L. Elliott, W.R. Raun Nitrogen fertilization
+    optimization algorithm based on in-season estimates of yield and plant nitrogen
+    uptake J. Plant Nutr., 24 (2001), pp. 885-898 View in ScopusGoogle Scholar MacKerron
+    et al., 1993 D.K.L. MacKerron, M.W. Young, H.V. Davies A method to optimize N-application
+    in relation to soil supply of N, and yield of potato M.A.C. Fragoso, M.L. Van
+    Beusichem, A. Houwers (Eds.), Optimization of Plant Nutrition: Refereed papers
+    from the Eighth International Colloquium for the Optimization of Plant Nutrition,
+    31 August – 8 September 1992, Lisbon, Portugal, Springer, Netherlands, Dordrecht
+    (1993), pp. 635-640 CrossRefGoogle Scholar Maes and Steppe, 2012 W.H. Maes, K.
+    Steppe Estimating evapotranspiration and drought stress with ground-based thermal
+    remote sensing in agriculture: a review J. Exp. Bot., 63 (2012), pp. 4671-4712
+    CrossRefView in ScopusGoogle Scholar Magney et al., 2017 T.S. Magney, J.U.H. Eitel,
+    L.A. Vierling Mapping wheat nitrogen uptake from RapidEye vegetation indices Prec.
+    Agric., 18 (2017), pp. 429-451 CrossRefView in ScopusGoogle Scholar Maresma et
+    al., 2016 Maresma, Á., Ariza, M., Martínez, E., Lloveras, J., Martínez-Casasnovas,
+    J., 2016. Analysis of Vegetation Indices to Determine Nitrogen Application and
+    Yield Prediction in Maize (Zea mays L.) from a Standard UAV Service. Remote Sensing
+    8, 973. Google Scholar Marinković et al., 2009 B. Marinković, J. Crnobarac, S.
+    Brdar, B. Antić, G. Jaćimović, V. Crnojević Data mining approach for predictive
+    modeling of agricultural yield data Proc. First International Workshop on Sensing
+    Technologies in Agriculture, Novi Sad, Serbia (2009), pp. 1-5 Google Scholar Mehra
+    et al., 2016 L.K. Mehra, C. Cowger, K. Gross, P.S. Ojiambo Predicting pre-planting
+    risk of stagonospora nodorum blotch in winter wheat using machine learning models
+    Front. Plant Sci., 7 (2016), p. 390 View in ScopusGoogle Scholar Morellos et al.,
+    2016 A. Morellos, X.E. Pantazi, D. Moshou, T. Alexandridis, R. Whetton, G. Tziotzios,
+    J. Wiebensohn, R. Bill, A.M. Mouazen Machine learning based prediction of soil
+    total nitrogen, organic carbon and moisture content by using VIS-NIR spectroscopy
+    Biosyst. Eng., 152 (2016), pp. 104-116 View PDFView articleView in ScopusGoogle
+    Scholar Muñoz-Huerta et al., 2013 R. Muñoz-Huerta, R. Guevara-Gonzalez, L. Contreras-Medina,
+    I. Torres-Pacheco, J. Prado-Olivarez, R. Ocampo-Velazquez A review of methods
+    for sensing the nitrogen status in plants: advantages disadvantages and recent
+    advances Sensors, 13 (2013), p. 10823 CrossRefView in ScopusGoogle Scholar Nari
+    and Yang-Won, 2016 K. Nari, L. Yang-Won Machine learning approaches to corn yield
+    estimation using satellite images and climate data: a case of iowa state J. Korean
+    Soc. Surv., Geodesy, Photogramm. Cartogr., 34 (2016), pp. 383-390 Google Scholar
+    Nawar et al., 2017 S. Nawar, R. Corstanje, G. Halcro, D. Mulla, A.M. Mouazen Chapter
+    Four - Delineation of Soil Management Zones for Variable-Rate Fertilization: A
+    Review D.L. Sparks (Ed.), Advances in Agronomy, Academic Press (2017), pp. 175-245
+    View PDFView articleView in ScopusGoogle Scholar Panda et al., 2010 S.S. Panda,
+    D.P. Ames, S. Panigrahi Application of vegetation indices for agricultural crop
+    yield prediction using neural network techniques Remote Sens., 2 (2010), pp. 673-696
+    CrossRefView in ScopusGoogle Scholar Pantazi et al., 2015 Pantazi, X.E., Moshou,
+    D., Mouazen, A., Alexandridis, T., Kuang, B., 2015. Data Fusion of Proximal Soil
+    Sensing and Remote Crop Sensing for the Delineation of Management Zones in Arable
+    Crop Precision Farming. In: 7th International Conference on Information and Communication
+    Technologies in Agriculture, Food and Environment (HAICTA 2015), Kavala - Greece.
+    Google Scholar Pantazi et al., 2016 X.E. Pantazi, D. Moshou, T. Alexandridis,
+    R.L. Whetton, A.M. Mouazen Wheat yield prediction using machine learning and advanced
+    sensing techniques Comput. Electr. Agric., 121 (2016), pp. 57-65 View PDFView
+    articleView in ScopusGoogle Scholar Papageorgiou et al., 2011 E.I. Papageorgiou,
+    A.T. Markinos, T.A. Gemtos Fuzzy cognitive map based approach for predicting yield
+    in cotton crop production as a basis for decision support system in precision
+    agriculture application Appl. Soft Comput., 11 (2011), pp. 3643-3657 View PDFView
+    articleView in ScopusGoogle Scholar Papageorgiou et al., 2013 E.I. Papageorgiou,
+    K.D. Aggelopoulou, T.A. Gemtos, G.D. Nanos Yield prediction in apples using Fuzzy
+    Cognitive Map learning approach Comput. Electr. Agric., 91 (2013), pp. 19-29 View
+    PDFView articleView in ScopusGoogle Scholar Peña et al., 2014 J. Peña, P. Gutiérrez,
+    C. Hervás-Martínez, J. Six, R. Plant, F. López-Granados Object-based image classification
+    of summer crops with machine learning methods Remote Sens., 6 (2014), p. 5019
+    CrossRefView in ScopusGoogle Scholar Pohl and Van Genderen, 1998 C. Pohl, J.L.
+    Van Genderen Review article Multisensor image fusion in remote sensing: Concepts,
+    methods and applications Int. J. Remote Sens., 19 (1998), pp. 823-854 View in
+    ScopusGoogle Scholar Qi et al., 1994 J. Qi, A. Chehbouni, A.R. Huete, Y.H. Kerr,
+    S. Sorooshian A modified soil adjusted vegetation index Remote Sens. Environ.,
+    48 (1994), pp. 119-126 View PDFView articleView in ScopusGoogle Scholar Quemada
+    et al., 2014 M. Quemada, J. Gabriel, P. Zarco-Tejada Airborne hyperspectral images
+    and ground-level optical sensors as assessment tools for maize nitrogen fertilization
+    Remote Sens., 6 (2014), p. 2940 CrossRefView in ScopusGoogle Scholar Rasmussen
+    and Williams, 2005 Rasmussen, C.E., Williams, C.K.I., 2005. Gaussian Processes
+    for Machine Learning (Adaptive Computation and Machine Learning). The MIT Press.
+    Google Scholar Raun et al., 2005 W.R. Raun, J.B. Solie, M.L. Stone, K.L. Martin,
+    K.W. Freeman, R.W. Mullen, H. Zhang, J.S. Schepers, G.V. Johnson Optical sensor-based
+    algorithm for crop nitrogen fertilization Commun. Soil Sci. Plant Anal., 36 (2005),
+    pp. 2759-2781 CrossRefView in ScopusGoogle Scholar Reyniers and Vrindts, 2006
+    M. Reyniers, E. Vrindts Measuring wheat nitrogen status from space and ground-based
+    platform Int. J. Remote Sens., 27 (2006), pp. 549-567 CrossRefView in ScopusGoogle
+    Scholar Rouse et al., 1973 Rouse, J.W., Haas, R.H., Schell, J.A., Deering, D.W.,
+    1973. Monitoring Vegetation Systems in the Great plains with ERTS, NASA. Goddard
+    Space Flight Center 3d ERTS-1 Symposium. United States, Washington, DC, pp. 309–317.
+    Google Scholar Ruß and Kruse, 2010 G. Ruß, R. Kruse Feature Selection for Wheat
+    Yield Prediction M. Bramer, R. Ellis, M. Petridis (Eds.), Research and Development
+    in Intelligent Systems XXVI: Incorporating Applications and Innovations in Intelligent
+    Systems XVII, Springer, London, London (2010), pp. 465-478 CrossRefView in ScopusGoogle
+    Scholar Ruß and Kruse, 2011 G. Ruß, R. Kruse Machine learning methods for spatial
+    clustering on precision agriculture data A. Kofod-Petersen, F. Heintz, H. Langseth
+    (Eds.), Eleventh Scandinavian Conference on Artificial Intelligence, IOS Press
+    (2011), pp. 40-49 View in ScopusGoogle Scholar Ruß, 2009 Ruß, G., 2009. Data mining
+    of agricultural yield data: a comparison of regression models. In: Perner, P.
+    (Ed.), Advances in Data Mining. Applications and Theoretical Aspects: 9th Industrial
+    Conference, ICDM 2009, Leipzig, Germany, July 20 - 22, 2009. Proceedings. Springer
+    Berlin Heidelberg, Berlin, Heidelberg, pp. 24–37. Google Scholar Safa et al.,
+    2004 Safa, B., Khalili, A., Teshnehlab, M., Liaghat, A., 2004. Artificial neural
+    networks application to predict wheat yield using climatic data. In: Proc. 20th
+    Int. Conf. on IIPS, pp. 1–39. Google Scholar Satir and Berberoglu, 2016 O. Satir,
+    S. Berberoglu Crop yield prediction under soil salinity using satellite derived
+    vegetation indices Field Crops Res., 192 (2016), pp. 134-143 View PDFView articleView
+    in ScopusGoogle Scholar Scharf et al., 2002 P.C. Scharf, J.P. Schmidt, N.R. Kitchen,
+    K.A. Sudduth, S.Y. Hong, J.A. Lory, J.G. Davis Remote sensing for nitrogen management
+    J. Soil Water Conserv., 57 (2002), pp. 518-524 View in ScopusGoogle Scholar Schepers
+    and Raun, 2008 Schepers, J.S., Raun, W.R., 2008. Nitrogen in Agricultural Systems.
+    American Society of Agronomy, Crop Science Society of America, Soil Science Society
+    of America, Madison, WI. Google Scholar Schuster et al., 2011 Schuster, E.W.,
+    Kumar, S., Sarma, S.E., Willers, J.L., Milliken, G.A., 2011. Infrastructure for
+    data-driven agriculture: identifying management zones for cotton using statistical
+    modeling and machine learning techniques. In: 2011 8th International Conference
+    & Expo on Emerging Technologies for a Smarter World, p. 1. Google Scholar Seelan
+    et al., 2003 S.K. Seelan, S. Laguette, G.M. Casady, G.A. Seielstad Remote sensing
+    applications for precision agriculture: A learning community approach Remote Sens.
+    Environ., 88 (2003), pp. 157-169 View PDFView articleView in ScopusGoogle Scholar
+    Shao et al., 2012 Y. Shao, C. Zhao, Y. Bao, Y. He Quantification of nitrogen status
+    in rice by least squares support vector machines and reflectance spectroscopy
+    Food Bioprocess Technol., 5 (2012), pp. 100-107 CrossRefView in ScopusGoogle Scholar
+    Sims and Gamon, 2002 D.A. Sims, J.A. Gamon Relationships between leaf pigment
+    content and spectral reflectance across a wide range of species, leaf structures
+    and developmental stages Remote Sens. Environ., 81 (2002), pp. 337-354 View PDFView
+    articleView in ScopusGoogle Scholar Song et al., 2017 X. Song, G. Yang, C. Yang,
+    J. Wang, B. Cui Spatial variability analysis of within-field winter wheat nitrogen
+    and grain quality using canopy fluorescence sensor measurements Remote Sens.,
+    9 (2017), p. 237 CrossRefView in ScopusGoogle Scholar Stas et al., 2016 Stas,
+    M., Orshoven, J.V., Dong, Q., Heremans, S., Zhang, B., 2016. A comparison of machine
+    learning algorithms for regional wheat yield prediction using NDVI time series
+    of SPOT-VGT. In: 2016 Fifth International Conference on Agro-Geoinformatics (Agro-Geoinformatics),
+    pp. 1–5. Google Scholar Subhadra et al., 2016 Subhadra, M., Debahuti, M., Gour
+    Hari, S., 2016. Applications of Machine Learning Techniques in Agricultural Crop
+    Production: A Review Paper. Indian J. Sci. Technol. 9. Google Scholar Sui et al.,
+    2008 R. Sui, J.A. Thomasson, J. Hanks, J. Wooten Ground-based sensing system for
+    weed mapping in cotton Comput. Electr. Agric., 60 (2008), pp. 31-38 View PDFView
+    articleView in ScopusGoogle Scholar Taghvaeian et al., 2012 S. Taghvaeian, J.
+    Chávez, N. Hansen Infrared thermometry to estimate crop water stress index and
+    water use of irrigated maize in Northeastern Colorado Remote Sens., 4 (2012),
+    p. 3619 CrossRefView in ScopusGoogle Scholar Tellaeche et al., 2008 A. Tellaeche,
+    X.P. Burgos-Artizzu, G. Pajares, A. Ribeiro A vision-based method for weeds identification
+    through the Bayesian decision theory Pattern Recogn., 41 (2008), pp. 521-530 View
+    PDFView articleView in ScopusGoogle Scholar Tellaeche et al., 2007 Tellaeche,
+    A., BurgosArtizzu, X.P., Pajares, G., Ribeiro, A., 2007. A vision-based classifier
+    in precision agriculture combining bayes and support vector machines. In: IEEE
+    International Symposium on Intelligent Signal Processing, pp. 1–6. Google Scholar
+    Tian et al., 2011 Y.C. Tian, X. Yao, J. Yang, W.X. Cao, D.B. Hannaway, Y. Zhu
+    Assessing newly developed and published vegetation indices for estimating rice
+    leaf nitrogen concentration with ground- and space-based hyperspectral reflectance
+    Field Crops Res., 120 (2011), pp. 299-310 View PDFView articleView in ScopusGoogle
+    Scholar Tian et al., 2014 Y.C. Tian, K. Gu, X. Chu, X. Yao, W.X. Cao, Y. Zhu Comparison
+    of different hyperspectral vegetation indices for canopy leaf nitrogen concentration
+    estimation in rice Plant Soil, 376 (2014), pp. 193-209 CrossRefView in ScopusGoogle
+    Scholar Tilling et al., 2006 A.K. Tilling, G.J. O''Leary, J.G. Ferwerda, S.D.
+    Jones, G.J. Fitzgerald, D. Rodriguez, R. Belford Remote sensing of nitrogen and
+    water stress in wheat Field Crops Res., 104 (2006), pp. 77-85 Google Scholar Tremblay
+    et al., 2011 N. Tremblay, E. Fallon, N. Ziadi Sensing of crop nitrogen status:
+    opportunities, tools, limitations, and supporting information requirements HortTechnology,
+    21 (2011), pp. 274-281 CrossRefView in ScopusGoogle Scholar Tremblay et al., 2012
+    N. Tremblay, Z. Wang, Z.G. Cerovic Sensing crop nitrogen status with fluorescence
+    indicators. A review Agron. Sustain. Dev., 32 (2012), pp. 451-464 CrossRefView
+    in ScopusGoogle Scholar Tucker, 1979 C.J. Tucker Red and photographic infrared
+    linear combinations for monitoring vegetation Remote Sens. Environ., 8 (1979),
+    pp. 127-150 View PDFView articleGoogle Scholar Ustuner et al., 2014 M. Ustuner,
+    F.B. Sanli, S. Abdikan, M.T. Esetlili, Y. Kurucu Crop Type Classification Using
+    Vegetation Indices of RapidEye Imagery ISPRS Technical Commission VII Symposium,
+    Istanbul, Turkey (2014) Google Scholar Vigneau et al., 2011 N. Vigneau, M. Ecarnot,
+    G. Rabatel, P. Roumet Potential of field hyperspectral imaging as a non destructive
+    method to assess leaf nitrogen content in Wheat Field Crops Res., 122 (2011),
+    pp. 25-31 View PDFView articleView in ScopusGoogle Scholar Viña et al., 2011 A.
+    Viña, A.A. Gitelson, A.L. Nguy-Robertson, Y. Peng Comparison of different vegetation
+    indices for the remote assessment of green leaf area index of crops Remote Sens.
+    Environ., 115 (2011), pp. 3468-3478 View PDFView articleView in ScopusGoogle Scholar
+    Vrindts et al., 2005 E. Vrindts, A.M. Mouazen, M. Reyniers, K. Maertens, M.R.
+    Maleki, H. Ramon, J. De Baerdemaeker Management zones based on correlation between
+    soil compaction, yield and crop data Biosyst. Eng., 92 (2005), pp. 419-428 View
+    PDFView articleView in ScopusGoogle Scholar Wahabzada et al., 2016 Wahabzada,
+    M., Mahlein, A., Bauckhage, C., Steiner, U., Oerke, E., Kersting, K., 2016. Plant
+    Phenotyping using Probabilistic Topic Models: Uncovering the Hyperspectral Language
+    of Plants. 6, 22482. Google Scholar Wang et al., 2017 J. Wang, C. Shen, N. Liu,
+    X. Jin, X. Fan, C. Dong, Y. Xu Non-destructive evaluation of the leaf nitrogen
+    concentration by in-field visible/near-infrared spectroscopy in pear orchards
+    Sensors, 17 (2017), p. 538 Google Scholar Wang and Witten, 1997 Y. Wang, I. Witten
+    Inducing model trees for continuous classes, Proc. 9th Eur. Conf Mach. Learn.
+    (1997), pp. 128-137 View in ScopusGoogle Scholar Whelan and Taylor, 2013 Whelan,
+    B.M., Taylor, J.A., 2013. Precision agriculture for grain production systems.
+    CSIRO Publishing. Google Scholar Wiegand et al., 1979 C.L. Wiegand, A.J. Richardson,
+    E.T. Kanemasu Leaf area index estimates for wheat from LANDSAT and their implications
+    for evapotranspiration and crop modeling Agron. J., 71 (1979), pp. 336-342 CrossRefGoogle
+    Scholar Wittenberghe et al., 2014 V.S. Wittenberghe, J. Verrelst, J.P. Rivera,
+    L. Alonso, J. Moreno, R. Samson Gaussian processes retrieval of leaf parameters
+    from a multi-species reflectance, absorbance and fluorescence dataset J. Photochem.
+    Photobiol. B: Biol., 134 (2014), pp. 37-48 Google Scholar Wu et al., 2015 Q. Wu,
+    Y. Jin, Y. Bao, Q. Hai, R. Yan, B. Chen, H. Zhang, B. Zhang, Z. Li, X. Li, X.
+    Xin Comparison of two inversion methods for leaf area index using HJ-1 satellite
+    data in a temperate meadow steppe Int. J. Remote Sens., 36 (2015), pp. 5192-5207
+    CrossRefView in ScopusGoogle Scholar Xue and Su, 2017 J. Xue, B. Su Significant
+    remote sensing vegetation indices: a review of developments and applications J.
+    Sens., 2017 (2017), p. 17 Google Scholar Yang et al., 2016 J. Yang, W. Gong, S.
+    Shi, L. Du, J. Sun, S. Song Laser-induced fluorescence characteristics of vegetation
+    by a new excitation wavelength Spectrosc. Lett., 49 (2016), pp. 263-267 CrossRefView
+    in ScopusGoogle Scholar Yao et al., 2010 X. Yao, Y. Zhu, Y.C. Tian, W. Feng, W.
+    Cao Exploring hyperspectral bands and estimation indices for leaf nitrogen accumulation
+    in wheat Int. J. Appl. Earth Observ. Geoinform., 12 (2010), pp. 89-100 View PDFView
+    articleView in ScopusGoogle Scholar Yao et al., 2015 X. Yao, Y. Huang, G. Shang,
+    C. Zhou, T. Cheng, Y.C. Tian, W. Cao, Y. Zhu Evaluation of six algorithms to monitor
+    wheat leaf nitrogen concentration Remote Sens., 7 (2015), p. 14939 CrossRefView
+    in ScopusGoogle Scholar You et al., 2017 You, J., Li, X., Low, M., Lobell, D.,
+    Ermon, S., 2017. Deep gaussian process for crop yield prediction based on remote
+    sensing data. Association for the Advancement of Artificial Intelligence. Google
+    Scholar Yu et al., 2013 K. Yu, F. Li, M.L. Gnyp, Y. Miao, G. Bareth, X. Chen Remotely
+    detecting canopy nitrogen concentration and uptake of paddy rice in the Northeast
+    China Plain ISPRS J. Photogramm. Remote Sens., 78 (2013), pp. 102-115 View PDFView
+    articleView in ScopusGoogle Scholar Yuan et al., 2015 Y. Yuan, G. Zhu, Q. Wang
+    Hyperspectral band selection by multitask sparsity pursuit IEEE Trans. Geosci.
+    Remote Sens., 53 (2015), pp. 631-644 View in ScopusGoogle Scholar Zarco-Tejada
+    et al., 2012 P.J. Zarco-Tejada, V. González-Dugo, J.A.J. Berni Fluorescence, temperature
+    and narrow-band indices acquired from a UAV platform for water stress detection
+    using a micro-hyperspectral imager and a thermal camera Remote Sens. Environ.,
+    117 (2012), pp. 322-337 View PDFView articleView in ScopusGoogle Scholar Zhang
+    et al., 2010 L. Zhang, J. Zhang, S. Kyei-Boahen, M. Zhang Simulation and prediction
+    of soybean growth and development under field conditions Am.-Eurasian J. Agric.
+    Environ. Sci., 7 (2010), pp. 374-385 Google Scholar Zhao et al., 2013 G. Zhao,
+    Y. Miao, H. Wang, M. Su, M. Fan, F. Zhang, R. Jiang, Z. Zhang, C. Liu, P. Liu,
+    D. Ma A preliminary precision rice management system for increasing both grain
+    yield and nitrogen use efficiency Field Crops Res., 154 (2013), pp. 23-30 View
+    PDFView articleView in ScopusGoogle Scholar Zhou et al., 2012 Y. Zhou, G. Song,
+    M. Wang Wireless sensor network data fusion algorithm based on neural network
+    in the area of agriculture Sens. Transducers J., 16 (2012), pp. 128-136 View in
+    ScopusGoogle Scholar Zhu et al., 2006 Y. Zhu, Y. Li, D. Zhou, Y.C. Tian, X. Yao,
+    W. Cao Quantitative relationship between leaf nitrogen concentration and canopy
+    reflectance spectra in rice and wheat Acta Ecol. Sin., 26 (2006), pp. 3463-3469
+    Google Scholar Cited by (801) Recent advances in artificial intelligence towards
+    the sustainable future of agri-food industry 2024, Food Chemistry Show abstract
+    Comparative analysis of multi-source data for machine learning-based LAI estimation
+    in Argania spinosa 2024, Advances in Space Research Show abstract Effects of different
+    nitrogen fertilization systems on crop yield and nitrogen use efficiency – Results
+    of a field experiment in southern Germany 2024, Heliyon Show abstract A novel
+    framework to assess apple leaf nitrogen content: Fusion of hyperspectral reflectance
+    and phenology information through deep learning 2024, Computers and Electronics
+    in Agriculture Show abstract A Hybrid Model that Combines Machine Learning and
+    Mechanistic Models for Useful Grass Growth Prediction 2024, Computers and Electronics
+    in Agriculture Show abstract Optimization of multi-dimensional indices for kiwifruit
+    orchard soil moisture content estimation using UAV and ground multi-sensors 2024,
+    Agricultural Water Management Show abstract View all citing articles on Scopus
+    View Abstract Published by Elsevier B.V. Recommended articles Seasonal crop yield
+    forecast: Methods, applications, and accuracies Advances in Agronomy, Volume 154,
+    2019, pp. 201-255 Bruno Basso, Lin Liu View PDF Integration of high resolution
+    remotely sensed data and machine learning techniques for spatial prediction of
+    soil properties and corn yield Computers and Electronics in Agriculture, Volume
+    153, 2018, pp. 213-225 Sami Khanal, …, Scott Shearer View PDF Crop yield forecasting
+    on the Canadian Prairies by remotely sensed vegetation indices and machine learning
+    methods Agricultural and Forest Meteorology, Volumes 218–219, 2016, pp. 74-84
+    Michael D. Johnson, …, Frédéric Bédard View PDF Show 3 more articles Article Metrics
+    Citations Citation Indexes: 722 Patent Family Citations: 1 Policy Citations: 3
+    Captures Readers: 1536 Mentions News Mentions: 1 View details About ScienceDirect
+    Remote access Shopping cart Advertise Contact and support Terms and conditions
+    Privacy policy Cookies are used by this site. Cookie settings | Your Privacy Choices
+    All content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors.
+    All rights are reserved, including those for text and data mining, AI training,
+    and similar technologies. For all open access content, the Creative Commons licensing
+    terms apply."'
+  inline_citation: '>'
+  journal: Computers and Electronics in Agriculture
+  limitations: '>'
+  relevance_score1: 0
+  relevance_score2: 0
+  title: 'Machine learning approaches for crop yield prediction and nitrogen status
+    estimation in precision agriculture: A review'
+  verbatim_quote1: '>'
+  verbatim_quote2: '>'
+  verbatim_quote3: '>'
