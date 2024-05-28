@@ -1,29 +1,38 @@
-You are an AI assistant tasked with extracting specific information from an academic paper. I will provide you with the full text of a single paper. Your job is to extract the title, authors, DOI, and classification of the paper, selecting from provided categories and sub-categories. Additionally, provide your reasoning for the extracted information.
+You are an AI assistant tasked with extracting specific information from an academic paper. I will provide you with the full text of a single paper. Your job is to extract the title, authors, DOI, and classification of the paper, either selecting from provided categories or proposing a new sub-category if necessary. Additionally, provide your reasoning for the extracted information.
 
 ### Instructions:
 
 1. Carefully read through the provided paper.
 2. Extract the title, authors, and DOI from the paper.
-3. Classify the paper into one of the provided categories and sub-categories.
+3. Classify the paper into one of the provided categories or propose a new sub-category if necessary. Indicate a new sub-category with a separate key in the JSON response and provide a description for the new sub-category.
 4. Provide your reasoning for the extracted information.
+5. Be very conservative about creating new sub-categories. Only do so if there is no relationship whatsoever between the current paper and all possible sub-categories.
+6. Ensure that any new sub-category includes a name and description, and provide a logical parent category.
+7. If A valid sub-category is not found a new subcategory must be proposed.
+8. Be very conservative about adding new sub-categories. Only very rarely if ever will new sub-categories be needed.
 
 ### Example 1:
 <categories>
 {{
   "1": {{
     "name": "Data Science",
-    "description": "Field of study that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from data.",
-    "sub_categories": {{
+    "subcategories": {{
       "101": "Data Cleaning",
       "102": "Data Transformation"
     }}
   }},
   "2": {{
     "name": "Machine Learning",
-    "description": "Study of computer algorithms that improve automatically through experience.",
-    "sub_categories": {{
+    "subcategories": {{
       "201": "Supervised Learning",
       "202": "Unsupervised Learning"
+    }}
+  }},
+  "3": {{
+    "name": "Artificial Intelligence",
+    "subcategories": {{
+      "301": "Natural Language Processing",
+      "302": "Computer Vision"
     }}
   }}
 }}
@@ -32,12 +41,11 @@ You are an AI assistant tasked with extracting specific information from an acad
 Title: "Machine Learning Techniques for Data Analysis"
 Authors: "John Doe, Jane Smith"
 DOI: "10.1234/mltda.2024.001"
-
-This paper explores various machine learning techniques applied to data analysis. It covers supervised and unsupervised learning methods, providing a comprehensive comparison of their effectiveness in different scenarios. The study includes practical examples and case studies to illustrate the concepts discussed. In particular, the paper delves into decision trees, support vector machines, and neural networks, highlighting their respective strengths and weaknesses. It also addresses common challenges in implementing these techniques and suggests potential solutions.
+Content: This paper explores various machine learning techniques applied to data analysis. It covers supervised and unsupervised learning methods, providing a comprehensive comparison of their effectiveness in different scenarios. The study includes practical examples and case studies to illustrate the concepts discussed.
 </paper>
 <response>
 {{
-  "reasoning": "The title 'Machine Learning Techniques for Data Analysis' is found on the first page, prominently displayed at the top. The authors 'John Doe, Jane Smith' are listed directly below the title. The DOI '10.1234/mltda.2024.001' is located in the footer of the first page. The content focuses on machine learning techniques, specifically supervised and unsupervised learning methods. Given the detailed exploration of decision trees, support vector machines, and neural networks, the paper aligns well with the 'Machine Learning' category. While 'Data Science' could be considered, the specific focus on supervised and unsupervised learning justifies classification under 'Machine Learning', specifically 'Supervised Learning'.",
+  "reasoning": "The title 'Machine Learning Techniques for Data Analysis' is found on the first page, prominently displayed at the top. The authors 'John Doe, Jane Smith' are listed directly below the title. The DOI '10.1234/mltda.2024.001' is located in the footer of the first page. The content and focus of the paper fit well within the 'Machine Learning' main category and 'Supervised Learning' sub-category, which corresponds to the value 2 and 201 respectively in the provided JSON categories.",
   "title": "Machine Learning Techniques for Data Analysis",
   "authors": "John Doe, Jane Smith",
   "doi": "10.1234/mltda.2024.001",
@@ -51,14 +59,17 @@ This paper explores various machine learning techniques applied to data analysis
 {{
   "1": {{
     "name": "Ethics",
-    "description": "Branch of knowledge that deals with moral principles.",
-    "sub_categories": {{
-      "101": "AI Ethics"
+    "subcategories": {{
+      "101": "Research Ethics",
+      "102": "AI Ethics"
     }}
   }},
   "2": {{
     "name": "Autonomous Vehicles",
-    "description": "Vehicles capable of sensing their environment and moving safely with little or no human input."
+    "subcategories": {{
+      "201": "Safety",
+      "202": "Control Systems"
+    }}
   }}
 }}
 </categories>
@@ -66,17 +77,16 @@ This paper explores various machine learning techniques applied to data analysis
 Title: "Ethical Implications of AI in Autonomous Vehicles"
 Authors: "Emily White, Michael Brown"
 DOI: "10.9101/eiaav.2024.003"
-
-The deployment of AI in autonomous vehicles raises numerous ethical questions. This paper examines these implications, focusing on decision-making processes, safety, and the potential societal impact. It discusses the ethical frameworks that can guide AI development in autonomous vehicles, the responsibilities of manufacturers, and the need for transparency in AI decision-making processes. The paper also addresses the potential consequences of AI errors and the moral dilemmas that may arise when AI systems must make life-or-death decisions.
+Content: The deployment of AI in autonomous vehicles raises numerous ethical questions. This paper examines these implications, focusing on decision-making processes, safety, and the potential societal impact.
 </paper>
 <response>
 {{
-  "reasoning": "The title 'Ethical Implications of AI in Autonomous Vehicles' is identified at the start of the paper. The authors 'Emily White, Michael Brown' are listed below the title. The DOI '10.9101/eiaav.2024.003' is present in the header section. This paper discusses ethical issues in AI applications specific to autonomous vehicles, considering frameworks, responsibilities, and potential consequences. While the 'Autonomous Vehicles' category is relevant, the primary focus on ethical considerations aligns more closely with 'AI Ethics', a sub-category of 'Ethics'.",
+  "reasoning": "The title 'Ethical Implications of AI in Autonomous Vehicles' is identified at the start of the paper. The authors 'Emily White, Michael Brown' are listed below the title. The DOI '10.9101/eiaav.2024.003' is present in the header section. This paper discusses ethical issues in AI applications specific to autonomous vehicles, which fits into the 'AI Ethics' sub-category under the 'Ethics' main category, corresponding to the values 1 and 102 respectively in the provided JSON categories.",
   "title": "Ethical Implications of AI in Autonomous Vehicles",
   "authors": "Emily White, Michael Brown",
   "doi": "10.9101/eiaav.2024.003",
   "category": "1",
-  "sub_category": "101"
+  "sub_category": "102"
 }}
 </response>
 
@@ -84,97 +94,46 @@ The deployment of AI in autonomous vehicles raises numerous ethical questions. T
 <categories>
 {{
   "1": {{
-    "name": "Blockchain",
-    "description": "Decentralized digital ledger that records transactions across many computers."
-  }},
-  "2": {{
-    "name": "Finance",
-    "description": "Management of large amounts of money, especially by governments or large companies.",
-    "sub_categories": {{
-      "201": "Blockchain in Finance"
-    }}
-  }}
-}}
-</categories>
-<paper>
-Title: "Blockchain Applications in Finance"
-Authors: "Alice Thompson, Robert Zhang"
-DOI: "10.5678/bcfinance.2024.007"
-
-This paper investigates the applications of blockchain technology in the financial sector. It highlights the benefits and challenges associated with the adoption of blockchain in various financial services. The paper discusses use cases such as cross-border payments, smart contracts, and decentralized finance (DeFi). It also examines regulatory challenges and the potential for blockchain to increase transparency and security in financial transactions.
-</paper>
-<response>
-{{
-  "reasoning": "The title 'Blockchain Applications in Finance' is prominently displayed on the cover page. The authors 'Alice Thompson, Robert Zhang' are listed immediately below the title. The DOI '10.5678/bcfinance.2024.007' is located in the header section of the document. The paper focuses on the use of blockchain technology in financial systems, discussing use cases like cross-border payments and smart contracts. Given the detailed exploration of blockchain's role in finance, the paper fits well under the 'Blockchain in Finance' sub-category under the 'Finance' category.",
-  "title": "Blockchain Applications in Finance",
-  "authors": "Alice Thompson, Robert Zhang",
-  "doi": "10.5678/bcfinance.2024.007",
-  "category": "2",
-  "sub_category": "201"
-}}
-</response>
-
-### Example 4:
-<categories>
-{{
-  "1": {{
-    "name": "Blockchain",
-    "description": "Decentralized digital ledger that records transactions across many computers.",
-    "sub_categories": {{
-      "101": "Cryptocurrency"
-    }}
-  }}
-}}
-</categories>
-<paper>
-Title: "Blockchain and Cryptocurrency: Financial Innovations"
-Authors: "David Lee, Maria Gonzalez"
-DOI: "10.2345/bccrypto.2024.002"
-
-This paper explores the intersection of blockchain technology and cryptocurrency, highlighting innovative financial applications and their implications for the future of finance. It delves into decentralized finance (DeFi), initial coin offerings (ICOs), and blockchain-based payment systems. The paper also discusses the regulatory challenges that must be addressed to ensure sustainable growth in these areas.
-</paper>
-<response>
-{{
-  "reasoning": "The title 'Blockchain and Cryptocurrency: Financial Innovations' is found on the cover page. The authors 'David Lee, Maria Gonzalez' are listed directly below the title. The DOI '10.2345/bccrypto.2024.002' is in the header section. The content of the paper spans across blockchain technology and its applications in cryptocurrency, discussing innovations like DeFi and ICOs. This fits well within the 'Cryptocurrency' sub-category under the main category 'Blockchain'.",
-  "title": "Blockchain and Cryptocurrency: Financial Innovations",
-  "authors": "David Lee, Maria Gonzalez",
-  "doi": "10.2345/bccrypto.2024.002",
-  "category": "1",
-  "sub_category": "101"
-}}
-</response>
-
-### Example 5:
-<categories>
-{{
-  "1": {{
-    "name": "Sensing and Data Acquisition",
-    "description": "Technologies and methodologies for gathering data in smart irrigation systems.",
-    "sub_categories": {{
-      "101": "Sensor Types"
+    "name": "System Architecture and Integration",
+    "subcategories": {{
+      "101": "Hardware Integration",
+      "102": "Software Integration"
     }}
   }},
   "2": {{
-    "name": "Data Preprocessing and Quality Assurance",
-    "description": "Ensuring the accuracy and reliability of collected data."
+    "name": "Cybersecurity",
+    "subcategories": {{
+      "201": "Network Security",
+      "202": "Data Security"
+    }}
+  }},
+  "3": {{
+    "name": "Data Management",
+    "subcategories": {{
+      "301": "Database Management",
+      "302": "Data Warehousing"
+    }}
   }}
 }}
 </categories>
 <paper>
-Title: "Advancements in Soil Moisture Sensor Technology"
-Authors: "Hannah Green, Tom Blue"
-DOI: "10.3456/smst.2024.005"
-
-This paper discusses recent advancements in soil moisture sensor technology, focusing on improved accuracy and energy efficiency. Various sensor types are compared, and their applications in precision agriculture are evaluated. The paper also examines the integration of these sensors with wireless networks to enhance data collection and analysis in real-time.
+Title: "Innovative Approaches to Integrate Blockchain in Supply Chain Management"
+Authors: "Alice Johnson, Bob Lee"
+DOI: "10.5678/ijbcsm.2024.005"
+Content: This paper explores the integration of blockchain technology into supply chain management systems. It discusses various approaches to enhance transparency, traceability, and security in supply chains using blockchain.
 </paper>
 <response>
 {{
-  "reasoning": "The title 'Advancements in Soil Moisture Sensor Technology' is found at the top of the paper. The authors 'Hannah Green, Tom Blue' are listed below the title. The DOI '10.3456/smst.2024.005' is in the header. The paper focuses on soil moisture sensor technology, discussing advancements in accuracy and energy efficiency. Given the emphasis on sensor types and their applications in precision agriculture, the paper fits well within the 'Sensing and Data Acquisition' main category, specifically under the sub-category 'Sensor Types'.",
-  "title": "Advancements in Soil Moisture Sensor Technology",
-  "authors": "Hannah Green, Tom Blue",
-  "doi": "10.3456/smst.2024.005",
+  "reasoning": "The title 'Innovative Approaches to Integrate Blockchain in Supply Chain Management' is found at the beginning of the paper, with authors 'Alice Johnson, Bob Lee' listed underneath. The DOI '10.5678/ijbcsm.2024.005' is located at the bottom of the first page. The paper's primary focus is on integrating blockchain technology into supply chain management, which does not directly fit into the existing sub-categories under 'System Architecture and Integration'. Therefore, a new sub-category 'Blockchain Integration' under the 'System Architecture and Integration' main category is proposed. I will set the sub_category value to null AND add the appropriate data for new_sub_category. It is critical that i always provide the data for the new_sub_category if i set the sub-category value to null because there are no valid sub-categories.",
+  "title": "Innovative Approaches to Integrate Blockchain in Supply Chain Management",
+  "authors": "Alice Johnson, Bob Lee",
+  "doi": "10.5678/ijbcsm.2024.005",
   "category": "1",
-  "sub_category": "101"
+  "sub_category": null,
+  "new_sub_category": {{
+    "name": "Blockchain Integration",
+    "description": "Techniques and strategies for integrating blockchain technology into various system architectures."
+  }}
 }}
 </response>
 
@@ -192,6 +151,10 @@ This paper discusses recent advancements in soil moisture sensor technology, foc
   "authors": "{{AUTHORS}}",
   "doi": "{{DOI}}",
   "category": "{{CATEGORY}}",
-  "sub_category": "{{SUB_CATEGORY}}"
+  "sub_category": "{{SUB_CATEGORY}}",
+  "new_sub_category": {{
+    "name": "{{NEW_SUB_CATEGORY_NAME}}",
+    "description": "{{NEW_SUB_CATEGORY_DESCRIPTION}}"
+  }}  // Optional, include only if a new sub-category is proposed
 }}
 </response>

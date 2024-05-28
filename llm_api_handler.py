@@ -89,7 +89,7 @@ class RequestTracker:
 
 
 class LLM_APIHandler:
-    def __init__(self, api_keys, session, rps=0.1, window_size=60):
+    def __init__(self, api_keys, session, rps=2, window_size=60):
         self.set_api_keys(api_keys)
         self.gemini_rate_limiters = [
             RateLimiter(rps, window_size) for _ in range(len(self.gemini_api_keys))

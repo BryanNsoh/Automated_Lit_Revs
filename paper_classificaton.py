@@ -17,6 +17,8 @@ import re
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+MAX_RETRIES = 10  # Maximum number of retries in case of failure
+
 
 class PaperCrawler:
     def __init__(self, root_dir, db_path, yaml_path):
@@ -43,7 +45,8 @@ class PaperCrawler:
                 content TEXT,
                 main_category INTEGER,
                 sub_category INTEGER,
-                reasoning TEXT
+                reasoning TEXT,
+                raw_output TEXT
             )
             """
         )
@@ -122,16 +125,53 @@ class PaperCrawler:
         }
         return category_dict
 
+    def get_next_sub_category_id(self, parent_id):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT MAX(id) FROM categories WHERE parent_id = ?", (parent_id,)
+        )
+        max_id = cursor.fetchone()[0]
+        return (
+            max_id + 1 if max_id else (parent_id * 100) + 1
+        )  # Assuming sub-category ID starts from 101
+
+    def add_new_sub_category(self, sub_category_name, parent_id, description):
+        new_sub_category_id = self.get_next_sub_category_id(parent_id)
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "INSERT INTO categories (id, name, parent_id, description) VALUES (?, ?, ?, ?)",
+            (new_sub_category_id, sub_category_name, parent_id, description),
+        )
+        self.conn.commit()
+        return new_sub_category_id
+
     def insert_paper(
-        self, title, authors, doi, content, main_category, sub_category, reasoning
+        self,
+        title,
+        authors,
+        doi,
+        content,
+        main_category,
+        sub_category,
+        reasoning,
+        raw_output,
     ):
         cursor = self.conn.cursor()
         cursor.execute(
             """
-            INSERT INTO papers (title, authors, doi, content, main_category, sub_category, reasoning)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO papers (title, authors, doi, content, main_category, sub_category, reasoning, raw_output)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """,
-            (title, authors, doi, content, main_category, sub_category, reasoning),
+            (
+                title,
+                authors,
+                doi,
+                content,
+                main_category,
+                sub_category,
+                reasoning,
+                raw_output,
+            ),
         )
         self.conn.commit()
 
@@ -143,29 +183,26 @@ class PaperCrawler:
             CATEGORIES=categories_json,
         )
         response = await self.api_handler.generate_gemini_content(prompt)
-        logger.info(f"LLM Response: {response}")
-        return response
+        return response, prompt
 
     def parse_llm_response(self, response):
         try:
             if isinstance(response, list) and len(response) > 0:
                 response_str = response[0]
             else:
-                logger.error(
+                raise ValueError(
                     "Response is not in expected format (list with JSON string)."
                 )
-                return None, None, None, None, None, None
 
             json_matches = re.search(r"\{.*\}", response_str, re.DOTALL)
             if not json_matches:
-                logger.error("No valid JSON object found in response")
-                return None, None, None, None, None, None
+                raise ValueError("No valid JSON object found in response")
 
             json_str = json_matches.group()
             response_data = json.loads(json_str)
         except (ValueError, json.JSONDecodeError) as e:
             logger.error(f"Error parsing LLM response: {e}")
-            return None, None, None, None, None, None
+            return None, None, None, None, None, None, None
 
         reasoning = response_data.get("reasoning", "")
         title = response_data.get("title", "")
@@ -173,8 +210,18 @@ class PaperCrawler:
         doi = response_data.get("doi", "")
         main_category_text = response_data.get("category", "")
         sub_category_text = response_data.get("sub_category", "")
+        new_sub_category = response_data.get("new_sub_category", None)
 
-        return title, authors, doi, main_category_text, sub_category_text, reasoning
+        return (
+            title,
+            authors,
+            doi,
+            main_category_text,
+            sub_category_text,
+            reasoning,
+            new_sub_category,
+            response_str,
+        )
 
     async def process_papers(self):
         self.api_handler = LLM_APIHandler(self.api_keys, aiohttp.ClientSession())
@@ -182,17 +229,77 @@ class PaperCrawler:
         categories = self.get_categories()
 
         for text in texts:
-            response = await self.query_llm(text, categories)
-            title, authors, doi, main_category, sub_category, reasoning = (
-                self.parse_llm_response(response)
-            )
+            retries = 0
+            success = False
+            while retries < MAX_RETRIES and not success:
+                try:
+                    response, prompt = await self.query_llm(text, categories)
+                    (
+                        title,
+                        authors,
+                        doi,
+                        main_category,
+                        sub_category,
+                        reasoning,
+                        new_sub_category,
+                        raw_output,
+                    ) = self.parse_llm_response(response)
 
-            if all([title, authors, doi, main_category, sub_category, reasoning]):
-                self.insert_paper(
-                    title, authors, doi, text, main_category, sub_category, reasoning
-                )
-            else:
-                logger.error(f"Failed to process text: {text[:100]}")
+                    # Ensure main_category is a 1 or 2-digit integer
+                    if not (main_category.isdigit() and 1 <= len(main_category) <= 2):
+                        raise ValueError(
+                            "Main category is not a valid 1 or 2-digit integer."
+                        )
+
+                    # Ensure sub_category is a 3-digit integer if provided
+                    if sub_category and not (
+                        sub_category.isdigit() and len(sub_category) == 3
+                    ):
+                        raise ValueError("Sub category is not a valid 3-digit integer.")
+
+                    # Retry if sub_category is null and no new sub_category is proposed
+                    if sub_category is None and new_sub_category is None:
+                        raise ValueError(
+                            "Sub category is null and no new sub-category proposed."
+                        )
+
+                    if title and authors and doi and main_category:
+                        if new_sub_category:
+                            main_category_id = int(main_category)
+                            if main_category_id:
+                                sub_category_id = self.add_new_sub_category(
+                                    new_sub_category["name"],
+                                    main_category_id,
+                                    new_sub_category["description"],
+                                )
+                                sub_category = sub_category_id
+
+                        self.insert_paper(
+                            title,
+                            authors,
+                            doi,
+                            text,
+                            main_category,
+                            sub_category,
+                            reasoning,
+                            raw_output,
+                        )
+                        success = True
+                        print(f"Paper successfully classified: {title}")
+                    else:
+                        raise ValueError(
+                            "Missing essential classification information."
+                        )
+                except Exception as e:
+                    if retries == MAX_RETRIES - 1:
+                        logger.error(
+                            f"Failed to process text after {MAX_RETRIES} attempts: {text[:50]}..."
+                        )
+                        logger.error(f"Response: {response}")
+                        logger.error(e)
+                    retries += 1
+                    retries += 1
+                    logger.info(f"Retrying... Attempt {retries + 1}")
 
         await self.api_handler.session.close()
 
