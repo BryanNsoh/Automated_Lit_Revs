@@ -32,17 +32,12 @@ async def prepare_text_for_json(text):
     return json_string
 
 
-def get_api_keys(source="cloud"):
-    if source == "cloud":
-        client = secretmanager.SecretManagerServiceClient()
-        name = "projects/crop2cloud24/secrets/api-keys/versions/latest"
-        response = client.access_secret_version(request={"name": name})
-        api_keys = response.payload.data.decode("UTF-8")
-        try:
-            return json.loads(api_keys)
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Invalid JSON in Google Cloud Secret Manager: {e}")
-    else:
+import os
+import json
+
+
+def get_api_keys(source="env"):
+    if source == "local":
         with open(
             os.path.expanduser(
                 r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
@@ -54,3 +49,12 @@ def get_api_keys(source="cloud"):
                 return json.loads(api_keys)
             except json.JSONDecodeError as e:
                 raise ValueError(f"Invalid JSON in local file: {e}")
+    else:
+        return {
+            "CLAUDE_API_KEY": os.getenv("CLAUDE_API_KEY"),
+            "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
+            "COHERE_API_KEY": os.getenv("COHERE_API_KEY"),
+            "TOGETHER_API_KEY": os.getenv("TOGETHER_API_KEY"),
+            "SCOPUS_API_KEY": os.getenv("SCOPUS_API_KEY"),
+            "CORE_API_KEY": os.getenv("CORE_API_KEY"),
+        }
