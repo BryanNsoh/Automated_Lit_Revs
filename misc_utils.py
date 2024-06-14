@@ -36,25 +36,24 @@ import os
 import json
 
 
+import os
+import logging
+
+
 def get_api_keys(source="env"):
-    if source == "local":
-        with open(
-            os.path.expanduser(
-                r"C:\Users\bnsoh2\OneDrive - University of Nebraska-Lincoln\Documents\keys\api_keys.json"
-            ),
-            "r",
-        ) as file:
-            api_keys = file.read()
-            try:
-                return json.loads(api_keys)
-            except json.JSONDecodeError as e:
-                raise ValueError(f"Invalid JSON in local file: {e}")
-    else:
-        return {
-            "CLAUDE_API_KEY": os.getenv("CLAUDE_API_KEY"),
-            "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
-            "COHERE_API_KEY": os.getenv("COHERE_API_KEY"),
-            "TOGETHER_API_KEY": os.getenv("TOGETHER_API_KEY"),
-            "SCOPUS_API_KEY": os.getenv("SCOPUS_API_KEY"),
-            "CORE_API_KEY": os.getenv("CORE_API_KEY"),
-        }
+    logging.basicConfig(level=logging.INFO)
+    logging.info(f"CLAUDE_API_KEY: {os.getenv('CLAUDE_API_KEY')}")
+    logging.info(f"OPENAI_API_KEY: {os.getenv('OPENAI_API_KEY')}")
+    logging.info(f"COHERE_API_KEY: {os.getenv('COHERE_API_KEY')}")
+    logging.info(f"TOGETHER_API_KEY: {os.getenv('TOGETHER_API_KEY')}")
+    logging.info(f"SCOPUS_API_KEY: {os.getenv('SCOPUS_API_KEY')}")
+    logging.info(f"CORE_API_KEY: {os.getenv('CORE_API_KEY')}")
+
+    return {
+        "CLAUDE_API_KEY": os.getenv("CLAUDE_API_KEY"),
+        "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
+        "COHERE_API_KEY": os.getenv("COHERE_API_KEY"),
+        "TOGETHER_API_KEY": os.getenv("TOGETHER_API_KEY"),
+        "SCOPUS_API_KEY": os.getenv("SCOPUS_API_KEY"),
+        "CORE_API_KEY": os.getenv("CORE_API_KEY"),
+    }
