@@ -3,7 +3,6 @@ import os
 import aiohttp
 from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
-from typing import List
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
@@ -66,29 +65,71 @@ async def get_root():
         <title>Literature Review Agent</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
+                font-family: 'Arial', sans-serif;
+                background-color: #fefefe;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                text-align: center;
+                border: 2px solid #ff4d4d;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                width: 100%;
+                background-color: #fff;
+            }
+            h1 {
+                color: #ff4d4d;
+                margin-bottom: 20px;
             }
             textarea {
-                width: 500px;
+                width: 100%;
                 height: 100px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                resize: none;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            button {
+                background-color: #ff4d4d;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #e63939;
             }
             #result {
                 white-space: pre-wrap;
                 margin-top: 20px;
+                text-align: left;
             }
         </style>
     </head>
     <body>
-        <h1>Literature Review Agent</h1>
-        <form id="queryForm">
-            <textarea id="queryText"></textarea><br>
-            <button type="button" onclick="submitQuery()">Submit</button>
-        </form>
-        <div id="result"></div>
+        <div class="container">
+            <h1>Literature Review Agent</h1>
+            <form id="queryForm">
+                <textarea id="queryText" placeholder="Enter your research query..."></textarea><br>
+                <button type="button" onclick="submitQuery()">Submit</button>
+            </form>
+            <div id="result"></div>
+        </div>
         <script>
             async function submitQuery() {
-                document.getElementById('result').innerHTML = "Request submitted!<br>";
+                document.getElementById('result').innerHTML = "Your request has been submitted and is being processed. Please hang tight, this might take a few minutes.";
                 const query = document.getElementById('queryText').value;
                 const response = await fetch('/process_query/', {
                     method: 'POST',
@@ -97,8 +138,10 @@ async def get_root():
                     },
                     body: 'query=' + encodeURIComponent(query)
                 });
-                const result = await response.text();
-                document.getElementById('result').innerHTML = result;
+                const result = await response.json();
+                if (result.status == 'submitted') {
+                    document.getElementById('result').innerHTML += '<br>Task ID: ' + result.task_id;
+                }
             }
         </script>
     </body>
