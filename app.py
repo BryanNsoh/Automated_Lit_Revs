@@ -119,17 +119,19 @@ async def get_root():
                 max-width: 600px;
                 width: 100%;
                 text-align: center;
+                box-sizing: border-box; /* Add this line */
             }
             h1 {
                 color: #ff6347;
                 margin-bottom: 20px;
             }
             input, textarea {
-                width: 100%;
+                width: calc(100% - 20px); /* Adjust width to account for padding */
                 padding: 10px;
                 margin: 10px 0;
                 border: 1px solid #ddd;
                 border-radius: 5px;
+                box-sizing: border-box; /* Add this line */
             }
             button {
                 background-color: #ff6347;
@@ -139,6 +141,7 @@ async def get_root():
                 border-radius: 5px;
                 cursor: pointer;
                 font-size: 16px;
+                box-sizing: border-box; /* Add this line */
             }
             button:hover {
                 background-color: #ff4500;
