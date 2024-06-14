@@ -5,18 +5,15 @@ from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 import json
-import base64
-from datetime import datetime, timezone
+import logging
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
-import logging
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
 from scopus_search import ScopusSearch
 from analyze_papers import PaperRanker
 from synthesize_results import QueryProcessor
-from web_scraper import WebScraper
 from core_search import CORESearch
 from misc_utils import get_api_keys
 
@@ -44,34 +41,19 @@ class BrevoEmailSender:
             sib_api_v3_sdk.ApiClient(configuration)
         )
 
-    def send_email(self, to_email, subject, html_content, attachment_path=None):
-        sender = {"email": "mamboanye6@gmail.com"}
+    def send_email(self, to_email, subject, html_content):
+        sender = {"email": "bryan.anye.5@gmail.com"}
         to = [{"email": to_email}]
-        attachment = []
-
-        if attachment_path:
-            with open(attachment_path, "rb") as file:
-                encoded_string = base64.b64encode(file.read()).decode("utf-8")
-                attachment.append(
-                    {
-                        "content": encoded_string,
-                        "name": os.path.basename(attachment_path),
-                    }
-                )
 
         send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
-            to=to,
-            html_content=html_content,
-            sender=sender,
-            subject=subject,
-            attachment=attachment,
+            to=to, html_content=html_content, sender=sender, subject=subject
         )
 
         try:
             api_response = self.api_instance.send_transac_email(send_smtp_email)
-            print("Email sent successfully: ", api_response)
+            logger.info(f"Email sent successfully: {api_response}")
         except ApiException as e:
-            print("Exception when calling SMTPApi->send_transac_email: %s\n" % e)
+            logger.error(f"Exception when calling SMTPApi->send_transac_email: {e}")
 
 
 class ResearchQueryProcessor:
@@ -80,8 +62,6 @@ class ResearchQueryProcessor:
 
     async def chatbot_response(self, message: str) -> str:
         async with aiohttp.ClientSession() as session:
-            responses = []
-
             logger.info("Generating search queries...")
             query_generator = QueryGenerator(session)
             search_queries = await query_generator.generate_queries(message)
@@ -243,7 +223,7 @@ async def process_query(email: str = Form(...), query: str = Form(...)):
         </html>
         """
         brevo_email_sender.send_email(
-            "mamboanye6@gmail.com", admin_subject, admin_html_content
+            "bryan.anye.5@gmail.com", admin_subject, admin_html_content
         )
 
         return {"status": "success"}
