@@ -298,7 +298,7 @@ class LLM_APIHandler:
         max_time=60,
         jitter=backoff.full_jitter,
     )
-    async def generate_openai_content(self, prompt, model="gpt-4-turbo"):
+    async def generate_openai_content(self, prompt, model="gpt-4o"):
         client = AsyncOpenAI(api_key=self.openai_api_key)
 
         # Format the single prompt string into the correct structure expected by the API
