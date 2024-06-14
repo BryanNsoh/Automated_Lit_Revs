@@ -3,6 +3,9 @@ import os
 import aiohttp
 from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+import logging
+import json
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
@@ -13,11 +16,20 @@ from web_scraper import WebScraper
 from core_search import CORESearch
 from misc_utils import get_api_keys
 
-from logger_config import get_logger
-
-logger = get_logger(__name__)
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
+
+# Allow CORS for development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 
 class ResearchQueryProcessor:
@@ -60,33 +72,33 @@ processor = ResearchQueryProcessor()
 async def get_root():
     html_content = """
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Literature Review Agent</title>
         <style>
             body {
-                font-family: 'Arial', sans-serif;
-                background-color: #fefefe;
-                color: #333;
-                margin: 0;
-                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
+                margin: 0;
             }
             .container {
-                text-align: center;
-                border: 2px solid #ff4d4d;
-                border-radius: 8px;
+                background-color: white;
+                border: 2px solid #ff6347;
+                border-radius: 10px;
                 padding: 20px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 max-width: 600px;
                 width: 100%;
-                background-color: #fff;
+                text-align: center;
             }
             h1 {
-                color: #ff4d4d;
+                color: #ff6347;
                 margin-bottom: 20px;
             }
             textarea {
@@ -94,22 +106,20 @@ async def get_root():
                 height: 100px;
                 padding: 10px;
                 border: 1px solid #ddd;
-                border-radius: 4px;
+                border-radius: 5px;
                 resize: none;
-                font-size: 16px;
-                margin-bottom: 20px;
             }
             button {
-                background-color: #ff4d4d;
-                color: #fff;
+                background-color: #ff6347;
+                color: white;
                 border: none;
                 padding: 10px 20px;
-                border-radius: 4px;
-                font-size: 16px;
+                border-radius: 5px;
                 cursor: pointer;
+                font-size: 16px;
             }
             button:hover {
-                background-color: #e63939;
+                background-color: #ff4500;
             }
             #result {
                 white-space: pre-wrap;
@@ -122,7 +132,7 @@ async def get_root():
         <div class="container">
             <h1>Literature Review Agent</h1>
             <form id="queryForm">
-                <textarea id="queryText" placeholder="Enter your research query..."></textarea><br>
+                <textarea id="queryText" placeholder="Enter your research query here..."></textarea><br>
                 <button type="button" onclick="submitQuery()">Submit</button>
             </form>
             <div id="result"></div>
@@ -139,8 +149,10 @@ async def get_root():
                     body: 'query=' + encodeURIComponent(query)
                 });
                 const result = await response.json();
-                if (result.status == 'submitted') {
-                    document.getElementById('result').innerHTML += '<br>Task ID: ' + result.task_id;
+                if (result.status === 'success') {
+                    document.getElementById('result').innerHTML = result.result;
+                } else {
+                    document.getElementById('result').innerHTML = "An error occurred. Please try again.";
                 }
             }
         </script>
@@ -156,7 +168,7 @@ async def process_query(query: str = Form(...)):
         logger.info(f"Received query: {query}")
         result = await processor.chatbot_response(query)
         logger.info(f"Processed query successfully")
-        return HTMLResponse(content=result, media_type="text/html")
+        return {"status": "success", "result": result}
     except Exception as e:
         logger.exception(f"Error processing query: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
