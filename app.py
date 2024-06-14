@@ -4,8 +4,12 @@ import aiohttp
 from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-import logging
 import json
+import base64
+from datetime import datetime, timezone
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
+import logging
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
@@ -30,6 +34,44 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
+
+
+class BrevoEmailSender:
+    def __init__(self, api_key):
+        configuration = sib_api_v3_sdk.Configuration()
+        configuration.api_key["api-key"] = api_key
+        self.api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
+            sib_api_v3_sdk.ApiClient(configuration)
+        )
+
+    def send_email(self, to_email, subject, html_content, attachment_path=None):
+        sender = {"email": "mamboanye6@gmail.com"}
+        to = [{"email": to_email}]
+        attachment = []
+
+        if attachment_path:
+            with open(attachment_path, "rb") as file:
+                encoded_string = base64.b64encode(file.read()).decode("utf-8")
+                attachment.append(
+                    {
+                        "content": encoded_string,
+                        "name": os.path.basename(attachment_path),
+                    }
+                )
+
+        send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
+            to=to,
+            html_content=html_content,
+            sender=sender,
+            subject=subject,
+            attachment=attachment,
+        )
+
+        try:
+            api_response = self.api_instance.send_transac_email(send_smtp_email)
+            print("Email sent successfully: ", api_response)
+        except ApiException as e:
+            print("Exception when calling SMTPApi->send_transac_email: %s\n" % e)
 
 
 class ResearchQueryProcessor:
@@ -66,6 +108,7 @@ class ResearchQueryProcessor:
 
 
 processor = ResearchQueryProcessor()
+brevo_email_sender = BrevoEmailSender(os.getenv("BREVO_API_KEY"))
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -101,13 +144,12 @@ async def get_root():
                 color: #ff6347;
                 margin-bottom: 20px;
             }
-            textarea {
+            input, textarea {
                 width: 100%;
-                height: 100px;
                 padding: 10px;
+                margin: 10px 0;
                 border: 1px solid #ddd;
                 border-radius: 5px;
-                resize: none;
             }
             button {
                 background-color: #ff6347;
@@ -132,7 +174,8 @@ async def get_root():
         <div class="container">
             <h1>Literature Review Agent</h1>
             <form id="queryForm">
-                <textarea id="queryText" placeholder="Enter your research query here..."></textarea><br>
+                <input type="email" id="userEmail" placeholder="Enter your email" required><br>
+                <textarea id="queryText" placeholder="Enter your research query here..." required></textarea><br>
                 <button type="button" onclick="submitQuery()">Submit</button>
             </form>
             <div id="result"></div>
@@ -140,17 +183,18 @@ async def get_root():
         <script>
             async function submitQuery() {
                 document.getElementById('result').innerHTML = "Your request has been submitted and is being processed. Please hang tight, this might take a few minutes.";
+                const email = document.getElementById('userEmail').value;
                 const query = document.getElementById('queryText').value;
                 const response = await fetch('/process_query/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: 'query=' + encodeURIComponent(query)
+                    body: 'email=' + encodeURIComponent(email) + '&query=' + encodeURIComponent(query)
                 });
                 const result = await response.json();
                 if (result.status === 'success') {
-                    document.getElementById('result').innerHTML = result.result;
+                    document.getElementById('result').innerHTML = "Your results will be emailed to you shortly.";
                 } else {
                     document.getElementById('result').innerHTML = "An error occurred. Please try again.";
                 }
@@ -163,12 +207,46 @@ async def get_root():
 
 
 @app.post("/process_query/")
-async def process_query(query: str = Form(...)):
+async def process_query(email: str = Form(...), query: str = Form(...)):
     try:
-        logger.info(f"Received query: {query}")
+        logger.info(f"Received query: {query} from email: {email}")
         result = await processor.chatbot_response(query)
         logger.info(f"Processed query successfully")
-        return {"status": "success", "result": result}
+
+        # Send email to user with the result
+        user_subject = "Your Literature Review Results"
+        user_html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head></head>
+        <body>
+            <p>Dear user,</p>
+            <p>Thank you for using the Literature Review Agent. Here are your results:</p>
+            {result}
+            <p>Sincerely,<br>Literature Review Agent Team</p>
+        </body>
+        </html>
+        """
+        brevo_email_sender.send_email(email, user_subject, user_html_content)
+
+        # Send email to Bryan with the user's query and email
+        admin_subject = "New Literature Review Query Submitted"
+        admin_html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head></head>
+        <body>
+            <p>New query submitted:</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Query:</strong> {query}</p>
+        </body>
+        </html>
+        """
+        brevo_email_sender.send_email(
+            "mamboanye6@gmail.com", admin_subject, admin_html_content
+        )
+
+        return {"status": "success"}
     except Exception as e:
         logger.exception(f"Error processing query: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
