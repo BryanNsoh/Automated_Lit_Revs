@@ -4,14 +4,10 @@ import aiohttp
 from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-import json
 import logging
-import sib_api_v3_sdk
-from sib_api_v3_sdk.rest import ApiException
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
-from scopus_search import ScopusSearch
 from analyze_papers import PaperRanker
 from synthesize_results import QueryProcessor
 from core_search import CORESearch
@@ -33,32 +29,9 @@ app.add_middleware(
 )
 
 
-class BrevoEmailSender:
-    def __init__(self, api_key):
-        configuration = sib_api_v3_sdk.Configuration()
-        configuration.api_key["api-key"] = api_key
-        self.api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
-            sib_api_v3_sdk.ApiClient(configuration)
-        )
-
-    def send_email(self, to_email, subject, html_content):
-        sender = {"email": "bryan.anye.5@gmail.com"}
-        to = [{"email": to_email}]
-
-        send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
-            to=to, html_content=html_content, sender=sender, subject=subject
-        )
-
-        try:
-            api_response = self.api_instance.send_transac_email(send_smtp_email)
-            logger.info(f"Email sent successfully: {api_response}")
-        except ApiException as e:
-            logger.error(f"Exception when calling SMTPApi->send_transac_email: {e}")
-
-
 class ResearchQueryProcessor:
     def __init__(self):
-        self.api_keys = get_api_keys()
+        self.api_keys = get_api_keys(source="local" if os.getenv("ENVIRONMENT") == "local" else "env")
 
     async def chatbot_response(self, message: str) -> str:
         async with aiohttp.ClientSession() as session:
@@ -88,7 +61,6 @@ class ResearchQueryProcessor:
 
 
 processor = ResearchQueryProcessor()
-brevo_email_sender = BrevoEmailSender(os.getenv("BREVO_API_KEY"))
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -99,86 +71,149 @@ async def get_root():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Literature Review Agent</title>
+        <title>AI-Powered Literature Review Assistant</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                background-color: #f8f9fa;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f0f4f8;
+                margin: 0;
+                padding: 0;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
+                min-height: 100vh;
+                font-size: 16px;
             }
             .container {
                 background-color: white;
-                border: 2px solid #ff6347;
                 border-radius: 10px;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                max-width: 600px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                margin: 1rem;
+                max-width: 800px;
                 width: 100%;
-                text-align: center;
-                box-sizing: border-box; /* Add this line */
             }
             h1 {
-                color: #ff6347;
-                margin-bottom: 20px;
+                color: #2c3e50;
+                text-align: center;
+                margin-bottom: 0.5rem;
+                font-size: 1.8em;
             }
-            input, textarea {
-                width: calc(100% - 20px); /* Adjust width to account for padding */
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ddd;
+            .description {
+                color: #34495e;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            textarea {
+                width: 100%;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+                border: 1px solid #bdc3c7;
                 border-radius: 5px;
-                box-sizing: border-box; /* Add this line */
+                resize: vertical;
+                font-size: 1em;
             }
             button {
-                background-color: #ff6347;
+                background-color: #3498db;
                 color: white;
                 border: none;
-                padding: 10px 20px;
+                padding: 0.5rem 1rem;
                 border-radius: 5px;
                 cursor: pointer;
-                font-size: 16px;
-                box-sizing: border-box; /* Add this line */
+                font-size: 1em;
+                transition: background-color 0.3s;
             }
             button:hover {
-                background-color: #ff4500;
+                background-color: #2980b9;
             }
             #result {
+                margin-top: 1rem;
                 white-space: pre-wrap;
-                margin-top: 20px;
-                text-align: left;
+                background-color: #ecf0f1;
+                padding: 1rem;
+                border-radius: 5px;
+                display: none;
+                font-size: 1em;
+            }
+            .loader {
+                text-align: center;
+                margin: 20px auto;
+                display: none;
+            }
+            .loader-text {
+                margin-bottom: 10px;
+            }
+            .spinner {
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid #3498db;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: 0 auto;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>Literature Review Agent</h1>
+            <h1>AI-Powered Literature Review Assistant</h1>
+            <p class="description">
+                Welcome to our advanced research tool! Here's how it works:
+                <br>
+                1. Enter your research query in the box below.
+                <br>
+                2. Our AI will search the CORE academic database (currently limited to open access papers).
+                <br>
+                3. You'll receive a synthesized answer based on the most relevant peer-reviewed research.
+            </p>
             <form id="queryForm">
-                <input type="email" id="userEmail" placeholder="Enter your email" required><br>
-                <textarea id="queryText" placeholder="Enter your research query here..." required></textarea><br>
-                <button type="button" onclick="submitQuery()">Submit</button>
+                <textarea id="queryText" rows="4" placeholder="Enter your research query here (e.g., 'What are the latest treatments for heart disease?')" required></textarea>
+                <button type="button" onclick="submitQuery()">Submit Query</button>
             </form>
+            <div class="loader" id="loader">
+                <p class="loader-text" id="loaderText">Searching database...</p>
+                <div class="spinner"></div>
+            </div>
             <div id="result"></div>
         </div>
         <script>
             async function submitQuery() {
-                document.getElementById('result').innerHTML = "Your request has been submitted and is being processed. Please hang tight, this might take a few minutes.";
-                const email = document.getElementById('userEmail').value;
                 const query = document.getElementById('queryText').value;
-                const response = await fetch('/process_query/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: 'email=' + encodeURIComponent(email) + '&query=' + encodeURIComponent(query)
-                });
-                const result = await response.json();
-                if (result.status === 'success') {
-                    document.getElementById('result').innerHTML = "Your results will be emailed to you shortly.";
-                } else {
+                document.getElementById('result').style.display = 'none';
+                document.getElementById('loader').style.display = 'block';
+                
+                const loadingSteps = [
+                    "Searching database...",
+                    "Analyzing papers...",
+                    "Synthesizing results..."
+                ];
+                let currentStep = 0;
+                
+                const loadingInterval = setInterval(() => {
+                    document.getElementById('loaderText').innerText = loadingSteps[currentStep];
+                    currentStep = (currentStep + 1) % loadingSteps.length;
+                }, 3000);
+                
+                try {
+                    const response = await fetch('/process_query/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'query=' + encodeURIComponent(query)
+                    });
+                    const result = await response.json();
+                    clearInterval(loadingInterval);
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('result').style.display = 'block';
+                    document.getElementById('result').innerHTML = result.result;
+                } catch (error) {
+                    clearInterval(loadingInterval);
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('result').style.display = 'block';
                     document.getElementById('result').innerHTML = "An error occurred. Please try again.";
                 }
             }
@@ -190,46 +225,12 @@ async def get_root():
 
 
 @app.post("/process_query/")
-async def process_query(email: str = Form(...), query: str = Form(...)):
+async def process_query(query: str = Form(...)):
     try:
-        logger.info(f"Received query: {query} from email: {email}")
+        logger.info(f"Received query: {query}")
         result = await processor.chatbot_response(query)
         logger.info(f"Processed query successfully")
-
-        # Send email to user with the result
-        user_subject = "Your Literature Review Results"
-        user_html_content = f"""
-        <!DOCTYPE html>
-        <html>
-        <head></head>
-        <body>
-            <p>Dear user,</p>
-            <p>Thank you for using the Literature Review Agent. Here are your results:</p>
-            {result}
-            <p>Sincerely,<br>Literature Review Agent Team</p>
-        </body>
-        </html>
-        """
-        brevo_email_sender.send_email(email, user_subject, user_html_content)
-
-        # Send email to Bryan with the user's query and email
-        admin_subject = "New Literature Review Query Submitted"
-        admin_html_content = f"""
-        <!DOCTYPE html>
-        <html>
-        <head></head>
-        <body>
-            <p>New query submitted:</p>
-            <p><strong>Email:</strong> {email}</p>
-            <p><strong>Query:</strong> {query}</p>
-        </body>
-        </html>
-        """
-        brevo_email_sender.send_email(
-            "bryan.anye.5@gmail.com", admin_subject, admin_html_content
-        )
-
-        return {"status": "success"}
+        return {"result": result}
     except Exception as e:
         logger.exception(f"Error processing query: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")

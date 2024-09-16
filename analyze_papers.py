@@ -28,7 +28,7 @@ class PaperRanker:
             )
             try:
                 print(f"Processing queries for {point_context}...")
-                response = await self.llm_api_handler.generate_cohere_content(prompt)
+                response = await self.llm_api_handler.generate_openai_content(prompt)
                 print(f"Response: {response}")
                 if response is None:
                     logger.warning(
