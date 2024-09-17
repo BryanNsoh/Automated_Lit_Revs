@@ -44,9 +44,13 @@ import logging
 def get_api_keys(source="env"):
     if source == "local":
         load_dotenv()  # Load environment variables from .env file
-    logging.basicConfig(level=logging.INFO)
-    logging.info(f"OPENAI_API_KEY: {os.getenv('OPENAI_API_KEY')}")
-    logging.info(f"CORE_API_KEY: {os.getenv('CORE_API_KEY')}")
+    
+    # Remove or comment out these lines:
+    # logging.info(f"OPENAI_API_KEY: {os.getenv('OPENAI_API_KEY')}")
+    # logging.info(f"CORE_API_KEY: {os.getenv('CORE_API_KEY')}")
+
+    # Instead, log that the keys were loaded successfully without revealing them:
+    logging.info("API keys loaded successfully")
 
     return {
         "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),

@@ -5,6 +5,7 @@ from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 import logging
+import pkg_resources
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
@@ -16,6 +17,16 @@ from misc_utils import get_api_keys
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+def log_all_versions():
+    installed_packages = pkg_resources.working_set
+    installed_packages_list = sorted([f"{i.key}=={i.version}" for i in installed_packages])
+    logging.info("Installed packages:")
+    for package in installed_packages_list:
+        logging.info(package)
+
+# Call this function at the start of your application
+log_all_versions()
 
 app = FastAPI()
 
