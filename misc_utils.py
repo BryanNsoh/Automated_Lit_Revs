@@ -46,13 +46,9 @@ def get_api_keys(source="env"):
         load_dotenv()  # Load environment variables from .env file
     logging.basicConfig(level=logging.INFO)
     logging.info(f"OPENAI_API_KEY: {os.getenv('OPENAI_API_KEY')}")
-    logging.info(f"TOGETHER_API_KEY: {os.getenv('TOGETHER_API_KEY')}")
-    logging.info(f"SCOPUS_API_KEY: {os.getenv('SCOPUS_API_KEY')}")
     logging.info(f"CORE_API_KEY: {os.getenv('CORE_API_KEY')}")
 
     return {
         "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
-        "TOGETHER_API_KEY": os.getenv("TOGETHER_API_KEY"),
-        "SCOPUS_API_KEY": os.getenv("SCOPUS_API_KEY"),
         "CORE_API_KEY": os.getenv("CORE_API_KEY"),
     }
