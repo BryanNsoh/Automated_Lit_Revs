@@ -35,14 +35,7 @@
 
    REM Deploy the Cloud Run service with environment variables and secret keys
    echo Deploying to Cloud Run...
-   gcloud run deploy literature-review-agent \
-      --image us-central1-docker.pkg.dev/apt-rite-378417/lit-review-repo/literature-review-agent \
-      --platform managed \
-      --allow-unauthenticated \
-      --region=us-central1 \
-      --memory=1024Mi \
-      --set-env-vars CLOUD_LOGGING_ENABLED=true \
-      --set-secrets="OPENAI_API_KEY=OPENAI_API_KEY:latest,CORE_API_KEY=CORE_API_KEY:latest"
+   gcloud run deploy literature-review-agent --image us-central1-docker.pkg.dev/apt-rite-378417/lit-review-repo/literature-review-agent --platform managed --allow-unauthenticated --region=us-central1 --memory=1024Mi --set-env-vars CLOUD_LOGGING_ENABLED=true --set-secrets="OPENAI_API_KEY=OPENAI_API_KEY:latest,CORE_API_KEY=CORE_API_KEY:latest"
 
    REM Grant public access to the Cloud Run service (all users)
    echo Granting public access...
