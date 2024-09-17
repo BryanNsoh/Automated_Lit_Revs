@@ -24,9 +24,14 @@ class QueryProcessor:
         try:
             logger.info(f"Processing query: {user_query}")
             response = await self.llm_api_handler.generate_openai_content(prompt)
+            # Add a log to check if we reach this point
+            logger.info("Successfully received response from OpenAI API")
             return response
         except Exception as e:
             logger.error(f"Error processing query: {e}")
+            # Log more details about the exception
+            logger.error(f"Exception type: {type(e).__name__}")
+            logger.error(f"Exception details: {str(e)}")
             return None
 
 

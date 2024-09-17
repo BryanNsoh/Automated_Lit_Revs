@@ -68,7 +68,6 @@ class LLM_APIHandler:
 
     def set_api_keys(self, api_keys):
         self.openai_api_key = api_keys["OPENAI_API_KEY"]
-        self.together_api_key = api_keys["TOGETHER_API_KEY"]
 
     @backoff.on_exception(
         backoff.expo,
@@ -95,16 +94,28 @@ class LLM_APIHandler:
                 user=None,
             )
             if response:
+                logger.info("Successfully connected to OpenAI API")
                 return response.choices[0].message.content
             else:
                 return "No response from API."
         except Exception as e:
+            logger.error(f"Failed to connect to OpenAI API: {e}")
+            logger.error(f"Exception type: {type(e).__name__}")
+            logger.error(f"Exception details: {str(e)}")
             logger.error(
                 f"Unable to generate content with OpenAI API. Error: {e}. Moving on."
             )
             return None
         finally:
             self.openai_rate_limiter.release()
+
+    async def test_connectivity(self):
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get('https://api.openai.com') as response:
+                    logger.info(f"OpenAI API reachable. Status: {response.status}")
+        except Exception as e:
+            logger.error(f"Error reaching OpenAI API: {e}")
 
 
 async def main():
@@ -129,6 +140,7 @@ async def main():
                 if response is not None:
                     print(f"{api_name} Response:", response)
 
+            await api_handler.test_connectivity()
 
 if __name__ == "__main__":
     asyncio.run(main())
