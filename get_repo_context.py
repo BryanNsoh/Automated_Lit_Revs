@@ -1,7 +1,3 @@
-import os
-import datetime
-from pathlib import Path
-
 # Global variables with docstrings
 CUSTOM_INSTRUCTIONS = """
 # debugging_and_analysis_instructions
@@ -501,8 +497,14 @@ TASK_AND_CONTENT = """
 
 """
 
+import os
+import datetime
+from pathlib import Path
+import pyperclip
+from io import StringIO
+
 # Exclude lists
-FOLDER_EXCLUDE = {".git", "__pycache__", "node_modules", ".venv", "archive"}
+FOLDER_EXCLUDE = {".git", "__pycache__", "node_modules", ".venv", "archive", "deployment_scripts"}
 FILE_EXTENSION_EXCLUDE = {".exe", ".dll", ".so", ".pyc"}
 
 def obfuscate_env_value(value):
@@ -567,56 +569,52 @@ def get_repo_structure(root_folder):
     structure.append("</repository_structure>\n")
     return "".join(structure)
 
+def copy_to_clipboard(text):
+    pyperclip.copy(text)
+
 def main():
     """
-    Extract and save the repository context.
+    Extract the repository context and copy it to the clipboard.
 
     This function performs the following tasks:
     1. Determines the root folder of the repository.
-    2. Generates a timestamp for the context file.
-    3. Removes any previous context files.
-    4. Extracts the repository structure.
-    5. Writes the context to a new file, including global variables and the repository structure.
-    6. Appends additional information at the end of the context file.
+    2. Generates a timestamp for the context.
+    3. Extracts the repository structure.
+    4. Writes the context to a StringIO object, including global variables and the repository structure.
+    5. Copies the entire context to the clipboard.
 
-    The context file includes the contents of all files (except those with extensions in FILE_EXTENSION_EXCLUDE),
+    The context includes the contents of all files (except those with extensions in FILE_EXTENSION_EXCLUDE),
     with special handling for .env files to obfuscate sensitive information.
     Folders in FOLDER_EXCLUDE are completely skipped.
     """
     root_folder = os.getcwd()
     base_dir = os.path.basename(root_folder)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(root_folder, f"{base_dir}_context_{timestamp}.txt")
-
-    for file in os.listdir(root_folder):
-        if file.startswith(f"{base_dir}_context_") and file.endswith(".txt"):
-            os.remove(os.path.join(root_folder, file))
-            print(f"Deleted previous context file: {file}")
 
     repo_structure = get_repo_structure(root_folder)
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        # Write task and content at the start
-        f.write("<task_and_content>\n")
-        f.write(TASK_AND_CONTENT.strip())
-        f.write("\n</task_and_content>\n\n")
+    output = StringIO()
+    output.write("<task_and_content>\n")
+    output.write(TASK_AND_CONTENT.strip())
+    output.write("\n</task_and_content>\n\n")
 
-        # Write custom instructions
-        f.write("<custom_instructions>\n")
-        f.write(CUSTOM_INSTRUCTIONS.strip())
-        f.write("\n</custom_instructions>\n\n")
+    output.write("<custom_instructions>\n")
+    output.write(CUSTOM_INSTRUCTIONS.strip())
+    output.write("\n</custom_instructions>\n\n")
 
-        f.write(repo_structure)
-        
-        # Append additional information
-        f.write("\n\nAdditional Information:\n")
-        f.write("This context file contains the structure and content of the repository, ")
-        f.write(f"excluding certain directories as specified in FOLDER_EXCLUDE: {FOLDER_EXCLUDE}. ")
-        f.write(f"Files with extensions in FILE_EXTENSION_EXCLUDE: {FILE_EXTENSION_EXCLUDE} are listed but their content is not included. ")
-        f.write("Sensitive information in .env files has been obfuscated for security purposes. ")
-        f.write("Use this context for reference and analysis of the project structure and content.")
+    output.write(repo_structure)
+    
+    output.write("\n\nAdditional Information:\n")
+    output.write("This context contains the structure and content of the repository, ")
+    output.write(f"excluding certain directories as specified in FOLDER_EXCLUDE: {FOLDER_EXCLUDE}. ")
+    output.write(f"Files with extensions in FILE_EXTENSION_EXCLUDE: {FILE_EXTENSION_EXCLUDE} are listed but their content is not included. ")
+    output.write("Sensitive information in .env files has been obfuscated for security purposes. ")
+    output.write("Use this context for reference and analysis of the project structure and content.")
 
-    print(f"Fresh repository context has been extracted to {output_file}")
+    context_content = output.getvalue()
+    copy_to_clipboard(context_content)
+
+    print(f"Repository context has been copied to the clipboard.")
 
 if __name__ == "__main__":
     main()
