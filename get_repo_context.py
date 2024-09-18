@@ -3,7 +3,6 @@ import datetime
 from pathlib import Path
 import pyperclip
 import requests
-import xml.etree.ElementTree as ET
 
 # Exclude lists
 FOLDER_EXCLUDE = {".git", "__pycache__", "node_modules", ".venv", "archive", "deployment_scripts"}
@@ -34,16 +33,11 @@ def create_file_element(file_path, root_folder):
     file_name = os.path.basename(file_path)
     file_extension = os.path.splitext(file_name)[1]
 
-    file_elem = ET.Element("file")
-    
-    name_elem = ET.SubElement(file_elem, "name")
-    name_elem.text = file_name
-
-    path_elem = ET.SubElement(file_elem, "path")
-    path_elem.text = relative_path
+    file_elem = f"<file>\n"
+    file_elem += f"    <name>{file_name}</name>\n"
+    file_elem += f"    <path>{relative_path}</path>\n"
 
     if file_extension not in FILE_EXTENSION_EXCLUDE:
-        content_elem = ET.SubElement(file_elem, "content")
         try:
             with open(file_path, "r", encoding="utf-8") as file:
                 content = file.read()
@@ -57,21 +51,20 @@ def create_file_element(file_path, root_folder):
                         else:
                             obfuscated_lines.append(line)
                     content = "\n".join(obfuscated_lines)
-                content_elem.text = content
+                file_elem += f"    <content>{content}</content>\n"
         except UnicodeDecodeError:
-            content_elem.text = "Binary or non-UTF-8 content not displayed"
+            file_elem += "    <content>Binary or non-UTF-8 content not displayed</content>\n"
     else:
-        content_elem = ET.SubElement(file_elem, "content")
-        content_elem.text = "File excluded based on extension"
+        file_elem += "    <content>File excluded based on extension</content>\n"
 
+    file_elem += "</file>\n"
     return file_elem
 
 def get_repo_structure(root_folder):
-    repo_struct = ET.Element("repository_structure")
+    repo_struct = "<repository_structure>\n"
     
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    timestamp_elem = ET.SubElement(repo_struct, "timestamp")
-    timestamp_elem.text = timestamp
+    repo_struct += f"    <timestamp>{timestamp}</timestamp>\n"
 
     for root, dirs, files in os.walk(root_folder):
         # Exclude directories
@@ -79,13 +72,15 @@ def get_repo_structure(root_folder):
         
         rel_path = os.path.relpath(root, root_folder)
         dir_name = os.path.basename(root) if rel_path != "." else os.path.basename(root_folder)
-        directory_elem = ET.SubElement(repo_struct, "directory", name=dir_name)
+        repo_struct += f'    <directory name="{dir_name}">\n'
         
         for file in files:
             file_path = os.path.join(root, file)
-            file_elem = create_file_element(file_path, root_folder)
-            directory_elem.append(file_elem)
+            repo_struct += create_file_element(file_path, root_folder)
 
+        repo_struct += "    </directory>\n"
+
+    repo_struct += "</repository_structure>\n"
     return repo_struct
 
 def copy_to_clipboard(text):
@@ -129,45 +124,35 @@ def main():
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # Initialize XML root
-    context_elem = ET.Element("context")
+    context = "<context>\n"
     
     # Add timestamp
-    timestamp_elem = ET.SubElement(context_elem, "timestamp")
-    timestamp_elem.text = timestamp
+    context += f"    <timestamp>{timestamp}</timestamp>\n"
 
     # Add custom tags with content fetched from Google Docs or placeholders
     for tag in CUSTOM_TAGS:
         tag_name = tag.get("name")
         tag_url = tag.get("url")
-        tag_elem = ET.SubElement(context_elem, tag_name)
         if tag_url:
             content = fetch_content_from_google_doc(tag_url)
-            tag_elem.text = content
         else:
-            tag_elem.text = f"<!-- Add your {tag_name} here -->"
+            content = f"<!-- Add your {tag_name} here -->"
+        context += f"    <{tag_name}>{content}</{tag_name}>\n"
 
     # Add repository structure
-    repo_structure = get_repo_structure(root_folder)
-    context_elem.append(repo_structure)
+    context += get_repo_structure(root_folder)
 
     # Add additional information concisely
     additional_info = (
         f"This context includes the repository structure excluding directories: {', '.join(FOLDER_EXCLUDE)} "
         f"and file extensions: {', '.join(FILE_EXTENSION_EXCLUDE)}. Sensitive information in .env files has been obfuscated."
     )
-    additional_info_elem = ET.SubElement(context_elem, "additional_information")
-    additional_info_elem.text = additional_info
+    context += f"    <additional_information>{additional_info}</additional_information>\n"
 
-    # Generate XML string
-    xml_str = ET.tostring(context_elem, encoding='utf-8').decode('utf-8')
-
-    # Pretty-print the XML
-    import xml.dom.minidom
-    dom = xml.dom.minidom.parseString(xml_str)
-    pretty_xml_as_string = dom.toprettyxml(indent="    ")
+    context += "</context>"
 
     # Copy to clipboard
-    copy_to_clipboard(pretty_xml_as_string)
+    copy_to_clipboard(context)
 
     print("Repository context has been copied to the clipboard.")
 
