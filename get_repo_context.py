@@ -15,7 +15,7 @@ CUSTOM_TAGS = [
         "url": None
     },
     {
-        "name": "docs",
+        "name": "error",
         "url": None  # No URL provided, will use a placeholder
     }
     # Add more tags as needed
@@ -37,7 +37,7 @@ def create_file_element(file_path, root_folder):
     file_elem += f"    <name>{file_name}</name>\n"
     file_elem += f"    <path>{relative_path}</path>\n"
 
-    if file_extension not in FILE_EXTENSION_EXCLUDE:
+    if file_extension not in FILE_EXTENSION_EXCLUDE and file_name != os.path.basename(__file__):
         try:
             with open(file_path, "r", encoding="utf-8") as file:
                 content = file.read()
@@ -55,7 +55,7 @@ def create_file_element(file_path, root_folder):
         except UnicodeDecodeError:
             file_elem += "    <content>Binary or non-UTF-8 content not displayed</content>\n"
     else:
-        file_elem += "    <content>File excluded based on extension</content>\n"
+        file_elem += "    <content>File excluded based on extension or is the current script</content>\n"
 
     file_elem += "</file>\n"
     return file_elem
@@ -145,7 +145,8 @@ def main():
     # Add additional information concisely
     additional_info = (
         f"This context includes the repository structure excluding directories: {', '.join(FOLDER_EXCLUDE)} "
-        f"and file extensions: {', '.join(FILE_EXTENSION_EXCLUDE)}. Sensitive information in .env files has been obfuscated."
+        f"and file extensions: {', '.join(FILE_EXTENSION_EXCLUDE)}. Sensitive information in .env files has been obfuscated. "
+        f"The current script ({os.path.basename(__file__)}) is not included in the context."
     )
     context += f"    <additional_information>{additional_info}</additional_information>\n"
 
