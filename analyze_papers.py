@@ -225,8 +225,8 @@ class PaperAnalyzer:
                 authors=paper.authors,
                 year=paper.year,
                 relevance_score=average_scores[paper.id],
-                analysis=analysis['analysis'],
-                relevant_quotes=analysis['relevant_quotes']
+                analysis=analysis.analysis,
+                relevant_quotes=analysis.relevant_quotes
             )
             bibtex = get_bibtex_from_doi(ranked_paper.doi) if ranked_paper.doi else None
             if not bibtex:
@@ -256,12 +256,12 @@ class PaperAnalyzer:
                 model="gpt-4o-mini",
                 system_message="You are a helpful assistant tasked with analyzing research papers.",
                 temperature=0.6,
-                response_format=dict
+                response_format=PaperAnalysis   
             )
             analysis = analysis_response[0]  # Get the first (and only) response
             logger.debug(f"Paper Analysis: {analysis}")
             
-            if not isinstance(analysis, dict) or 'analysis' not in analysis or 'relevant_quotes' not in analysis:
+            if not isinstance(analysis, PaperAnalysis):
                 logger.warning("Incomplete analysis received")
                 raise ValueError("Incomplete analysis received")
             
