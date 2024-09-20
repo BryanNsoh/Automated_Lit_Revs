@@ -1,9 +1,7 @@
-from dataclasses import dataclass, field
 from typing import List, Optional, Dict 
 from pydantic import BaseModel, Field
 
-@dataclass
-class Paper:
+class Paper(BaseModel):
     id: Optional[str] = None
     doi: Optional[str] = None
     title: Optional[str] = None
@@ -12,49 +10,51 @@ class Paper:
     abstract: Optional[str] = None
     full_text: Optional[str] = None
 
-@dataclass
 class RankedPaper(Paper):
     relevance_score: float = 0.0
     analysis: str = ""
-    relevant_quotes: List[str] = field(default_factory=list)
+    relevant_quotes: List[str] = Field(default_factory=list)
     bibtex: Optional[str] = None
     
-@dataclass
-class RankedPapers:
-    papers: List[RankedPaper] = field(default_factory=list)
+class RankedPapers(BaseModel):
+    papers: List[RankedPaper] = Field(default_factory=list)
 
-@dataclass
-class SearchQuery:
+class SearchQuery(BaseModel):
     search_query: str
     query_rationale: str
     
-@dataclass  
-class SearchQueries:
-    queries: Dict[str, SearchQuery]
+class SearchQueries(BaseModel):
+    queries: List[SearchQuery]
 
-@dataclass
-class SearchResult:
-    DOI: Optional[str] = None
-    authors: List[str] = field(default_factory=list)
+class SearchResult(BaseModel):
+    DOI: Optional[str] = ""
+    authors: List[str] = []
     citation_count: int = 0
-    journal: Optional[str] = None
-    pdf_link: Optional[str] = None
+    journal: str = ""
+    pdf_link: str = ""
     publication_year: Optional[int] = None
-    title: Optional[str] = None
-    query_rationale: Optional[str] = None
+    title: str = ""
+    full_text: str = ""
+    query_rationale: str = ""
 
-@dataclass
-class SearchResults:
-    results: Dict[str, SearchResult] = field(default_factory=dict)
+class SearchResults(BaseModel):
+    results: List[SearchResult] = []
 
 class PaperAnalysis(BaseModel):
     analysis: str
     relevant_quotes: List[str]
 
-@dataclass
-class RankedPaperResult:
+class RankedPaperResult(BaseModel):
     paper: SearchResult
     relevance_score: float
     analysis: str
     relevant_quotes: List[str]
     bibtex: Optional[str] = None
+
+class PaperRanking(BaseModel):
+    paper_id: str
+    rank: int
+    explanation: str
+
+class RankingResponse(BaseModel):
+    rankings: List[PaperRanking]

@@ -46,15 +46,15 @@ async def process(user_query: str):
 
     # Generate Search Queries
     query_generator = QueryGenerator()
-    search_queries: SearchQueries = await query_generator.generate_queries(user_query)
+    search_queries: SearchQueries = await query_generator.generate_queries(user_query, num_queries=5)
     query_placeholder.write("### Generated Search Queries:")
-    query_placeholder.json(search_queries.dict())
+    query_placeholder.json(search_queries.model_dump())
 
     # Search in CORE
     core_search = CORESearch(max_results=5)
     search_results: SearchResults = await core_search.search_and_parse_queries(search_queries)
     search_placeholder.write("### Search Results:")
-    search_placeholder.json(search_results.dict())
+    search_placeholder.json(search_results.model_dump())
 
     # Analyze Papers
     paper_analyzer = PaperAnalyzer()
