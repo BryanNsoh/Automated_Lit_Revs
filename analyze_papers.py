@@ -147,6 +147,10 @@ class PaperAnalyzer:
         valid_papers = [paper for paper in papers if paper.full_text and len(paper.full_text.split()) >= 200]
         logger.info(f"After filtering, {len(valid_papers)} valid papers remain")
         
+        if not valid_papers:
+            logger.warning("No valid papers to rank. Returning empty list.")
+            return []
+        
         paper_scores: Dict[str, List[float]] = {paper.id: [] for paper in valid_papers}
         
         all_prompts = []  # Collect all ranking prompts across rounds
@@ -195,7 +199,10 @@ class PaperAnalyzer:
                 paper_id = ranking.paper_id
                 rank = ranking.rank
                 group_size = len(group)
-                score = (group_size - rank + 1) / group_size
+                if group_size > 0:
+                    score = (group_size - rank + 1) / group_size
+                else:
+                    score = 0  # or some default value
                 
                 if paper_id not in paper_scores:
                     logger.warning(f"Unexpected paper_id received: {paper_id}. Expected one of: {list(paper_scores.keys())}")
@@ -299,6 +306,6 @@ if __name__ == "__main__":
         claim = "Climate change significantly impacts global water resources."
         analysis_results = await main(search_queries, search_results, claim)
 
-        #print(analysis_results.model_dump_json(indent=2))
+        print(analysis_results.model_dump_json(indent=2))
 
     asyncio.run(run_example())
