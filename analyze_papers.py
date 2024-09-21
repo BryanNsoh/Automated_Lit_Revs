@@ -1,3 +1,4 @@
+# analyze_papers.py
 import asyncio
 import json
 import random
@@ -127,7 +128,7 @@ class PaperAnalyzer:
         papers = []
         for i, result in enumerate(search_results.results):
             paper = Paper(
-                id=f"paper_{i}",  # Assign unique ID here
+                id=f"paper_{i}",
                 doi=result.DOI,
                 title=result.title,
                 authors=result.authors,
@@ -152,7 +153,7 @@ class PaperAnalyzer:
         
         paper_scores: Dict[str, List[float]] = {paper.id: [] for paper in valid_papers}
         
-        all_prompts = []  # Collect all ranking prompts across rounds
+        all_prompts = []
 
         for round in range(num_rounds):
             logger.info(f"Starting ranking round {round + 1} of {num_rounds}")
@@ -169,7 +170,6 @@ class PaperAnalyzer:
                 prompt = RANKING_PROMPT.format(claim=claim, paper_summaries=paper_summaries, num_papers=len(group))
                 all_prompts.append((group, prompt))
 
-        # Send all prompts in batch
         prompts = [prompt for group, prompt in all_prompts]
         logger.debug(f"Sending {len(prompts)} prompts for batch ranking")
         try:
@@ -201,7 +201,7 @@ class PaperAnalyzer:
                 if group_size > 0:
                     score = (group_size - rank + 1) / group_size
                 else:
-                    score = 0  # or some default value
+                    score = 0
                 
                 if paper_id not in paper_scores:
                     logger.warning(f"Unexpected paper_id received: {paper_id}. Expected one of: {list(paper_scores.keys())}")
@@ -250,7 +250,7 @@ class PaperAnalyzer:
         )
         
         logger.debug(f"Analyzing paper: {paper.title}")
-        logger.debug(f"Analysis prompt: {prompt[:100]}...")  # Log first 100 chars of prompt
+        logger.debug(f"Analysis prompt: {prompt[:100]}...")
         
         try:
             analysis_response = await self.llm_api_handler.async_process(
@@ -260,11 +260,10 @@ class PaperAnalyzer:
                 temperature=0.6,
                 response_format=PaperAnalysis   
             )
-            analysis = analysis_response[0]  # Get the first (and only) response
+            analysis = analysis_response[0]
             logger.debug(f"Paper Analysis: {analysis}")
             
             if isinstance(analysis, dict):
-                # Convert dict to PaperAnalysis object
                 analysis = PaperAnalysis(**analysis)
             elif not isinstance(analysis, PaperAnalysis):
                 logger.warning(f"Unexpected analysis type: {type(analysis)}")
@@ -280,30 +279,3 @@ async def main(search_queries: SearchQueries, search_results: SearchResults, cla
     analyzer = PaperAnalyzer()
     analysis_results = await analyzer.analyze_papers(search_results, claim)
     return analysis_results
-
-if __name__ == "__main__":
-    # Example usage
-    from core_search import CORESearch, SearchQuery
-
-    async def run_example():
-        # Simulate search queries and results
-        search_queries = SearchQueries(queries=[
-            SearchQuery(
-                search_query="climate change impact on freshwater availability",
-                query_rationale="Understanding how climate change affects the availability of freshwater is crucial for water management and planning strategies."
-            ),
-            SearchQuery(
-                search_query="effects of climate change on groundwater resources",
-                query_rationale="Groundwater is a key resource for drinking water and irrigation; assessing its vulnerability to climate changes is essential for sustainable use."
-            )
-        ])
-
-        core_search = CORESearch(max_results=5)
-        search_results = await core_search.search_and_parse_queries(search_queries)
-
-        claim = "Climate change significantly impacts global water resources."
-        analysis_results = await main(search_queries, search_results, claim)
-
-        print(analysis_results.model_dump_json(indent=2))
-
-    asyncio.run(run_example())

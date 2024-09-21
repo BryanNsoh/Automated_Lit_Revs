@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from get_search_queries import QueryGenerator
 from analyze_papers import PaperRanker
 from synthesize_results import QueryProcessor
-from core_search import CORESearch
+from searchers.core_search import CORESearch
 from misc_utils import get_api_keys
 
 # Configure logging
