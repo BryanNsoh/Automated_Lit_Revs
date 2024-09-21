@@ -12,29 +12,37 @@ class SynthesisResponse(BaseModel):
     content: str
 
 SYNTHESIS_PROMPT = """
-Based on the following analysis of research papers, please provide a comprehensive answer to the user's question: "{user_query}"
+Based on the following analysis of research papers, provide a comprehensive answer to the user's question: "{user_query}"
 
 Paper analyses:
 {paper_analyses}
 
 Your response should be in two parts:
 
-1. A brief plan outlining how you will address the question (about 100 words).
+1. A brief plan (about 100 words) outlining:
+   - Which studies you'll include and why
+   - Any studies you'll exclude due to lack of relevance
+   - How you plan to directly answer the question
+   - The main points you'll cover
+
 2. A detailed response that:
-   a. Directly answers the user's question using the provided analyses.
-   b. Synthesizes the main points from each paper analysis.
-   c. Identifies common themes or contradictions across the papers.
-   d. Discusses how these findings address the original query.
-   e. Highlights any limitations or areas for further research.
+   - Directly answers the user's question using the provided analyses
+   - Synthesizes the main points from each relevant paper
+   - Identifies common themes or contradictions across the papers
+   - Discusses how these findings address the original query
+   - Highlights any limitations or areas for further research
 
-Format your detailed response in markdown, using appropriate headers, bullet points, and emphasis where necessary. Use proper APA citation style for in-text citations and include a references section at the end. Embed links to DOIs where available.
+Format your detailed response primarily in paragraphs, using a natural writing style. Minimize the use of bullet points, lists, or section divisions. Use proper academic tone and aim for approximately 1000 words.
 
-Your detailed response should be academic in tone and approximately 1000 words long.
+For citations:
+- Use APA-style inline citations
+- Include hyperlinks to DOIs in the inline citations where available
+- Add a brief references section at the end
 
 Respond in the following JSON format:
 {{
     "plan": "Your brief plan here",
-    "content": "Your full markdown-formatted response here"
+    "content": "Your full markdown-formatted response here, including references"
 }}
 """
 
