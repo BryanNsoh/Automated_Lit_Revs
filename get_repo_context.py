@@ -15,7 +15,7 @@ CUSTOM_TAGS = [
         "url": None
     },
     {
-        "name": "error",
+        "name": "arxiv code example",
         "url": None  # No URL provided, will use a placeholder
     }
     # Add more tags as needed

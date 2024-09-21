@@ -15,7 +15,6 @@ from models import (
     PaperRanking
 )
 from llm_api_handler import LLMAPIHandler
-from utils.bibtex import get_bibtex_from_doi, get_bibtex_from_title
 from logger_config import get_logger
 import traceback
 
@@ -235,10 +234,6 @@ class PaperAnalyzer:
                 analysis=analysis.analysis,
                 relevant_quotes=analysis.relevant_quotes
             )
-            bibtex = get_bibtex_from_doi(ranked_paper.doi) if ranked_paper.doi else None
-            if not bibtex:
-                bibtex = get_bibtex_from_title(ranked_paper.title, ranked_paper.authors, ranked_paper.year)
-            ranked_paper.bibtex = bibtex or ""
             ranked_papers.append(ranked_paper)
         
         logger.info(f"Completed paper ranking. Top score: {ranked_papers[0].relevance_score:.2f}, Bottom score: {ranked_papers[-1].relevance_score:.2f}")
@@ -251,7 +246,7 @@ class PaperAnalyzer:
             title=paper.title,
             authors=paper.authors,
             year=paper.year,
-            doi=paper.doi
+            doi=paper.doi,
         )
         
         logger.debug(f"Analyzing paper: {paper.title}")
