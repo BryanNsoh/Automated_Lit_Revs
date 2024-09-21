@@ -9,7 +9,7 @@ from synthesize_results import ResultSynthesizer
 from models import SearchQueries, SearchResults, RankedPapers
 import time
 
-# Set page config with a custom theme
+# Set page config with a dark theme
 st.set_page_config(
     page_title="AI-Powered Literature Review Assistant",
     page_icon="📚",
@@ -17,59 +17,49 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS to improve aesthetics
+# Custom CSS for dark theme
 st.markdown("""
 <style>
-    .main {
-        background-color: #f5f5f5;
+    .reportview-container {
+        background-color: #0e1117;
+        color: #ffffff;
+    }
+    .sidebar .sidebar-content {
+        background-color: #262730;
     }
     .stButton>button {
         background-color: #4CAF50;
         color: white;
-        font-weight: bold;
     }
     .stTextInput>div>div>input {
-        background-color: #ffffff;
+        background-color: #262730;
+        color: #ffffff;
     }
-    h1 {
-        color: #2c3e50;
-    }
-    h2 {
-        color: #34495e;
-    }
-    .stAlert {
-        background-color: #e8f4f8;
-        border: 1px solid #bde0fe;
+    h1, h2, h3 {
+        color: #ffffff;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # Main content
-col1, col2 = st.columns([2, 1])
+st.title("📚 AI-Powered Literature Review Assistant")
+st.markdown("""
+Welcome to the **AI-Powered Literature Review Assistant**! This tool uses advanced AI models and natural language processing techniques to help you generate comprehensive literature reviews quickly and efficiently.
+""")
 
-with col1:
-    st.title("📚 AI-Powered Literature Review Assistant")
-    st.markdown("""
-    Welcome to the **AI-Powered Literature Review Assistant**! This tool uses advanced AI models and natural language processing techniques to help you generate comprehensive literature reviews quickly and efficiently.
-    """)
-
-    # GitHub link
-    st.markdown("""
-    📂 **Source Code**: You can find the source code for this project on GitHub:
-    [Automated_Lit_Revs](https://github.com/BryanNsoh/Automated_Lit_Revs)
-    """)
-
-with col2:
-    st.image("https://img.freepik.com/free-vector/ai-technology-brain-background-vector-digital-transformation-concept_53876-112224.jpg", use_column_width=True)
+# GitHub link
+st.markdown("""
+📂 **Source Code**: [Automated_Lit_Revs](https://github.com/BryanNsoh/Automated_Lit_Revs)
+""")
 
 # User input section
 st.header("🔍 Start Your Research")
 user_query = st.text_area("Enter your research query here:", height=100, placeholder="e.g., The impact of artificial intelligence on healthcare")
 
-col3, col4 = st.columns(2)
-with col3:
+col1, col2 = st.columns(2)
+with col1:
     search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
-with col4:
+with col2:
     num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=5)
 
 async def process(user_query: str, search_engine: str, num_results: int):
