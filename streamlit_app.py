@@ -37,7 +37,7 @@ user_query = st.text_area("Enter your research query here:", height=150)
 
 search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
 
-num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=50, value=10)
+num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=10)
 
 async def process(user_query: str, search_engine: str, num_results: int):
     llm_handler = get_llm_handler()
@@ -51,12 +51,12 @@ async def process(user_query: str, search_engine: str, num_results: int):
     if search_engine in ["CORE", "Both"]:
         core_search = CORESearch(max_results=num_results)
         core_results = await core_search.search_and_parse_queries(search_queries)
-        search_results.results.extend(core_results.results)
+        search_results.results.extend(core_results.results[:num_results])
 
     if search_engine in ["arXiv", "Both"]:
         arxiv_search = ArXivSearch(max_results=num_results)
         arxiv_results = await arxiv_search.search_and_parse_queries(search_queries)
-        search_results.results.extend(arxiv_results.results)
+        search_results.results.extend(arxiv_results.results[:num_results])
 
     with st.expander("Click to see Search Results"):
         st.json(search_results.model_dump())
