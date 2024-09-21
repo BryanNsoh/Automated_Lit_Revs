@@ -113,7 +113,7 @@ async def process(user_query: str, search_engine: str, num_results: int):
     result_synthesizer = ResultSynthesizer()
     synthesis = await result_synthesizer.synthesize(ranked_papers, user_query)
 
-    st.subheader("Literature Review Synthesis")
+    st.subheader("Answer:")
     st.markdown(synthesis)
 
 async def handle_submit(user_query: str, search_engine: str, num_results: int):

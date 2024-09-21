@@ -22,7 +22,7 @@ Your response should be in two parts:
 1. A brief plan (about 100 words) outlining:
    - Which studies you'll include and why
    - Any studies you'll exclude due to lack of relevance
-   - How you plan to directly answer the question
+   - How you plan to directly answer the question in a way the user finds useful
    - The main points you'll cover
 
 2. A detailed response that:
@@ -32,12 +32,16 @@ Your response should be in two parts:
    - Discusses how these findings address the original query
    - Highlights any limitations or areas for further research
 
-Format your detailed response primarily in paragraphs, using a natural writing style. Minimize the use of bullet points, lists, or section divisions. Use proper academic tone and aim for approximately 1000 words.
+Format your detailed response primarily in paragraphs, using a natural writing style. 
+Minimize the use of bullet points, lists, or section divisions. 
+Convey the information in a way that is easy to understand and use. 
+Maintain word economy, using as few words as possible to convey the information while maintaining its clarity and depth.
+Every single word should be used with intention and should earn its place in the text.
 
 For citations:
 - Use APA-style inline citations
-- Include hyperlinks to DOIs in the inline citations where available
-- Add a brief references section at the end
+- Include hyperlinks to DOIs in the inline citations where available for example [author et al. (year)](https://doi.org/10.1234/water.2021.001)
+- Add a references section at the end APA style
 
 Respond in the following JSON format:
 {{
@@ -92,7 +96,7 @@ Relevant Quotes:
             logger.info(f"Sending request to LLM API for query: {user_query}")
             response = await self.llm_api_handler.async_process(
                 prompts=[prompt],
-                model="gpt-4o-mini",
+                model="gpt-4o-2024-08-06",
                 system_message="You are a helpful assistant tasked with synthesizing research paper analyses.",
                 temperature=0.6,
                 response_format=SynthesisResponse
