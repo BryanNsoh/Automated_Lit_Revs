@@ -1,7 +1,7 @@
 import asyncio
 import json
 import random
-from typing import List, Dict
+from typing import List, Dict, Any
 from pydantic import BaseModel, Field
 from models import (
     Paper,
@@ -244,7 +244,7 @@ class PaperAnalyzer:
         logger.info(f"Completed paper ranking. Top score: {ranked_papers[0].relevance_score:.2f}, Bottom score: {ranked_papers[-1].relevance_score:.2f}")
         return ranked_papers
 
-    async def analyze_paper(self, claim: str, paper: Paper) -> Dict[str, any]:
+    async def analyze_paper(self, claim: str, paper: Paper) -> PaperAnalysis:
         prompt = ANALYSIS_PROMPT.format(
             claim=claim,
             full_text=paper.full_text,
@@ -268,15 +268,18 @@ class PaperAnalyzer:
             analysis = analysis_response[0]  # Get the first (and only) response
             logger.debug(f"Paper Analysis: {analysis}")
             
-            if not isinstance(analysis, PaperAnalysis):
-                logger.warning("Incomplete analysis received")
-                raise ValueError("Incomplete analysis received")
+            if isinstance(analysis, dict):
+                # Convert dict to PaperAnalysis object
+                analysis = PaperAnalysis(**analysis)
+            elif not isinstance(analysis, PaperAnalysis):
+                logger.warning(f"Unexpected analysis type: {type(analysis)}")
+                raise ValueError(f"Unexpected analysis type: {type(analysis)}")
             
             return analysis
         except Exception as e:
             logger.error(f"Error during paper analysis: {str(e)}")
             logger.error(traceback.format_exc())
-            return {"analysis": "", "relevant_quotes": []}
+            return PaperAnalysis(analysis="", relevant_quotes=[])
 
 async def main(search_queries: SearchQueries, search_results: SearchResults, claim: str, top_n: int = 5):
     analyzer = PaperAnalyzer()

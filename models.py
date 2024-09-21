@@ -35,8 +35,8 @@ class SearchResult(BaseModel):
     publication_year: Optional[int] = None
     title: str = ""
     full_text: str = ""
+    search_query: str = ""
     query_rationale: str = ""
-
 class SearchResults(BaseModel):
     results: List[SearchResult] = []
 

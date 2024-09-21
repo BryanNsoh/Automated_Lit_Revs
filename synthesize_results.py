@@ -66,7 +66,7 @@ Relevant Quotes:
         logger.debug(f"Formatting {len(quotes)} quotes")
         return "\n".join([f"- {quote}" for quote in quotes])
 
-    async def synthesize(self, ranked_papers: RankedPapers, user_query: str) -> SynthesisResponse:
+    async def synthesize(self, ranked_papers: RankedPapers, user_query: str) -> str:
         logger.debug(f"Starting synthesis for query: {user_query}")
         papers = ranked_papers.papers
         logger.debug(f"Number of papers to synthesize: {len(papers)}")
@@ -90,14 +90,15 @@ Relevant Quotes:
                 response_format=SynthesisResponse
             )
             logger.info("Successfully received response from LLM API")
-            logger.debug(f"Response plan: {response[0].plan[:100]}...")
-            logger.debug(f"Response content: {response[0].content[:100]}...")
-            return response[0]
+            synthesis = response[0]
+            
+            # Return only the content, which is already in markdown format
+            return synthesis.content
         except Exception as e:
             logger.error(f"Error synthesizing results: {e}")
             logger.error(f"Exception type: {type(e).__name__}")
             logger.error(f"Exception details: {str(e)}")
-            return None
+            return "An error occurred while synthesizing the results."
 
 def main(user_query: str, ranked_papers: RankedPapers):
     logger.info("Starting result synthesis...")

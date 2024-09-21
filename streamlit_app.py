@@ -35,50 +35,45 @@ Welcome to the **AI-Powered Literature Review Assistant**! Enter your research q
 
 user_query = st.text_area("Enter your research query here:", height=150)
 
-# Initialize placeholders for displaying results
-query_placeholder = st.empty()
-search_placeholder = st.empty()
-analysis_placeholder = st.empty()
-synthesis_placeholder = st.empty()
-
 async def process(user_query: str):
     llm_handler = get_llm_handler()
 
     # Generate Search Queries
     query_generator = QueryGenerator()
     search_queries: SearchQueries = await query_generator.generate_queries(user_query, num_queries=5)
-    query_placeholder.write("### Generated Search Queries:")
-    query_placeholder.json(search_queries.model_dump())
+    with st.expander("Click to see Generated Search Queries"):
+        st.json(search_queries.model_dump())
 
     # Search in CORE
-    core_search = CORESearch(max_results=5)
+    core_search = CORESearch(max_results=10)
     search_results: SearchResults = await core_search.search_and_parse_queries(search_queries)
-    search_placeholder.write("### Search Results:")
-    search_placeholder.json(search_results.model_dump())
+    with st.expander("Click to see Search Results"):
+        st.json(search_results.model_dump())
 
     # Analyze Papers
     paper_analyzer = PaperAnalyzer()
     ranked_papers: RankedPapers = await paper_analyzer.analyze_papers(search_results, user_query)
 
+    # Display ranked papers in an expander
+    with st.expander("Click to see Ranked Papers"):
+        for i, paper in enumerate(ranked_papers.papers, 1):
+            st.write(f"Paper {i}:")
+            st.write(f"Title: {paper.title}")
+            st.write(f"Authors: {', '.join(paper.authors)}")
+            st.write(f"Year: {paper.year}")
+            st.write(f"Relevance Score: {paper.relevance_score}")
+            st.write(f"Analysis: {paper.analysis}")
+            st.write("Relevant Quotes:")
+            for quote in paper.relevant_quotes:
+                st.write(f"- {quote}")
+            st.write("---")
+
     result_synthesizer = ResultSynthesizer()
     synthesis = await result_synthesizer.synthesize(ranked_papers, user_query)
 
-    # Update the Streamlit UI to display multiple ranked papers
-    st.subheader("Ranked Papers")
-    for i, paper in enumerate(ranked_papers.papers, 1):
-        st.write(f"Paper {i}:")
-        st.write(f"Title: {paper.title}")
-        st.write(f"Authors: {', '.join(paper.authors)}")
-        st.write(f"Year: {paper.year}")
-        st.write(f"Relevance Score: {paper.relevance_score}")
-        st.write(f"Analysis: {paper.analysis}")
-        st.write("Relevant Quotes:")
-        for quote in paper.relevant_quotes:
-            st.write(f"- {quote}")
-        st.write("---")
-
-    st.subheader("Synthesis")
-    st.write(synthesis)
+    # Display the final synthesis as markdown
+    st.subheader("Literature Review Synthesis")
+    st.markdown(synthesis)
 
 # Async function to handle form submissions
 async def handle_submit(user_query: str):
