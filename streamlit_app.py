@@ -1,5 +1,3 @@
-# streamlit_app.py
-
 import streamlit as st
 import asyncio
 from get_search_queries import QueryGenerator
@@ -31,7 +29,7 @@ st.markdown("""
         background-color: #4CAF50;
         color: white;
     }
-    .stTextInput>div>div>input {
+    .stTextInput>div>div>input, .stTextArea textarea {
         background-color: #262730;
         color: #ffffff;
     }
@@ -41,10 +39,26 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Main content
+@st.cache_resource
+def get_llm_handler():
+    from llm_api_handler import LLMAPIHandler
+    return LLMAPIHandler()
+
 st.title("📚 AI-Powered Literature Review Assistant")
+
+st.sidebar.markdown("""
+## How it works
+
+1. **Query Generation**: Your input is used to generate specific search queries.
+2. **Literature Search**: These queries are used to search academic databases.
+3. **Paper Analysis**: The retrieved papers are analyzed for relevance and content.
+4. **Result Synthesis**: The findings are synthesized into a comprehensive literature review.
+
+This process is powered by advanced AI models and natural language processing techniques.
+""")
+
 st.markdown("""
-Welcome to the **AI-Powered Literature Review Assistant**! This tool uses advanced AI models and natural language processing techniques to help you generate comprehensive literature reviews quickly and efficiently.
+Welcome to the **AI-Powered Literature Review Assistant**! Enter your research query below, and the AI will search academic databases, analyze relevant papers, and synthesize the results for you.
 """)
 
 # GitHub link
@@ -52,15 +66,11 @@ st.markdown("""
 📂 **Source Code**: [Automated_Lit_Revs](https://github.com/BryanNsoh/Automated_Lit_Revs)
 """)
 
-# User input section
-st.header("🔍 Start Your Research")
-user_query = st.text_area("Enter your research query here:", height=100, placeholder="e.g., The impact of artificial intelligence on healthcare")
+user_query = st.text_area("Enter your research query here:", height=150)
 
-col1, col2 = st.columns(2)
-with col1:
-    search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
-with col2:
-    num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=5)
+search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
+
+num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=10)
 
 async def process(user_query: str, search_engine: str, num_results: int):
     llm_handler = get_llm_handler()
@@ -139,18 +149,6 @@ if st.button("🚀 Generate Literature Review"):
                 st.error(f"❌ An error occurred: {e}")
                 st.exception(e)
 
-# How it works section
-st.sidebar.markdown("""
-## 🔬 How it works
-
-1. **Query Generation**: Your input is used to generate specific search queries.
-2. **Literature Search**: These queries are used to search academic databases.
-3. **Paper Analysis**: The retrieved papers are analyzed for relevance and content.
-4. **Result Synthesis**: The findings are synthesized into a comprehensive literature review.
-
-This process is powered by advanced AI models and natural language processing techniques.
-""")
-
 # Footer
 st.markdown("---")
-st.markdown("Created with ❤️ by [Your Name/Organization]")
+st.markdown("Created by Bryan Nsoh")
