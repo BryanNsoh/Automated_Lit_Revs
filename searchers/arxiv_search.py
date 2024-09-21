@@ -8,6 +8,8 @@ from typing import List, Dict
 import fitz  # PyMuPDF
 import re
 from aiolimiter import AsyncLimiter
+import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from asyncio import Semaphore
 import time
 import logging
@@ -28,6 +30,7 @@ class ArXivSearch(Searcher):
         self.max_results = max_results
         self.rate_limiter = AsyncLimiter(5, 1)  # 5 requests per second
         self.semaphore = Semaphore(5)  # Maximum 5 concurrent queries
+        self.executor = ThreadPoolExecutor(max_workers=5)  # For parallel PDF processing
 
     async def search_and_parse_queries(self, search_queries: SearchQueries) -> SearchResults:
         results = SearchResults(results=[])
@@ -103,44 +106,39 @@ class ArXivSearch(Searcher):
         return papers
 
     async def get_full_text(self, session: aiohttp.ClientSession, pdf_url: str, arxiv_id: str) -> str:
-        pdf_path = await self.download_pdf(session, pdf_url, arxiv_id)
-        if pdf_path:
-            return self.extract_text_from_pdf(pdf_path)
-        return ""
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as temp_file:
+            pdf_path = temp_file.name
 
-    async def download_pdf(self, session: aiohttp.ClientSession, pdf_url: str, arxiv_id: str) -> str:
+        try:
+            await self.download_pdf(session, pdf_url, pdf_path)
+            return await self.extract_text_from_pdf(pdf_path)
+        finally:
+            os.unlink(pdf_path)  # Delete the temporary file
+
+    async def download_pdf(self, session: aiohttp.ClientSession, pdf_url: str, pdf_path: str) -> None:
         async with self.rate_limiter:
-            safe_filename = re.sub(r'[\\/*?:"<>|]', "_", arxiv_id) + ".pdf"
-            pdf_path = os.path.join(PDF_DIR, safe_filename)
-
-            if os.path.exists(pdf_path):
-                return pdf_path
-
             try:
                 async with session.get(pdf_url) as response:
                     if response.status == 200:
                         content = await response.read()
                         async with aiofiles.open(pdf_path, mode='wb') as f:
                             await f.write(content)
-                        return pdf_path
                     else:
-                        logger.warning(f"Failed to download PDF for {arxiv_id}: Status {response.status}")
-                        return ""
+                        logger.warning(f"Failed to download PDF: Status {response.status}")
             except Exception as e:
-                logger.error(f"Exception while downloading PDF for {arxiv_id}: {e}")
-                return ""
+                logger.error(f"Exception while downloading PDF: {e}")
 
-    def extract_text_from_pdf(self, pdf_path: str) -> str:
+    async def extract_text_from_pdf(self, pdf_path: str) -> str:
+        loop = asyncio.get_running_loop()
         try:
-            doc = fitz.open(pdf_path)
-            text = ""
-            for page in doc:
-                text += page.get_text()
-            doc.close()
-            return text
+            return await loop.run_in_executor(self.executor, self._extract_text, pdf_path)
         except Exception as e:
-            logger.error(f"Error extracting text from {pdf_path}: {e}")
+            logger.error(f"Error extracting text from PDF: {e}")
             return ""
+
+    def _extract_text(self, pdf_path: str) -> str:
+        with fitz.open(pdf_path) as doc:
+            return "".join(page.get_text() for page in doc)
 
 # Ensure the ArXivSearch class is exported
 __all__ = ['ArXivSearch']
