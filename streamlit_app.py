@@ -9,35 +9,68 @@ from synthesize_results import ResultSynthesizer
 from models import SearchQueries, SearchResults, RankedPapers
 import time
 
-st.set_page_config(page_title="AI-Powered Literature Review Assistant", layout="wide")
+# Set page config with a custom theme
+st.set_page_config(
+    page_title="AI-Powered Literature Review Assistant",
+    page_icon="📚",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-@st.cache_resource
-def get_llm_handler():
-    from llm_api_handler import LLMAPIHandler
-    return LLMAPIHandler()
-
-st.title("AI-Powered Literature Review Assistant")
-
-st.sidebar.markdown("""
-## How it works
-
-1. **Query Generation**: Your input is used to generate specific search queries.
-2. **Literature Search**: These queries are used to search academic databases.
-3. **Paper Analysis**: The retrieved papers are analyzed for relevance and content.
-4. **Result Synthesis**: The findings are synthesized into a comprehensive literature review.
-
-This process is powered by advanced AI models and natural language processing techniques.
-""")
-
+# Custom CSS to improve aesthetics
 st.markdown("""
-Welcome to the **AI-Powered Literature Review Assistant**! Enter your research query below, and the AI will search academic databases, analyze relevant papers, and synthesize the results for you.
-""")
+<style>
+    .main {
+        background-color: #f5f5f5;
+    }
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+    }
+    .stTextInput>div>div>input {
+        background-color: #ffffff;
+    }
+    h1 {
+        color: #2c3e50;
+    }
+    h2 {
+        color: #34495e;
+    }
+    .stAlert {
+        background-color: #e8f4f8;
+        border: 1px solid #bde0fe;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-user_query = st.text_area("Enter your research query here:", height=150)
+# Main content
+col1, col2 = st.columns([2, 1])
 
-search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
+with col1:
+    st.title("📚 AI-Powered Literature Review Assistant")
+    st.markdown("""
+    Welcome to the **AI-Powered Literature Review Assistant**! This tool uses advanced AI models and natural language processing techniques to help you generate comprehensive literature reviews quickly and efficiently.
+    """)
 
-num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=10)
+    # GitHub link
+    st.markdown("""
+    📂 **Source Code**: You can find the source code for this project on GitHub:
+    [Automated_Lit_Revs](https://github.com/BryanNsoh/Automated_Lit_Revs)
+    """)
+
+with col2:
+    st.image("https://img.freepik.com/free-vector/ai-technology-brain-background-vector-digital-transformation-concept_53876-112224.jpg", use_column_width=True)
+
+# User input section
+st.header("🔍 Start Your Research")
+user_query = st.text_area("Enter your research query here:", height=100, placeholder="e.g., The impact of artificial intelligence on healthcare")
+
+col3, col4 = st.columns(2)
+with col3:
+    search_engine = st.selectbox("Choose search engine:", ["CORE", "arXiv", "Both"])
+with col4:
+    num_results = st.number_input("Number of results per search engine:", min_value=1, max_value=10, value=5)
 
 async def process(user_query: str, search_engine: str, num_results: int):
     llm_handler = get_llm_handler()
@@ -98,14 +131,14 @@ def run_async_task(coro):
     else:
         return loop.run_until_complete(coro)
 
-if st.button("Submit Query"):
+if st.button("🚀 Generate Literature Review"):
     if not user_query.strip():
-        st.error("Please enter a valid research query.")
+        st.error("⚠️ Please enter a valid research query.")
     else:
-        with st.spinner("Processing your query. This may take a few minutes..."):
+        with st.spinner("🔄 Processing your query. This may take a few minutes..."):
             try:
                 message_placeholder = st.empty()
-                message_placeholder.success("Query processing has started. Please check the results below as they become available.")
+                message_placeholder.success("✅ Query processing has started. Please check the results below as they become available.")
                 
                 run_async_task(handle_submit(user_query, search_engine, num_results))
                 
@@ -113,5 +146,21 @@ if st.button("Submit Query"):
                 
                 message_placeholder.empty()
             except Exception as e:
-                st.error(f"An error occurred: {e}")
+                st.error(f"❌ An error occurred: {e}")
                 st.exception(e)
+
+# How it works section
+st.sidebar.markdown("""
+## 🔬 How it works
+
+1. **Query Generation**: Your input is used to generate specific search queries.
+2. **Literature Search**: These queries are used to search academic databases.
+3. **Paper Analysis**: The retrieved papers are analyzed for relevance and content.
+4. **Result Synthesis**: The findings are synthesized into a comprehensive literature review.
+
+This process is powered by advanced AI models and natural language processing techniques.
+""")
+
+# Footer
+st.markdown("---")
+st.markdown("Created with ❤️ by [Your Name/Organization]")
