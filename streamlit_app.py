@@ -7,6 +7,7 @@ from core_search import CORESearch
 from analyze_papers import PaperAnalyzer
 from synthesize_results import ResultSynthesizer
 from models import SearchQueries, SearchResults, RankedPapers
+import time
 
 st.set_page_config(page_title="AI-Powered Literature Review Assistant", layout="wide")
 
@@ -104,9 +105,18 @@ if st.button("Submit Query"):
     else:
         with st.spinner("Processing your query. This may take a few minutes..."):
             try:
+                # Create a placeholder for the success message
+                message_placeholder = st.empty()
+                message_placeholder.success("Query processing has started. Please check the results below as they become available.")
+                
                 # Schedule the async 'handle_submit' function
                 run_async_task(handle_submit(user_query))
-                st.success("Query processing has started. Please check the results below as they become available.")
+                
+                # Wait for a short time to allow results to populate
+                time.sleep(5)
+                
+                # Clear the success message
+                message_placeholder.empty()
             except Exception as e:
                 st.error(f"An error occurred: {e}")
                 st.exception(e)
