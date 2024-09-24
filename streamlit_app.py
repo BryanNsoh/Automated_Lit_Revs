@@ -91,21 +91,31 @@ async def process(user_query: str, search_engine: str, num_results: int):
         arxiv_results = await arxiv_search.search_and_parse_queries(search_queries)
         search_results.results.extend(arxiv_results.results[:num_results])
 
+    # Check if there are any valid search results
+    if not any(result.title for result in search_results.results):
+        st.error("⚠️ No search results found for your query. Please try a different query.")
+        return  # Halt the process
+
     with st.expander("Click to see Search Results"):
         st.json(search_results.model_dump())
 
     paper_analyzer = PaperAnalyzer()
     ranked_papers: RankedPapers = await paper_analyzer.analyze_papers(search_results, user_query)
 
+    # Check if there are any ranked papers
+    if not ranked_papers.papers:
+        st.error("⚠️ No valid papers were analyzed based on the search results.")
+        return  # Halt the process
+
     with st.expander("Click to see Ranked Papers"):
         for i, paper in enumerate(ranked_papers.papers, 1):
-            st.write(f"Paper {i}:")
-            st.write(f"Title: {paper.title}")
-            st.write(f"Authors: {', '.join(paper.authors)}")
-            st.write(f"Year: {paper.year}")
-            st.write(f"Relevance Score: {paper.relevance_score}")
-            st.write(f"Analysis: {paper.analysis}")
-            st.write("Relevant Quotes:")
+            st.write(f"**Paper {i}:**")
+            st.write(f"**Title:** {paper.title}")
+            st.write(f"**Authors:** {', '.join(paper.authors)}")
+            st.write(f"**Year:** {paper.year}")
+            st.write(f"**Relevance Score:** {paper.relevance_score}")
+            st.write(f"**Analysis:** {paper.analysis}")
+            st.write("**Relevant Quotes:**")
             for quote in paper.relevant_quotes:
                 st.write(f"- {quote}")
             st.write("---")

@@ -9,8 +9,9 @@ import os
 from dotenv import load_dotenv
 from time import time
 from .searcher import Searcher
+import random  # Added for random key selection
 
-load_dotenv()
+load_dotenv(override=True)
 
 logger = get_logger(__name__)
 
@@ -37,7 +38,7 @@ class CORESearch(Searcher):
         self.base_url = "https://api.core.ac.uk/v3"
         self.max_results = max_results
         self.api_keys = self.load_api_keys()
-        self.current_key_index = 0
+        # Removed current_key_index as rotation is now random
         self.rate_limiter = RateLimiter(max_requests_per_minute, 60)
         self.session = aiohttp.ClientSession()
     
@@ -57,19 +58,16 @@ class CORESearch(Searcher):
         logger.info(f"Loaded {len(keys)} API key(s).")
         return keys
 
-    async def get_current_api_key(self) -> str:
-        return self.api_keys[self.current_key_index]
-
-    async def rotate_api_key(self):
-        self.current_key_index = (self.current_key_index + 1) % len(self.api_keys)
-        logger.warning(f"Rotated to API key index: {self.current_key_index + 1}/{len(self.api_keys)}")
-        await asyncio.sleep(1)
+    async def get_random_api_key(self) -> str:
+        key = random.choice(self.api_keys)
+        logger.debug(f"Selected random CORE API key: {key[:4]}****")  # Logging partially for security
+        return key
 
     async def search(self, search_query: str) -> Dict:
         await self.rate_limiter.acquire()
 
         headers = {
-            "Authorization": f"Bearer {await self.get_current_api_key()}",
+            "Authorization": f"Bearer {await self.get_random_api_key()}",
             "Accept": "application/json",
         }
 
@@ -84,15 +82,15 @@ class CORESearch(Searcher):
                 f"{self.base_url}/search/works", headers=headers, json=params
             ) as response:
                 remaining = response.headers.get("X-RateLimitRemaining", "Unknown")
-                reset = response.headers.get("X-RateLimit-Reset", "Unknown")
+                reset = response.headers.get("X-RateLimitReset", "Unknown")
                 logger.info(f"Rate Limit Remaining: {remaining}, Reset Time: {reset}")
 
                 if response.status == 200:
                     logger.info("CORE API request successful.")
                     return await response.json()
                 elif response.status == 429:
-                    logger.warning("Received 429 Too Many Requests. Rotating API key and retrying.")
-                    await self.rotate_api_key()
+                    logger.warning("Received 429 Too Many Requests. Attempting with a different API key.")
+                    # Recursive call with a different API key
                     return await self.search(search_query)
                 else:
                     logger.warning(
@@ -121,7 +119,7 @@ class CORESearch(Searcher):
                     citation_count=entry.get("citationCount", 0),
                     journal=entry.get("publisher", ""),
                     pdf_link=entry.get("downloadUrl", ""),
-                    publication_year=entry.get("publicationYear"),
+                    publication_year=int(entry.get("publicationYear")) if entry.get("publicationYear") else None,
                     title=entry.get("title", ""),
                     full_text=entry.get("fullText", ""),
                     search_query=search_query.search_query,
@@ -152,3 +150,6 @@ class CORESearch(Searcher):
 
     async def close(self):
         await self.session.close()
+
+# Ensure the CORESearch class is exported
+__all__ = ['CORESearch']

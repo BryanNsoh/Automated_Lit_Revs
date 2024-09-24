@@ -19,7 +19,7 @@ from aiolimiter import AsyncLimiter
 logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
-load_dotenv()
+load_dotenv(override=True)
 
 # Retrieve API keys from environment variables
 openai_api_key = os.getenv("OPENAI_API_KEY")

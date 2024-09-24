@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 def get_api_keys(source="env"):
     if source == "local":
-        load_dotenv()  # Load environment variables from .env file
+        load_dotenv(override=True)  # Load environment variables from .env file
     
     # Remove or comment out these lines:
     # logging.info(f"OPENAI_API_KEY: {os.getenv('OPENAI_API_KEY')}")
