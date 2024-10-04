@@ -114,7 +114,7 @@ class CORESearch(Searcher):
             if results:
                 entry = results[0]
                 return SearchResult(
-                    DOI=entry.get("doi") or "",
+                    doi=entry.get("doi") or "",
                     authors=[author["name"] for author in entry.get("authors", [])],
                     citation_count=entry.get("citationCount", 0),
                     journal=entry.get("publisher", ""),

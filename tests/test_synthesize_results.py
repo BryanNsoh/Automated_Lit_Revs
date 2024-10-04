@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, patch
 from synthesize_results import ResultSynthesizer, SynthesisResponse
 from models import RankedPapers, RankedPaper
 
@@ -11,7 +11,8 @@ async def test_synthesize():
             id="1",
             title="Test Paper",
             authors=["Author One"],
-            year=2021,
+            publication_year=2021,
+            doi="10.1234/test.doi",
             relevance_score=0.95,
             analysis="This paper discusses...",
             relevant_quotes=["Quote one"]

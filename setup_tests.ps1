@@ -60,14 +60,15 @@ import pytest
 import asyncio
 from unittest.mock import AsyncMock, patch
 from analyze_papers import PaperAnalyzer
-from models import SearchResults, SearchResult, RankedPapers
+from models import SearchResults, SearchResult, RankedPapers, PaperAnalysis
 
 @pytest.fixture
 def mock_search_results():
-    full_text = " " .join(["This is a test sentence."] * 50)  # 50 sentences to exceed 200 words
+    # Create a full_text exceeding 200 words
+    full_text = " ".join(["This is a test sentence."] * 50)  # 50 sentences ~ 200 words
     return SearchResults(results=[
         SearchResult(
-            DOI="10.1234/test.doi",
+            doi="10.1234/test.doi",
             authors=["Author One", "Author Two"],
             citation_count=10,
             journal="Journal of Testing",
@@ -84,28 +85,37 @@ def mock_search_results():
 async def test_analyze_papers_ranking(mock_search_results):
     analyzer = PaperAnalyzer()
     with patch('analyze_papers.LLMAPIHandler.async_process', new_callable=AsyncMock) as mock_llm:
-        # Mock the LLMAPIHandler responses
-        mock_llm.return_value = [{
-            "rankings": [
-                {"paper_id": "paper_0", "rank": 1, "explanation": "Highly relevant"},
-            ]
-        }]
+        # Mock the LLMAPIHandler responses with proper structure
+        mock_llm.return_value = [
+            {
+                "rankings": [
+                    {"paper_id": "paper_0", "rank": 1, "explanation": "Highly relevant"},
+                ],
+                "analysis": "This paper is highly relevant.",
+                "relevant_quotes": ["Significant impact on climate change."]
+            }
+        ]
         ranked_papers = await analyzer.analyze_papers(mock_search_results, "impact of climate change")
         assert len(ranked_papers.papers) == 1
         assert ranked_papers.papers[0].relevance_score > 0
+        assert ranked_papers.papers[0].analysis == "This paper is highly relevant."
+        assert len(ranked_papers.papers[0].relevant_quotes) == 1
 
 @pytest.mark.asyncio
 async def test_analyze_paper_analysis(mock_search_results):
     analyzer = PaperAnalyzer()
     paper = mock_search_results.results[0]
     with patch('analyze_papers.LLMAPIHandler.async_process', new_callable=AsyncMock) as mock_llm:
-        mock_llm.return_value = [ {
-            "analysis": "This paper is highly relevant.",
-            "relevant_quotes": ["Significant impact on climate change."]
-        }]
+        mock_llm.return_value = [
+            {
+                "analysis": "This paper is highly relevant.",
+                "relevant_quotes": ["Significant impact on climate change."]
+            }
+        ]
         analysis = await analyzer.analyze_paper("impact of climate change", paper)
         assert analysis.analysis == "This paper is highly relevant."
         assert len(analysis.relevant_quotes) == 1
+        assert analysis.relevant_quotes[0] == "Significant impact on climate change."
 "@
 
 # test_get_search_queries.py
@@ -119,12 +129,17 @@ from models import SearchQueries, SearchQuery
 async def test_generate_queries():
     generator = QueryGenerator()
     with patch('get_search_queries.LLMAPIHandler.async_process', new_callable=AsyncMock) as mock_llm:
-        mock_llm.return_value = [SearchQueries(queries=[
-            SearchQuery(search_query="climate change AND water resources", query_rationale="Testing rationale 1"),
-            SearchQuery(search_query="water scarcity AND hydrologist", query_rationale="Testing rationale 2"),
-        ])]
-        queries = await generator.generate_queries("impact of climate change on water resources", 2)
-        assert len(queries.queries) == 2
+        mock_llm.return_value = [
+            SearchQueries(queries=[
+                SearchQuery(search_query="climate change AND water resources", query_rationale="Testing rationale 1"),
+                SearchQuery(search_query="water scarcity AND hydrologist", query_rationale="Testing rationale 2"),
+                SearchQuery(search_query="sea level rise AND coastal erosion", query_rationale="Testing rationale 3"),
+                SearchQuery(search_query="water conservation AND climate mitigation", query_rationale="Testing rationale 4"),
+                SearchQuery(search_query="glacier melting AND cryosphere", query_rationale="Testing rationale 5"),
+            ])
+        ]
+        queries = await generator.generate_queries("impact of climate change on water resources", 5)
+        assert len(queries.queries) == 5
         assert queries.queries[0].search_query == "climate change AND water resources"
 "@
 
@@ -175,6 +190,11 @@ async def test_async_process_structured_response():
             temperature=0.7,
             response_format=ResponseModel
         )
+        # Determine the type of response (begin by printing it)
+        print(type(response))
+        # Print the content of the response
+        print(response)
+        assert isinstance(response[0], ResponseModel)
         assert response[0].answer == "Paris"
         assert response[0].confidence == 0.99
 "@
@@ -239,7 +259,7 @@ def test_search_query_model_validation():
 # test_synthesize_results.py
 $test_synthesize_results = @"
 import pytest
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, patch
 from synthesize_results import ResultSynthesizer, SynthesisResponse
 from models import RankedPapers, RankedPaper
 
@@ -355,11 +375,13 @@ Write-Host "✅ Unit tests have been set up successfully."
 
 # Update analyze_papers.py to fix attribute access
 $analyze_papers_content = Get-Content -Path ".\analyze_papers.py" -Raw
-$analyze_papers_content = $analyze_papers_content -replace 'year=result\.year', 'year=result.publication_year'
-Set-Content -Path ".\analyze_papers.py" -Value $analyze_papers_content
 
-# Ensure that the analyze_paper method uses 'year' correctly
-$analyze_papers_content = $analyze_papers_content -replace 'year=paper\.year', 'year=paper.year'
+# Replace 'year=result.year' with 'year=result.publication_year'
+$analyze_papers_content = $analyze_papers_content -replace 'year=result\.year', 'year=result.publication_year'
+
+# Replace any 'paper.year' with 'paper.publication_year'
+$analyze_papers_content = $analyze_papers_content -replace 'paper\.year', 'paper.publication_year'
+
 Set-Content -Path ".\analyze_papers.py" -Value $analyze_papers_content
 
 Write-Host "✅ Code corrections have been applied."

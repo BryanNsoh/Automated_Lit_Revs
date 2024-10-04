@@ -50,7 +50,7 @@ class ArXivSearch(Searcher):
             for paper in arxiv_results:
                 full_text = await self.get_full_text(session, paper['pdf_url'], paper['id'])
                 result = SearchResult(
-                    DOI=paper.get('doi', ''),
+                    doi=paper.get('doi', ''),
                     authors=paper['authors'],
                     citation_count=0,  # arXiv doesn't provide citation count
                     journal=paper.get('journal_ref', '') or '',

@@ -57,7 +57,7 @@ Paper Details:
 Title: {title}
 Authors: {authors}
 Publication Year: {year}
-DOI: {doi}
+doi: {doi}
 Full Text: {full_text}
 
 Your response must be in the following JSON format:
@@ -129,7 +129,7 @@ class PaperAnalyzer:
         for i, result in enumerate(search_results.results):
             paper = Paper(
                 id=f"paper_{i}",
-                doi=result.DOI,
+                doi=result.doi,
                 title=result.title,
                 authors=result.authors,
                 year=result.publication_year,
@@ -229,7 +229,7 @@ class PaperAnalyzer:
                 doi=paper.doi,
                 title=paper.title,
                 authors=paper.authors,
-                year=paper.year,
+                year=paper.publication_year,
                 relevance_score=average_scores[paper.id],
                 analysis=analysis.analysis,
                 relevant_quotes=analysis.relevant_quotes
@@ -245,7 +245,7 @@ class PaperAnalyzer:
             full_text=paper.full_text,
             title=paper.title,
             authors=paper.authors,
-            year=paper.year,
+            year=paper.publication_year,
             doi=paper.doi,
         )
         
@@ -279,4 +279,6 @@ async def main(search_queries: SearchQueries, search_results: SearchResults, cla
     analyzer = PaperAnalyzer()
     analysis_results = await analyzer.analyze_papers(search_results, claim)
     return analysis_results
+
+
 

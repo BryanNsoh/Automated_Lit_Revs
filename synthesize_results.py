@@ -40,7 +40,7 @@ Every single word should be used with intention and should earn its place in the
 
 For citations:
 - Use APA-style inline citations
-- Include hyperlinks to DOIs in the inline citations where available for example [author et al. (year)](https://doi.org/10.1234/water.2021.001)
+- Include hyperlinks to dois in the inline citations where available for example [author et al. (year)](https://doi.org/10.1234/water.2021.001)
 - Add a references section at the end APA style
 
 Respond in the following JSON format:
@@ -63,8 +63,8 @@ class ResultSynthesizer:
 Paper {i}:
 Title: {paper.title}
 Authors: {', '.join(paper.authors)}
-Year: {paper.year}
-DOI: {paper.doi}
+publication_year: {paper.publication_year}
+doi: {paper.doi}
 Relevance Score: {paper.relevance_score}
 Analysis: {paper.analysis}
 Relevant Quotes:

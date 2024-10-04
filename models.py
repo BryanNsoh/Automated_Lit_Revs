@@ -6,7 +6,7 @@ class Paper(BaseModel):
     doi: Optional[str] = None
     title: Optional[str] = None
     authors: Optional[List[str]] = None
-    year: Optional[int] = None
+    publication_year: Optional[int] = None
     abstract: Optional[str] = None
     full_text: Optional[str] = None
 
@@ -27,7 +27,7 @@ class SearchQueries(BaseModel):
     queries: List[SearchQuery]
 
 class SearchResult(BaseModel):
-    DOI: Optional[str] = ""
+    doi: Optional[str] = ""
     authors: List[str] = []
     citation_count: int = 0
     journal: str = ""
