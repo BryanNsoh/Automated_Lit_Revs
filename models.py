@@ -58,3 +58,7 @@ class PaperRanking(BaseModel):
 
 class RankingResponse(BaseModel):
     rankings: List[PaperRanking]
+
+class SynthesisResponse(BaseModel):
+    plan: str
+    content: str
