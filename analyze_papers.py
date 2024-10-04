@@ -279,3 +279,4 @@ async def main(search_queries: SearchQueries, search_results: SearchResults, cla
     analyzer = PaperAnalyzer()
     analysis_results = await analyzer.analyze_papers(search_results, claim)
     return analysis_results
+

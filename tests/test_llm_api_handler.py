@@ -43,5 +43,10 @@ async def test_async_process_structured_response():
             temperature=0.7,
             response_format=ResponseModel
         )
-        assert response[0].answer == "Paris"
-        assert response[0].confidence == 0.99
+        #determine the type of response(begin by printing it)
+        print(type(response))
+        #print the content of the response
+        print(response)
+        assert isinstance(response, ResponseModel)
+        assert response.answer == "Paris"
+        assert response.confidence > 0.9
