@@ -47,6 +47,12 @@ async def test_async_process_structured_response():
         print(type(response))
         # Print the content of the response
         print(response)
-        assert isinstance(response[0], ResponseModel)
+        # check if response is a pydantic object matching ResponseModel
+        assert isinstance(response, ResponseModel), f"Expected response to be ResponseModel, but got {type(response)}"
+        # Check if response is a list
+        assert isinstance(response, list), f"Expected response to be a list, but got {type(response)}"
+        # Check if the first item in the list is of type ResponseModel
+        assert isinstance(response[0], ResponseModel), f"Expected response[0] to be ResponseModel, but got {type(response[0])}"
+        # Assert on the content of the first item
         assert response[0].answer == "Paris"
         assert response[0].confidence == 0.99
